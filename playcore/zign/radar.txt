@@ -1,0 +1,33 @@
+RADAR
+either cam OR radar
+if both, radar is little
+
+radar will be updated maximum 10 time per frame, to save gpu cycles
+basic radar will be updated 3 times per frame, so ultimately, once in 20 frames
+I won't display fov like in mgs.
+Only a one third of a circle's arc, either a T, both of the non symetric segment representing the eyes: the T will have green, blue, yellow and red color to
+signals sense and concentration indicators:
+
+green:
+normal and peaceful
+totally unaware of your presence
+
+blue:
+idling, but aware of either your presence, or 'alert' of some...
+"disturbance in the force" iyswwim: this the "fear effect" telling
+the IA is not feeling sure about the situation
+
+yellow:
+you are spotted. Besides the approximative look, the character will also
+remember you for 1, 3 to 5 min depeding on its senses and concentration
+
+red:
+this is the maximum state: not only are you spotted, but the character look at you and observes you. It is not that you look strange, she/he fells in love or think about you naked or else, but the IA will remember you if another IA comes talking with him for suspicious activity, and this, until the IA is killed or bribed.
+
+Nafnaf
+naf is a cat dressed for diversion and object recovery.
+just show her a drawing of an object, and she'll try to recover it for you.
+She is animaly smart enough to explore building, but in some special cases, you can show her a map.
+if you just sent her to make a diversion, she can start to "take care" of a sentry or surveillance guard by attracting him or annoying him.
+She can also kill dogs, except if she's alone against two other animals
+beware of not losing her, anyway, you can find her if something happen even if she dies

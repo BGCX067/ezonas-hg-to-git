@@ -1,0 +1,1 @@
+﻿g++ 21030.cc base30_main.cc

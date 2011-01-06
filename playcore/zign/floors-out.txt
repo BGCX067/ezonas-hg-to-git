@@ -1,0 +1,15 @@
+floor:
+thin_metal
+concrete_bitume
+concrete_bitume_rugue
+wood
+wood_creux
+grass
+dust_grasp_earth
+watery
+trash
+plexi_glass 
+glass_debris
+// you can walk on glass!
+silicon
+// only when you wear silicon shoes: some floors emit more sound

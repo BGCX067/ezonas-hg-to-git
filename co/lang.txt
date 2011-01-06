@@ -1,0 +1,49 @@
+spaces are separators
+code bracing works like python
+
+
+loop if i < 3:
+while (i < 3)
+{}
+
+loop n..m:
+for (int i = n; i < m; ++i)
+
+loop 67..43:
+
+int i
+for i = 0, i < 20, ++i:
+while true:
+
+switch c:
+	case 'c': break
+	case 'd':
+	case 3:
+		print 3
+		break
+	default: break
+
+
+
+loop i by 2:
+for (int i = n;; i += 2)
+loop i 2 if i < 20:
+for (int i = n; i < 20; i += 2)
+// 2, 4, 6…
+
+do:
+	print false
+while true
+
+struct vertex:
+	int x, y, z
+	float f
+
+
+
+
+loop n with i by 2 if i < 300:
+loop n with i by 2 check i < 300:
+for (int i = 0; i < n; i+=2)
+//0 1 2 … 99
+//... or 1 100 ? else 0.. 100

@@ -1,0 +1,69 @@
+basically, there will be upgrade kit for specific weapons
+the money system will be done so that leaders who have more players under their command
+can buy unitary item at lower prices, up to 50% cheaper
+
+name
+descr
+upgrades
+
+
+* klob-r/30
+plastic pistol/rounds.very low power, primarily used to knock out enemies
+full automatic, hevl ammo support
+
+* jungle eagle/10
+precision and armor piercing pistol, base ammo are highvel bullet type. can handle special ammos like syringes and shock bullets
+silenceable, cam
+
+* MP49 50
+modern gun, standard in the military and quite powerful
+range extender, scope
+
+* K97 30
+heavy bullet weapons, very deadly and noisy, but ultimately effective for emergency situations
+scope/lamp/laser
+
+* FL71 / 100fl, 20srg, 50hevl, 3 stackcapak (bionic battery, autoregenerated, 15 to 50 shots)
+nextgen multi purpose weapons handles: hevl, srg, fluid ammo. colorlaserlamp and scope
+shock module, cam
+
+* PSG9/15/10sr
+prone purpose weapon. base ammo are hevl. use of sr.
+x-ray beam (matter-through movement detection)
+
+* railrifle 3 charges per combustible battery
+brokes after 10 shots
+
+stupid experimentation from some mechanic engineer
+from what I guess, he died while crafting this piece of weapon.
+this lab was painted in blood
+I saw this work, it doesn't only pierce through, this shit also turns
+matter into some sort of plasma. I just hate to aim somthing with it,
+i pray for it doesn't go all nuclear when I shoot something with it.
+
+* flakspray 5
+seriously, I know the shotgun, but this thing is too much.
+This fires burning, electric charged, acid plumber pellets.
+apparently when I switch mode, it also fires without bursting the pellet,
+and just send the ammo which bursts when falling.
+No seriously, the guy who designed this HAS to have problem with, I don't know,
+god or even himself.
+Why so evil ?
+One thing is sure, it will serve on this cell things and... well I'll hope I won't have to kill any other zombie.
+#######
+gameplay
+Arcade
+Counter Arcade
+Tired of ... jumping ?
+
+
+First, not effect of moving depending of injuries whatsoever: all depends directly on metabolism
+second, no recoil at all. this is NOT a shoting simulation like shitty stuff, american army and cs: ALL weapons firing bullet either have bullet trajectory go STRAIGHT LINEAR, or if it is a hand projectile, it will directly land on the cursor
+Three : I will integrate the metal gear firing way, all semi auto by default:
+you click to arm, release to fire, any other next movement or action withdrawing arming. That will AT LEAST give advantages to pistols against two hands guns. for rifle, because each weapons will have a second -> fifth function key, the second will just be used as an arming facility: this will be together
+Fourly, weapons mode and manipulation: weapons are... complicated.
+so to simplify, there will be simple tasks:
+non automatic reload, toggle fire mode and
+
+
+I'll just integrate some quake like control mode for whiners.

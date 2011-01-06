@@ -1,0 +1,42 @@
+The smzi language
+sizeless maths and z language in a single syntax definition, to infinite, and beyond
+
+_Operators "keynames"
+= affectation
+. link
+() closure		sentence
+//v variable
+o cont			container
+, separator or ' '
+? query			= if
+; break
+w switch		cases
+i assertion
+r redo
+
+_functions
+d destruct	adress, num;	destruct num objects from adress
+a alloc		object, adress;	simply place an object at the desired adress.
+n new		name, type;	type is either bin, num, or graphical.
+l loop		num, num;	start, end
+b build		num, num;	start and stop of struct allocating
+z start/stop of program		placed at the begin and the end of the text file
+t tell	     	adress, message	too hard to explain
+m morph		object, type	change the type of the object from determined procedure
+c copy		adress, adress	strongly disagree with the riaa and mpaa
+
++-*&^!#: mathematical operators
+assertion operators
+<>=! 
+# produit dimensionnel
+
+=trl=
+
+check() {} redo:
+while() {}
+
+i() check() () redo;
+while() {}
+
+l(sr, ed)()
+for(int i = sr; i < ed; ++i)

@@ -1,0 +1,9 @@
+Hello !
+
+I'm quite decided to make a video game, having a lot of ideas (being a gamer), and i'd like to present my game, even if I'm a newbie, totally failing to start doing something with a ready engine like irrlicht, panda3d and ogre3d.
+
+I have thought about several features, but first here are the one that I think are the hardest to integrate:
+
+- Merged 1st/3rd person virtual frustrum camera: the game only displays what the character can see, the rest of the scene is hidden (but the geometry is still displayed). I heard the proper way to do this is to use a shader, but I don't really know...
+
+- Hiking and adherence system: well this is a big headache, not to program, but to design. At first I wanted to think about "how pushing physics properties and geometrics to a state where the character doesn't bounce on walls, but can grips his hands on some spots and edges, whatever the geometry of the terrain". The fact is I don't know how to actually make it playable: I could highlight the spots/edges where the character can actually go and make them clickable.

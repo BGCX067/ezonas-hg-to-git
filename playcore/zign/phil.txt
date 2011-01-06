@@ -1,0 +1,2 @@
+﻿Mortal Selection philosophy:
+Allow the player to do as many things as possible, but those things beeing mostly real-life physics actions rather than

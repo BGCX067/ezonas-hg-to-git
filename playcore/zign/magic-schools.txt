@@ -1,0 +1,59 @@
+about (wiki)
+
+Mortal Selection is a (currently) terminal/web mmorpg, planned to be developped on a "standardised" 3D world environment, like OGRE or google's O3D
+
+It emphases 5 schools of magics and only 2 character classes : monk and worm
+
+@@ Schools @@
+
+FERLUNE (prime elements)
+this school is driven by elfs
+
+KNOTS (creators)
+this school is driven by elemental giants
+
+MOLINE (lifecraft)
+this school is driven by animals and animal gods
+
+SHIMBO (artcraft)
+this school is driven by elder undeads humans
+
+HOLOKI (deathcraft)
+this school is driven by the Sworm, a strange and mysterious old evil race
+
+@@ Classes @@
+
+Monk are based on equilibrium, science of death and life, mathematics, and martial arts
+They praised their temple and speak in name of all human gods there exists.
+They often invent new gods to fight back their opponents 
+
+Worms are demonic based beings, they create themselves and workship either material or spiritual manners. They are opposed to monk in almost all ways, from their creation origins to their living goals, they only get the almost same opponents and, like human, they lead themselves into a very special social structures.
+
+
+Idea
+
+The main concept of the game is to ally both science fiction concepts and dark ages mythologies, essentially greek and religious historically based. Its inspiration comes from many cultures and concepts, and it tries a lot to not re-do what has aleeady be done, except the fact the game is "open" source in all its design and programming: only server administration and management will be needed for an annual fee of 20 euros, 100 euros for 10 accounts (example of a cyber bar)
+
+The project is also open to donations and programmers (I prefer donations, since I prefer to find developpers I can enjoy to work with)
+
+"Open" source ...?
+
+I quoted open next to source, because the source code will be made available only if you are accepted as a developper; I'm still quite "young" (24) and I don't have my family in the bank factory to pay for your hardly sued lines of c code, and I don't want my work to be compiled on a platform I don't want to work with (essentially Microsoft or Apple platforms).
+
+The game will be made available to install primarly on a Ubuntu or debian-like system.
+
+I will strongly fight against people who would try to get the source code and compile it to use it on a different system it has been made for: I just boycott Microsoft for personnal and professionnal idealistic reasons, I will eventually make a more expensive version to sell it on windows, but the game will be UNIX standard, and the game will eventually be shipped in a single ubuntu+game CD or DVD.
+
+Console ports are also into consideration (xbox not excluded), but as it requires much more involvement compared to a computer game project, nothing is planned for now. Eventually we will hire some homebrew vaudous who can cook some psp, ds or dsi version of the game, but that will be a partner project, NOT a fork. I want my game to be available to the most, not to the sony or nintendo fanboys.
+
+THIS IS MY GAME ! YOU CAN PLAY IT, ONLY IF I CAN *MAKE* IT, AND NO WAY OTHER !
+ANY FLAME LAME OR JESUS ARGUMENTING WILL RESULT IN A LIFEBAN (we'll eventually consider banning your parents and your children) !
+
+Boycotting the microsoft platform is totally legal and doesn't infringe any particular law since a dev team is required to port the game for an extra price tag.
+
+Today, survival = money, and I want to eat my cereals, fruit jam and OJ every mornings, so respect that fact, and you'll get my love. (and you can send me tacos and and lemonade as well)
+(don't send any unwashed underwear, girls, please, I have my own personal "volcano" partner)
+(don't bring condom either, I have some at home)
+
+
+Jonax

@@ -1,0 +1,55 @@
+Hello :)
+Here is a list of ideas I have, since I play other games than cstrike with the same type of gameplay. These are suggestion and/or strong ideas, take them as things to discuss. Of course a lot more can be added to this list.
+
+Here we go :
+
+- Faster pistols : since 1.5 version, pistols are less precise when you walk than rifles. It is a non-sense for me, since a pistol should be easier to handle than a two-handed (trick : compare cl_dynamiccrosshair 1 behaviour while walking/stopping)
+
+- AWP abuse : only 5 ammos in one clip, limit of 2 or 3 clips, set AWP price around $6000 ~ $8000, clip at $300 (is $125)
+
+- Faster moving : the 1.3 version speed was ok. Maybe find some balance between weapon-equiped moving speed and knife/pistol moving speed.
+
+- Damage zones : since Half-life engine is just to manage so many hitboxes, I think there simply should be less hitboxes : only 2 types, one which understand real-time vital organs, and one with the other organs. The first hitboxe would be attached to the head and the lungs, while the second to the rest of the body, knowing that arms don't protect : if a bullet pass through the first hb, the damage ratio is 2. If it only passes through the second its ratio is 1.
+
+- HUD improvement : optional displaying of left bullets in clip, text example : (ooooo---). Static crosshair. "Lean player" the little arrow on team mates, like quake team games. Flashbangs turns the screen black rather than white. More appreciated for eyes and monitor.
+
+- Grouped buying of equipment (lower individual price for 5 ak bought rather than each player buying his own ak)
+
+- Mines ? Why not, if they are invisible just like Metal Gear Solid ? Cstrike is not a simulation. Costs around $500 or even $1200. Standard grenade explosion, cannot kill a full HP player. Maximum of 2 or 3 by team. Don't allow near mines to avoid killing an entire eco team with 3 mines on the same point.
+
+- My favorite but still the one subject of flaming from the community :
+Add some kind of CQC combat principle : again some Metal Gear Solid inspiration. (did not find example videos on googlevid or youtube) Here are the gameplay improvements : once your are close with an opponent, you can else disarm him and throw weapon 5m away, struggle him (not killing him) and threating his team mates, knock him down from behind making him unable to play for 5s, force him to stand on the ground (cannot look up), taking 2s for getting up, etc. Try to play MGS3 to get an idea, nice to have non-killing methods.
+
+- Allow bullets to rebound on some metal heavy surfaces from a certain angle (the french word is "ricochet" like the well known mod) (less chance to, does not, or tight angle needed to occur with piercing type bullets, like rifles 5.56, etc)
+
+- Methods to sneak up to enemies : stealing or buying enemy clothes, launch gravel to divert enemy's listening, fainting death, etc
+
+- Larger smode radius, allow grenade to blow players or add a kind of concussion grenade (I never really played TFC) that does not harm but throw players against wall, hurting them depending of the speed they hit the wall.
+
+I can't enumerate all ideas I can have but promod is a good occasion to add a real fast and tactic gameplay. I did not play Metal Gear Online yet but since I play CS I always thought about new sort of gameplay for FPS.
+
+There is of course lots of improvements that were made with CS:Source and not made with CS1.6 :
+
+- no muzzle flash on silenced weapons
+- cannot shoot through 5 meters of steel walls
+- I don't remember other ones, but lots are thanks to the source engine.
+
+Sorry for the long post. I think that this post is ridiculous for the most part. I know that players want some linear and simple game to just compete with their aim and their map strategies. But still there is Quake for that. I just think that allowing improvisation in the gameplay can be an advantage. Gameplay improvements can be made without unbalancing the game, allowing playing a lot more strategies than buying deagle at ecos, totem at an important spot, etc.
+
+I don't have a lot of trust in this post, but I needed it to be posted.
+
+Thanks for the read.
+Posted on 2006-07-30 22:32:59
+
+——————————————————————————————————— 
+EDIT :
+
+I'm erasing what I posted here :)
+Since cspromod will not aim to "improve" counter strike in any way, this post was either useless or lame.
+
+Since the gaming industry looks more like a conservative thing than a place people can try unusal stuff, I will keep all the shit for me. I'm not mocking at the world and saying "you don't deserve a genius like me" and then seducing to lure people with my ideas, I just want to make sure I can be able to elaborate these ideas better than somebody else can take them and develop them while I'm still too lazy to learn how to start modding. 
+
+In the hope my previous post will be gone on caches.
+Still you can contact me at jorinovski on the google's gmail service if you feel like I'm having good ideas and I should share them.
+Actually my dream would be to start my own fps out of the quake 3 engine since it is GPL. I also dream of a girlfriend, an expensive apple laptop, tacos, hamburgers, kebab sandwiches, a awesome gaming keyboard, a razer deathadder mouse, a new silent PC, and not-hurting ankles. And a life wow account, a nice bike, 100 cookie boxes, an modded DS, new glasses, a PS3, MGS3 subsistence, Shadow of the Colossus, Okami, and ...
+I'm being too long, maybe.

@@ -1,0 +1,15 @@
+#sed -f <file>.sed
+#sed -e : inline
+# sed '/^#/ d' test.txt
+# delete lines beginning with d
+# sed '/^Bonjour/,/^Au revoir/d' test.txt
+# dels evrything between bonj and aurev
+
+# sed -r extended syntax
+
+# sed s///<n> only replace the n occurence
+
+# sed y/éè/ee/g replaces SINGLE characters
+sed -re s/{\n\t*/\t/g
+
+sed s///g

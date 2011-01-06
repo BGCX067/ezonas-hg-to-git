@@ -1,0 +1,42 @@
+Language name:
+
+C* Cx Z C· C' C· C- N E
+
+CO CI CR CMZ
+
+·······································
+
+loop:
+	...
+
+loop 100:
+	...
+
+loop 0..99
+	...
+
+loop 50, iterator:
+	...
+
+loop array(item):
+	...
+
+? true:
+? not false:
+? true or false:
+2 = 3 ?:
+break, continue
+
+
+[12 32 90 33]
+['b' 'a' 's' 'h']
+[]
+"dcdghmsfdjcgdh"
+'b' = 'B' = 11
+'Z' = 35
+'A0' = error
+"A0" = 36
+
+numbers:
+1 9 2
+123`163`678`675`267

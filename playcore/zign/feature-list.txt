@@ -1,0 +1,15 @@
+=== Easy ===
+mouse move
+mouse look 3rd person
+hiking surfaces
+
+=== Doable ===
+fog of war * frustrum // can also be simplified with a simple cone projection
+black fog
+weapons physics
+
+=== Complicated ===
+fog of war * frustrum // can also be simplified with a simple cone projection
+black fog
+black fog particles
+close combat (range, knife/saber)

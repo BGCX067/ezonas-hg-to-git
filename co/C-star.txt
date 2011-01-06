@@ -1,0 +1,21 @@
+C* language specification draft
+
+int: a
+
+a := 3
+
+if @var
+
+str, int, float
+char // 5 or 6 bits, holding on 32 bits
+
+
+
+proc functionname:
+(
+	if type arg = str
+	if type arg = int
+
+
+
+)

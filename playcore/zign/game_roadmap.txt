@@ -1,0 +1,27 @@
+This is the road map for the mortal selection.
+If you find these are good ideas, please donate, or at least try to having me hired.
+##############################################################################################################
+A. Base "people" Logics
+   1. body states
+      - classic start zone, and differents character state: dead(game over), dying, coma, sleeping, knock out.
+   2. view states
+      - make terrain either FULL-BLACK or shadowed (or just lighten the character's visible's) depending on the character view point, = concept of "subjective 3rd eye camera"
+      - thus hide "doodads"-class items (generate bound vertices which activates the doodad loading)
+   3. item picking, droping, putting, on cursor target
+      - make simple functions and modular item configuration: the items use "normal" object concept to reuses existent library making: all the game loads, are meshes, jpeg/png textures, without any scripted animation at: its goal is to facilitate mesh+texture download; item's models can also contain several mesh of the same thing in very different states, example: card box, opened version, and closed version.
+Animation can be made with a simple .anim file, only containing, for example, constraints between nodes or vertices, radius vetween two facets, curve/equation type of placement of vertices, etc, so that further model making can be made without programming knowledge (I insist on this last point, but this is necessary to make sure contribution can be as much fluid and flexible as possible, without any possibility a math/geometry can ever criticize the anim process).
+
+      
+   4. collisions states, with vertices?
+      - nothing much complicated here: camera passes through walls, but displays black instead of displaying reversed triangles
+   5. surface walking, adherence
+      - no stairs for now. adherence curve sets moving speed, depending on terrain's slope instead of stair instant skip: make slope angle range fo quickly calculating speed
+##############################################################################################################
+B. Interacting
+   1. left click: select items, characters actionners etc, cancel
+      - following left click is a default action toggle
+   2. right click: toggle mousemove procedure start and end
+      - make a mousemove-pause key (eg space, or middle mouse, etc): also a central zone in the middle, stops the char from moving
+   3. proportional cursor look
+      a. set screen bounds, ratio, and of course leash and orientation in free mode
+   4. implement simple projection for movemouse

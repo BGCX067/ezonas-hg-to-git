@@ -1,0 +1,16 @@
+C/C++ vs python syntax style;
+
+
+if(a == true)
+{
+	int function(int i, char c)
+	{
+		return c + a;
+
+	}
+
+}
+
+if a == True:
+	def function(a, c):
+		return a + c

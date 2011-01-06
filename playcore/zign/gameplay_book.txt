@@ -1,0 +1,34 @@
+brief sum up
+
+* eye mouse: half rotate cam
+
+
+=== mouse feary: disk ===
+
+
+=== ARM ===
+combat system
+- actions:
+defend/evade:
+	reflex-time and character ability to recognise attack
+attack:
+	short/long character evaluates, and then anatomy
+	flatten/pull&throw/strangulate
+	anatomy: knock or shock
+	anatomy: crack kill
+
+while in strangulate:
+      	roll
+
+=== feary cannon ===
+character always pre aims parallel to the ground
+
+=== frustrum ey3 feary ===
+hover to make the character look
+
+
+=== anatomy stats ===
+- health:   	  illness, poison
+- metabolism: 	  physical energy ecosystem (no food, blood loss, air, physical condition)
+- conscience: 	  cogito-physio-psycho-logical sanity (dependency, stress, harassment)
+- sense:	  perception capability (dependency, jammers, illusions)
