@@ -9,7 +9,7 @@
 // #ifndef _INCLUDES_H_
 // #define _INCLUDES_H_
 
-#if not defined _STD_AFX_H_
+#ifndef _STD_AFX_H_
 #define _STD_AFX_H_
 //#include "targetver.h"
 

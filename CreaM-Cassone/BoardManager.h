@@ -4,7 +4,7 @@
 /* AUTHOR:	Jonas ORINOVSKI, EZJONAS@GMAIL.COM / JORINOVSKI@GMAIL.COM
 /* ################################################################# */
 
-#if not defined _BOARD_MANAGER_H_
+#ifndef _BOARD_MANAGER_H_
 #define _BOARD_MANAGER_H_
 
 #include "stdafx.h"
@@ -15,6 +15,8 @@ typedef tile_list_t :: iterator tile_list_iter_t;
 
 typedef list<Sprite *> sprite_list_t;
 typedef sprite_list_t :: iterator sprite_list_iter_t;
+
+enum {Checks, ThereAreNoTileAround, ThereAlreadyIsATileThere, FacesDontMatch};
 
 class GameManager;
 
@@ -27,7 +29,6 @@ public:
 		static BoardManager _;
 		return & _;
 	}
-	bool PutTile(Tile * _tile, int _x, int _y);
 	void DrawTiles();
 	~ BoardManager()
 	{
@@ -39,27 +40,17 @@ public:
 		}
 	}
 	void PickTile();
+	void PutCurrentTile(int _x, int _y);
+	int CheckTilePut(Tile *, int x, int y);
+	bool PutTile(char _c, int _x, int _y);
+	void DrawCurrentTile(int _x, int _y);
 protected:
-	BoardManager():
-		tile_count(0),
-		CurrentTile(NULL),
-		render_w(GameManager :: GetSingleton() -> GetRenderWindow()),
-		protoer(TilePrototyper :: GetSingleton())
-		
-	{
-		for (int i = 0; i < 72; ++i)
-		{
-			for (int j = 0; j < 72; ++j)
-			{
-				board[i][j] = NULL;
-			}
-		}
-	}
-	
+	BoardManager();	
 	Tile * board [72] [72];
 	int tile_count;
 	Tile * CurrentTile;
 	Sprite * CurrentSprite;
+	
 	// this will help keep track of the order of put tiles, it will also be used to draw tiles
 	tile_list_t Tiles;
 	sprite_list_t Sprites;

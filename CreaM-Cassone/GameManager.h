@@ -1,4 +1,4 @@
-#if not defined _GAME_MANAGER_H_
+#ifndef _GAME_MANAGER_H_
 #define _GAME_MANAGER_H_
 
 #include "BoardManager.h"
@@ -20,12 +20,10 @@ public:
 		return render_w;
 	}
 protected:
-	GameManager():
-	render_w(new sf::RenderWindow
-			 (sf :: VideoMode(64 * 12, 64 * 10), "CreaM-Cassone")),
-	boardmgr(BoardManager :: GetSingleton())
-	{}
+	GameManager();
 	sf :: RenderWindow * render_w;
 	BoardManager * boardmgr;
+	int mouse_x, mouse_y;
+	// int mouse_click_x, mouse_click_y;
 };
 #endif // _GAME_MANAGER_H_

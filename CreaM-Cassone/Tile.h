@@ -32,7 +32,8 @@ protected:
 	int x, y;
 	bool has_shield, has_church;
 public:
-	Image * getImgptr() {return ptrImage;}
+	// Image * getImgptr() {return ptrImage;}
+ Image * getImgptr() {return ptrImage;}
 	virtual Tile * Clone()
 	{return new Tile(*this);} /* prototype design pattern !*/
 	
@@ -49,6 +50,8 @@ public:
 		x = _x;
 		y = _y;
 	}
+	
+	void Show();
 	
 	void Turn(orientation_t _orientation)
 	{

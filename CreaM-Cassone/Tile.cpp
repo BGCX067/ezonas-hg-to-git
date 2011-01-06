@@ -195,3 +195,17 @@ Tile :: Tile(char _c, Image * imgptr):
 
 	}		
 }
+
+
+void Tile :: Show()
+{
+	string str[3] =
+	{
+		"LAND",
+		"ROAD",
+		"CITY"
+	};
+	cout << "\t" << str[face_north] << endl;
+	cout << str[face_west] << "\t\t" << str[face_east] << endl;
+	cout << "\t" << str[face_south] << endl;
+}
