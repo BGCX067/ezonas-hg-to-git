@@ -3,7 +3,7 @@ GameManager :: GameManager():
 		render_w
 		(
 			new sf::RenderWindow
-				(sf :: VideoMode(64 * 12, 64 * 10), "CreaM-Cassone")
+				(sf :: VideoMode(64 * 7, 64 * 5), "CreaM-Cassone")
 		),
 		boardmgr(BoardManager :: GetSingleton()),
 		mouse_x(0), mouse_y(0)

@@ -131,22 +131,22 @@ TileCellCheck BoardManager :: CheckTilePut(Tile * _tile, int _x, int _y)
 	
 	// checking east
 	if (board [_y][_x + 1] != NULL &&
-			_tile -> GetFace(EAST) == board [_y][_x + 1] -> GetFace(WEST))
+			_tile -> GetFace(EAST) != board [_y][_x + 1] -> GetFace(WEST))
 			return FacesDontMatchEast;
 
 	// checking west
 	if (board [_y][_x - 1] != NULL &&
-			_tile -> GetFace(WEST) == board [_y][_x - 1] -> GetFace(EAST))
+			_tile -> GetFace(WEST) != board [_y][_x - 1] -> GetFace(EAST))
 			return FacesDontMatchWest;
 	
 	// checking south
 	if (board [_y + 1][_x] != NULL &&
-			_tile -> GetFace(SOUTH) == board [_y + 1][_x] -> GetFace(NORTH))
+			_tile -> GetFace(SOUTH) != board [_y + 1][_x] -> GetFace(NORTH))
 			return FacesDontMatchSouth;
 	
 	// checking north
 	if (board [_y - 1][_x] != NULL &&
-			_tile -> GetFace(NORTH) == board [_y - 1][_x] -> GetFace(SOUTH))
+			_tile -> GetFace(NORTH) != board [_y - 1][_x] -> GetFace(SOUTH))
 			return FacesDontMatchNorth; // FacesDontMatch
 	return Checks;
 
