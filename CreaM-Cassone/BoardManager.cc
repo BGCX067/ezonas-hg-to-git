@@ -13,8 +13,16 @@ BoardManager :: BoardManager():
 		tile_count(0),
 		CurrentTile(NULL),
 		render_w(GameManager :: GetSingleton() -> GetRenderWindow()),
-		protoer(TilePrototyper :: GetSingleton())
-		
+		//board({}),,
+		board_x(20),
+		board_y(20),
+		protoer(TilePrototyper :: GetSingleton()),
+		font(new Font),
+#ifdef __APPLE__		
+		fontpath("profont-x11/ProFont_r400-11.pcf")
+#else
+		fontpath("content\\profont-x11\\ProFont_r400-11.pcf")
+#endif
 {
 	for (int i = 0; i < 72; ++i)
 	{
@@ -23,49 +31,85 @@ BoardManager :: BoardManager():
 			board[i][j] = NULL;
 		}
 	}
+	font -> LoadFromFile(fontpath);
 }
-/* OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO PutCurrentTile OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO */
-void BoardManager :: PutCurrentTile(int _x, int _y)
+void BoardManager :: Verbose(TileCellCheck n)
 {
-	_x /= 64;
-	_y /= 64;
-	switch(CheckTilePut(CurrentTile, _x, _y))
+	switch(n)
 	{
-	case Checks:
-		CurrentTile -> SetPosition(_x, _y);
-		board [_x][_y] = CurrentTile;
-		tile_count += 1;
-		Tiles.push_back(CurrentTile);
-		Sprites.push_back
-		(
-			new Sprite
-			(
-				* (CurrentTile -> getImgptr()),
-				Vector2f(_x * 64, _y * 64)
-			)
-		);
-		cout << "successfuly put a tile !" << endl;
-		PickTile();
-		break;
+		case Checks:
+			cout << "Successfuly put this tile: " << endl;
+			CurrentTile -> Show();
+			break;
+		case ThereAreNoTileAround:
+			cout << "No tiles around this cell !" << endl;
+			break;
+		case ThisIsTheFirstTile:
+			cout << "First tile put without question." << endl;
+			break;
+		case ThereAlreadyIsATileThere:
+			cout << "Already a tile there !" << endl;
+			break;
 		
-	case ThereAreNoTileAround:
-		cout << "There are no tiels around this cell !" << endl;
-		break;
-
-	case ThereAlreadyIsATileThere:
-		cout << "There's already a tile there !" << endl;
-		break;
-		
-	case FacesDontMatch:
-		cout << "This tile's faces doesn't match one or all around this cell !" << endl;
+		case FacesDontMatch:
+		case FacesDontMatchSouth:
+		case FacesDontMatchEast:
+		case FacesDontMatchNorth:
+		case FacesDontMatchWest:
+		// cout << "This tile's faces doesn't match one or all around this cell ! here is the face that poses problem:" << endl;
+		cout << "Faces dont match: ";
+		switch(n)
+		{
+			default: cout << "SEEMS YOU SMOKED RAM AGAIN !" << endl; break;
+			case FacesDontMatchSouth: cout << "south !" << endl; break;
+			case FacesDontMatchEast:  cout << "east !" << endl; break;
+			case FacesDontMatchNorth: cout << "north !" << endl; break;
+			case FacesDontMatchWest:  cout << "west !" << endl; break;
+		}
 		break;
 	}
 }
+
+/* OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO PutCurrentTile OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO */
+void BoardManager :: PutCurrentTile(int _x, int _y)
+{
+	cout << "Tile tried: " << endl;
+	CurrentTile -> Show();
+	cout << "on: [" << _x << " " << _y << "] ";
+
+	// _x /= 64;
+	// _y /= 64;
+	TileCellCheck n = CheckTilePut(CurrentTile, _x, _y);
+	Verbose(n);
+	switch(n)
+	{
+	case Checks:
+		PutValidTile(CurrentTile, _x, _y);
+		PickTile();
+		break;
+		
+	case ThisIsTheFirstTile:
+		PutValidTile(CurrentTile, _x, _y);
+		break;
+
+	case ThereAreNoTileAround:
+		break;
+
+	case ThereAlreadyIsATileThere:
+		break;
+
+	}
+}
 /* OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO CheckTilePut OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO */
-int BoardManager :: CheckTilePut(Tile * _tile, int _x, int _y)
+TileCellCheck BoardManager :: CheckTilePut(Tile * _tile, int _x, int _y)
 {
 	// there is already a tile there
-	if (board[_x][_y] != NULL)
+	if (tile_count == 0)
+	{
+		return ThisIsTheFirstTile;
+	}
+	
+	if (board[_y][_x] != NULL)
 	{
 		return ThereAlreadyIsATileThere;
 	}
@@ -74,11 +118,10 @@ int BoardManager :: CheckTilePut(Tile * _tile, int _x, int _y)
 	// checking if there is at least one tile next
 	if
 	(
-		   board [_x + 1][_y]
-		&& board [_x - 1][_y] 
-		&& board [_x][_y + 1] 
-		&& board [_x][_y - 1]
-		== NULL
+			board [_y][_x + 1] == NULL &&
+			board [_y][_x - 1] == NULL &&
+			board [_y + 1][_x] == NULL &&
+			board [_y - 1][_x] == NULL
 	)
 	{
 		return ThereAreNoTileAround;
@@ -86,58 +129,25 @@ int BoardManager :: CheckTilePut(Tile * _tile, int _x, int _y)
 
 	// checking if all faces match
 	
-	// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// checking east
-	if (board [_x + 1][_y] != NULL)
-	{
-		if
-		(
-			_tile -> GetFace(EAST)
-			!=
-			board [_x + 1][_y] -> GetFace(WEST)
-		)
-		return FacesDontMatch;
-	}
+	if (board [_y][_x + 1] != NULL &&
+			_tile -> GetFace(EAST) == board [_y][_x + 1] -> GetFace(WEST))
+			return FacesDontMatchEast;
 
-	// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// checking west
-	if (board [_x - 1][_y] != NULL)
-	{
-		if
-		(
-			_tile -> GetFace(WEST)
-			!=
-			board [_x - 1][_y] -> GetFace(EAST)
-		)
-		return FacesDontMatch;
-	}
+	if (board [_y][_x - 1] != NULL &&
+			_tile -> GetFace(WEST) == board [_y][_x - 1] -> GetFace(EAST))
+			return FacesDontMatchWest;
 	
-	// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// checking south
-	if (board [_y + 1][_y] != NULL)
-	{
-		if
-		(
-			_tile -> GetFace(SOUTH)
-			!=
-			board [_y + 1][_y] -> GetFace(NORTH)
-		)
-		return FacesDontMatch;
-	}
+	if (board [_y + 1][_x] != NULL &&
+			_tile -> GetFace(SOUTH) == board [_y + 1][_x] -> GetFace(NORTH))
+			return FacesDontMatchSouth;
 	
-	// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// checking north
-	if (board [_y - 1][_y] != NULL)
-	{
-		if
-		(
-			_tile -> GetFace(NORTH)
-			!=
-			board [_y - 1][_y] -> GetFace(SOUTH)
-		)
-		return FacesDontMatch;
-	}
-	// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%}
+	if (board [_y - 1][_x] != NULL &&
+			_tile -> GetFace(NORTH) == board [_y - 1][_x] -> GetFace(SOUTH))
+			return FacesDontMatchNorth; // FacesDontMatch
 	return Checks;
 
 }
@@ -147,49 +157,53 @@ int BoardManager :: CheckTilePut(Tile * _tile, int _x, int _y)
 bool BoardManager :: PutTile(char _c, int _x, int _y)
 {
 	Tile * tile = protoer -> MakeTile (_c);
-	// in case this is the first tile
-	// if(tile_count == 0)
-	// {
-		// board[_x][_y] = tile;
-		// tile -> SetPosition(_x, _y);
-		// tile_count += 1;
-		// Tiles.push_back(tile);
-		// Sprites.push_back
-		// (
-			// new Sprite
-			// (
-				// * (tile->getImgptr()),
-				// Vector2f(_x * 64, _y * 64)
-			// )
-		 // );
-		// return true;
-	// }
-	
-	if (CheckTilePut(tile, _x, _y) == Checks)
+	TileCellCheck n = CheckTilePut(tile, _x, _y);
+	Verbose(n);
+	if(n != Checks && n != ThisIsTheFirstTile)
 	{
-		tile -> SetPosition(_x, _y);
-		board [_x][_y] = tile;
-		Tiles.push_back(tile);
-		Sprites.push_back
+		delete tile;
+		return false;
+	}
+	
+	PutValidTile(tile, _x, _y);
+}
+
+void BoardManager :: PutValidTile(Tile * _tile, int _x, int _y)
+{
+		_tile -> SetPosition(_x, _y);
+		board [_y][_x] = _tile;
+		Tiles.push_back(_tile);
+		Drawables.push_back
 		(
 			new Sprite
 			(
-				* (tile->getImgptr()),
+				* (_tile->getImgptr()),
 				Vector2f(_x * 64, _y * 64)
 			)
 		);
+		//String * str_north = new String (string("") + _tile -> Get());
+		//String * str_south = new String (string("") + _tile -> GetSymbol());
+		//String * str_east  = new String (string("") + _tile -> GetSymbol());
+		//String * str_west  = new String (string("") + _tile -> GetSymbol());
+		String * s = new String (string("") + _tile -> GetSymbol());
+		s -> SetPosition(_x * 64, _y * 64);
+		Drawables.push_back (s);//, * font));
 		tile_count += 1;
-		return true;
-	}
+}
+void BoardManager :: PutTileNoCheck(char _c, int _x, int _y)
+{
+	Tile * tile = protoer -> MakeTile (_c);
+	PutValidTile(tile, _x, _y);
 }
 /* OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO PutTile OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO */
 void BoardManager :: DrawTiles()
 {
 	
-	for (sprite_list_iter_t i = Sprites.begin(); i != Sprites.end(); ++i)
+	for (draw_list_iter_t i = Drawables.begin(); i != Drawables.end(); ++i)
 	{
 		// double dereferencing (iterator and then sprite address)
 		render_w -> Draw(* * i);
+		
 	}
 }
 /* OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO DrawCurrentTile OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO */
@@ -205,14 +219,38 @@ void BoardManager :: DrawCurrentTile(int _x, int _y)
 /* OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO PickTile OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO */
 void BoardManager :: PickTile()
 {
-	if (CurrentTile != NULL)
-	{
-		delete CurrentSprite;
-		delete CurrentTile; // the new is in Tile::Clone
-	}
+	// if (CurrentTile != NULL)
+	// {
+		// delete CurrentSprite;
+		// delete CurrentTile; // the new is in Tile::Clone
+	// }
 	int Random = sf :: Randomizer :: Random('A', 'X');
 	// TilePrototyper * m_tiler = TilePrototyper :: GetSingleton();
 	CurrentTile = protoer -> MakeTile((char) Random);
+	cout << "picked tile: " << endl;
+	CurrentTile -> Show();
 	CurrentSprite = new Sprite (* (CurrentTile -> getImgptr()));
-	
+}
+
+void BoardManager :: Show()
+{
+	cout << "Showing the grid: " << endl;
+
+	for (int y = 0; y < board_y; ++y)
+	{
+		for (int x = 0; x < board_x; ++x)
+		{
+			if (board[y][x] == NULL)
+			{
+				cout << '-';
+			}
+			else
+			{
+				cout << board[y][x] -> GetSymbol();
+			}
+		}
+		cout << endl;
+	}
+	cout << endl;
+
 }

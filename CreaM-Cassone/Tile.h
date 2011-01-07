@@ -32,11 +32,13 @@ protected:
 	int x, y;
 	bool has_shield, has_church;
 public:
+	char GetSymbol() {return symbol;}
+	int GetOrientation() {return orientation;}
+	face_t GetFace(orientation_t _orient);
 	// Image * getImgptr() {return ptrImage;}
- Image * getImgptr() {return ptrImage;}
-	virtual Tile * Clone()
-	{return new Tile(*this);} /* prototype design pattern !*/
-	
+	Image * getImgptr() {return ptrImage;}
+	virtual Tile * Clone() {return new Tile(*this);} /* prototype design pattern !*/
+	void Show();
 	Tile(char _c, Image * imgptr);
 	
 	void SetPosition(int _x, int _y)
@@ -46,28 +48,14 @@ public:
 			cout << "bad coordinates !" << endl;
 			return;
 		}
-		
 		x = _x;
 		y = _y;
 	}
 	
-	void Show();
 	
 	void Turn(orientation_t _orientation)
 	{
 		orientation = _orientation;
 	}
 	
-	face_t GetFace(orientation_t _orient)
-	{
-		switch(_orient)
-		{
-			case NORTH: return face_north;
-			case EAST: return face_east;
-			case SOUTH: return face_south;
-			case WEST: return face_west;
-			// default: return -1;
-		}
-		
-	}
 };
