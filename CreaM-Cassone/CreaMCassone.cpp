@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 
-#if defined __APPLE__
+#ifdef __APPLE__
 int main(int argc, char * argv[])
 #else
 int main(int argc, char * argv[])

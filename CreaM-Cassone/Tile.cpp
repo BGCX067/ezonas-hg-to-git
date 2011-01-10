@@ -21,6 +21,34 @@ face_t Tile :: GetFace(orientation_t _orient)
 		// default: return -1;
 	}
 }
+void Tile :: TurnClockWise()
+{
+	orientation = (orientation_t)((orientation + 1) % 4);
+
+	// we rotate all the faces
+	face_t tmp = face_north;
+	face_north = face_west;
+	face_west = face_south;
+	face_south = face_east;
+	face_east = tmp;
+}
+char Tile :: GetSymbol() { return symbol; }
+int Tile :: GetOrientation() { return orientation; }
+Image * Tile :: getImgptr() { return ptrImage; }
+Tile * Tile :: Clone() { return new Tile(*this); } /* prototype design pattern !*/
+void Tile :: SetOrientation(orientation_t _orientation) {orientation = _orientation;}
+
+void Tile :: SetPosition(int _x, int _y)
+{
+	if (_x < 0 || _y < 0 || _x > 71 || _y > 71)
+	{
+		cout << "bad coordinates !" << endl;
+		return;
+	}
+	x = _x;
+	y = _y;
+}
+
 
 Tile :: Tile(char _c, Image * imgptr):
 	symbol(_c),
@@ -212,7 +240,7 @@ Tile :: Tile(char _c, Image * imgptr):
 	default:
 		cout << "houston, this tile has a problem: " << _c << endl;
 		break;
-	}		
+	}
 }
 
 
@@ -225,7 +253,7 @@ void Tile :: Show()
 		"CITY"
 	};
 	cout << symbol << endl;
-	cout << "\t" << str[face_north] << endl;
-	cout << str[face_west] << "\t\t" << str[face_east] << endl;
-	cout << "\t" << str[face_south] << endl;
+	//cout << "\t" << str[face_north] << endl;
+	//cout << str[face_west] << "\t\t" << str[face_east] << endl;
+	//cout << "\t" << str[face_south] << endl;
 }

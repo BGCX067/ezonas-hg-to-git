@@ -4,7 +4,7 @@
 //
 
 
-// #pragma once
+#pragma once
 
 // #ifndef _INCLUDES_H_
 // #define _INCLUDES_H_
@@ -28,6 +28,7 @@
 
 #include <map>
 #include <list>
+#include <vector>
 
 using namespace std;
 
@@ -51,6 +52,8 @@ using namespace sf;
 
 #include "BoardManager.h"
 #include "GameManager.h"
+#include "Player.h"
+
 //#include "TileFactory.h"
 
 #endif // _STD_AFX_H_

@@ -6,20 +6,8 @@
 
 #include "stdafx.h"
 
-enum orientation_t
-{
-	NORTH,
-	EAST,
-	SOUTH,
-	WEST
-};
-
-enum face_t
-{
-	LAND,
-	ROAD,
-	CITY
-};
+enum orientation_t {NORTH,EAST,SOUTH,WEST};
+enum face_t {LAND,ROAD,CITY};
 
 /* %%%%%%%%%%%%%%%% Tile %%%%%%%%%%%%%%%% */
 class Tile
@@ -31,31 +19,18 @@ protected:
 	face_t face_north, face_east, face_south, face_west;
 	int x, y;
 	bool has_shield, has_church;
+	
+	//int Players[][];
 public:
-	char GetSymbol() {return symbol;}
-	int GetOrientation() {return orientation;}
+	char GetSymbol();
+	int GetOrientation();
 	face_t GetFace(orientation_t _orient);
-	// Image * getImgptr() {return ptrImage;}
-	Image * getImgptr() {return ptrImage;}
-	virtual Tile * Clone() {return new Tile(*this);} /* prototype design pattern !*/
+	Image * getImgptr();
+	virtual Tile * Clone();
 	void Show();
 	Tile(char _c, Image * imgptr);
-	
-	void SetPosition(int _x, int _y)
-	{
-		if (_x < 0 || _y < 0 || _x > 71 || _y > 71)
-		{
-			cout << "bad coordinates !" << endl;
-			return;
-		}
-		x = _x;
-		y = _y;
-	}
-	
-	
-	void Turn(orientation_t _orientation)
-	{
-		orientation = _orientation;
-	}
+	void SetPosition(int _x, int _y);
+	void SetOrientation(orientation_t _orientation);
+	void TurnClockWise();
 	
 };
