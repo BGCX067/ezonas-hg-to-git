@@ -14,7 +14,7 @@ class Sprite
 {
 protected:
 	LPD3DXSPRITE m_pSprite;
-	LPDIRECT3DTEXTURE9 * m_pTexture;
+	LPDIRECT3DTEXTURE9 m_pTexture;
 	RECT m_pRect;
 	D3DXVECTOR2 m_pCenter;
 	float m_fRotation;

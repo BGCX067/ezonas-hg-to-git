@@ -1,19 +1,53 @@
 #include "stdafx.h"
 
-Game * Game :: GetSingleton()
+LRESULT WINAPI MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 {
-	static Game _;
-	return & _;
-}
-Game :: Game():
-	g_pd3dDevice(NULL),
-	g_pD3D(NULL)
-{}
+    switch( msg )
+    {
+        case WM_KEYDOWN:
+		{
+			switch( wParam )
+			{
+				case VK_ESCAPE:
+					PostQuitMessage(0);
+					break;
+			}
+		}
+        break;
 
-//-----------------------------------------------------------------------------
-// Name: InitD3D()
-// Desc: Initializes Direct3D
-//-----------------------------------------------------------------------------
+        case WM_DESTROY:
+            Game :: GetSingleton() -> Cleanup();
+            PostQuitMessage( 0 );
+            return 0;
+
+        case WM_PAINT:
+            Game :: GetSingleton() -> Render();
+            ValidateRect( hWnd, NULL );
+            return 0;
+    }
+
+    return DefWindowProc( hWnd, msg, wParam, lParam );
+}
+
+/* ------------------------- Added ------------------------- */
+
+Game * Game :: GetSingleton(){static Game _; return & _;}
+Game :: ~ Game (){UnregisterClass ("D3D Tutorial", wc.hInstance);}
+Game :: Game()
+{
+    WNDCLASSEX _wc = { sizeof(WNDCLASSEX), CS_CLASSDC, MsgProc, 0L, 0L, 
+                      GetModuleHandle(NULL), NULL, NULL, NULL, NULL,
+                      "D3D Tutorial", NULL };
+	wc = _wc;
+	RegisterClassEx (&wc);
+
+    // Create the application's window
+    hWnd = CreateWindow ("D3D Tutorial", "D3D Tutorial 01: CreateDevice", 
+                              WS_OVERLAPPEDWINDOW, 100, 100, 300, 300,
+                              GetDesktopWindow(), NULL, wc.hInstance, NULL);
+InitD3D(hWnd);
+}
+
 HRESULT Game :: InitD3D (HWND hWnd) 
 {
     // Create the D3D object, which is needed to create the D3DDevice.
@@ -37,19 +71,7 @@ HRESULT Game :: InitD3D (HWND hWnd)
     d3dpp.BackBufferFormat       = D3DFMT_X8R8G8B8;
     d3dpp.PresentationInterval   = D3DPRESENT_INTERVAL_IMMEDIATE;
 
-    
- //   d3dpp.Windowed = FALSE;
- //   d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
- //   d3dpp.BackBufferFormat = D3DFMT_UNKNOWN;
-
-    // Create the Direct3D device. Here we are using the default adapter (most
-    // systems only have one, unless they have multiple graphics hardware cards
-    // installed) and requesting the HAL (which is saying we want the hardware
-    // device rather than a software one). Software vertex processing is 
-    // specified since we know it will work on all cards. On cards that support 
-    // hardware vertex processing, though, we would see a big performance gain 
-    // by specifying hardware vertex processing.
-    if (FAILED (g_pD3D->CreateDevice (D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd,
+	if (FAILED (g_pD3D->CreateDevice (D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd,
                                       D3DCREATE_SOFTWARE_VERTEXPROCESSING,
                                       &d3dpp, &g_pd3dDevice) ) ) 
     {
@@ -60,22 +82,11 @@ HRESULT Game :: InitD3D (HWND hWnd)
 
     return S_OK;
 }
-//-----------------------------------------------------------------------------
-// Name: Cleanup()
-// Desc: Releases all previously initialized objects
-//-----------------------------------------------------------------------------
 VOID Game :: Cleanup()
 {
-    if (g_pd3dDevice != NULL) 
-        g_pd3dDevice->Release();
-
-    if (g_pD3D != NULL)
-        g_pD3D->Release();
+    if (g_pd3dDevice != NULL)  g_pd3dDevice->Release();
+    if (g_pD3D != NULL) g_pD3D->Release();
 }
-//-----------------------------------------------------------------------------
-// Name: Render()
-// Desc: Draws the scene
-//-----------------------------------------------------------------------------
 VOID Game :: Render()
 {
     if (NULL == g_pd3dDevice) 
@@ -88,7 +99,7 @@ VOID Game :: Render()
     if (SUCCEEDED (g_pd3dDevice->BeginScene()) ) 
     {
         // Rendering of scene objects can happen here
-		mySprite->Display();
+		sprite -> Display();
         // End the scene
         g_pd3dDevice->EndScene();
     }
@@ -96,35 +107,19 @@ VOID Game :: Render()
     // Present the backbuffer contents to the display
     g_pd3dDevice->Present (NULL, NULL, NULL, NULL);
 }
-INT WINAPI Game :: wWinMain (HINSTANCE hInst, HINSTANCE, LPSTR, INT, WNDPROC d)
+void Game :: Go()
 {
-    // Register the window class
-    WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, d, 0L, 0L, 
-                      GetModuleHandle(NULL), NULL, NULL, NULL, NULL,
-                      "D3D Tutorial", NULL };
-    RegisterClassEx (&wc);
-
-    // Create the application's window
-    HWND hWnd = CreateWindow ("D3D Tutorial", "D3D Tutorial 01: CreateDevice", 
-                              WS_OVERLAPPEDWINDOW, 100, 100, 300, 300,
-                              GetDesktopWindow(), NULL, wc.hInstance, NULL);
-
-    // Initialize Direct3D
-    if (SUCCEEDED (InitD3D (hWnd) ) ) 
-    { 
         // Show the window
-        ShowWindow (hWnd, SW_SHOWDEFAULT);
-        UpdateWindow (hWnd);
+    ShowWindow (hWnd, SW_SHOWDEFAULT);
+    UpdateWindow (hWnd);
 
-        // Enter the message loop
-        MSG msg; 
-        while (GetMessage (&msg, NULL, 0, 0) ) 
-        {
-            TranslateMessage (&msg);
-            DispatchMessage (&msg);
-        }
+    // Enter the message loop
+    MSG msg; 
+    while (GetMessage (&msg, NULL, 0, 0) ) 
+    {
+        TranslateMessage (&msg);
+        DispatchMessage (&msg);
     }
 
-    UnregisterClass ("D3D Tutorial", wc.hInstance);
-    return 0;
+    //return 0;
 }

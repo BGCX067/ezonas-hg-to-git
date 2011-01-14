@@ -3,7 +3,7 @@ class Game
 {
 public:
 	static Game * GetSingleton();
-		Sprite * mySprite;
+	//Sprite * mySprite;
 
 	HRESULT InitD3D (HWND hWnd );
 	VOID Render();
@@ -11,12 +11,14 @@ public:
 	VOID Cleanup();
 	LPDIRECT3D9 getd3d() { return g_pD3D; };
 	LPDIRECT3DDEVICE9 getdevice() { return g_pd3dDevice; }
+	void SetSprite(Sprite * _sprite) { sprite = _sprite; }
+	void Go();
 protected:
 	Game();
-// Used to create the D3DDevice
-	LPDIRECT3D9 g_pD3D;
-// Our rendering device
+	~Game();
 	LPDIRECT3DDEVICE9 g_pd3dDevice;
-
-
+	LPDIRECT3D9 g_pD3D;
+	Sprite * sprite;
+	WNDCLASSEX wc;
+	HWND hWnd;
 };
