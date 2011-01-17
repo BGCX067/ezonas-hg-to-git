@@ -7,7 +7,7 @@ Sprite::Sprite (LPDIRECT3DDEVICE9 _Device):
 	SetScale(1.0, 1.0);
 	SetPosition(0.0, 0.0);
 	SetScaleCenter(0.0, 0.0);
-	SetRectangle(0, 0, 300, 300);
+	SetRectangle(0, 0, 512, 512);
 	SetColor(255, 255, 255, 255);
 	D3DXCreateSprite(Device, &m_pSprite);
 	SetTexture("texture_test24.bmp");

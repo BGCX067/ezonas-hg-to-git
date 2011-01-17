@@ -29,8 +29,6 @@ LRESULT WINAPI MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
     return DefWindowProc( hWnd, msg, wParam, lParam );
 }
 
-/* ------------------------- Added ------------------------- */
-
 Game * Game :: GetSingleton(){static Game _; return & _;}
 Game :: ~ Game (){UnregisterClass ("D3D Tutorial", wc.hInstance);}
 Game :: Game()
@@ -43,7 +41,7 @@ Game :: Game()
 
     // Create the application's window
     hWnd = CreateWindow ("D3D Tutorial", "D3D Tutorial 01: CreateDevice", 
-                              WS_OVERLAPPEDWINDOW, 100, 100, 300, 300,
+                              WS_OVERLAPPEDWINDOW, 100, 100, 512, 512,
                               GetDesktopWindow(), NULL, wc.hInstance, NULL);
 InitD3D(hWnd);
 }
@@ -66,8 +64,8 @@ HRESULT Game :: InitD3D (HWND hWnd)
 	d3dpp.EnableAutoDepthStencil = TRUE;
 	d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
 	d3dpp.SwapEffect             = D3DSWAPEFFECT_DISCARD;
-	d3dpp.BackBufferWidth        = 640;
-    d3dpp.BackBufferHeight       = 480;
+	d3dpp.BackBufferWidth        = 512;
+    d3dpp.BackBufferHeight       = 512;
     d3dpp.BackBufferFormat       = D3DFMT_X8R8G8B8;
     d3dpp.PresentationInterval   = D3DPRESENT_INTERVAL_IMMEDIATE;
 
@@ -109,17 +107,12 @@ VOID Game :: Render()
 }
 void Game :: Go()
 {
-        // Show the window
     ShowWindow (hWnd, SW_SHOWDEFAULT);
     UpdateWindow (hWnd);
-
-    // Enter the message loop
     MSG msg; 
     while (GetMessage (&msg, NULL, 0, 0) ) 
     {
         TranslateMessage (&msg);
         DispatchMessage (&msg);
     }
-
-    //return 0;
 }
