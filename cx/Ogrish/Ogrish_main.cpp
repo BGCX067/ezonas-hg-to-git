@@ -4,5 +4,4 @@ int main()
 {
 	Ogrish app;
 	app.go();
-
 }
