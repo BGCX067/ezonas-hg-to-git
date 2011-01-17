@@ -31,7 +31,9 @@ LRESULT WINAPI MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 
 Game * Game :: GetSingleton(){static Game _; return & _;}
 Game :: ~ Game (){UnregisterClass ("D3D Tutorial", wc.hInstance);}
-Game :: Game()
+Game :: Game(int _buffer_w, int _buffer_h):
+	buffer_w(_buffer_w),
+	buffer_h(_buffer_h)
 {
     WNDCLASSEX _wc = { sizeof(WNDCLASSEX), CS_CLASSDC, MsgProc, 0L, 0L, 
                       GetModuleHandle(NULL), NULL, NULL, NULL, NULL,
@@ -41,12 +43,14 @@ Game :: Game()
 
     // Create the application's window
     hWnd = CreateWindow ("D3D Tutorial", "D3D Tutorial 01: CreateDevice", 
-                              WS_OVERLAPPEDWINDOW, 100, 100, 512, 512,
-                              GetDesktopWindow(), NULL, wc.hInstance, NULL);
+                              WS_OVERLAPPEDWINDOW, 100, 100,
+							  buffer_w, buffer_h,
+                              GetDesktopWindow(), NULL,
+							  wc.hInstance, NULL);
 InitD3D(hWnd);
 }
 
-HRESULT Game :: InitD3D (HWND hWnd) 
+HRESULT Game :: InitD3D (HWND hWnd)
 {
     // Create the D3D object, which is needed to create the D3DDevice.
     if (NULL ==  (g_pD3D = Direct3DCreate9 (D3D_SDK_VERSION) ) ) 
@@ -64,8 +68,8 @@ HRESULT Game :: InitD3D (HWND hWnd)
 	d3dpp.EnableAutoDepthStencil = TRUE;
 	d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
 	d3dpp.SwapEffect             = D3DSWAPEFFECT_DISCARD;
-	d3dpp.BackBufferWidth        = 512;
-    d3dpp.BackBufferHeight       = 512;
+	d3dpp.BackBufferWidth        = buffer_w;
+    d3dpp.BackBufferHeight       = buffer_h;
     d3dpp.BackBufferFormat       = D3DFMT_X8R8G8B8;
     d3dpp.PresentationInterval   = D3DPRESENT_INTERVAL_IMMEDIATE;
 

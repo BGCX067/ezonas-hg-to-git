@@ -14,11 +14,12 @@ public:
 	void SetSprite(Sprite * _sprite) { sprite = _sprite; }
 	void Go();
 protected:
-	Game();
+	Game(int _buffer_w = 512, int _buffer_h = 512);
 	~Game();
 	LPDIRECT3DDEVICE9 g_pd3dDevice;
 	LPDIRECT3D9 g_pD3D;
 	Sprite * sprite;
 	WNDCLASSEX wc;
 	HWND hWnd;
+	int buffer_w, buffer_h;
 };
