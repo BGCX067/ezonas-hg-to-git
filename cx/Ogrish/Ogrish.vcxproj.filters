@@ -23,5 +23,14 @@
     <ClInclude Include="Ogrish.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Ogrish_Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ogrish_FrameListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ogrish_Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

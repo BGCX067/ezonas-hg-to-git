@@ -1,0 +1,21 @@
+﻿M9 9mm
+GLOCK19 9mm
+COLT1911 .45
+MK3 .22
+--
+MP5SD 9mm
+AK47 762
+FAMAS 556
+M4 556
+---
+PSG1 7.62
+XM2010 (M24E)
+M40
+
+
+-P99 9mm
+-fiveseven
+-MK23
+--
+-SA80 556
+-XM8

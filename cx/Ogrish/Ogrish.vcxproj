@@ -84,6 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ogrish.h" />
+    <ClInclude Include="Ogrish_Application.h" />
+    <ClInclude Include="Ogrish_FrameListener.h" />
+    <ClInclude Include="Ogrish_Input.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
