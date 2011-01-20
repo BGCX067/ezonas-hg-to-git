@@ -1,0 +1,19 @@
+﻿Gameplay implementation unsorted list
+
+9 senses:
+	wave senses: those have a direct impact on the game dynamics:
+		sight
+		hearing
+
+	matter states
+		smell
+		temperature
+		balance/acceleration
+		pain
+		touch
+	
+	
+kinesthetic: body part position
+direction
+taste
+
