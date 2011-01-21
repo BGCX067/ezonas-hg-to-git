@@ -10,7 +10,7 @@ CS
 - increased move speed
 - only 2 types of damage zone : first is head and lungs, ratio is 2; second is the rest of the body and ratio is 1
 - ability to knock down other players, for example with a 5s delay, pursue that idea :)
-- add some kind of CQC™ combat principe : disarm enemies and throw his weapon 5m away, threat enemy, force enemy to stand on the ground, 2s delay to get up
+- add some kind of CQCô combat principe : disarm enemies and throw his weapon 5m away, threat enemy, force enemy to stand on the ground, 2s delay to get up
 - limited ammos for AWP : only 5 ammos in a clip, total of 2 or 3 clips maximum
 - HUD : visual display of left bullets in clip (like : [UUUU        ]), static crosshair, ("lean player", the little arrow on team mates, like q3 team games)
 - grouped buying of equipment, allow players to throw a gravel or some illusion object to divert enemy's listening

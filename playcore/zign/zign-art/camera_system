@@ -8,6 +8,7 @@ If the FLY cursor moves more than 15 degrees in a say 0.2s, the cam sticks in st
 IF, HOWEVER, IT GOES FURTHER 15 degrees, the fly mode goes on:
 a new cursor appears, letting the camera EYE cursor try to "catch" it;
 Of course, there is no catch() function (would be errorsome), it is just a loop that makes a 2 angles array going null, smoothly.
+
 I don't really know if it can be 3D smooth, but I can partitionate a multi loop system with a, let say, 10 boolean array, use 5 different graduated speeds at a square, cubic or power-of-5 turning deaccelerating, and 5 other, at a power of 2, 3 or 5.
 Of course, the number of grades in the switch is very limited to make sure the transistors stay cold enough.
 The stuff will be smooth because I'll only change only 10 times the cam turning speed, from a value which can be at the same time big AND small; an int is quite much enough to store a rotating speed, the ogre engine being
