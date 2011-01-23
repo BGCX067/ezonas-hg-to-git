@@ -5,3 +5,7 @@ Studio Names:
 
 PIXEL MACHINES
 EYE MACHINES
+
+world:
+kosmo
+lume (romanian)
