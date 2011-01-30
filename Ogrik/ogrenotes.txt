@@ -1,0 +1,5 @@
+create:
+	camera
+	light
+	scenenode
+	

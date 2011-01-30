@@ -6,14 +6,13 @@ int main()
 int WINAPI WinMain(HINSTANCE a, HINSTANCE b, LPSTR c, int d)
 #endif
 {
-	Application app;
-	app.startup();
+	Application :: Instantiate();
+	Application :: GetSingleton() -> go();
 	
-	while(app.keepRunning())
-	{
-		app.renderOneFrame();
-	}
-
+	// while(app.keepRunning())
+	// {
+		// app.renderOneFrame();
+	// }
 	return 0;
 }
 

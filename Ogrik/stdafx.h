@@ -1,4 +1,5 @@
 #pragma once
+#define FPS_CAM
 
 // Ogre
 #include "Ogre\Ogre.h"
@@ -8,6 +9,7 @@ using namespace Ogre;
 using namespace OIS;
 
 // Project
-#include "Ogrik_Application.h"
-#include "Ogrik_Framelistener.h"
+#include "Application.h"
+#include "Framelistener.h"
+#include "CursorChecker.h"
 

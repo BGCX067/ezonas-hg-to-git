@@ -77,14 +77,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Ogrik_Application.cpp" />
-    <ClCompile Include="Ogrik_Framelistener.cpp" />
-    <ClCompile Include="Ogrik_main.cpp" />
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="Framelistener.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ogrik_Application.h" />
-    <ClInclude Include="Ogrik_Framelistener.h" />
-    <ClInclude Include="stdafx.h" />
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="createscene.cpp" />
+    <ClCompile Include="Framelistener.cpp" />
+    <ClCompile Include="frameStarted.cpp" />
+    <ClCompile Include="Ogrik_main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,10 @@
+material highlight
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 1 0
+		}
+	}
+}
