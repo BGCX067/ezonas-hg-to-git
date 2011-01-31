@@ -25,7 +25,7 @@ Application :: Application():
 	camera -> setAspectRatio
 	(Real(viewport -> getActualWidth())/ Real(viewport -> getActualHeight()));
 
-/* --------------- resources --------------- */
+/* -------------------------------- resources -------------------------------- */
 	ConfigFile cf;
 	cf.load("resources_d.cfg");
 
@@ -49,7 +49,7 @@ Application :: Application():
 	ResourceGroupManager :: getSingleton().initialiseAllResourceGroups();
 // create the scene
 	createScene();
-/* --------------- Inputs --------------- */
+/* -------------------------------- Inputs -------------------------------- */
 	ParamList parameters;
 	
 	unsigned int windowHandle = 0;
@@ -59,26 +59,29 @@ Application :: Application():
 	windowHandleString << windowHandle;
 	parameters.insert(make_pair("WINDOW", windowHandleString.str()));
 // those settings unhide the cursor (from ogre's wiki snippets)	
-#if defined OIS_WIN32_PLATFORM
+// #if defined OIS_WIN32_PLATFORM
 	parameters.insert(make_pair(string("w32mouse"), string("DISCL_FOREGROUND" )));
 	parameters.insert(make_pair(string("w32mouse"), string("DISCL_NONEXCLUSIVE")));
 	parameters.insert(make_pair(string("w32keyboard"), string("DISCL_FOREGROUND")));
 	parameters.insert(make_pair(string("w32keyboard"), string("DISCL_NONEXCLUSIVE")));
-#elif defined OIS_LINUX_PLATFORM
-	parameters.insert(make_pair(string("x11mouse_grab"), string("false")));
-	parameters.insert(make_pair(string("x11mouse_hide"), string("false")));
-	parameters.insert(make_pair(string("x11keyboard_grab"), string("false")));
-	parameters.insert(make_pair(string("XAutoRepeatOn"), string("true")));
-#endif
-/* --------------- Inputs Objects --------------- */
+// #elif defined OIS_LINUX_PLATFORM
+	// parameters.insert(make_pair(string("x11mouse_grab"), string("false")));
+	// parameters.insert(make_pair(string("x11mouse_hide"), string("false")));
+	// parameters.insert(make_pair(string("x11keyboard_grab"), string("false")));
+	// parameters.insert(make_pair(string("XAutoRepeatOn"), string("true")));
+// #endif
+/* ----------------------------- Inputs Objects ----------------------------- */
 	inputmanager = InputManager :: createInputSystem(parameters);
 	keyboard = static_cast<Keyboard *>
 	(inputmanager -> createInputObject(OISKeyboard, false));
 	mouse = static_cast<Mouse *>
 	(inputmanager -> createInputObject	(OISMouse, false));
-/* --------------- FrameListener --------------- */
-	//listener = new OgrikFrameListener(scenemanager, camera, inputmanager, mouse, keyboard);
-	root -> addFrameListener(this);	
+/* ----------------------------- FrameListener ----------------------------- */
+	root -> addFrameListener(this);
+/* ----------------------------- Scene queries ----------------------------- */
+	cursor_ray = Ray(camera -> getPosition(), camera -> getDirection());
+	RSQ = scenemanager -> createRayQuery(cursor_ray);
+	
 }
 Application :: ~ Application()
 {

@@ -13,8 +13,6 @@ public:
 
 // added those 3 lines
 	bool frameRenderingQueued(const FrameEvent & evt);
-	Ray cursor_ray;
-	RaySceneQuery * RSQ;
 	
 private:
 	static Application * instance;
@@ -31,10 +29,10 @@ private:
 	InputManager * inputmanager;
 	Keyboard * keyboard;
 	Mouse * mouse;
-// frame listener
-	OgrikFrameListener * listener;
 // game play	
 
 // scene queries
+	Ray cursor_ray;
+	RaySceneQuery * RSQ;
 };
 

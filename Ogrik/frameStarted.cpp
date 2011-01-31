@@ -31,6 +31,6 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 		mouse -> getMouseState() . Y.abs /
 		(float) mouse -> getMouseState() . height
 	);
-	//if(RSQ.execute().)
+	RSQ -> execute();
 	return true;
 }
