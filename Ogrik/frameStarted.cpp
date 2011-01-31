@@ -11,14 +11,14 @@ bool OgrikFrameListener :: frameRenderingQueued(const FrameEvent & evt)
 	if (keyboard -> isKeyDown(KC_S)) translate += Ogre :: Vector3(0, 0, 1);
 	if (keyboard -> isKeyDown(KC_A)) translate += Ogre :: Vector3(-1, 0, 0);
 	if (keyboard -> isKeyDown(KC_D)) translate += Ogre :: Vector3(1, 0, 0);
-	camera -> moveRelative(translate * evt.timeSinceLastFrame * 5.0f);
+	camera -> moveRelative(translate * evt.timeSinceLastFrame * 20.0f);
 	
 #ifdef FPS_CAM
 	mouse -> capture();
 	float rotX = mouse -> getMouseState().X.rel *
-		evt.timeSinceLastFrame * 0.2 * -1;
+		evt.timeSinceLastFrame * -1;
 	float rotY = mouse -> getMouseState().Y.rel *
-		evt.timeSinceLastFrame * 0.2 * -1;
+		evt.timeSinceLastFrame * -1;
 // camera movements
 	camera->yaw(Ogre::Radian(rotX));
 	camera->pitch(Ogre::Radian(rotY));
