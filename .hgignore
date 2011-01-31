@@ -1,17 +1,23 @@
 syntax: glob
 
+*.so
+*.dll
+*.obj
+*.o
+*.a
+*.exe
+
 *.elc
 *.pyc
 *~
 
-*.o
 *.lo
 *.la
 *.al
 .libs
-*.so
-*.dll
-*.a
+
+.DS_Store
+
 *.pyc
 *.pyo
 *.rej
@@ -19,17 +25,18 @@ syntax: glob
 #*#
 .#*
 .*.swp
-.DS_Store
 *.db
+
 *.suo
 *.sdf
+*.opensdf
+*.ipch
 *.ncb
 *.user
 *.vcxproj.*
+
 ipch/**
 Debug/**
 Release/**
-*.ipch
-*.sdf
+
 *.sxw
-*.obj
