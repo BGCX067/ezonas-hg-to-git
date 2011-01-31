@@ -5,7 +5,10 @@ Application :: Application():
 	FrameListener(), 
 //	listener(NULL), 
 	// _keepRunning(true), 
-	root(new Root("plugins_d.cfg"))
+	root(new Root("plugins_d.cfg")),
+	gameconfig(new GameConfig("gameconf.cfg")),
+	moving_speed(gameconfig -> GetValue("moving_speed")),
+	rotating_speed(gameconfig -> GetValue("rotating_speed"))
 {
 // use the existing ogre.cfg if it exists, creates it otherwise
 	if(!(root -> restoreConfig() || root -> showConfigDialog()))
@@ -108,3 +111,12 @@ void Application :: go ()
 }
 
 Application * Application :: instance = NULL;
+
+
+float GameConfig :: GetValue(string _s)
+{
+	float result = 0xdeadbeef;
+	istringstream istrstr(configfile.getSetting(_s));
+	istrstr >> result;
+	return result;
+}

@@ -78,6 +78,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="GameConfig.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

@@ -30,7 +30,9 @@ private:
 	Keyboard * keyboard;
 	Mouse * mouse;
 // game play	
-
+	GameConfig * gameconfig;
+	const float moving_speed;
+	const float rotating_speed;
 // scene queries
 	Ray cursor_ray;
 	RaySceneQuery * RSQ;
