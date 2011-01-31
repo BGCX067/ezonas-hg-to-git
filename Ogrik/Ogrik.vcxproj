@@ -78,13 +78,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
-    <ClInclude Include="Framelistener.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="createscene.cpp" />
-    <ClCompile Include="Framelistener.cpp" />
     <ClCompile Include="frameStarted.cpp" />
     <ClCompile Include="Ogrik_main.cpp" />
   </ItemGroup>

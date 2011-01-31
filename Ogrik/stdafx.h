@@ -11,5 +11,4 @@ using namespace OIS;
 // Project
 #include "Application.h"
 #include "Framelistener.h"
-#include "CursorChecker.h"
 

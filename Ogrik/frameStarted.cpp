@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 // ############################# frameStarted #############################
-bool OgrikFrameListener :: frameRenderingQueued(const FrameEvent & evt)
+bool Application :: frameRenderingQueued(const FrameEvent & evt)
 {
 // keyboard and mouse capturing
 	keyboard -> capture();
@@ -20,18 +20,17 @@ bool OgrikFrameListener :: frameRenderingQueued(const FrameEvent & evt)
 	float rotY = mouse -> getMouseState().Y.rel *
 		evt.timeSinceLastFrame * -1;
 // camera movements
-	camera->yaw(Ogre::Radian(rotX));
-	camera->pitch(Ogre::Radian(rotY));
+	camera -> yaw(Ogre :: Radian(rotX));
+	camera -> pitch(Ogre :: Radian(rotY));
 #endif
 	// rays
 	cursor_ray = camera -> getCameraToViewportRay
 	(
 		mouse -> getMouseState() . X.abs /
-		(float) mouse -> getMouseState() . width,
+		(float) mouse -> getMouseState() . width, 
 		mouse -> getMouseState() . Y.abs /
 		(float) mouse -> getMouseState() . height
 	);
-	
 	//if(RSQ.execute().)
 	return true;
 }

@@ -16,6 +16,9 @@ OgrikFrameListener :: OgrikFrameListener
 	RSQ(scenemanager -> createRayQuery(cursor_ray))
 {}
 
-OgrikFrameListener :: ~ OgrikFrameListener() {}
+OgrikFrameListener :: ~ OgrikFrameListener()
+{
+	scenemanager -> destroyQuery(RSQ);
+}
 
 

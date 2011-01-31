@@ -1,9 +1,10 @@
 #include "stdafx.h"
 
 Application :: Application():
-	scenemanager(NULL),
-	listener(NULL),
-	// _keepRunning(true),
+	scenemanager(NULL), 
+	FrameListener(), 
+//	listener(NULL), 
+	// _keepRunning(true), 
 	root(new Root("plugins_d.cfg"))
 {
 // use the existing ogre.cfg if it exists, creates it otherwise
@@ -76,8 +77,8 @@ Application :: Application():
 	mouse = static_cast<Mouse *>
 	(inputmanager -> createInputObject	(OISMouse, false));
 /* --------------- FrameListener --------------- */
-	listener = new OgrikFrameListener(scenemanager, camera, inputmanager, mouse, keyboard);
-	root -> addFrameListener(listener);	
+	//listener = new OgrikFrameListener(scenemanager, camera, inputmanager, mouse, keyboard);
+	root -> addFrameListener(this);	
 }
 Application :: ~ Application()
 {
@@ -86,7 +87,7 @@ Application :: ~ Application()
 	InputManager :: destroyInputSystem(inputmanager);
 
 	if(root) delete root;
-	if(listener) delete listener;
+	//if(listener) delete listener;
 }
 
 // void Application :: renderOneFrame()
@@ -95,6 +96,12 @@ Application :: ~ Application()
 	// _keepRunning = root -> renderOneFrame();
 // }
 
-void Application :: go () {root -> startRendering();}
+void Application :: go ()
+{
+	if(instance != NULL)
+		root -> startRendering();
+	else
+		exit(0xdeadc0de);
+}
 
 Application * Application :: instance = NULL;
