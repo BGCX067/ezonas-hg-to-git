@@ -1,23 +1,31 @@
-M9		9mm
-GLOCK19 	9mm
-COLT1911 	.45
-MK3 		.22
+			ammo	price cr.	notes
+M9			9mm		4
+GLOCK19 	9mm		4
+COLT1911 	.45		3
+MK3 		.22		2			not deadly
 --------------
-MP5SD 		9mm
-AK47 		762
-FAMAS 		556
-M4 		556
+MP5SD 		9mm		10			low range/prec
+AK47 		762		12
+FAMAS 		556		45
+M4 			556		50
+TAR21		556		40			.is
 --------------
-PSG1 		762
-XM2010 (M24E)
-M40
+PSG1 		762		120			sauto
+M24			-		100			
+M24E		-		140			
+SR25		-					sauto, suppr.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%
+P99 		9mm		5
+fiveseven	-		8
+MK23		.45		10
+USP9		9mm		6
+P228		9mm		5
+d-eagle		.50		12
+-------------
+SA80 556			30			.uk
+XM8					70			prototype
 
--P99 		9mm
--fiveseven	
--MK23		.45
--P228
---------------
--SA80 556
--XM8
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+P90					60			armor-p
+MP7/MP9				55			

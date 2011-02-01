@@ -9,32 +9,38 @@ public:
 	// void renderOneFrame();
 	static Application * GetSingleton()	{return instance;}
 	static void Instantiate() {static Application inst; instance = & inst;}
-	void go();
-
-// added those 3 lines
 	bool frameRenderingQueued(const FrameEvent & evt);
+	void go();
 	
 private:
 	static Application * instance;
 	void createScene();
 	Application();
 	~ Application();
-// core objects
+/* ---------------- core objects ---------------- */
 	SceneManager * scenemanager;
 	Root * root;
 	RenderWindow * window;
 	Camera * camera;
 	Viewport * viewport;
-// inputs
+	
+/* ---------------- inputs ---------------- */
 	InputManager * inputmanager;
 	Keyboard * keyboard;
 	Mouse * mouse;
-// game play	
+	
+/* ---------------- game play ---------------- */
 	GameConfig * gameconfig;
 	const float moving_speed;
 	const float rotating_speed;
-// scene queries
+	
+/* ---------------- scene queries ---------------- */
 	Ray cursor_ray;
 	RaySceneQuery * RSQ;
+	
+/* ---------------- entities ---------------- */
+	Entity * sinbad, * entplane;
+/* ---------------- animations ---------------- */
+	AnimationState * anim_state;
 };
 
