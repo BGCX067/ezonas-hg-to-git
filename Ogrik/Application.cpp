@@ -95,6 +95,13 @@ Application :: ~ Application()
 	if(root) delete root;
 	//if(listener) delete listener;
 }
+
+// void Application :: renderOneFrame()
+// {
+	// WindowEventUtilities :: messagePump();
+	// _keepRunning = root -> renderOneFrame();
+// }
+
 void Application :: go ()
 {
 	if(instance != NULL)
@@ -102,11 +109,14 @@ void Application :: go ()
 	else
 		exit(0xdeadc0de);
 }
+
+Application * Application :: instance = NULL;
+
+
 float GameConfig :: GetValue(string _s)
 {
 	float result = 0xdeadbeef;
-	istringstream istrstr(configfile.getSetting(_s, StringUtil::BLANK, "1.0"));
+	istringstream istrstr(configfile.getSetting(_s, StringUtil :: BLANK, "1.0"));
 	istrstr >> result;
 	return result;
 }
-Application * Application :: instance = NULL;

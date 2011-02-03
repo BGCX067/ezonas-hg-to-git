@@ -84,7 +84,7 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="createscene.cpp" />
-    <ClCompile Include="frameStarted.cpp" />
+    <ClCompile Include="frameRenderingQueued.cpp" />
     <ClCompile Include="Ogrik_main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
