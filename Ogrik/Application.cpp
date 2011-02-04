@@ -84,6 +84,10 @@ Application :: Application():
 /* ----------------------------- Scene queries ----------------------------- */
 	cursor_ray = Ray(camera -> getPosition(), camera -> getDirection());
 	RSQ = scenemanager -> createRayQuery(cursor_ray);
+/* ----------------------------- Billboards ----------------------------- */
+	bbset = scenemanager -> createBillboardSet("LaserDot");
+	bbset -> setMaterialName("Ogrik/laser");
+
 	
 }
 Application :: ~ Application()

@@ -42,5 +42,8 @@ private:
 	RaySceneQuery * RSQ;
 	RaySceneQueryResult RSQR;
 	RSQR_iter_t rsqr_iter;
+// Billboards
+	Billboard * bboard;
+	BillboardSet * bbset;
 };
 

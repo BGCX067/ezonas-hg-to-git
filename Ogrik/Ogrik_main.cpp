@@ -8,11 +8,6 @@ int WINAPI WinMain(HINSTANCE a, HINSTANCE b, LPSTR c, int d)
 {
 	Application :: Instantiate();
 	Application :: GetSingleton() -> go();
-	
-	// while(app.keepRunning())
-	// {
-		// app.renderOneFrame();
-	// }
 	return 0;
 }
 

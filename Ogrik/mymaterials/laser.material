@@ -1,0 +1,13 @@
+material Ogrik/laser
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture green-dot.png
+			}
+		}
+	}
+}
