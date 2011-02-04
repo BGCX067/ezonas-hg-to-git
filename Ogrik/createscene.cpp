@@ -2,10 +2,12 @@
 
 void Application :: createScene()
 {
-// the ogre
-	//camera -> setPolygonMode(PM_WIREFRAME);
-	sinbad = scenemanager -> createEntity("Sinbad.mesh");
-	scenemanager -> getRootSceneNode() -> attachObject(sinbad);
+//camera -> setPolygonMode(PM_WIREFRAME);
+	// the ogre
+	
+	// sinbad = scenemanager -> createEntity("Sinbad.mesh");
+	// rootnode -> attachObject(sinbad);
+	
 // the plane
 	Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -10);
 	Ogre :: MeshManager :: getSingleton().createPlane("plane", 
@@ -15,8 +17,10 @@ void Application :: createScene()
 	entplane = scenemanager -> createEntity("LightPlaneEntity", "plane");
 	scenemanager -> getRootSceneNode() -> createChildSceneNode() -> attachObject(entplane);
 	entplane -> setMaterialName("Examples/Rocky");
-// billboard for the laser and its dot
-// first, trying to load the dot
-//	scenemanager -> createSceneNode("laserdot") -> attachObject (bbset);
+	// billboard for the laser and its dot
+	// first, trying to load the dot
+	laserdot -> attachObject (bbset);
+	rootnode -> addChild(laserdot);
 	// ent -> setMaterialName("highlight");
+
 }

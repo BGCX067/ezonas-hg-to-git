@@ -35,8 +35,9 @@ private:
 	GameConfig * gameconfig;
 	const float moving_speed;
 	const float rotating_speed;
-// entities
+// entities and nodes
 	Entity * sinbad, * entplane;
+	SceneNode * rootnode, * laserdot;
 // scene queries
 	Ray cursor_ray;
 	RaySceneQuery * RSQ;
