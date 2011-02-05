@@ -113,11 +113,11 @@ void Camera :: getViewMatrix(D3DXMATRIX * V)
 	float y = -D3DXVec3Dot(&_up, &_pos);
 	float z = -D3DXVec3Dot(&_look, &_pos);
 
-	(* V)(0,0) = _right.x; (* V)(0, 1) = _up.x; (* V)(0, 2) = _look.x; (* V)(0, 3) = 0.0f;
-	(* V)(1,0) = _right.y; (* V)(1, 1) = _up.y; (* V)(1, 2) = _look.y; (* V)(1, 3) = 0.0f;
-	(* V)(2,0) = _right.z; (* V)(2, 1) = _up.z; (* V)(2, 2) = _look.z; (* V)(2, 3) = 0.0f;
-	(* V)(3,0) = x;        (* V)(3, 1) = y;     (* V)(3, 2) = z;       (* V)(3, 3) = 1.0f;
-}
+	(* V)(0, 0) = _right.x; (* V)(0, 1) = _up.x; (* V)(0, 2) = _look.x; (* V)(0, 3) = 0.0f;
+	(* V)(1, 0) = _right.y; (* V)(1, 1) = _up.y; (* V)(1, 2) = _look.y; (* V)(1, 3) = 0.0f;
+	(* V)(2, 0) = _right.z; (* V)(2, 1) = _up.z; (* V)(2, 2) = _look.z; (* V)(2, 3) = 0.0f;
+	(* V)(3, 0) = x;        (* V)(3, 1) = y;     (* V)(3, 2) = z;       (* V)(3, 3) = 1.0f;
+}			 
 void Camera :: setCameraType(CameraType cameraType)
 {
 	_cameraType = cameraType;

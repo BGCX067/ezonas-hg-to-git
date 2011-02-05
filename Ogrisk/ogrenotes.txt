@@ -1,0 +1,11 @@
+create:
+	camera
+	light
+	scenenode
+
+simple mats:
+Examples/RustySteel
+		BeachStones
+		GrassFloor
+		Rocky
+		BumpyMetal

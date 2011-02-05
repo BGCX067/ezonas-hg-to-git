@@ -1,0 +1,10 @@
+material normal
+{
+	technique
+	{
+		pass
+		{
+			emissive 0 0 0
+		}
+	}
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Ogrisk" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\Ogrisk" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="OgreMain_d" />
+					<Add library="OIS_d" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Release\Ogrisk" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Release\" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="OgreMain" />
+					<Add library="OIS" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="C:\Ogre172gcc\boost_1_44" />
+			<Add directory="C:\Ogre172gcc\include" />
+			<Add directory="C:\Ogre172gcc\include\OGRE" />
+		</Compiler>
+		<Linker>
+			<Add option="-Wl,--enable-auto-import" />
+			<Add directory="C:\Ogre172gcc\boost_1_44\lib" />
+			<Add directory="C:\Ogre172gcc\lib\$(TARGET_NAME)" />
+		</Linker>
+		<Unit filename="Application.cpp" />
+		<Unit filename="Application.h" />
+		<Unit filename="GameConfig.h" />
+		<Unit filename="Ogrik_main.cpp" />
+		<Unit filename="createscene.cpp" />
+		<Unit filename="frameRenderingQueued.cpp" />
+		<Unit filename="stdafx.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
