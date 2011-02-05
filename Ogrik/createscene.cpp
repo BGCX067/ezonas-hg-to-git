@@ -19,8 +19,10 @@ void Application :: createScene()
 	entplane -> setMaterialName("Examples/Rocky");
 	// billboard for the laser and its dot
 	// first, trying to load the dot
-	laserdot -> attachObject (bbset);
+	// Nodes["dot"] = scenemanager -> createSceneNode("dot");
+	laserdot = scenemanager -> createSceneNode("dot");
 	rootnode -> addChild(laserdot);
+	laserdot -> attachObject (bbset);
 	// ent -> setMaterialName("highlight");
 
 }

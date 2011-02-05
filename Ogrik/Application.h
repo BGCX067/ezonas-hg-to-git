@@ -38,6 +38,7 @@ private:
 // entities and nodes
 	Entity * sinbad, * entplane;
 	SceneNode * rootnode, * laserdot;
+	//map <SceneNode *> Nodes;
 // scene queries
 	Ray cursor_ray;
 	RaySceneQuery * RSQ;
@@ -46,5 +47,6 @@ private:
 // Billboards
 	Billboard * bboard;
 	BillboardSet * bbset;
+	
 };
 

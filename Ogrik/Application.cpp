@@ -53,7 +53,13 @@ Application :: Application():
 		}
 
 		ResourceGroupManager :: getSingleton().initialiseAllResourceGroups();
-	// create the scene
+	}
+	{/* ### Billboards ###################################################### */
+		bbset = scenemanager -> createBillboardSet("LaserDot");
+		bboard = bbset -> createBillboard(Ogre :: Vector3(0, 0, 0));
+		bbset -> setMaterialName("Ogrik/laser");
+	}
+	{// create the scene
 		createScene();
 	}
 	{/* ### Inputs ########################################################## */
@@ -89,11 +95,6 @@ Application :: Application():
 	{/* ### Scene queries ################################################### */
 		cursor_ray = Ray(camera -> getPosition(), camera -> getDirection());
 		RSQ = scenemanager -> createRayQuery(cursor_ray);
-	}
-	{/* ### Billboards ###################################################### */
-		bbset = scenemanager -> createBillboardSet("LaserDot");
-		bboard = bbset -> createBillboard(Ogre :: Vector3(0, 20, 0));
-		bbset -> setMaterialName("Ogrik/laser");
 	}
 	 /*  ### Finished building the appli, congratulations myself ! ########## */
 }

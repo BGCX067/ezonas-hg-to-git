@@ -6,7 +6,8 @@ material Ogrik/laser
 		{
 			texture_unit
 			{
-				texture green-dot.png
+				texture blue-dot.png PF_A8R8G8B8
+				scale 0.01 0.01
 			}
 		}
 	}
