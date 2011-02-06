@@ -12,7 +12,7 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	if (keyboard -> isKeyDown(KC_A)) translate += Ogre :: Vector3(-1, 0, 0);
 	if (keyboard -> isKeyDown(KC_D)) translate += Ogre :: Vector3(1, 0, 0);
 	camera -> moveRelative(translate * evt.timeSinceLastFrame * moving_speed);
-	
+
 #ifdef FPS_CAM
 	mouse -> capture();
 	float rotX = mouse -> getMouseState().X.rel *
@@ -33,7 +33,7 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	RSQR = RSQ -> execute();
 	for (rsqr_iter = RSQR.begin(); rsqr_iter != RSQR.end(); ++ rsqr_iter)
 	{
-		
+
 	}
 
 #endif

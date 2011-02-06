@@ -266,10 +266,15 @@ bool CollisionTools::raycast(const Ogre::Ray &ray, Ogre::Vector3 &result,Ogre::M
             Ogre::uint32 *indices;
 
             // get the mesh information
-			GetMeshInformation(((Ogre::Entity*)pentity)->getMesh(), vertex_count, vertices, index_count, indices,
-                              pentity->getParentNode()->_getDerivedPosition(),
-                              pentity->getParentNode()->_getDerivedOrientation(),
-                              pentity->getParentNode()->_getDerivedScale());
+			GetMeshInformation(((Ogre::Entity*)pentity)->getMesh(),
+								vertex_count,
+								vertices,
+								index_count,
+								indices,
+								
+								pentity->getParentNode()->_getDerivedPosition(),
+								pentity->getParentNode()->_getDerivedOrientation(),
+								pentity->getParentNode()->_getDerivedScale());
 
             // test for hitting individual triangles on the mesh
             bool new_closest_found = false;

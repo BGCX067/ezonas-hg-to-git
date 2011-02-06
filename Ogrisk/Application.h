@@ -15,7 +15,7 @@ public:
 
 // added those 3 lines
 	bool frameRenderingQueued(const FrameEvent & evt);
-	
+
 private:
 	static Application * instance;
 	void createScene();
@@ -31,7 +31,7 @@ private:
 	InputManager * inputmanager;
 	Keyboard * keyboard;
 	Mouse * mouse;
-// game play	
+// game play
 	GameConfig * gameconfig;
 	const float moving_speed;
 	const float rotating_speed;
@@ -47,6 +47,8 @@ private:
 // Billboards
 	Billboard * bboard;
 	BillboardSet * bbset;
-	//BillboardChain * bbchain;
+	BillboardChain * bbchain;
+// Manual objects
+    ManualObject * manobj;
 };
 

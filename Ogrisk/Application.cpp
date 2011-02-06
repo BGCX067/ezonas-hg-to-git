@@ -1,10 +1,10 @@
 #include "stdafx.h"
 
 Application :: Application():
-	scenemanager(NULL), 
-	FrameListener(), 
-//	listener(NULL), 
-	// _keepRunning(true), 
+	scenemanager(NULL),
+	FrameListener(),
+//	listener(NULL),
+	// _keepRunning(true),
 	root(new Root("plugins_d.cfg")),
 	gameconfig(new GameConfig("gameconf.cfg")),
 	moving_speed(gameconfig -> GetValue("moving_speed")),
@@ -55,23 +55,20 @@ Application :: Application():
 		ResourceGroupManager :: getSingleton().initialiseAllResourceGroups();
 	}
 	{/* ### Billboards ###################################################### */
-		bbset = scenemanager -> createBillboardSet("LaserDot");
-		bboard = bbset -> createBillboard(Ogre :: Vector3(0, 0, 0));
-		bbset -> setMaterialName("Ogrik/laser");
 	}
 	{// create the scene
 		createScene();
 	}
 	{/* ### Inputs ########################################################## */
 		ParamList parameters;
-		
+
 		unsigned int windowHandle = 0;
 		ostringstream windowHandleString;
 
 		window -> getCustomAttribute("WINDOW", &windowHandle);
 		windowHandleString << windowHandle;
 		parameters.insert(make_pair("WINDOW", windowHandleString.str()));
-	// those settings unhide the cursor (from ogre's wiki snippets)	
+	// those settings unhide the cursor (from ogre's wiki snippets)
 	#if defined OIS_WIN32_PLATFORM
 		parameters.insert(make_pair(string("w32mouse"), string("DISCL_FOREGROUND" )));
 		parameters.insert(make_pair(string("w32mouse"), string("DISCL_NONEXCLUSIVE")));
