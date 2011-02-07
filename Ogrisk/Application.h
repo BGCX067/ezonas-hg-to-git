@@ -33,6 +33,7 @@ private:
 	Mouse * mouse;
 // game play
 	GameConfig * gameconfig;
+	GameResource * game_rc;
 	const float moving_speed;
 	const float rotating_speed;
 // entities and nodes
@@ -45,9 +46,9 @@ private:
 	RaySceneQueryResult RSQR;
 	RSQR_iter_t rsqr_iter;
 // Billboards
-	Billboard * bboard;
-	BillboardSet * bbset;
-	BillboardChain * bbchain;
+//	Billboard * bboard;
+//	BillboardSet * bbset;
+//	BillboardChain * bbchain;
 // Manual objects
     ManualObject * manobj;
 };

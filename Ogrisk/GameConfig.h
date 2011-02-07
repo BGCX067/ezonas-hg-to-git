@@ -12,3 +12,15 @@ public:
 protected:
 	ConfigFile configfile;
 };
+
+
+class GameResource
+{
+public:
+	GameResource(string _filename) { configfile.load(_filename); }
+	string GetValue(string);
+protected:
+	ConfigFile configfile;
+};
+
+

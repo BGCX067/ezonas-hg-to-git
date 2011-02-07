@@ -1,0 +1,50 @@
+// Computer sciences %%%%%%%%%%%%%%%%
+Linus Torvalds
+Donald Knuth
+Bjarne Stroutup
+Steve Streeting
+
+// Mathematics %%%%%%%%%%%%%%%%
+Alan Turing
+Pierre de Fermat
+William Rowan Hamilton
+Euler
+Gauss
+Neper
+Socrates
+Euclide
+Taylor
+Confucius
+Descartes
+
+// Philosophy %%%%%%%%%%%%%%%%
+Karl Marx
+Noam Chomsky
+Jung
+
+// Entrepreuners %%%%%%%%%%%%%%%%
+Tim Berners-Lee
+Richard Stallman
+Kevin Mitnick
+Gary McKinnon
+
+// Gaming %%%%%%%%%%%%%%%%
+Hideo Kojima
+John Carmack
+Shigeru Miyamoto
+
+// Cartoons %%%%%%%%%%%%%%%%
+Peter Griffin
+Seth MacFarlane
+Quentin Tarantino
+
+// Presidents %%%%%%%%%%%%%%%%
+Barack Obama
+Richard Nixon
+Abraham Lincoln
+
+// cliches %%%%%%%%%%%%%%%%
+metal guy
+pot guy
+hipster
+nerd

@@ -7,6 +7,7 @@ Application :: Application():
 	// _keepRunning(true),
 	root(new Root("plugins_d.cfg")),
 	gameconfig(new GameConfig("gameconf.cfg")),
+	game_rc(new GameResource("game_rc.cfg")),
 	moving_speed(gameconfig -> GetValue("moving_speed")),
 	rotating_speed(gameconfig -> GetValue("rotating_speed"))
 {
@@ -122,3 +123,7 @@ float GameConfig :: GetValue(string _s)
 	istrstr >> result;
 	return result;
 }
+
+string GameResource :: GetValue(string _s)
+{return configfile.getSetting(_s, StringUtil :: BLANK, "sphere.mesh");}
+
