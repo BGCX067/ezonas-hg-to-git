@@ -21,35 +21,35 @@ private:
 	void createScene();
 	Application();
 	~ Application();
-// core objects
+// core objects ###############################################################
 	SceneManager * scenemanager;
 	Root * root;
 	RenderWindow * window;
 	Camera * camera;
 	Viewport * viewport;
-// inputs
+// inputs #####################################################################
 	InputManager * inputmanager;
 	Keyboard * keyboard;
 	Mouse * mouse;
-// game play
+// game play ##################################################################
 	GameConfig * gameconfig;
 	GameResource * game_rc;
 	const float moving_speed;
 	const float rotating_speed;
-// entities and nodes
+// entities and nodes #########################################################
 	Entity * sinbad, * entplane;
 	SceneNode * rootnode, * laserdot;
 	//map <SceneNode *> Nodes;
-// scene queries
+// scene queries ##############################################################
 	Ray cursor_ray;
 	RaySceneQuery * RSQ;
 	RaySceneQueryResult RSQR;
 	RSQR_iter_t rsqr_iter;
-// Billboards
+// Billboards #################################################################
 //	Billboard * bboard;
 //	BillboardSet * bbset;
 //	BillboardChain * bbchain;
-// Manual objects
+// Manual objects #############################################################
     ManualObject * manobj;
 };
 

@@ -2,7 +2,7 @@
 
 void Application :: createScene()
 {
-//camera -> setPolygonMode(PM_WIREFRAME);
+	camera -> setPolygonMode(PM_WIREFRAME);
 	// the ogre
 
 //    sinbad = scenemanager -> createEntity(game_rc -> GetValue("sinbad"));
@@ -14,6 +14,12 @@ void Application :: createScene()
     node -> attachObject(ent1);
     node -> setScale(0.01, 0.01, 0.01);
 
+	SceneNode * node = scenemanager -> createSceneNode("node");
+    Entity * ent = scenemanager -> createEntity("sphere.mesh");
+    node -> attachObject(ent);
+    node -> setPosition (0, 0, 0);
+	//node -> setScale (0.0001, 0.0001, 0.0001);
+	node -> setScale (100, 100, 100);
 // the plane
 	Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -10);
 	Ogre :: MeshManager :: getSingleton().createPlane("plane",

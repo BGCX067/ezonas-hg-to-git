@@ -192,3 +192,9 @@
 22:30:21: Plugin successfully uninstalled
 22:30:21: Unloading library .\RenderSystem_GL_d
 22:30:21: Unregistering ResourceManager for type Material
+17:01:14: Unregistering ResourceManager for type GpuProgram
+17:01:14: *** Stopping Win32GL Subsystem ***
+17:01:14: Unregistering ResourceManager for type Texture
+17:01:14: Plugin successfully uninstalled
+17:01:14: Unloading library .\RenderSystem_GL_d
+17:01:14: Unregistering ResourceManager for type Material
