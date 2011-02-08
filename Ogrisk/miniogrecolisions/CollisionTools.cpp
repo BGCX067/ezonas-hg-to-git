@@ -29,12 +29,13 @@ THE SOFTWARE.
 namespace MOC {
 
 #ifdef ETM_TERRAIN
-CollisionTools::CollisionTools(Ogre::SceneManager *sceneMgr, const ET::TerrainInfo* terrainInfo)
+// CTOR 1 ////////////////////////////////////////////////////////////////////////////////
+CollisionTools :: CollisionTools(Ogre :: SceneManager *sceneMgr, const ET :: TerrainInfo* terrainInfo)
 {
-	mRaySceneQuery = sceneMgr->createRayQuery(Ogre::Ray());
+	mRaySceneQuery = sceneMgr->createRayQuery(Ogre :: Ray());
     if (NULL == mRaySceneQuery)
     {
-      // LOG_ERROR << "Failed to create Ogre::RaySceneQuery instance" << ENDLOG;
+      // LOG_ERROR << "Failed to create Ogre :: RaySceneQuery instance" << ENDLOG;
       return;
     }
     mRaySceneQuery->setSortByDistance(true);
@@ -46,25 +47,25 @@ CollisionTools::CollisionTools(Ogre::SceneManager *sceneMgr, const ET::TerrainIn
 	_heightAdjust = 0.0f;
 }
 #endif
-
-CollisionTools::CollisionTools(Ogre::SceneManager *sceneMgr)
+// CTOR 2 ////////////////////////////////////////////////////////////////////////////////
+CollisionTools :: CollisionTools(Ogre :: SceneManager *sceneMgr)
 {
 	mSceneMgr = sceneMgr;
 
-	mRaySceneQuery = mSceneMgr->createRayQuery(Ogre::Ray());
+	mRaySceneQuery = mSceneMgr->createRayQuery(Ogre :: Ray());
     if (NULL == mRaySceneQuery)
     {
-      // LOG_ERROR << "Failed to create Ogre::RaySceneQuery instance" << ENDLOG;
+      // LOG_ERROR << "Failed to create Ogre :: RaySceneQuery instance" << ENDLOG;
       return;
     }
     mRaySceneQuery->setSortByDistance(true);
 
-    mTSMRaySceneQuery =  mSceneMgr->createRayQuery(Ogre::Ray());
+    mTSMRaySceneQuery =  mSceneMgr->createRayQuery(Ogre :: Ray());
 
     _heightAdjust = 0.0f;
 }
-
-CollisionTools::~CollisionTools()
+// DTOR //////////////////////////////////////////////////////////////////////////////////
+CollisionTools :: ~CollisionTools()
 {
 	if (mRaySceneQuery != NULL)
 		delete mRaySceneQuery;
@@ -72,28 +73,54 @@ CollisionTools::~CollisionTools()
 	if (mTSMRaySceneQuery != NULL)
 		delete mTSMRaySceneQuery;
 }
-bool CollisionTools::raycastFromCamera(Ogre::RenderWindow* rw, Ogre::Camera* camera, const Ogre::Vector2 &mousecoords, Ogre::Vector3 &result, Ogre::Entity* &target,float &closest_distance, const Ogre::uint32 queryMask)
+// raycastFromCamera /////////////////////////////////////////////////////////////////////
+bool CollisionTools :: raycastFromCamera(Ogre :: RenderWindow* rw,
+										Ogre :: Camera* camera,
+										const Ogre :: Vector2 &mousecoords,
+										Ogre :: Vector3 &result,
+										Ogre :: Entity* &target,
+										float &closest_distance,
+										const Ogre :: uint32 queryMask)
 {
-	return raycastFromCamera(rw, camera, mousecoords, result, (Ogre::MovableObject*&) target, closest_distance, queryMask);
+	return raycastFromCamera
+		(rw,
+		camera,
+		mousecoords,
+		result,
+		(Ogre :: MovableObject*&) target,
+		closest_distance,
+		queryMask);
 }
-bool CollisionTools::raycastFromCamera(Ogre::RenderWindow* rw, Ogre::Camera* camera, const Ogre::Vector2 &mousecoords, Ogre::Vector3 &result, Ogre::MovableObject* &target,float &closest_distance, const Ogre::uint32 queryMask)
+// raycastFromCamera /////////////////////////////////////////////////////////////////////
+bool CollisionTools :: raycastFromCamera(Ogre :: RenderWindow* rw,
+										Ogre :: Camera* camera,
+										const Ogre :: Vector2 &mousecoords,
+										Ogre :: Vector3 &result,
+										Ogre :: MovableObject* &target,
+										float &closest_distance,
+										const Ogre :: uint32 queryMask)
 {
 	// Create the ray to test
-	Ogre::Real tx = mousecoords.x / (Ogre::Real) rw->getWidth();
-	Ogre::Real ty = mousecoords.y / (Ogre::Real) rw->getHeight();
-	Ogre::Ray ray = camera->getCameraToViewportRay(tx, ty);
+	Ogre :: Real tx = mousecoords.x / (Ogre :: Real) rw->getWidth();
+	Ogre :: Real ty = mousecoords.y / (Ogre :: Real) rw->getHeight();
+	Ogre :: Ray ray = camera->getCameraToViewportRay(tx, ty);
 
 	return raycast(ray, result, target, closest_distance, queryMask);
 }
-bool CollisionTools::collidesWithEntity(const Ogre::Vector3& fromPoint, const Ogre::Vector3& toPoint, const float collisionRadius, const float rayHeightLevel, const Ogre::uint32 queryMask)
+// collidesWithEntity /////////////////////////////////////////////////////////////////////
+bool CollisionTools :: collidesWithEntity(const Ogre :: Vector3& fromPoint,
+											const Ogre :: Vector3& toPoint,
+											const float collisionRadius,
+											const float rayHeightLevel,
+											const Ogre :: uint32 queryMask)
 {
-	Ogre::Vector3 fromPointAdj(fromPoint.x, fromPoint.y + rayHeightLevel, fromPoint.z);
-	Ogre::Vector3 toPointAdj(toPoint.x, toPoint.y + rayHeightLevel, toPoint.z);
-	Ogre::Vector3 normal = toPointAdj - fromPointAdj;
+	Ogre :: Vector3 fromPointAdj(fromPoint.x, fromPoint.y + rayHeightLevel, fromPoint.z);
+	Ogre :: Vector3 toPointAdj(toPoint.x, toPoint.y + rayHeightLevel, toPoint.z);
+	Ogre :: Vector3 normal = toPointAdj - fromPointAdj;
 	float distToDest = normal.normalise();
 
-	Ogre::Vector3 myResult(0, 0, 0);
-	Ogre::MovableObject* myObject = NULL;
+	Ogre :: Vector3 myResult(0, 0, 0);
+	Ogre :: MovableObject* myObject = NULL;
 	float distToColl = 0.0f;
 
 	if (raycastFromPoint(fromPointAdj, normal, myResult, myObject, distToColl, queryMask))
@@ -106,40 +133,51 @@ bool CollisionTools::collidesWithEntity(const Ogre::Vector3& fromPoint, const Og
 		return false;
 	}
 }
-
-float CollisionTools::getTSMHeightAt(const float x, const float z) {
+// getTSMHeightAt ////////////////////////////////////////////////////////////////////////
+float CollisionTools :: getTSMHeightAt(const float x, const float z) {
 	float y=0.0f;
 
-    static Ogre::Ray updateRay;
+    static Ogre :: Ray updateRay;
 
-    updateRay.setOrigin(Ogre::Vector3(x,9999,z));
-    updateRay.setDirection(Ogre::Vector3::NEGATIVE_UNIT_Y);
+    updateRay.setOrigin(Ogre :: Vector3(x,9999,z));
+    updateRay.setDirection(Ogre :: Vector3 :: NEGATIVE_UNIT_Y);
 
     mTSMRaySceneQuery->setRay(updateRay);
-    Ogre::RaySceneQueryResult& qryResult = mTSMRaySceneQuery->execute();
+    Ogre :: RaySceneQueryResult& qryResult = mTSMRaySceneQuery->execute();
 
-    Ogre::RaySceneQueryResult::iterator i = qryResult.begin();
+    Ogre :: RaySceneQueryResult :: iterator i = qryResult.begin();
     if (i != qryResult.end() && i->worldFragment)
     {
         y=i->worldFragment->singleIntersection.y;
     }
 	return y;
 }
-void CollisionTools::calculateY(Ogre::SceneNode *n, const bool doTerrainCheck, const bool doGridCheck, const float gridWidth, const Ogre::uint32 queryMask)
+// calculateY ////////////////////////////////////////////////////////////////////////////
+void CollisionTools :: calculateY(Ogre :: SceneNode *n,
+									const bool doTerrainCheck,
+									const bool doGridCheck,
+									const float gridWidth,
+									const Ogre :: uint32 queryMask)
 {
-	Ogre::Vector3 pos = n->getPosition();
+	Ogre :: Vector3 pos = n->getPosition();
 
 	float x = pos.x;
 	float z = pos.z;
 	float y = pos.y;
 
-	Ogre::Vector3 myResult(0,0,0);
-	Ogre::MovableObject *myObject=NULL;
+	Ogre :: Vector3 myResult(0,0,0);
+	Ogre :: MovableObject *myObject=NULL;
 	float distToColl = 0.0f;
 
 	float terrY = 0, colY = 0, colY2 = 0;
 
-	if( raycastFromPoint(Ogre::Vector3(x,y,z),Ogre::Vector3::NEGATIVE_UNIT_Y,myResult,myObject, distToColl, queryMask)){
+	if(raycastFromPoint(Ogre :: Vector3(x,y,z),
+						Ogre :: Vector3 :: NEGATIVE_UNIT_Y,
+						myResult,
+						myObject,
+						distToColl,
+						queryMask))
+	{
 		if (myObject != NULL) {
 			colY = myResult.y;
 		} else {
@@ -149,18 +187,25 @@ void CollisionTools::calculateY(Ogre::SceneNode *n, const bool doTerrainCheck, c
 
 	//if doGridCheck is on, repeat not to fall through small holes for example when crossing a hangbridge
 	if (doGridCheck) {
-		if( raycastFromPoint(Ogre::Vector3(x,y,z)+(n->getOrientation()*Ogre::Vector3(0,0,gridWidth)),Ogre::Vector3::NEGATIVE_UNIT_Y,myResult, myObject, distToColl, queryMask)){
-			if (myObject != NULL) {
-				colY = myResult.y;
-			} else {
-				colY = -99999;
-			}
+		if(raycastFromPoint(Ogre :: Vector3(x, y, z) +
+							(n->getOrientation()*Ogre :: Vector3(0,0,gridWidth)),
+								Ogre :: Vector3 :: NEGATIVE_UNIT_Y,
+								myResult,
+								myObject,
+								distToColl,
+								queryMask))
+		{
+			if (myObject != NULL)
+			{ colY = myResult.y; }
+			else
+			{ colY = -99999; }
 		}
 		if (colY<colY2) colY = colY2;
 	}
 
 	// set the parameter to false if you are not using ETM or TSM
-	if (doTerrainCheck) {
+	if (doTerrainCheck)
+	{
 
 #ifdef ETM_TERRAIN
 		// ETM height value
@@ -170,46 +215,71 @@ void CollisionTools::calculateY(Ogre::SceneNode *n, const bool doTerrainCheck, c
 		terrY = getTSMHeightAt(x,z);
 #endif
 
-		if(terrY < colY ) {
+		if(terrY < colY)
 			n->setPosition(x,colY+_heightAdjust,z);
-		} else {
-			n->setPosition(x,terrY+_heightAdjust,z);
 		}
-	} else {
+		else
+			n->setPosition(x,terrY+_heightAdjust,z);
+	}
+	else
+	{
 		if (!doTerrainCheck && colY == -99999) colY = y;
-		n->setPosition(x,colY+_heightAdjust,z);
+		n->setPosition(x, colY + _heightAdjust, z);
 	}
 }
 
 // raycast from a point in to the scene.
 // returns success or failure.
 // on success the point is returned in the result.
-bool CollisionTools::raycastFromPoint(const Ogre::Vector3 &point, 
-                                        const Ogre::Vector3 &normal,
-										Ogre::Vector3 &result,Ogre::Entity* &target,
+// raycastFromPoint ////////////////////////////////////////////////////////////////////////////
+bool CollisionTools :: raycastFromPoint(const Ogre :: Vector3 &point, 
+                                        const Ogre :: Vector3 &normal,
+										Ogre :: Vector3 &result,Ogre :: Entity* &target,
 										float &closest_distance,
-										const Ogre::uint32 queryMask) 
+										const Ogre :: uint32 queryMask) 
 {
-	return raycastFromPoint(point, normal, result,(Ogre::MovableObject*&) target, closest_distance, queryMask);
+	return raycastFromPoint(point,
+								normal,
+								result,
+								(Ogre :: MovableObject*&) target,
+								closest_distance,
+								queryMask);
 }		
-bool CollisionTools::raycastFromPoint(const Ogre::Vector3 &point,
-                                        const Ogre::Vector3 &normal,
-										Ogre::Vector3 &result,Ogre::MovableObject* &target,
+// raycastFromPoint ////////////////////////////////////////////////////////////////////////////
+bool CollisionTools :: raycastFromPoint(const Ogre :: Vector3 &point,
+                                        const Ogre :: Vector3 &normal,
+										Ogre :: Vector3 &result,
+										Ogre :: MovableObject* &target,
 										float &closest_distance,
-										const Ogre::uint32 queryMask)
+										const Ogre :: uint32 queryMask)
 {
     // create the ray to test
-    static Ogre::Ray ray;
+    static Ogre :: Ray ray;
 	ray.setOrigin(point);
 	ray.setDirection(normal);
 
 	return raycast(ray, result, target, closest_distance, queryMask);
 }
-bool CollisionTools::raycast(const Ogre::Ray &ray, Ogre::Vector3 &result,Ogre::Entity* &target,float &closest_distance, const Ogre::uint32 queryMask) 
+// raycast ////////////////////////////////////////////////////////////////////////////
+bool CollisionTools :: raycast(const Ogre :: Ray &ray,
+								Ogre :: Vector3 &result,
+								Ogre :: Entity* &target,
+								float &closest_distance,
+								const Ogre :: uint32 queryMask)
 {
-	return raycast(ray, result, (Ogre::MovableObject*&)target, closest_distance, queryMask);
+	return raycast(ray,
+					result,
+					(Ogre :: MovableObject*&)target,
+					closest_distance,
+					queryMask);
 }
-bool CollisionTools::raycast(const Ogre::Ray &ray, Ogre::Vector3 &result,Ogre::MovableObject* &target,float &closest_distance, const Ogre::uint32 queryMask)
+
+// raycast ////////////////////////////////////////////////////////////////////////////
+bool CollisionTools :: raycast(const Ogre :: Ray &ray,
+								Ogre :: Vector3 &result,
+								Ogre :: MovableObject* &target,
+								float &closest_distance,
+								const Ogre :: uint32 queryMask)
 {
 	target = NULL;
 
@@ -238,10 +308,10 @@ bool CollisionTools::raycast(const Ogre::Ray &ray, Ogre::Vector3 &result,Ogre::M
     // there are some minor optimizations (distance based) that mean we wont have to
     // check all of the objects most of the time, but the worst case scenario is that
     // we need to test every triangle of every object.
-    //Ogre::Ogre::Real closest_distance = -1.0f;
+    //Ogre :: Ogre :: Real closest_distance = -1.0f;
 	closest_distance = -1.0f;
-    Ogre::Vector3 closest_result;
-    Ogre::RaySceneQueryResult &query_result = mRaySceneQuery->getLastResults();
+    Ogre :: Vector3 closest_result;
+    Ogre :: RaySceneQueryResult &query_result = mRaySceneQuery->getLastResults();
     for (size_t qr_idx = 0; qr_idx < query_result.size(); qr_idx++)
     {
         // stop checking if we have found a raycast hit that is closer
@@ -257,16 +327,17 @@ bool CollisionTools::raycast(const Ogre::Ray &ray, Ogre::Vector3 &result,Ogre::M
             (query_result[qr_idx].movable->getMovableType().compare("Entity") == 0))
         {
             // get the entity to check
-			Ogre::MovableObject *pentity = static_cast<Ogre::MovableObject*>(query_result[qr_idx].movable);
+			Ogre :: MovableObject *pentity = static_cast<Ogre :: MovableObject*>
+														(query_result[qr_idx].movable);
 
             // mesh data to retrieve
             size_t vertex_count;
             size_t index_count;
-            Ogre::Vector3 *vertices;
-            Ogre::uint32 *indices;
+            Ogre :: Vector3 *vertices;
+            Ogre :: uint32 *indices;
 
             // get the mesh information
-			GetMeshInformation(((Ogre::Entity*)pentity)->getMesh(),
+			GetMeshInformation(((Ogre :: Entity*)pentity)->getMesh(),
 								vertex_count,
 								vertices,
 								index_count,
@@ -281,8 +352,12 @@ bool CollisionTools::raycast(const Ogre::Ray &ray, Ogre::Vector3 &result,Ogre::M
             for (size_t i = 0; i < index_count; i += 3)
             {
                 // check for a hit against this triangle
-                std::pair<bool, Ogre::Real> hit = Ogre::Math::intersects(ray, vertices[indices[i]],
-                    vertices[indices[i+1]], vertices[indices[i+2]], true, false);
+                std :: pair<bool, Ogre :: Real> hit = Ogre :: Math :: intersects
+				(ray, vertices[indices[i]],
+                    vertices[indices[i+1]],
+					vertices[indices[i+2]],
+					true,
+					false);
 
                 // if it was a hit check if its the closest
                 if (hit.first)
@@ -328,14 +403,15 @@ bool CollisionTools::raycast(const Ogre::Ray &ray, Ogre::Vector3 &result,Ogre::M
 
 // Get the mesh information for the given mesh.
 // Code found on this forum link: http://www.ogre3d.org/wiki/index.php/RetrieveVertexData
-void CollisionTools::GetMeshInformation(const Ogre::MeshPtr mesh,
+// setHeightAdjust ////////////////////////////////////////////////////////////////////////////
+void GetMeshInformation :: GetMeshInformation(const Ogre :: MeshPtr mesh,
                                 size_t &vertex_count,
-                                Ogre::Vector3* &vertices,
+                                Ogre :: Vector3* &vertices,
                                 size_t &index_count,
-                                Ogre::uint32* &indices,
-                                const Ogre::Vector3 &position,
-                                const Ogre::Quaternion &orient,
-                                const Ogre::Vector3 &scale)
+                                Ogre :: uint32* &indices,
+                                const Ogre :: Vector3 &position,
+                                const Ogre :: Quaternion &orient,
+                                const Ogre :: Vector3 &scale)
 {
     bool added_shared = false;
     size_t current_offset = 0;
@@ -348,12 +424,12 @@ void CollisionTools::GetMeshInformation(const Ogre::MeshPtr mesh,
     // Calculate how many vertices and indices we're going to need
     for (unsigned short i = 0; i < mesh->getNumSubMeshes(); ++i)
     {
-        Ogre::SubMesh* submesh = mesh->getSubMesh( i );
+        Ogre :: SubMesh* submesh = mesh->getSubMesh(i);
 
         // We only need to add the shared vertices once
         if(submesh->useSharedVertices)
         {
-            if( !added_shared )
+            if(!added_shared)
             {
                 vertex_count += mesh->sharedVertexData->vertexCount;
                 added_shared = true;
@@ -370,17 +446,20 @@ void CollisionTools::GetMeshInformation(const Ogre::MeshPtr mesh,
 
 
     // Allocate space for the vertices and indices
-    vertices = new Ogre::Vector3[vertex_count];
-    indices = new Ogre::uint32[index_count];
+    vertices = new Ogre :: Vector3[vertex_count];
+    indices = new Ogre :: uint32[index_count];
 
     added_shared = false;
 
     // Run through the submeshes again, adding the data into the arrays
-    for ( unsigned short i = 0; i < mesh->getNumSubMeshes(); ++i)
+    for (unsigned short i = 0; i < mesh->getNumSubMeshes(); ++i)
     {
-        Ogre::SubMesh* submesh = mesh->getSubMesh(i);
+        Ogre :: SubMesh* submesh = mesh->getSubMesh(i);
 
-        Ogre::VertexData* vertex_data = submesh->useSharedVertices ? mesh->sharedVertexData : submesh->vertexData;
+        Ogre :: VertexData* vertex_data =
+		submesh->useSharedVertices
+			? mesh->sharedVertexData
+			: submesh->vertexData;
 
         if((!submesh->useSharedVertices)||(submesh->useSharedVertices && !added_shared))
         {
@@ -390,26 +469,27 @@ void CollisionTools::GetMeshInformation(const Ogre::MeshPtr mesh,
                 shared_offset = current_offset;
             }
 
-            const Ogre::VertexElement* posElem =
-                vertex_data->vertexDeclaration->findElementBySemantic(Ogre::VES_POSITION);
+            const Ogre :: VertexElement* posElem =
+                vertex_data->vertexDeclaration->findElementBySemantic(Ogre :: VES_POSITION);
 
-            Ogre::HardwareVertexBufferSharedPtr vbuf =
+            Ogre :: HardwareVertexBufferSharedPtr vbuf =
                 vertex_data->vertexBufferBinding->getBuffer(posElem->getSource());
 
             unsigned char* vertex =
-                static_cast<unsigned char*>(vbuf->lock(Ogre::HardwareBuffer::HBL_READ_ONLY));
+                static_cast<unsigned char*>
+				(vbuf->lock(Ogre :: HardwareBuffer :: HBL_READ_ONLY));
 
-            // There is _no_ baseVertexPointerToElement() which takes an Ogre::Ogre::Real or a double
-            //  as second argument. So make it float, to avoid trouble when Ogre::Ogre::Real will
+            // There is _no_ baseVertexPointerToElement() which takes an Ogre :: Ogre :: Real or a double
+            //  as second argument. So make it float, to avoid trouble when Ogre :: Ogre :: Real will
             //  be comiled/typedefed as double:
-            //      Ogre::Ogre::Real* pOgre::Real;
+            //      Ogre :: Ogre :: Real* pOgre :: Real;
             float* pReal;
 
-            for( size_t j = 0; j < vertex_data->vertexCount; ++j, vertex += vbuf->getVertexSize())
+            for(size_t j = 0; j < vertex_data->vertexCount; ++j, vertex += vbuf->getVertexSize())
             {
                 posElem->baseVertexPointerToElement(vertex, &pReal);
 
-                Ogre::Vector3 pt(pReal[0], pReal[1], pReal[2]);
+                Ogre :: Vector3 pt(pReal[0], pReal[1], pReal[2]);
 
                 vertices[current_offset + j] = (orient * (pt * scale)) + position;
             }
@@ -419,31 +499,32 @@ void CollisionTools::GetMeshInformation(const Ogre::MeshPtr mesh,
         }
 
 
-        Ogre::IndexData* index_data = submesh->indexData;
+        Ogre :: IndexData* index_data = submesh->indexData;
         size_t numTris = index_data->indexCount / 3;
-        Ogre::HardwareIndexBufferSharedPtr ibuf = index_data->indexBuffer;
+        Ogre :: HardwareIndexBufferSharedPtr ibuf = index_data->indexBuffer;
 
-        bool use32bitindexes = (ibuf->getType() == Ogre::HardwareIndexBuffer::IT_32BIT);
+        bool use32bitindexes = (ibuf->getType() == Ogre :: HardwareIndexBuffer :: IT_32BIT);
 
-        Ogre::uint32*  pLong = static_cast<Ogre::uint32*>(ibuf->lock(Ogre::HardwareBuffer::HBL_READ_ONLY));
+        Ogre :: uint32* pLong = static_cast<Ogre :: uint32*>
+		(ibuf->lock(Ogre :: HardwareBuffer :: HBL_READ_ONLY));
         unsigned short* pShort = reinterpret_cast<unsigned short*>(pLong);
 
 
         size_t offset = (submesh->useSharedVertices)? shared_offset : current_offset;
 
-        if ( use32bitindexes )
+        if (use32bitindexes)
         {
-            for ( size_t k = 0; k < numTris*3; ++k)
+            for (size_t k = 0; k < numTris*3; ++k)
             {
-                indices[index_offset++] = pLong[k] + static_cast<Ogre::uint32>(offset);
+				indices[index_offset++] = pLong[k] + static_cast<Ogre :: uint32>(offset);
             }
         }
         else
         {
-            for ( size_t k = 0; k < numTris*3; ++k)
+            for (size_t k = 0; k < numTris*3; ++k)
             {
-                indices[index_offset++] = static_cast<Ogre::uint32>(pShort[k]) +
-                    static_cast<Ogre::uint32>(offset);
+                indices[index_offset++] = static_cast<Ogre :: uint32>(pShort[k]) +
+                    static_cast<Ogre :: uint32>(offset);
             }
         }
 
@@ -451,12 +532,12 @@ void CollisionTools::GetMeshInformation(const Ogre::MeshPtr mesh,
         current_offset = next_offset;
     }
 }
-
-void CollisionTools::setHeightAdjust(const float heightadjust) {
+// setHeightAdjust ////////////////////////////////////////////////////////////////////////////
+void CollisionTools :: setHeightAdjust(const float heightadjust) {
 	_heightAdjust = heightadjust;
 }
-
-float CollisionTools::getHeightAdjust(void) {
+// getHeightAdjust ////////////////////////////////////////////////////////////////////////////
+float CollisionTools :: getHeightAdjust(void) {
 	return _heightAdjust;
 }
 
