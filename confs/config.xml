@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<NotepadPlus>
+    <GUIConfigs>
+        <!-- 3 status : "large", "small" or "hide"-->
+        <GUIConfig name="ToolBar" visible="yes">standard</GUIConfig>
+        <!-- 2 status : "show" or "hide"-->
+        <GUIConfig name="StatusBar">show</GUIConfig>
+        <!-- For all attributs, 2 status : "yes" or "no"-->
+        <GUIConfig name="TabBar" dragAndDrop="yes" drawTopBar="yes" drawInactiveTab="yes" reduce="yes" closeButton="yes" doubleClick2Close="no" vertical="no" multiLine="yes" hide="no" />
+        <!-- 2 positions : "horizontal" or "vertical"-->
+        <GUIConfig name="ScintillaViewsSplitter">vertical</GUIConfig>
+        <!-- For the attribut of position, 2 status : docked or undocked ; 2 status : "show" or "hide" -->
+        <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
+        <GUIConfig name="TabSetting" size="4" replaceBySpace="no" />
+        <!--App position-->
+        <GUIConfig name="AppPosition" x="738" y="123" width="707" height="647" isMaximized="no" />
+        <!-- For the primary scintilla view,
+             2 status for Attribut lineNumberMargin, bookMarkMargin, indentGuideLine and currentLineHilitingShow: "show" or "hide"
+             4 status for Attribut folderMarkStyle : "simple", "arrow", "circle" and "box"  -->
+        <GUIConfig name="ScintillaPrimaryView" lineNumberMargin="show" bookMarkMargin="hide" folderMarkStyle="simple" indentGuideLine="show" currentLineHilitingShow="show" Wrap="yes" edge="line" edgeNbColumn="90" wrapSymbolShow="hide" zoom="0" whiteSpaceShow="hide" eolShow="hide" lineWrapMethod="indent" zoom2="1" />
+        <!-- For the secodary scintilla view,
+             2 status for Attribut lineNumberMargin, bookMarkMargin, indentGuideLine and currentLineHilitingShow: "show" or "hide"
+             4 status for Attribut folderMarkStyle : "simple", "arrow", "circle" and "box" -->
+        <GUIConfig name="Auto-detection">auto</GUIConfig>
+        <GUIConfig name="CheckHistoryFiles">no</GUIConfig>
+        <GUIConfig name="TrayIcon">no</GUIConfig>
+        <GUIConfig name="RememberLastSession">yes</GUIConfig>
+        <!--
+			New Document default settings :
+				format = 0/1/2 -> win/unix/mac
+				encoding = 0/1/2/3/4/5 -> ANSI/UCS2Big/UCS2small/UTF8/UTF8-BOM
+				defaultLang = 0/1/2/..
+
+			Note 1 : UTF8-BOM -> UTF8 without BOM
+			Note 2 : for defaultLang :
+					0 -> L_TXT
+					1 -> L_PHP
+					... (see source file)
+		-->
+        <GUIConfig name="NewDocDefaultSettings" format="0" encoding="1" lang="3" openAnsiAsUTF8="no" codepage="-1" />
+        <GUIConfig name="langsExcluded" gr0="96" gr1="104" gr2="39" gr3="27" gr4="222" gr5="91" gr6="254" gr7="0" langMenuCompact="yes" />
+        <!--
+		printOption is print colour setting, the following values are possible :
+			0 : WYSIWYG
+			1 : Invert colour
+			2 : B & W
+			3 : WYSIWYG but without background colour
+		-->
+        <GUIConfig name="Print" lineNumber="no" printOption="0" headerLeft="$(FULL_CURRENT_PATH)" headerMiddle="" headerRight="$(LONG_DATE) $(TIME)" headerFontName="IBMPC" headerFontStyle="1" headerFontSize="8" footerLeft="" footerMiddle="-$(CURRENT_PRINTING_PAGE)-" footerRight="" footerFontName="" footerFontStyle="0" footerFontSize="9" margeLeft="0" margeTop="0" margeRight="0" margeBottom="0" />
+        <!--
+                            Backup Setting :
+                                0 : non backup
+                                1 : simple backup
+                                2 : verbose backup
+                      -->
+        <GUIConfig name="Backup" action="0" useCustumDir="no" dir="" />
+        <GUIConfig name="TaskList">yes</GUIConfig>
+        <GUIConfig name="SaveOpenFileInSameDir">no</GUIConfig>
+        <!--
+			value 0 for the folloing parameters means invisible :
+			leftWidth, topHight, rightWidth, bottomHight
+			
+					position value for the PluginDlg:
+						
+						0 : left
+						 1 : right
+						2 : top
+						3 : bottom
+						>= 4 : undocked -> FloatingWindow id
+			-->
+        <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20110219">no</GUIConfig>
+        <GUIConfig name="MaitainIndent">yes</GUIConfig>
+        <GUIConfig name="MRU">yes</GUIConfig>
+        <GUIConfig name="URL">0</GUIConfig>
+        <GUIConfig name="globalOverride" fg="no" bg="no" font="no" fontSize="no" bold="no" italic="yes" underline="no" />
+        <GUIConfig name="auto-completion" autoCAction="0" triggerFromNbChar="1" funcParams="no" />
+        <GUIConfig name="sessionExt"></GUIConfig>
+        <GUIConfig name="SmartHighLight">yes</GUIConfig>
+        <GUIConfig name="TagsMatchHighLight" TagAttrHighLight="yes" HighLightNonHtmlZone="no">yes</GUIConfig>
+        <GUIConfig name="MenuBar">show</GUIConfig>
+        <GUIConfig name="Caret" width="4" blinkRate="116" />
+        <GUIConfig name="ScintillaGlobalSettings" enableMultiSelection="no" />
+        <GUIConfig name="openSaveDir" value="0" defaultDirPath="" />
+        <GUIConfig name="titleBar" short="yes" />
+        <GUIConfig name="stylerTheme" path="C:\Program Files\Notepad++\stylers.xml" />
+        <GUIConfig name="DockingManager" leftWidth="200" rightWidth="200" topHeight="200" bottomHeight="239">
+            <PluginDlg pluginName="dummy" id="0" curr="3" prev="-1" isVisible="no" />
+            <PluginDlg pluginName="dbgpPlugin.dll" id="0" curr="3" prev="-1" isVisible="no" />
+            <PluginDlg pluginName="NppExec" id="-1" curr="3" prev="-1" isVisible="yes" />
+            <ActiveTabs cont="0" activeTab="-1" />
+            <ActiveTabs cont="1" activeTab="-1" />
+            <ActiveTabs cont="2" activeTab="-1" />
+            <ActiveTabs cont="3" activeTab="-1" />
+        </GUIConfig>
+    </GUIConfigs>
+    <!-- The History of opened files list -->
+    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="2" transparencyMode="1" transparency="150">
+        <Find name="tal" />
+        <Find name="al$" />
+        <Find name="LightRibbonTrail" />
+        <Find name="font" />
+        <Find name="Bitstream Vera Serif" />
+        <Find name="Bitstream Charter" />
+        <Find name="Bitstream Vera Sans" />
+        <Find name="Lucida Sans Unicode" />
+        <Find name="Courier New" />
+        <Find name="Times New Roman" />
+        <Replace name="Consolas" />
+        <Replace name="###########################" />
+        <Replace name="}\r\n" />
+        <Replace name=" -&gt; " />
+        <Replace name=" :: " />
+        <Replace name=")" />
+        <Replace name="(" />
+        <Replace name=" * " />
+        <Replace name=";" />
+        <Replace name="l_spot" />
+    </FindHistory>
+    <History nbMaxFile="10">
+        <File filename="C:\Documents and Settings\jorinovski.CREADOMAIN.001\Local Settings\Temp\fz3temp-1\words-al.txt" />
+        <File filename="C:\Documents and Settings\jorinovski.CREADOMAIN.001\Local Settings\Temp\fz3temp-1\wordgen.py" />
+        <File filename="C:\Documents and Settings\jorinovski.CREADOMAIN.001\Mes documents\_hg\Ogrisk\frameRenderingQueued.cpp" />
+        <File filename="C:\Documents and Settings\jorinovski.CREADOMAIN.001\Mes documents\_hg\playcore\zign\individuals.txt" />
+        <File filename="C:\Documents and Settings\jorinovski.CREADOMAIN.001\Mes documents\_hg\.hg\hgrc" />
+        <File filename="C:\Program Files\Notepad++\themes\stylers2.xml" />
+        <File filename="C:\Program Files\Notepad++\langs.xml" />
+        <File filename="C:\Documents and Settings\jorinovski.CREADOMAIN.001\Mes documents\_hg\cxx-syntax-test.cc" />
+        <File filename="C:\Documents and Settings\jorinovski.CREADOMAIN.001\Mes documents\_hg\Ogrisk\gameconf.cfg" />
+        <File filename="C:\Documents and Settings\jorinovski.CREADOMAIN.001\Mes documents\_hg\Ogrisk\game_rc.cfg" />
+    </History>
+</NotepadPlus>
