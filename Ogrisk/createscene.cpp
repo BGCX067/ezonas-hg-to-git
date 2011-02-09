@@ -14,7 +14,7 @@ void Application :: createScene()
     node -> attachObject(ent1);
     node -> setScale(0.01, 0.01, 0.01);
 
-	SceneNode * node = scenemanager -> createSceneNode("node");
+	//SceneNode * node = scenemanager -> createSceneNode("node");
     Entity * ent = scenemanager -> createEntity("sphere.mesh");
     node -> attachObject(ent);
     node -> setPosition (0, 0, 0);

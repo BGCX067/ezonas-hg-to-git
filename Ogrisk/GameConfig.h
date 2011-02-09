@@ -13,7 +13,6 @@ protected:
 	ConfigFile configfile;
 };
 
-
 class GameResource
 {
 public:

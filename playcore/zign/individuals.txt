@@ -16,6 +16,7 @@ Euclide
 Taylor
 Confucius
 Descartes
+Newton
 
 // Philosophy %%%%%%%%%%%%%%%%
 Karl Marx
