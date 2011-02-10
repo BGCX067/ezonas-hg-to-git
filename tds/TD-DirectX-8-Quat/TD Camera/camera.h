@@ -37,6 +37,7 @@ public:
 	virtual void setOffset(float _fBack, float _fHeight){};
 
 	void getViewMatrix(D3DXMATRIX* V); 
+	void setViewMatrix(D3DXMATRIX* V); 
 	void getPosition(D3DXVECTOR3* pos); 
 	void setPosition(D3DXVECTOR3* pos); 
 

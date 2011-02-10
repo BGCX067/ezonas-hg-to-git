@@ -79,7 +79,7 @@ void CameraManager::setCameraMode(CameraMode _CameraMode)
     {
     case CAMDEBUG:
         m_pCamera = new CameraDebug(*pCamera);
-		Transit();
+		//Transit(* pCamera, * m_pCamera);
         delete pCamera;
         break;
     case CAMFIRST:
@@ -109,34 +109,46 @@ CameraManager* CameraManager::getCameraManager()
 void CameraManager::update(float timeDelta)
 {
     if (m_pCamera) m_pCamera->update(timeDelta);
-
 }
 void CameraManager::setTarget(Object* _target)
 {
     m_pTarget = _target;
     m_pCamera->setTarget(m_pTarget);
 }
-
-void Transit(Camera cam1, Camera cam2)
+void Transit(Camera & cam1, Camera & cam2)
 {
 	if(IsTransiting == false)
 	{
 		IsTransiting = true;
 		current_factor = 0.0f;
 	}
-	else
-	if(current_factor >= 1.0f)
+
+	if(current_factor <= 1.0f)
 	{
-		IsTransiting = false;
+		current_factor += interp_step;
+	// positions
+		cam1.getPosition(& v1);
+		cam2.getPosition(& v2);
+		PositionLerp(v1, v2, v3, current_factor);
+		m_pCamera -> setPosition(& v3);
+
+	//rotation
+		// converting mats to quats
+		cam1.getViewMatrix(& m1);
+		cam2.getViewMatrix(& m2);
+		D3DXQuaternionRotationMatrix(& q1, & m1);
+		D3DXQuaternionRotationMatrix(& q2, & m2);
+		
+		// interpolating
+		D3DXQuaternionSlerp(& q3, & q2, & q1, current_factor);
+		// converting back quats to mats
+		D3DXMatrixRotationQuaternion(& m3, & q3);
+		// setting the current cam
+		m_pCamera -> S
 	}
 	else
 	{
-		current_factor += interp_step;
-		v1 = cam1.getPosition();
-		v2 = cam2.getPosition();
-		PositionLerp(v1, v2, v3, current_factor);
-
-		D3DXQuaternionSlerp();
+		IsTransiting = false;
 	}
 }
 void PositionLerp // cam1 is old cam pos, cam2 is the new cam pos

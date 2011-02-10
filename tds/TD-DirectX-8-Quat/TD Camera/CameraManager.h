@@ -35,7 +35,8 @@ private:
 	CameraManager(CameraMode _cameraMode);
 
 	// quats
-	void Transit(Camera * cam1, Camera * cam2);
+	Camera * oldcamera;
+	void Transit(Camera & cam1, Camera & cam2);
 	bool IsTransiting;
 	void PositionLerp
 		(D3DXVECTOR3 & cam1,
@@ -45,6 +46,7 @@ private:
 	float current_factor;
 	float interp_step;
 	D3DXVECTOR3 v1, v2, v3;
+	D3DXMATRIX m1, m2, m3;
 	D3DXQUATERNION q1, q2, q3;
 };
 #endif // PC1__cameraManagerH__

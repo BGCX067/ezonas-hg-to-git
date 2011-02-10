@@ -1,11 +1,13 @@
-﻿ // Build a matrix from a quaternion
+﻿// Build a matrix from a quaternion
+// QUAT -> (-) -> MAT
 D3DXMATRIX* WINAPI D3DXMatrixRotationQuaternion
     (D3DXMATRIX *pOut, CONST D3DXQUATERNION *pQ);
 
+// MAT -> (-) -> QUAT
 // Build a quaternion from a rotation matrix.
 D3DXQUATERNION* WINAPI D3DXQuaternionRotationMatrix
     (D3DXQUATERNION *pOut, CONST D3DXMATRIX *pM);
-
+//---
 // Rotation about arbitrary axis.
 D3DXQUATERNION* WINAPI D3DXQuaternionRotationAxis
     (D3DXQUATERNION *pOut, CONST D3DXVECTOR3 *pV, FLOAT Angle);
