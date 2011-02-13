@@ -104,9 +104,9 @@ void Camera::update(float timeDelta)
 void Camera :: setViewMatrix(D3DXMATRIX* V)
 {
 
-	_right.x = (*V)(0,0); _up.x = (*V)(0, 1) = ; _look.x = (*V)(0, 2);
-	_right.y = (*V)(1,0); _up.y = (*V)(1, 1) = ; _look.y = (*V)(1, 2);
-	_right.z = (*V)(2,0); _up.z = (*V)(2, 1) = ; _look.z = (*V)(2, 2);
+	_right.x = (*V)(0,0); _up.x = (*V)(0, 1); _look.x = (*V)(0, 2);
+	_right.y = (*V)(1,0); _up.y = (*V)(1, 1); _look.y = (*V)(1, 2);
+	_right.z = (*V)(2,0); _up.z = (*V)(2, 1); _look.z = (*V)(2, 2);
 	//(*V)(3,0) = x;        (*V)(3, 1) = y;     (*V)(3, 2) = z;       (*V)(3, 3) = 1.0f;
 	D3DXVec3Normalize(&_look, &_look);
 	D3DXVec3Normalize(&_up, &_up);
