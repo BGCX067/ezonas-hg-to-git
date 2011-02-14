@@ -100,7 +100,8 @@ bool OgreVisionEngine::RaycastFromPoint(const Vector3 &point,
     }
  
     // return the result
-    if (closest_distance >= 0.0f)
+    
+	if (closest_distance >= 0.0f)
     {
         // raycast success
         result = closest_result;

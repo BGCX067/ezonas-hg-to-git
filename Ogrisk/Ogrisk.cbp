@@ -49,6 +49,9 @@
 		<Unit filename="Application.h" />
 		<Unit filename="GameConfig.h" />
 		<Unit filename="Ogrik_main.cpp" />
+		<Unit filename="RayCast.c">
+			<Option compilerVar="CPP" />
+		</Unit>
 		<Unit filename="createscene.cpp" />
 		<Unit filename="frameRenderingQueued.cpp" />
 		<Unit filename="stdafx.h" />

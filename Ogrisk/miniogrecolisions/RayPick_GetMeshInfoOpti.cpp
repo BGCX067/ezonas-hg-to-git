@@ -1,6 +1,6 @@
 // Get the mesh information for the given mesh.
 // Code found in Wiki: www.ogre3d.org/wiki/index.php/RetrieveVertexData
-void OgreVE::GetMeshInformation(const Ogre::MeshPtr mesh,
+void RayPick :: GetMeshInformation(const Ogre::MeshPtr mesh,
                                 size_t &vertex_count,
                                 Ogre::Vector3* &vertices,
                                 size_t &index_count,

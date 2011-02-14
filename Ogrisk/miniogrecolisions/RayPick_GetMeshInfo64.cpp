@@ -1,20 +1,23 @@
-void RayCastUtils::GetMeshInformation(Entity *entity,
-									size_t &vertex_count,
-									Ogre::Vector3* &vertices,
-									size_t &index_count,
-									Ogre::uint32* &indices,
-									const Ogre::Vector3 &position,
-									const Ogre::Quaternion &orient,
-									const Ogre::Vector3 &scale)
+#include "stdafx.h"
+
+void RayPick :: GetMeshInformation
+(
+	Entity *entity,
+	const Ogre :: Vector3 & position,
+	const Ogre :: Quaternion & orient,
+	const Ogre :: Vector3 & scale
+	)
 {
 	bool added_shared = false;
-	size_t current_offset = 0;
-	size_t shared_offset = 0;
-	size_t next_offset = 0;
-	size_t index_offset = 0;
+	
+	current_offset = 0;
+	shared_offset = 0;
+	next_offset = 0;
+	index_offset = 0;
+	
 	vertex_count = index_count = 0;
  
-	Ogre::MeshPtr mesh = entity->getMesh();
+	Ogre :: MeshPtr mesh = entity->getMesh();
  
  
 	bool useSoftwareBlendingVertices = entity->hasSkeleton();
@@ -27,7 +30,7 @@ void RayCastUtils::GetMeshInformation(Entity *entity,
 	// Calculate how many vertices and indices we're going to need
 	for (unsigned short i = 0; i < mesh->getNumSubMeshes(); ++i)
 	{
-		Ogre::SubMesh* submesh = mesh->getSubMesh( i );
+		Ogre :: SubMesh* submesh = mesh->getSubMesh( i );
  
 		// We only need to add the shared vertices once
 		if(submesh->useSharedVertices)
@@ -49,29 +52,32 @@ void RayCastUtils::GetMeshInformation(Entity *entity,
  
  
 	// Allocate space for the vertices and indices
-	vertices = new Ogre::Vector3[vertex_count];
-	indices = new Ogre::uint32[index_count];
+	vertices = new Ogre :: Vector3[vertex_count];
+	indices = new Ogre :: uint32[index_count];
  
 	added_shared = false;
  
 	// Run through the submeshes again, adding the data into the arrays
-	for ( unsigned short i = 0; i < mesh->getNumSubMeshes(); ++i)
+	for (unsigned short i = 0; i < mesh->getNumSubMeshes(); ++i)
 	{
-		Ogre::SubMesh* submesh = mesh->getSubMesh(i);
+		Ogre :: SubMesh* submesh = mesh->getSubMesh(i);
  
 		//----------------------------------------------------------------
 		// GET VERTEXDATA
 		//----------------------------------------------------------------
-		Ogre::VertexData* vertex_data;
+		Ogre :: VertexData* vertex_data;
  
 		//When there is animation:
 		if(useSoftwareBlendingVertices)
-			vertex_data = submesh->useSharedVertices ? entity->_getSkelAnimVertexData() : entity->getSubEntity(i)->_getSkelAnimVertexData();
+			vertex_data =
+			submesh->useSharedVertices
+				? entity->_getSkelAnimVertexData()
+				: entity->getSubEntity(i)->_getSkelAnimVertexData();
 		else
 			vertex_data = submesh->useSharedVertices ? mesh->sharedVertexData : submesh->vertexData;
  
  
-		if((!submesh->useSharedVertices)||(submesh->useSharedVertices && !added_shared))
+		if((!submesh->useSharedVertices) || (submesh->useSharedVertices && !added_shared))
 		{
 			if(submesh->useSharedVertices)
 			{
@@ -79,27 +85,26 @@ void RayCastUtils::GetMeshInformation(Entity *entity,
 				shared_offset = current_offset;
 			}
  
-			const Ogre::VertexElement* posElem =
-				vertex_data->vertexDeclaration->findElementBySemantic(Ogre::VES_POSITION);
+			const Ogre :: VertexElement* posElem =
+				vertex_data->vertexDeclaration->findElementBySemantic(Ogre :: VES_POSITION);
  
-			Ogre::HardwareVertexBufferSharedPtr vbuf =
+			Ogre :: HardwareVertexBufferSharedPtr vbuf =
 				vertex_data->vertexBufferBinding->getBuffer(posElem->getSource());
  
 			unsigned char* vertex =
-				static_cast<unsigned char*>(vbuf->lock(Ogre::HardwareBuffer::HBL_READ_ONLY));
+				static_cast<unsigned char*>
+					(vbuf->lock(Ogre :: HardwareBuffer :: HBL_READ_ONLY));
  
-			// There is _no_ baseVertexPointerToElement() which takes an Ogre::Real or a double
-			//  as second argument. So make it float, to avoid trouble when Ogre::Real will
+			// There is _no_ baseVertexPointerToElement() which takes an Ogre :: Real or a double
+			//  as second argument. So make it float, to avoid trouble when Ogre :: Real will
 			//  be comiled/typedefed as double:
-			//      Ogre::Real* pReal;
+			//      Ogre :: Real* pReal;
 			float* pReal;
  
-			for( size_t j = 0; j < vertex_data->vertexCount; ++j, vertex += vbuf->getVertexSize())
+			for(size_t j = 0; j < vertex_data->vertexCount; ++j, vertex += vbuf->getVertexSize())
 			{
 				posElem->baseVertexPointerToElement(vertex, &pReal);
- 
-				Ogre::Vector3 pt(pReal[0], pReal[1], pReal[2]);
- 
+				Ogre :: Vector3 pt(pReal[0], pReal[1], pReal[2]);
 				vertices[current_offset + j] = (orient * (pt * scale)) + position;
 			}
  
@@ -108,31 +113,32 @@ void RayCastUtils::GetMeshInformation(Entity *entity,
 		}
  
  
-		Ogre::IndexData* index_data = submesh->indexData;
-		size_t numTris = index_data->indexCount / 3;
-		Ogre::HardwareIndexBufferSharedPtr ibuf = index_data->indexBuffer;
+		index_data = submesh -> indexData;
+		numTris = index_data -> indexCount / 3;
+		ibuf = index_data -> indexBuffer;
  
-		bool use32bitindexes = (ibuf->getType() == Ogre::HardwareIndexBuffer::IT_32BIT);
+		use32bitindexes =
+		(ibuf->getType() == Ogre :: HardwareIndexBuffer :: IT_32BIT);
  
-		void* hwBuf = ibuf->lock(Ogre::HardwareBuffer::HBL_READ_ONLY);
+		void* hwBuf = ibuf->lock(Ogre :: HardwareBuffer :: HBL_READ_ONLY);
  
-		size_t offset = (submesh->useSharedVertices)? shared_offset : current_offset;
-		size_t index_start = index_data->indexStart;
-		size_t last_index = numTris*3 + index_start;
+		offset = (submesh->useSharedVertices) ? shared_offset : current_offset;
+		index_start = index_data -> indexStart;
+		last_index = numTris * 3 + index_start;
  
-		if (use32bitindexes) {
-			Ogre::uint32* hwBuf32 = static_cast<Ogre::uint32*>(hwBuf);
+		if (use32bitindexes)
+		{
+			hwBuf32 = static_cast<Ogre :: uint32*>(hwBuf);
 			for (size_t k = index_start; k < last_index; ++k)
-			{
-				indices[index_offset++] = hwBuf32[k] + static_cast<Ogre::uint32>( offset );
-			}
-		} else {
-			Ogre::uint16* hwBuf16 = static_cast<Ogre::uint16*>(hwBuf);
+				indices[index_offset++] =
+					hwBuf32[k] + static_cast<Ogre :: uint32>(offset);
+		}
+		else
+		{
+			Ogre :: uint16* hwBuf16 = static_cast<Ogre :: uint16*>(hwBuf);
 			for (size_t k = index_start; k < last_index; ++k)
-			{
-				indices[ index_offset++ ] = static_cast<Ogre::uint32>( hwBuf16[k] ) +
-					static_cast<Ogre::uint32>( offset );
-			}
+				indices[ index_offset++ ] = static_cast<Ogre :: uint32>(hwBuf16[k]) +
+					static_cast<Ogre :: uint32>(offset);
 		}
  
 		ibuf->unlock();
