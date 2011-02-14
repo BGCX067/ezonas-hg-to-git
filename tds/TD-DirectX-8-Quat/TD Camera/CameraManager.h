@@ -25,8 +25,8 @@ public:
 	void getUp(D3DXVECTOR3* _up);
 	void getLook(D3DXVECTOR3* _look);
 private:
-    Camera*     m_pCamera;
-	CameraMode  m_CameraMode;
+    Camera * m_pCamera; // this now is the current camera
+	CameraMode m_CameraMode;
 
     Object*     m_pTarget;
 
@@ -43,8 +43,7 @@ private:
 	bool IsTransiting;
 	void PositionRotationLerp();
 
-	float current_factor;
-	float interp_step;
+	float current_factor, interp_step;
 
 	D3DXVECTOR3 pos_from, pos_to, pos_transit;
 	D3DXMATRIX mat_from, mat_to, mat_transit;
