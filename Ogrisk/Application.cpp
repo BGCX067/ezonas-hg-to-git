@@ -88,8 +88,9 @@ Application :: Application():
 		mouse = static_cast<Mouse *>
 		(inputmanager -> createInputObject	(OISMouse, false));
 	}
-	 /* ### FrameListener ################################################### */
-	root -> addFrameListener(this);
+	{/* ### FrameListener ################################################### */
+		root -> addFrameListener(this);
+	}
 	{/* ### Scene queries ################################################### */
 		cursor_ray = Ray(camera -> getPosition(), camera -> getDirection());
 		RSQ = scenemanager -> createRayQuery(cursor_ray);

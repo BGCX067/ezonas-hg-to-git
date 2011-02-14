@@ -73,27 +73,26 @@ void CameraManager::setCameraMode(CameraMode _CameraMode)
     D3DXVECTOR3 vZero(0.0f, 0.0f, 0.0f);
 	m_CameraMode = _CameraMode;
 
-    Camera* pCamera = m_pCamera;
+    oldcamera = m_pCamera;
 
     switch (_CameraMode)
     {
     case CAMDEBUG:
-        m_pCamera = new CameraDebug(*pCamera);
-		//Transit(* pCamera, * m_pCamera);
-        delete pCamera;
+        m_pCamera = new CameraDebug(*oldcamera);
+		Transit(* oldcamera, * m_pCamera);
         break;
     case CAMFIRST:
-        m_pCamera = new CameraFirstPerson(*pCamera);
+        m_pCamera = new CameraFirstPerson(*oldcamera);
         m_pCamera->setPosition(&vZero);
-        delete pCamera;
-        break;
+		Transit(* oldcamera, * m_pCamera);
+		break;
     case CAMTHIRD:
         m_pCamera = new CameraThirdPerson(*pCamera);
         m_pCamera->setPosition(&vZero);
         m_pCamera->setTarget(m_pTarget);
         m_pCamera->setOffset(30.0f, 20.0f);
-        delete pCamera;
-        break;
+        
+		break;
     default:
         break;
     }
@@ -115,7 +114,8 @@ void CameraManager::setTarget(Object* _target)
     m_pTarget = _target;
     m_pCamera->setTarget(m_pTarget);
 }
-void Transit(Camera & cam1, Camera & cam2)
+//
+void CameraManager::Transit(Camera & cam1, Camera & cam2)
 {
 	if(IsTransiting == false)
 	{
@@ -144,14 +144,16 @@ void Transit(Camera & cam1, Camera & cam2)
 		// converting back quats to mats
 		D3DXMatrixRotationQuaternion(& m3, & q3);
 		// setting the current cam
-		m_pCamera -> S
+		m_pCamera -> setViewMatrix(& m3);
 	}
 	else
 	{
 		IsTransiting = false;
+		delete oldcamera;
+
 	}
 }
-void PositionLerp // cam1 is old cam pos, cam2 is the new cam pos
+void CameraManager :: PositionLerp // cam1 is old cam pos, cam2 is the new cam pos
 	(D3DXVECTOR3 & cam1,
 		D3DXVECTOR3 & cam2,
 		D3DXVECTOR3 & result,

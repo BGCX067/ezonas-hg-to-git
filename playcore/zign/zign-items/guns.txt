@@ -1,3 +1,11 @@
+0 PRIOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+N99								multipurpose pistol
+Q50								anti material pistol
+C71								bullpup compact rifle
+K4								carbine
+Z7								bullpup compact sniper rifle
+
+1ST PRIOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 			ammo	price cr.	notes
 M9			9mm		4
 GLOCK19 	9mm		4
@@ -14,7 +22,8 @@ PSG1 		762		120			sauto
 M24			-		100			
 M24E		-		140			
 SR25		-					sauto, suppr.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+2ND PRIOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 P99 		9mm		5
 fiveseven	-		8
@@ -29,3 +38,14 @@ XM8					70			prototype
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 P90					60			armor-p
 MP7/MP9				55			
+
+
+Prioritary implements:
+
+GLOCK19
+AK47
+TAR21
+XM8
+M24
+
+
