@@ -35,18 +35,19 @@ private:
 	CameraManager(CameraMode _cameraMode);
 
 	// quats
-	Camera * oldcamera;
-	void Transit(Camera & cam1, Camera & cam2);
+	Camera * camera_from;
+	Camera * camera_to;
+	//Camera * camera_transit;
+
+	void Transit();
 	bool IsTransiting;
-	void PositionLerp
-		(D3DXVECTOR3 & cam1,
-			D3DXVECTOR3 & cam2,
-			D3DXVECTOR3 & result,
-			float factor);
+	void PositionRotationLerp();
+
 	float current_factor;
 	float interp_step;
-	D3DXVECTOR3 v1, v2, v3;
-	D3DXMATRIX m1, m2, m3;
-	D3DXQUATERNION q1, q2, q3;
+
+	D3DXVECTOR3 pos_from, pos_to, pos_transit;
+	D3DXMATRIX mat_from, mat_to, mat_transit;
+	D3DXQUATERNION quat_from, quat_to, quat_transit;
 };
 #endif // PC1__cameraManagerH__

@@ -32,66 +32,42 @@ CameraManager::CameraManager(CameraMode _CameraMode)
 CameraManager::~CameraManager()
 {
     if (pCameraManager)
-    {
-        delete pCameraManager;
-    }
+		delete pCameraManager;
     if (m_pCamera)
-    {
         delete m_pCamera;
-    }
 }
-void CameraManager::getPosition(D3DXVECTOR3* _pos)
-{
-    m_pCamera->getPosition(_pos);
-}
-void CameraManager::setPosition(D3DXVECTOR3* _pos)
-{
-    m_pCamera->setPosition(_pos);
-}
-void CameraManager::getRight(D3DXVECTOR3* _right)
-{
-    m_pCamera->getRight(_right);
-}
-void CameraManager::getUp(D3DXVECTOR3* _up)
-{
-    m_pCamera->getUp(_up);
-}
-void CameraManager::getLook(D3DXVECTOR3* _look)
-{
-    m_pCamera->getLook(_look);
-}
-void CameraManager::getViewMatrix(D3DXMATRIX* V)
-{
-    m_pCamera->getViewMatrix(V);
-}
-void CameraManager::getCameraMode(CameraMode& _cameraMode)
-{
-    _cameraMode = m_CameraMode;
-}
+void CameraManager::getPosition(D3DXVECTOR3* _pos)			{m_pCamera->getPosition(_pos);}
+void CameraManager::setPosition(D3DXVECTOR3* _pos)			{m_pCamera->setPosition(_pos);}
+void CameraManager::getRight(D3DXVECTOR3* _right)			{m_pCamera->getRight(_right);}
+void CameraManager::getUp(D3DXVECTOR3* _up)					{m_pCamera->getUp(_up);}
+void CameraManager::getLook(D3DXVECTOR3* _look)				{m_pCamera->getLook(_look);}
+void CameraManager::getViewMatrix(D3DXMATRIX* V)			{m_pCamera->getViewMatrix(V);}
+void CameraManager::getCameraMode(CameraMode& _cameraMode)	{_cameraMode = m_CameraMode;}
 void CameraManager::setCameraMode(CameraMode _CameraMode)
 {
     D3DXVECTOR3 vZero(0.0f, 0.0f, 0.0f);
 	m_CameraMode = _CameraMode;
 
-    oldcamera = m_pCamera;
+	// saving the current camera to the from pointer
+    camera_from = m_pCamera;
 
     switch (_CameraMode)
     {
     case CAMDEBUG:
-        m_pCamera = new CameraDebug(*oldcamera);
-		Transit(* oldcamera, * m_pCamera);
+        camera_to = new CameraDebug(*camera_from);
+		IsTransiting = true;
         break;
     case CAMFIRST:
-        m_pCamera = new CameraFirstPerson(*oldcamera);
+        m_pCamera = new CameraFirstPerson(*camera_from);
         m_pCamera->setPosition(&vZero);
-		Transit(* oldcamera, * m_pCamera);
+		IsTransiting = true;
 		break;
     case CAMTHIRD:
-        m_pCamera = new CameraThirdPerson(*pCamera);
+        m_pCamera = new CameraThirdPerson(*camera_from);
         m_pCamera->setPosition(&vZero);
         m_pCamera->setTarget(m_pTarget);
         m_pCamera->setOffset(30.0f, 20.0f);
-        
+		IsTransiting = true;        
 		break;
     default:
         break;
@@ -100,14 +76,15 @@ void CameraManager::setCameraMode(CameraMode _CameraMode)
 CameraManager* CameraManager::getCameraManager()
 {
     if (pCameraManager==NULL)
-    {
         pCameraManager = new CameraManager();
-    }
     return pCameraManager;
 }
 void CameraManager::update(float timeDelta)
 {
-    if (m_pCamera) m_pCamera->update(timeDelta);
+	if (m_pCamera) m_pCamera -> update(timeDelta);
+	if (IsTransiting == true)
+	Transit();
+
 }
 void CameraManager::setTarget(Object* _target)
 {
@@ -115,51 +92,53 @@ void CameraManager::setTarget(Object* _target)
     m_pCamera->setTarget(m_pTarget);
 }
 //
-void CameraManager::Transit(Camera & cam1, Camera & cam2)
+void CameraManager::Transit()
 {
 	if(IsTransiting == false)
 	{
 		IsTransiting = true;
 		current_factor = 0.0f;
 	}
-
 	if(current_factor <= 1.0f)
 	{
+		PositionRotationLerp();
 		current_factor += interp_step;
-	// positions
-		cam1.getPosition(& v1);
-		cam2.getPosition(& v2);
-		PositionLerp(v1, v2, v3, current_factor);
-		m_pCamera -> setPosition(& v3);
-
-	//rotation
-		// converting mats to quats
-		cam1.getViewMatrix(& m1);
-		cam2.getViewMatrix(& m2);
-		D3DXQuaternionRotationMatrix(& q1, & m1);
-		D3DXQuaternionRotationMatrix(& q2, & m2);
-		
-		// interpolating
-		D3DXQuaternionSlerp(& q3, & q2, & q1, current_factor);
-		// converting back quats to mats
-		D3DXMatrixRotationQuaternion(& m3, & q3);
-		// setting the current cam
-		m_pCamera -> setViewMatrix(& m3);
 	}
 	else
 	{
 		IsTransiting = false;
-		delete oldcamera;
-
+		delete camera_from;
+		delete camera_to;
 	}
 }
-void CameraManager :: PositionLerp // cam1 is old cam pos, cam2 is the new cam pos
-	(D3DXVECTOR3 & cam1,
-		D3DXVECTOR3 & cam2,
-		D3DXVECTOR3 & result,
-		float factor)
+void CameraManager :: PositionRotationLerp () // cam1 is old cam pos, cam2 is the new cam pos
+	
 {
-	result.x = factor * (cam2.x - cam1.x);
-	result.y = factor * (cam2.y - cam1.y);
-	result.z = factor * (cam2.z - cam1.z);
+/* ############ POSITIONS ############ */
+	// getting posistions
+	camera_from -> getPosition(& pos_from);
+	camera_to -> getPosition(& pos_to);
+	m_pCamera -> setPosition(& pos_transit);
+
+	// interpolating positions
+	pos_transit.x = current_factor * (pos_to.x - pos_from.x);
+	pos_transit.y = current_factor * (pos_to.y - pos_from.y);
+	pos_transit.z = current_factor * (pos_to.z - pos_from.z);
+
+/* ############ ROTATIONS ############ */
+	// converting mats to quats
+	camera_from -> getViewMatrix(& mat_from);
+	camera_to -> getViewMatrix(& mat_to);
+
+	// converting to quaternions
+	D3DXQuaternionRotationMatrix(& quat_from, & mat_from);
+	D3DXQuaternionRotationMatrix(& quat_to, & mat_to);
+		
+	// interpolating quaternions
+	D3DXQuaternionSlerp(& quat_transit, & quat_to, & quat_from, current_factor);
+
+	// converting back quats to mats
+	D3DXMatrixRotationQuaternion(& mat_transit, & quat_transit);
+	// setting the current cam
+	m_pCamera -> setViewMatrix(& mat_transit);
 }
