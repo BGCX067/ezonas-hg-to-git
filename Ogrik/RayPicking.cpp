@@ -1,4 +1,4 @@
-#include "../stdafx.h"
+#include "stdafx.h"
 
 bool RayPick :: RayCast()
 {
@@ -31,14 +31,14 @@ bool RayPick :: RayCast()
     /* */   // get the mesh information #########################################//
 	/* */	GetMeshInfo                                                          //
 	/* */	(                                                                    //
-	/* */		ent_check->getMesh(),                                            //
+	/* */		ent_check,                                            //
 	/* */		// vertex_count,                                                 //
 	/* */		// vertices,                                                     //
 	/* */		// index_count,                                                  //
 	/* */		// indices,                                                      //
-	/* */		ent_check -> getParentNode() -> _getDerivedPosition(),         //
-	/* */		ent_check -> getParentNode() -> _getDerivedOrientation(),      //
-	/* */		ent_check -> getParentNode() -> _getDerivedScale()          //
+	/* */		ent_check -> getParentNode() -> _getDerivedPosition(),           //
+	/* */		ent_check -> getParentNode() -> _getDerivedOrientation(),        //
+	/* */		ent_check -> getParentNode() -> _getDerivedScale()               //
 	/* */		//ent_check -> getParentNode() -> getWorldPosition(),            //
 	/* */		//ent_check -> getParentNode() -> getWorldOrientation(),         //
 	/* */		//ent_check -> getParentNode() -> _getDerivedScale()             //

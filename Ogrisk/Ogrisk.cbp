@@ -54,6 +54,9 @@
 		</Unit>
 		<Unit filename="createscene.cpp" />
 		<Unit filename="frameRenderingQueued.cpp" />
+		<Unit filename="miniogrecolisions\RayPick_GetMeshInfo64.cpp" />
+		<Unit filename="miniogrecolisions\RayPicking.cpp" />
+		<Unit filename="miniogrecolisions\RayPicking.h" />
 		<Unit filename="stdafx.h" />
 		<Extensions>
 			<code_completion />

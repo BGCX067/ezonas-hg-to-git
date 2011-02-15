@@ -15,3 +15,28 @@ material Ogrik/laser
 		}
 	}
 }
+
+
+material Ogrik/laser_ray
+{
+	technique
+	{
+		pass
+		{
+			//scene_blend alpha_blend
+			diffuse 0.0 1.0 0.0 0.2
+		}
+	}
+}
+
+material Ogrisk/cubicube
+{
+	technique
+	{
+		pass
+		{
+			//scene_blend alpha_blend
+			diffuse 0.0 1.0 0.0 0.2
+		}
+	}
+}

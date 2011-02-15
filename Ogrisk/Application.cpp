@@ -92,8 +92,9 @@ Application :: Application():
 		root -> addFrameListener(this);
 	}
 	{/* ### Scene queries ################################################### */
-		cursor_ray = Ray(camera -> getPosition(), camera -> getDirection());
-		RSQ = scenemanager -> createRayQuery(cursor_ray);
+//		cursor_ray = Ray(camera -> getPosition(), camera -> getDirection());
+//		RSQ = scenemanager -> createRayQuery(cursor_ray);
+		raypick = new RayPick(camera, scenemanager, laserdot);
 	}
 	 /*  ### Finished building the appli, congratulations myself ! ########## */
 }

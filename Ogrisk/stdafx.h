@@ -10,5 +10,6 @@ using namespace OIS;
 
 // Project
 #include "GameConfig.h"
+#include "miniogrecolisions/RayPicking.h"
 #include "Application.h"
 

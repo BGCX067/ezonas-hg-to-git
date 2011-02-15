@@ -4918,24 +4918,33 @@
 1297074772 source:c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\ogrisk\ogrik_main.cpp
 	"stdafx.h"
 
-1297074772 c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\ogrisk\stdafx.h
+1297776933 c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\ogrisk\stdafx.h
 	"Ogre\Ogre.h"
 	"OIS\OIS.h"
 	"GameConfig.h"
+	"miniogrecolisions/RayPicking.h"
 	"Application.h"
 
 1297256331 c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\ogrisk\gameconfig.h
 	"stdafx.h"
 
-1297152143 c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\ogrisk\application.h
+1297776627 c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\ogrisk\application.h
 	"stdafx.h"
 
 1297256405 source:c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\ogrisk\createscene.cpp
 	"stdafx.h"
 
-1297074772 source:c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\ogrisk\framerenderingqueued.cpp
+1297776860 source:c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\ogrisk\framerenderingqueued.cpp
 	"stdafx.h"
 
 1297255789 source:c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\ogrisk\application.cpp
 	"stdafx.h"
+
+1297777236 c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\ogrisk\miniogrecolisions\raypicking.h
+	"../stdafx.h"
+
+1297757437 source:c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\ogrisk\raycast.c
+
+1297777175 source:c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\ogrisk\miniogrecolisions\raypick_getmeshinfo64.cpp
+	"../stdafx.h"
 

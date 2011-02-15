@@ -1,17 +1,16 @@
-#include "../stdafx.h"
+#include "stdafx.h"
 
 class RayPick
 {
 public:
 	// bool RaycastFromPoint(const Vector3 & point, const Vector3 & normal, Vector3 & result);
-	RayPick(Camera * camera, SceneManager * scmgr, Entity * ent)
+	RayPick(Camera * camera, SceneManager * scmgr, SceneNode * scnode)
 	{
 		cam = camera;
 		ray_cursor = Ray(camera -> getPosition(), camera -> getDirection());
 		ray_cam = Ray(camera -> getPosition(), camera -> getDirection());
 		RSQ = scmgr -> createRayQuery(ray_cam);
-		node = scmgr -> createSceneNode("hitpoint");
-		node -> attachObject(ent);
+		node = scnode;
 	}
 	void Update()
 	{

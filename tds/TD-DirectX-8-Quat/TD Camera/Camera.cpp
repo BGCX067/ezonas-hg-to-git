@@ -26,39 +26,15 @@ Camera::Camera(Camera& _Cam)
 	_up    = _Cam._up;
 	_look  = _Cam._look;
 }
-Camera::~Camera()
-{
-
-}
-void Camera::getPosition(D3DXVECTOR3* pos)
-{
-	*pos = _pos;
-}
-void Camera::setPosition(D3DXVECTOR3* pos)
-{
-	_pos = *pos;
-}
-void Camera::getRight(D3DXVECTOR3* right)
-{
-	*right = _right;
-}
-void Camera::getUp(D3DXVECTOR3* up)
-{
-	*up = _up;
-}
-void Camera::getLook(D3DXVECTOR3* look)
-{
-	*look = _look;
-}
-void Camera::walk(float units)
-{
-}
-void Camera::strafe(float units)
-{
-}
-void Camera::fly(float units)
-{
-}
+Camera::~Camera(){}
+void Camera::getPosition(D3DXVECTOR3* pos){*pos = _pos;}
+void Camera::setPosition(D3DXVECTOR3* pos){_pos = *pos;}
+void Camera::getRight(D3DXVECTOR3* right){*right = _right;}
+void Camera::getUp(D3DXVECTOR3* up){*up = _up;}
+void Camera::getLook(D3DXVECTOR3* look){*look = _look;}
+void Camera::walk(float units){}
+void Camera::strafe(float units){}
+void Camera::fly(float units){}
 void Camera::pitch(float angle)
 {
 	D3DXMATRIX T;

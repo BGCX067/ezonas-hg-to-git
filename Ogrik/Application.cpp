@@ -1,12 +1,13 @@
 #include "stdafx.h"
 
 Application :: Application():
-	scenemanager(NULL), 
-	FrameListener(), 
-//	listener(NULL), 
-	// _keepRunning(true), 
+	scenemanager(NULL),
+	FrameListener(),
+//	listener(NULL),
+	// _keepRunning(true),
 	root(new Root("plugins_d.cfg")),
 	gameconfig(new GameConfig("gameconf.cfg")),
+	game_rc(new GameResource("game_rc.cfg")),
 	moving_speed(gameconfig -> GetValue("moving_speed")),
 	rotating_speed(gameconfig -> GetValue("rotating_speed"))
 {
@@ -55,23 +56,20 @@ Application :: Application():
 		ResourceGroupManager :: getSingleton().initialiseAllResourceGroups();
 	}
 	{/* ### Billboards ###################################################### */
-		bbset = scenemanager -> createBillboardSet("LaserDot");
-		bboard = bbset -> createBillboard(Ogre :: Vector3(0, 0, 0));
-		bbset -> setMaterialName("Ogrik/laser");
 	}
 	{// create the scene
 		createScene();
 	}
 	{/* ### Inputs ########################################################## */
 		ParamList parameters;
-		
+
 		unsigned int windowHandle = 0;
 		ostringstream windowHandleString;
 
 		window -> getCustomAttribute("WINDOW", &windowHandle);
 		windowHandleString << windowHandle;
 		parameters.insert(make_pair("WINDOW", windowHandleString.str()));
-	// those settings unhide the cursor (from ogre's wiki snippets)	
+	// those settings unhide the cursor (from ogre's wiki snippets)
 	#if defined OIS_WIN32_PLATFORM
 		parameters.insert(make_pair(string("w32mouse"), string("DISCL_FOREGROUND" )));
 		parameters.insert(make_pair(string("w32mouse"), string("DISCL_NONEXCLUSIVE")));
@@ -90,11 +88,13 @@ Application :: Application():
 		mouse = static_cast<Mouse *>
 		(inputmanager -> createInputObject	(OISMouse, false));
 	}
-	 /* ### FrameListener ################################################### */
-	root -> addFrameListener(this);
+	{/* ### FrameListener ################################################### */
+		root -> addFrameListener(this);
+	}
 	{/* ### Scene queries ################################################### */
-		cursor_ray = Ray(camera -> getPosition(), camera -> getDirection());
-		RSQ = scenemanager -> createRayQuery(cursor_ray);
+//		cursor_ray = Ray(camera -> getPosition(), camera -> getDirection());
+//		RSQ = scenemanager -> createRayQuery(cursor_ray);
+		raypick = new RayPick(camera, scenemanager, laserdot);
 	}
 	 /*  ### Finished building the appli, congratulations myself ! ########## */
 }
@@ -125,3 +125,7 @@ float GameConfig :: GetValue(string _s)
 	istrstr >> result;
 	return result;
 }
+
+string GameResource :: GetValue(string _s)
+{return configfile.getSetting(_s, StringUtil :: BLANK, "sphere.mesh");}
+

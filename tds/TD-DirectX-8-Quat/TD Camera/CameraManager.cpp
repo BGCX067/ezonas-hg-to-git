@@ -54,21 +54,21 @@ void CameraManager::setCameraMode(CameraMode _CameraMode)
     switch (_CameraMode)
     {
     case CAMDEBUG:
-        camera_to = new CameraDebug(*camera_from);
+        camera_to = new CameraDebug(* camera_from);
 		IsTransiting = true; //////////////////////////////////////
 		current_factor = 0.0f;
         break;
 
     case CAMFIRST:
-        camera_to = new CameraFirstPerson(*camera_from);
-        camera_to->setPosition(&vZero);
+        camera_to = new CameraFirstPerson(* camera_from);
+        camera_to->setPosition(& vZero);
 		IsTransiting = true; //////////////////////////////////////
 		current_factor = 0.0f;
 		break;
 
     case CAMTHIRD:
-        m_pCamera = new CameraThirdPerson(*camera_from);
-        camera_to->setPosition(&vZero);
+        m_pCamera = new CameraThirdPerson(* camera_from);
+        camera_to->setPosition(& vZero);
         camera_to->setTarget(m_pTarget);
         camera_to->setOffset(30.0f, 20.0f);
 		IsTransiting = true; //////////////////////////////////////
@@ -89,35 +89,37 @@ void CameraManager::update(float timeDelta)
 {
 	if (m_pCamera) m_pCamera -> update(timeDelta);
 	if (IsTransiting == true)
-		Transit();
-
+	{
+		if(current_factor <= 1.0f)
+		{
+			PositionRotationLerp();
+			current_factor += interp_step;
+		}
+		else
+		{
+			IsTransiting = false;
+			delete camera_from;
+			delete camera_to;
+		}
+	}
 }
 void CameraManager::setTarget(Object* _target)
 {
     m_pTarget = _target;
     m_pCamera->setTarget(m_pTarget);
 }
-//
-void CameraManager::Transit()
-{
-	if(current_factor <= 1.0f)
-	{
-		PositionRotationLerp();
-		current_factor += interp_step;
-	}
-	else
-	{
-		IsTransiting = false;
-		delete camera_from;
-		delete camera_to;
-	}
-}
-void CameraManager :: PositionRotationLerp () // cam1 is old cam pos, cam2 is the new cam pos
-	
+void CameraManager :: PositionRotationLerp ()
 {
 /* ############ POSITIONS ############ */
 	// getting posistions
-	camera_from -> getPosition(& pos_from);
+	if(from_done == false)
+	{
+		camera_from -> getPosition(& pos_from);
+		camera_from -> getViewMatrix(& mat_from);
+		D3DXQuaternionRotationMatrix(& quat_from, & mat_from);
+		from_done = true;
+	}
+
 	camera_to -> getPosition(& pos_to);
 
 	// interpolating positions
@@ -130,11 +132,11 @@ void CameraManager :: PositionRotationLerp () // cam1 is old cam pos, cam2 is th
 
 /* ############ ROTATIONS ############ */
 	// converting mats to quats
-	camera_from -> getViewMatrix(& mat_from);
+	//camera_from -> getViewMatrix(& mat_from);
 	camera_to -> getViewMatrix(& mat_to);
 
 	// converting to quaternions
-	D3DXQuaternionRotationMatrix(& quat_from, & mat_from);
+	// D3DXQuaternionRotationMatrix(& quat_from, & mat_from);
 	D3DXQuaternionRotationMatrix(& quat_to, & mat_to);
 		
 	// interpolating quaternions
@@ -142,6 +144,7 @@ void CameraManager :: PositionRotationLerp () // cam1 is old cam pos, cam2 is th
 
 	// converting back quats to mats
 	D3DXMatrixRotationQuaternion(& mat_transit, & quat_transit);
+
 	// setting the current cam rotation matrix
 	m_pCamera -> setViewMatrix(& mat_transit);
 }

@@ -28,7 +28,7 @@ private:
     Camera * m_pCamera; // this now is the current camera
 	CameraMode m_CameraMode;
 
-    Object*     m_pTarget;
+    Object * m_pTarget;
 
     // Singleton
     CameraManager();
@@ -39,9 +39,8 @@ private:
 	Camera * camera_to;
 	//Camera * camera_transit;
 
-	void Transit();
-	bool IsTransiting;
 	void PositionRotationLerp();
+	bool IsTransiting, from_done;
 
 	float current_factor, interp_step;
 

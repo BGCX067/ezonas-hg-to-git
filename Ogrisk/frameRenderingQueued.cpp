@@ -28,19 +28,19 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	camera -> yaw(Ogre :: Radian(rotX));
 	camera -> pitch(Ogre :: Radian(rotY));
 	// rays
-	cursor_ray = camera -> getCameraToViewportRay
-	(
-		mouse -> getMouseState() . X.abs /
-		(float) mouse -> getMouseState() . width,
-		mouse -> getMouseState() . Y.abs /
-		(float) mouse -> getMouseState() . height
-	);
-	RSQR = RSQ -> execute();
-	for (rsqr_iter = RSQR.begin(); rsqr_iter != RSQR.end(); ++ rsqr_iter)
-	{
-
-	}
-
+//	cursor_ray = camera -> getCameraToViewportRay
+//	(
+//		mouse -> getMouseState() . X.abs /
+//		(float) mouse -> getMouseState() . width,
+//		mouse -> getMouseState() . Y.abs /
+//		(float) mouse -> getMouseState() . height
+//	);
+//	RSQR = RSQ -> execute();
+//	for (rsqr_iter = RSQR.begin(); rsqr_iter != RSQR.end(); ++ rsqr_iter)
+//	{
+//
+//	}
+	raypick -> Update();
 #endif
 
 	return true;

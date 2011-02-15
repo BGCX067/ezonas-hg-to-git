@@ -79,6 +79,7 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="GameConfig.h" />
+    <ClInclude Include="RayPicking.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +87,8 @@
     <ClCompile Include="createscene.cpp" />
     <ClCompile Include="frameRenderingQueued.cpp" />
     <ClCompile Include="Ogrik_main.cpp" />
+    <ClCompile Include="RayPicking.cpp" />
+    <ClCompile Include="RayPick_GetMeshInfo64.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

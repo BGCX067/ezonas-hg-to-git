@@ -1,4 +1,4 @@
-#include "../stdafx.h"
+#include "stdafx.h"
 
 void RayPick :: GetMeshInfo
 (
@@ -151,3 +151,4 @@ void RayPick :: GetMeshInfo
 		current_offset = next_offset;
 	}
 }
+

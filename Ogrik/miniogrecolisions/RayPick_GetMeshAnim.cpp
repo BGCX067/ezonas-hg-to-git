@@ -1,8 +1,4 @@
-#include "stdafx.h"
-
-// Get the mesh information for the given mesh.
-// Code found in Wiki: www.ogre3d.org/wiki/index.php/RetrieveVertexData
-void RayPick :: GetMeshInformation(const Ogre::MeshPtr mesh,
+void GetMeshInformation(const Entity *entity,
                                 size_t &vertex_count,
                                 Ogre::Vector3* &vertices,
                                 size_t &index_count,
@@ -16,8 +12,17 @@ void RayPick :: GetMeshInformation(const Ogre::MeshPtr mesh,
     size_t shared_offset = 0;
     size_t next_offset = 0;
     size_t index_offset = 0;
- 
     vertex_count = index_count = 0;
+ 
+   Ogre::MeshPtr mesh = entity->getMesh();
+ 
+ 
+   bool useSoftwareBlendingVertices = entity->hasSkeleton();
+ 
+   if (useSoftwareBlendingVertices)
+   {
+      entity->_updateAnimation();
+   }
  
     // Calculate how many vertices and indices we're going to need
     for (unsigned short i = 0; i < mesh->getNumSubMeshes(); ++i)
@@ -54,7 +59,23 @@ void RayPick :: GetMeshInformation(const Ogre::MeshPtr mesh,
     {
         Ogre::SubMesh* submesh = mesh->getSubMesh(i);
  
-        Ogre::VertexData* vertex_data = submesh->useSharedVertices ? mesh->sharedVertexData : submesh->vertexData;
+      //----------------------------------------------------------------
+      // GET VERTEXDATA
+      //----------------------------------------------------------------
+ 
+        //Ogre::VertexData* vertex_data = submesh->useSharedVertices ? mesh->sharedVertexData : submesh->vertexData;
+      Ogre::VertexData* vertex_data;
+ 
+      //When there is animation:
+      if(useSoftwareBlendingVertices)
+#ifdef BUILD_AGAINST_AZATHOTH
+         vertex_data = submesh->useSharedVertices ? entity->_getSharedBlendedVertexData() : entity->getSubEntity(i)->_getBlendedVertexData();
+#else
+         vertex_data = submesh->useSharedVertices ? entity->_getSkelAnimVertexData() : entity->getSubEntity(i)->_getSkelAnimVertexData();
+#endif
+      else
+         vertex_data = submesh->useSharedVertices ? mesh->sharedVertexData : submesh->vertexData;
+ 
  
         if((!submesh->useSharedVertices)||(submesh->useSharedVertices && !added_shared))
         {
