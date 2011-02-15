@@ -17,8 +17,9 @@ public:
 		ray_cam = Ray(cam -> getPosition(), cam -> getDirection());
 		if(RayCast() == true)
 			node -> setPosition(result);
+		//cout << result.x << " " << result.y << " " << result.y << "\n";
 	}
-
+	void SetNode(SceneNode * n) {node = n;}
 
 
 protected:

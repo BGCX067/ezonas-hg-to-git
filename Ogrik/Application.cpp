@@ -57,9 +57,6 @@ Application :: Application():
 	}
 	{/* ### Billboards ###################################################### */
 	}
-	{// create the scene
-		createScene();
-	}
 	{/* ### Inputs ########################################################## */
 		ParamList parameters;
 
@@ -95,6 +92,9 @@ Application :: Application():
 //		cursor_ray = Ray(camera -> getPosition(), camera -> getDirection());
 //		RSQ = scenemanager -> createRayQuery(cursor_ray);
 		raypick = new RayPick(camera, scenemanager, laserdot);
+	}
+	{// create the scene
+		createScene();
 	}
 	 /*  ### Finished building the appli, congratulations myself ! ########## */
 }
