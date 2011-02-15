@@ -48,10 +48,10 @@ private:
 	RayPick * raypick;
 
 // Billboards #################################################################
-//	Billboard * bboard;
-//	BillboardSet * bbset;
-//	BillboardChain * bbchain;
+	Billboard * bboard;
+	BillboardSet * bbset;
+	BillboardChain * bbchain;
 // Manual objects #############################################################
-    ManualObject * manobj;
+    //ManualObject * manobj;
 };
 

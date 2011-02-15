@@ -5,21 +5,17 @@ void Application :: createScene()
 	//camera -> setPolygonMode(PM_WIREFRAME);
 	// the ogre
 
-//    sinbad = scenemanager -> createEntity(game_rc -> GetValue("sinbad"));
-//    rootnode -> attachObject(sinbad);
+	//sinbad = scenemanager -> createEntity(game_rc -> GetValue("sinbad"));
+	//rootnode -> attachObject(sinbad);
 
 	Entity * ent1 = scenemanager -> createEntity(game_rc -> GetValue("ent1"));
-    SceneNode * node = scenemanager -> createSceneNode("dada");
-    rootnode -> addChild(node);
-    node -> attachObject(ent1);
-    node -> setScale(0.01, 0.01, 0.01);
+	SceneNode * node = scenemanager -> createSceneNode("dada");
+	rootnode -> addChild(node);
+	ent1 -> setMaterialName("fourchanfaces");
+	node -> attachObject(ent1);
+	node -> setScale(0.05, 0.05, 0.05);
 
 	//SceneNode * node = scenemanager -> createSceneNode("node");
-    Entity * ent = scenemanager -> createEntity("sphere.mesh");
-    node -> attachObject(ent);
-    node -> setPosition (0, 0, 0);
-	//node -> setScale (0.0001, 0.0001, 0.0001);
-	node -> setScale (100, 100, 100);
 // the plane
 	Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -10);
 	Ogre :: MeshManager :: getSingleton().createPlane("plane",
@@ -31,27 +27,25 @@ void Application :: createScene()
 	entplane -> setMaterialName("Examples/Rocky");
 
 // billboard for the laser and its dot
-//	laserdot = scenemanager -> createSceneNode("dot");
-//	rootnode -> addChild(laserdot);
+	laserdot = scenemanager -> createSceneNode("laserdot");
+	rootnode -> addChild(laserdot);
 // first, trying to load the dot
-//#ifdef CACA
-//#define SET
-//#ifdef SET
+#define SET
+#ifdef SET
 //billboard SET
-//	bbset = scenemanager -> createBillboardSet("laser_dot");
-//	bboard = bbset -> createBillboard(Ogre :: Vector3(0, 0, 0));
-//	bbset -> setMaterialName("Ogrik/laser");
-//	laserdot -> attachObject (bbset);
-//#else
-////billboard CHAIN
-//	bbchain = scenemanager -> createBillboardChain("laser_ray");
-//	laserdot -> attachObject (bbchain);
-//	bbchain -> addChainElement();
-//#endif
-//#endif
+	bbset = scenemanager -> createBillboardSet("laser_dot");
+	bboard = bbset -> createBillboard(Ogre :: Vector3(0, 0, 0));
+	bbset -> setMaterialName("Ogrik/laser");
+	laserdot -> attachObject (bbset);
+#else
+//billboard CHAIN
+	bbchain = scenemanager -> createBillboardChain("laser_ray");
+	laserdot -> attachObject (bbchain);
+	bbchain -> addChainElement();
+#endif
 //
-//	laserdot -> setScale(0.005f, 0.005f, 0.005f);
-//    laserdot -> setPosition(10, 0, 0);
+	laserdot -> setScale(0.005f, 0.005f, 0.005f);
+	laserdot -> setPosition(10, 0, 0);
 
 // the manual boject
 	//	manobj = scenemanager -> createManualObject("duh");

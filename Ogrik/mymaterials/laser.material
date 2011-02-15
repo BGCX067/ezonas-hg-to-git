@@ -40,3 +40,19 @@ material Ogrisk/cubicube
 		}
 	}
 }
+
+material fourchanfaces
+{
+	technique
+	{
+		pass
+		{
+			diffuse 0.0 1.0 0.0
+			// texture_unit
+			// {
+				// texture fourchanfaces.png
+				// scale 0.01 0.01
+			// }
+		}
+	}
+}
