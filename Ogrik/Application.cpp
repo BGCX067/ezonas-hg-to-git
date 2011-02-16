@@ -5,9 +5,9 @@ Application :: Application():
 	FrameListener(),
 //	listener(NULL),
 	// _keepRunning(true),
-	root(new Root("plugins_d.cfg")),
-	gameconfig(new GameConfig("gameconf.cfg")),
-	game_rc(new GameResource("game_rc.cfg")),
+	root(new Root("conf/plugins_d.cfg")),
+	gameconfig(new GameConfig("conf/gameconf.cfg")),
+	game_rc(new GameResource("conf/game_rc.cfg")),
 	moving_speed(gameconfig -> GetValue("moving_speed")),
 	rotating_speed(gameconfig -> GetValue("rotating_speed"))
 {
@@ -34,7 +34,7 @@ Application :: Application():
 	}
 	{/* ### resources ####################################################### */
 		ConfigFile cf;
-		cf.load("resources_d.cfg");
+		cf.load("conf/resources_d.cfg");
 
 		ConfigFile :: SectionIterator sectionIter = cf.getSectionIterator();
 		String sectionName, typeName, dataname;

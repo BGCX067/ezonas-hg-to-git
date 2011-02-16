@@ -8,11 +8,11 @@ class CameraFirstPerson : public Camera
 public:
 
 	CameraFirstPerson();
-    CameraFirstPerson(Camera& _Cam);
+	CameraFirstPerson(Camera& _Cam);
 	~CameraFirstPerson();
 
-    void update(float timeDelta);
-    
+	void update(float timeDelta);
+	
 	void strafe(float units);
 	void fly(float units);  
 	void walk(float units);  

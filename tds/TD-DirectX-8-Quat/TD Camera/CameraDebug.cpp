@@ -11,7 +11,7 @@ CameraDebug::CameraDebug(Camera& _Cam)
 }
 
 CameraDebug::~CameraDebug()
-{    
+{	
 }
 
 void CameraDebug::walk(float units)
@@ -56,7 +56,7 @@ void CameraDebug::roll(float angle)
 
 void CameraDebug::update(float timeDelta)
 {
-    //
+	//
 	// Update: Update the CameraDebug.
 	//
 

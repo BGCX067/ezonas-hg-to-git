@@ -16,7 +16,7 @@ class Game
 		LPCTSTR m_szWindowName ;
 		Game() ;
 
-		static LPDIRECT3D9         m_D3D ; // Used to create the D3DDevice
+		static LPDIRECT3D9		 m_D3D ; // Used to create the D3DDevice
 		static LPDIRECT3DDEVICE9   m_D3DDevice ; // Our rendering device
 
 		CCuboid *m_Cube ;

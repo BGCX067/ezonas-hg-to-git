@@ -39,7 +39,7 @@ CTerrain::CTerrain(LPDIRECT3DDEVICE9 pD3DDevice, WORD wRows, WORD wCols, float r
 	SetMaterial(rgbaDiffuse, rgbaAmbient, rgbaSpecular, rgbaEmissive, 0);
 
 	//Initialize Vertex Buffer
-    if(SUCCEEDED(CreateVertexBuffer()))
+	if(SUCCEEDED(CreateVertexBuffer()))
 	{
 		if(CreateIndexBuffer())
 		{
@@ -58,7 +58,7 @@ CTerrain::~CTerrain()
 DWORD CTerrain::Render()
 {
 	m_pD3DDevice->SetStreamSource(0, m_pVertexBuffer, 0, sizeof(TERRAIN_CUSTOMVERTEX));
-    m_pD3DDevice->SetFVF( TERRAIN_D3DFVF_CUSTOMVERTEX );
+	m_pD3DDevice->SetFVF( TERRAIN_D3DFVF_CUSTOMVERTEX );
 	
 	if(m_pTexture != NULL)
 	{
@@ -92,15 +92,15 @@ DWORD CTerrain::Render()
 
 HRESULT CTerrain::CreateVertexBuffer()
 {
-    //Create the vertex buffer from our device.
-    if(FAILED(m_pD3DDevice->CreateVertexBuffer(m_dwNumOfVertices * sizeof(TERRAIN_CUSTOMVERTEX),
-                                               0, TERRAIN_D3DFVF_CUSTOMVERTEX,
-                                               D3DPOOL_DEFAULT, &m_pVertexBuffer, NULL)))
-    {
-        return E_FAIL;
-    }
+	//Create the vertex buffer from our device.
+	if(FAILED(m_pD3DDevice->CreateVertexBuffer(m_dwNumOfVertices * sizeof(TERRAIN_CUSTOMVERTEX),
+											   0, TERRAIN_D3DFVF_CUSTOMVERTEX,
+											   D3DPOOL_DEFAULT, &m_pVertexBuffer, NULL)))
+	{
+		return E_FAIL;
+	}
 
-    return S_OK;
+	return S_OK;
 }
 
 bool CTerrain::CreateIndexBuffer()
@@ -112,14 +112,14 @@ bool CTerrain::CreateIndexBuffer()
 											  0, D3DFMT_INDEX16, D3DPOOL_MANAGED,
 											  &m_pIndexBuffer, NULL)))
 	{
-	    return false;
+		return false;
 	}
 	
 	
 	//Set values for the index buffer
 	WORD* pIndices = new WORD[m_dwNumOfIndices];	//Array holds the indices
 	
-    // Indices values initialisation
+	// Indices values initialisation
 	WORD a = m_wCols + 1;
 	WORD b = 0;
 	WORD c = a + 1;
@@ -147,7 +147,7 @@ bool CTerrain::CreateIndexBuffer()
 		c++;
 	}
 
-	//Get a pointer to the index buffer indices and lock the index buffer    
+	//Get a pointer to the index buffer indices and lock the index buffer	
 	m_pIndexBuffer->Lock(0, m_dwNumOfIndices * sizeof(WORD), (void**)&pBufferIndices, 0);
 
 	//Copy our stored indices values into the index buffer
@@ -263,7 +263,7 @@ bool CTerrain::UpdateVertices()
 	}
 
 
-	//Get a pointer to the index buffer indices and lock the index buffer    
+	//Get a pointer to the index buffer indices and lock the index buffer	
 	m_pIndexBuffer->Lock(0, m_dwNumOfIndices * sizeof(WORD), (void**)&pBufferIndices, D3DLOCK_READONLY);
 
 	//For each triangle, count the number of times each vertex is used and
@@ -317,17 +317,17 @@ bool CTerrain::UpdateVertices()
 
 
 	//Get a pointer to the vertex buffer vertices and lock the vertex buffer
-    if(FAILED(m_pVertexBuffer->Lock(0, m_dwNumOfVertices * sizeof(TERRAIN_CUSTOMVERTEX), (void**)&pVertices, 0)))
-    {
-        OutputDebugString(L"Lock Vertex Buffer Failed!\n");
+	if(FAILED(m_pVertexBuffer->Lock(0, m_dwNumOfVertices * sizeof(TERRAIN_CUSTOMVERTEX), (void**)&pVertices, 0)))
+	{
+		OutputDebugString(L"Lock Vertex Buffer Failed!\n");
 		return false;
-    }
+	}
 
-    //Copy our stored vertices values into the vertex buffer
-    memcpy(pVertices, pcvVertices, m_dwNumOfVertices * sizeof(TERRAIN_CUSTOMVERTEX));
+	//Copy our stored vertices values into the vertex buffer
+	memcpy(pVertices, pcvVertices, m_dwNumOfVertices * sizeof(TERRAIN_CUSTOMVERTEX));
 
-    //Unlock the vertex buffer
-    m_pVertexBuffer->Unlock();
+	//Unlock the vertex buffer
+	m_pVertexBuffer->Unlock();
 	
 
 	//Clean up

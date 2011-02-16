@@ -37,7 +37,7 @@ CCuboid::CCuboid(LPDIRECT3DDEVICE9 pD3DDevice, float x, float y, float z)
 	SetMaterial(rgbaDiffuse, rgbaAmbient, rgbaSpecular, rgbaEmissive, 0);
 
 	//Initialize Vertex Buffer
-    if(SUCCEEDED(CreateVertexBuffer()))
+	if(SUCCEEDED(CreateVertexBuffer()))
 	{
 		if(CreateIndexBuffer())
 		{
@@ -56,7 +56,7 @@ CCuboid::~CCuboid()
 DWORD CCuboid::Render()
 {
 	m_pD3DDevice->SetStreamSource(0, m_pVertexBuffer, 0, sizeof(CUBOID_CUSTOMVERTEX));
-    m_pD3DDevice->SetFVF( CUBOID_D3DFVF_CUSTOMVERTEX );
+	m_pD3DDevice->SetFVF( CUBOID_D3DFVF_CUSTOMVERTEX );
 
 	if(m_pTexture != NULL)
 	{
@@ -90,15 +90,15 @@ DWORD CCuboid::Render()
 
 HRESULT CCuboid::CreateVertexBuffer()
 {
-    //Create the vertex buffer from our device.
-    if(FAILED(m_pD3DDevice->CreateVertexBuffer(m_dwNumOfVertices * sizeof(CUBOID_CUSTOMVERTEX),
-                                               0, CUBOID_D3DFVF_CUSTOMVERTEX,
-                                               D3DPOOL_DEFAULT, &m_pVertexBuffer, NULL)))
-    {
-        return E_FAIL;
-    }
+	//Create the vertex buffer from our device.
+	if(FAILED(m_pD3DDevice->CreateVertexBuffer(m_dwNumOfVertices * sizeof(CUBOID_CUSTOMVERTEX),
+											   0, CUBOID_D3DFVF_CUSTOMVERTEX,
+											   D3DPOOL_DEFAULT, &m_pVertexBuffer, NULL)))
+	{
+		return E_FAIL;
+	}
 
-    return S_OK;
+	return S_OK;
 }
 
 bool CCuboid::CreateIndexBuffer()
@@ -110,18 +110,18 @@ bool CCuboid::CreateIndexBuffer()
 											  0, D3DFMT_INDEX16, D3DPOOL_MANAGED,
 											  &m_pIndexBuffer, NULL)))
 	{
-	    return false;
+		return false;
 	}
 	
 	//Set values for the index buffer
 	WORD pIndices[] = { 0, 1, 2, 3, 2, 1,	//Top
-					    4, 5, 6, 7, 6, 5,	//Face 1
-					    8, 9,10,11,10, 9,	//Face 2
+						4, 5, 6, 7, 6, 5,	//Face 1
+						8, 9,10,11,10, 9,	//Face 2
 					   12,13,14,15,14,13,	//Face 3
 					   16,17,18,19,18,17,	//Face 4
 					   20,21,22,23,22,21};	//Bottom
 	   
-	//Get a pointer to the index buffer indices and lock the index buffer    
+	//Get a pointer to the index buffer indices and lock the index buffer	
 	m_pIndexBuffer->Lock(0, m_dwNumOfIndices * sizeof(WORD), (void**)&pBufferIndices, 0);
 
 	//Copy our stored indices values into the index buffer
@@ -209,7 +209,7 @@ bool CCuboid::UpdateVertices()
 		{m_rX - (m_rWidth / 2), m_rY - (m_rHeight / 2), m_rZ + (m_rDepth / 2), 0.0f, 0.0f, 0.0f, 0.75f, 0.5f,},		//Vertex 23
 	};
 
-	//Get a pointer to the index buffer indices and lock the index buffer    
+	//Get a pointer to the index buffer indices and lock the index buffer	
 	m_pIndexBuffer->Lock(0, m_dwNumOfIndices * sizeof(WORD), (void**)&pBufferIndices, D3DLOCK_READONLY);
 
 	//For each triangle, count the number of times each vertex is used and
@@ -287,16 +287,16 @@ bool CCuboid::UpdateVertices()
 
 
 	//Get a pointer to the vertex buffer vertices and lock the vertex buffer
-    if(FAILED(m_pVertexBuffer->Lock(0, sizeof(cvVertices), (void**)&pVertices, 0)))
-    {
-        return false;
-    }
+	if(FAILED(m_pVertexBuffer->Lock(0, sizeof(cvVertices), (void**)&pVertices, 0)))
+	{
+		return false;
+	}
 
-    //Copy our stored vertices values into the vertex buffer
-    memcpy(pVertices, cvVertices, sizeof(cvVertices));
+	//Copy our stored vertices values into the vertex buffer
+	memcpy(pVertices, cvVertices, sizeof(cvVertices));
 
-    //Unlock the vertex buffer
-    m_pVertexBuffer->Unlock();
+	//Unlock the vertex buffer
+	m_pVertexBuffer->Unlock();
 
 	//Clean up
 	delete pNumOfSharedPolygons;

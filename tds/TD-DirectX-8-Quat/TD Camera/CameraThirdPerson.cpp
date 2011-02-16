@@ -11,7 +11,7 @@ CameraThirdPerson::CameraThirdPerson(Camera& _Cam)
 }
 
 CameraThirdPerson::~CameraThirdPerson()
-{    
+{	
 }
 
 void CameraThirdPerson::walk(float units)
@@ -53,32 +53,32 @@ void CameraThirdPerson::roll(float angle)
 
 void CameraThirdPerson::update(float timeDelta)
 {
-    //
+	//
 	// Update: Update the CameraThirdPerson.
 	//
 
-    // Get target orientation
-    if (m_pTarget)
-    {    
-        D3DXVECTOR3 vUp(0.0f, 1.0f, 0.0f);
-        D3DXVECTOR3 vTargetPos, vTargetAtXZ, vOffset; 
+	// Get target orientation
+	if (m_pTarget)
+	{	
+		D3DXVECTOR3 vUp(0.0f, 1.0f, 0.0f);
+		D3DXVECTOR3 vTargetPos, vTargetAtXZ, vOffset; 
 
-        m_pTarget->GetPos(&vTargetPos);
-        m_pTarget->GetLook(&vTargetAtXZ);
-        vTargetAtXZ.y = 0.0f;
-        D3DXVec3Normalize(&vTargetAtXZ, &vTargetAtXZ);
-        
-        vOffset = m_fBack * vTargetAtXZ - m_fHeight * vUp;
-        _pos = vTargetPos - vOffset;
+		m_pTarget->GetPos(&vTargetPos);
+		m_pTarget->GetLook(&vTargetAtXZ);
+		vTargetAtXZ.y = 0.0f;
+		D3DXVec3Normalize(&vTargetAtXZ, &vTargetAtXZ);
+		
+		vOffset = m_fBack * vTargetAtXZ - m_fHeight * vUp;
+		_pos = vTargetPos - vOffset;
 
-        D3DXVec3Normalize(&_look, &vOffset);
+		D3DXVec3Normalize(&_look, &vOffset);
 
-	    D3DXVec3Cross(&_right, &vUp, &_look);
-	    D3DXVec3Normalize(&_right, &_right);
-    
-        D3DXVec3Cross(&_up, &_look, &_right);
-	    D3DXVec3Normalize(&_up, &_up);
-    }
+		D3DXVec3Cross(&_right, &vUp, &_look);
+		D3DXVec3Normalize(&_right, &_right);
+	
+		D3DXVec3Cross(&_up, &_look, &_right);
+		D3DXVec3Normalize(&_up, &_up);
+	}
 
 	if( ::GetAsyncKeyState('Q') & 0x8000f )
 		strafe(-4.0f * timeDelta);
@@ -89,11 +89,11 @@ void CameraThirdPerson::update(float timeDelta)
 
 void CameraThirdPerson::setTarget(Object* _target)
 {
-    m_pTarget = _target;
+	m_pTarget = _target;
 }
 
 void CameraThirdPerson::setOffset(float _fBack, float _fHeight)
 {
-    m_fBack = _fBack;
-    m_fHeight = _fHeight;
+	m_fBack = _fBack;
+	m_fHeight = _fHeight;
 }

@@ -11,10 +11,10 @@ public:
 	CameraDebug(Camera& _Cam);
 	~CameraDebug();
 
-    void update(float timeDelta);
-    
+	void update(float timeDelta);
+	
 	void strafe(float units);
-	void fly(float units);    
+	void fly(float units);	
 	void walk(float units);  
 	
 	void yaw(float angle);  

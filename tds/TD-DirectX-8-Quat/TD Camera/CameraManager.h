@@ -11,9 +11,9 @@ class CameraManager
 {
 public:
 	~CameraManager();
-    static CameraManager* getCameraManager();
-    void update(float timeDelta);
-    void setTarget(Object* _target);
+	static CameraManager* getCameraManager();
+	void update(float timeDelta);
+	void setTarget(Object* _target);
 
 	void getViewMatrix(D3DXMATRIX* _V); 
 	void getCameraMode(CameraMode& _cameraMode); 
@@ -25,13 +25,13 @@ public:
 	void getUp(D3DXVECTOR3* _up);
 	void getLook(D3DXVECTOR3* _look);
 private:
-    Camera * m_pCamera; // this now is the current camera
+	Camera * m_pCamera; // this now is the current camera
 	CameraMode m_CameraMode;
 
-    Object * m_pTarget;
+	Object * m_pTarget;
 
-    // Singleton
-    CameraManager();
+	// Singleton
+	CameraManager();
 	CameraManager(CameraMode _cameraMode);
 
 	// quats

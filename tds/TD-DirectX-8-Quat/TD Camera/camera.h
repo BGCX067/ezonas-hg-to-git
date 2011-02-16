@@ -7,7 +7,7 @@
 // System: AMD Athlon 1800+ XP, 512 DDR, Geforce 3, Windows XP, MSVC++ 7.0 
 //
 // Desc: Defines a camera's position and orientation.
-//         
+//		 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef __cameraH__
@@ -20,13 +20,13 @@ class Camera
 {
 public:
 	Camera();
-    Camera(Camera& _Cam);
+	Camera(Camera& _Cam);
 	~Camera();
 
-    virtual void update(float timeDelta);
+	virtual void update(float timeDelta);
 
 	virtual void strafe(float units); // left/right
-	virtual void fly(float units);    // up/down
+	virtual void fly(float units);	// up/down
 	virtual void walk(float units);   // forward/backward
 	
 	virtual void pitch(float angle); // rotate on right vector
@@ -44,7 +44,7 @@ public:
 	void getRight(D3DXVECTOR3* right);
 	void getUp(D3DXVECTOR3* up);
 	void getLook(D3DXVECTOR3* look);
-    
+	
 protected:
 	D3DXVECTOR3 _right;
 	D3DXVECTOR3 _up;

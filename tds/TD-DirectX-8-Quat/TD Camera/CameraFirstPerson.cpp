@@ -55,10 +55,10 @@ void CameraFirstPerson::roll(float angle)
 
 void CameraFirstPerson::update(float timeDelta)
 {
-    //
+	//
 	// Update: Update the CameraFirstPerson.
 	//
-    _pos.y = 5.0f;
+	_pos.y = 5.0f;
 
 	if( ::GetAsyncKeyState('Z') & 0x8000f )
 		walk(4.0f * timeDelta);
