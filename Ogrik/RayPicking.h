@@ -7,6 +7,7 @@ public:
 	RayPick(Camera * camera, SceneManager * scmgr, SceneNode * scnode)
 	{
 		cam = camera;
+		root = scmgr -> getRootSceneNode();
 		ray_cursor = Ray(camera -> getPosition(), camera -> getDirection());
 		ray_cam = Ray(camera -> getPosition(), camera -> getDirection());
 		RSQ = scmgr -> createRayQuery(ray_cam);
@@ -16,7 +17,15 @@ public:
 	{
 		ray_cam = Ray(cam -> getPosition(), cam -> getDirection());
 		if(RayCast() == true)
+		{
+			root -> addChild(node);
 			node -> setPosition(result);
+		}
+		else
+		{
+			root -> removeChild (node);
+		}
+			
 		//cout << result.x << " " << result.y << " " << result.y << "\n";
 	}
 	void SetNode(SceneNode * n) {node = n;}
@@ -34,6 +43,7 @@ protected:
 	Camera * cam;
 	Entity * ent_check;
 	SceneNode * node;
+	SceneNode * root;
 	Ray ray_cam, ray_cursor;
 	RaySceneQuery * RSQ;
 	RaySceneQueryResult RSQR;

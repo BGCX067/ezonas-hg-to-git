@@ -10,6 +10,7 @@ bool RayPick :: RayCast()
 	RSQR = RSQ -> getLastResults();
 
 /////////////////////////////////////////////////////////////////////////////////////////
+	closest_distance = -1.0f;
     for (size_t qr_idx = 0; qr_idx < RSQR.size(); qr_idx++)
     {
         // stop checking if we have found a raycast hit that is closer
@@ -79,16 +80,20 @@ bool RayPick :: RayCast()
             // if we found a new closest raycast for this object, update the
             // closest_result before moving on to the next object.
             if (new_closest_found)
-                closest_result = ray_cam.getPoint(closest_distance);
+                closest_result = ray_cam.getPoint(closest_distance - 1.0f);
         }
     }
     // return the result
     if (closest_distance >= 0.0f)
     {
         // raycast success
-        result = closest_result;
+        result = closest_result ;
         return true;
     }
-    else return false;
+    else
+	{
+		
+		return false;
+	}
 
 }
