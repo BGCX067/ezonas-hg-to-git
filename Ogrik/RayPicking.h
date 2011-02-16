@@ -4,30 +4,13 @@ class RayPick
 {
 public:
 	// bool RaycastFromPoint(const Vector3 & point, const Vector3 & normal, Vector3 & result);
-	RayPick(Camera * camera, SceneManager * scmgr, SceneNode * scnode)
-	{
-		cam = camera;
-		root = scmgr -> getRootSceneNode();
-		ray_cursor = Ray(camera -> getPosition(), camera -> getDirection());
-		ray_cam = Ray(camera -> getPosition(), camera -> getDirection());
-		RSQ = scmgr -> createRayQuery(ray_cam);
-		node = scnode;
-	}
-	void Update()
-	{
-		ray_cam = Ray(cam -> getPosition(), cam -> getDirection());
-		if(RayCast() == true)
-		{
-			root -> addChild(node);
-			node -> setPosition(result);
-		}
-		else
-		{
-			root -> removeChild (node);
-		}
-			
-		//cout << result.x << " " << result.y << " " << result.y << "\n";
-	}
+	RayPick(Camera * camera, SceneManager * scmgr, SceneNode * scnode):
+		cam(camera),
+		ray_cam (Ray(camera -> getPosition(), camera -> getDirection())),
+		RSQ (scmgr -> createRayQuery(ray_cam)),
+		node(scnode)
+	{}
+	void update();
 	void SetNode(SceneNode * n) {node = n;}
 
 
@@ -40,13 +23,12 @@ protected:
 		const Ogre :: Vector3 & scale
 	);
 	bool RayCast();
+	Ray ray_cam;
+	RaySceneQuery * RSQ;
+	RaySceneQueryResult RSQR;
 	Camera * cam;
 	Entity * ent_check;
 	SceneNode * node;
-	SceneNode * root;
-	Ray ray_cam, ray_cursor;
-	RaySceneQuery * RSQ;
-	RaySceneQueryResult RSQR;
 	//RSQR_iter_t rsqr_iter;
 // raycast functions
 	Ogre::Vector3

@@ -38,7 +38,7 @@ private:
 	const float rotating_speed;
 // entities and nodes #########################################################
 	Entity * sinbad, * entplane;
-	SceneNode * rootnode, * laserdot;
+	SceneNode * rootnode, * laserdot, * laserbeam;
 	//map <SceneNode *> Nodes;
 // scene queries ##############################################################
 //	Ray cursor_ray;

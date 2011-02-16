@@ -2,15 +2,11 @@
 
 bool RayPick :: RayCast()
 {
-
 	// execute the query, returns a vector of hits
 	// raycast did not hit an objects bounding box:
-	if (RSQ -> execute() . size() <= 0) return (false);
-
+	if (RSQ -> execute() . size() <= 0) return false;
 	RSQR = RSQ -> getLastResults();
-
-/////////////////////////////////////////////////////////////////////////////////////////
-	closest_distance = -1.0f;
+	closest_distance = -1.f;
     for (size_t qr_idx = 0; qr_idx < RSQR.size(); qr_idx++)
     {
         // stop checking if we have found a raycast hit that is closer
@@ -87,7 +83,7 @@ bool RayPick :: RayCast()
     if (closest_distance >= 0.0f)
     {
         // raycast success
-        result = closest_result ;
+        result = closest_result;
         return true;
     }
     else
@@ -96,4 +92,20 @@ bool RayPick :: RayCast()
 		return false;
 	}
 
+}
+
+void RayPick :: update()
+{
+	RSQ -> setRay(Ray(cam -> getPosition(), cam -> getDirection()));
+	if(RayCast() == true)
+	{
+		node -> setPosition(result);
+		node -> setVisible(true);
+	}
+	else
+	{
+		node -> setVisible(false);
+	}
+			
+	//cout << result.x << " " << result.y << " " << result.y << "\n";
 }

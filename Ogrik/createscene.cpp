@@ -6,8 +6,10 @@ void Application :: createScene()
 	
 	{// the ogre and other ents
 		sinbad = scenemanager -> createEntity(game_rc -> GetValue("sinbad"));
-		rootnode -> attachObject(sinbad);
-
+		SceneNode * sinbadnode = scenemanager -> createSceneNode("sinbad");
+		sinbadnode -> attachObject(sinbad);
+		rootnode -> addChild(sinbadnode);
+		sinbadnode -> setPosition(5, 0, 0);
 	}
 	/*/ some sphere
 		Entity * ent1 = scenemanager -> createEntity(game_rc -> GetValue("ent1"));
@@ -28,21 +30,33 @@ void Application :: createScene()
 		entplane -> setMaterialName("Examples/Rocky");
 	}
 	{// billboard for the laser and its dot
-		laserdot = scenemanager -> createSceneNode("laserdot");
+		laserdot = scenemanager -> createSceneNode("laser dot");
 		raypick -> SetNode(laserdot);
 		rootnode -> addChild(laserdot);
-		bbset = scenemanager -> createBillboardSet("laser_dot");
+		bbset = scenemanager -> createBillboardSet("laser dot");
 		bboard = bbset -> createBillboard(Ogre :: Vector3(0, 0, 0));
-		bbset -> setMaterialName("Ogrik/laser");
+		bbset -> setMaterialName("Ogrik/laser_dot");
 		laserdot -> attachObject (bbset);
-	laserdot -> setScale(0.005f, 0.005f, 0.005f);
-	laserdot -> setPosition(10, 0, 0);
+		laserdot -> setScale(0.005f, 0.005f, 0.005f);
+		laserdot -> setPosition(10, 0, 0);
+		laserdot -> showBoundingBox();
 	}
-// first, trying to load the dot
-	{//billboard CHAIN
-		// bbchain = scenemanager -> createBillboardChain("laser_ray");
-		// laserdot -> attachObject (bbchain);
-		// bbchain -> addChainElement();
+	{//billboard CHAIN, for the laser beam
+		// laserbeam = scenemanager -> createSceneNode("laser beam");
+		// rootnode -> addChild(laserbeam);
+		// bbchain = scenemanager -> createBillboardChain("laser beam");
+		// laserbeam -> attachObject (bbchain);
+		// bbchain -> setMaterialName("Ogrik/laser_beam");
+
+		// BillboardChain::Element head(Vec3(0, 10, 0), 0, 0, ColourValue(0, 0, 1));
+		// BillboardChain::Element tail(Vec3(0, 0, 10), 0, 0, ColourValue(0, 0, 1));
+
+
+		 // bbchain->addChainElement(0, head);
+		 // bbchain->addChainElement(1, tail);
+		//bbchain->addChainElement(0, BillboardChain::Element());
+		//bbchain->addChainElement(1, BillboardChain::Element());
+		
 	}
 	{// the manual boject
 		//	manobj = scenemanager -> createManualObject("duh");
