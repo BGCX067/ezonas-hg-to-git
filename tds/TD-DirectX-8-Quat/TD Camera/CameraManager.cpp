@@ -77,7 +77,7 @@ void CameraManager :: setCameraMode(CameraMode _CameraMode)
 		break;
 
 	case CAMTHIRD:
-		m_pCamera = new CameraThirdPerson(* m_pCamera);
+		camera_to = new CameraThirdPerson(* m_pCamera);
 		camera_to->setPosition(& vZero);
 		camera_to->setTarget(m_pTarget);
 		camera_to->setOffset(30.0f, 20.0f);
@@ -88,12 +88,16 @@ void CameraManager :: setCameraMode(CameraMode _CameraMode)
 	default:
 		break;
 	}
+
+	delete m_pCamera;
+	m_pCamera = camera_to;
 }
 void CameraManager :: update(float timeDelta)
 {
+	m_pCamera -> update(timeDelta);
 	if (IsTransiting == true)
 	{
-		if(current_factor <= 1.0f)
+		if(current_factor < 1.0f)
 		{
 			current_factor += interp_step;
 			PositionRotationLerp();
@@ -102,21 +106,17 @@ void CameraManager :: update(float timeDelta)
 		}
 		else
 		{
-			delete m_pCamera;
-			m_pCamera = camera_to;
 			delete camera_from;
 			IsTransiting = false;
 		}
-	}
-	m_pCamera -> update(timeDelta);
-}
+	}}
 void CameraManager :: PositionRotationLerp ()
 {
 	camera_from -> getPosition(& pos_from);
 	camera_to -> getPosition(& pos_to);
-	pos_transit.x = current_factor * (pos_to.x - pos_from.x);
-	pos_transit.y = current_factor * (pos_to.y - pos_from.y);
-	pos_transit.z = current_factor * (pos_to.z - pos_from.z);
+	pos_transit.x = current_factor * pos_to.x + (1 - current_factor) * pos_from.x;
+	pos_transit.y = current_factor * pos_to.y + (1 - current_factor) * pos_from.y;
+	pos_transit.z = current_factor * pos_to.z + (1 - current_factor) * pos_from.z;
 	m_pCamera -> setPosition(& pos_transit);
 
 	camera_from -> getViewMatrix(& mat_from);
@@ -124,7 +124,7 @@ void CameraManager :: PositionRotationLerp ()
 	D3DXQuaternionRotationMatrix(& quat_from, & mat_from);
 	D3DXQuaternionRotationMatrix(& quat_to, & mat_to);
 
-	D3DXQuaternionSlerp(& quat_transit, & quat_to, & quat_from, current_factor);
+	D3DXQuaternionSlerp(& quat_transit, & quat_from, & quat_to, current_factor);
 	D3DXMatrixRotationQuaternion(& mat_transit, & quat_transit);
 	m_pCamera -> setViewMatrix(& mat_transit);
 }

@@ -387,7 +387,7 @@ void CCuboid::pitch(float angle)
 
 void CCuboid::Update(float timeDelta)
 {	
-	if( ::GetAsyncKeyState('Z') & 0x8000f )
+	if( ::GetAsyncKeyState('W') & 0x8000f )
 		move(16.0f * timeDelta);
 
 	if( ::GetAsyncKeyState('S') & 0x8000f )

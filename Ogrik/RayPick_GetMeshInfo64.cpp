@@ -20,7 +20,6 @@ void RayPick :: GetMeshInfo
 
 	Ogre :: MeshPtr mesh = entity->getMesh();
 
-	useSoftwareBlendingVertices = entity->hasSkeleton();
 
 	if (useSoftwareBlendingVertices)
 		entity->_updateAnimation();

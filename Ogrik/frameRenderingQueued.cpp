@@ -20,10 +20,10 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 
 #ifdef FPS_CAM
 	mouse -> capture();
-	float rotX = mouse -> getMouseState().X.rel *
-		evt.timeSinceLastFrame * -1 * rotating_speed;
-	float rotY = mouse -> getMouseState().Y.rel *
-		evt.timeSinceLastFrame * -1 * rotating_speed;
+	//float rotX = mouse -> getMouseState().X.rel * evt.timeSinceLastFrame * -1 * rotating_speed;
+	//float rotY = mouse -> getMouseState().Y.rel * evt.timeSinceLastFrame * -1 * rotating_speed;
+	float rotX = mouse -> getMouseState().X.rel * -1 * rotating_speed;
+	float rotY = mouse -> getMouseState().Y.rel * -1 * rotating_speed;
 // camera movements
 	camera -> yaw(Ogre :: Radian(rotX));
 	camera -> pitch(Ogre :: Radian(rotY));

@@ -60,13 +60,13 @@ void CameraDebug::update(float timeDelta)
 	// Update: Update the CameraDebug.
 	//
 
-	if( ::GetAsyncKeyState('Z') & 0x8000f )
+	if( ::GetAsyncKeyState('W') & 0x8000f )
 		walk(4.0f * timeDelta);
 
 	if( ::GetAsyncKeyState('S') & 0x8000f )
 		walk(-4.0f * timeDelta);
 
-	if( ::GetAsyncKeyState('Q') & 0x8000f )
+	if( ::GetAsyncKeyState('A') & 0x8000f )
 		strafe(-4.0f * timeDelta);
 
 	if( ::GetAsyncKeyState('D') & 0x8000f )

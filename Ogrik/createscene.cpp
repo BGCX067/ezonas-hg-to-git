@@ -9,7 +9,10 @@ void Application :: createScene()
 		SceneNode * sinbadnode = scenemanager -> createSceneNode("sinbad");
 		sinbadnode -> attachObject(sinbad);
 		rootnode -> addChild(sinbadnode);
-		sinbadnode -> setPosition(5, 0, 0);
+		// sinbadnode -> setPosition(5, 0, 0);
+
+		sinbadnode -> showBoundingBox(true);
+
 	}
 	/*/ some sphere
 		Entity * ent1 = scenemanager -> createEntity(game_rc -> GetValue("ent1"));
@@ -28,8 +31,9 @@ void Application :: createScene()
 		entplane = scenemanager -> createEntity("LightPlaneEntity", "plane");
 		rootnode -> createChildSceneNode() -> attachObject(entplane);
 		entplane -> setMaterialName("Examples/Rocky");
+		rootnode -> showBoundingBox(true);
 	}
-	{// billboard for the laser and its dot
+	{// billboard for the laser dot
 		laserdot = scenemanager -> createSceneNode("laser dot");
 		raypick -> SetNode(laserdot);
 		rootnode -> addChild(laserdot);
@@ -39,7 +43,8 @@ void Application :: createScene()
 		laserdot -> attachObject (bbset);
 		laserdot -> setScale(0.005f, 0.005f, 0.005f);
 		laserdot -> setPosition(10, 0, 0);
-		laserdot -> showBoundingBox();
+		laserdot -> showBoundingBox(true);
+		laserdot -> setVisible(true);
 	}
 	{//billboard CHAIN, for the laser beam
 		// laserbeam = scenemanager -> createSceneNode("laser beam");

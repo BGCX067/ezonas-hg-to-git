@@ -16,6 +16,7 @@ Application :: Application():
 		exit(0xdeadbeef);
 	// window
 	window = root -> initialise(true, "Ogre3D Beginners Guide");
+	window -> reposition(20, 20);
 	{/* ### scenemanager #################################################### */
 		scenemanager = root -> createSceneManager(ST_GENERIC);
 		rootnode = scenemanager -> getRootSceneNode();
@@ -92,7 +93,7 @@ Application :: Application():
 	{/* ### Scene queries ################################################### */
 //		cursor_ray = Ray(camera -> getPosition(), camera -> getDirection());
 //		RSQ = scenemanager -> createRayQuery(cursor_ray);
-		raypick = new RayPick(camera, scenemanager, laserdot);
+		raypick = new RayPick(camera, scenemanager);
 	}
 	{// create the scene
 		createScene();

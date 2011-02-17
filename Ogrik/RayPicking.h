@@ -4,33 +4,23 @@ class RayPick
 {
 public:
 	// bool RaycastFromPoint(const Vector3 & point, const Vector3 & normal, Vector3 & result);
-	RayPick(Camera * camera, SceneManager * scmgr, SceneNode * scnode):
-		cam(camera),
-		ray_cam (Ray(camera -> getPosition(), camera -> getDirection())),
-		RSQ (scmgr -> createRayQuery(ray_cam)),
-		node(scnode)
-	{}
+	RayPick(Camera * camera, SceneManager * scmgr);
 	void update();
-	void SetNode(SceneNode * n) {node = n;}
+	void SetNode(SceneNode * n);
 
 
 protected:
-	void GetMeshInfo
-	(
-		Entity *entity,
-		const Ogre :: Vector3 & position,
-		const Ogre :: Quaternion & orient,
-		const Ogre :: Vector3 & scale
-	);
+	//void GetMeshInfo();
 	bool RayCast();
-	Ray ray_cam;
+	Camera * cam;
+	SceneNode * node;
+	Ray ray_cam, ray_cursor;
 	RaySceneQuery * RSQ;
 	RaySceneQueryResult RSQR;
-	Camera * cam;
-	Entity * ent_check;
-	SceneNode * node;
 	//RSQR_iter_t rsqr_iter;
+/***************************************************************************************/
 // raycast functions
+/***************************************************************************************/
 	Ogre::Vector3
 		closest_result,
 		result,
@@ -47,8 +37,18 @@ protected:
 		current_offset,	shared_offset, next_offset, index_offset, // meshinfo
 		offset,
 		numTris;
+/***************************************************************************************/
 // other, late in getmeshinfo
+/***************************************************************************************/
+	Entity * ent_check;
+	MeshPtr mesh_check;
+	Ogre :: SubMesh* submesh;
 	IndexData * index_data;
 	HardwareIndexBufferSharedPtr ibuf;
-
+	HardwareVertexBufferSharedPtr vbuf;
+	Ogre :: Vector3 position;
+	Ogre :: Quaternion orient;
+	Ogre :: Vector3 scale;
+	Ogre :: VertexData* vertex_data;
+	const Ogre :: VertexElement* posElem;
 };

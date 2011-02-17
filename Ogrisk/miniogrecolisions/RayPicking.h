@@ -23,22 +23,19 @@ public:
 
 
 protected:
-	void GetMeshInfo
-	(
-		Entity *entity,
-		const Ogre :: Vector3 & position,
-		const Ogre :: Quaternion & orient,
-		const Ogre :: Vector3 & scale
-	);
+	void GetMeshInfo();
 	bool RayCast();
 	Camera * cam;
 	Entity * ent_check;
+	MeshPtr * mesh_check;
 	SceneNode * node;
 	Ray ray_cam, ray_cursor;
 	RaySceneQuery * RSQ;
 	RaySceneQueryResult RSQR;
 	//RSQR_iter_t rsqr_iter;
+/***************************************************************************************/			
 // raycast functions
+/***************************************************************************************/			
 	Ogre::Vector3
 		closest_result,
 		result,
@@ -55,8 +52,16 @@ protected:
 		current_offset,	shared_offset, next_offset, index_offset, // meshinfo
 		offset,
 		numTris;
+/***************************************************************************************/			
 // other, late in getmeshinfo
+/***************************************************************************************/			
 	IndexData * index_data;
 	HardwareIndexBufferSharedPtr ibuf;
-
+	HardwareVertexBufferSharedPtr vbuf;
+	const Ogre :: Vector3 position;
+	const Ogre :: Quaternion orient;
+	const Ogre :: Vector3 scale;
+	Ogre :: SubMesh* submesh;
+	Ogre :: VertexData* vertex_data;
+	const Ogre :: VertexElement* posElem;
 };
