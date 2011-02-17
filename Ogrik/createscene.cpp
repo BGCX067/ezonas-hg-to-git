@@ -8,7 +8,7 @@ void Application :: createScene()
 		sinbad = scenemanager -> createEntity(game_rc -> GetValue("sinbad"));
 		SceneNode * sinbadnode = scenemanager -> createSceneNode("sinbad");
 		sinbadnode -> attachObject(sinbad);
-		rootnode -> addChild(sinbadnode);
+		//rootnode -> addChild(sinbadnode);
 		// sinbadnode -> setPosition(5, 0, 0);
 
 		sinbadnode -> showBoundingBox(true);
@@ -47,20 +47,29 @@ void Application :: createScene()
 		laserdot -> setVisible(true);
 	}
 	{//billboard CHAIN, for the laser beam
-		// laserbeam = scenemanager -> createSceneNode("laser beam");
-		// rootnode -> addChild(laserbeam);
-		// bbchain = scenemanager -> createBillboardChain("laser beam");
-		// laserbeam -> attachObject (bbchain);
-		// bbchain -> setMaterialName("Ogrik/laser_beam");
+		laserbeam = scenemanager -> createSceneNode("laser beam");
+		rootnode -> addChild(laserbeam);
+		bbchain = scenemanager -> createBillboardChain("laser beam");
+		laserbeam -> attachObject (bbchain);
+		bbchain -> setMaterialName("Ogrik/laser_beam");
 
-		// BillboardChain::Element head(Vec3(0, 10, 0), 0, 0, ColourValue(0, 0, 1));
-		// BillboardChain::Element tail(Vec3(0, 0, 10), 0, 0, ColourValue(0, 0, 1));
+		BillboardChain::Element head(Vec3(0, 10, 0), 0, 0, ColourValue(0, 0, 1));
+		BillboardChain::Element tail(Vec3(0, 0, 10), 0, 0, ColourValue(0, 0, 1));
 
 
-		 // bbchain->addChainElement(0, head);
-		 // bbchain->addChainElement(1, tail);
-		//bbchain->addChainElement(0, BillboardChain::Element());
-		//bbchain->addChainElement(1, BillboardChain::Element());
+		bbchain->addChainElement(0, head);
+		bbchain->addChainElement(0, head);
+		bbchain->addChainElement(0, head);
+		bbchain->addChainElement(0, head);
+		bbchain->addChainElement(0, head);
+		bbchain->addChainElement(0, head);
+		bbchain->addChainElement(0, tail);
+		bbchain->addChainElement(0, tail);
+		bbchain->addChainElement(0, tail);
+		bbchain->addChainElement(0, tail);
+		bbchain->addChainElement(0, tail);
+		// bbchain->addChainElement(0, BillboardChain::Element());
+		// bbchain->addChainElement(1, BillboardChain::Element());
 		
 	}
 	{// the manual boject

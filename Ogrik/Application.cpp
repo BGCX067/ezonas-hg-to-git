@@ -55,6 +55,7 @@ Application :: Application():
 		}
 
 		ResourceGroupManager :: getSingleton().initialiseAllResourceGroups();
+
 	}
 	{/* ### Billboards ###################################################### */
 //		bbset scenemanager -> create

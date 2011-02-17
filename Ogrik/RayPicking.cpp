@@ -1,8 +1,14 @@
 #include "stdafx.h"
 RayPick::RayPick(Camera * camera, SceneManager * scmgr):
 	cam(camera),
-		ray_cam (Ray(cam -> getPosition(), cam -> getDerivedDirection())),
+	ray_cam (Ray(cam -> getPosition(), cam -> getDerivedDirection())),
 	RSQ (scmgr -> createRayQuery(ray_cam))
+	// matptr
+	// (
+		// static_cast<MaterialPtr>
+		// (MaterialManager :: getSingletonPtr() -> getByName ("Sinbad"))
+	// )
+
 {}
 void RayPick :: SetNode(SceneNode * n) {node = n;}
 void RayPick :: update()
@@ -245,11 +251,10 @@ attributes and minimum passed variables */
     {
         // raycast success
         result = closest_result;
+		//matptr->setAmbient(0.5, 0.5, 0.5);
         return true;
     }
     else
-	{
 		return false;
-	}
 
 }

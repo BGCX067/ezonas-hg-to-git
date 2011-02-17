@@ -11,6 +11,7 @@ public:
 
 protected:
 	//void GetMeshInfo();
+	MaterialPtr matptr;
 	bool RayCast();
 	Camera * cam;
 	SceneNode * node;

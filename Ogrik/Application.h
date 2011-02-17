@@ -46,7 +46,6 @@ private:
 //	RaySceneQueryResult RSQR;
 //	RSQR_iter_t rsqr_iter;
 	RayPick * raypick;
-
 // Billboards #################################################################
 	Billboard * bboard;
 	BillboardSet * bbset;

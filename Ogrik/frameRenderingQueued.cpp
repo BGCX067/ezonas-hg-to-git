@@ -41,6 +41,7 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 //
 //	}
 	raypick -> update();
+	
 #endif
 
 	return true;

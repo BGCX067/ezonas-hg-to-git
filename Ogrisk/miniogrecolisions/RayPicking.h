@@ -28,7 +28,7 @@ protected:
 	Camera * cam;
 	Entity * ent_check;
 	MeshPtr * mesh_check;
-	SceneNode * node;
+	SceneNode * node, * hit;
 	Ray ray_cam, ray_cursor;
 	RaySceneQuery * RSQ;
 	RaySceneQueryResult RSQR;
