@@ -41,10 +41,6 @@ private:
 	SceneNode * rootnode, * laserdot, * laserbeam;
 	//map <SceneNode *> Nodes;
 // scene queries ##############################################################
-//	Ray cursor_ray;
-//	RaySceneQuery * RSQ;
-//	RaySceneQueryResult RSQR;
-//	RSQR_iter_t rsqr_iter;
 	RayPick * raypick;
 // Billboards #################################################################
 	Billboard * bboard;

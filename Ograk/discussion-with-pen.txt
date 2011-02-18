@@ -1,0 +1,39 @@
+﻿<pen> now i wish someone here is using xcode
+<jokoooon> I wanted to do my project on XCode first, but the project templates are not really useful
+<pen> I don't use project templates
+<pen> I used my own
+<pen> but I am stuck on terrain
+<jokoooon> well I'd like to know what are the steps :)
+<pen> right now it just can't run with includes for ogre/ogreterrain.h
+<pen> oh
+<pen> very simple
+<pen> create a new cocoa app
+<pen> I mean project
+<jokoooon> yes
+<pen> Add Ogre.framework and also RenderSystem_GL.dylib
+<pen> then
+<jokoooon> ok
+* akem est parti (Read error: Connection reset by peer)
+<pen> http://cl.ly/0C3f2V1Z2j0z2i0T2d2F
+<pen> download this file
+<pen> add those two files in your project
+<pen> to Classes group
+<pen> then
+<pen> in your appdelegate.mm
+<pen> btw
+<pen> remember to rename to .mm
+<pen> not .m
+<pen> then import the header of the downloaded file
+<pen> also add
+<pen>  BaseFramework *framework = new BaseFramework();
+<pen>  framework->go();
+<pen> in your applicationDidFinishLaunching
+<pen> in your reesources
+<jokoooon> #import <Foundation/Foundation.h> is this cocoa ?
+<pen> this is for c++
+<pen> http://www.thimbleby.net/ogre3d-tutorial/
+<pen> download for the material and mesh
+<pen> I used that for demo
+<pen> so
+* dartzon (~dartzon@dynamic.casap2-143-27-137-41.wanamaroc.com) a rejoint #ogre3d
+<jokoooon> that should go in the wiki imo :)
