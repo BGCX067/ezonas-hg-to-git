@@ -44,6 +44,10 @@ Barack Obama
 Richard Nixon
 Abraham Lincoln
 
+// Medias and others %%%%%%%%%%%%%%%%
+Jacques Fresquo
+Michael Moore
+
 // cliches %%%%%%%%%%%%%%%%
 metal guy
 pot guy
