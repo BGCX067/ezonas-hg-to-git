@@ -1,5 +1,5 @@
 #include "stdafx.h"
-RayPick::RayPick(Camera * camera, SceneManager * scmgr):
+RayCast::RayCast(Camera * camera, SceneManager * scmgr):
 	cam(camera),
 	ray_cam (Ray(cam -> getPosition(), cam -> getDerivedDirection())),
 	RSQ (scmgr -> createRayQuery(ray_cam))
@@ -10,23 +10,23 @@ RayPick::RayPick(Camera * camera, SceneManager * scmgr):
 	// )
 
 {}
-void RayPick :: SetNode(SceneNode * n) {node = n;}
-void RayPick :: update()
+void RayCast :: SetNode(SceneNode * n) {node = n;}
+void RayCast :: update()
 {
 	RSQ -> setRay(ray_cam = Ray(cam -> getPosition(), cam -> getDirection()));
-	if(RayCast() == true)
+	if(execute() == true)
 	{
 		node -> setPosition(result);
 		node -> setVisible(true);
 	}
 	else
 	{
-		//node -> setVisible(false);
+		node -> setVisible(false);
 	}
 
-	//cout << result.x << " " << result.y << " " << result.y << "\n";
+	cout << result.x << " " << result.y << " " << result.y << "\n";
 }
-bool RayPick :: RayCast()
+bool RayCast :: execute()
 {
 	// execute the query, returns a vector of hits
 	// raycast did not hit an objects bounding box:

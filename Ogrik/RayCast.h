@@ -1,10 +1,10 @@
 #include "stdafx.h"
 
-class RayPick
+class RayCast
 {
 public:
 	// bool RaycastFromPoint(const Vector3 & point, const Vector3 & normal, Vector3 & result);
-	RayPick(Camera * camera, SceneManager * scmgr);
+	RayCast(Camera * camera, SceneManager * scmgr);
 	void update();
 	void SetNode(SceneNode * n);
 
@@ -12,7 +12,7 @@ public:
 protected:
 	//void GetMeshInfo();
 	MaterialPtr matptr;
-	bool RayCast();
+	bool execute();
 	Camera * cam;
 	SceneNode * node;
 	Ray ray_cam, ray_cursor;

@@ -94,7 +94,7 @@ Application :: Application():
 	{/* ### Scene queries ################################################### */
 //		cursor_ray = Ray(camera -> getPosition(), camera -> getDirection());
 //		RSQ = scenemanager -> createRayQuery(cursor_ray);
-		raypick = new RayPick(camera, scenemanager);
+		raycast = new RayCast(camera, scenemanager);
 	}
 	{// create the scene
 		createScene();
@@ -131,4 +131,3 @@ float GameConfig :: GetValue(string _s)
 
 string GameResource :: GetValue(string _s)
 {return configfile.getSetting(_s, StringUtil :: BLANK, "sphere.mesh");}
-

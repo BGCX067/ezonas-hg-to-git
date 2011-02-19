@@ -2,18 +2,22 @@
 
 void Application :: createScene()
 {
-	//camera -> setPolygonMode(PM_WIREFRAME);
+	camera -> setPolygonMode(PM_WIREFRAME);
 	
 	{// the ogre and other ents
 		sinbad = scenemanager -> createEntity(game_rc -> GetValue("sinbad"));
 		SceneNode * sinbadnode = scenemanager -> createSceneNode("sinbad");
 		sinbadnode -> attachObject(sinbad);
-		//rootnode -> addChild(sinbadnode);
+		rootnode -> addChild(sinbadnode);
 		// sinbadnode -> setPosition(5, 0, 0);
-
-		sinbadnode -> showBoundingBox(true);
-
+		sinbadnode -> showBoundingBox(true);//
 	}
+	{
+		/*SceneNode * node = scenemanager -> createSceneNode("ninya");
+		node -> attachObject(scenemanager -> createEntity("ninja.mesh"));
+		rootnode -> addChild(node);*/
+	}
+
 	/*/ some sphere
 		Entity * ent1 = scenemanager -> createEntity(game_rc -> GetValue("ent1"));
 		SceneNode * node = scenemanager -> createSceneNode("dada");
@@ -35,7 +39,7 @@ void Application :: createScene()
 	}
 	{// billboard for the laser dot
 		laserdot = scenemanager -> createSceneNode("laser dot");
-		raypick -> SetNode(laserdot);
+		raycast -> SetNode(laserdot);
 		rootnode -> addChild(laserdot);
 		bbset = scenemanager -> createBillboardSet("laser dot");
 		bboard = bbset -> createBillboard(Ogre :: Vector3(0, 0, 0));
@@ -43,7 +47,7 @@ void Application :: createScene()
 		laserdot -> attachObject (bbset);
 		laserdot -> setScale(0.005f, 0.005f, 0.005f);
 		laserdot -> setPosition(10, 0, 0);
-		laserdot -> showBoundingBox(true);
+		//laserdot -> showBoundingBox(true);
 		laserdot -> setVisible(true);
 	}
 	{//billboard CHAIN, for the laser beam

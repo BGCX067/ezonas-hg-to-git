@@ -41,7 +41,7 @@ private:
 	SceneNode * rootnode, * laserdot, * laserbeam;
 	//map <SceneNode *> Nodes;
 // scene queries ##############################################################
-	RayPick * raypick;
+	RayCast * raycast;
 // Billboards #################################################################
 	Billboard * bboard;
 	BillboardSet * bbset;
