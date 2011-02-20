@@ -10,22 +10,15 @@ RayCast::RayCast(Camera * camera, SceneManager * scmgr):
 	// )
 
 {}
-void RayCast :: SetNode(SceneNode * n) {node = n;}
+void RayCast :: SetPos(Vec3 * v) { result = v; }
 void RayCast :: update()
 {
 	RSQ -> setRay(ray_cam = Ray(cam -> getPosition(), cam -> getDirection()));
-	if(execute() == true)
-	{
-		node -> setPosition(result);
-		node -> setVisible(true);
-	}
-	else
-	{
-		node -> setVisible(false);
-	}
-
-	cout << result.x << " " << result.y << " " << result.y << "\n";
+	execute();
 }
+
+	//cout << result -> x << " " << result -> y << " " << result -> z << "\n";
+
 bool RayCast :: execute()
 {
 	// execute the query, returns a vector of hits
@@ -33,10 +26,8 @@ bool RayCast :: execute()
 	//if (RSQ == NULL) exit (0xdeadc0de);
 	if (RSQ -> execute() . size() <= 0)
 	{
-		node -> showBoundingBox(false);
 		return false;
 	}
-	node -> showBoundingBox(true);
 
 	RSQR = RSQ -> getLastResults();
 	closest_distance = -1.0f;
@@ -250,7 +241,7 @@ attributes and minimum passed variables */
     if (closest_distance >= 0.0f)
     {
         // raycast success
-        result = closest_result;
+        * result = closest_result;
 		//matptr->setAmbient(0.5, 0.5, 0.5);
         return true;
     }

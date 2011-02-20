@@ -1,76 +1,42 @@
 #include "stdafx.h"
 
+SceneNode * Application :: QuickAdd(string str)
+{
+	SceneNode * node = scenemanager -> createSceneNode();
+	node -> attachObject(scenemanager -> createEntity(str));
+	rootnode -> addChild(node);
+	return node;
+}
 void Application :: createScene()
 {
-	camera -> setPolygonMode(PM_WIREFRAME);
-	
-	{// the ogre and other ents
-		sinbad = scenemanager -> createEntity(game_rc -> GetValue("sinbad"));
-		SceneNode * sinbadnode = scenemanager -> createSceneNode("sinbad");
-		sinbadnode -> attachObject(sinbad);
-		rootnode -> addChild(sinbadnode);
-		// sinbadnode -> setPosition(5, 0, 0);
-		sinbadnode -> showBoundingBox(true);//
-	}
-	{
-		/*SceneNode * node = scenemanager -> createSceneNode("ninya");
-		node -> attachObject(scenemanager -> createEntity("ninja.mesh"));
-		rootnode -> addChild(node);*/
-	}
+	//camera -> setPolygonMode(PM_WIREFRAME);
+	AddPlane();
+	SceneNode * node;
+	QuickAdd("Sinbad.mesh");// -> showBoundingBox(true);"ninja.mesh"
+	node = QuickAdd("ninja.mesh");// -> setMaterialName("fourchanfaces");
 
-	/*/ some sphere
-		Entity * ent1 = scenemanager -> createEntity(game_rc -> GetValue("ent1"));
-		SceneNode * node = scenemanager -> createSceneNode("dada");
-		rootnode -> addChild(node);
-		ent1 -> setMaterialName("fourchanfaces");
-		node -> attachObject(ent1);
-		node -> setScale(0.05, 0.05, 0.05);	
-	//*/
-	{// the plane
-		Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -10);
-		Ogre :: MeshManager :: getSingleton().createPlane("plane",
-		ResourceGroupManager :: DEFAULT_RESOURCE_GROUP_NAME, plane,
-		1500, 1500, 20, 20, true, 1, 5, 5, Ogre :: Vector3 :: UNIT_Z);
-
-		entplane = scenemanager -> createEntity("LightPlaneEntity", "plane");
-		rootnode -> createChildSceneNode() -> attachObject(entplane);
-		entplane -> setMaterialName("Examples/Rocky");
-		rootnode -> showBoundingBox(true);
-	}
 	{// billboard for the laser dot
 		laserdot = scenemanager -> createSceneNode("laser dot");
-		raycast -> SetNode(laserdot);
+		// "link" the laser dot position so that the class can update the position
+		raycast -> SetPos(& laser_hit);
 		rootnode -> addChild(laserdot);
 		bbset = scenemanager -> createBillboardSet("laser dot");
 		bboard = bbset -> createBillboard(Ogre :: Vector3(0, 0, 0));
 		bbset -> setMaterialName("Ogrik/laser_dot");
 		laserdot -> attachObject (bbset);
 		laserdot -> setScale(0.005f, 0.005f, 0.005f);
-		laserdot -> setPosition(10, 0, 0);
-		//laserdot -> showBoundingBox(true);
-		laserdot -> setVisible(true);
 	}
 	{//billboard CHAIN, for the laser beam
 		laserbeam = scenemanager -> createSceneNode("laser beam");
 		rootnode -> addChild(laserbeam);
 		bbchain = scenemanager -> createBillboardChain("laser beam");
 		laserbeam -> attachObject (bbchain);
-		bbchain -> setMaterialName("Ogrik/laser_beam");
 
-		BillboardChain::Element head(Vec3(0, 10, 0), 0, 0, ColourValue(0, 0, 1));
-		BillboardChain::Element tail(Vec3(0, 0, 10), 0, 0, ColourValue(0, 0, 1));
+		BillboardChain::Element head(Vec3(0, 10, 0), laser_width, 0, ColourValue(0, 0, 1));
+		BillboardChain::Element tail(Vec3(0, 0, 10), laser_width, 0, ColourValue(1, 0, 0));
+		bbchain -> setMaxChainElements(2);
 
-
 		bbchain->addChainElement(0, head);
-		bbchain->addChainElement(0, head);
-		bbchain->addChainElement(0, head);
-		bbchain->addChainElement(0, head);
-		bbchain->addChainElement(0, head);
-		bbchain->addChainElement(0, head);
-		bbchain->addChainElement(0, tail);
-		bbchain->addChainElement(0, tail);
-		bbchain->addChainElement(0, tail);
-		bbchain->addChainElement(0, tail);
 		bbchain->addChainElement(0, tail);
 		// bbchain->addChainElement(0, BillboardChain::Element());
 		// bbchain->addChainElement(1, BillboardChain::Element());

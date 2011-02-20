@@ -1,5 +1,6 @@
 #include "stdafx.h"
 
+Application * Application :: instance = NULL;
 Application :: Application():
 	scenemanager(NULL),
 	FrameListener(),
@@ -9,7 +10,8 @@ Application :: Application():
 	gameconfig(new GameConfig("conf/gameconf.cfg")),
 	game_rc(new GameResource("conf/game_rc.cfg")),
 	moving_speed(gameconfig -> GetValue("moving_speed")),
-	rotating_speed(gameconfig -> GetValue("rotating_speed"))
+	rotating_speed(gameconfig -> GetValue("rotating_speed")),
+	laser_width(1.f)
 {
 // use the existing ogre.cfg if it exists, creates it otherwise
 	if(!(root -> restoreConfig() || root -> showConfigDialog()))
@@ -109,7 +111,6 @@ Application :: ~ Application()
 
 	if(root) delete root;
 }
-
 void Application :: go ()
 {
 	if(instance != NULL)
@@ -117,10 +118,6 @@ void Application :: go ()
 	else
 		exit(0xdeadc0de);
 }
-
-Application * Application :: instance = NULL;
-
-
 float GameConfig :: GetValue(string _s)
 {
 	float result = 0xdeadbeef;
@@ -128,6 +125,17 @@ float GameConfig :: GetValue(string _s)
 	istrstr >> result;
 	return result;
 }
-
 string GameResource :: GetValue(string _s)
 {return configfile.getSetting(_s, StringUtil :: BLANK, "sphere.mesh");}
+void Application :: AddPlane()
+{
+	Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -10);
+	Ogre :: MeshManager :: getSingleton().createPlane
+		("plane",
+			ResourceGroupManager :: DEFAULT_RESOURCE_GROUP_NAME, plane,
+			1500, 1500, 20, 20, true, 1, 5, 5, Ogre :: Vector3 :: UNIT_Z);
+
+	entplane = scenemanager -> createEntity("LightPlaneEntity", "plane");
+	rootnode -> createChildSceneNode() -> attachObject(entplane);
+	entplane -> setMaterialName("Examples/Rocky");
+}

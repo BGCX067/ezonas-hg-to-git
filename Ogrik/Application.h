@@ -15,12 +15,13 @@ public:
 
 // added those 3 lines
 	bool frameRenderingQueued(const FrameEvent & evt);
-
+	SceneNode * QuickAdd(string str);
 private:
 	static Application * instance;
 	void createScene();
 	Application();
 	~ Application();
+	void AddPlane();
 // core objects ###############################################################
 	SceneManager * scenemanager;
 	Root * root;
@@ -42,6 +43,8 @@ private:
 	//map <SceneNode *> Nodes;
 // scene queries ##############################################################
 	RayCast * raycast;
+	Vec3 laser_hit;
+	const float laser_width;
 // Billboards #################################################################
 	Billboard * bboard;
 	BillboardSet * bbset;

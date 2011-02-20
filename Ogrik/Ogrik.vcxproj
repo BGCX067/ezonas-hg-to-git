@@ -84,10 +84,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="createscene.cpp" />
-    <ClCompile Include="frameRenderingQueued.cpp" />
+    <ClCompile Include="CreateScene.cpp" />
+    <ClCompile Include="FrameRenderingQueued.cpp" />
     <ClCompile Include="Ogrik_main.cpp" />
-    <ClCompile Include="RayPicking.cpp" />
+    <ClCompile Include="RayCast.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

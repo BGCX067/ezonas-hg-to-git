@@ -6,9 +6,7 @@ public:
 	// bool RaycastFromPoint(const Vector3 & point, const Vector3 & normal, Vector3 & result);
 	RayCast(Camera * camera, SceneManager * scmgr);
 	void update();
-	void SetNode(SceneNode * n);
-
-
+	void SetPos(Vec3 * v);
 protected:
 	//void GetMeshInfo();
 	MaterialPtr matptr;
@@ -24,7 +22,7 @@ protected:
 /***************************************************************************************/
 	Ogre::Vector3
 		closest_result,
-		result,
+		* result,
 		* vertices;
 
 	Ogre :: uint32

@@ -27,22 +27,15 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 // camera movements
 	camera -> yaw(Ogre :: Radian(rotX));
 	camera -> pitch(Ogre :: Radian(rotY));
-	// rays
 //	cursor_ray = camera -> getCameraToViewportRay
-//	(
-//		mouse -> getMouseState() . X.abs /
-//		(float) mouse -> getMouseState() . width,
-//		mouse -> getMouseState() . Y.abs /
-//		(float) mouse -> getMouseState() . height
-//	);
-//	RSQR = RSQ -> execute();
-//	for (rsqr_iter = RSQR.begin(); rsqr_iter != RSQR.end(); ++ rsqr_iter)
-//	{
-//
-//	}
+
 	raycast -> update();
+	laserdot -> setPosition(laser_hit);
 	
 #endif
+
+	bbchain -> updateChainElement
+		(0, 1, BillboardChain::Element(laser_hit, laser_width, 0, ColourValue(1, 0, 0)));
 
 	return true;
 }

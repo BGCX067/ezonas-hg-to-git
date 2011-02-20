@@ -15,7 +15,7 @@ material Ogrik/laser_beam
 { technique { pass {
 	//scene_blend alpha_blend
 	diffuse 0.0 1.0 0.0 0.2
-} } }
+}}}
 
 material Ogrisk/cubicube
 { technique { pass {
@@ -31,4 +31,4 @@ material fourchanfaces
 		// texture fourchanfaces.png
 		// scale 0.01 0.01
 	// }
-} } }
+}}}
