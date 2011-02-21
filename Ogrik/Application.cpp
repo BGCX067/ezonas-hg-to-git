@@ -11,7 +11,7 @@ Application :: Application():
 	game_rc(new GameResource("conf/game_rc.cfg")),
 	moving_speed(gameconfig -> GetValue("moving_speed")),
 	rotating_speed(gameconfig -> GetValue("rotating_speed")),
-	laser_width(1.f)
+	laser_width(gameconfig -> GetValue("laser_width"))
 {
 // use the existing ogre.cfg if it exists, creates it otherwise
 	if(!(root -> restoreConfig() || root -> showConfigDialog()))
@@ -31,7 +31,7 @@ Application :: Application():
 	}
 	{/* ### viewport ######################################################## */
 		viewport = window -> addViewport(camera);
-		viewport -> setBackgroundColour(ColourValue(0.0, 0.0, 0.0));
+		viewport -> setBackgroundColour(ColourValue(0.1, 0.1, 0.1));
 		camera -> setAspectRatio
 		(Real(viewport -> getActualWidth())/ Real(viewport -> getActualHeight()));
 	}

@@ -24,7 +24,6 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	//float rotY = mouse -> getMouseState().Y.rel * evt.timeSinceLastFrame * -1 * rotating_speed;
 	float rotX = mouse -> getMouseState().X.rel * -1 * rotating_speed;
 	float rotY = mouse -> getMouseState().Y.rel * -1 * rotating_speed;
-// camera movements
 	camera -> yaw(Ogre :: Radian(rotX));
 	camera -> pitch(Ogre :: Radian(rotY));
 //	cursor_ray = camera -> getCameraToViewportRay
@@ -33,9 +32,11 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	laserdot -> setPosition(laser_hit);
 	
 #endif
-
+	//static int i = 0;
+	//i++;
+	//i %= 30;
 	bbchain -> updateChainElement
-		(0, 1, BillboardChain::Element(laser_hit, laser_width, 0, ColourValue(1, 0, 0)));
+		(0, 0, BillboardChain::Element(laser_hit, laser_width, 0, ColourValue()));
 
 	return true;
 }
