@@ -9,9 +9,12 @@ Application :: Application():
 	root(new Root("conf/plugins_d.cfg")),
 	gameconfig(new GameConfig("conf/gameconf.cfg")),
 	game_rc(new GameResource("conf/game_rc.cfg")),
-	moving_speed(gameconfig -> GetValue("moving_speed")),
-	rotating_speed(gameconfig -> GetValue("rotating_speed")),
-	laser_width(gameconfig -> GetValue("laser_width"))
+	moving_speed	(gameconfig -> GetValue("moving_speed")),
+	rotating_speed	(gameconfig -> GetValue("rotating_speed")),
+	laser_width		(gameconfig -> GetValue("laser_width")),
+	trace_width		(gameconfig -> GetValue("trace_width")),
+	bullet_speed	(gameconfig -> GetValue("bullet_speed")),
+	trace_length	(gameconfig -> GetValue("trace_length"))
 {
 // use the existing ogre.cfg if it exists, creates it otherwise
 	if(!(root -> restoreConfig() || root -> showConfigDialog()))

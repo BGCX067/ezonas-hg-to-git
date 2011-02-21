@@ -50,17 +50,21 @@ void Application :: createScene()
 		bbchain -> setTextureCoordDirection(BillboardChain :: TCD_V);
 	}
 
-	{
+	{// the bullet //////////////////////////////////////////////////////////////////////
 		bullet_t = scenemanager -> createSceneNode("bullet trace");
 		rootnode -> addChild(bullet_t);
 		BillboardChain * bullet_trace = scenemanager -> createBillboardChain("bullet trace");
 
+		bullet_trace -> setTextureCoordDirection(BillboardChain :: TCD_V);
+		bullet_trace -> setUseTextureCoords(true);
 		bullet_t -> attachObject (bullet_trace);
 		bullet_trace -> setMaxChainElements(2);
+		bullet_trace -> setMaterialName("Ogrik/bullet_trace");
 		bullet_trace -> addChainElement
-			(0, BillboardChain::Element(Vec3(0, 0, 0), laser_width, 0, ColourValue()));
+			(0, BillboardChain::Element(Vec3(0, 0, 0), trace_width, 0, ColourValue()));
 		bullet_trace->addChainElement
-			(0, BillboardChain::Element(Vec3(10, 0, 0), laser_width, 0, ColourValue()));
+			(0, BillboardChain::Element
+				(Vec3(trace_length, 0, 0), trace_width, 0, ColourValue()));
 	}
 	{// the manual boject ///////////////////////////////////////////////////////////////
 		//	manobj = scenemanager -> createManualObject("duh");

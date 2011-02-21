@@ -44,7 +44,7 @@ private:
 // scene queries ##############################################################
 	RayCast * raycast;
 	Vec3 laser_hit;
-	const float laser_width;
+	const float laser_width, bullet_speed, trace_width, trace_length;
 // Billboards #################################################################
 	Billboard * bboard;
 	BillboardSet * bbset;

@@ -11,7 +11,7 @@ material Ogrik/laser_beam
 { technique { pass {
 	scene_blend alpha_blend
 	depth_write off
-	texture_unit { texture blue-ray101-bright.png }	
+	texture_unit { texture blue-ray21-bright-trans.png }	
 }}}
 
 /* BULLET TRACE ////////////////////////////////////////////// */

@@ -20,8 +20,6 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 
 #ifdef FPS_CAM
 	mouse -> capture();
-	//float rotX = mouse -> getMouseState().X.rel * evt.timeSinceLastFrame * -1 * rotating_speed;
-	//float rotY = mouse -> getMouseState().Y.rel * evt.timeSinceLastFrame * -1 * rotating_speed;
 	float rotX = mouse -> getMouseState().X.rel * -1 * rotating_speed;
 	float rotY = mouse -> getMouseState().Y.rel * -1 * rotating_speed;
 	camera -> yaw(Ogre :: Radian(rotX));
@@ -30,7 +28,7 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 
 	raycast -> update();
 	laserdot -> setPosition(laser_hit);
-	bullet_t -> translate(evt.timeSinceLastFrame * 50, 0, 0);
+	bullet_t -> translate(evt.timeSinceLastFrame * bullet_speed, 0, 0);
 	
 #endif
 	//static int i = 0;
