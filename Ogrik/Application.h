@@ -39,7 +39,7 @@ private:
 	const float rotating_speed;
 // entities and nodes #########################################################
 	Entity * sinbad, * entplane;
-	SceneNode * rootnode, * laserdot, * laserbeam;
+	SceneNode * rootnode, * laserdot, * laserbeam, * bullet_t;
 	//map <SceneNode *> Nodes;
 // scene queries ##############################################################
 	RayCast * raycast;
@@ -48,7 +48,7 @@ private:
 // Billboards #################################################################
 	Billboard * bboard;
 	BillboardSet * bbset;
-	BillboardChain * bbchain;
+	BillboardChain * bbchain, * bullet_trace;
 // Manual objects #############################################################
     //ManualObject * manobj;
 };

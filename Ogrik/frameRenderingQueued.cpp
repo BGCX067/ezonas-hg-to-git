@@ -30,6 +30,7 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 
 	raycast -> update();
 	laserdot -> setPosition(laser_hit);
+	bullet_t -> translate(evt.timeSinceLastFrame * 50, 0, 0);
 	
 #endif
 	//static int i = 0;

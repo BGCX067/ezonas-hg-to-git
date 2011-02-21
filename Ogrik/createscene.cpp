@@ -7,10 +7,12 @@ SceneNode * Application :: QuickAdd(string str)
 	rootnode -> addChild(node);
 	return node;
 }
+
+
 void Application :: createScene()
 {
 	//camera -> setPolygonMode(PM_WIREFRAME);
-	{
+	{// plane and entities ////////////////////////////////////////////////////////////
 		AddPlane();
 		SceneNode * node;
 		//QuickAdd("Sinbad.mesh");
@@ -18,8 +20,9 @@ void Application :: createScene()
 		node -> setScale(0.05f, 0.05f, 0.05f);
 		((Entity *)(node -> getAttachedObject(0))) -> setMaterialName("Examples/Ninja");
 		node -> translate(0, -5, 0);
+		node ->setVisible(false);
 	}
-	{// billboard for the laser dot
+	{// billboard for the laser dot ///////////////////////////////////////////////////
 		laserdot = scenemanager -> createSceneNode("laser dot");
 		// "link" the laser dot position so that the class can update the position
 		raycast -> SetPos(& laser_hit);
@@ -30,14 +33,14 @@ void Application :: createScene()
 		laserdot -> attachObject (bbset);
 		laserdot -> setScale(0.005f, 0.005f, 0.005f);
 	}
-	{//billboard CHAIN, for the laser beam
+	{//billboard CHAIN, for the laser beam //////////////////////////////////////////////
 		laserbeam = scenemanager -> createSceneNode("laser beam");
 		rootnode -> addChild(laserbeam);
 		bbchain = scenemanager -> createBillboardChain("laser beam");
 		laserbeam -> attachObject (bbchain);
 		bbchain -> setMaxChainElements(2);
 		bbchain -> setMaterialName("Ogrik/laser_beam");
-		bbchain->addChainElement
+		bbchain -> addChainElement
 			(0, BillboardChain::Element(Vec3(0, 0, 100), laser_width, 0, ColourValue()));
 		bbchain->addChainElement
 			(0, BillboardChain::Element(Vec3(0, 0, 0), laser_width, 0, ColourValue()));
@@ -46,7 +49,20 @@ void Application :: createScene()
 		//bbchain -> setUseVertexColours(true);
 		bbchain -> setTextureCoordDirection(BillboardChain :: TCD_V);
 	}
-	{// the manual boject
+
+	{
+		bullet_t = scenemanager -> createSceneNode("bullet trace");
+		rootnode -> addChild(bullet_t);
+		BillboardChain * bullet_trace = scenemanager -> createBillboardChain("bullet trace");
+
+		bullet_t -> attachObject (bullet_trace);
+		bullet_trace -> setMaxChainElements(2);
+		bullet_trace -> addChainElement
+			(0, BillboardChain::Element(Vec3(0, 0, 0), laser_width, 0, ColourValue()));
+		bullet_trace->addChainElement
+			(0, BillboardChain::Element(Vec3(10, 0, 0), laser_width, 0, ColourValue()));
+	}
+	{// the manual boject ///////////////////////////////////////////////////////////////
 		//	manobj = scenemanager -> createManualObject("duh");
 		//	manobj -> begin("BaseWhiteNoLighting", RenderOperation::OT_LINE_STRIP);
 		//		manobj -> position (0, 0, 0);
