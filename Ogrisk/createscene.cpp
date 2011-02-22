@@ -1,66 +1,79 @@
 #include "stdafx.h"
 
+SceneNode * Application :: QuickAdd(string str)
+{
+	SceneNode * node = scenemanager -> createSceneNode(str);
+	node -> attachObject(scenemanager -> createEntity(str));
+	rootnode -> addChild(node);
+	return node;
+}
+
+
 void Application :: createScene()
 {
-	camera -> setPolygonMode(PM_WIREFRAME);
-	// the ogre
+	//camera -> setPolygonMode(PM_WIREFRAME);
+	{// plane and entities ////////////////////////////////////////////////////////////
+		AddPlane();
+		SceneNode * node;
+		//QuickAdd("Sinbad.mesh");
+		node = QuickAdd("ninja.mesh");
+		node -> setScale(0.05f, 0.05f, 0.05f);
+		((Entity *)(node -> getAttachedObject(0))) -> setMaterialName("Examples/Ninja");
+		node -> translate(0, -5, 0);
+		node ->setVisible(false);
+	}
+	{// billboard for the laser dot ///////////////////////////////////////////////////
+		laserdot = scenemanager -> createSceneNode("laser dot");
+		// "link" the laser dot position so that the class can update the position
+		raycast -> SetPos(& laser_hit);
+		rootnode -> addChild(laserdot);
+		bbset = scenemanager -> createBillboardSet("laser dot");
+		bboard = bbset -> createBillboard(Ogre :: Vector3(0, 0, 0));
+		bbset -> setMaterialName("Ogrik/laser_dot");
+		laserdot -> attachObject (bbset);
+		laserdot -> setScale(0.005f, 0.005f, 0.005f);
+	}
+	{//billboard CHAIN, for the laser beam //////////////////////////////////////////////
+		laserbeam = scenemanager -> createSceneNode("laser beam");
+		rootnode -> addChild(laserbeam);
+		bbchain = scenemanager -> createBillboardChain("laser beam");
+		laserbeam -> attachObject (bbchain);
+		bbchain -> setMaxChainElements(2);
+		bbchain -> setMaterialName("Ogrik/laser_beam");
+		bbchain -> addChainElement
+			(0, BillboardChain::Element(Vec3(0, 0, 100), laser_width, 0, ColourValue()));
+		bbchain->addChainElement
+			(0, BillboardChain::Element(Vec3(0, 0, 0), laser_width, 0, ColourValue()));
 
-//    sinbad = scenemanager -> createEntity(game_rc -> GetValue("sinbad"));
-//    rootnode -> attachObject(sinbad);
+		bbchain -> setUseTextureCoords(true);
+		//bbchain -> setUseVertexColours(true);
+		bbchain -> setTextureCoordDirection(BillboardChain :: TCD_V);
+	}
 
-	Entity * ent1 = scenemanager -> createEntity(game_rc -> GetValue("ent1"));
-    SceneNode * node = scenemanager -> createSceneNode("dada");
-    rootnode -> addChild(node);
-    node -> attachObject(ent1);
-    node -> setScale(0.01, 0.01, 0.01);
+	{// the bullet //////////////////////////////////////////////////////////////////////
+		bullet_t = scenemanager -> createSceneNode("bullet trace");
+		rootnode -> addChild(bullet_t);
+		BillboardChain * bullet_trace = scenemanager -> createBillboardChain("bullet trace");
 
-	//SceneNode * node = scenemanager -> createSceneNode("node");
-    Entity * ent = scenemanager -> createEntity("sphere.mesh");
-    node -> attachObject(ent);
-    node -> setPosition (0, 0, 0);
-	//node -> setScale (0.0001, 0.0001, 0.0001);
-	node -> setScale (100, 100, 100);
-// the plane
-	Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -10);
-	Ogre :: MeshManager :: getSingleton().createPlane("plane",
-	ResourceGroupManager :: DEFAULT_RESOURCE_GROUP_NAME, plane,
-	1500, 1500, 20, 20, true, 1, 5, 5, Ogre :: Vector3 :: UNIT_Z);
-
-	entplane = scenemanager -> createEntity("LightPlaneEntity", "plane");
-	rootnode -> createChildSceneNode() -> attachObject(entplane);
-	entplane -> setMaterialName("Examples/Rocky");
-
-// billboard for the laser and its dot
-//	laserdot = scenemanager -> createSceneNode("dot");
-//	rootnode -> addChild(laserdot);
-// first, trying to load the dot
-//#ifdef CACA
-//#define SET
-//#ifdef SET
-//billboard SET
-//	bbset = scenemanager -> createBillboardSet("laser_dot");
-//	bboard = bbset -> createBillboard(Ogre :: Vector3(0, 0, 0));
-//	bbset -> setMaterialName("Ogrik/laser");
-//	laserdot -> attachObject (bbset);
-//#else
-////billboard CHAIN
-//	bbchain = scenemanager -> createBillboardChain("laser_ray");
-//	laserdot -> attachObject (bbchain);
-//	bbchain -> addChainElement();
-//#endif
-//#endif
-//
-//	laserdot -> setScale(0.005f, 0.005f, 0.005f);
-//    laserdot -> setPosition(10, 0, 0);
-
-// the manual boject
-	//	manobj = scenemanager -> createManualObject("duh");
-	//	manobj -> begin("BaseWhiteNoLighting", RenderOperation::OT_LINE_STRIP);
-	//		manobj -> position (0, 0, 0);
-	//		manobj -> colour(1, 0, 0, 0.1);
-	//		manobj -> position (0, 1000, 0);
-	//		manobj -> colour(1, 0, 0, 0.1);
-	//	manobj -> end();
-	//	laserdot -> attachObject (manobj);
-
+		bullet_trace -> setTextureCoordDirection(BillboardChain :: TCD_V);
+		bullet_trace -> setUseTextureCoords(true);
+		bullet_t -> attachObject (bullet_trace);
+		bullet_trace -> setMaxChainElements(2);
+		bullet_trace -> setMaterialName("Ogrik/bullet_trace");
+		bullet_trace -> addChainElement
+			(0, BillboardChain::Element(Vec3(0, 0, 0), trace_width, 0, ColourValue()));
+		bullet_trace->addChainElement
+			(0, BillboardChain::Element
+				(Vec3(trace_length, 0, 0), trace_width, 0, ColourValue()));
+	}
+	{// the manual boject ///////////////////////////////////////////////////////////////
+		//	manobj = scenemanager -> createManualObject("duh");
+		//	manobj -> begin("BaseWhiteNoLighting", RenderOperation::OT_LINE_STRIP);
+		//		manobj -> position (0, 0, 0);
+		//		manobj -> colour(1, 0, 0, 0.1);
+		//		manobj -> position (0, 1000, 0);
+		//		manobj -> colour(1, 0, 0, 0.1);
+		//	manobj -> end();
+		//	laserdot -> attachObject (manobj);
+	}
 }

@@ -1,21 +1,27 @@
 #include "stdafx.h"
 
+Application * Application :: instance = NULL;
 Application :: Application():
 	scenemanager(NULL),
 	FrameListener(),
 //	listener(NULL),
 	// _keepRunning(true),
-	root(new Root("plugins_d.cfg")),
-	gameconfig(new GameConfig("gameconf.cfg")),
-	game_rc(new GameResource("game_rc.cfg")),
-	moving_speed(gameconfig -> GetValue("moving_speed")),
-	rotating_speed(gameconfig -> GetValue("rotating_speed"))
+	root(new Root("conf/plugins_d.cfg")),
+	gameconfig(new GameConfig("conf/gameconf.cfg")),
+	game_rc(new GameResource("conf/game_rc.cfg")),
+	moving_speed	(gameconfig -> GetValue("moving_speed")),
+	rotating_speed	(gameconfig -> GetValue("rotating_speed")),
+	laser_width		(gameconfig -> GetValue("laser_width")),
+	trace_width		(gameconfig -> GetValue("trace_width")),
+	bullet_speed	(gameconfig -> GetValue("bullet_speed")),
+	trace_length	(gameconfig -> GetValue("trace_length"))
 {
 // use the existing ogre.cfg if it exists, creates it otherwise
 	if(!(root -> restoreConfig() || root -> showConfigDialog()))
 		exit(0xdeadbeef);
 	// window
 	window = root -> initialise(true, "Ogre3D Beginners Guide");
+	window -> reposition(20, 20);
 	{/* ### scenemanager #################################################### */
 		scenemanager = root -> createSceneManager(ST_GENERIC);
 		rootnode = scenemanager -> getRootSceneNode();
@@ -28,13 +34,13 @@ Application :: Application():
 	}
 	{/* ### viewport ######################################################## */
 		viewport = window -> addViewport(camera);
-		viewport -> setBackgroundColour(ColourValue(0.0, 0.0, 0.0));
+		viewport -> setBackgroundColour(ColourValue(0.1, 0.1, 0.1));
 		camera -> setAspectRatio
 		(Real(viewport -> getActualWidth())/ Real(viewport -> getActualHeight()));
 	}
 	{/* ### resources ####################################################### */
 		ConfigFile cf;
-		cf.load("resources_d.cfg");
+		cf.load("conf/resources_d.cfg");
 
 		ConfigFile :: SectionIterator sectionIter = cf.getSectionIterator();
 		String sectionName, typeName, dataname;
@@ -54,11 +60,10 @@ Application :: Application():
 		}
 
 		ResourceGroupManager :: getSingleton().initialiseAllResourceGroups();
+
 	}
 	{/* ### Billboards ###################################################### */
-	}
-	{// create the scene
-		createScene();
+//		bbset scenemanager -> create
 	}
 	{/* ### Inputs ########################################################## */
 		ParamList parameters;
@@ -94,7 +99,10 @@ Application :: Application():
 	{/* ### Scene queries ################################################### */
 //		cursor_ray = Ray(camera -> getPosition(), camera -> getDirection());
 //		RSQ = scenemanager -> createRayQuery(cursor_ray);
-		raypick = new RayPick(camera, scenemanager, laserdot);
+		raycast = new RayCast(camera, scenemanager);
+	}
+	{// create the scene
+		createScene();
 	}
 	 /*  ### Finished building the appli, congratulations myself ! ########## */
 }
@@ -106,7 +114,6 @@ Application :: ~ Application()
 
 	if(root) delete root;
 }
-
 void Application :: go ()
 {
 	if(instance != NULL)
@@ -114,10 +121,6 @@ void Application :: go ()
 	else
 		exit(0xdeadc0de);
 }
-
-Application * Application :: instance = NULL;
-
-
 float GameConfig :: GetValue(string _s)
 {
 	float result = 0xdeadbeef;
@@ -125,7 +128,17 @@ float GameConfig :: GetValue(string _s)
 	istrstr >> result;
 	return result;
 }
-
 string GameResource :: GetValue(string _s)
 {return configfile.getSetting(_s, StringUtil :: BLANK, "sphere.mesh");}
+void Application :: AddPlane()
+{
+	Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -10);
+	Ogre :: MeshManager :: getSingleton().createPlane
+		("plane",
+			ResourceGroupManager :: DEFAULT_RESOURCE_GROUP_NAME, plane,
+			1500, 1500, 20, 20, true, 1, 5, 5, Ogre :: Vector3 :: UNIT_Z);
 
+	entplane = scenemanager -> createEntity("LightPlaneEntity", "plane");
+	rootnode -> createChildSceneNode() -> attachObject(entplane);
+	entplane -> setMaterialName("Examples/Rocky");
+}

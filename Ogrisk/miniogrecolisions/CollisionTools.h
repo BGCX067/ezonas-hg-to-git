@@ -36,14 +36,6 @@ THE SOFTWARE.
 #include "ETTerrainInfo.h"
 #endif
 
-
-typedef Ogre :: Camera Cam;
-typedef Ogre::Vector3 Vec3;
-typedef Ogre::Vector2 Vec2;
-typedef Ogre::MovableObject* Mvbl;
-typedef Ogre::Entity* Ent;
-
-
 namespace MOC {
 
 class CollisionTools {
@@ -69,18 +61,18 @@ public:
 							const Ogre::uint32 queryMask = 0xFFFFFFFF);
 	// convenience wrapper with Ogre::Entity to it:
 	bool raycastFromCamera(Ogre::RenderWindow* rw,
-							Ogre::Camera* camera,                         // cam
-							const Ogre::Vector2 &mousecoords,             // mouse coords
-							Ogre::Vector3 &result,                        // result
-							Ogre::Entity* &target,                        // target
-							float &closest_distance,                      // close dist
-							const Ogre::uint32 queryMask = 0xFFFFFFFF);   // qr mask
+							Ogre::Camera* camera,
+							const Ogre::Vector2 &mousecoords,
+							Ogre::Vector3 &result,
+							Ogre::Entity* &target,
+							float &closest_distance,
+							const Ogre::uint32 queryMask = 0xFFFFFFFF);
 
-	bool collidesWithEntity(const Ogre::Vector3& fromPoint,               // from point
-							const Ogre::Vector3& toPoint,                 // to point
-							const float collisionRadius = 2.5f,           // col radius
-							const float rayHeightLevel = 0.0f,            // ray height
-							const Ogre::uint32 queryMask = 0xFFFFFFFF);   // qr mask
+	bool collidesWithEntity(const Ogre::Vector3& fromPoint,
+							const Ogre::Vector3& toPoint,
+							const float collisionRadius = 2.5f,
+							const float rayHeightLevel = 0.0f,
+							const Ogre::uint32 queryMask = 0xFFFFFFFF);
 
 	void calculateY(Ogre::SceneNode *n,
 							const bool doTerrainCheck = true,

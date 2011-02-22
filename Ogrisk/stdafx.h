@@ -8,8 +8,10 @@ using namespace std;
 using namespace Ogre;
 using namespace OIS;
 
+typedef Ogre :: Vector3 Vec3;
+ 
 // Project
 #include "GameConfig.h"
-#include "miniogrecolisions/RayPicking.h"
+#include "RayCast.h"
 #include "Application.h"
 

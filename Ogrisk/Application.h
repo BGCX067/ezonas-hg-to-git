@@ -15,12 +15,13 @@ public:
 
 // added those 3 lines
 	bool frameRenderingQueued(const FrameEvent & evt);
-
+	SceneNode * QuickAdd(string str);
 private:
 	static Application * instance;
 	void createScene();
 	Application();
 	~ Application();
+	void AddPlane();
 // core objects ###############################################################
 	SceneManager * scenemanager;
 	Root * root;
@@ -38,20 +39,17 @@ private:
 	const float rotating_speed;
 // entities and nodes #########################################################
 	Entity * sinbad, * entplane;
-	SceneNode * rootnode, * laserdot;
+	SceneNode * rootnode, * laserdot, * laserbeam, * bullet_t;
 	//map <SceneNode *> Nodes;
 // scene queries ##############################################################
-//	Ray cursor_ray;
-//	RaySceneQuery * RSQ;
-//	RaySceneQueryResult RSQR;
-//	RSQR_iter_t rsqr_iter;
-	RayPick * raypick;
-
+	RayCast * raycast;
+	Vec3 laser_hit;
+	const float laser_width, bullet_speed, trace_width, trace_length;
 // Billboards #################################################################
-//	Billboard * bboard;
-//	BillboardSet * bbset;
-//	BillboardChain * bbchain;
+	Billboard * bboard;
+	BillboardSet * bbset;
+	BillboardChain * bbchain, * bullet_trace;
 // Manual objects #############################################################
-    ManualObject * manobj;
+    //ManualObject * manobj;
 };
 

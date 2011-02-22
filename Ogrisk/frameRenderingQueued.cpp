@@ -20,28 +20,22 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 
 #ifdef FPS_CAM
 	mouse -> capture();
-	float rotX = mouse -> getMouseState().X.rel *
-		evt.timeSinceLastFrame * -1 * rotating_speed;
-	float rotY = mouse -> getMouseState().Y.rel *
-		evt.timeSinceLastFrame * -1 * rotating_speed;
-// camera movements
+	float rotX = mouse -> getMouseState().X.rel * -1 * rotating_speed;
+	float rotY = mouse -> getMouseState().Y.rel * -1 * rotating_speed;
 	camera -> yaw(Ogre :: Radian(rotX));
 	camera -> pitch(Ogre :: Radian(rotY));
-	// rays
 //	cursor_ray = camera -> getCameraToViewportRay
-//	(
-//		mouse -> getMouseState() . X.abs /
-//		(float) mouse -> getMouseState() . width,
-//		mouse -> getMouseState() . Y.abs /
-//		(float) mouse -> getMouseState() . height
-//	);
-//	RSQR = RSQ -> execute();
-//	for (rsqr_iter = RSQR.begin(); rsqr_iter != RSQR.end(); ++ rsqr_iter)
-//	{
-//
-//	}
-	raypick -> Update();
+
+	raycast -> update();
+	laserdot -> setPosition(laser_hit);
+	bullet_t -> translate(evt.timeSinceLastFrame * bullet_speed, 0, 0);
+	
 #endif
+	//static int i = 0;
+	//i++;
+	//i %= 30;
+	bbchain -> updateChainElement
+		(0, 0, BillboardChain::Element(laser_hit, laser_width, 0, ColourValue()));
 
 	return true;
 }
