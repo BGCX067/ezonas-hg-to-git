@@ -1,55 +1,59 @@
-// Computer sciences %%%%%%%%%%%%%%%%
-Linus Torvalds
-Donald Knuth
-Bjarne Stroutup
-Steve Streeting
+// %%%%%% Computer Sciences %%%%%%
+	Linus Torvalds
+	Donald Knuth
+	Bjarne Stroutup
+	Steve Streeting
 
-// Mathematics %%%%%%%%%%%%%%%%
-Alan Turing
-Pierre de Fermat
-William Rowan Hamilton
-Euler
-Gauss
-Neper
-Socrates
-Euclide
-Taylor
-Confucius
-Descartes
-Newton
+// %%%%%% Mathematics %%%%%% 
+	Alan Turing
+	Pierre de Fermat
+	William Rowan Hamilton
+	Euler
+	Gauss
+	Neper
+	Socrates
+	Euclide
+	Taylor
+	Confucius
+	Descartes
+	Newton
 
-// Philosophy %%%%%%%%%%%%%%%%
-Karl Marx
-Noam Chomsky
-Jung
+// %%%%%% Philosophy %%%%%%
+	Karl Marx
+	Noam Chomsky
+	Jung
 
-// Entrepreuners %%%%%%%%%%%%%%%%
-Tim Berners-Lee
-Richard Stallman
-Kevin Mitnick
-Gary McKinnon
+// %%%%%% Entrepreuners %%%%%%
+	Tim Berners-Lee
+	Richard Stallman
+	Kevin Mitnick
+	Gary McKinnon
 
-// Gaming %%%%%%%%%%%%%%%%
-Hideo Kojima
-John Carmack
-Shigeru Miyamoto
+// %%%%%% Gaming %%%%%%
+	Hideo Kojima
+	John Carmack
+	Shigeru Miyamoto
 
-// Cartoons %%%%%%%%%%%%%%%%
-Peter Griffin
-Seth MacFarlane
-Quentin Tarantino
+// %%%%%% Cartoons & TV shows %%%%%%
+	Peter Griffin
+	Michael Scott
+	Dwight Shrute
 
-// Presidents %%%%%%%%%%%%%%%%
-Barack Obama
-Richard Nixon
-Abraham Lincoln
+// %%%%%% Authors %%%%%%
+	Seth MacFarlane
+	Quentin Tarantino
 
-// Medias and others %%%%%%%%%%%%%%%%
-Jacques Fresquo
-Michael Moore
+// %%%%%% Presidents %%%%%%
+	Barack Obama
+	Richard Nixon
+	Abraham Lincoln
 
-// cliches %%%%%%%%%%%%%%%%
-metal guy
-pot guy
-hipster
-nerd
+// %%%%%% Medias and others %%%%%%
+	Jacques Fresquo
+	Michael Moore
+
+// %%%%%% cliches %%%%%%
+	metal guy
+	pot guy
+	hipster
+	nerd

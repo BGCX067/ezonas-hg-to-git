@@ -47,16 +47,12 @@
 		</Linker>
 		<Unit filename="Application.cpp" />
 		<Unit filename="Application.h" />
+		<Unit filename="CreateScene.cpp" />
+		<Unit filename="FrameRenderingQueued.cpp" />
 		<Unit filename="GameConfig.h" />
 		<Unit filename="Ogrik_main.cpp" />
-		<Unit filename="RayCast.c">
-			<Option compilerVar="CPP" />
-		</Unit>
-		<Unit filename="createscene.cpp" />
-		<Unit filename="frameRenderingQueued.cpp" />
-		<Unit filename="miniogrecolisions\RayPick_GetMeshInfo64.cpp" />
-		<Unit filename="miniogrecolisions\RayPicking.cpp" />
-		<Unit filename="miniogrecolisions\RayPicking.h" />
+		<Unit filename="RayCast.cpp" />
+		<Unit filename="RayCast.h" />
 		<Unit filename="stdafx.h" />
 		<Extensions>
 			<code_completion />

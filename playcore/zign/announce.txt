@@ -1,0 +1,18 @@
+Hello, my name is Jonas aka jokoon, I'm currently in game programming school, and I've started my personnal project.
+
+I have several things to say about it. Here are the most important ones:
+
+* It's very personnal: I've wanted to make a game since the age of 12 
+
+* It's a long term project, because I want to implement several things, which I can put in a priority list, but for me it will take 2 to 5 versions of the game to be "finished".
+
+* I want it to be a low-spec game, and I'm not concerned by the art quality.
+
+Here are more detailed goals for the game:
+
+Gameplay axed on competitive multiplayer.
+I don't want to implement multiplayer right off, because that's one of the most sophisticated implementation. Even though, I'm designing the gameplay so that the game feel nervous.
+
+Designed to be deeply modded.
+	I want this game to be very modifiable. What I mean by "very" is that it will be focused on gameplay modification rather than content modification. For this, some parts will be kept open, and some won't.
+
