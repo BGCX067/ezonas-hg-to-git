@@ -1,21 +1,26 @@
 #include "stdafx.h"
 
-FPersonCam :: FPersonCam(Camera * camera, SceneManager * scmagr):
+FPersonCam :: FPersonCam(Camera * camera, SceneNode * rootscnd):
 
-	cam_roll	(scmgr->createSceneNode("cam_roll")),
-	cam_yaw		(scmgr->createSceneNode("cam_yaw")),
-	cam_pitch	(scmgr->createSceneNode("cam_pitch")),
-	cam_node	(scmgr->createSceneNode("cam_node")),
-	scmgr		(scmagr),
+	cam_node	(rootscnd->createChildSceneNode("cam_node")),
+	cam_yaw		(cam_node->createChildSceneNode("cam_yaw")),
+	cam_pitch	(cam_yaw->createChildSceneNode("cam_pitch")),
+	cam_roll	(cam_pitch->createChildSceneNode("cam_roll")),
 	cam			(camera)
 
 {
-	scmgr -> getRootSceneNode() ->
-					addChild(cam_node);
-	cam_node ->		addChild(cam_yaw);
-	cam_yaw ->		addChild(cam_pitch);
-	cam_pitch ->	addChild(cam_roll);
-	cam_roll -> 	addChild(cam_yaw);
-	
 	cam_roll -> 	attachObject(cam);
+}
+
+void FPersonCam :: update(float yaw, float pitch, Vec3 & vect)
+{
+	cam_yaw -> yaw(Radian(yaw));
+	cam_pitch -> pitch(Radian(pitch));
+//	cam_node -> translate(* vect);//, Node::TS_LOCAL);
+	cam_node -> translate
+		(
+			cam_yaw -> getOrientation() *
+			cam_pitch -> getOrientation() *
+			vect
+		);//, Node::TS_LOCAL);
 }

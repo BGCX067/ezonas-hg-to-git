@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="Application.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="4071" topLine="0" />
+	<File name="1stPersonCam.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="623" topLine="0" />
+	</File>
+	<File name="1stPersonCam.h" open="1" top="0" tabpos="2">
+		<Cursor position="254" topLine="0" />
+	</File>
+	<File name="Application.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="4920" topLine="0" />
 	</File>
 	<File name="Application.h" open="0" top="0" tabpos="2">
-		<Cursor position="1464" topLine="0" />
+		<Cursor position="1160" topLine="0" />
+	</File>
+	<File name="FrameRenderingQueued.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="1255" topLine="0" />
 	</File>
 	<File name="GameConfig.h" open="0" top="0" tabpos="4">
 		<Cursor position="279" topLine="0" />
 	</File>
-	<File name="stdafx.h" open="0" top="0" tabpos="0">
-		<Cursor position="234" topLine="0" />
+	<File name="stdafx.h" open="1" top="0" tabpos="4">
+		<Cursor position="227" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

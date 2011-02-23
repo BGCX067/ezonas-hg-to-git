@@ -16,24 +16,25 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	if (keyboard -> isKeyDown(KC_Q)) translate += Ogre :: Vector3(0, -1, 0);
 	if (keyboard -> isKeyDown(KC_E)) translate += Ogre :: Vector3(0, 1, 0);
 
-	camera -> moveRelative(translate * evt.timeSinceLastFrame * moving_speed);
-
-#ifdef FPS_CAM
+#define FPS_CAM2
 	mouse -> capture();
-	float rotX = mouse -> getMouseState().X.rel * -1 * rotating_speed;
-	float rotY = mouse -> getMouseState().Y.rel * -1 * rotating_speed;
-	camera -> yaw(Ogre :: Radian(rotX));
-	camera -> pitch(Ogre :: Radian(rotY));
-//	cursor_ray = camera -> getCameraToViewportRay
-
-	raycast -> update();
-	laserdot -> setPosition(laser_hit);
-	bullet_t -> translate(evt.timeSinceLastFrame * bullet_speed, 0, 0);
-	
+#ifdef FPS_CAM
+	camera -> moveRelative(translate * evt.timeSinceLastFrame * moving_speed);
+	camera -> yaw(Ogre :: Radian(mouse -> getMouseState().X.rel * rotating_speed));
+	camera -> pitch(Ogre :: Radian(mouse -> getMouseState().Y.rel * rotating_speed));
+#else
+	fpersoncam -> update
+	(
+		mouse -> getMouseState().X.rel * rotating_speed,
+		mouse -> getMouseState().Y.rel * rotating_speed,
+		translate * evt.timeSinceLastFrame * moving_speed
+	);
 #endif
-	//static int i = 0;
-	//i++;
-	//i %= 30;
+//	cursor_ray = camera -> getCameraToViewportRay
+	//raycast -> update();
+	//laserdot -> setPosition(laser_hit);
+	bullet_t -> translate(evt.timeSinceLastFrame * bullet_speed, 0, 0);
+
 	bbchain -> updateChainElement
 		(0, 0, BillboardChain::Element(laser_hit, laser_width, 0, ColourValue()));
 

@@ -2,19 +2,22 @@
 
 Application * Application :: instance = NULL;
 Application :: Application():
+// ##### INITIALIZATIONS HERE ##########################################################
 	scenemanager(NULL),
 	FrameListener(),
-//	listener(NULL),
-	// _keepRunning(true),
 	root(new Root("conf/plugins_d.cfg")),
-	gameconfig(new GameConfig("conf/gameconf.cfg")),
-	game_rc(new GameResource("conf/game_rc.cfg")),
+	// gameplay classes
+
+	game_rc			(new GameResource("conf/game_rc.cfg")),
+	gameconfig		(new GameConfig("conf/gameconf.cfg")),
+	// games tweakable values
 	moving_speed	(gameconfig -> GetValue("moving_speed")),
-	rotating_speed	(gameconfig -> GetValue("rotating_speed")),
+	rotating_speed	(- gameconfig -> GetValue("rotating_speed")),
 	laser_width		(gameconfig -> GetValue("laser_width")),
 	trace_width		(gameconfig -> GetValue("trace_width")),
 	bullet_speed	(gameconfig -> GetValue("bullet_speed")),
 	trace_length	(gameconfig -> GetValue("trace_length"))
+// ##### INITIALIZATIONS END ##########################################################
 {
 // use the existing ogre.cfg if it exists, creates it otherwise
 	if(!(root -> restoreConfig() || root -> showConfigDialog()))
@@ -31,6 +34,9 @@ Application :: Application():
 		camera -> setPosition(Ogre :: Vector3(0, 0, 20));
 		camera -> lookAt(Ogre :: Vector3(0, 0, 0));
 		camera -> setNearClipDistance(1);
+	}
+	{// ### First Person Camera Object ######################################
+		fpersoncam = new FPersonCam(camera, rootnode);
 	}
 	{/* ### viewport ######################################################## */
 		viewport = window -> addViewport(camera);
@@ -63,7 +69,6 @@ Application :: Application():
 
 	}
 	{/* ### Billboards ###################################################### */
-//		bbset scenemanager -> create
 	}
 	{/* ### Inputs ########################################################## */
 		ParamList parameters;
@@ -97,8 +102,6 @@ Application :: Application():
 		root -> addFrameListener(this);
 	}
 	{/* ### Scene queries ################################################### */
-//		cursor_ray = Ray(camera -> getPosition(), camera -> getDirection());
-//		RSQ = scenemanager -> createRayQuery(cursor_ray);
 		raycast = new RayCast(camera, scenemanager);
 	}
 	{// create the scene
@@ -111,6 +114,7 @@ Application :: ~ Application()
 	inputmanager -> destroyInputObject(mouse);
 	inputmanager -> destroyInputObject(keyboard);
 	InputManager :: destroyInputSystem(inputmanager);
+	delete fpersoncam;
 
 	if(root) delete root;
 }

@@ -77,12 +77,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="1stPersonCam.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="GameConfig.h" />
     <ClInclude Include="RayCast.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="1stPersonCam.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="CreateScene.cpp" />
     <ClCompile Include="FrameRenderingQueued.cpp" />

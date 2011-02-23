@@ -45,6 +45,8 @@
 			<Add directory="C:\Ogre172gcc\boost_1_44\lib" />
 			<Add directory="C:\Ogre172gcc\lib\$(TARGET_NAME)" />
 		</Linker>
+		<Unit filename="1stPersonCam.cpp" />
+		<Unit filename="1stPersonCam.h" />
 		<Unit filename="Application.cpp" />
 		<Unit filename="Application.h" />
 		<Unit filename="CreateScene.cpp" />

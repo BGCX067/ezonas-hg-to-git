@@ -37,6 +37,7 @@ private:
 	GameResource * game_rc;
 	const float moving_speed;
 	const float rotating_speed;
+	FPersonCam * fpersoncam;
 // entities and nodes #########################################################
 	Entity * sinbad, * entplane;
 	SceneNode * rootnode, * laserdot, * laserbeam, * bullet_t;

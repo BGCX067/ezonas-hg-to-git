@@ -9,3 +9,5 @@ EYE MACHINES
 world:
 kosmo
 lume (romanian)
+
+torment crawler
