@@ -11,7 +11,7 @@ typedef Ogre :: Vector3 Vec3;
 
 // Project
 #include "1stPersonCam.h"
-#include "GameConfig.h"
+#include "GameResourceConfig.h"
 #include "RayCast.h"
 #include "Application.h"
 

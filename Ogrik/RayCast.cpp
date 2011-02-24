@@ -8,17 +8,14 @@ RayCast::RayCast(Camera * camera, SceneManager * scmgr):
 		// static_cast<MaterialPtr>
 		// (MaterialManager :: getSingletonPtr() -> getByName ("Sinbad"))
 	// )
-
 {}
 void RayCast :: SetPos(Vec3 * v) { result = v; }
 void RayCast :: update()
 {
-	RSQ -> setRay(ray_cam = Ray(cam -> getPosition(), cam -> getDirection()));
+	//RSQ -> setRay(ray_cam = Ray(cam -> getDerivedPosition(), cam -> getDerivedOrientation()));
+	ray_cam = Ray(cam -> getDerivedPosition(), cam -> getDerivedOrientation());
 	execute();
 }
-
-	//cout << result -> x << " " << result -> y << " " << result -> z << "\n";
-
 bool RayCast :: execute()
 {
 	// execute the query, returns a vector of hits

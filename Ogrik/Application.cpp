@@ -1,23 +1,45 @@
 #include "stdafx.h"
 
-Application * Application :: instance = NULL;
+SceneNode * Application :: QuickAdd(string _s)
+{
+	SceneNode * node = scenemanager -> createSceneNode(_s);
+	node -> attachObject(scenemanager -> createEntity(_s));
+	rootnode -> addChild(node);
+	return node;
+}
+// WARNING: Fast doesn't have anything to do with
+// performance here. This is only for scene creation (which has no performance matter) !
+SceneNode * Application :: FastAdd(string _s)
+{
+	istringstream iss(configfile -> getSetting(_s));
+	string s = configfile -> getSetting(_s);
+	float x, y, z, scale;
+	string mesh_filename, material_name;
+
+	//iss >> mesh_filename;
+	//iss >> scale;
+	//iss >> material_name;
+	//iss >> x;
+	//iss >> y;
+	//iss >> z;
+	iss >> mesh_filename >> scale >> material_name >> x >> y >> z;
+	// iss >> z >> y >> x >> material_name >> scale >> mesh_filename;
+
+	SceneNode * node = scenemanager -> createSceneNode(_s);
+	Entity * ent = scenemanager -> createEntity(mesh_filename);
+	if (material_name != "-") ent -> setMaterialName(material_name);
+	node -> attachObject(scenemanager -> createEntity(mesh_filename));
+	rootnode -> addChild(node);
+	node -> setScale(scale, scale, scale);
+	node -> setPosition(x, y, z);
+	return node;
+}
 Application :: Application():
 // ##### INITIALIZATIONS HERE ##########################################################
 	scenemanager(NULL),
 	FrameListener(),
 	root(new Root("conf/plugins_d.cfg")),
-	// gameplay classes
-
-	game_rc			(new GameResource("conf/game_rc.cfg")),
-	gameconfig		(new GameConfig("conf/gameconf.cfg")),
-	// games tweakable values
-	moving_speed	(gameconfig -> GetValue("moving_speed")),
-	rotating_speed	(- gameconfig -> GetValue("rotating_speed")),
-	laser_width		(gameconfig -> GetValue("laser_width")),
-	trace_width		(gameconfig -> GetValue("trace_width")),
-	bullet_speed	(gameconfig -> GetValue("bullet_speed")),
-	trace_length	(gameconfig -> GetValue("trace_length"))
-// ##### INITIALIZATIONS END ##########################################################
+	configfile (new ConfigFile)
 {
 // use the existing ogre.cfg if it exists, creates it otherwise
 	if(!(root -> restoreConfig() || root -> showConfigDialog()))
@@ -31,8 +53,8 @@ Application :: Application():
 	}
 	{/* ### camera ########################################################## */
 		camera = scenemanager -> createCamera("Camera");
-		camera -> setPosition(Ogre :: Vector3(0, 0, 20));
-		camera -> lookAt(Ogre :: Vector3(0, 0, 0));
+		//camera -> setPosition(Ogre :: Vector3(0, 0, 20));
+		//camera -> lookAt(Ogre :: Vector3(0, 0, 0));
 		camera -> setNearClipDistance(1);
 	}
 	{// ### First Person Camera Object ######################################
@@ -66,7 +88,6 @@ Application :: Application():
 		}
 
 		ResourceGroupManager :: getSingleton().initialiseAllResourceGroups();
-
 	}
 	{/* ### Billboards ###################################################### */
 	}
@@ -104,10 +125,21 @@ Application :: Application():
 	{/* ### Scene queries ################################################### */
 		raycast = new RayCast(camera, scenemanager);
 	}
+	{//gameplay tweakables
+		configfile -> load("conf/gameconf.cfg");
+
+		moving_speed	= GetFloat("moving_speed");
+		rotating_speed	= - GetFloat("rotating_speed");
+		laser_width		= GetFloat("laser_width");
+		trace_width		= GetFloat("trace_width");
+		bullet_speed	= GetFloat("bullet_speed");
+		trace_length	= GetFloat("trace_length");
+	}
 	{// create the scene
 		createScene();
 	}
 	 /*  ### Finished building the appli, congratulations myself ! ########## */
+// ##### INITIALIZATIONS END ##########################################################
 }
 Application :: ~ Application()
 {
@@ -115,7 +147,7 @@ Application :: ~ Application()
 	inputmanager -> destroyInputObject(keyboard);
 	InputManager :: destroyInputSystem(inputmanager);
 	delete fpersoncam;
-
+	delete configfile;
 	if(root) delete root;
 }
 void Application :: go ()
@@ -125,15 +157,6 @@ void Application :: go ()
 	else
 		exit(0xdeadc0de);
 }
-float GameConfig :: GetValue(string _s)
-{
-	float result = 0xdeadbeef;
-	istringstream istrstr(configfile.getSetting(_s, StringUtil :: BLANK, "1.0"));
-	istrstr >> result;
-	return result;
-}
-string GameResource :: GetValue(string _s)
-{return configfile.getSetting(_s, StringUtil :: BLANK, "sphere.mesh");}
 void Application :: AddPlane()
 {
 	Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -10);
@@ -146,3 +169,13 @@ void Application :: AddPlane()
 	rootnode -> createChildSceneNode() -> attachObject(entplane);
 	entplane -> setMaterialName("Examples/Rocky");
 }
+const float Application :: GetFloat(string _s)
+{
+	float result = 0xdeadbeef;
+	istringstream istrstr(configfile -> getSetting(_s, StringUtil :: BLANK, "1.0"));
+	istrstr >> result;
+	return result;
+}
+Application * Application :: instance = NULL;
+Application * Application :: GetSingleton() {return instance;}
+void Application :: Instantiate() {static Application inst; instance = & inst;}

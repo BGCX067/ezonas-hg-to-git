@@ -9,7 +9,8 @@ FPersonCam :: FPersonCam(Camera * camera, SceneNode * rootscnd):
 	cam			(camera)
 
 {
-	cam_roll -> 	attachObject(cam);
+	cam_roll -> attachObject(cam);
+	cam_node -> setPosition(-100, 0, 0);
 }
 
 void FPersonCam :: update(float yaw, float pitch, Vec3 & vect)

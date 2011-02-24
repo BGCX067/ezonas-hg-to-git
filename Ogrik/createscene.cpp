@@ -1,26 +1,13 @@
 #include "stdafx.h"
 
-SceneNode * Application :: QuickAdd(string str)
-{
-	SceneNode * node = scenemanager -> createSceneNode(str);
-	node -> attachObject(scenemanager -> createEntity(str));
-	rootnode -> addChild(node);
-	return node;
-}
-
-
 void Application :: createScene()
 {
 	//camera -> setPolygonMode(PM_WIREFRAME);
+	SceneNode * node;
 	{// plane and entities ////////////////////////////////////////////////////////////
 		AddPlane();
-		SceneNode * node;
 		//QuickAdd("Sinbad.mesh");
-		node = QuickAdd("ninja.mesh");
-		node -> setScale(0.05f, 0.05f, 0.05f);
-		((Entity *)(node -> getAttachedObject(0))) -> setMaterialName("Examples/Ninja");
-		node -> translate(0, -5, 0);
-		node ->setVisible(false);
+		node = FastAdd("ninja");
 	}
 	{// billboard for the laser dot ///////////////////////////////////////////////////
 		laserdot = scenemanager -> createSceneNode("laser dot");
