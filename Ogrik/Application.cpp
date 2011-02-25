@@ -16,14 +16,7 @@ SceneNode * Application :: FastAdd(string _s)
 	float x, y, z, scale;
 	string mesh_filename, material_name;
 
-	//iss >> mesh_filename;
-	//iss >> scale;
-	//iss >> material_name;
-	//iss >> x;
-	//iss >> y;
-	//iss >> z;
 	iss >> mesh_filename >> scale >> material_name >> x >> y >> z;
-	// iss >> z >> y >> x >> material_name >> scale >> mesh_filename;
 
 	SceneNode * node = scenemanager -> createSceneNode(_s);
 	Entity * ent = scenemanager -> createEntity(mesh_filename);
@@ -178,4 +171,5 @@ const float Application :: GetFloat(string _s)
 }
 Application * Application :: instance = NULL;
 Application * Application :: GetSingleton() {return instance;}
-void Application :: Instantiate() {static Application inst; instance = & inst;}
+void Application :: Instantiate()
+{static Application inst; instance = & inst;}

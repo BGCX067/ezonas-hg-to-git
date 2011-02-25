@@ -17,7 +17,6 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	if (keyboard -> isKeyDown(KC_E)) translate += Ogre :: Vector3(0, 1, 0);
 
 	mouse -> capture();
-	raycast -> update();
 	laserdot -> setPosition(laser_hit);
 	bullet_t -> translate(evt.timeSinceLastFrame * bullet_speed, 0, 0);
 
@@ -29,6 +28,7 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 		mouse -> getMouseState().Y.rel * rotating_speed,
 		translate * evt.timeSinceLastFrame * moving_speed
 	);
+	raycast -> update();
 //	cursor_ray = camera -> getCameraToViewportRay
 
 	return true;

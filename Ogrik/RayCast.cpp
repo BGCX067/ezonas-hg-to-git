@@ -1,7 +1,8 @@
 #include "stdafx.h"
 RayCast::RayCast(Camera * camera, SceneManager * scmgr):
 	cam(camera),
-	ray_cam (Ray(cam -> getPosition(), cam -> getDerivedDirection())),
+	ray_cam (Ray(cam -> getDerivedPosition(), cam -> getDerivedDirection())),
+	//ray_cam (Ray(Vec3(0,0,0), Vec3(-1, -1, -1))),
 	RSQ (scmgr -> createRayQuery(ray_cam))
 	// matptr
 	// (
@@ -12,8 +13,8 @@ RayCast::RayCast(Camera * camera, SceneManager * scmgr):
 void RayCast :: SetPos(Vec3 * v) { result = v; }
 void RayCast :: update()
 {
-	//RSQ -> setRay(ray_cam = Ray(cam -> getDerivedPosition(), cam -> getDerivedOrientation()));
-	ray_cam = Ray(cam -> getDerivedPosition(), cam -> getDerivedOrientation());
+	RSQ -> setRay(Ray(cam -> getDerivedPosition(), cam -> getDerivedDirection()));
+	//ray_cam = Ray(cam -> getDerivedPosition(), cam -> getDerivedDirection());
 	execute();
 }
 bool RayCast :: execute()
