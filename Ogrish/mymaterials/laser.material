@@ -1,0 +1,49 @@
+/* LASER DOT ////////////////////////////////////////////// */
+material Ogrik/laser_dot
+{ technique { pass {
+	scene_blend alpha_blend
+	depth_write off
+	texture_unit { texture blue-dot.png }
+}}}
+
+/* LASER BEAM ////////////////////////////////////////////// */
+material Ogrik/laser_beam
+{ technique { pass {
+	scene_blend alpha_blend
+	depth_write off
+	texture_unit { texture blue-ray21-bright-trans.png }	
+}}}
+
+/* BULLET TRACE ////////////////////////////////////////////// */
+material Ogrik/bullet_trace
+{ technique { pass {
+	scene_blend alpha_blend
+	depth_write off
+	texture_unit { texture bullet-trace.png }	
+}}}
+
+/* LASER DOT ////////////////////////////////////////////// */
+material Ogrisk/cubicube
+{ technique { pass {
+	//scene_blend alpha_blend
+	diffuse 0.0 1.0 0.0 0.2
+}}}
+
+material fourchanfaces
+{ technique { pass {
+	diffuse 0.0 1.0 0.0
+	// texture_unit
+	// {
+		// texture fourchanfaces.png
+		// scale 0.01 0.01
+	// }
+}}}
+
+/* LASER DOT ////////////////////////////////////////////// */
+material Examples/Ninja
+{ technique { pass {
+	texture_unit
+	{
+		texture nskingr.jpg
+	}
+} } }

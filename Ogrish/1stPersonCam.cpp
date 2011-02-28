@@ -22,6 +22,9 @@ bool FPersonCam :: update (float frame_time)
 	cam_node -> translate
 	(cam_yaw -> getOrientation() * cam_pitch -> getOrientation() *
 	translate * moving_speed * frame_time);
+	
+	cout << cam_yaw -> getOrientation() << endl;
+	cout << cam_pitch -> getOrientation() << endl;
 
 	lasercast -> update(frame_time);
 	return true;
@@ -36,7 +39,7 @@ FPersonCam :: FPersonCam(Camera * camera, SceneNode * rootscnd, RenderWindow * _
 	cam_pitch		(cam_yaw -> createChildSceneNode	("cam_pitch")),
 	cam_roll		(cam_pitch -> createChildSceneNode	("cam_roll")),
 	cam				(camera),
-	lasercast		(new LaserCast(camera, Application :: GetScMgr()))
+	lasercast		(new LaserCast(camera, Application :: sglt() -> GetScMgr()))
 
 {
 	cam_roll -> attachObject(cam);
