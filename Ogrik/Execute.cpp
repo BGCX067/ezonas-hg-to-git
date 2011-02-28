@@ -1,27 +1,11 @@
 #include "stdafx.h"
-RayCast::RayCast(Camera * camera, SceneManager * scmgr):
-	cam(camera),
-	ray_cam (Ray(cam -> getDerivedPosition(), cam -> getDerivedDirection())),
-	//ray_cam (Ray(Vec3(0,0,0), Vec3(-1, -1, -1))),
-	RSQ (scmgr -> createRayQuery(ray_cam))
-	// matptr
-	// (
-		// static_cast<MaterialPtr>
-		// (MaterialManager :: getSingletonPtr() -> getByName ("Sinbad"))
-	// )
-{}
-void RayCast :: SetPos(Vec3 * v) { result = v; }
-void RayCast :: update()
-{
-	RSQ -> setRay(Ray(cam -> getDerivedPosition(), cam -> getDerivedDirection()));
-	//ray_cam = Ray(cam -> getDerivedPosition(), cam -> getDerivedDirection());
-	execute();
-}
-bool RayCast :: execute()
+
+bool LaserCast :: execute()
 {
 	// execute the query, returns a vector of hits
-	// raycast did not hit an objects bounding box:
+	// LaserCast did not hit an objects bounding box:
 	//if (RSQ == NULL) exit (0xdeadc0de);
+	RSQ -> setRay(Ray(cam -> getDerivedPosition(), cam -> getDerivedDirection()));
 	if (RSQ -> execute() . size() <= 0)
 	{
 		return false;
@@ -31,7 +15,7 @@ bool RayCast :: execute()
 	closest_distance = -1.0f;
     for (size_t qr_idx = 0; qr_idx < RSQR.size(); qr_idx++)
     {
-        // stop checking if we have found a raycast hit that is closer
+        // stop checking if we have found a LaserCast hit that is closer
         // than all remaining entities
         if
 		(
@@ -229,7 +213,7 @@ attributes and minimum passed variables */
             delete[] vertices;
             delete[] indices;
 
-            // if we found a new closest raycast for this object, update the
+            // if we found a new closest LaserCast for this object, update the
             // closest_result before moving on to the next object.
             if (new_closest_found)
                 closest_result = ray_cam.getPoint(closest_distance - 1.0f);
@@ -238,8 +222,8 @@ attributes and minimum passed variables */
     // return the result
     if (closest_distance >= 0.0f)
     {
-        // raycast success
-        * result = closest_result;
+        // LaserCast success
+        result = closest_result;
 		//matptr->setAmbient(0.5, 0.5, 0.5);
         return true;
     }

@@ -79,16 +79,19 @@
   <ItemGroup>
     <ClInclude Include="1stPersonCam.h" />
     <ClInclude Include="Application.h" />
-    <ClInclude Include="RayCast.h" />
+    <ClInclude Include="ConfMgr.h" />
+    <ClInclude Include="LaserCast.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1stPersonCam.cpp" />
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="ConfMgr.cpp" />
     <ClCompile Include="CreateScene.cpp" />
+    <ClCompile Include="Execute.cpp" />
     <ClCompile Include="FrameRenderingQueued.cpp" />
+    <ClCompile Include="LaserCast.cpp" />
     <ClCompile Include="Ogrik_main.cpp" />
-    <ClCompile Include="RayCast.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

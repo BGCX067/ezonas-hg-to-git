@@ -10,8 +10,9 @@ using namespace OIS;
 typedef Ogre :: Vector3 Vec3;
 
 // Project
+
+#include "ConfMgr.h"
+#include "LaserCast.h"
 #include "1stPersonCam.h"
-#include "GameResourceConfig.h"
-#include "RayCast.h"
 #include "Application.h"
 

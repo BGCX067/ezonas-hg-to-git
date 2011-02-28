@@ -1,28 +1,46 @@
 #include "stdafx.h"
 
-class RayCast
+class LaserCast
 {
 public:
 	// bool RaycastFromPoint(const Vector3 & point, const Vector3 & normal, Vector3 & result);
-	RayCast(Camera * camera, SceneManager * scmgr);
-	void update();
-	void SetPos(Vec3 * v);
+	LaserCast(Camera * camera, SceneManager * scmgr);
+	void update(float);
+
 protected:
-	//void GetMeshInfo();
-	MaterialPtr matptr;
 	bool execute();
+// necessary objects
+	// MaterialPtr matptr;
 	Camera * cam;
-	SceneNode * node;
-	Ray ray_cam, ray_cursor;
+	SceneNode
+		* n_root,
+		* n_laserdot,
+		* n_laserbeam,
+		* n_bullet;
+	Ray ray_cam;
+	
 	RaySceneQuery * RSQ;
 	RaySceneQueryResult RSQR;
-	//RSQR_iter_t rsqr_iter;
-/***************************************************************************************/
-// raycast functions
-/***************************************************************************************/
-	Ogre::Vector3
+// tweakables
+	float laser_width, bullet_speed, trace_width, trace_length;
+	
+//////////////////////////////////////
+// Billboards ////////////////////////
+//////////////////////////////////////
+	BillboardSet
+		//* bb_bullet, // do that later
+		* bb_dot;
+	Billboard * bboard;
+	BillboardChain
+		* bb_beam,
+		* bb_bullet;
+
+//////////////////////////////////////
+// raycast function/ /////////////////
+//////////////////////////////////////
+	Ogre :: Vector3
 		closest_result,
-		* result,
+		result,
 		* vertices;
 
 	Ogre :: uint32
@@ -33,12 +51,13 @@ protected:
 	bool added_shared, use32bitindexes, new_closest_found, useSoftwareBlendingVertices;
 	size_t
 		vertex_count, index_count, index_start, last_index,
-		current_offset,	shared_offset, next_offset, index_offset, // meshinfo
+		current_offset,	shared_offset, next_offset, index_offset,
 		offset,
 		numTris;
-/***************************************************************************************/
-// other, late in getmeshinfo
-/***************************************************************************************/
+		
+//////////////////////////////////////
+// other, late in getmeshinfo ////////
+//////////////////////////////////////
 	Entity * ent_check;
 	MeshPtr mesh_check;
 	Ogre :: SubMesh* submesh;
