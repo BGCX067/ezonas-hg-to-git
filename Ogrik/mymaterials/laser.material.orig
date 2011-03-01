@@ -1,0 +1,49 @@
+material Ogrik/laser_dot
+{ technique { pass {
+	scene_blend alpha_blend
+	depth_write off
+	texture_unit
+	{
+		texture blue-dot.png // PF_FLOAT32_RGBA
+		//tex_address_mode border
+		//alpha_op_ex source1 src_manual src_current 0.5
+	}
+}}}
+
+
+material Ogrik/laser_beam
+{ technique { pass {
+	//scene_blend alpha_blend
+	//diffuse 0.0 1.0 0.0 0.2
+	scene_blend alpha_blend
+	depth_write off
+	texture_unit
+	{
+		texture blue-ray101-bright.png // PF_FLOAT32_RGBA
+	//alpha_op_ex source1 src_manual src_current 0.5
+	}	
+}}}
+
+material Ogrisk/cubicube
+{ technique { pass {
+	//scene_blend alpha_blend
+	diffuse 0.0 1.0 0.0 0.2
+}}}
+
+material fourchanfaces
+{ technique { pass {
+	diffuse 0.0 1.0 0.0
+	// texture_unit
+	// {
+		// texture fourchanfaces.png
+		// scale 0.01 0.01
+	// }
+}}}
+
+material Examples/Ninja
+{ technique { pass {
+	texture_unit
+	{
+		texture nskingr.jpg
+	}
+} } }

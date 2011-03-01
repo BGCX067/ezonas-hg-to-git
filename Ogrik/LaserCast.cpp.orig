@@ -2,7 +2,7 @@
 
 LaserCast :: LaserCast(Camera * camera, SceneManager * scmgr):
 	cam(camera),
-	ray_cam		(Ray(Vec3(0, 0, 0), Vec3(-1, -1, -1))),
+	ray_cam		(Ray(cam -> getDerivedPosition(), cam -> getDerivedDirection())),
 	//ray_cam (Ray(Vec3(0,0,0), Vec3(-1, -1, -1))),
 	RSQ (scmgr -> createRayQuery(ray_cam)),
 	// nodes

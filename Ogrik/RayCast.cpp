@@ -1,13 +1,29 @@
 #include "stdafx.h"
+RayCast::RayCast(Camera * camera, SceneManager * scmgr):
+	cam(camera),
+	ray_cam (Ray(cam -> getPosition(), cam -> getDerivedDirection())),
+	RSQ (scmgr -> createRayQuery(ray_cam))
+	// matptr
+	// (
+		// static_cast<MaterialPtr>
+		// (MaterialManager :: getSingletonPtr() -> getByName ("Sinbad"))
+	// )
 
-bool LaserCast :: execute()
+{}
+void RayCast :: SetPos(Vec3 * v) { result = v; }
+void RayCast :: update()
+{
+	RSQ -> setRay(ray_cam = Ray(cam -> getPosition(), cam -> getDirection()));
+	execute();
+}
+
+	//cout << result -> x << " " << result -> y << " " << result -> z << "\n";
+
+bool RayCast :: execute()
 {
 	// execute the query, returns a vector of hits
-	// LaserCast did not hit an objects bounding box:
+	// raycast did not hit an objects bounding box:
 	//if (RSQ == NULL) exit (0xdeadc0de);
-	//RSQ -> setRay(ray_cam = Ray(cam -> getRealPosition(), cam -> getRealDirection()));
-	//RSQ -> setRay(ray_cam = Ray(cam -> getPosition(), cam -> getDirection()));
-	RSQ -> setRay(ray_cam = Ray(cam -> getDerivedPosition(), cam -> getDerivedDirection()));
 	if (RSQ -> execute() . size() <= 0)
 	{
 		return false;
@@ -17,21 +33,21 @@ bool LaserCast :: execute()
 	closest_distance = -1.0f;
     for (size_t qr_idx = 0; qr_idx < RSQR.size(); qr_idx++)
     {
-	// stop checking if we have found a LaserCast hit that is closer
-	// than all remaining entities
-	if
+        // stop checking if we have found a raycast hit that is closer
+        // than all remaining entities
+        if
 		(
 			(closest_distance >= 0.0f) &&
-			(closest_distance < RSQR[qr_idx].distance)
+            (closest_distance < RSQR[qr_idx].distance)
 		)
 			break;
 
-	// only check this result if its a hit against an entity
-	if ((RSQR[qr_idx].movable != NULL) &&
-	    (RSQR[qr_idx].movable -> getMovableType().compare("Entity") == 0))
-	{
-	    // get the entity to check
-	    ent_check = static_cast<Ogre::Entity*>(RSQR[qr_idx].movable);
+        // only check this result if its a hit against an entity
+        if ((RSQR[qr_idx].movable != NULL) &&
+            (RSQR[qr_idx].movable -> getMovableType().compare("Entity") == 0))
+        {
+            // get the entity to check
+            ent_check = static_cast<Ogre::Entity*>(RSQR[qr_idx].movable);
 /***************************************************************************************/			
 /* from here i pasted the getmeshinfo method, to have maximum predeclared
 attributes and minimum passed variables */
@@ -184,50 +200,50 @@ attributes and minimum passed variables */
 /***************************************************************************************/			
 /* meshinfo method is supposed to end here */
 /***************************************************************************************/			
-	    // test for hitting individual triangles on the mesh
-	    new_closest_found = false;
-	    for (int i = 0; i < static_cast<int>(index_count); i += 3)
-	    {
-		// check for a hit against this triangle
+            // test for hitting individual triangles on the mesh
+            new_closest_found = false;
+            for (int i = 0; i < static_cast<int>(index_count); i += 3)
+            {
+                // check for a hit against this triangle
 				hit = Ogre :: Math :: intersects
 				(
 					ray_cam,
 					vertices[indices[i]],
-		    vertices[indices[i+1]],
+                    vertices[indices[i+1]],
 					vertices[indices[i+2]],
 					true, false
 				);
 
-		// if it was a hit check if its the closest
-		if (hit.first)
-		{
-		    if ((closest_distance < 0.0f) ||
-			(hit.second < closest_distance))
-		    {
-			// this is the closest so far, save it off
-			closest_distance = hit.second;
-			new_closest_found = true;
-		    }
-		}
-	    }
+                // if it was a hit check if its the closest
+                if (hit.first)
+                {
+                    if ((closest_distance < 0.0f) ||
+                        (hit.second < closest_distance))
+                    {
+                        // this is the closest so far, save it off
+                        closest_distance = hit.second;
+                        new_closest_found = true;
+                    }
+                }
+            }
 
-	 // free the verticies and indicies memory
-	    delete[] vertices;
-	    delete[] indices;
+         // free the verticies and indicies memory
+            delete[] vertices;
+            delete[] indices;
 
-	    // if we found a new closest LaserCast for this object, update the
-	    // closest_result before moving on to the next object.
-	    if (new_closest_found)
-		closest_result = ray_cam.getPoint(closest_distance - 1.0f);
-	}
+            // if we found a new closest raycast for this object, update the
+            // closest_result before moving on to the next object.
+            if (new_closest_found)
+                closest_result = ray_cam.getPoint(closest_distance - 1.0f);
+        }
     }
     // return the result
     if (closest_distance >= 0.0f)
     {
-	// LaserCast success
-	result = closest_result;
+        // raycast success
+        * result = closest_result;
 		//matptr->setAmbient(0.5, 0.5, 0.5);
-	return true;
+        return true;
     }
     else
 		return false;

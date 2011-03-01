@@ -1,0 +1,4 @@
+moving_speed = 30
+#rotating_speed = 10
+rotating_speed = 0.001
+laser_width = 0.5

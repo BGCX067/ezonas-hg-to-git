@@ -5,9 +5,7 @@ bool LaserCast :: execute()
 	// execute the query, returns a vector of hits
 	// LaserCast did not hit an objects bounding box:
 	//if (RSQ == NULL) exit (0xdeadc0de);
-	//RSQ -> setRay(ray_cam = Ray(cam -> getRealPosition(), cam -> getRealDirection()));
-	//RSQ -> setRay(ray_cam = Ray(cam -> getPosition(), cam -> getDirection()));
-	RSQ -> setRay(ray_cam = Ray(cam -> getDerivedPosition(), cam -> getDerivedDirection()));
+	RSQ -> setRay(ray_cam = Ray(cam -> getRealPosition(), cam -> getRealDirection()));
 	if (RSQ -> execute() . size() <= 0)
 	{
 		return false;
@@ -22,7 +20,7 @@ bool LaserCast :: execute()
 	if
 		(
 			(closest_distance >= 0.0f) &&
-			(closest_distance < RSQR[qr_idx].distance)
+	    (closest_distance < RSQR[qr_idx].distance)
 		)
 			break;
 

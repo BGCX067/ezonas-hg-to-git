@@ -5,7 +5,7 @@ Application * Application :: instance = NULL;
 Application :: Application():
 // ##### INITIALIZATIONS HERE ##########################################################
 	FrameListener(),
-	root(new Root("conf/plugins_d.cfg"))
+	root(new Root("conf/plugins_d.cfg", "conf/Ogre.cfg"))
 {
 // use the existing ogre.cfg if it exists, creates it otherwise
 	if(!(root -> restoreConfig() || root -> showConfigDialog()))
