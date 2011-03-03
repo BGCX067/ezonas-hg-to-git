@@ -1,0 +1,21 @@
+jokoon/crosshair
+{
+	zorder 20
+	element crosshair2
+	{
+		left 0.25
+		top 0
+		width 0.5
+		height 0.1
+		material jokoon/crosshair
+		caption crosshair
+	}
+	
+	// container box(whatever)
+	// {
+		// left 0.25
+		// top 0
+		// width 0.5
+		// height 0.1
+ 	// }
+}

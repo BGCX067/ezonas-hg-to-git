@@ -54,6 +54,5 @@ material jokoon/crosshair
 	texture_unit
 	{
 		texture fourchanfaces.png
-		scale 0.01 0.01
 	}
 }}}

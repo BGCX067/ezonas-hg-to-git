@@ -1,7 +1,4 @@
 #include "stdafx.h"
-
-Application * Application :: instance = NULL;
-
 Application :: Application():
 	FrameListener(),
 	root(new Root("conf/plugins_d.cfg", "conf/Ogre.cfg"))
@@ -36,12 +33,10 @@ Application :: Application():
         {
             typeName = i -> first;
             dataname = i -> second;
-
             ResourceGroupManager :: getSingleton().addResourceLocation(
 				dataname, typeName, sectionName);
         }
-    }
-
+	}
     ResourceGroupManager :: getSingleton().initialiseAllResourceGroups();
  	
 	// PROJECT CODE ////////////////////////////////////////

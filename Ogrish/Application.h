@@ -13,7 +13,6 @@ public:
     void go();
     bool frameRenderingQueued(const FrameEvent & evt);
 private:
-    static Application * instance;
     void createScene();
     Application();
     ~ Application();
