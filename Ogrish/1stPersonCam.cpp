@@ -17,7 +17,7 @@ bool FPersonCam :: update (float frame_time)
 
 	mouse -> capture();
 
-#define USE_NODES
+#define USE_NODaES
 #ifdef USE_NODES
 	cam_yaw -> yaw(Radian(- mouse -> getMouseState().X.rel * rotating_speed));
 	cam_pitch -> pitch(Radian(- mouse -> getMouseState().Y.rel * rotating_speed));
