@@ -1,60 +1,27 @@
 #include "stdafx.h"
 
-// void FPersonCam :: update (float yaw, float pitch, Vec3 & vect)
-bool FPersonCam :: update (float frame_time)
-{
-	keyboard -> capture();
-	if (keyboard -> isKeyDown(KC_ESCAPE)) return false;
-	Ogre :: Vector3 translate(0, 0, 0);
-	if (keyboard -> isKeyDown(KC_W)) translate += Ogre :: Vector3(0, 0, -1);
-	if (keyboard -> isKeyDown(KC_S)) translate += Ogre :: Vector3(0, 0, 1);
-
-	if (keyboard -> isKeyDown(KC_A)) translate += Ogre :: Vector3(-1, 0, 0);
-	if (keyboard -> isKeyDown(KC_D)) translate += Ogre :: Vector3(1, 0, 0);
-
-	if (keyboard -> isKeyDown(KC_Q)) translate += Ogre :: Vector3(0, -1, 0);
-	if (keyboard -> isKeyDown(KC_E)) translate += Ogre :: Vector3(0, 1, 0);
-
-	mouse -> capture();
-
-#define USE_NODaES
-#ifdef USE_NODES
-	cam_yaw -> yaw(Radian(- mouse -> getMouseState().X.rel * rotating_speed));
-	cam_pitch -> pitch(Radian(- mouse -> getMouseState().Y.rel * rotating_speed));
-	cam_node -> translate(cam_yaw -> getOrientation() * cam_pitch -> getOrientation() *
-	translate * moving_speed * frame_time);
-#else
-	cam -> yaw(Radian(- mouse -> getMouseState().X.rel * rotating_speed));
-	cam -> pitch(Radian(- mouse -> getMouseState().Y.rel * rotating_speed));
-	cam -> moveRelative(translate);
-#endif
-	lasercast -> update(frame_time);
-	return true;
-}
-
+// FPersonCam :: FPersonCam
 FPersonCam :: FPersonCam(Camera * camera, SceneNode * rootscnd, RenderWindow * _window):
 
-	rotating_speed	(ConfMgr :: sglt() -> GetFloat("rotating_speed")),
-	moving_speed	(ConfMgr :: sglt() -> GetFloat("moving_speed")),
+	rotating_speed	(ConfMgr :: sglt() -> GetFloat		("rotating_speed")),
+	moving_speed	(ConfMgr :: sglt() -> GetFloat		("moving_speed")),
 	cam_node		(rootscnd -> createChildSceneNode	("cam_node")),
 	cam_yaw			(cam_node -> createChildSceneNode	("cam_yaw")),
 	cam_pitch		(cam_yaw -> createChildSceneNode	("cam_pitch")),
-	cam_roll		(cam_pitch -> createChildSceneNode	("cam_roll")),
+//	cam_roll		(cam_pitch -> createChildSceneNode	("cam_roll")),
 	cam				(camera),
 	lasercast		(new LaserCast(camera, Application :: sglt() -> GetScMgr()))
-
 {
+#define USE_NODES
 #ifdef USE_NODES
-	cam_roll -> attachObject(cam);
+	//cam_roll -> attachObject(cam);
+	cam_pitch -> attachObject(cam);
 #else
 	Application :: sglt() -> GetScMgr() -> getRootSceneNode() -> attachObject(cam);
 #endif
-/* ### Inputs ########################################################## */
 	ParamList parameters;
-
 	unsigned int windowHandle = 0;
 	ostringstream windowHandleString;
-
 	_window -> getCustomAttribute("WINDOW", & windowHandle);
 	windowHandleString << windowHandle;
 	parameters.insert(make_pair("WINDOW", windowHandleString.str()));
@@ -77,6 +44,7 @@ FPersonCam :: FPersonCam(Camera * camera, SceneNode * rootscnd, RenderWindow * _
 	mouse = static_cast<Mouse *>
 	(inputmanager -> createInputObject	(OISMouse, false));
 }
+// FPersonCam :: ~ FPersonCam
 FPersonCam :: ~ FPersonCam()
 {
 	inputmanager -> destroyInputObject(mouse);
@@ -84,3 +52,34 @@ FPersonCam :: ~ FPersonCam()
 	InputManager :: destroyInputSystem(inputmanager);
 	delete lasercast;
 }
+// FPersonCam :: update
+bool FPersonCam :: update (float frame_time)
+{
+	keyboard -> capture();
+	if (keyboard -> isKeyDown(KC_ESCAPE)) return false;
+	Ogre :: Vector3 translate(0, 0, 0);
+	if (keyboard -> isKeyDown(KC_W)) translate += Ogre :: Vector3(0, 0, -1);
+	if (keyboard -> isKeyDown(KC_S)) translate += Ogre :: Vector3(0, 0, 1);
+
+	if (keyboard -> isKeyDown(KC_A)) translate += Ogre :: Vector3(-1, 0, 0);
+	if (keyboard -> isKeyDown(KC_D)) translate += Ogre :: Vector3(1, 0, 0);
+
+	if (keyboard -> isKeyDown(KC_Q)) translate += Ogre :: Vector3(0, -1, 0);
+	if (keyboard -> isKeyDown(KC_E)) translate += Ogre :: Vector3(0, 1, 0);
+
+	mouse -> capture();
+
+#ifdef USE_NODES
+	cam_yaw -> yaw(Radian(- mouse -> getMouseState().X.rel * rotating_speed));
+	cam_pitch -> pitch(Radian(- mouse -> getMouseState().Y.rel * rotating_speed));
+	cam_node -> translate(cam_yaw -> getOrientation() * cam_pitch -> getOrientation() *
+	translate * moving_speed * frame_time);
+#else
+	cam -> yaw(Radian(- mouse -> getMouseState().X.rel * rotating_speed));
+	cam -> pitch(Radian(- mouse -> getMouseState().Y.rel * rotating_speed));
+	cam -> moveRelative(translate);
+#endif
+	lasercast -> update(frame_time);
+	return true;
+}
+

@@ -34,19 +34,11 @@ LaserCast :: LaserCast(Camera * camera, SceneManager * scmgr):
 	n_bullet -> attachObject (bb_bullet);
 
 	// materials
-	bb_dot -> setMaterialName("Ogrik/laser_dot");
-	bb_beam -> setMaterialName("Ogrik/laser_beam");
-	bb_bullet -> setMaterialName("Ogrik/bullet_trace");
-	
-	/////////////////////////////////////////////////////////////////
-	// the dot //////////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////////////
+	bb_dot -> setMaterialName("jokoon/laser_dot");
+	bb_beam -> setMaterialName("jokoon/laser_beam");
+	bb_bullet -> setMaterialName("jokoon/bullet_trace");
 	
 	n_laserdot -> setScale(0.005f, 0.005f, 0.005f);
-	
-	/////////////////////////////////////////////////////////////////
-	// the beam /////////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////////////
 	
 	bb_beam -> setMaxChainElements(2);
 	bb_beam -> addChainElement
@@ -59,10 +51,6 @@ LaserCast :: LaserCast(Camera * camera, SceneManager * scmgr):
 	bb_beam -> setUseTextureCoords(true);
 	bb_beam -> setTextureCoordDirection(BillboardChain :: TCD_V);
 	
-	/////////////////////////////////////////////////////////////////
-	// the bullet ///////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////////////
-
 	bb_bullet -> setTextureCoordDirection(BillboardChain :: TCD_V);
 	bb_bullet -> setUseTextureCoords(true);
 	bb_bullet -> setMaxChainElements(2);

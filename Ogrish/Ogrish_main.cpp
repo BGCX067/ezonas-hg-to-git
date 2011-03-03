@@ -2,8 +2,10 @@
 
 #ifdef __APPLE__
 int main()
-#else
+#elif _CONSOLE
 int main(int argc, char * argv[])
+#else
+int WinMain(HINSTANCE a, HINSTANCE b, LPSTR c, int d)
 #endif
 {
 	//Application :: Instantiate();
