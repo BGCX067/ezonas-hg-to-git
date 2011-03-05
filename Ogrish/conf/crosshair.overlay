@@ -1,21 +1,25 @@
 jokoon/crosshair
 {
-	zorder 20
-	element crosshair2
+	//zorder 20
+	container Panel(dada)
 	{
-		left 0.25
-		top 0
-		width 0.5
-		height 0.1
+		left 0.49
+		top 0.49
+		width 0.02
+		height 0.02
 		material jokoon/crosshair
-		caption crosshair
+		//caption crosshair
 	}
-	
-	// container box(whatever)
-	// {
-		// left 0.25
-		// top 0
-		// width 0.5
-		// height 0.1
- 	// }
+}
+
+jokoon/sometext
+{
+	container TextArea(sometext)
+	{
+		font_name fontconfigname
+		left 0.1
+		top 0.1
+		width 0.6
+		height 0.6
+	}
 }

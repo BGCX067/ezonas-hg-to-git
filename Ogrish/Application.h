@@ -30,10 +30,10 @@ private:
 
 	// overlays
 	OverlayManager * ovl_mgr;
-	Overlay * ovl_crosshair;
+	//Overlay * ovl_crosshair;
 
     // entities and nodes
-    Entity * sinbad, * entplane;
+    Entity * entplane;
     SceneNode * rootnode;
 };
 

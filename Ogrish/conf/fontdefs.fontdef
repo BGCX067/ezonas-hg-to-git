@@ -1,0 +1,5 @@
+fontconfigname
+{
+	type 		truetype
+	source 		slkscr.ttf
+}

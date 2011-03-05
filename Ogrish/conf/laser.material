@@ -41,18 +41,15 @@ material jokoon/fourchanfaces
 
 /* LASER DOT ////////////////////////////////////////////// */
 material Examples/Ninja
-{ technique { pass {
-	texture_unit
-	{
-		texture nskingr.jpg
-	}
-}}}
+{ technique { pass { texture_unit { texture nskingr.jpg }}}}
 
 material jokoon/crosshair
 { technique { pass {
-	diffuse 0.2 1.0 0.5
+	scene_blend alpha_blend
 	texture_unit
 	{
-		texture fourchanfaces.png
+		texture crosshair-circle.png
+		// texture crosshair-cross3.png
+		//texture cross.png
 	}
 }}}
