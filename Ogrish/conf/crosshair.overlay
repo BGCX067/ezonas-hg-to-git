@@ -1,25 +1,34 @@
 jokoon/crosshair
 {
-	//zorder 20
 	container Panel(dada)
 	{
-		left 0.49
-		top 0.49
-		width 0.02
-		height 0.02
-		material jokoon/crosshair
+		left 0.5
+		top 0.5
+		// material jokoon/crosshair
+		container Panel(dudu)
+		{
+			metrics_mode pixels
+			// left -32
+			// top -32
+			// width 64
+			// height 64
+			
+			left -16
+			top -16
+			width 32
+			height 32
+			
+			// width 24
+			// height 24
+			// left -12
+			// top -12
+			
+			// width 16
+			// height 16
+			// left -8
+			// top -8
+			material jokoon/crosshair
+		}
 		//caption crosshair
-	}
-}
-
-jokoon/sometext
-{
-	container TextArea(sometext)
-	{
-		font_name fontconfigname
-		left 0.1
-		top 0.1
-		width 0.6
-		height 0.6
 	}
 }

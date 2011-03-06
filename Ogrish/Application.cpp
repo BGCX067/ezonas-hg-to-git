@@ -43,17 +43,16 @@ Application :: Application():
 	// overlays mgr
 	ovl_mgr = OverlayManager :: getSingletonPtr();
 	
-	Ogre::FontManager::getSingleton().getByName("sometext") -> load();
+	//Ogre::FontManager::getSingleton().getByName("sometext") -> load();
 
 	// some sort of crosshair
 	ovl_mgr -> getByName("jokoon/crosshair") -> show();
 
 	// some text
-	ovl_mgr -> getByName("jokoon/sometext")
-		-> getChild("sometext")
-		-> setCaption("Oh mon doudou !");
-
-	ovl_mgr -> getByName("jokoon/sometext") -> show();
+	//ovl_mgr -> getByName("jokoon/sometext")
+	//	-> getChild("sometext")
+	//	-> setCaption("Oh mon doudou !");
+	//ovl_mgr -> getByName("jokoon/sometext") -> show();
 
 	ConfMgr :: Instantiate("conf/gameconf.cfg");
 	fpersoncam = new FPersonCam(camera, rootnode, window);
