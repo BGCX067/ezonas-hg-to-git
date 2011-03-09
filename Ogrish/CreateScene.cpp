@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-void Application :: createScene()
+void Application :: CreateScene()
 {
 	//camera -> setPolygonMode(PM_WIREFRAME);
 	SceneNode * node;

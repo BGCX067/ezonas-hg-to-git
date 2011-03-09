@@ -1,7 +1,7 @@
 #include "stdafx.h"
 Application :: Application():
 	FrameListener(),
-	root(new Root("conf/plugins_d.cfg", "conf/Ogre.cfg"))
+	root(new Root("conf/plugins_d.cfg", "conf/Ogre.cfg", "conf/Ogre.log"))
 {
 	// OGRE SPECIFIC CODE ///////////////////////////////
 	if(!(root -> restoreConfig() || root -> showConfigDialog()))
@@ -54,13 +54,22 @@ Application :: Application():
 	//	-> setCaption("Oh mon doudou !");
 	//ovl_mgr -> getByName("jokoon/sometext") -> show();
 
+	// project objects
 	ConfMgr :: Instantiate("conf/gameconf.cfg");
 	fpersoncam = new FPersonCam(camera, rootnode, window);
-	createScene();
+	
+	// create the terrain
+	CreateTerrain();
+
+	// create the scene
+	CreateScene();
 }
 Application :: ~ Application()
 {
 	delete fpersoncam;
+
+	OGRE_DELETE mTerrain;
+	OGRE_DELETE mGlobals;
 	if(root) delete root;
 }
 void Application :: go ()

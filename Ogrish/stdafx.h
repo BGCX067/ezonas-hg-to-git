@@ -3,6 +3,7 @@
 // Ogre
 #include "Ogre\Ogre.h"
 #include "OIS\OIS.h"
+#include "Ogre\Terrain\OgreTerrain.h"
 using namespace std;
 using namespace Ogre;
 using namespace OIS;

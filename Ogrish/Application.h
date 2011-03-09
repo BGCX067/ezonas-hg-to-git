@@ -13,7 +13,8 @@ public:
     void go();
     bool frameRenderingQueued(const FrameEvent & evt);
 private:
-    void createScene();
+    void CreateScene();
+    void CreateTerrain();
     Application();
     ~ Application();
     void AddPlane();
@@ -35,5 +36,9 @@ private:
     // entities and nodes
     Entity * entplane;
     SceneNode * rootnode;
+
+	// terrain
+	Ogre::Terrain * mTerrain;
+	Ogre::TerrainGlobalOptions * mGlobals;
 };
 
