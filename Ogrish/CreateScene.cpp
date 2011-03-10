@@ -16,6 +16,8 @@ void Application :: CreateScene()
 	//		manobj -> colour(1, 0, 0, 0.1);
 	//	manobj -> end();
 	//	laserdot -> attachObject (manobj);
+
+
 }
 void Application :: AddPlane()
 {

@@ -1,0 +1,13 @@
+﻿Why working as a programmer sucks
+
+* Nobody except geeks and other programmers understand your work and its constraints.
+
+* Software patents and other proprietary shenanigans fuck up programmers and give companies full rights over pieces of code even new hired programmers won't bother reading. While OSS creates long term and reusable, tweakable code which can be subject to questionning, nobody except employees will try to improve code that they can't reuse once hired by another company.
+
+* Most companies don't score at least 4/11 on the Joel Test.
+
+* Robotization and technologies is known to replace humble workers. How guiltier could you feel ?
+
+Why it should be awesome to be a programmer:
+
+* You create stuff, it's no "art", but automation is very useful in our industry.
