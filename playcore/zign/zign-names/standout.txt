@@ -1,5 +1,8 @@
 arm
-miss
 break
-dust
+cast
 critic
+dust
+final
+miss
+point

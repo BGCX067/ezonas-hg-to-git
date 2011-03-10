@@ -17,7 +17,7 @@ force
 god
 hole
 lock
-metalwrath
+metal
 miss
 oil
 point
@@ -26,3 +26,4 @@ root
 rush
 time
 trial
+wrath
