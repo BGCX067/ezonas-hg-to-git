@@ -12,3 +12,4 @@ oil
 point
 wall
 weak
+flame
