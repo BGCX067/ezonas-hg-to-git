@@ -26,4 +26,7 @@ root
 rush
 time
 trial
+wall
 wrath
+fire
+cease

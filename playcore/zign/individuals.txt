@@ -4,21 +4,18 @@
 	Bjarne Stroutup
 	Steve Streeting
 
-// %%%%%% Mathematics %%%%%% 
+// %%%%%% Mathematics, Philosophy %%%%%% 
 	Alan Turing
 	Pierre de Fermat
 	William Rowan Hamilton
 	Euler
 	Gauss
-	Neper
 	Socrates
 	Euclide
 	Taylor
 	Confucius
 	Descartes
 	Newton
-
-// %%%%%% Philosophy %%%%%%
 	Karl Marx
 	Noam Chomsky
 	Jung
@@ -38,22 +35,20 @@
 	Peter Griffin
 	Michael Scott
 	Dwight Shrute
+	Jon Steward
 
 // %%%%%% Authors %%%%%%
 	Seth MacFarlane
 	Quentin Tarantino
 
-// %%%%%% Presidents %%%%%%
+// %%%%%% Politics %%%%%%
 	Barack Obama
 	Richard Nixon
 	Abraham Lincoln
+	
+	Dick Cheney
+	Alan Greenspan
 
 // %%%%%% Medias and others %%%%%%
 	Jacques Fresquo
 	Michael Moore
-
-// %%%%%% cliches %%%%%%
-	metal guy
-	pot guy
-	hipster
-	nerd
