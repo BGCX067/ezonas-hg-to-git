@@ -1,29 +1,28 @@
-0 PRIOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 0 PRIOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 N99								multipurpose pistol
 Q50								anti material pistol
 C71								bullpup compact rifle
 K4								carbine
 Z7								bullpup compact sniper rifle
 
-1ST PRIOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 1ST PRIOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 			ammo	price cr.	notes
 M9			9mm		4
 GLOCK19 	9mm		4
-COLT1911 	.45		3
-MK3 		.22		2			not deadly
---------------
-MP5SD 		9mm		10			low range/prec
-AK47 		762		12
+-
 FAMAS 		556		45
 M4 			556		50
-TAR21		556		40			.is
---------------
+TAR21		556		40
 PSG1 		762		120			sauto
 M24			-		100			
-M24E		-		140			
-SR25		-					sauto, suppr.
 
-2ND PRIOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+COLT1911 	.45		3
+MK3 		.22		2			not deadly
+MP5SD 		9mm		10			low range/prec
+AK47 		762		12
+
+%%% 2ND PRIOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 P99 		9mm		5
 fiveseven	-		8
@@ -31,7 +30,7 @@ MK23		.45		10
 USP9		9mm		6
 P228		9mm		5
 d-eagle		.50		12
--------------
+----------------------------------------------------
 SA80 556			30			.uk
 XM8					70			prototype
 
