@@ -59,7 +59,7 @@ Application :: Application():
 	fpersoncam = new FPersonCam(camera, rootnode, window);
 	
 	// create the terrain
-	CreateTerrain();
+	//CreateTerrain();
 
 	// create the scene
 	CreateScene();

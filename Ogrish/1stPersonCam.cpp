@@ -1,7 +1,8 @@
 #include "stdafx.h"
 
 // FPersonCam :: FPersonCam
-FPersonCam :: FPersonCam(Camera * camera, SceneNode * rootscnd, RenderWindow * _window):
+FPersonCam :: FPersonCam
+	(Camera * camera, SceneNode * rootscnd, RenderWindow * _window):
 
 	rotating_speed	(ConfMgr :: sglt() -> GetFloat		("rotating_speed")),
 	moving_speed	(ConfMgr :: sglt() -> GetFloat		("moving_speed")),
