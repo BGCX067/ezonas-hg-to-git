@@ -28,7 +28,7 @@ private:
 
     // game parameters
     FPersonCam * fpersoncam;
-
+	
 	// overlays
 	OverlayManager * ovl_mgr;
 	//Overlay * ovl_crosshair;

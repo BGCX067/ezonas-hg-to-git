@@ -9,7 +9,7 @@ public:
 	// void update(float, float, Vec3 &);
 	bool update(float);
 protected:
-	SceneManager * scmgr;
+//	SceneManager * scmgr;
 	SceneNode
 		* cam_node,
 		* cam_yaw,
@@ -22,7 +22,8 @@ protected:
 
 	// gameplay objects
 	LaserCast * lasercast;
-	
+	BulletTracer * bullet_tracer;
+
 	// inputs
 	InputManager * inputmanager;
 	Keyboard * keyboard;

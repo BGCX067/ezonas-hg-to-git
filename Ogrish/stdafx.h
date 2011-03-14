@@ -13,6 +13,7 @@ typedef Ogre :: Vector3 Vec3;
 // Project
 
 #include "ConfMgr.h"
+#include "BulletTracer.h"
 #include "LaserCast.h"
 #include "1stPersonCam.h"
 #include "Application.h"

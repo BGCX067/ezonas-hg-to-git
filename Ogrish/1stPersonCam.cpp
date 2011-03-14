@@ -11,7 +11,8 @@ FPersonCam :: FPersonCam
 	cam_pitch		(cam_yaw -> createChildSceneNode	("cam_pitch")),
 //	cam_roll		(cam_pitch -> createChildSceneNode	("cam_roll")),
 	cam				(camera),
-	lasercast		(new LaserCast(camera, Application :: sglt() -> GetScMgr()))
+	lasercast		(new LaserCast(camera, Application :: sglt() -> GetScMgr())),
+	bullet_tracer	(new BulletTracer(camera, Application :: sglt() -> GetScMgr()))
 {
 #define USE_NODES
 #ifdef USE_NODES
@@ -51,7 +52,9 @@ FPersonCam :: ~ FPersonCam()
 	inputmanager -> destroyInputObject(mouse);
 	inputmanager -> destroyInputObject(keyboard);
 	InputManager :: destroyInputSystem(inputmanager);
+
 	delete lasercast;
+	delete bullet_tracer;
 }
 // FPersonCam :: update
 bool FPersonCam :: update (float frame_time)
@@ -68,6 +71,8 @@ bool FPersonCam :: update (float frame_time)
 	if (keyboard -> isKeyDown(KC_Q)) translate += Ogre :: Vector3(0, -1, 0);
 	if (keyboard -> isKeyDown(KC_E)) translate += Ogre :: Vector3(0, 1, 0);
 
+	if (mouse -> getMouseState() . buttonDown(MB_Left))
+		bullet_tracer -> Fire();
 	mouse -> capture();
 
 #ifdef USE_NODES
@@ -81,6 +86,8 @@ bool FPersonCam :: update (float frame_time)
 	cam -> moveRelative(translate);
 #endif
 	lasercast -> update(frame_time);
+	bullet_tracer -> update(frame_time);
+
 	return true;
 }
 
