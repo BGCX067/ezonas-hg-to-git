@@ -15,14 +15,14 @@ protected:
 	SceneNode
 		* n_root,
 		* n_laserdot,
-		* n_laserbeam,
-		* n_bullet;
+		* n_laserbeam;
+		//* n_bullet;
 	Ray ray_cam;
 	
 	RaySceneQuery * RSQ;
 	RaySceneQueryResult RSQR;
 // tweakables
-	float laser_width, bullet_speed, trace_width, trace_length;
+	float laser_width; //, bullet_speed, trace_width, trace_length;
 	
 //////////////////////////////////////
 // Billboards ////////////////////////
@@ -32,8 +32,8 @@ protected:
 		* bb_dot;
 	Billboard * bboard;
 	BillboardChain
-		* bb_beam,
-		* bb_bullet;
+		* bb_beam;
+		//* bb_bullet;
 
 //////////////////////////////////////
 // raycast function/ /////////////////

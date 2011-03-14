@@ -1,5 +1,8 @@
 #pragma once
 
+#define BULLET_MAX 5
+#define FOR(I) for(int i = 0; i < I; ++i)
+
 // Ogre
 #include "Ogre\Ogre.h"
 #include "OIS\OIS.h"

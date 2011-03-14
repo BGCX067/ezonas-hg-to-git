@@ -8,9 +8,12 @@ public:
 	void Fire();
 	void update(float frame_time);
 private:
+	SceneManager * scmgr;
 	int nextbullet;
-	Camera * cam;
-	SceneNode * n_bullet[30];
-	BillboardChain * bb_bullet[30];
 	float bullet_speed, trace_width, trace_length;
+	Camera * cam;
+	SceneNode * n_bullet;//[BULLET_MAX];
+	BillboardChain * bb_bullet_model;
+	BillboardChain * bb_bullet[BULLET_MAX];
+
 };

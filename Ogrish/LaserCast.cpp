@@ -9,34 +9,34 @@ LaserCast :: LaserCast(Camera * camera, SceneManager * scmgr):
 	n_root		(scmgr -> getRootSceneNode()),
 	n_laserbeam (scmgr -> createSceneNode("laser beam")),
 	n_laserdot	(scmgr -> createSceneNode("laser dot")),
-	n_bullet	(scmgr -> createSceneNode("bullet trace")),
+	//n_bullet	(scmgr -> createSceneNode("bullet trace")),
 	
 	// billboards
 	bb_dot		(scmgr -> createBillboardSet("laser dot")),
 	bboard		(bb_dot -> createBillboard(Ogre :: Vector3(0, 0, 0))),
 	bb_beam		(scmgr -> createBillboardChain("laser beam")),
-	bb_bullet	(scmgr -> createBillboardChain("bullet trace")),
+	//bb_bullet	(scmgr -> createBillboardChain("bullet trace")),
 	
-	laser_width		(ConfMgr :: sglt() -> GetFloat("laser_width")),
-	bullet_speed	(ConfMgr :: sglt() -> GetFloat("bullet_speed")),
-	trace_width		(ConfMgr :: sglt() -> GetFloat("trace_width")),
-	trace_length	(ConfMgr :: sglt() -> GetFloat("trace_length"))
+	laser_width		(ConfMgr :: sglt() -> GetFloat("laser_width"))
+	//bullet_speed	(ConfMgr :: sglt() -> GetFloat("bullet_speed")),
+	//trace_width		(ConfMgr :: sglt() -> GetFloat("trace_width")),
+	//trace_length	(ConfMgr :: sglt() -> GetFloat("trace_length"))
 {
 	// "link" the laser dot position so that the class can update the position
 	// child nodes
 	n_root -> addChild(n_laserbeam);
 	n_root -> addChild(n_laserdot);
-	n_root -> addChild(n_bullet);
+	//n_root -> addChild(n_bullet);
 
 	// attach objects
 	n_laserbeam -> attachObject (bb_beam);
 	n_laserdot -> attachObject (bb_dot);
-	n_bullet -> attachObject (bb_bullet);
+	//n_bullet -> attachObject (bb_bullet);
 
 	// materials
 	bb_dot -> setMaterialName("jokoon/laser_dot");
 	bb_beam -> setMaterialName("jokoon/laser_beam");
-	bb_bullet -> setMaterialName("jokoon/bullet_trace");
+	//bb_bullet -> setMaterialName("jokoon/bullet_trace");
 	
 	n_laserdot -> setScale(0.005f, 0.005f, 0.005f);
 	
@@ -51,15 +51,15 @@ LaserCast :: LaserCast(Camera * camera, SceneManager * scmgr):
 	bb_beam -> setUseTextureCoords(true);
 	bb_beam -> setTextureCoordDirection(BillboardChain :: TCD_V);
 	
-	bb_bullet -> setTextureCoordDirection(BillboardChain :: TCD_V);
-	bb_bullet -> setUseTextureCoords(true);
-	bb_bullet -> setMaxChainElements(2);
-	bb_bullet -> addChainElement
-		(0, BillboardChain::Element
-			(Vec3(0, 0, 0), trace_width, 0, ColourValue()));
-	bb_bullet->addChainElement
-		(0, BillboardChain::Element
-			(Vec3(trace_length, 0, 0), trace_width, 0, ColourValue()));
+	//bb_bullet -> setTextureCoordDirection(BillboardChain :: TCD_V);
+	//bb_bullet -> setUseTextureCoords(true);
+	//bb_bullet -> setMaxChainElements(2);
+	//bb_bullet -> addChainElement
+	//	(0, BillboardChain::Element
+	//		(Vec3(0, 0, 0), trace_width, 0, ColourValue()));
+	//bb_bullet->addChainElement
+	//	(0, BillboardChain::Element
+	//		(Vec3(trace_length, 0, 0), trace_width, 0, ColourValue()));
 }
 void LaserCast :: update(float frame_time)
 {

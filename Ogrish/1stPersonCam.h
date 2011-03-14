@@ -9,12 +9,11 @@ public:
 	// void update(float, float, Vec3 &);
 	bool update(float);
 protected:
-//	SceneManager * scmgr;
 	SceneNode
 		* cam_node,
 		* cam_yaw,
-		* cam_pitch,
-		* cam_roll;
+		* cam_pitch;
+		//* cam_roll;
 	Camera * cam;
 	
 	// tweakables
