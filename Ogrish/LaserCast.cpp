@@ -70,5 +70,5 @@ void LaserCast :: update(float frame_time)
 			(0, 0, BillboardChain :: Element
 				(result, laser_width, 0, ColourValue()));
 	}
-	n_bullet -> translate(frame_time * bullet_speed, 0, 0);
+	//n_bullet -> translate(frame_time * bullet_speed, 0, 0);
 }
