@@ -4,10 +4,11 @@ class FPersonCam
 {
 public:
 	// bool RaycastFromPoint(const Vector3 & point, const Vector3 & normal, Vector3 & result);
-	FPersonCam(Camera * camera, SceneNode * rootscnd, RenderWindow * _window);
+	FPersonCam();
 	~ FPersonCam();
 	// void update(float, float, Vec3 &);
 	bool update(float);
+	static FPersonCam * sglt();
 protected:
 	SceneNode
 		* cam_node,

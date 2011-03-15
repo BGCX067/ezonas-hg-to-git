@@ -1,16 +1,17 @@
 #include "stdafx.h"
 
-BulletTracer :: BulletTracer (Camera * camera, SceneManager * scmagr):
+BulletTracer :: BulletTracer ():
 	
 	bullet_speed	(ConfMgr :: sglt() -> GetFloat("bullet_speed")),
 	trace_width		(ConfMgr :: sglt() -> GetFloat("trace_width")),
 	trace_length	(ConfMgr :: sglt() -> GetFloat("trace_length")),
-	scmgr			(scmagr),
-	cam				(camera),
-	nextbullet		(0), was_fired(false), time_stack (0),
+	cam				(Application :: sglt() -> GetCam()),
+	bb_bullet_model	(Application :: sglt() -> GetScMgr() -> createBillboardChain("bullet trace")),
+	n_cannon		(Application :: sglt() -> GetRSN() -> createChildSceneNode()),
 
-	bb_bullet_model	(scmagr -> createBillboardChain("bullet trace"))
-	//n_bullet		(scmgr -> getRootSceneNode() ->createChildSceneNode())
+	nextbullet (0),
+	was_fired(false),
+	time_stack(0)
 {
 	bb_bullet_model -> setMaterialName("jokoon/bullet_trace");
 	bb_bullet_model -> setTextureCoordDirection(BillboardChain :: TCD_V);
@@ -29,19 +30,26 @@ BulletTracer :: BulletTracer (Camera * camera, SceneManager * scmagr):
 	FOR(BULLET_MAX)
 	{
 		bb_bullet[i] = new BillboardChain(* bb_bullet_model);
-		n_bullet[i] = scmgr -> getRootSceneNode() ->createChildSceneNode();
+		n_bullet[i] = Application :: sglt() -> GetRSN() -> createChildSceneNode();
 		n_bullet[i] -> attachObject(bb_bullet[i]);
 	}
 }
-BulletTracer :: ~ BulletTracer () {}
+BulletTracer :: ~ BulletTracer ()
+{
+	FOR(BULLET_MAX)
+	{
+		if (bb_bullet[i]) delete bb_bullet[i];
+	}
+}
 void BulletTracer :: Fire ()
 {
 	if (was_fired == false)
 	{
-		n_bullet[nextbullet] -> setPosition(cam -> getDerivedPosition() + Vec3(0, -1, -1));
+		n_bullet[nextbullet] -> setPosition(cam -> getDerivedPosition() + Vec3(0, -0.3f, -0.3f));
 		n_bullet[nextbullet] -> setOrientation(cam -> getDerivedOrientation());
 		was_fired = true;
-		(nextbullet += 1) %= BULLET_MAX;
+		nextbullet += 1;
+		nextbullet %= BULLET_MAX;
 
 	}
 }
@@ -56,13 +64,19 @@ void BulletTracer :: update (float frame_time)
 	if(was_fired == true)
 	{
 		time_stack += frame_time;
-		if (time_stack > 0.1f)
+		if (time_stack > 0.5f)
 		{
 			time_stack = 0.0f;
 			was_fired = false;
 		}
 	}
 }
+BulletTracer * BulletTracer :: sglt()
+{
+	static BulletTracer _;
+	return & _;
+}
+
 
 	// classic
 	//n_bullet -> setPosition(cam -> getPosition());

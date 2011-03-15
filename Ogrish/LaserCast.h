@@ -4,9 +4,9 @@ class LaserCast
 {
 public:
 	// bool RaycastFromPoint(const Vector3 & point, const Vector3 & normal, Vector3 & result);
-	LaserCast(Camera * camera, SceneManager * scmgr);
+	LaserCast();
 	void update(float);
-
+    static LaserCast * sglt();
 protected:
 	bool execute();
 // necessary objects

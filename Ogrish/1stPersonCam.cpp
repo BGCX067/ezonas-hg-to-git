@@ -2,17 +2,16 @@
 
 // FPersonCam :: FPersonCam
 FPersonCam :: FPersonCam
-	(Camera * camera, SceneNode * rootscnd, RenderWindow * _window):
+	():
 
 	rotating_speed	(ConfMgr :: sglt() -> GetFloat		("rotating_speed")),
 	moving_speed	(ConfMgr :: sglt() -> GetFloat		("moving_speed")),
-	cam_node		(rootscnd -> createChildSceneNode	("cam_node")),
+	cam_node		(Application :: sglt() -> GetRSN() -> createChildSceneNode ("cam_node")),
 	cam_yaw			(cam_node -> createChildSceneNode	("cam_yaw")),
 	cam_pitch		(cam_yaw -> createChildSceneNode	("cam_pitch")),
-//	cam_roll		(cam_pitch -> createChildSceneNode	("cam_roll")),
-	cam				(camera),
-	lasercast		(new LaserCast(camera, Application :: sglt() -> GetScMgr())),
-	bullet_tracer	(new BulletTracer(camera, Application :: sglt() -> GetScMgr()))
+	cam				(Application :: sglt() -> GetCam()),
+	lasercast		(LaserCast :: sglt()),
+	bullet_tracer	(BulletTracer :: sglt())
 {
 #define USE_NODES
 #ifdef USE_NODES
@@ -24,7 +23,7 @@ FPersonCam :: FPersonCam
 	ParamList parameters;
 	unsigned int windowHandle = 0;
 	ostringstream windowHandleString;
-	_window -> getCustomAttribute("WINDOW", & windowHandle);
+	Application :: sglt() -> GetRW() -> getCustomAttribute("WINDOW", & windowHandle);
 	windowHandleString << windowHandle;
 	parameters.insert(make_pair("WINDOW", windowHandleString.str()));
 // those settings unhide the cursor (from ogre's wiki snippets)
@@ -53,8 +52,8 @@ FPersonCam :: ~ FPersonCam()
 	inputmanager -> destroyInputObject(keyboard);
 	InputManager :: destroyInputSystem(inputmanager);
 
-	delete lasercast;
-	delete bullet_tracer;
+	//delete lasercast;
+	//delete bullet_tracer;
 }
 // FPersonCam :: update
 bool FPersonCam :: update (float frame_time)
@@ -91,3 +90,8 @@ bool FPersonCam :: update (float frame_time)
 	return true;
 }
 
+FPersonCam * FPersonCam :: sglt()
+{
+	static FPersonCam _;
+	return & _;
+}

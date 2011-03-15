@@ -54,7 +54,7 @@ Application :: Application():
 
 	// project objects
 	ConfMgr :: Instantiate("conf/gameconf.cfg");
-	fpersoncam = new FPersonCam(camera, rootnode, window);
+	fpersoncam = FPersonCam :: sglt();
 	
 	// create the terrain
 	// CreateTerrain();
@@ -65,12 +65,13 @@ Application :: Application():
 }
 Application :: ~ Application()
 {
-	delete fpersoncam;
+	//delete fpersoncam;
 #ifdef USE_TERRAIN
 	OGRE_DELETE mTerrain;
 	OGRE_DELETE mGlobals;
 #endif
 	if(root) delete root;
+	else exit(0xb00b);
 }
 void Application :: go ()
 {
@@ -84,4 +85,18 @@ Application * Application :: sglt()
 SceneManager * Application :: GetScMgr()
 {
 	return scmgr;
+}
+SceneNode * Application :: GetRSN()
+{
+	return scmgr -> getRootSceneNode();
+}
+
+Camera * Application :: GetCam()
+{
+	return camera;
+}
+
+RenderWindow * Application :: GetRW()
+{
+	return window;
 }

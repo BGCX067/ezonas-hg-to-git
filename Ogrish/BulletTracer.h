@@ -5,10 +5,11 @@
 class BulletTracer
 {
 public:
-	BulletTracer(Camera * camera, SceneManager * scmgr);
+	BulletTracer();
 	~ BulletTracer();
 	void Fire();
 	void update(float frame_time);
+	static BulletTracer * sglt();
 private:
 	SceneManager * scmgr;
 	int nextbullet;
@@ -18,4 +19,5 @@ private:
 	SceneNode * n_bullet[BULLET_MAX];
 	BillboardChain * bb_bullet_model;
 	BillboardChain * bb_bullet[BULLET_MAX];
+	SceneNode * n_cannon;
 };

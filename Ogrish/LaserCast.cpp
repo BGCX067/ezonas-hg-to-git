@@ -1,20 +1,20 @@
 #include "stdafx.h"
 
-LaserCast :: LaserCast(Camera * camera, SceneManager * scmgr):
-	cam(camera),
+LaserCast :: LaserCast():
+	cam(SGLT_CAM),
 	ray_cam		(Ray(Vec3(0, 0, 0), Vec3(-1, -1, -1))),
 	//ray_cam (Ray(Vec3(0,0,0), Vec3(-1, -1, -1))),
-	RSQ (scmgr -> createRayQuery(ray_cam)),
+	RSQ (SGLT_SCMGR -> createRayQuery(ray_cam)),
 	// nodes
-	n_root		(scmgr -> getRootSceneNode()),
-	n_laserbeam (scmgr -> createSceneNode("laser beam")),
-	n_laserdot	(scmgr -> createSceneNode("laser dot")),
+	n_root		(SGLT_RSN),
+	n_laserbeam (SGLT_RSN -> createChildSceneNode("laser beam")),
+	n_laserdot	(SGLT_RSN -> createChildSceneNode("laser dot")),
 	//n_bullet	(scmgr -> createSceneNode("bullet trace")),
 	
 	// billboards
-	bb_dot		(scmgr -> createBillboardSet("laser dot")),
+	bb_dot		(SGLT_SCMGR -> createBillboardSet("laser dot")),
 	bboard		(bb_dot -> createBillboard(Ogre :: Vector3(0, 0, 0))),
-	bb_beam		(scmgr -> createBillboardChain("laser beam")),
+	bb_beam		(SGLT_SCMGR -> createBillboardChain("laser beam")),
 	//bb_bullet	(scmgr -> createBillboardChain("bullet trace")),
 	
 	laser_width		(ConfMgr :: sglt() -> GetFloat("laser_width"))
@@ -24,8 +24,8 @@ LaserCast :: LaserCast(Camera * camera, SceneManager * scmgr):
 {
 	// "link" the laser dot position so that the class can update the position
 	// child nodes
-	n_root -> addChild(n_laserbeam);
-	n_root -> addChild(n_laserdot);
+	//n_root -> addChild(n_laserbeam);
+	//n_root -> addChild(n_laserdot);
 	//n_root -> addChild(n_bullet);
 
 	// attach objects
@@ -71,4 +71,10 @@ void LaserCast :: update(float frame_time)
 				(result, laser_width, 0, ColourValue()));
 	}
 	//n_bullet -> translate(frame_time * bullet_speed, 0, 0);
+}
+
+LaserCast * LaserCast :: sglt()
+{
+	static LaserCast _;
+	return & _;
 }

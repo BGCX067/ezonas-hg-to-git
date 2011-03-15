@@ -193,7 +193,7 @@ attributes and minimum passed variables */
 				(
 					ray_cam,
 					vertices[indices[i]],
-		    vertices[indices[i+1]],
+					vertices[indices[i+1]],
 					vertices[indices[i+2]],
 					true, false
 				);

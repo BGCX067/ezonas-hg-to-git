@@ -10,6 +10,9 @@ public:
 	float frame_time;
     static Application * sglt();
     SceneManager * GetScMgr();
+    SceneNode * GetRSN();
+	Camera * GetCam();
+	RenderWindow * GetRW();
     void go();
     bool frameRenderingQueued(const FrameEvent & evt);
 private:
