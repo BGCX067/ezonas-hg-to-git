@@ -14,8 +14,10 @@ public:
     bool frameRenderingQueued(const FrameEvent & evt);
 private:
     void CreateScene();
+#ifdef USE_TERRAIN
     void CreateTerrain();
-    Application();
+#endif
+	Application();
     ~ Application();
     void AddPlane();
 	
@@ -38,7 +40,9 @@ private:
     SceneNode * rootnode;
 
 	// terrain
+#ifdef USE_TERRAIN
 	Ogre::Terrain * mTerrain;
 	Ogre::TerrainGlobalOptions * mGlobals;
+#endif
 };
 

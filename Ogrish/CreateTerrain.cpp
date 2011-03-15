@@ -1,5 +1,5 @@
 #include "stdafx.h"
-
+#ifdef USE_TERRAIN
 void Application :: CreateTerrain()
 {
 	// terrain objects
@@ -26,3 +26,4 @@ void Application :: CreateTerrain()
 	
 	mTerrain->freeTemporaryResources();
 }
+#endif

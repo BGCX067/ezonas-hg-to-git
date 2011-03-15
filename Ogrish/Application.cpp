@@ -43,8 +43,6 @@ Application :: Application():
 	// overlays mgr
 	ovl_mgr = OverlayManager :: getSingletonPtr();
 	
-	//Ogre::FontManager::getSingleton().getByName("sometext") -> load();
-
 	// some sort of crosshair
 	ovl_mgr -> getByName("jokoon/crosshair") -> show();
 
@@ -59,17 +57,19 @@ Application :: Application():
 	fpersoncam = new FPersonCam(camera, rootnode, window);
 	
 	// create the terrain
-	//CreateTerrain();
+	// CreateTerrain();
 
 	// create the scene
 	CreateScene();
+	camera -> setFOVy(Radian(Degree(ConfMgr :: sglt() -> GetFloat("fovy"))));
 }
 Application :: ~ Application()
 {
 	delete fpersoncam;
-
+#ifdef USE_TERRAIN
 	OGRE_DELETE mTerrain;
 	OGRE_DELETE mGlobals;
+#endif
 	if(root) delete root;
 }
 void Application :: go ()
