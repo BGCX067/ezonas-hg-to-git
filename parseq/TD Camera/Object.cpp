@@ -15,11 +15,9 @@ Object::Object()
 	m_look.y = 0.0f;
 	m_look.z = 1.0f;
 }
-
 Object::~Object()
 {	
 }
-
 bool Object::Display(IDirect3DDevice9* Device, float timeDelta)
 {
 	D3DXMATRIX yRot, scale, identity, translation, turnShip;
@@ -68,27 +66,22 @@ bool Object::Display(IDirect3DDevice9* Device, float timeDelta)
 
 	return true;
 }
-
 void Object::GetMatrix (D3DXMATRIX* _m)
 {
    *_m = World;
 }
-
 void Object::GetLook (D3DXVECTOR3* _look)
 {
    *_look = m_look;
 }
-
 void Object::GetPos (D3DXVECTOR3* _pos)
 {
    *_pos = m_pos;
 }
-
 void Object::GetUp (D3DXVECTOR3* _up)
 {
    *_up = m_up;
 }
-
 void Object::Update(float timeDelta)
 {	
 }

@@ -2,7 +2,7 @@
 
 #define BULLET_MAX 5
 
-class BulletTracer
+class BulletTracer//: public BillboardChainFactory
 {
 public:
 	BulletTracer();
@@ -21,3 +21,18 @@ private:
 	BillboardChain * bb_bullet[BULLET_MAX];
 	SceneNode * n_cannon;
 };
+
+class BulletFactory: public BillboardChainFactory
+{
+	//protected:
+	//	MovableObject* createInstanceImpl(const String& name, const NameValuePairList* params);
+	float trace_width, trace_length;
+	
+public:
+	BulletFactory();
+	~BulletFactory() {}
+	BillboardChain * MakeABullet();
+
+	//const String& getType(void) const;
+	//void destroyInstance( MovableObject* obj);
+}

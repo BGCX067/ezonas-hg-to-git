@@ -23,10 +23,10 @@ Game::Game()
 Game::~Game()
 {
 	//release le device
-	SafeRelease( m_D3DDevice );
+	SafeRelease(m_D3DDevice);
 
 	//release l'interface DX9
-	SafeRelease( m_D3D );
+	SafeRelease(m_D3D);
 }
 Game* Game::GetSingleton()
 {
@@ -34,10 +34,10 @@ Game* Game::GetSingleton()
 
 	return &InstanceUnique ;
 }
-HRESULT Game::InitD3D( HWND hWnd )
+HRESULT Game::InitD3D(HWND hWnd)
 {
 	// Create the D3D object, which is needed to create the D3DDevice.
-	if( NULL == ( m_D3D = Direct3DCreate9( D3D_SDK_VERSION ) ) )
+	if(NULL == (m_D3D = Direct3DCreate9(D3D_SDK_VERSION)))
 		return E_FAIL;
 
 	// Set up the structure used to create the D3DDevice. Most parameters are
@@ -47,7 +47,7 @@ HRESULT Game::InitD3D( HWND hWnd )
 	// we request a back buffer format that matches the current desktop display 
 	// format.
 	D3DPRESENT_PARAMETERS d3dpp;
-	ZeroMemory( &d3dpp, sizeof(d3dpp) );
+	ZeroMemory(&d3dpp, sizeof(d3dpp));
 	d3dpp.Windowed = TRUE;
 	d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
 	d3dpp.BackBufferFormat = D3DFMT_UNKNOWN;
@@ -62,9 +62,9 @@ HRESULT Game::InitD3D( HWND hWnd )
 	// specified since we know it will work on all cards. On cards that support 
 	// hardware vertex processing, though, we would see a big performance gain 
 	// by specifying hardware vertex processing.
-	if( FAILED( m_D3D->CreateDevice( D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd,
+	if(FAILED(m_D3D->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd,
 									  D3DCREATE_SOFTWARE_VERTEXPROCESSING,
-									  &d3dpp, &m_D3DDevice ) ) )
+									  &d3dpp, &m_D3DDevice)))
 	{
 		return E_FAIL;
 	}
@@ -72,6 +72,36 @@ HRESULT Game::InitD3D( HWND hWnd )
 	// Device state would normally be set here
 	InitialiseLights() ;
 	SetupCamera() ;
+
+// Load the mesh from the specified file
+	LPCWSTR GNA = "bigship1.x";
+	HRESULT hr=D3DXLoadMeshFromX(GNA, D3DXMESH_SYSTEMMEM,
+                             m_D3DDevice, NULL,
+                             &materialBuffer, NULL, &numMaterials,
+                             &mesh );
+
+	if (hr == NULL) exit (0xb00bb00b);
+	
+	D3DMATERIAL9 *meshMaterials = new D3DMATERIAL9[numMaterials];
+	LPDIRECT3DTEXTURE9 *meshTextures  = new LPDIRECT3DTEXTURE9[numMaterials];
+
+	for (DWORD i=0; i<m_numMaterials; i++)
+	{
+
+		 // Copy the material
+		 meshMaterials[i] = d3dxMaterials[i].MatD3D;
+
+		 // Set the ambient color for the material (D3DX does not do this)
+		 meshMaterials[i].Ambient = meshMaterials[i].Diffuse;
+        
+		 // Create the texture if it exists - it may not
+		 meshTextures[i] = NULL;
+		 if (d3dxMaterials[i].pTextureFilename)
+			 D3DXCreateTextureFromFile(gD3dDevice, d3dxMaterials[i].pTextureFilename,     &meshTextures[i]) 
+
+	}
+
+	pD3DXMtrlBuffer->Release();
 
 	return S_OK;
 }
@@ -131,7 +161,7 @@ void Game::SetupCamera()
 }
 void Game::Render()
 {
-	if( NULL == m_D3DDevice )
+	if(NULL == m_D3DDevice)
 		return;
 
 	float fDt = (timeGetTime() - m_fLastTimeGetTime) * 0.001f;
@@ -146,7 +176,7 @@ void Game::Render()
 		m_Cube->Update(fDt) ;
 	}
 
-	if( ::GetAsyncKeyState('M') && m_flKeyDown == 0)
+	if(::GetAsyncKeyState('M') && m_flKeyDown == 0)
 	{
 		m_flKeyDown = 1;
 		//mode = ((mode + 1) % 3) + 1;
@@ -170,18 +200,28 @@ void Game::Render()
 	D3DXMATRIX mView ;
 	pCamManager->getViewMatrix(&mView) ;
 	m_D3DDevice->SetTransform(D3DTS_VIEW, &mView) ;
-
+	//mView._42+=1
 	// Clear the backbuffer to a blue color
 	/*m_D3DDevice->Clear(0, NULL, D3DCLEAR_TARGET|D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(m_iR, m_iG, m_iB), 1.0f, 0);*/
 	m_D3DDevice->Clear(0, 0, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, 0x00000000, 1.0f, 0);
 
 	// Begin the scene
-	if( SUCCEEDED( m_D3DDevice->BeginScene() ) )
+	if(SUCCEEDED(m_D3DDevice->BeginScene()))
 	{
 		// Rendering of scene objects can happen here
 
 		m_Cube->Display(m_D3DDevice, fDt) ;
 		m_Cube->Render() ;
+
+		for (DWORD i=0; i<m_numMaterials; i++)
+		{
+		   // Set the material and texture for this subset
+		  gD3dDevice->SetMaterial(&meshMaterials[i]);
+		  gD3dDevice->SetTexture(0,meshTextures[i]);
+       
+		  // Draw the mesh subset
+		  m_mesh->DrawSubset( i );
+		}
 
 		D3DXMATRIX M ;
 		D3DXMatrixIdentity(&M) ;
@@ -196,32 +236,32 @@ void Game::Render()
 	}
 
 	// Present the backbuffer contents to the display
-	m_D3DDevice->Present( NULL, NULL, NULL, NULL );
+	m_D3DDevice->Present(NULL, NULL, NULL, NULL);
 }
-INT WINAPI Game::wWinMain(WNDPROC _MsgProc, HINSTANCE hInst, HINSTANCE, LPSTR, INT )
+INT WINAPI Game::wWinMain(WNDPROC _MsgProc, HINSTANCE hInst, HINSTANCE, LPSTR, INT)
 {
 	// Register the window class
 	WNDCLASSEX wc =
 	{
-		sizeof( WNDCLASSEX ), 
+		sizeof(WNDCLASSEX), 
 		CS_CLASSDC, 
 		_MsgProc, 
 		0L, 
 		0L,
-		GetModuleHandle( NULL ), 
+		GetModuleHandle(NULL), 
 		NULL, NULL, NULL, NULL,
 		L"D3D Initiation", NULL
 	};
 
-	RegisterClassEx( &wc );
+	RegisterClassEx(&wc);
 
 	// Create the application's window
-	HWND hWnd = CreateWindow( L"D3D Initiation", m_szWindowName,
+	HWND hWnd = CreateWindow(L"D3D Initiation", m_szWindowName,
 							  WS_OVERLAPPEDWINDOW, m_iX, m_iY, m_iL, m_iH,
-							  NULL, NULL, wc.hInstance, NULL );
+							  NULL, NULL, wc.hInstance, NULL);
 
 	// Initialize Direct3D
-	if( SUCCEEDED( InitD3D( hWnd ) ) )
+	if(SUCCEEDED(InitD3D(hWnd)))
 	{
 		//loading of object can append here 
 		m_Cube = new CCuboid(m_D3DDevice, 0, 0, 0) ;
@@ -232,8 +272,8 @@ INT WINAPI Game::wWinMain(WNDPROC _MsgProc, HINSTANCE hInst, HINSTANCE, LPSTR, I
 		CameraManager::getCameraManager()->setTarget(m_Cube) ;
 
 		// Show the window
-		ShowWindow( hWnd, SW_SHOWDEFAULT );
-		UpdateWindow( hWnd );
+		ShowWindow(hWnd, SW_SHOWDEFAULT);
+		UpdateWindow(hWnd);
 		
 		// Enter the message loop
 		MSG msg; 
@@ -259,7 +299,7 @@ INT WINAPI Game::wWinMain(WNDPROC _MsgProc, HINSTANCE hInst, HINSTANCE, LPSTR, I
 		}
 	}
 
-	UnregisterClass( L"D3D Initiation", wc.hInstance );
+	UnregisterClass(L"D3D Initiation", wc.hInstance);
 
 	return 0;
 }

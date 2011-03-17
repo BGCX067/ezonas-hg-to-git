@@ -1,0 +1,11 @@
+﻿Hello :)
+
+I'm a game programmer student in a private game programming school.
+
+I have an open source/free project in mind, I started coding it something like 3 months ago, it's not just contest project or student project, I want to be able to program it as long as possible... and I need at least one very little level to start toying with.
+
+I'm basically trying to make some sort of Counter-Strike clone, but of course I have tons of cheap ideas which takes time to implement.
+
+I'd like to know if you guys have some level of some kind that would fit in the spirit of the game, preferably not hi poly (yes I know, sorry), and with textures not bigger than 512*512 or 256*256, something preferably free or giveaway...
+
+I'm not asking for someone to do something, because my project is in early stages, 

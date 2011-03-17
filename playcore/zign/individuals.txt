@@ -4,10 +4,11 @@
 	Bjarne Stroutup
 	Steve Streeting
 
-// %%%%%% Mathematics, Philosophy %%%%%% 
+// %%%%%% Mathematics, Philosophy %%%%%% %
 	Alan Turing
 	Pierre de Fermat
 	William Rowan Hamilton
+	Nichola Tesla
 	Euler
 	Gauss
 	Socrates

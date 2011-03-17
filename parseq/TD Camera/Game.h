@@ -24,6 +24,10 @@ class Game
 
 		bool m_flKeyDown ;
 		float m_fLastTimeGetTime;
+		// Parsec
+		LPD3DXMESH mesh; // Our mesh object 
+		LPD3DXBUFFER materialBuffer;
+		DWORD numMaterials;            // Note: DWORD is a typedef for unsigned long
 
 	public :
 
@@ -54,6 +58,6 @@ class Game
 		void Render() ;
 
 		virtual ~Game() ;
-} ;
+};
 
 #endif // GAME__H

@@ -1,0 +1,23 @@
+White House
+NYSE (wallstreet etc)
+Sydney's Opera House
+Vatican
+Sacré Coeur
+The Burj Khalifa (Dubai)
+
+Some Cities
+	London
+	Paris: Basilique, 
+	Rome: Basilique Saint Pierre
+	Dubai
+	
+	Beijing
+	Hong Kong
+	Shanghai
+	
+Countries:
+	Israel
+	China
+	Japan
+	South America
+	Greece

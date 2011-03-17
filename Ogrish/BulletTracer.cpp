@@ -13,25 +13,33 @@ BulletTracer :: BulletTracer ():
 	was_fired(false),
 	time_stack(0)
 {
-	bb_bullet_model -> setMaterialName("jokoon/bullet_trace");
-	bb_bullet_model -> setTextureCoordDirection(BillboardChain :: TCD_V);
-	bb_bullet_model -> setUseTextureCoords(true);
-	bb_bullet_model -> setMaxChainElements(2);
-	
-	bb_bullet_model -> addChainElement
-		(0, BillboardChain::Element
-			(Vec3(0, 0, 0), trace_width, 0, ColourValue()));
+	//bb_bullet_model -> setMaterialName("jokoon/bullet_trace");
+	//bb_bullet_model -> setTextureCoordDirection(BillboardChain :: TCD_V);
+	//bb_bullet_model -> setUseTextureCoords(true);
+	//bb_bullet_model -> setMaxChainElements(2);
+	//
+	//bb_bullet_model -> addChainElement
+	//	(0, BillboardChain::Element
+	//		(Vec3(0, 0, 0), trace_width, 0, ColourValue()));
 
-	bb_bullet_model -> addChainElement
-		(0, BillboardChain::Element
-			(Vec3(0, 0, - trace_length), trace_width, 0, ColourValue()));
+	//bb_bullet_model -> addChainElement
+	//	(0, BillboardChain::Element
+	//		(Vec3(0, 0, - trace_length), trace_width, 0, ColourValue()));
 
-	//n_bullet -> attachObject (bb_bullet_model);
-	FOR(BULLET_MAX)
+	////n_bullet -> attachObject (bb_bullet_model);
+	//char str[10];
+	//FOR(BULLET_MAX)
+	//{
+	//	sprintf(str,"%d",i);
+	//	bb_bullet[i] = new BillboardChain(str/** bb_bullet_model*/);
+	//	n_bullet[i] = Application :: sglt() -> GetRSN() -> createChildSceneNode();
+	//	n_bullet[i] -> attachObject(bb_bullet[i]);
+	//}
+
+	char str[2];
+	FOR(10)
 	{
-		bb_bullet[i] = new BillboardChain(* bb_bullet_model);
-		n_bullet[i] = Application :: sglt() -> GetRSN() -> createChildSceneNode();
-		n_bullet[i] -> attachObject(bb_bullet[i]);
+		sprintf(str,"%d",i);
 	}
 }
 BulletTracer :: ~ BulletTracer ()
@@ -85,3 +93,45 @@ BulletTracer * BulletTracer :: sglt()
 	//n_bullet -> setPosition(cam -> getRealPosition());
 	//n_bullet -> setDirection(cam -> getRealDirection());
 	// Derived
+
+
+//const String & BulletFactory :: getType (void) const
+//{}
+//void BulletFactory :: destroyInstance(MovableObject* obj)
+//{}
+
+BillboardChain * BulletFactory :: MakeABullet()
+{
+	// MovableObject*
+	BillboardChain * result;
+
+	result = createInstance();
+	result -> setMaterialName("jokoon/bullet_trace");
+	result -> setTextureCoordDirection(BillboardChain :: TCD_V);
+	result -> setUseTextureCoords(true);
+	result -> setMaxChainElements(2);
+
+	result -> addChainElement
+		(0, BillboardChain::Element
+			(Vec3(0, 0, 0), trace_width, 0, ColourValue()));
+
+	result -> addChainElement
+		(0, BillboardChain::Element
+			(Vec3(0, 0, - trace_length), trace_width, 0, ColourValue()));
+
+	FOR(BULLET_MAX)
+	{
+		//sprintf(str,"%d",i);
+		bb_bullet[i] = new BillboardChain(/** bb_bullet_model*/);
+		n_bullet[i] = Application :: sglt() -> GetRSN() -> createChildSceneNode();
+		n_bullet[i] -> attachObject(bb_bullet[i]);
+	}
+
+	return (BillboardChain *)result;
+	return (BillboardChain *)result;
+}
+
+BulletFactory :: BulletFactory():
+	trace_width		(ConfMgr :: sglt() -> GetFloat("trace_width")),
+	trace_length	(ConfMgr :: sglt() -> GetFloat("trace_length"))
+{}

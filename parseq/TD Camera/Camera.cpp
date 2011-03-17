@@ -75,8 +75,6 @@ void Camera::update(float timeDelta)
 {
 	// duh
 }
-
-
 void Camera :: setViewMatrix(D3DXMATRIX* V)
 {
 
