@@ -12,6 +12,7 @@ FPersonCam :: FPersonCam
 	cam				(Application :: sglt() -> GetCam()),
 	lasercast		(LaserCast :: sglt()),
 	bullet_tracer	(BulletTracer :: sglt())
+	//bullet_tracer	(new BulletTracer)
 {
 #define USE_NODES
 #ifdef USE_NODES
