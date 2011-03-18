@@ -3,7 +3,7 @@ material jokoon/laser_dot
 { technique { pass {
 	scene_blend alpha_blend
 	depth_write off
-	texture_unit { texture blue-dot.png }
+	texture_unit { texture purple-dot.png }
 }}}
 
 /* LASER BEAM ////////////////////////////////////////////// */
@@ -49,8 +49,15 @@ material jokoon/crosshair
 	texture_unit
 	{
 		// texture crosshair-circle.png
-		texture crosshair-cross-green32-bis.png
+		// texture crosshair-cross-green32-bis.png
+		texture crosshair-circle.png
 		// texture crosshair-cross3.png
 		//texture cross.png
 	}
 }}}
+
+material jokoon/grass
+{ technique { pass { 
+	ambient 0.2 0.2 0.2
+	texture_unit { texture terr_dirt-grass.jpg }
+} } }
