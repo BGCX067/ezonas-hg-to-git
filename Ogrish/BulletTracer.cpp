@@ -48,6 +48,12 @@ BulletTracer :: BulletTracer ():
 }
 BulletTracer :: ~ BulletTracer ()
 {
+	FOR(BULLET_MAX)
+	{
+		if (bb_bullet[i]) //delete bb_bullet[i];
+			//bulletfactory -> 
+			bulletfactory -> destroyInstance(bb_bullet[i]);
+	}	
 	delete bulletfactory;
 }
 void BulletTracer :: Fire ()
@@ -109,11 +115,11 @@ BulletFactory :: BulletFactory():
 {}
 BulletFactory :: ~ BulletFactory()
 {
-		FOR(BULLET_MAX)
-	{
-		if (bb_bullet[i]) //delete bb_bullet[i];
-			//bulletfactory -> 
-			destroyInstance(bb_bullet[i]);
-	}
+//	FOR(BULLET_MAX)
+//	{
+//		if (bb_bullet[i]) //delete bb_bullet[i];
+//			//bulletfactory -> 
+//			destroyInstance(bb_bullet[i]);
+//	}
 }
 

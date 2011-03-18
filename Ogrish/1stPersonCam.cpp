@@ -60,7 +60,10 @@ FPersonCam :: ~ FPersonCam()
 bool FPersonCam :: update (float frame_time)
 {
 	keyboard -> capture();
-	if (keyboard -> isKeyDown(KC_ESCAPE)) return false;
+	if (keyboard -> isKeyDown(KC_ESCAPE))
+	{
+		return false;
+	}
 	Ogre :: Vector3 translate(0, 0, 0);
 	if (keyboard -> isKeyDown(KC_W)) translate += Ogre :: Vector3(0, 0, -1);
 	if (keyboard -> isKeyDown(KC_S)) translate += Ogre :: Vector3(0, 0, 1);

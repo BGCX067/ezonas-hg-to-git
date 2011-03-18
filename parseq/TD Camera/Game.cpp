@@ -74,7 +74,7 @@ HRESULT Game::InitD3D(HWND hWnd)
 	SetupCamera() ;
 
 // Load the mesh from the specified file
-	LPCWSTR GNA = "bigship1.x";
+	LPCWSTR GNA = L"bigship1.x";
 	HRESULT hr=D3DXLoadMeshFromX(GNA, D3DXMESH_SYSTEMMEM,
                              m_D3DDevice, NULL,
                              &materialBuffer, NULL, &numMaterials,
@@ -82,10 +82,12 @@ HRESULT Game::InitD3D(HWND hWnd)
 
 	if (hr == NULL) exit (0xb00bb00b);
 	
+	D3DXMATERIAL* d3dxMaterials = (D3DXMATERIAL*)materialBuffer->GetBufferPointer();
+
 	D3DMATERIAL9 *meshMaterials = new D3DMATERIAL9[numMaterials];
 	LPDIRECT3DTEXTURE9 *meshTextures  = new LPDIRECT3DTEXTURE9[numMaterials];
 
-	for (DWORD i=0; i<m_numMaterials; i++)
+	for (DWORD i=0; i< numMaterials; i++)
 	{
 
 		 // Copy the material
@@ -97,7 +99,7 @@ HRESULT Game::InitD3D(HWND hWnd)
 		 // Create the texture if it exists - it may not
 		 meshTextures[i] = NULL;
 		 if (d3dxMaterials[i].pTextureFilename)
-			 D3DXCreateTextureFromFile(gD3dDevice, d3dxMaterials[i].pTextureFilename,     &meshTextures[i]) 
+			 D3DXCreateTextureFromFile(m_D3DDevice, d3dxMaterials[i].pTextureFilename,     &meshTextures[i]) 
 
 	}
 
