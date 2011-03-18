@@ -3,7 +3,7 @@
 void Application :: CreateScene()
 {
 	//camera -> setPolygonMode(PM_WIREFRAME);
-	SceneNode * node;
+//	SceneNode * node;
 	AddPlane();
 	ConfMgr :: sglt() -> FastAdd("ninja");
 }

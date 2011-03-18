@@ -2,7 +2,7 @@
 
 #define BULLET_MAX 5
 
-class BulletTracer: public BillboardChainFactory
+class BulletTracer: public BillboardChainFactory, public Ogre :: Singleton <BulletTracer>
 {
 public:
 	void Fire();

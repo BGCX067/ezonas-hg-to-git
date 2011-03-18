@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
-class ConfMgr
+class ConfMgr :
+	public Ogre :: Singleton <ConfMgr>
 {
 public:
 	static void Instantiate(string);
