@@ -1,13 +1,17 @@
 #include "stdafx.h"
 
-class LaserCast
+class LaserCast:
+	public Ogre :: Singleton <LaserCast>
 {
 public:
 	// bool RaycastFromPoint(const Vector3 & point, const Vector3 & normal, Vector3 & result);
-	LaserCast();
 	void update(float);
-    static LaserCast * sglt();
+    //static LaserCast * sglt();
+    static LaserCast * getSingletonPtr(void);
+	static LaserCast * Instantiate();
+
 protected:
+	LaserCast();
 	bool execute();
 // necessary objects
 	// MaterialPtr matptr;

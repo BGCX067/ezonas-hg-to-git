@@ -1,21 +1,26 @@
 #include "stdafx.h"
 
-class OgrikFrameListener;
-
-typedef RaySceneQueryResult :: iterator RSQR_iter_t;
-
-class Application: public FrameListener
+//typedef RaySceneQueryResult :: iterator RSQR_iter_t;
+class Application:
+	public FrameListener,
+	public Ogre :: Singleton <Application>
 {
+/* ############ PUBLIC ############ */
 public:
+    static Application * getSingletonPtr(void);
+
 	float frame_time;
-    static Application * sglt();
+    //static Application * sglt();
     SceneManager * GetScMgr();
     SceneNode * GetRSN();
 	Camera * GetCam();
 	RenderWindow * GetRW();
     void go();
     bool frameRenderingQueued(const FrameEvent & evt);
+	static Application * Instantiate();
+/* ############ PRIVATE ############ */
 private:
+	bool init_config();
     void CreateScene();
 #ifdef USE_TERRAIN
     void CreateTerrain();
@@ -26,6 +31,9 @@ private:
 	
     // Ogre core objects: remember that the order they are declared MATTERS !
     Root * root;
+
+	bool last_init;
+
 	RenderWindow * window;
     SceneManager * scmgr;
     Camera * camera;

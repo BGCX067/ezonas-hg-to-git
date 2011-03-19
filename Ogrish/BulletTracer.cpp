@@ -1,13 +1,15 @@
 #include "stdafx.h"
 
+template<> BulletTracer * Ogre :: Singleton <BulletTracer> :: ms_Singleton = 0;
+
 BulletTracer :: BulletTracer ():
 	
-	bullet_speed	(ConfMgr :: sglt() -> GetFloat("bullet_speed")),
-	trace_width		(ConfMgr :: sglt() -> GetFloat("trace_width")),
-	trace_length	(ConfMgr :: sglt() -> GetFloat("trace_length")),
-	cam				(Application :: sglt() -> GetCam()),
+	bullet_speed	(ConfMgr :: getSingletonPtr() -> GetFloat("bullet_speed")),
+	trace_width		(ConfMgr :: getSingletonPtr() -> GetFloat("trace_width")),
+	trace_length	(ConfMgr :: getSingletonPtr() -> GetFloat("trace_length")),
+	cam				(Application :: getSingletonPtr() -> GetCam()),
 	// bb_bullet_model	(Application :: sglt() -> GetScMgr() -> createBillboardChain("bullet trace")),
-	n_cannon		(Application :: sglt() -> GetRSN() -> createChildSceneNode()),
+	n_cannon		(Application :: getSingletonPtr() -> GetRSN() -> createChildSceneNode()),
 	nextbullet (0),
 	was_fired(false),
 	time_stack(0)
@@ -84,11 +86,11 @@ void BulletTracer :: update (float frame_time)
 		}
 	}
 }
-BulletTracer * BulletTracer :: sglt()
-{
-	static BulletTracer _;
-	return & _;
-}
+//BulletTracer * BulletTracer :: sglt()
+//{
+//	static BulletTracer _;
+//	return & _;
+//}
 BillboardChain * BulletTracer :: MakeABullet(string str)
 {
 	// MovableObject*

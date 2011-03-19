@@ -2,12 +2,16 @@
 
 #define BULLET_MAX 5
 
-class BulletTracer: public BillboardChainFactory, public Ogre :: Singleton <BulletTracer>
+class BulletTracer:
+	public BillboardChainFactory,
+	public Ogre :: Singleton <BulletTracer>
 {
 public:
 	void Fire();
 	void update(float frame_time);
-	static BulletTracer * sglt();
+	//static BulletTracer * sglt();
+    static BulletTracer * getSingletonPtr(void);
+	static BulletTracer * Instantiate();
 private:
 	BulletTracer();
 	~ BulletTracer();

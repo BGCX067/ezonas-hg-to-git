@@ -1,5 +1,6 @@
 #include "stdafx.h"
 
+template<> ConfMgr * Ogre :: Singleton <ConfMgr> :: ms_Singleton = 0;
 ConfMgr :: ConfMgr(string filepath):
 	configfile(new ConfigFile)
 //	rootnode((Application :: GetScMgr()) -> getRootSceneNode()),
@@ -17,13 +18,13 @@ float ConfMgr :: GetFloat(string _s)
 	istrstr >> result;
 	return result;
 }
-void ConfMgr :: Instantiate(string filepath)
-{
-	static ConfMgr inst(filepath);
-	instance = & inst;
-}
-ConfMgr * ConfMgr :: sglt()
-	{return instance;}
+//void ConfMgr :: Instantiate(string filepath)
+//{
+//	static ConfMgr inst(filepath);
+//	instance = & inst;
+//}
+//ConfMgr * ConfMgr :: sglt()
+//	{return instance;}
 // WARNING: Fast doesn't have anything to do with
 // performance here. This is only for scene creation
 // (which has no performance matter) !
@@ -36,11 +37,11 @@ SceneNode * ConfMgr :: FastAdd(string _s)
 
 	iss >> mesh_filename >> scale >> material_name >> x >> y >> z;
 
-	SceneNode * node = Application :: sglt() -> GetScMgr() -> createSceneNode(_s);
-	Entity * ent = Application :: sglt() -> GetScMgr() -> createEntity(mesh_filename);
+	SceneNode * node = Application :: getSingletonPtr() -> GetScMgr() -> createSceneNode(_s);
+	Entity * ent = Application :: getSingletonPtr() -> GetScMgr() -> createEntity(mesh_filename);
 	if (material_name != "-") ent -> setMaterialName(material_name);
-	node -> attachObject(Application :: sglt() -> GetScMgr() -> createEntity(mesh_filename));
-	((Application :: sglt() -> GetScMgr()) -> getRootSceneNode()) -> addChild(node);
+	node -> attachObject(Application :: getSingletonPtr() -> GetScMgr() -> createEntity(mesh_filename));
+	((Application :: getSingletonPtr() -> GetScMgr()) -> getRootSceneNode()) -> addChild(node);
 	node -> setScale(scale, scale, scale);
 	node -> setPosition(x, y, z);
 	return node;

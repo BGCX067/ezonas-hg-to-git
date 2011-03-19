@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+template<> LaserCast * Ogre :: Singleton <LaserCast> :: ms_Singleton = 0;
+
 LaserCast :: LaserCast():
 	cam(SGLT_CAM),
 	ray_cam		(Ray(Vec3(0, 0, 0), Vec3(-1, -1, -1))),
@@ -17,7 +19,7 @@ LaserCast :: LaserCast():
 	bb_beam		(SGLT_SCMGR -> createBillboardChain("laser beam")),
 	//bb_bullet	(scmgr -> createBillboardChain("bullet trace")),
 	
-	laser_width		(ConfMgr :: sglt() -> GetFloat("laser_width"))
+	laser_width		(ConfMgr :: getSingletonPtr() -> GetFloat("laser_width"))
 	//bullet_speed	(ConfMgr :: sglt() -> GetFloat("bullet_speed")),
 	//trace_width		(ConfMgr :: sglt() -> GetFloat("trace_width")),
 	//trace_length	(ConfMgr :: sglt() -> GetFloat("trace_length"))
@@ -73,8 +75,8 @@ void LaserCast :: update(float frame_time)
 	//n_bullet -> translate(frame_time * bullet_speed, 0, 0);
 }
 
-LaserCast * LaserCast :: sglt()
-{
-	static LaserCast _;
-	return & _;
-}
+//LaserCast * LaserCast :: sglt()
+//{
+//	static LaserCast _;
+//	return & _;
+//}

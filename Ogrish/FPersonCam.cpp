@@ -1,30 +1,30 @@
 #include "stdafx.h"
+template<> FPersonCam * Ogre :: Singleton <FPersonCam> :: ms_Singleton = 0;
 
 // FPersonCam :: FPersonCam
-FPersonCam :: FPersonCam
-	():
+FPersonCam :: FPersonCam ():
 
-	rotating_speed	(ConfMgr :: sglt() -> GetFloat		("rotating_speed")),
-	moving_speed	(ConfMgr :: sglt() -> GetFloat		("moving_speed")),
-	cam_node		(Application :: sglt() -> GetRSN() -> createChildSceneNode ("cam_node")),
-	cam_yaw			(cam_node -> createChildSceneNode	("cam_yaw")),
-	cam_pitch		(cam_yaw -> createChildSceneNode	("cam_pitch")),
-	cam				(Application :: sglt() -> GetCam()),
-	lasercast		(LaserCast :: sglt()),
-	bullet_tracer	(BulletTracer :: sglt())
-	//bullet_tracer	(new BulletTracer)
+
+	rotating_speed	(ConfMgr :: getSingletonPtr() -> GetFloat ("rotating_speed")),
+	moving_speed	(ConfMgr :: getSingletonPtr() -> GetFloat ("moving_speed")),
+	cam_node		(Application :: getSingletonPtr() -> GetRSN() -> createChildSceneNode ("cam_node")),
+	cam_yaw			(cam_node -> createChildSceneNode ("cam_yaw")),
+	cam_pitch		(cam_yaw -> createChildSceneNode ("cam_pitch")),
+	cam				(Application :: getSingletonPtr() -> GetCam()),
+	lasercast		(LaserCast :: Instantiate()),
+	bullet_tracer	(BulletTracer :: Instantiate())
 {
 #define USE_NODES
 #ifdef USE_NODES
 	//cam_roll -> attachObject(cam);
 	cam_pitch -> attachObject(cam);
 #else
-	Application :: sglt() -> GetScMgr() -> getRootSceneNode() -> attachObject(cam);
+	Application :: getSingletonPtr() -> GetScMgr() -> getRootSceneNode() -> attachObject(cam);
 #endif
 	ParamList parameters;
 	unsigned int windowHandle = 0;
 	ostringstream windowHandleString;
-	Application :: sglt() -> GetRW() -> getCustomAttribute("WINDOW", & windowHandle);
+	Application :: getSingletonPtr() -> GetRW() -> getCustomAttribute("WINDOW", & windowHandle);
 	windowHandleString << windowHandle;
 	parameters.insert(make_pair("WINDOW", windowHandleString.str()));
 // those settings unhide the cursor (from ogre's wiki snippets)
@@ -42,9 +42,9 @@ FPersonCam :: FPersonCam
 /* ### Inputs Objects ################################################## */
 	inputmanager = InputManager :: createInputSystem(parameters);
 	keyboard = static_cast<Keyboard *>
-	(inputmanager -> createInputObject(OISKeyboard, false));
+		(inputmanager -> createInputObject(OISKeyboard, false));
 	mouse = static_cast<Mouse *>
-	(inputmanager -> createInputObject	(OISMouse, false));
+		(inputmanager -> createInputObject	(OISMouse, false));
 }
 // FPersonCam :: ~ FPersonCam
 FPersonCam :: ~ FPersonCam()
@@ -94,8 +94,8 @@ bool FPersonCam :: update (float frame_time)
 	return true;
 }
 
-FPersonCam * FPersonCam :: sglt()
-{
-	static FPersonCam _;
-	return & _;
-}
+//FPersonCam * FPersonCam :: sglt()
+//{
+//	static FPersonCam _;
+//	return & _;
+//}

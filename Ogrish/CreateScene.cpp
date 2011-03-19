@@ -5,7 +5,7 @@ void Application :: CreateScene()
 	//camera -> setPolygonMode(PM_WIREFRAME);
 //	SceneNode * node;
 	AddPlane();
-	ConfMgr :: sglt() -> FastAdd("ninja");
+	ConfMgr :: getSingletonPtr() -> FastAdd("ninja");
 }
 void Application :: AddPlane()
 {

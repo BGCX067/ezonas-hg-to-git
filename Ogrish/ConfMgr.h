@@ -1,18 +1,19 @@
 #include "stdafx.h"
 
-class ConfMgr :
+class ConfMgr:
 	public Ogre :: Singleton <ConfMgr>
 {
 public:
-	static void Instantiate(string);
-	static ConfMgr * sglt();
+	static ConfMgr * Instantiate();
+	//static ConfMgr * sglt();
 	float GetFloat(string);
 	SceneNode * FastAdd(string);
+    static ConfMgr * getSingletonPtr(void);
 protected:
-	ConfMgr(string);
-	~ ConfMgr();
 	ConfigFile * configfile;
 	static ConfMgr * instance;
+	ConfMgr(string str = "conf/gameconf.cfg");
+	~ ConfMgr();
 };
 
 
