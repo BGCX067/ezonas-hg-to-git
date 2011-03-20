@@ -1,0 +1,25 @@
+
+GLOCK19			1
+M9              1
+Ruger MKIII     1
+M1911 .45       1
+P99 .40         1
+SIGPRO          1
+MK23			1
+Deagle			2
+
+MP5				2
+Benneli M3		2
+AK				2
+
+M416            3
+M4              3
+FAMAS           3
+CTAR            3
+XM8				3
+
+
+PSG1            4
+M24             4
+R700            4
+XM              4
