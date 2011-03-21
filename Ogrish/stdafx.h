@@ -20,7 +20,7 @@ typedef Ogre :: Vector3 Vec3;
 // Project
 
 #define OG_SGLT Ogre::Singleton
-
+#include "Gorilla.h"
 #include "ConfMgr.h"
 #include "BulletTracer.h"
 #include "LaserCast.h"

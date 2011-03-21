@@ -39,17 +39,22 @@ private:
     Camera * camera;
     Viewport * viewport;
 
-    // game parameters
+// game parameters
     FPersonCam * fpersoncam;
 	
-	// overlays
+// overlays
 	OverlayManager * ovl_mgr;
-	//Overlay * ovl_crosshair;
+//Overlay * ovl_crosshair;
 
-    // entities and nodes
+// entities and nodes
     Entity * entplane;
     SceneNode * rootnode;
 
+// gorilla
+	Gorilla :: Silverback * mGorilla;
+	Gorilla :: Screen * gor_screen;
+	Gorilla :: Rectangle * gor_rect;
+	Gorilla :: Layer * gor_layer;
 	// terrain
 #ifdef USE_TERRAIN
 	Ogre::Terrain * mTerrain;

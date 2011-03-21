@@ -25,7 +25,9 @@ Application :: Application():
 	scmgr			(root -> createSceneManager(ST_GENERIC)),
 	camera			(scmgr -> createCamera("Camera")),
 	viewport		(window -> addViewport(camera)),
-	rootnode		(scmgr -> getRootSceneNode())
+	rootnode		(scmgr -> getRootSceneNode()),
+
+	mGorilla		(new Gorilla :: Silverback())
 	
 {
 	// OGRE SPECIFIC CODE ///////////////////////////////
@@ -86,9 +88,21 @@ Application :: Application():
 	// create the terrain
 	// CreateTerrain();
 
+	mGorilla -> loadAtlas("dejavu");
+	gor_screen = mGorilla -> createScreen(viewport, "dejavu");
+	gor_layer = gor_screen -> createLayer();//10,10, "", 15);
+
+	gor_rect = gor_layer -> createRectangle(0, 0);
+	gor_rect -> background_colour(ColourValue(0.3, 0.3, 0.3, 0.3));
+
+	//gor_layer -> createCaption(0, 0, 0, string("Counter Cake"));
+	gor_layer -> createMarkupText(9, 0, 0, string("Counter Cake"));
+
+	//gor_layer -> setVisible(true);
 	// create the scene
 	CreateScene();
 	camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
+
 }
 Application :: ~ Application()
 {

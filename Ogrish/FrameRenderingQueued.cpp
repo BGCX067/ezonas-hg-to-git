@@ -4,5 +4,6 @@
 bool Application :: frameRenderingQueued(const FrameEvent & evt)
 {
 	return fpersoncam -> update(evt.timeSinceLastFrame);
+	//gor_layer -> show();
 }
 
