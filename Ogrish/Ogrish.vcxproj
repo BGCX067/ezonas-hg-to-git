@@ -98,6 +98,7 @@
     <ClCompile Include="FrameRenderingQueued.cpp" />
     <ClCompile Include="GetSingleton.cpp" />
     <ClCompile Include="Gorilla.cpp" />
+    <ClCompile Include="InitGorilla.cpp" />
     <ClCompile Include="LaserCast.cpp" />
     <ClCompile Include="Ogrish_main.cpp" />
     <ClCompile Include="stdafx.cpp">

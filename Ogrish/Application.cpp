@@ -21,7 +21,11 @@ Application :: Application():
 	// (some speed up maybe...)
 	last_init		(init_config()),
 
+<<<<<<< local
+	window			(root -> initialise(true, "Zevil")),
+=======
 	window			(root -> initialise(true, "BadegupiFlatron")),
+>>>>>>> other
 	scmgr			(root -> createSceneManager(ST_GENERIC)),
 	camera			(scmgr -> createCamera("Camera")),
 	viewport		(window -> addViewport(camera)),
