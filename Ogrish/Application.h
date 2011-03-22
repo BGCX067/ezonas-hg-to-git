@@ -55,6 +55,7 @@ private:
 	Gorilla :: Screen * gor_screen;
 	Gorilla :: Rectangle * gor_rect;
 	Gorilla :: Layer * gor_layer;
+	Gorilla :: Caption * gor_caption;
 	// terrain
 #ifdef USE_TERRAIN
 	Ogre::Terrain * mTerrain;

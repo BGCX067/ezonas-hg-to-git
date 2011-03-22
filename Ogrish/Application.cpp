@@ -21,7 +21,7 @@ Application :: Application():
 	// (some speed up maybe...)
 	last_init		(init_config()),
 
-	window			(root -> initialise(true, "badegupiflatron")),
+	window			(root -> initialise(true, "BadegupiFlatron")),
 	scmgr			(root -> createSceneManager(ST_GENERIC)),
 	camera			(scmgr -> createCamera("Camera")),
 	viewport		(window -> addViewport(camera)),
@@ -88,15 +88,15 @@ Application :: Application():
 	// create the terrain
 	// CreateTerrain();
 
-	mGorilla -> loadAtlas("dejavu");
-	gor_screen = mGorilla -> createScreen(viewport, "dejavu");
+	mGorilla -> loadAtlas("test");
+	gor_screen = mGorilla -> createScreen(viewport, "test");
 	gor_layer = gor_screen -> createLayer();//10,10, "", 15);
 
 	gor_rect = gor_layer -> createRectangle(0, 0);
 	gor_rect -> background_colour(ColourValue(0.3, 0.3, 0.3, 0.3));
 
-	//gor_layer -> createCaption(0, 0, 0, string("Counter Cake"));
-	gor_layer -> createMarkupText(9, 0, 0, string("Counter Cake"));
+	gor_caption = gor_layer -> createCaption(7, 2, 2, string("Counter Cake"));
+	//gor_layer -> createMarkupText(7, 0, 0, string("Counter Cake"));
 
 	//gor_layer -> setVisible(true);
 	// create the scene
