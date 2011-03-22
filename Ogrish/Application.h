@@ -23,6 +23,7 @@ private:
 	bool init_config();
     void CreateScene();
 	void InitGorilla();
+	void InitResources();
 #ifdef USE_TERRAIN
     void CreateTerrain();
 #endif
@@ -57,6 +58,7 @@ private:
 	Gorilla :: Rectangle * gor_rect;
 	Gorilla :: Layer * gor_layer;
 	Gorilla :: Caption * gor_caption;
+	Gorilla :: MarkupText * gor_mutext;
 	// terrain
 #ifdef USE_TERRAIN
 	Ogre::Terrain * mTerrain;

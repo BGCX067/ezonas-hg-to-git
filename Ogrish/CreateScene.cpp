@@ -19,3 +19,27 @@ void Application :: AddPlane()
 	rootnode -> createChildSceneNode() -> attachObject(entplane);
 	entplane -> setMaterialName("jokoon/grass");
 }
+
+void Application :: InitResources()
+{
+	// RESOURCES ////////////////////////////////////////
+    ConfigFile cf;
+    cf.load("conf/resources_d.cfg");
+
+    ConfigFile :: SectionIterator sectionIter = cf.getSectionIterator();
+    String sectionName, typeName, dataname;
+    while (sectionIter.hasMoreElements())
+    {
+        sectionName = sectionIter.peekNextKey();
+        ConfigFile :: SettingsMultiMap * settings = sectionIter.getNext();
+        ConfigFile :: SettingsMultiMap :: iterator i;
+        for (i = settings -> begin(); i != settings -> end(); ++i)
+        {
+            typeName = i -> first;
+            dataname = i -> second;
+            ResourceGroupManager :: getSingleton().addResourceLocation(
+				dataname, typeName, sectionName);
+        }
+	}
+    ResourceGroupManager :: getSingleton().initialiseAllResourceGroups();
+}

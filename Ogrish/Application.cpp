@@ -44,65 +44,24 @@ Application :: Application():
 	(Real(viewport -> getActualWidth())/ Real(viewport -> getActualHeight()));
 	root -> addFrameListener(this);
 
-	// RESOURCES ////////////////////////////////////////
-    ConfigFile cf;
-    cf.load("conf/resources_d.cfg");
+	InitResources();
 
-    ConfigFile :: SectionIterator sectionIter = cf.getSectionIterator();
-    String sectionName, typeName, dataname;
-    while (sectionIter.hasMoreElements())
-    {
-        sectionName = sectionIter.peekNextKey();
-        ConfigFile :: SettingsMultiMap * settings = sectionIter.getNext();
-        ConfigFile :: SettingsMultiMap :: iterator i;
-        for (i = settings -> begin(); i != settings -> end(); ++i)
-        {
-            typeName = i -> first;
-            dataname = i -> second;
-            ResourceGroupManager :: getSingleton().addResourceLocation(
-				dataname, typeName, sectionName);
-        }
-	}
-    ResourceGroupManager :: getSingleton().initialiseAllResourceGroups();
- 	
 	// PROJECT CODE ////////////////////////////////////////
 	// overlays mgr
 	ovl_mgr = OverlayManager :: getSingletonPtr();
 	
 	// some sort of crosshair
 	ovl_mgr -> getByName("jokoon/crosshair") -> show();
-
-	// some text
-	//ovl_mgr -> getByName("jokoon/sometext")
-	//	-> getChild("sometext")
-	//	-> setCaption("Oh mon doudou !");
-	//ovl_mgr -> getByName("jokoon/sometext") -> show();
-
-	// project objects
-	//ConfMgr :: Instantiate("conf/gameconf.cfg");
 	ConfMgr :: Instantiate();
-
-	//fpersoncam = FPersonCam :: getSingletonPtr();
 	fpersoncam = FPersonCam :: Instantiate();
 
-	// create the terrain
 	// CreateTerrain();
 
-	mGorilla -> loadAtlas("test");
-	gor_screen = mGorilla -> createScreen(viewport, "test");
-	gor_layer = gor_screen -> createLayer();//10,10, "", 15);
+	InitGorilla();
 
-	gor_rect = gor_layer -> createRectangle(0, 0);
-	gor_rect -> background_colour(ColourValue(0.3, 0.3, 0.3, 0.3));
-
-	gor_caption = gor_layer -> createCaption(7, 2, 2, string("Counter Cake"));
-	//gor_layer -> createMarkupText(7, 0, 0, string("Counter Cake"));
-
-	//gor_layer -> setVisible(true);
 	// create the scene
 	CreateScene();
 	camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
-
 }
 Application :: ~ Application()
 {
