@@ -3,7 +3,7 @@
 // ############################# frameStarted #############################
 bool Application :: frameRenderingQueued(const FrameEvent & evt)
 {
-	//gor_caption -> text(Ogre::StringConverter::toString(window -> getLastFPS()));
+	gor_caption[1] -> text(Ogre::StringConverter::toString(window -> getLastFPS()));
 	return fpersoncam -> update(evt.timeSinceLastFrame);
 }
 
