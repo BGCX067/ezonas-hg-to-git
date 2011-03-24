@@ -7,6 +7,7 @@ syntax: glob
 *.out
 *.a
 *.exe
+*.log
 
 *.elc
 *.pyc
