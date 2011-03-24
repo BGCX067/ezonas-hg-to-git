@@ -60,10 +60,7 @@ FPersonCam :: ~ FPersonCam()
 bool FPersonCam :: update (float frame_time)
 {
 	keyboard -> capture();
-	if (keyboard -> isKeyDown(KC_ESCAPE))
-	{
-		return false;
-	}
+	if (keyboard -> isKeyDown(KC_ESCAPE)) return false;
 	Ogre :: Vector3 translate(0, 0, 0);
 	if (keyboard -> isKeyDown(KC_W)) translate += Ogre :: Vector3(0, 0, -1);
 	if (keyboard -> isKeyDown(KC_S)) translate += Ogre :: Vector3(0, 0, 1);
@@ -79,6 +76,10 @@ bool FPersonCam :: update (float frame_time)
 	mouse -> capture();
 
 #ifdef USE_NODES
+	translate.normalise();
+	if (translate.length() > 1.0f)
+		exit( 0xb00bbabe);
+
 	cam_yaw -> yaw(Radian(- mouse -> getMouseState().X.rel * rotating_speed));
 	cam_pitch -> pitch(Radian(- mouse -> getMouseState().Y.rel * rotating_speed));
 	cam_node -> translate(cam_yaw -> getOrientation() * cam_pitch -> getOrientation() *

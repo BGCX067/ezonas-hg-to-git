@@ -53,6 +53,8 @@ private:
     SceneNode * rootnode;
 
 // gorilla
+
+
 	Gorilla :: Silverback * mGorilla;
 	Gorilla :: Screen * gor_screen;
 	Gorilla :: Rectangle * gor_rect;

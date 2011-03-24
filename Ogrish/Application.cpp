@@ -61,7 +61,7 @@ Application :: Application():
 
 	// create the scene
 	CreateScene();
-	camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
+	//camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
 }
 Application :: ~ Application()
 {
