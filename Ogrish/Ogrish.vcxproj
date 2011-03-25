@@ -40,7 +40,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>C:\Ogre172\include;C:\Ogre172\boost_1_42;C:\Ogre172\include\OGRE;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Ogre172\lib\debug;C:\Ogre172\boost_1_42\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Ogre172\lib\debug;C:\Ogre172\boost_1_42\lib;C:\Ogre172\lib\debug\opt;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>

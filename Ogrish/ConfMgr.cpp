@@ -38,12 +38,50 @@ SceneNode * ConfMgr :: FastAdd(string _s)
 	iss >> mesh_filename >> scale >> material_name >> x >> y >> z;
 
 	SceneNode * node = Application :: getSingletonPtr() -> GetScMgr() -> createSceneNode(_s);
+	
 	Entity * ent = Application :: getSingletonPtr() -> GetScMgr() -> createEntity(mesh_filename);
 	if (material_name != "-") ent -> setMaterialName(material_name);
-	node -> attachObject(Application :: getSingletonPtr() -> GetScMgr() -> createEntity(mesh_filename));
+	//node -> attachObject(Application :: getSingletonPtr() -> GetScMgr() -> createEntity(mesh_filename));
+	node -> attachObject(ent);
 	((Application :: getSingletonPtr() -> GetScMgr()) -> getRootSceneNode()) -> addChild(node);
 	node -> setScale(scale, scale, scale);
 	node -> setPosition(x, y, z);
 	return node;
 }
+
+SceneNode * ConfMgr :: AddLight(string _s)
+{
+	istringstream iss(configfile -> getSetting(_s));
+	// string s = configfile -> getSetting(_s);
+	float x, y, z, dir_x, dir_y, dir_z;
+	string type;
+
+	iss >> dir_x >> dir_y >> dir_z >> type >> x >> y >> z;
+
+	SceneNode * node = Application :: getSingletonPtr() -> GetScMgr() -> createSceneNode(_s);
+	Light * light = Application :: getSingletonPtr() -> GetScMgr() -> createLight(_s);
+	
+	if(type == "DIR")
+	{
+		light -> setType(Light :: LT_DIRECTIONAL);
+		light -> setDirection(dir_x, dir_y, dir_z);
+	}
+	if(type == "SPOT")
+	{	
+		light -> setType(Light :: LT_SPOTLIGHT);
+		light -> setDirection(dir_x, dir_y, dir_z);
+	}
+
+	if(type == "POINT") light -> setType(Light :: LT_POINT);
+	
+	node -> attachObject(light);
+	
+	((Application :: getSingletonPtr() -> GetScMgr()) -> getRootSceneNode()) -> addChild(node);
+	
+	node -> setPosition(x, y, z);
+
+	return node;
+}
+
+
 ConfMgr * ConfMgr :: instance = NULL;

@@ -23,6 +23,7 @@ private:
 	bool init_config();
     void CreateScene();
 	void InitGorilla();
+	void AddLights();
 	void InitResources();
 #ifdef USE_TERRAIN
     void CreateTerrain();

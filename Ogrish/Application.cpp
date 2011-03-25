@@ -22,6 +22,7 @@ Application :: Application():
 	last_init		(init_config()),
 
 	window			(root -> initialise(true, "Zevil")),
+	//scmgr			(root -> createo(ST_)),
 	scmgr			(root -> createSceneManager(ST_GENERIC)),
 	camera			(scmgr -> createCamera("Camera")),
 	viewport		(window -> addViewport(camera)),
@@ -30,19 +31,14 @@ Application :: Application():
 	mGorilla		(new Gorilla :: Silverback())
 	
 {
-	// OGRE SPECIFIC CODE ///////////////////////////////
-	//if(!(root -> restoreConfig() || root -> showConfigDialog()))
-	//window = root -> initialise(true, "Ogre3D Beginners Guide");
 	window -> reposition(20, 20);
-	//scmgr = root -> createSceneManager(ST_GENERIC);
-	//rootnode = scmgr -> getRootSceneNode();
-	//camera = scmgr -> createCamera("Camera");
 	camera -> setNearClipDistance(1);
-	//viewport = window -> addViewport(camera);
 	viewport -> setBackgroundColour(ColourValue(0.1, 0.1, 0.1));
 	camera -> setAspectRatio
 	(Real(viewport -> getActualWidth())/ Real(viewport -> getActualHeight()));
 	root -> addFrameListener(this);
+
+	root ->loadPlugin("");
 
 	InitResources();
 

@@ -8,7 +8,9 @@ public:
 	//static ConfMgr * sglt();
 	float GetFloat(string);
 	SceneNode * FastAdd(string);
+	SceneNode *  AddLight(string);
     static ConfMgr * getSingletonPtr(void);
+
 protected:
 	ConfigFile * configfile;
 	static ConfMgr * instance;
