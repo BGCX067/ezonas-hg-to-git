@@ -55,13 +55,10 @@ D3DXVECTOR3 BoundingSphere :: ComputeGravCenter()
 	vertexBuffer -> Lock(0, mesh->GetNumBytesPerVertex() * mesh->GetNumVertices(), &rawData, D3DLOCK_READONLY);
 	D3DVERTEXELEMENT9 decl;//[MAXD3DDECLLENGTH];
 	UINT numElements;
-	//mesh ->GetDeclaration();
 	mesh -> GetDeclaration();
-		decl.get
 	mesh -> GetFVF();
 	FOR(num)
 	{
-
 		result.x += (D3DXVECTOR3)rawData
 		result.y += mesh ->
 		result.z += mesh ->
