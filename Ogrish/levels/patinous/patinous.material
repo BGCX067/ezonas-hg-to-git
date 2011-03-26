@@ -1,18 +1,18 @@
-material patinou
-{
-  technique
-  {
-    pass
-    {
-      ambient 0.1 0.1 0.1
-      diffuse 0.2 0.137254901960784 0.117647058823529
-      specular 0.0 0.0 0.0 0.0
-      emissive 0.0 0.0 0.0
-    }
-  }
-}
+// material patinou
+// {
+  // technique
+  // {
+    // pass
+    // {
+      // ambient 0.1 0.1 0.1
+      // diffuse 0.2 0.137254901960784 0.117647058823529
+      // specular 0.0 0.0 0.0 0.0
+      // emissive 0.0 0.0 0.0
+    // }
+  // }
+// }
 
-/*material 1301063478_1_<Charcoal>
+material 1301063478_1_<Charcoal>
 {
   technique
   {
@@ -116,4 +116,3 @@ material 1301063478_SketchupDefault
     }
   }
 }
-*/

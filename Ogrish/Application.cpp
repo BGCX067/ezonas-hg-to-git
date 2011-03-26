@@ -23,7 +23,8 @@ Application :: Application():
 
 	window			(root -> initialise(true, "Zevil")),
 	//scmgr			(root -> createo(ST_)),
-	scmgr			(root -> createSceneManager(ST_GENERIC)),
+//	scmgr			(root -> createSceneManager(ST_GENERIC)),
+	scmgr			(root -> createSceneManager(ST_INTERIOR)),
 	camera			(scmgr -> createCamera("Camera")),
 	viewport		(window -> addViewport(camera)),
 	rootnode		(scmgr -> getRootSceneNode()),
@@ -38,7 +39,7 @@ Application :: Application():
 	(Real(viewport -> getActualWidth())/ Real(viewport -> getActualHeight()));
 	root -> addFrameListener(this);
 
-	root ->loadPlugin("");
+	//root -> loadPlugin("Plugin_OctreeSceneManager_d");
 
 	InitResources();
 

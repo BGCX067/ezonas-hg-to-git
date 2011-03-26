@@ -5,15 +5,15 @@ void Application :: CreateScene()
 	//camera -> setPolygonMode(PM_WIREFRAME);
 //	SceneNode * node;
 	AddPlane();
-	/*
-	SceneNode * node = Application :: GetRSN() -> createChildSceneNode("patinous");
-	Entity * ent = Application :: GetScMgr() -> createEntity("patinous.mesh");
-	ent -> setMaterialName("patinou");
-	node -> attachObject(ent);
-	*/
+	
+	//SceneNode * node = Application :: GetRSN() -> createChildSceneNode("patinous");
+	//Entity * ent = Application :: GetScMgr() -> createEntity("patinous.mesh");
+	//ent -> setMaterialName("patinous");
+	
 	SceneNode * node = Application :: GetRSN() -> createChildSceneNode("dust11");
 	Entity * ent = Application :: GetScMgr() -> createEntity("dust1-rest.mesh");
-	ent -> setMaterialName("dust11");
+	//ent -> setMaterialName("dust11");
+
 	node -> attachObject(ent);
 	
 	//(Entity *) (no -> getAttachedObject("patinous"));
@@ -21,6 +21,7 @@ void Application :: CreateScene()
 	// NO NINJA NO MO'E
 	//ConfMgr :: getSingletonPtr() -> FastAdd("dust1"); // NO NINJA NO MO'E
 	ConfMgr :: getSingletonPtr() -> AddLight("light3");
+
 }
 
 void Application :: AddPlane()

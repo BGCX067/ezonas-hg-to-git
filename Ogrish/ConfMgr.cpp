@@ -83,5 +83,17 @@ SceneNode * ConfMgr :: AddLight(string _s)
 	return node;
 }
 
+Vec3 & ConfMgr :: getvect(string _s)
+{
+	istringstream iss(configfile -> getSetting(_s));
+	// string s = configfile -> getSetting(_s);
+	float x, y, z;
+
+	iss >>  x >> y >> z;
+
+	return Vec3(x, y, z);
+}
+
+
 
 ConfMgr * ConfMgr :: instance = NULL;

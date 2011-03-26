@@ -9,6 +9,7 @@ public:
 	float GetFloat(string);
 	SceneNode * FastAdd(string);
 	SceneNode *  AddLight(string);
+	Vec3 & getvect(string _s);
     static ConfMgr * getSingletonPtr(void);
 
 protected:
