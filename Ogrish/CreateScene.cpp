@@ -10,11 +10,11 @@ void Application :: CreateScene()
 	//Entity * ent = Application :: GetScMgr() -> createEntity("patinous.mesh");
 	//ent -> setMaterialName("patinous");
 	
-	SceneNode * node = Application :: GetRSN() -> createChildSceneNode("dust11");
-	Entity * ent = Application :: GetScMgr() -> createEntity("dust1-rest.mesh");
+	//SceneNode * node = Application :: GetRSN() -> createChildSceneNode("dust11");
+	//Entity * ent = Application :: GetScMgr() -> createEntity("dust1-rest.mesh");
 	//ent -> setMaterialName("dust11");
 
-	node -> attachObject(ent);
+	//node -> attachObject(ent);
 	
 	//(Entity *) (no -> getAttachedObject("patinous"));
 	//ent -> 

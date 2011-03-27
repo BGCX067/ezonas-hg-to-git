@@ -27,6 +27,7 @@ FPersonCam :: FPersonCam ():
 	Application :: getSingletonPtr() -> GetRW() -> getCustomAttribute("WINDOW", & windowHandle);
 	windowHandleString << windowHandle;
 	parameters.insert(make_pair("WINDOW", windowHandleString.str()));
+	parameters.insert(make_pair("WINDOW", windowHandleString.str()));
 // those settings unhide the cursor (from ogre's wiki snippets)
 #if defined OIS_WIN32_PLATFORM
 	parameters.insert(make_pair(string("w32mouse"), string("DISCL_FOREGROUND" )));
@@ -42,9 +43,11 @@ FPersonCam :: FPersonCam ():
 /* ### Inputs Objects ################################################## */
 	inputmanager = InputManager :: createInputSystem(parameters);
 	keyboard = static_cast<Keyboard *>
-		(inputmanager -> createInputObject(OISKeyboard, false));
+		//(inputmanager -> createInputObject(OISKeyboard, false));
+		(inputmanager -> createInputObject(OISKeyboard, true));
 	mouse = static_cast<Mouse *>
-		(inputmanager -> createInputObject	(OISMouse, false));
+		//(inputmanager -> createInputObject	(OISMouse, false));
+		(inputmanager -> createInputObject	(OISMouse, true));
 }
 // FPersonCam :: ~ FPersonCam
 FPersonCam :: ~ FPersonCam()
