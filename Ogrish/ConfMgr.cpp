@@ -28,6 +28,11 @@ float ConfMgr :: GetFloat(string _s)
 // WARNING: Fast doesn't have anything to do with
 // performance here. This is only for scene creation
 // (which has no performance matter) !
+
+/*void ConfMgr :: MultiAdd (string set)
+{
+	
+}*/
 SceneNode * ConfMgr :: FastAdd(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
@@ -38,13 +43,27 @@ SceneNode * ConfMgr :: FastAdd(string _s)
 	iss >> mesh_filename >> scale >> material_name >> x >> y >> z;
 
 	SceneNode * node = Application :: getSingletonPtr() -> GetScMgr() -> createSceneNode(_s);
-	
-	Entity * ent = Application :: getSingletonPtr() -> GetScMgr() -> createEntity(mesh_filename);
-	if (material_name != "-") ent -> setMaterialName(material_name);
+	/* "-" loads the same named .mesh */
+	Entity * ent;
+	if(mesh_filename == "-")
+		ent = Application :: getSingletonPtr() -> GetScMgr() -> createEntity(_s + ".mesh");
+	else
+		ent = Application :: getSingletonPtr() -> GetScMgr() -> createEntity(mesh_filename);
+	/*   */
+
+	/* "+" loads the same named .material */
+	/* "-" loads no material */
+	if (material_name != "-")
+		ent -> setMaterialName(material_name);
+	else 
+		if (material_name == "+")
+			ent -> setMaterialName(_s + ".material");
+	/*   */
 	//node -> attachObject(Application :: getSingletonPtr() -> GetScMgr() -> createEntity(mesh_filename));
 	node -> attachObject(ent);
 	((Application :: getSingletonPtr() -> GetScMgr()) -> getRootSceneNode()) -> addChild(node);
-	node -> setScale(scale, scale, scale);
+	if(scale != 1.0f) 
+		node -> setScale(scale, scale, scale);
 	node -> setPosition(x, y, z);
 	return node;
 }

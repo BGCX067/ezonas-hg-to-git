@@ -67,6 +67,7 @@ Application :: ~ Application()
 	OGRE_DELETE mTerrain;
 	OGRE_DELETE mGlobals;
 #endif
+	delete mGorilla;
 	if(root) delete root;
 	else exit(0xb00b);
 }

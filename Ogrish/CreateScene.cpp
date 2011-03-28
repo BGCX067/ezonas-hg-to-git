@@ -20,6 +20,11 @@ void Application :: CreateScene()
 	//ent -> 
 	// NO NINJA NO MO'E
 	//ConfMgr :: getSingletonPtr() -> FastAdd("dust1"); // NO NINJA NO MO'E
+	//ConfMgr :: getSingletonPtr() -> FastAdd("m9");
+	//ConfMgr :: getSingletonPtr() -> FastAdd("mtar"); 
+	//ConfMgr :: getSingletonPtr() -> FastAdd("psg1"); 
+	ConfMgr :: getSingletonPtr() -> FastAdd("m416"); 
+	
 	ConfMgr :: getSingletonPtr() -> AddLight("light3");
 
 }
