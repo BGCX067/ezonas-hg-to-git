@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Bounding Volume">
+</Property><Property Name="Fichier solution" Value="C:\Users\cbruneau.CREADOMAIN\Documents\Creajeux\2010-2011\Cours\Prog2\3-Graphique\CREA3D\Code\TD\TD DX7 Bounding Volume\Enoncé\Bounding Volume.sln">
+</Property><Property Name="Date" Value="jeudi 17 mars 2011">
+</Property><Property Name="Time" Value="09:45">
+</Property></Properties><Event ErrorLevel="0" Project="Bounding Volume" Source="Bounding Volume\Bounding Volume.vcproj" Description="Converting project file 'C:\Users\cbruneau.CREADOMAIN\Documents\Creajeux\2010-2011\Cours\Prog2\3-Graphique\CREA3D\Code\TD\TD DX7 Bounding Volume\Enoncé\Bounding Volume\Bounding Volume.vcproj'.">
+</Event><Event ErrorLevel="1" Project="Bounding Volume" Source="Bounding Volume\Bounding Volume.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="Bounding Volume" Source="Bounding Volume\Bounding Volume.vcproj" Description="Done converting to new project file 'C:\Users\cbruneau.CREADOMAIN\Documents\Creajeux\2010-2011\Cours\Prog2\3-Graphique\CREA3D\Code\TD\TD DX7 Bounding Volume\Enoncé\Bounding Volume\Bounding Volume.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="Bounding Volume" Source="Bounding Volume\Bounding Volume.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Bounding Volume.sln" Description="Solution correctement convertie">
+</Event><Event ErrorLevel="3" Project="" Source="Bounding Volume.sln" Description="Converted">
+</Event></UpgradeLog>

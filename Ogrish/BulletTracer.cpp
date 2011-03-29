@@ -10,9 +10,13 @@ BulletTracer :: BulletTracer ():
 	cam				(Application :: getSingletonPtr() -> GetCam()),
 	// bb_bullet_model	(Application :: sglt() -> GetScMgr() -> createBillboardChain("bullet trace")),
 	n_cannon		(Application :: getSingletonPtr() -> GetRSN() -> createChildSceneNode()),
-	nextbullet (0),
-	was_fired(false),
-	time_stack(0)
+	nextbullet		(0),
+	was_fired		(false),
+	time_stack		(0),
+	fire_delay		(ConfMgr :: getSingletonPtr() -> GetFloat("fire_delay")),
+	frame_time		(Application :: getSingletonPtr() -> GetFT())
+
+
 {
 	//bb_bullet_model -> setMaterialName("jokoon/bullet_trace");
 	//bb_bullet_model -> setTextureCoordDirection(BillboardChain :: TCD_V);
@@ -68,18 +72,18 @@ void BulletTracer :: Fire ()
 
 	}
 }
-void BulletTracer :: update (float frame_time)
+void BulletTracer :: update ()//float frame_time)
 {
 	//for(int i = 0; i < bullets_max; ++i)
 	//n_bullet -> translate(0, 0, -frame_time * bullet_speed, Ogre :: Node :: TS_LOCAL);
 	FOR(BULLET_MAX)
 	{
-		n_bullet[i] -> translate(0, 0, - frame_time * bullet_speed, Ogre :: Node :: TS_LOCAL);
+		n_bullet[i] -> translate(0, 0, - * frame_time * bullet_speed, Ogre :: Node :: TS_LOCAL);
 	}
 	if(was_fired == true)
 	{
-		time_stack += frame_time;
-		if (time_stack > 0.5f)
+		time_stack += * frame_time;
+		if (time_stack > fire_delay)
 		{
 			time_stack = 0.0f;
 			was_fired = false;

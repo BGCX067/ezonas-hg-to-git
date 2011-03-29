@@ -8,7 +8,7 @@ class BulletTracer:
 {
 public:
 	void Fire();
-	void update(float frame_time);
+	void update();//float frame_time);
 	//static BulletTracer * sglt();
     static BulletTracer * getSingletonPtr(void);
 	static BulletTracer * Instantiate();
@@ -17,7 +17,7 @@ private:
 	~ BulletTracer();
 	SceneManager * scmgr;
 	int nextbullet;
-	float bullet_speed, trace_width, trace_length, time_stack;
+	float bullet_speed, trace_width, trace_length, time_stack, fire_delay, * frame_time;
 	bool was_fired;
 	Camera * cam;
 	SceneNode * n_bullet [BULLET_MAX];

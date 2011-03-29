@@ -36,6 +36,7 @@ float ConfMgr :: GetFloat(string _s)
 SceneNode * ConfMgr :: FastAdd(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
+
 	// string s = configfile -> getSetting(_s);
 	float x, y, z, scale;
 	string mesh_filename, material_name;

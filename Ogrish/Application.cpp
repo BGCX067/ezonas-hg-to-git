@@ -84,3 +84,4 @@ SceneManager * Application :: GetScMgr()	{ return scmgr; }
 SceneNode * Application :: GetRSN()			{ return scmgr -> getRootSceneNode(); }
 Camera * Application :: GetCam()			{ return camera; }
 RenderWindow * Application :: GetRW()		{ return window; }
+float * Application :: GetFT()				{ return & frame_time; }

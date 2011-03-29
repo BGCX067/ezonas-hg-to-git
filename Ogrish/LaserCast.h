@@ -5,7 +5,7 @@ class LaserCast:
 {
 public:
 	// bool RaycastFromPoint(const Vector3 & point, const Vector3 & normal, Vector3 & result);
-	void update(float);
+	void update();//float);
     //static LaserCast * sglt();
     static LaserCast * getSingletonPtr(void);
 	static LaserCast * Instantiate();
@@ -26,7 +26,7 @@ protected:
 	RaySceneQuery * RSQ;
 	RaySceneQueryResult RSQR;
 // tweakables
-	float laser_width; //, bullet_speed, trace_width, trace_length;
+	float laser_width, * frame_time; //, bullet_speed, trace_width, trace_length;
 	
 //////////////////////////////////////
 // Billboards ////////////////////////

@@ -15,6 +15,7 @@ public:
     SceneNode * GetRSN();
 	Camera * GetCam();
 	RenderWindow * GetRW();
+	float * GetFT();
     void go();
     bool frameRenderingQueued(const FrameEvent & evt);
 	static Application * Instantiate();

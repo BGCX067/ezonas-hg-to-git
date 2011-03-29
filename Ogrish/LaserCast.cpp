@@ -19,7 +19,9 @@ LaserCast :: LaserCast():
 	bb_beam		(SGLT_SCMGR -> createBillboardChain("laser beam")),
 	//bb_bullet	(scmgr -> createBillboardChain("bullet trace")),
 	
-	laser_width		(ConfMgr :: getSingletonPtr() -> GetFloat("laser_width"))
+	laser_width		(ConfMgr :: getSingletonPtr() -> GetFloat("laser_width")),
+	frame_time		(Application :: getSingletonPtr() -> GetFT())
+
 	//bullet_speed	(ConfMgr :: sglt() -> GetFloat("bullet_speed")),
 	//trace_width		(ConfMgr :: sglt() -> GetFloat("trace_width")),
 	//trace_length	(ConfMgr :: sglt() -> GetFloat("trace_length"))
@@ -63,7 +65,7 @@ LaserCast :: LaserCast():
 	//	(0, BillboardChain::Element
 	//		(Vec3(trace_length, 0, 0), trace_width, 0, ColourValue()));
 }
-void LaserCast :: update(float frame_time)
+void LaserCast :: update()//float frame_time)
 {
 	if(execute())
 	{
