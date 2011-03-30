@@ -17,7 +17,10 @@ private:
 	~ BulletTracer();
 	SceneManager * scmgr;
 	int nextbullet;
-	float bullet_speed, trace_width, trace_length, time_stack, fire_delay, * frame_time;
+	float bullet_speed,
+		trace_width, trace_length,
+		time_stack, fire_delay, * frame_time,
+		offset_x, offset_y;
 	bool was_fired;
 	Camera * cam;
 	SceneNode * n_bullet [BULLET_MAX];

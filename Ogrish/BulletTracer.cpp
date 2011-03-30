@@ -14,8 +14,9 @@ BulletTracer :: BulletTracer ():
 	was_fired		(false),
 	time_stack		(0),
 	fire_delay		(ConfMgr :: getSingletonPtr() -> GetFloat("fire_delay")),
-	frame_time		(Application :: getSingletonPtr() -> GetFT())
-
+	frame_time		(Application :: getSingletonPtr() -> GetFT()),
+	offset_x		(ConfMgr :: getSingletonPtr() -> GetFloat("offset_x")),
+	offset_y		(ConfMgr :: getSingletonPtr() -> GetFloat("offset_y"))
 
 {
 	//bb_bullet_model -> setMaterialName("jokoon/bullet_trace");
@@ -64,7 +65,10 @@ void BulletTracer :: Fire ()
 {
 	if (was_fired == false)
 	{
-		n_bullet[nextbullet] -> setPosition(cam -> getDerivedPosition() + Vec3(0, -0.3f, -0.3f));
+		n_bullet[nextbullet] -> setPosition(cam -> getDerivedPosition()
+			+ Vec3(0,
+			offset_x,
+			offset_y));
 		n_bullet[nextbullet] -> setOrientation(cam -> getDerivedOrientation());
 		was_fired = true;
 		nextbullet += 1;

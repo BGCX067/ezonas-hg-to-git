@@ -63,18 +63,25 @@ bool FPersonCam :: update ()//float frame_time)
 	keyboard -> capture();
 	mouse -> capture();
 
+	cam_node -> translate(
+		cam_yaw -> getOrientation()
+		* cam_pitch -> getOrientation()
+		* translate
+		* moving_speed
+		* (* frame_time));
+
 	lasercast -> update();//frame_time);
 	bullet_tracer -> update();//frame_time);
 
 	if (translate.length() > 1.0f)
 	{	
-		cout << "dfs";
-		//exit(0xb00bbabe);
+		//cout << "dfs";
+		exit(0xb00bbabe);
 	}
 
-	cam_node -> translate(cam_yaw -> getOrientation() * cam_pitch -> getOrientation() *
-	translate * moving_speed * (* frame_time));
-	translate = Vec3 :: ZERO;
+	//cam_node -> translate(cam_yaw -> getOrientation() * cam_pitch -> getOrientation() *
+	//translate * moving_speed * (* frame_time));
+	//translate = Vec3 :: ZERO;
 	return true;
 }
 
@@ -92,9 +99,9 @@ bool FPersonCam :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 	//if (mouse -> getMouseState() . buttonDown(MB_Left))
 	//if (MB_Left == e.state.)
 	//if (mouse -> getMouseState() . buttonDown(MB_Left))
-	if (MB_Left == e.state.buttonDown(id))
+	if (MB_Left == id)
 		bullet_tracer -> Fire();
-    return true; 
+    return true;
 }
 bool FPersonCam :: mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
@@ -106,33 +113,64 @@ bool FPersonCam :: keyPressed(const OIS::KeyEvent &e)
 	//Ogre :: Vector3 translate(0, 0, 0);
 	switch(e.key)
 	{
-	//case KC_ESCAPE:
-	//	return false;
-	//	//_continue = false;
+	case KC_ESCAPE:
+		_continue = false;
+		return false;
+		break;
+
+	//case KC_W:
+	//	translate += Ogre :: Vector3(0, 0, -1);
 	//	break;
 
+	//case KC_S:
+	//	translate += Ogre :: Vector3(0, 0, 1);
+	//	break;
+
+	//case KC_A:
+	//	translate += Ogre :: Vector3(-1, 0, 0);
+	//	break;
+
+	//case KC_D:
+	//	translate += Ogre :: Vector3(1, 0, 0);
+	//	break;
+
+	//case KC_Q:
+	//	translate += Ogre :: Vector3(0, -1, 0);
+	//	break;
+
+	//case KC_E:
+	//	translate += Ogre :: Vector3(0, 1, 0);
+	//	break;
+	case KC_UP:
 	case KC_W:
-		translate += Ogre :: Vector3(0, 0, -1);
+		translate.z = - 1.f;
 		break;
 
+	case KC_DOWN:
 	case KC_S:
-		translate += Ogre :: Vector3(0, 0, 1);
+		translate.z =  1.f;
 		break;
 
+	case KC_LEFT:
 	case KC_A:
-		translate += Ogre :: Vector3(-1, 0, 0);
+		translate.x = - 1.f;
 		break;
 
+	case KC_RIGHT:
 	case KC_D:
-		translate += Ogre :: Vector3(1, 0, 0);
+		translate.x =  1.f;
 		break;
 
+	case KC_PGUP:
 	case KC_Q:
-		translate += Ogre :: Vector3(0, -1, 0);
+		translate.y = - 1.f;
 		break;
 
+	case KC_PGDOWN:
 	case KC_E:
-		translate += Ogre :: Vector3(0, 1, 0);
+		translate.y =  1.f;
+		break;
+	default:
 		break;
 	}
 	translate.normalise();
@@ -143,34 +181,38 @@ bool FPersonCam :: keyReleased(const OIS::KeyEvent &e)
 	//Ogre :: Vector3 translate(0, 0, 0);
 	switch(e.key)
 	{
-	case KC_ESCAPE:
-		return false;
-		//_continue = false;
-		break;
-
+	case KC_UP:
 	case KC_W:
-		translate += Ogre :: Vector3(0, 0, 1);
+		translate.z = 0.0f;
 		break;
 
+	case KC_DOWN:
 	case KC_S:
-		translate += Ogre :: Vector3(0, 0, -1);
+		translate.z = 0.0f;
 		break;
 
+	case KC_LEFT:
 	case KC_A:
-		translate += Ogre :: Vector3(1, 0, 0);
+		translate.x = 0.0f;
 		break;
 
+	case KC_RIGHT:
 	case KC_D:
-		translate += Ogre :: Vector3(-1, 0, 0);
+		translate.x = 0.0f;
 		break;
 
+	case KC_PGUP:
 	case KC_Q:
-		translate += Ogre :: Vector3(0, 1, 0);
+		translate.y = 0.0f;
 		break;
 
+	case KC_PGDOWN:
 	case KC_E:
-		translate += Ogre :: Vector3(0, -1, 0);
+		translate.y = 0.0f;
+		break;
+	default:
 		break;
 	}  
+	//translate.normalise();
 	return true;
 }
