@@ -24,7 +24,9 @@ private:
 	bool was_fired;
 	Camera * cam;
 	SceneNode * n_bullet [BULLET_MAX];
+
 	BillboardChain * bb_bullet_model;
+	BillboardSet * bb_dot[BULLET_MAX];
 	BillboardChain * bb_bullet[BULLET_MAX];
 	SceneNode * n_cannon;
 //	BulletFactory * bulletfactory;

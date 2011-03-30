@@ -48,8 +48,11 @@ BulletTracer :: BulletTracer ():
 	{
 		sprintf(str,"%d",i);
 		bb_bullet[i] = MakeABullet(string(str));
+		bb_dot[i] = SGLT_SCMGR -> createBillboardSet();
+		bb_dot[i] -> setMaterialName("jokoon/bullet_dot");
 		n_bullet[i] = SGLT_RSN -> createChildSceneNode(string(str));
 		n_bullet[i] -> attachObject(bb_bullet[i]);
+		n_bullet[i] -> attachObject(bb_dot[i]);
 	}
 }
 BulletTracer :: ~ BulletTracer ()

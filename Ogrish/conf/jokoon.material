@@ -22,6 +22,17 @@ depth_write off
 texture_unit { texture bullet-trace.png }
 }}}
 
+/* BULLET DOT ////////////////////////////////////////////// */
+material jokoon/bullet_dot
+{ technique { pass {
+scene_blend alpha_blend
+depth_write off
+texture_unit {
+	texture bullet-dot.png
+	scale 10 10
+}
+}}}
+
 /* LASER DOT ////////////////////////////////////////////// */
 material jokoon/cubicube
 { technique { pass {
@@ -60,5 +71,5 @@ material jokoon/grass
 { technique { pass {
 ambient 0.2 0.2 0.2
 texture_unit { texture terr_dirt-grass.jpg }
-} } }
+}}}
 
