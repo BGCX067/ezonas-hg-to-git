@@ -29,7 +29,9 @@ scene_blend alpha_blend
 depth_write off
 texture_unit {
 	texture bullet-dot.png
-	scale 10 10
+	scale 0.005 0.005
+	tex_address_mode border
+	tex_border_colour 0.0 0.0 0.0 0.0
 }
 }}}
 
