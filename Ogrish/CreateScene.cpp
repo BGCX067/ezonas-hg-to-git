@@ -27,6 +27,7 @@ void Application :: CreateScene()
 	ConfMgr :: getSingletonPtr() -> FastAdd("mifflin"); 
 	
 	ConfMgr :: getSingletonPtr() -> AddLight("light3");
+	ConfMgr :: getSingletonPtr() -> AddLight("light4");
 
 }
 
