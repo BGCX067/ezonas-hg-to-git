@@ -24,6 +24,7 @@ void Application :: CreateScene()
 	//ConfMgr :: getSingletonPtr() -> FastAdd("mtar"); 
 	//ConfMgr :: getSingletonPtr() -> FastAdd("psg1"); 
 	//ConfMgr :: getSingletonPtr() -> FastAdd("m416"); 
+	ConfMgr :: getSingletonPtr() -> FastAdd("mifflin"); 
 	
 	ConfMgr :: getSingletonPtr() -> AddLight("light3");
 

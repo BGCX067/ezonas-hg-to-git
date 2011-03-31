@@ -13,7 +13,7 @@ FPersonCam :: FPersonCam ():
 	cam				(Application :: getSingletonPtr() -> GetCam()),
 	lasercast		(LaserCast :: Instantiate()),
 	bullet_tracer	(BulletTracer :: Instantiate()),
-	_continue		(true),
+	stop			(false),
 	frame_time		(Application :: getSingletonPtr() -> GetFT()),
 	translate		(Vec3(0,0,0))
 {
@@ -70,7 +70,7 @@ bool FPersonCam :: update ()//float frame_time)
 		* moving_speed
 		* (* frame_time));
 
-	lasercast -> update();//frame_time);
+	//lasercast -> update();//frame_time);
 	bullet_tracer -> update();//frame_time);
 
 	if (translate.length() > 1.0f)
@@ -79,10 +79,7 @@ bool FPersonCam :: update ()//float frame_time)
 		exit(0xb00bbabe);
 	}
 
-	//cam_node -> translate(cam_yaw -> getOrientation() * cam_pitch -> getOrientation() *
-	//translate * moving_speed * (* frame_time));
-	//translate = Vec3 :: ZERO;
-	return true;
+	return ! stop;
 }
 
 // mouse ////////////////////////////////////
@@ -114,8 +111,8 @@ bool FPersonCam :: keyPressed(const OIS::KeyEvent &e)
 	switch(e.key)
 	{
 	case KC_ESCAPE:
-		_continue = false;
-		return false;
+		stop = true;
+		//return false;
 		break;
 
 	//case KC_W:
@@ -181,6 +178,10 @@ bool FPersonCam :: keyReleased(const OIS::KeyEvent &e)
 	//Ogre :: Vector3 translate(0, 0, 0);
 	switch(e.key)
 	{
+	case KC_ESCAPE:
+		stop = true;
+		//return false;
+		break;
 	case KC_UP:
 	case KC_W:
 		translate.z = 0.0f;

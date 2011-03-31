@@ -21,7 +21,7 @@ protected:
 		* cam_pitch;
 		//* cam_roll;
 	Camera * cam;
-	bool _continue;
+	bool stop;
 	
 	// tweakables
 	float moving_speed, rotating_speed, * frame_time;

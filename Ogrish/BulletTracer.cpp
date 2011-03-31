@@ -19,30 +19,7 @@ BulletTracer :: BulletTracer ():
 	offset_y		(ConfMgr :: getSingletonPtr() -> GetFloat("offset_y"))
 
 {
-	//bb_bullet_model -> setMaterialName("jokoon/bullet_trace");
-	//bb_bullet_model -> setTextureCoordDirection(BillboardChain :: TCD_V);
-	//bb_bullet_model -> setUseTextureCoords(true);
-	//bb_bullet_model -> setMaxChainElements(2);
-	//
-	//bb_bullet_model -> addChainElement
-	//	(0, BillboardChain::Element
-	//		(Vec3(0, 0, 0), trace_width, 0, ColourValue()));
-
-	//bb_bullet_model -> addChainElement
-	//	(0, BillboardChain::Element
-	//		(Vec3(0, 0, - trace_length), trace_width, 0, ColourValue()));
-
-	////n_bullet -> attachObject (bb_bullet_model);
-	//char str[10];
-	//FOR(BULLET_MAX)
-	//{
-	//	sprintf(str,"%d",i);
-	//	bb_bullet[i] = new BillboardChain(str/** bb_bullet_model*/);
-	//	n_bullet[i] = Application :: sglt() -> GetRSN() -> createChildSceneNode();
-	//	n_bullet[i] -> attachObject(bb_bullet[i]);
-	//}
-
-		char str[2];
+	char str[2];
 
 	FOR(BULLET_MAX)
 	{
@@ -77,7 +54,6 @@ void BulletTracer :: Fire ()
 		was_fired = true;
 		nextbullet += 1;
 		nextbullet %= BULLET_MAX;
-
 	}
 }
 void BulletTracer :: update ()//float frame_time)
@@ -117,7 +93,7 @@ BillboardChain * BulletTracer :: MakeABullet(string str)
 								(Vec3(0, 0, 0), trace_width, 0, ColourValue()));
 
 	result -> addChainElement (0, BillboardChain::Element
-								(Vec3(0, 0, - trace_length), trace_width, 0, ColourValue()));
+								(Vec3(0, 0, trace_length), trace_width, 0, ColourValue()));
 
 	return result;
 }
