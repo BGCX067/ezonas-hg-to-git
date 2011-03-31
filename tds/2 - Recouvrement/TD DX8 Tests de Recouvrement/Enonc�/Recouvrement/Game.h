@@ -19,6 +19,8 @@ class Game
 
 		int m_iRenderVolume ;
 		bool m_flKeyDown ;
+		int m_iRenderVolume2 ;
+		bool m_flKeyDown2 ;
 		float m_fRotation, m_fTranslation ;
 
 		static LPDIRECT3D9         m_D3D ; // Used to create the D3DDevice
@@ -28,6 +30,11 @@ class Game
 		BoundingSphere *m_BSphere ;
 		OBB *m_OBB ;
 		AABB *m_AABB ;
+
+		MeshLoader *m_Mesh2 ;
+		BoundingSphere *m_BSphere2 ;
+		OBB *m_OBB2 ;
+		AABB *m_AABB2 ;
 
 	public :
 
