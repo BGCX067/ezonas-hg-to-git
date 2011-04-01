@@ -107,68 +107,28 @@ bool FPersonCam :: mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id
 // keyboard ////////////////////////////////////
 bool FPersonCam :: keyPressed(const OIS::KeyEvent &e)
 {
-	//Ogre :: Vector3 translate(0, 0, 0);
 	switch(e.key)
 	{
-	case KC_ESCAPE:
-		stop = true;
-		//return false;
-		break;
-
-	//case KC_W:
-	//	translate += Ogre :: Vector3(0, 0, -1);
-	//	break;
-
-	//case KC_S:
-	//	translate += Ogre :: Vector3(0, 0, 1);
-	//	break;
-
-	//case KC_A:
-	//	translate += Ogre :: Vector3(-1, 0, 0);
-	//	break;
-
-	//case KC_D:
-	//	translate += Ogre :: Vector3(1, 0, 0);
-	//	break;
-
-	//case KC_Q:
-	//	translate += Ogre :: Vector3(0, -1, 0);
-	//	break;
-
-	//case KC_E:
-	//	translate += Ogre :: Vector3(0, 1, 0);
-	//	break;
+	case KC_ESCAPE:stop = true; break;
 	case KC_UP:
-	case KC_W:
-		translate.z = - 1.f;
-		break;
+	case KC_W: translate.z = - 1.f; break;
 
 	case KC_DOWN:
-	case KC_S:
-		translate.z =  1.f;
-		break;
+	case KC_S: translate.z =  1.f; break;
 
 	case KC_LEFT:
-	case KC_A:
-		translate.x = - 1.f;
-		break;
+	case KC_A: translate.x = - 1.f; break;
 
 	case KC_RIGHT:
-	case KC_D:
-		translate.x =  1.f;
-		break;
+	case KC_D: translate.x =  1.f; break;
 
 	case KC_PGUP:
-	case KC_Q:
-		translate.y = - 1.f;
-		break;
+	case KC_Q: translate.y = - 1.f; break;
 
 	case KC_PGDOWN:
-	case KC_E:
-		translate.y =  1.f;
-		break;
-	default:
-		break;
+	case KC_E: translate.y =  1.f; break;
+
+	default: break;
 	}
 	translate.normalise();
     return true;
