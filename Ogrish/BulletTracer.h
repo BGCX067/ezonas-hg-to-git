@@ -16,7 +16,7 @@ private:
 	BulletTracer();
 	~ BulletTracer();
 	SceneManager * scmgr;
-	int nextbullet;
+	int nextbullet, bullets_max;
 	float bullet_speed,
 		trace_width, trace_length,
 		time_stack, fire_delay, * frame_time,
