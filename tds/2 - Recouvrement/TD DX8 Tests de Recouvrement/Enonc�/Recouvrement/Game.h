@@ -35,6 +35,7 @@ class Game
 		BoundingSphere *m_BSphere2 ;
 		OBB *m_OBB2 ;
 		AABB *m_AABB2 ;
+	D3DXMATRIX M, N, World ;
 
 	public :
 

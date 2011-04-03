@@ -1,6 +1,4 @@
 #include "MeshLoader.h"
-
-
 MeshLoader::MeshLoader(LPDIRECT3DDEVICE9 _Device, LPCWSTR _szName)
 {
 	HRESULT hr = 0;
@@ -84,11 +82,9 @@ MeshLoader::MeshLoader(LPDIRECT3DDEVICE9 _Device, LPCWSTR _szName)
 		::MessageBox(0, L"OptimizeInplace() - FAILED", 0, 0);
 	}
 }
-
 MeshLoader::~MeshLoader()
 {    
 }
-
 void MeshLoader::Display()
 {
 	for(int i = 0; i < (int) Mtrls.size(); i++)

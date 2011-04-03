@@ -22,7 +22,7 @@ Application :: Application():
 	window			(root -> initialise(true, "Zevil")),
 	//scmgr			(root -> createo(ST_)),
 //	scmgr			(root -> createSceneManager(ST_GENERIC)),
-	scmgr			(root -> createSceneManager(ConfMgr ::getSingletonPtr() -> GetScMgrType())),
+	scmgr			(root -> createSceneManager(ConfMgr :: getSingletonPtr() -> GetScMgrType())),
 	camera			(scmgr -> createCamera("Camera")),
 	viewport		(window -> addViewport(camera)),
 	rootnode		(scmgr -> getRootSceneNode()),
