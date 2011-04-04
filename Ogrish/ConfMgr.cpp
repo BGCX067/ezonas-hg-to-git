@@ -18,21 +18,6 @@ float ConfMgr :: GetFloat(string _s)
 	istrstr >> result;
 	return result;
 }
-//void ConfMgr :: Instantiate(string filepath)
-//{
-//	static ConfMgr inst(filepath);
-//	instance = & inst;
-//}
-//ConfMgr * ConfMgr :: sglt()
-//	{return instance;}
-// WARNING: Fast doesn't have anything to do with
-// performance here. This is only for scene creation
-// (which has no performance matter) !
-
-/*void ConfMgr :: MultiAdd (string set)
-{
-	
-}*/
 SceneNode * ConfMgr :: FastAdd(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
@@ -68,7 +53,15 @@ SceneNode * ConfMgr :: FastAdd(string _s)
 	node -> setPosition(x, y, z);
 	return node;
 }
-
+SceneNode * ConfMgr :: AddLevel(string _s)
+{
+	SceneNode * node = SGLT_RSN -> createChildSceneNode(_s);
+	Entity * ent = SGLT_SCMGR -> createEntity(_s + ".mesh");
+	//ent -> setMaterialName(_s + ".material");
+	node -> attachObject(ent);
+	SGLT_SCMGR -> createStaticGeometry(_s + "-stat-geo");
+	return node;
+}
 SceneNode * ConfMgr :: AddLight(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
@@ -102,7 +95,6 @@ SceneNode * ConfMgr :: AddLight(string _s)
 
 	return node;
 }
-
 Vec3 & ConfMgr :: getvect(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
@@ -113,7 +105,23 @@ Vec3 & ConfMgr :: getvect(string _s)
 
 	return Vec3(x, y, z);
 }
+SceneTypeMask ConfMgr :: GetScMgrType()
+{
+	string str = configfile -> getSetting("SceneManager");
+	if(str == "BSP_INTERIOR") return ST_INTERIOR;
+	if(str == "OCTREE_GENERIC") return ST_GENERIC;
+	return ST_GENERIC;
+}
+
+/*
+memo from wiki:
+The argument to createSceneManager (getSceneManager in older releases) specifies the type of scene manager to use, based on the following values:
+
+ST_GENERIC - Generic scene manager (Octree if you load Plugin_OctreeSceneManager, DotScene if you load Plugin_DotSceneManager)
+ST_EXTERIOR_CLOSE - Terrain Scene Manager
+ST_EXTERIOR_FAR - Nature scene manager <sub>This mode is not present anymore in Ogre 1.0. Use "Terrain", or "Paging Landscape" instead.</sub>
+ST_EXTERIOR_REAL_FAR - Paging Scene Manager
+ST_INTERIOR - BSP scene manager
 
 
-
-ConfMgr * ConfMgr :: instance = NULL;
+*/

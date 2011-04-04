@@ -4,11 +4,9 @@ template<> Application * Ogre :: Singleton <Application> :: ms_Singleton = 0;
 
 bool Application :: init_config()
 {
-	if(root -> restoreConfig())
-		return true;
+	if(root -> restoreConfig()) return true;
 	else
-	if(root -> showConfigDialog())
-		return false;
+		if(root -> showConfigDialog()) return false;
 	else
 		exit (0xdeadbeef);
 }
@@ -24,7 +22,7 @@ Application :: Application():
 	window			(root -> initialise(true, "Zevil")),
 	//scmgr			(root -> createo(ST_)),
 //	scmgr			(root -> createSceneManager(ST_GENERIC)),
-	scmgr			(root -> createSceneManager(ST_INTERIOR)),
+	scmgr			(root -> createSceneManager(ConfMgr :: getSingletonPtr() -> GetScMgrType())),
 	camera			(scmgr -> createCamera("Camera")),
 	viewport		(window -> addViewport(camera)),
 	rootnode		(scmgr -> getRootSceneNode()),
@@ -49,7 +47,7 @@ Application :: Application():
 	
 	// some sort of crosshair
 	ovl_mgr -> getByName("jokoon/crosshair") -> show();
-	ConfMgr :: Instantiate();
+	//ConfMgr :: Instantiate();
 	fpersoncam = FPersonCam :: Instantiate();
 
 	// CreateTerrain();

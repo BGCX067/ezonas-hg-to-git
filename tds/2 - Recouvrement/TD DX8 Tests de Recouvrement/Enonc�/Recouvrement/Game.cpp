@@ -3,7 +3,7 @@
 LPDIRECT3D9         Game::m_D3D = NULL ; 
 LPDIRECT3DDEVICE9   Game::m_D3DDevice = NULL ; 
 
-Game::Game()
+Game :: Game()
 {
 	m_iX = 0 ;
 	m_iY = 0 ; 
@@ -16,12 +16,13 @@ Game::Game()
 	m_szWindowName = L"Application" ;
 
 	m_iRenderVolume = 0 ;
+	m_iRenderVolume2 = 0 ;
 	m_flKeyDown = false ;
+	m_flKeyDown2 = false ;
 	m_fRotation = 0.0f ;
-	m_fTranslation = 0.0f ;
+	m_fTranslation = 100.0f ;
 }
-
-Game::~Game()
+Game :: ~ Game()
 {
 	//release le device
 	SafeRelease( m_D3DDevice );
@@ -29,19 +30,13 @@ Game::~Game()
 	//release l'interface DX9
     SafeRelease( m_D3D );
 }
-
-Game* Game::GetSingleton()
+Game* Game :: GetSingleton()
 {
 	static Game InstanceUnique ;
 
 	return &InstanceUnique ;
 }
-
-//-----------------------------------------------------------------------------
-// Name: InitD3D()
-// Desc: Initializes Direct3D
-//-----------------------------------------------------------------------------
-HRESULT Game::InitD3D( HWND hWnd )
+HRESULT Game :: InitD3D( HWND hWnd )
 {
     // Create the D3D object, which is needed to create the D3DDevice.
     if( NULL == ( m_D3D = Direct3DCreate9( D3D_SDK_VERSION ) ) )
@@ -82,8 +77,7 @@ HRESULT Game::InitD3D( HWND hWnd )
 
     return S_OK;
 }
-
-void Game::InitialiseLights()
+void Game :: InitialiseLights()
 {	
 	D3DLIGHT9 d3dLight;
 
@@ -118,9 +112,7 @@ void Game::InitialiseLights()
 	//Set ambient light level
 	m_D3DDevice->SetRenderState(D3DRS_AMBIENT, D3DCOLOR_XRGB(60, 60, 60)) ;
 }
-
-
-void Game::SetupCamera()
+void Game :: SetupCamera()
 {
 	//Here we will setup the camera.
 	//The camera has three settings: "Camera Position", "Look at Position" and "Up Direction"
@@ -139,18 +131,33 @@ void Game::SetupCamera()
     D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI/4, 1.0f, 1.0f, 2000.0f);
     m_D3DDevice->SetTransform(D3DTS_PROJECTION, &matProj);
 }
-
-//-----------------------------------------------------------------------------
-// Name: Render()
-// Desc: Draws the scene
-//-----------------------------------------------------------------------------
-void Game::Render()
+void Game :: Render()
 {
-	D3DXMATRIX M, N, World ;
+	//D3DXMATRIX M, N, World ;
 
     if( NULL == m_D3DDevice )
         return;
+	if(::GetAsyncKeyState(VK_SPACE) && m_flKeyDown == false)
+	{ m_flKeyDown = true ; m_iRenderVolume ++ ; if(m_iRenderVolume > 2)m_iRenderVolume = 0 ; }
 
+	if(::GetAsyncKeyState('B') && m_flKeyDown2 == false)
+	{ m_flKeyDown2 = true ; m_iRenderVolume2 ++ ; if(m_iRenderVolume2 > 2)m_iRenderVolume2 = 0 ; }
+
+	if(!::GetAsyncKeyState(VK_SPACE)) {m_flKeyDown = false ;}
+	if(!::GetAsyncKeyState('B')) {m_flKeyDown2 = false ;}
+	if(::GetAsyncKeyState(VK_ESCAPE)) { exit(0xb00b);}
+
+	if(::GetAsyncKeyState(VK_LEFT)) 
+	{ m_fRotation -= 0.1f ;if(m_fRotation < -3.14f)m_fRotation = 3.14f ; }
+
+	if(::GetAsyncKeyState(VK_RIGHT)) 
+	{ m_fRotation += 0.1f ;if(m_fRotation > 3.14f)m_fRotation = -3.14f ; }
+
+	if(::GetAsyncKeyState(VK_UP)) 
+	{ m_fTranslation += 1.0f ; }
+
+	if(::GetAsyncKeyState(VK_DOWN)) 
+	{ m_fTranslation -= 1.0f ; }
 	m_D3DDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, true);
 	m_D3DDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
 	m_D3DDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
@@ -161,12 +168,16 @@ void Game::Render()
     // Begin the scene
     if(SUCCEEDED(m_D3DDevice->BeginScene()))
     {
+		D3DXMatrixIdentity(&N) ;
 	    // Rendering of scene objects can happen here
+		if(m_iRenderVolume2 == 0)	{ m_BSphere2->Update(N) ; m_BSphere2->Render() ;}
+		if(m_iRenderVolume2 == 1) 	{ m_OBB2->Update(N) ; m_OBB2->Render() ;}
+		if(m_iRenderVolume2 == 2) 	{ m_AABB2->Update(N) ; m_AABB2->Render() ;}
 		m_Mesh2->Display() ;
+
 
 		// Rotation & translation
 		D3DXMatrixIdentity(&M) ;
-		D3DXMatrixIdentity(&N) ;
 
 		D3DXMatrixRotationY(&M, m_fRotation);
 		M._43 = m_fTranslation ;
@@ -195,9 +206,7 @@ void Game::Render()
 		if(m_iRenderVolume == 0)	{ m_BSphere->Update(World) ; m_BSphere->Render() ;}
 		if(m_iRenderVolume == 1)	{ m_OBB->Update(World) ; m_OBB->Render() ;}
 		if(m_iRenderVolume == 2) 	{ m_AABB->Update(World) ; m_AABB->Render() ;}
-		if(m_iRenderVolume2 == 0)	{ m_BSphere2->Update(N) ; m_BSphere2->Render() ;}
-		if(m_iRenderVolume2 == 1) 	{ m_OBB2->Update(N) ; m_OBB2->Render() ;}
-		if(m_iRenderVolume2 == 2) 	{ m_AABB2->Update(N) ; m_AABB2->Render() ;}
+
 
         // End the scene
         m_D3DDevice->EndScene();
@@ -206,34 +215,8 @@ void Game::Render()
     // Present the backbuffer contents to the display
     m_D3DDevice->Present( NULL, NULL, NULL, NULL );
 
-	if(::GetAsyncKeyState(VK_SPACE) && m_flKeyDown == false)
-	{ m_flKeyDown = true ; m_iRenderVolume ++ ; if(m_iRenderVolume > 2)m_iRenderVolume = 0 ; }
 
-	if(::GetAsyncKeyState('B') && m_flKeyDown2 == false)
-	{ m_flKeyDown2 = true ; m_iRenderVolume2 ++ ; if(m_iRenderVolume2 > 2)m_iRenderVolume2 = 0 ; }
-
-	if(!::GetAsyncKeyState(VK_SPACE)) {m_flKeyDown = false ;}
-	if(!::GetAsyncKeyState('B')) {m_flKeyDown2 = false ;}
-	if(::GetAsyncKeyState(VK_ESCAPE)) { exit(0xb00b);}
-
-	if(::GetAsyncKeyState(VK_LEFT)) 
-	{ m_fRotation -= 0.1f ;if(m_fRotation < -3.14f)m_fRotation = 3.14f ; }
-
-	if(::GetAsyncKeyState(VK_RIGHT)) 
-	{ m_fRotation += 0.1f ;if(m_fRotation > 3.14f)m_fRotation = -3.14f ; }
-
-	if(::GetAsyncKeyState(VK_UP)) 
-	{ m_fTranslation += 1.0f ; }
-
-	if(::GetAsyncKeyState(VK_DOWN)) 
-	{ m_fTranslation -= 1.0f ; }
 }
-
-
-//-----------------------------------------------------------------------------
-// Name: wWinMain()
-// Desc: The application's entry point
-//-----------------------------------------------------------------------------
 INT WINAPI Game::wWinMain(WNDPROC _MsgProc, HINSTANCE hInst, HINSTANCE, LPSTR, INT )
 {
     // Register the window class

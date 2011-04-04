@@ -8,13 +8,14 @@ public:
 	//static ConfMgr * sglt();
 	float GetFloat(string);
 	SceneNode * FastAdd(string);
-	SceneNode *  AddLight(string);
+	SceneNode * AddLevel(string);
+	SceneNode * AddLight(string);
+	SceneTypeMask GetScMgrType();
 	Vec3 & getvect(string _s);
     static ConfMgr * getSingletonPtr(void);
 
 protected:
 	ConfigFile * configfile;
-	static ConfMgr * instance;
 	ConfMgr(string str = "conf/gameconf.cfg");
 	~ ConfMgr();
 };

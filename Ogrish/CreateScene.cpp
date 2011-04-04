@@ -5,32 +5,12 @@ void Application :: CreateScene()
 	//camera -> setPolygonMode(PM_WIREFRAME);
 //	SceneNode * node;
 	AddPlane();
-	
-	//SceneNode * node = Application :: GetRSN() -> createChildSceneNode("patinous");
-	//Entity * ent = Application :: GetScMgr() -> createEntity("patinous.mesh");
-	//ent -> setMaterialName("patinous");
-	
-	//SceneNode * node = Application :: GetRSN() -> createChildSceneNode("dust11");
-	//Entity * ent = Application :: GetScMgr() -> createEntity("dust1-rest.mesh");
-	//ent -> setMaterialName("dust11");
-
-	//node -> attachObject(ent);
-	
-	//(Entity *) (no -> getAttachedObject("patinous"));
-	//ent -> 
-	// NO NINJA NO MO'E
-	//ConfMgr :: getSingletonPtr() -> FastAdd("dust1"); // NO NINJA NO MO'E
-	//ConfMgr :: getSingletonPtr() -> FastAdd("m9");
-	//ConfMgr :: getSingletonPtr() -> FastAdd("mtar"); 
-	//ConfMgr :: getSingletonPtr() -> FastAdd("psg1"); 
-	//ConfMgr :: getSingletonPtr() -> FastAdd("m416"); 
-	ConfMgr :: getSingletonPtr() -> FastAdd("mifflin"); 
+	ConfMgr :: getSingletonPtr() -> AddLevel("dust2-2"); 
+	//ConfMgr :: getSingletonPtr() -> FastAdd("mifflin"); 
 	
 	ConfMgr :: getSingletonPtr() -> AddLight("light3");
 	ConfMgr :: getSingletonPtr() -> AddLight("light4");
-
 }
-
 void Application :: AddPlane()
 {
 	Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -10);
@@ -43,7 +23,6 @@ void Application :: AddPlane()
 	rootnode -> createChildSceneNode() -> attachObject(entplane);
 	entplane -> setMaterialName("jokoon/grass");
 }
-
 void Application :: InitResources()
 {
 	// RESOURCES ////////////////////////////////////////
