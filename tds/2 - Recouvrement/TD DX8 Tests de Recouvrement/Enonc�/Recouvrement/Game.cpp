@@ -135,29 +135,8 @@ void Game :: Render()
 {
 	//D3DXMATRIX M, N, World ;
 
-    if( NULL == m_D3DDevice )
-        return;
-	if(::GetAsyncKeyState(VK_SPACE) && m_flKeyDown == false)
-	{ m_flKeyDown = true ; m_iRenderVolume ++ ; if(m_iRenderVolume > 2)m_iRenderVolume = 0 ; }
+    if( NULL == m_D3DDevice ) return;
 
-	if(::GetAsyncKeyState('B') && m_flKeyDown2 == false)
-	{ m_flKeyDown2 = true ; m_iRenderVolume2 ++ ; if(m_iRenderVolume2 > 2)m_iRenderVolume2 = 0 ; }
-
-	if(!::GetAsyncKeyState(VK_SPACE)) {m_flKeyDown = false ;}
-	if(!::GetAsyncKeyState('B')) {m_flKeyDown2 = false ;}
-	if(::GetAsyncKeyState(VK_ESCAPE)) { exit(0xb00b);}
-
-	if(::GetAsyncKeyState(VK_LEFT)) 
-	{ m_fRotation -= 0.1f ;if(m_fRotation < -3.14f)m_fRotation = 3.14f ; }
-
-	if(::GetAsyncKeyState(VK_RIGHT)) 
-	{ m_fRotation += 0.1f ;if(m_fRotation > 3.14f)m_fRotation = -3.14f ; }
-
-	if(::GetAsyncKeyState(VK_UP)) 
-	{ m_fTranslation += 1.0f ; }
-
-	if(::GetAsyncKeyState(VK_DOWN)) 
-	{ m_fTranslation -= 1.0f ; }
 	m_D3DDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, true);
 	m_D3DDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
 	m_D3DDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
@@ -168,21 +147,13 @@ void Game :: Render()
     // Begin the scene
     if(SUCCEEDED(m_D3DDevice->BeginScene()))
     {
-		D3DXMatrixIdentity(&N) ;
 	    // Rendering of scene objects can happen here
-		if(m_iRenderVolume2 == 0)	{ m_BSphere2->Update(N) ; m_BSphere2->Render() ;}
-		if(m_iRenderVolume2 == 1) 	{ m_OBB2->Update(N) ; m_OBB2->Render() ;}
-		if(m_iRenderVolume2 == 2) 	{ m_AABB2->Update(N) ; m_AABB2->Render() ;}
-		m_Mesh2->Display() ;
-
 
 		// Rotation & translation
 		D3DXMatrixIdentity(&M) ;
-
 		D3DXMatrixRotationY(&M, m_fRotation);
 		M._43 = m_fTranslation ;
 		m_D3DDevice->SetTransform(D3DTS_WORLD, &M) ;
-
 		World = M ;
 
 		// Display the mesh
@@ -193,8 +164,12 @@ void Game :: Render()
 		D3DXCOLOR      BLACK( D3DCOLOR_XRGB(  0,   0,   0) );
 	
 		D3DMATERIAL9 blu ;
-		blu.Ambient = BLUE ; blu.Diffuse = BLUE  ; blu.Emissive = BLACK;
-		blu.Power = 2.0f ; blu.Diffuse.a = 0.30f ; blu.Specular = BLUE;
+		blu.Ambient = BLUE ;
+		blu.Diffuse = BLUE  ;
+		blu.Emissive = BLACK  ;
+		blu.Power = 2.0f ;
+		blu.Diffuse.a = 0.30f ; // 30% opacity
+		blu.Specular = BLUE ;
 		m_D3DDevice->SetMaterial(&blu) ;
 		m_D3DDevice->SetTexture(0, 0); // disable texture
 
@@ -208,13 +183,58 @@ void Game :: Render()
 		if(m_iRenderVolume == 2) 	{ m_AABB->Update(World) ; m_AABB->Render() ;}
 
 
-        // End the scene
+ ////////////////////////
+				// Rotation & translation
+		D3DXMatrixIdentity(&N) ;
+		m_D3DDevice->SetTransform(D3DTS_WORLD, &N) ;
+		World = N ;
+
+		// Display the mesh
+		m_Mesh2->Display() ;
+
+		// Set the material
+	
+		m_D3DDevice->SetMaterial(&blu) ;
+		m_D3DDevice->SetTexture(0, 0); // disable texture
+
+		// Initial world
+		D3DXMatrixIdentity(&N) ;
+		m_D3DDevice->SetTransform(D3DTS_WORLD, &N) ;
+
+		// Display the bounding volume
+		if(m_iRenderVolume2 == 0)	{ m_BSphere->Update(World) ; m_BSphere->Render() ;}
+		if(m_iRenderVolume2 == 1)	{ m_OBB->Update(World) ; m_OBB->Render() ;}
+		if(m_iRenderVolume2 == 2) 	{ m_AABB->Update(World) ; m_AABB->Render() ;}
+
+
+		
+		// End the scene
         m_D3DDevice->EndScene();
     }
 
     // Present the backbuffer contents to the display
     m_D3DDevice->Present( NULL, NULL, NULL, NULL );
 
+
+	if(::GetAsyncKeyState(VK_SPACE) && m_flKeyDown == false)
+	{ m_flKeyDown = true ; m_iRenderVolume ++ ; if(m_iRenderVolume > 2)m_iRenderVolume = 0 ; }
+
+	if(::GetAsyncKeyState('B') && m_flKeyDown2 == false)
+	{ m_flKeyDown2 = true ; m_iRenderVolume2 ++ ; if(m_iRenderVolume2 > 2)m_iRenderVolume2 = 0 ; }
+
+	if(!::GetAsyncKeyState(VK_SPACE)) m_flKeyDown = false ;
+	if(!::GetAsyncKeyState('B')) m_flKeyDown2 = false ;
+	if(::GetAsyncKeyState(VK_ESCAPE)) exit(0xb00b);
+
+	if(::GetAsyncKeyState(VK_LEFT)) 
+	{ m_fRotation -= 0.1f ;if(m_fRotation < -3.14f)m_fRotation = 3.14f ; }
+
+	if(::GetAsyncKeyState(VK_RIGHT)) 
+	{ m_fRotation += 0.1f ;if(m_fRotation > 3.14f)m_fRotation = -3.14f ; }
+
+	if(::GetAsyncKeyState(VK_UP)) m_fTranslation += 1.0f ;
+
+	if(::GetAsyncKeyState(VK_DOWN)) m_fTranslation -= 1.0f ;
 
 }
 INT WINAPI Game::wWinMain(WNDPROC _MsgProc, HINSTANCE hInst, HINSTANCE, LPSTR, INT )

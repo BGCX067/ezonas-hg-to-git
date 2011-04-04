@@ -55,11 +55,13 @@ SceneNode * ConfMgr :: FastAdd(string _s)
 }
 SceneNode * ConfMgr :: AddLevel(string _s)
 {
+#define STAT_GEOM
+
 	SceneNode * node = SGLT_RSN -> createChildSceneNode(_s);
 	Entity * ent = SGLT_SCMGR -> createEntity(_s + ".mesh");
 	//ent -> setMaterialName(_s + ".material");
 	node -> attachObject(ent);
-	SGLT_SCMGR -> createStaticGeometry(_s + "-stat-geo");
+	//SGLT_SCMGR -> createStaticGeometry(_s + "-stat-geo");
 	return node;
 }
 SceneNode * ConfMgr :: AddLight(string _s)
