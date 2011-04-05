@@ -3,7 +3,7 @@ MeshLoader::MeshLoader(LPDIRECT3DDEVICE9 _Device, LPCWSTR _szName)
 {
 	HRESULT hr = 0;
 
-	m_D3DDevice = _Device ;
+	m_D3DDevice = _Device;
 
 	//
 	// Load the XFile data.
@@ -12,7 +12,7 @@ MeshLoader::MeshLoader(LPDIRECT3DDEVICE9 _Device, LPCWSTR _szName)
 	ID3DXBuffer* mtrlBuffer = 0;
 	DWORD        numMtrls   = 0;
 
-	hr = D3DXLoadMeshFromX(  
+	hr = D3DXLoadMeshFromX( 
 		_szName,
 		D3DXMESH_MANAGED,
 		_Device,
@@ -32,7 +32,7 @@ MeshLoader::MeshLoader(LPDIRECT3DDEVICE9 _Device, LPCWSTR _szName)
 	// Extract the materials, load textures.
 	//
 
-	if( mtrlBuffer != 0 && numMtrls != 0 )
+	if(mtrlBuffer != 0 && numMtrls != 0)
 	{
 		D3DXMATERIAL* mtrls = (D3DXMATERIAL*)mtrlBuffer->GetBufferPointer();
 
@@ -43,10 +43,10 @@ MeshLoader::MeshLoader(LPDIRECT3DDEVICE9 _Device, LPCWSTR _szName)
 			mtrls[i].MatD3D.Ambient = mtrls[i].MatD3D.Diffuse;
 
 			// save the ith material
-			Mtrls.push_back( mtrls[i].MatD3D );
+			Mtrls.push_back(mtrls[i].MatD3D);
 
 			// check if the ith material has an associative texture
-			if( mtrls[i].pTextureFilename != 0 )
+			if(mtrls[i].pTextureFilename != 0)
 			{
 				// yes, load the texture for the ith subset
 				IDirect3DTexture9* tex = 0;
@@ -56,12 +56,12 @@ MeshLoader::MeshLoader(LPDIRECT3DDEVICE9 _Device, LPCWSTR _szName)
 					&tex);
 
 				// save the loaded texture
-				Textures.push_back( tex );
+				Textures.push_back(tex);
 			}
 			else
 			{
 				// no texture for the ith subset
-				Textures.push_back( 0 );
+				Textures.push_back(0);
 			}
 		}
 	}
@@ -89,7 +89,7 @@ void MeshLoader::Display()
 {
 	for(int i = 0; i < (int) Mtrls.size(); i++)
 	{
-		m_D3DDevice->SetMaterial( &Mtrls[i] );
+		m_D3DDevice->SetMaterial(&Mtrls[i]);
 		m_D3DDevice->SetTexture(0, Textures[i]);
 		m_Mesh->DrawSubset(i);
 	}	

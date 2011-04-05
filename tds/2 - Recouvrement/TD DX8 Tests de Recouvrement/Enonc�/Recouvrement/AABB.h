@@ -14,12 +14,12 @@ public:
 	virtual ~AABB();
 
 	void Update(D3DXMATRIX& _mWorld);
-
-private:
     D3DXVECTOR3 m_pobject[8];
     D3DXVECTOR3 m_pworld[8];
     D3DXVECTOR3 min;
     D3DXVECTOR3 max;
+
+private:
 
 	bool ComputeAABoundingBox(D3DXVECTOR3* _vects,DWORD _count,DWORD _stride);
 	bool ComputeAABBFromOBB();

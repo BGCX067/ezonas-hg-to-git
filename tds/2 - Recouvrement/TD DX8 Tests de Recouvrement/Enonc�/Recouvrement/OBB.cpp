@@ -39,9 +39,9 @@ OBB::~OBB()
 
 void OBB::Update(D3DXMATRIX& _mWorld)
 {
-    D3DXMatrixTranslation( &m_mWorld, m_vCenter.x, m_vCenter.y, m_vCenter.z );
-    D3DXMatrixMultiply( &m_mWorld, &m_mWorld, &_mWorld);
-    m_pD3DDevice->SetTransform( D3DTS_WORLD, &m_mWorld );    
+    D3DXMatrixTranslation(&m_mWorld, m_vCenter.x, m_vCenter.y, m_vCenter.z);
+    D3DXMatrixMultiply(&m_mWorld, &m_mWorld, &_mWorld);
+    m_pD3DDevice->SetTransform(D3DTS_WORLD, &m_mWorld);    
 }
 
 void OBB::Render()

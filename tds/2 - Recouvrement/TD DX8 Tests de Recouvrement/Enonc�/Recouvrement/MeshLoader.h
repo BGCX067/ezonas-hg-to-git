@@ -14,13 +14,13 @@ public:
     ~MeshLoader();
 
     void Display();
-	ID3DXMesh* GetMesh() {return m_Mesh ;} ;
+	ID3DXMesh* GetMesh() {return m_Mesh;};
 
 protected:
 
-	LPDIRECT3DDEVICE9				m_D3DDevice ;
-    ID3DXMesh*                      m_Mesh ;
-    std::vector<D3DMATERIAL9>       Mtrls ;
-    std::vector<IDirect3DTexture9*> Textures ;
+	LPDIRECT3DDEVICE9				m_D3DDevice;
+    ID3DXMesh*                      m_Mesh;
+    std::vector<D3DMATERIAL9>       Mtrls;
+    std::vector<IDirect3DTexture9*> Textures;
 };
 #endif // __MESHLOADER_H__

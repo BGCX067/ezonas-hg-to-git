@@ -130,14 +130,14 @@ bool AABB::ComputeAABoundingBox(D3DXVECTOR3* _vects,DWORD _count,DWORD _stride)
     }
 
     // Update points 
-    m_pobject[0] = D3DXVECTOR3( min.x, max.y, min.z ); // xYz
-    m_pobject[1] = D3DXVECTOR3( min.x, max.y, max.z ); // xYZ    
-    m_pobject[2] = D3DXVECTOR3( max.x, max.y, min.z ); // XYz
-    m_pobject[3] = D3DXVECTOR3( max.x, max.y, max.z ); // XYZ
-    m_pobject[4] = D3DXVECTOR3( min.x, min.y, min.z ); // xyz
-    m_pobject[5] = D3DXVECTOR3( max.x, min.y, min.z ); // Xyz
-    m_pobject[6] = D3DXVECTOR3( max.x, min.y, max.z ); // XyZ
-    m_pobject[7] = D3DXVECTOR3( min.x, min.y, max.z ); // xyZ
+    m_pobject[0] = D3DXVECTOR3(min.x, max.y, min.z); // xYz
+    m_pobject[1] = D3DXVECTOR3(min.x, max.y, max.z); // xYZ    
+    m_pobject[2] = D3DXVECTOR3(max.x, max.y, min.z); // XYz
+    m_pobject[3] = D3DXVECTOR3(max.x, max.y, max.z); // XYZ
+    m_pobject[4] = D3DXVECTOR3(min.x, min.y, min.z); // xyz
+    m_pobject[5] = D3DXVECTOR3(max.x, min.y, min.z); // Xyz
+    m_pobject[6] = D3DXVECTOR3(max.x, min.y, max.z); // XyZ
+    m_pobject[7] = D3DXVECTOR3(min.x, min.y, max.z); // xyZ
     return 0;
 }
 
@@ -164,14 +164,14 @@ bool AABB::ComputeAABBFromOBB()
     }
 
     // Update points 
-    m_pworld[0] = D3DXVECTOR3( min.x, max.y, min.z ); // xYz
-    m_pworld[1] = D3DXVECTOR3( min.x, max.y, max.z ); // xYZ    
-    m_pworld[2] = D3DXVECTOR3( max.x, max.y, min.z ); // XYz
-    m_pworld[3] = D3DXVECTOR3( max.x, max.y, max.z ); // XYZ
-    m_pworld[4] = D3DXVECTOR3( min.x, min.y, min.z ); // xyz
-    m_pworld[5] = D3DXVECTOR3( max.x, min.y, min.z ); // Xyz
-    m_pworld[6] = D3DXVECTOR3( max.x, min.y, max.z ); // XyZ
-    m_pworld[7] = D3DXVECTOR3( min.x, min.y, max.z ); // xyZ
+    m_pworld[0] = D3DXVECTOR3(min.x, max.y, min.z); // xYz
+    m_pworld[1] = D3DXVECTOR3(min.x, max.y, max.z); // xYZ    
+    m_pworld[2] = D3DXVECTOR3(max.x, max.y, min.z); // XYz
+    m_pworld[3] = D3DXVECTOR3(max.x, max.y, max.z); // XYZ
+    m_pworld[4] = D3DXVECTOR3(min.x, min.y, min.z); // xyz
+    m_pworld[5] = D3DXVECTOR3(max.x, min.y, min.z); // Xyz
+    m_pworld[6] = D3DXVECTOR3(max.x, min.y, max.z); // XyZ
+    m_pworld[7] = D3DXVECTOR3(min.x, min.y, max.z); // xyZ
     
     return true;
 }

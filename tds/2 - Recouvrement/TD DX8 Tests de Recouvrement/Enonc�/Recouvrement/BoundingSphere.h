@@ -18,10 +18,10 @@ public:
 
     void Update(D3DXMATRIX& _mWorld);
 	void Render();
-
-private:
 	float m_fRadius;
 	D3DXVECTOR3 m_vCenter;
+
+private:
 	ID3DXMesh* m_pSphereMesh;
 	LPDIRECT3DDEVICE9 m_pD3DDevice;
 

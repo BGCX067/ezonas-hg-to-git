@@ -51,18 +51,12 @@ bool BoundingSphere::ComputeBoundingSphere(D3DXVECTOR3* _vects,DWORD _count,DWOR
     for (int i=1;i<(int) _count;i++) 
     {
         D3DXVECTOR3 v = *((LPD3DXVECTOR3) ptr);
-        if (v.x < vmin.x)
-            vmin.x = v.x;
-        if (v.y < vmin.y)
-            vmin.y = v.y;
-        if (v.z < vmin.z)
-            vmin.z = v.z;
-        if (v.x > vmax.x)
-            vmax.x = v.x;
-        if (v.y > vmax.y)
-            vmax.y = v.y;
-        if (v.z > vmax.z)
-            vmax.z = v.z;
+        if (v.x < vmin.x) vmin.x = v.x;
+        if (v.y < vmin.y) vmin.y = v.y;
+        if (v.z < vmin.z) vmin.z = v.z;
+        if (v.x > vmax.x) vmax.x = v.x;
+        if (v.y > vmax.y) vmax.y = v.y;
+        if (v.z > vmax.z) vmax.z = v.z;
         ptr += _stride;
     }
 	
@@ -94,9 +88,9 @@ bool BoundingSphere::ComputeBoundingSphere(D3DXVECTOR3* _vects,DWORD _count,DWOR
 void BoundingSphere::Update(D3DXMATRIX& _mWorld)
 {
     D3DXMATRIXA16  mat;
-    D3DXMatrixTranslation( &mat, m_vCenter.x, m_vCenter.y, m_vCenter.z );
-    D3DXMatrixMultiply( &mat, &mat, &_mWorld);
-    m_pD3DDevice->SetTransform( D3DTS_WORLD, &mat );
+    D3DXMatrixTranslation(&mat, m_vCenter.x, m_vCenter.y, m_vCenter.z);
+    D3DXMatrixMultiply(&mat, &mat, &_mWorld);
+    m_pD3DDevice->SetTransform(D3DTS_WORLD, &mat);
 }
 
 void BoundingSphere::Render()

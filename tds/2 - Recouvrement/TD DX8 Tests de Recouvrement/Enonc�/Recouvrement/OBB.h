@@ -21,13 +21,14 @@ public:
 	void Update(D3DXMATRIX& _mWorld);
 	void Render();
 
-private:
-	ID3DXMesh* m_pBoxMesh;
-	LPDIRECT3DDEVICE9 m_pD3DDevice;
-
 	float m_fWidth;
 	float m_fHeight;
 	float m_fDepth;
+
+private:
+	LPDIRECT3DDEVICE9 m_pD3DDevice;
+	ID3DXMesh* m_pBoxMesh;
+
 
     D3DXVECTOR3 m_min;
     D3DXVECTOR3 m_max;
