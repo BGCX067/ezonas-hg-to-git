@@ -5,7 +5,8 @@ void Application :: CreateScene()
 	//camera -> setPolygonMode(PM_WIREFRAME);
 //	SceneNode * node;
 	AddPlane();
-	ConfMgr :: getSingletonPtr() -> AddLevel("mifflin"); 
+	ConfMgr :: getSingletonPtr() -> AddLevel("guy"); 
+	//ConfMgr :: getSingletonPtr() -> AddLevel("mifflin"); 
 	
 	ConfMgr :: getSingletonPtr() -> AddLight("light3");
 	ConfMgr :: getSingletonPtr() -> AddLight("light4");

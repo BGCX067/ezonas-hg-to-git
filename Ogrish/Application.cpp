@@ -20,8 +20,6 @@ Application :: Application():
 	last_init		(init_config()),
 
 	window			(root -> initialise(true, "Zevil")),
-	//scmgr			(root -> createo(ST_)),
-//	scmgr			(root -> createSceneManager(ST_GENERIC)),
 	scmgr			(root -> createSceneManager(ConfMgr :: getSingletonPtr() -> GetScMgrType())),
 	camera			(scmgr -> createCamera("Camera")),
 	viewport		(window -> addViewport(camera)),
@@ -34,11 +32,8 @@ Application :: Application():
 	camera -> setNearClipDistance(1);
 	viewport -> setBackgroundColour(ColourValue(0.1, 0.1, 0.1));
 	camera -> setAspectRatio
-	(Real(viewport -> getActualWidth())/ Real(viewport -> getActualHeight()));
+		(Real(viewport -> getActualWidth())/ Real(viewport -> getActualHeight()));
 	root -> addFrameListener(this);
-
-	//root -> loadPlugin("Plugin_OctreeSceneManager_d");
-
 	InitResources();
 
 	// PROJECT CODE ////////////////////////////////////////
