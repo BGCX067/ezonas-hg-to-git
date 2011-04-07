@@ -45,7 +45,11 @@ class Game
 		D3DXCOLOR      BLACK;
 		
 		// added stuff
-		FLOAT radius_sum_squared;
+		FLOAT radius_squared, radius_sum_squared, vect_l,
+			dxmin, dxmax,
+			dymin, dymax,
+			dzmin, dzmax,
+			dx, dy, dz;
 		void CheckCollisions();
 		bool collides;
 		D3DXVECTOR3 vect;

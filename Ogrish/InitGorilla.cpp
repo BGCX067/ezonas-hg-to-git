@@ -25,6 +25,10 @@ void Application :: InitGorilla()
 		string("Counter Cake is Zevil"));
 	gor_caption[1] = gor_layer -> createCaption(atlas_index, 200, 2,
 		string("-"));
+	//gor_caption[2] = gor_layer -> createCaption(atlas_index, 300, 2,
+	//	string("-"));
+	//gor_caption[3] = gor_layer -> createCaption(atlas_index, 400, 2,
+	//	string("-"));
 	//gor_caption[0] -> align(Gorilla :: TextAlign_Centre);
 	//gor_caption[0] -> vertical_align(Gorilla :: VerticalAlign_Middle);
 	//gor_caption[0] -> 

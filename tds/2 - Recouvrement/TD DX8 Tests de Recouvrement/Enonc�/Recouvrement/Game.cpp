@@ -43,7 +43,6 @@ Game :: Game()
 	red.Specular = RED;
 
 
-
 }
 Game :: ~ Game()
 {
@@ -157,12 +156,8 @@ void Game :: SetupCamera()
 void Game :: Render()
 {
 	//D3DXMATRIX M, N, World;
-		radius_sum_squared =
-			(m_BSphere2->m_fRadius + m_BSphere->m_fRadius)
-			* (m_BSphere2->m_fRadius + m_BSphere->m_fRadius);
 
     if(NULL == m_D3DDevice) return;
-	CheckCollisions();
 	m_D3DDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, true);
 	m_D3DDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
 	m_D3DDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
@@ -173,6 +168,7 @@ void Game :: Render()
     // Begin the scene
     if(SUCCEEDED(m_D3DDevice->BeginScene()))
     {
+		CheckCollisions();
 		switch(m_iRenderVolume3)
 		{
 		case 0:
@@ -181,18 +177,18 @@ void Game :: Render()
 			break;
 
 		case 1: // sphere box
-			m_iRenderVolume = 0;
-			m_iRenderVolume2 = 1;
+			m_iRenderVolume = 2; // moving ship: sphere
+			m_iRenderVolume2 = 0;
 			break;
 	
 		case 2: // aabb
-			m_iRenderVolume = 1;
-			m_iRenderVolume2 = 1;
+			m_iRenderVolume = 2;
+			m_iRenderVolume2 = 2;
 			break;
 	
 		case 3: // obb
-			m_iRenderVolume = 2;
-			m_iRenderVolume2 = 2;
+			m_iRenderVolume = 1;
+			m_iRenderVolume2 = 1;
 			break;
 		}
 	    // Rendering of scene objects can happen here
@@ -258,31 +254,32 @@ void Game :: Render()
     // Present the backbuffer contents to the display
     m_D3DDevice->Present(NULL, NULL, NULL, NULL);
 
+	if(true)
+	{
+		if(::GetAsyncKeyState(VK_SPACE) && m_flKeyDown == false)
+		{ m_flKeyDown = true; m_iRenderVolume ++; if(m_iRenderVolume > 2) m_iRenderVolume = 0; }
+		if(!::GetAsyncKeyState(VK_SPACE)) m_flKeyDown = false;
 
-	if(::GetAsyncKeyState(VK_SPACE) && m_flKeyDown == false)
-	{ m_flKeyDown = true; m_iRenderVolume ++; if(m_iRenderVolume > 2) m_iRenderVolume = 0; }
-	if(!::GetAsyncKeyState(VK_SPACE)) m_flKeyDown = false;
+		if(::GetAsyncKeyState('B') && m_flKeyDown2 == false)
+		{ m_flKeyDown2 = true; m_iRenderVolume2 ++; if(m_iRenderVolume2 > 2) m_iRenderVolume2 = 0; }
+		if(!::GetAsyncKeyState('B')) m_flKeyDown2 = false;
 
-	if(::GetAsyncKeyState('B') && m_flKeyDown2 == false)
-	{ m_flKeyDown2 = true; m_iRenderVolume2 ++; if(m_iRenderVolume2 > 2) m_iRenderVolume2 = 0; }
-	if(!::GetAsyncKeyState('B')) m_flKeyDown2 = false;
-
-	if(::GetAsyncKeyState('N') && m_flKeyDown3 == false)
-	{ m_flKeyDown3 = true; m_iRenderVolume3 ++; if(m_iRenderVolume3 > 3) m_iRenderVolume3 = 0; }
-	if(!::GetAsyncKeyState('N')) m_flKeyDown3 = false;
+		if(::GetAsyncKeyState('N') && m_flKeyDown3 == false)
+		{ m_flKeyDown3 = true; m_iRenderVolume3 ++; if(m_iRenderVolume3 > 3) m_iRenderVolume3 = 0; }
+		if(!::GetAsyncKeyState('N')) m_flKeyDown3 = false;
 
 
-	if(::GetAsyncKeyState(VK_ESCAPE)) exit(0xb00b);
+		if(::GetAsyncKeyState(VK_ESCAPE)) exit(0xb00b);
 
-	if(::GetAsyncKeyState(VK_LEFT)) 
-	{ m_fRotation -= 0.1f;if(m_fRotation < -3.14f)m_fRotation = 3.14f; }
+		if(::GetAsyncKeyState(VK_LEFT)) 
+		{ m_fRotation -= 0.1f;if(m_fRotation < -3.14f)m_fRotation = 3.14f; }
 
-	if(::GetAsyncKeyState(VK_RIGHT)) 
-	{ m_fRotation += 0.1f;if(m_fRotation > 3.14f)m_fRotation = -3.14f; }
+		if(::GetAsyncKeyState(VK_RIGHT)) 
+		{ m_fRotation += 0.1f;if(m_fRotation > 3.14f)m_fRotation = -3.14f; }
 
-	if(::GetAsyncKeyState(VK_UP)) m_fTranslation += 1.0f;
-	if(::GetAsyncKeyState(VK_DOWN)) m_fTranslation -= 1.0f;
-
+		if(::GetAsyncKeyState(VK_UP)) m_fTranslation += 1.0f;
+		if(::GetAsyncKeyState(VK_DOWN)) m_fTranslation -= 1.0f;
+	}
 }
 INT WINAPI Game::wWinMain(WNDPROC _MsgProc, HINSTANCE hInst, HINSTANCE, LPSTR, INT)
 {
@@ -328,6 +325,12 @@ INT WINAPI Game::wWinMain(WNDPROC _MsgProc, HINSTANCE hInst, HINSTANCE, LPSTR, I
 		BOOL fMessage;
 
 		PeekMessage(&msg, NULL, 0U, 0U, PM_NOREMOVE);
+		radius_sum_squared =
+			(m_BSphere2->m_fRadius + m_BSphere->m_fRadius)
+			* (m_BSphere2->m_fRadius + m_BSphere->m_fRadius);
+		radius_squared =
+			( m_BSphere->m_fRadius)
+			* (m_BSphere->m_fRadius);
 
 		while(msg.message != WM_QUIT)
 		{
@@ -359,17 +362,63 @@ void Game :: CheckCollisions()
 	{
 		
 	case 0: //sphere sphere
-		vect = D3DXVECTOR3(m_BSphere->m_vCenter - m_BSphere2->m_vCenter);
-		if (D3DXVec3LengthSq(&vect) < radius_sum_squared)
+		//vect = D3DXVECTOR3(m_BSphere->m_vCenter - m_BSphere2->m_vCenter);
+		vect = m_BSphere->DUH - m_BSphere2->DUH;
+		vect_l = D3DXVec3LengthSq(&vect);
+		if (vect_l > radius_sum_squared)
 			collides = true;
 		else
 			collides = false;
 		break;
 	
 	case 1: // sphere box
-		cout << std :: endl;
+/*
+		dxmin = m_BSphere -> DUH.x - m_AABB2 -> min.x;
+		dxmax = m_BSphere -> DUH.x - m_AABB2 -> max.x;
+		dymin = m_BSphere -> DUH.y - m_AABB2 -> min.y;
+		dymax = m_BSphere -> DUH.y - m_AABB2 -> max.y;
+		dzmin = m_BSphere -> DUH.z - m_AABB2 -> min.z;
+		dzmax = m_BSphere -> DUH.z - m_AABB2 -> max.z;
+
+		if	   (radius_squared < dxmin * dxmin)	{collides = false; break;}
+		else if(radius_squared < dxmax * dxmax) {collides = false; break;}
+		else if(radius_squared < dymin * dymin) {collides = false; break;}
+		else if(radius_squared < dymax * dymax) {collides = false; break;}
+		else if(radius_squared < dzmin * dzmin) {collides = false; break;}
+		else if(radius_squared < dzmax * dzmax) {collides = false; break;}
+		else collides = true;
 		break;
-	
+*/	
+
+		dy = dz = dx = 0;
+		if (m_BSphere2 -> DUH.x < m_AABB -> min.x)
+			dx = m_BSphere2 -> DUH.x - m_AABB -> min.x;
+		else
+		if (m_BSphere2 -> DUH.x > m_AABB -> max.x)
+			dx = m_BSphere2 -> DUH.x - m_AABB -> max.x;
+
+		if (m_BSphere2 -> DUH.y < m_AABB -> min.y)
+			dy = m_BSphere2 -> DUH.y - m_AABB -> min.y;
+		else
+		if (m_BSphere2 -> DUH.y > m_AABB -> max.y)
+			dy = m_BSphere2 -> DUH.y - m_AABB -> max.y;
+
+		if (m_BSphere2 -> DUH.z < m_AABB -> min.z)
+			dz = m_BSphere2 -> DUH.z - m_AABB -> min.z;
+		else
+		if (m_BSphere2 -> DUH.z > m_AABB -> max.z)
+			dz = m_BSphere2 -> DUH.z - m_AABB -> max.z;
+
+		if	  
+		(
+			radius_squared >
+				dx * dx
+				+ dy * dy
+				+ dz * dz
+		)
+		{collides = false; break;}
+		else collides = true;
+		break;
 	case 2: // aabb
 
 		break;
@@ -383,3 +432,4 @@ void Game :: CheckCollisions()
 
 	}
 }
+

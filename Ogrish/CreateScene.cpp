@@ -5,7 +5,13 @@ void Application :: CreateScene()
 	//camera -> setPolygonMode(PM_WIREFRAME);
 //	SceneNode * node;
 	AddPlane();
-	ConfMgr :: getSingletonPtr() -> AddLevel("guy"); 
+	scmgr -> showBoundingBoxes(true);	//ConfMgr :: getSingletonPtr() -> AddLevel("guy"); 
+	//ConfMgr :: getSingletonPtr() -> AddLevel("dust1-1"); 
+	//ConfMgr :: getSingletonPtr() -> AddLevel("dust1-2"); 
+	//ConfMgr :: getSingletonPtr() -> AddLevel("dust1-3"); 
+	ConfMgr :: getSingletonPtr() -> AddLevel("dust2-1"); 
+	//ConfMgr :: getSingletonPtr() -> AddLevel("M1A1"); 
+	//ConfMgr :: getSingletonPtr() -> AddLevel("dust2-2"); 
 	//ConfMgr :: getSingletonPtr() -> AddLevel("mifflin"); 
 	
 	ConfMgr :: getSingletonPtr() -> AddLight("light3");

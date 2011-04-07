@@ -90,6 +90,7 @@ void BoundingSphere::Update(D3DXMATRIX& _mWorld)
     D3DXMATRIXA16  mat;
     D3DXMatrixTranslation(&mat, m_vCenter.x, m_vCenter.y, m_vCenter.z);
     D3DXMatrixMultiply(&mat, &mat, &_mWorld);
+	DUH = D3DXVECTOR3(mat._41, mat._42, mat._43);
     m_pD3DDevice->SetTransform(D3DTS_WORLD, &mat);
 }
 
@@ -97,3 +98,4 @@ void BoundingSphere::Render()
 {
 	m_pSphereMesh->DrawSubset(0);
 }
+

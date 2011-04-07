@@ -19,7 +19,7 @@ public:
     void Update(D3DXMATRIX& _mWorld);
 	void Render();
 	float m_fRadius;
-	D3DXVECTOR3 m_vCenter;
+	D3DXVECTOR3 m_vCenter, DUH;
 
 private:
 	ID3DXMesh* m_pSphereMesh;
