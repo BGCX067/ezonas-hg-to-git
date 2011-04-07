@@ -3,6 +3,8 @@ syntax: glob
 *.wav
 *.mp3
 *.avi
+*.ncb
+
 
 *.so
 *.dll
