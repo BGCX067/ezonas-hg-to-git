@@ -17,12 +17,12 @@ Game :: Game()
 
 	m_iRenderVolume = 0;
 	m_iRenderVolume2 = 0;
-	m_iRenderVolume3 = 0;
+	m_iRenderVolume3 = 1;
 	m_flKeyDown = false;
 	m_flKeyDown2 = false;
 	m_flKeyDown3 = false;
 	m_fRotation = 0.0f;
-	m_fTranslation = 100.0f;
+	m_fTranslation = 25.0f;
 	collides = false;
 
 	BLUE = D3DXCOLOR(D3DCOLOR_XRGB( 0,   0, 255));
@@ -177,10 +177,16 @@ void Game :: Render()
 			break;
 
 		case 1: // sphere box
-			m_iRenderVolume = 2; // moving ship: sphere
-			m_iRenderVolume2 = 0;
+			m_iRenderVolume = 0; 
+			m_iRenderVolume2 = 2; 
 			break;
 	
+		//case 2: // sphere box
+		//	m_iRenderVolume = 2; // moving ship: sphere
+		//	m_iRenderVolume2 = 0;
+		//	break;
+	
+
 		case 2: // aabb
 			m_iRenderVolume = 2;
 			m_iRenderVolume2 = 2;
@@ -196,7 +202,7 @@ void Game :: Render()
 		// Rotation & translation
 		D3DXMatrixIdentity(&M);
 		D3DXMatrixRotationY(&M, m_fRotation);
-		M._43 = m_fTranslation;
+		M._41 = m_fTranslation;
 		m_D3DDevice->SetTransform(D3DTS_WORLD, &M);
 		World = M;
 
@@ -329,13 +335,11 @@ INT WINAPI Game::wWinMain(WNDPROC _MsgProc, HINSTANCE hInst, HINSTANCE, LPSTR, I
 			(m_BSphere2->m_fRadius + m_BSphere->m_fRadius)
 			* (m_BSphere2->m_fRadius + m_BSphere->m_fRadius);
 		radius_squared =
-			( m_BSphere->m_fRadius)
-			* (m_BSphere->m_fRadius);
+			(m_BSphere->m_fRadius) * (m_BSphere->m_fRadius);
 
 		while(msg.message != WM_QUIT)
 		{
 			fMessage = PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE);
-
 			if(fMessage)
 			{
 				//Process message
@@ -343,19 +347,12 @@ INT WINAPI Game::wWinMain(WNDPROC _MsgProc, HINSTANCE hInst, HINSTANCE, LPSTR, I
 				DispatchMessage(&msg);
 			}
 			else
-			{
-				//No message to process, so render the current scene
 				Render();
-				
-			}
 		}
 	}
-
     UnregisterClass(L"D3D Initiation", wc.hInstance);
-
     return 0;
 }
-
 void Game :: CheckCollisions()
 {
 	switch(m_iRenderVolume3)
@@ -363,7 +360,7 @@ void Game :: CheckCollisions()
 		
 	case 0: //sphere sphere
 		//vect = D3DXVECTOR3(m_BSphere->m_vCenter - m_BSphere2->m_vCenter);
-		vect = m_BSphere->DUH - m_BSphere2->DUH;
+		vect = m_BSphere->pos - m_BSphere2->pos;
 		vect_l = D3DXVec3LengthSq(&vect);
 		if (vect_l > radius_sum_squared)
 			collides = true;
@@ -372,55 +369,34 @@ void Game :: CheckCollisions()
 		break;
 	
 	case 1: // sphere box
-/*
-		dxmin = m_BSphere -> DUH.x - m_AABB2 -> min.x;
-		dxmax = m_BSphere -> DUH.x - m_AABB2 -> max.x;
-		dymin = m_BSphere -> DUH.y - m_AABB2 -> min.y;
-		dymax = m_BSphere -> DUH.y - m_AABB2 -> max.y;
-		dzmin = m_BSphere -> DUH.z - m_AABB2 -> min.z;
-		dzmax = m_BSphere -> DUH.z - m_AABB2 -> max.z;
-
-		if	   (radius_squared < dxmin * dxmin)	{collides = false; break;}
-		else if(radius_squared < dxmax * dxmax) {collides = false; break;}
-		else if(radius_squared < dymin * dymin) {collides = false; break;}
-		else if(radius_squared < dymax * dymax) {collides = false; break;}
-		else if(radius_squared < dzmin * dzmin) {collides = false; break;}
-		else if(radius_squared < dzmax * dzmax) {collides = false; break;}
-		else collides = true;
-		break;
-*/	
-
 		dy = dz = dx = 0;
-		if (m_BSphere2 -> DUH.x < m_AABB -> min.x)
-			dx = m_BSphere2 -> DUH.x - m_AABB -> min.x;
-		else
-		if (m_BSphere2 -> DUH.x > m_AABB -> max.x)
-			dx = m_BSphere2 -> DUH.x - m_AABB -> max.x;
-
-		if (m_BSphere2 -> DUH.y < m_AABB -> min.y)
-			dy = m_BSphere2 -> DUH.y - m_AABB -> min.y;
-		else
-		if (m_BSphere2 -> DUH.y > m_AABB -> max.y)
-			dy = m_BSphere2 -> DUH.y - m_AABB -> max.y;
-
-		if (m_BSphere2 -> DUH.z < m_AABB -> min.z)
-			dz = m_BSphere2 -> DUH.z - m_AABB -> min.z;
-		else
-		if (m_BSphere2 -> DUH.z > m_AABB -> max.z)
-			dz = m_BSphere2 -> DUH.z - m_AABB -> max.z;
-
-		if	  
-		(
-			radius_squared >
-				dx * dx
-				+ dy * dy
-				+ dz * dz
-		)
-		{collides = false; break;}
+		if		(m_BSphere -> pos.x < m_AABB2 -> min.x) dx = m_BSphere -> pos.x - m_AABB2 -> min.x;
+		else if	(m_BSphere -> pos.x > m_AABB2 -> max.x) dx = m_BSphere -> pos.x - m_AABB2 -> max.x;
+		if		(m_BSphere -> pos.y < m_AABB2 -> min.y) dy = m_BSphere -> pos.y - m_AABB2 -> min.y;
+		else if (m_BSphere -> pos.y > m_AABB2 -> max.y) dy = m_BSphere -> pos.y - m_AABB2 -> max.y;
+		if		(m_BSphere -> pos.z < m_AABB2 -> min.z) dz = m_BSphere -> pos.z - m_AABB2 -> min.z;
+		else if (m_BSphere -> pos.z > m_AABB2 -> max.z) dz = m_BSphere -> pos.z - m_AABB2 -> max.z;
+		if (radius_squared > dx * dx + dy * dy + dz * dz)
+		{
+			collides = false;
+			break;
+		}
 		else collides = true;
 		break;
 	case 2: // aabb
+		if(m_AABB -> min.x < m_AABB2 -> max.x
+		|| m_AABB -> min.x < m_AABB2 -> max.x)
+		{collides = true; break;}
 
+		if(m_AABB -> min.y < m_AABB2 -> max.y
+		|| m_AABB -> min.y < m_AABB2 -> max.y)
+		{collides = true; break;}
+
+		if(m_AABB -> min.z < m_AABB2 -> max.z
+		|| m_AABB -> min.z < m_AABB2 -> max.z)
+		{collides = true; break;}
+
+		collides = false;
 		break;
 	
 	case 3: // obb

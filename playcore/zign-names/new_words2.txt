@@ -16,3 +16,6 @@ target
 crash
 beyond
 battle
+eye
+torment
+crawler

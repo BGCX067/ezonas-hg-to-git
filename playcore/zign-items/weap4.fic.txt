@@ -1,0 +1,15 @@
+#1
+	NOB3
+	K49
+	F72CR
+	M27
+#2
+	SNT
+	Q50
+	B8
+	F9Z
+
+energy device
+	particule cannon
+	arc light
+	magnet

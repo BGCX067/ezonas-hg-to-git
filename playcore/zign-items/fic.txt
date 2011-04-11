@@ -1,4 +1,0 @@
-﻿energy device
-	particule cannon
-	arc light
-	magnet

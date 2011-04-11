@@ -1,13 +1,4 @@
-// BoundingSphere.cpp: implementation of the OBB class.
-//
-//////////////////////////////////////////////////////////////////////
-
 #include "BoundingSphere.h"
-
-//////////////////////////////////////////////////////////////////////
-// Construction/Destruction
-//////////////////////////////////////////////////////////////////////
-
 
 BoundingSphere::BoundingSphere(LPDIRECT3DDEVICE9 pD3DDevice, ID3DXMesh* mesh)
 {
@@ -90,7 +81,7 @@ void BoundingSphere::Update(D3DXMATRIX& _mWorld)
     D3DXMATRIXA16  mat;
     D3DXMatrixTranslation(&mat, m_vCenter.x, m_vCenter.y, m_vCenter.z);
     D3DXMatrixMultiply(&mat, &mat, &_mWorld);
-	DUH = D3DXVECTOR3(mat._41, mat._42, mat._43);
+	pos = D3DXVECTOR3(mat._41, mat._42, mat._43);
     m_pD3DDevice->SetTransform(D3DTS_WORLD, &mat);
 }
 
