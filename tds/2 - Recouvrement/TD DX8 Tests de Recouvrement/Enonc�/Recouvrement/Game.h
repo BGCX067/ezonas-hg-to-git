@@ -10,6 +10,8 @@
 #include "OBB.h"
 #include "AABB.h"
 
+typedef D3DXVECTOR3 Vec3;
+
 class Game
 {
 		int m_iX, m_iY, m_iL, m_iH;
@@ -53,6 +55,14 @@ class Game
 		void CheckCollisions();
 		bool collides;
 		D3DXVECTOR3 vect;
+
+		/* FROM HERE, OBBOBBOBBOBB */
+		float r1, r2;
+		Vec3 
+		float m_fWidth;
+		float m_fHeight;
+		float m_fDepth;
+
 	public :
 
 		static Game* GetSingleton();

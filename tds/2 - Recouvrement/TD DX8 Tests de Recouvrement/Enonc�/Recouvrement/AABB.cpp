@@ -144,8 +144,8 @@ bool AABB::ComputeAABoundingBox(D3DXVECTOR3* _vects,DWORD _count,DWORD _stride)
 bool AABB::ComputeAABBFromOBB()
 {
     // Find max and min points
-    D3DXVECTOR3 min = m_pworld[0];
-    D3DXVECTOR3 max = m_pworld[0];
+    min = m_pworld[0];
+    max = m_pworld[0];
 
     for (int i=1;i<8;i++) 
     {

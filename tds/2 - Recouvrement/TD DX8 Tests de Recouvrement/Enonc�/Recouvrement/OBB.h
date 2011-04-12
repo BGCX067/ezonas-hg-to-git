@@ -6,6 +6,7 @@
 #define __OBB_H__
 
 #include "d3dx9.h"
+typedef D3DXVECTOR3 Vec3;
 
 class OBB
 {
@@ -25,7 +26,7 @@ public:
 	float m_fHeight;
 	float m_fDepth;
 
-private:
+
 	LPDIRECT3DDEVICE9 m_pD3DDevice;
 	ID3DXMesh* m_pBoxMesh;
 
@@ -35,6 +36,7 @@ private:
 
 	D3DXMATRIXA16	m_mWorld;
 	D3DXVECTOR3		m_vCenter;
+private:
 };
 
 #endif // __OBB_H__

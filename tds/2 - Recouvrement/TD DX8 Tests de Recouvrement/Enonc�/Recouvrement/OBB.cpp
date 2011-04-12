@@ -32,23 +32,19 @@ OBB::OBB(LPDIRECT3DDEVICE9 pD3DDevice, ID3DXMesh* mesh)
 		&m_pBoxMesh,
 		0);
 }
-
 OBB::~OBB()
 {
 }
-
 void OBB::Update(D3DXMATRIX& _mWorld)
 {
     D3DXMatrixTranslation(&m_mWorld, m_vCenter.x, m_vCenter.y, m_vCenter.z);
     D3DXMatrixMultiply(&m_mWorld, &m_mWorld, &_mWorld);
     m_pD3DDevice->SetTransform(D3DTS_WORLD, &m_mWorld);    
 }
-
 void OBB::Render()
 {
 	m_pBoxMesh->DrawSubset(0);
 }
-
 bool OBB::ComputeOBoundingBox(D3DXVECTOR3* _vects,DWORD _count,DWORD _stride)
 {
     BYTE *ptr = (BYTE*)_vects;
@@ -60,18 +56,13 @@ bool OBB::ComputeOBoundingBox(D3DXVECTOR3* _vects,DWORD _count,DWORD _stride)
 			m_min = v;
 			m_max = m_min;
 		}
-        if (v.x < m_min.x)
-            m_min.x = v.x;
-        if (v.y < m_min.y)
-            m_min.y = v.y;
-        if (v.z < m_min.z)
-            m_min.z = v.z;
-        if (v.x > m_max.x)
-            m_max.x = v.x;
-        if (v.y > m_max.y)
-            m_max.y = v.y;
-        if (v.z > m_max.z)
-            m_max.z = v.z;
+        if (v.x < m_min.x) m_min.x = v.x;
+        if (v.y < m_min.y) m_min.y = v.y;
+        if (v.z < m_min.z) m_min.z = v.z;
+
+        if (v.x > m_max.x) m_max.x = v.x;
+        if (v.y > m_max.y) m_max.y = v.y;
+        if (v.z > m_max.z) m_max.z = v.z;
 
         ptr += _stride;
     }
@@ -87,3 +78,5 @@ bool OBB::ComputeOBoundingBox(D3DXVECTOR3* _vects,DWORD _count,DWORD _stride)
 
     return 0;
 }
+
+Vec3 OBB

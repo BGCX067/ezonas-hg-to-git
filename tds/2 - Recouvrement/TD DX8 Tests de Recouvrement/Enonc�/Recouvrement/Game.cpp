@@ -384,19 +384,16 @@ void Game :: CheckCollisions()
 		else collides = true;
 		break;
 	case 2: // aabb
-		if(m_AABB -> min.x < m_AABB2 -> max.x
-		|| m_AABB -> min.x < m_AABB2 -> max.x)
-		{collides = true; break;}
+		if (m_AABB -> max.x < m_AABB2 -> min.x || m_AABB2 -> max.x < m_AABB -> min.x)
+		{collides = false; break;}
 
-		if(m_AABB -> min.y < m_AABB2 -> max.y
-		|| m_AABB -> min.y < m_AABB2 -> max.y)
-		{collides = true; break;}
+		if (m_AABB -> max.y < m_AABB2 -> min.y || m_AABB2 -> max.y < m_AABB -> min.y)
+		{collides = false; break;}
 
-		if(m_AABB -> min.z < m_AABB2 -> max.z
-		|| m_AABB -> min.z < m_AABB2 -> max.z)
-		{collides = true; break;}
+		if (m_AABB -> max.z < m_AABB2 -> min.z || m_AABB2 -> max.z < m_AABB -> min.z)
+		{collides = false; break;}
 
-		collides = false;
+		collides = true;
 		break;
 	
 	case 3: // obb
