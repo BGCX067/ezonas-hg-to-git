@@ -8,6 +8,7 @@ syntax: glob
 
 *.so
 *.dll
+*.lib
 *.obj
 *.o
 *.out
