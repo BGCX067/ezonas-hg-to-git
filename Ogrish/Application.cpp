@@ -26,7 +26,13 @@ Application :: Application():
 	rootnode		(scmgr -> getRootSceneNode()),
 
 	mGorilla		(new Gorilla :: Silverback())
-	
+#ifdef PHYSICS
+	,broadphase(new btDbvtBroadphase()),
+    collisionConfiguration(new btDefaultCollisionConfiguration()),
+    dispatcher(new btCollisionDispatcher(collisionConfiguration)),
+    solver(new btSequentialImpulseConstraintSolver),
+    dynamicsWorld (new btDiscreteDynamicsWorld(dispatcher,broadphase,solver,collisionConfiguration))
+#endif
 {
 	window -> reposition(20, 20);
 	camera -> setNearClipDistance(1);
@@ -52,6 +58,9 @@ Application :: Application():
 	// create the scene
 	CreateScene();
 	//camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
+#ifdef PHYSICS
+	dynamicsWorld->setGravity(btVector3(0,-10,0));
+#endif
 }
 Application :: ~ Application()
 {
@@ -61,6 +70,15 @@ Application :: ~ Application()
 	OGRE_DELETE mGlobals;
 #endif
 	delete mGorilla;
+	// bullet
+#ifdef PHYSICS
+	delete dynamicsWorld;
+    delete solver;
+    delete dispatcher;
+    delete collisionConfiguration;
+    delete broadphase;
+#endif
+
 	if(root) delete root;
 	else exit(0xb00b);
 }

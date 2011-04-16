@@ -3,7 +3,7 @@
 #include "Ogre\Ogre.h"
 #include "OIS\OIS.h"
 //#include "Ogre\Terrain\OgreTerrain.h"
-
+#define PHYSICS
 using namespace std;
 using namespace Ogre;
 using namespace OIS;
@@ -20,11 +20,13 @@ typedef Ogre :: Vector3 Vec3;
 
 #define OG_SGLT Ogre::Singleton
 
+//#include "tinystr.h"
+//#include "tinyxml.h"
 
-#include "tinystr.h"
-#include "tinyxml.h"
-
-#include "DotSceneLoader.h"
+//#include "DotSceneLoader.h"
+#ifdef PHYSICS
+#include <btBulletDynamicsCommon.h>
+#endif
 
 #include "Gorilla.h"
 #include "ConfMgr.h"
