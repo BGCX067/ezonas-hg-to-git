@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 Application * Application :: getSingletonPtr(void)		{ return ms_Singleton; }
-ConfMgr * ConfMgr :: getSingletonPtr(void)				{return ms_Singleton; }
+ConfMgr * ConfMgr :: getSingletonPtr(void)				{ return ms_Singleton; }
 LaserCast * LaserCast :: getSingletonPtr(void)			{ return ms_Singleton; }
 FPersonCam * FPersonCam :: getSingletonPtr(void)		{ return ms_Singleton; }
 BulletTracer * BulletTracer :: getSingletonPtr(void)	{ return ms_Singleton; }
