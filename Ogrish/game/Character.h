@@ -1,5 +1,5 @@
 struct Characters
 {
 	vector <SceneNode> nodes;
-	vector <int> lives;	
+	vector <int> lives;
 }; // characters;

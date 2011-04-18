@@ -57,7 +57,7 @@ Application :: Application():
 
 	// create the scene
 	CreateScene();
-	//camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
+	camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
 #ifdef PHYSICS
 	dynamicsWorld->setGravity(btVector3(0,-10,0));
 #endif
