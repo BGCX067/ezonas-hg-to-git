@@ -1,0 +1,8 @@
+﻿C:\bullet278\lib\Debug
+C:\bullet278\lib\Release
+
+C:\bullet278\src
+
+BulletCollision.lib
+BulletDynamics.lib
+LinearMath.lib
