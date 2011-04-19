@@ -4,6 +4,9 @@ THE QUICK FOX JUMPS OVER THE LAZY DOG.
 1+2-3/9*4=42^10.01
 haha: it's funny
 What ? Yes !
-void func();
+void func();;;;;;
 #irc-channel
 '"()[]{}
+The word death comes from Old English; deað, which in turn comes from Proto-Germanic dauthaz (reconstructed by etymological analysis). This comes from the Proto-Germanic stem dheu- meaning the 'Process, act. condition of dying'.
+Dauthaz was reconstructed through the use of the daughter tongues of Proto-Germanic, such as doth from Old Saxon, dath from Old Frisian, dood from Dutch, tod from Old High German, dauði from Old Norse, död from Swedish, and dauþas from Gothic.[2]
+MORTAL GEAR LIQUID 
