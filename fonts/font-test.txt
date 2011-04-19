@@ -1,0 +1,9 @@
+The quick fox jumps over the lazy dog.
+THE QUICK FOX JUMPS OVER THE LAZY DOG.
+1234567890
+1+2-3/9*4=42^10.01
+haha: it's funny
+What ? Yes !
+void func();
+#irc-channel
+'"()[]{}

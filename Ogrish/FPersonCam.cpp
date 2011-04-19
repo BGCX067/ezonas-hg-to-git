@@ -70,7 +70,7 @@ bool FPersonCam :: update ()//float frame_time)
 		* moving_speed
 		* (* frame_time));
 
-	//lasercast -> update();//frame_time);
+	lasercast -> update();//frame_time);
 	bullet_tracer -> update();//frame_time);
 
 	if (translate.length() > 1.0f)

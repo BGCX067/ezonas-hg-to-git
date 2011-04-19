@@ -44,6 +44,7 @@ protected:
 //////////////////////////////////////
 	Ogre :: Vector3
 		closest_result,
+		camera,
 		result,
 		* vertices;
 

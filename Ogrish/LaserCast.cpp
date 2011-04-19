@@ -11,6 +11,7 @@ LaserCast :: LaserCast():
 	n_root		(SGLT_RSN),
 	n_laserbeam (SGLT_RSN -> createChildSceneNode("laser beam")),
 	n_laserdot	(SGLT_RSN -> createChildSceneNode("laser dot")),
+	camera(SGLT_CAM -> getPosition()),
 	//n_bullet	(scmgr -> createSceneNode("bullet trace")),
 	
 	// billboards
@@ -48,7 +49,7 @@ LaserCast :: LaserCast():
 	bb_beam -> addChainElement
 		(0, BillboardChain::Element
 			(Vec3(0, 0, 100), laser_width, 0, ColourValue()));
-	bb_beam->addChainElement
+	bb_beam -> addChainElement
 		(0, BillboardChain::Element
 			(Vec3(0, 0, 0), laser_width, 0, ColourValue()));
 
@@ -73,6 +74,9 @@ void LaserCast :: update()//float frame_time)
 		bb_beam -> updateChainElement
 			(0, 0, BillboardChain :: Element
 				(result, laser_width, 0, ColourValue()));
+		bb_beam -> updateChainElement
+			(0, 1, BillboardChain :: Element
+			(SGLT_CAM -> getRealPosition() + Vec3(0,2,2), laser_width, 0, ColourValue()));
 	}
 	//n_bullet -> translate(frame_time * bullet_speed, 0, 0);
 }

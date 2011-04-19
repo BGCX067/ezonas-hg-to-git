@@ -1,0 +1,528 @@
+﻿Description du poste
+LIMBO vous a transcendé ? Braid vous a transporté par sa poésie ? Vous pensez que ces jeux sont des chefs d'oeuvres ? Nous aussi ! Ces titres sont nos références ! Si vous souhaitez autant que nous élever le jeu vidéo au rang d'art, alors rejoignez la première société française à se faire éditer par Microsoft Game Studios sur XBLA.
+POHLM Studio recherche notamment 1 programmeur pour sublimer notre jeu Hasta La Muerte sur Xbox 360 et deux productions mobiles encore confidentielle. Sous la responsabilité du Lead Programmer et du Directeur Technique, le cadre de la mission peut varier selon les besoins, les profils et les envies, avec tous les avantages et responsabilités liés à une petite structure.
+En effet, il est possible de postuler selon votre affinité sur les missions suivantes :
+R&D « pure » (Game Engine, éditeur de niveaux) 
+R&D Moteur Réseau Xbox 360 
+Développeur Smartphone (2 projets interne, 1 projet avec un Top Publisher) 
+GPP Xbox 360
+
+Profil du candidat
+Diplôme Bac +3 à Bac+5 en informatique 
+Maîtrise de la programmation en C++ ou C# 
+Connaissance de XNA est un plus 
+Développement d'un projet indie ou expérience précédente est un plus 
+Développement d'un projet sur Iphone / Android est un plus 
+Autonome, esprit d'équipe et apte à suivre les directions de la team game design 
+Passionné 
+Etre un gamer est un plus 
+Candidature atypique bienvenue
+
+
+//////////////////////////////////////////////////////
+Objet : Stage Xbox 360 / Iphone Programmeur – 6 mois
+
+LIMBO vous a transcendé ? Braid vous a transporté par sa poésie ? Vous pensez que ces jeux sont des chefs d’œuvres ? Nous aussi ! Ces titres sont nos références ! Si vous souhaitez autant que nous élever le jeu vidéo au rang d’art, alors rejoignez la première société française à se faire éditer par Microsoft Game Studios sur XBLA. 
+
+Basé à Angoulême, à moins d’une heure de Bordeaux et prochainement à 2h de Paris, POHLM Studio recherche notamment 2 programmeurs en stage pour sublimer notre jeu Hasta La Muerte sur Xbox 360 et deux productions mobiles encore confidentielles. Sous la responsabilité du Lead Programmer et du Directeur Technique, le cadre de la mission peut varier selon les besoins, les profils et les envies, avec tous les avantages et responsabilités liés à une petite structure. 
+
+En effet, il est possible de postuler selon votre affinité sur les missions suivantes : 
+
+· R&D « pure » (Game Engine, éditeur de niveaux)
+
+· R&D Moteur Réseau Xbox 360
+
+· Développeur Smartphone (2 projets interne, 1 projet avec un Top Publisher)
+
+· GPP Xbox 360 
+
+Profil du candidat
+
+· Diplômant Bac +3 à Bac+5 en informatique
+
+· Maîtrise de la programmation en C++ ou C#
+
+· Connaissance des technologies Cloud (notamment Azure) est un plus
+
+· Connaissance de XNA est un plus
+
+· Développement d’un projet indie ou expérience précédente est un plus
+
+· Développement d’un projet sur Iphone / Android est un plus
+
+· Autonome, esprit d’équipe et apte à suivre les directions de la team design
+
+· Passionné
+Etre un gamer est un plus
+Informations supplémentaires
+
+Durée et indemnités de stage selon profil
+
+Début dès que possible
+
+A fournir
+
+CV, lettre de motivation, références, site Web / projets perso (si possible)
+
+jbodin@pohlmstudio.com
+
+//////////////////////////////////////////////////////
+STAGE
+DÉVELOPPEUR APPLICATIONS MOBILES
+Planet Nemo recherche pour sa branche multimédia
+(Planet Nemo Games) un ou une stagiaire en
+développement d'applications mobiles.
+Missions :
+Au sein d’une équipe jeune, dynamique et expérimentée, le stagiaire aura pour mission, sous la
+responsabilité du chef de projet et du responsable technique, le développement de différentes applications
+mobiles (mini-jeux, interactive ebooks, etc.), sur iPhone, iPad et Android en collaboration avec l’équipe de
+design et ergonomie.
+Profil requis :
+• Étudiant d’une école d’Ingénieur, multimédia ou équivalent (niveau BAC+2 minimum)
+• Connaissance des systèmes d'exploitation MAC et PC
+• Maîtrise de la programmation orienté Objet (Objective-C, Java, C++)
+• Connaissance du XML
+• Notions de MVC seraient un plus
+Qualités requises :
+• Grande rigueur, autonomie, curiosité et imagination
+• Créativité et réactivité appliquée
+• Bonne culture vidéo-ludique
+• Intérêt pour le secteur du jeu vidéo et pour le monde de l'enfance
+• Un réel sens du design lié à une sensibilité artistique.
+• L’anglais courant est un plus
+Dates et durée :
+• début de stage dès que possible
+• durée 4 mois minimum, idéalement 6 mois
+Indemnisation stage (Revenu et compensation déplacements)
+Les candidatures sont à envoyer par mail uniquement à jobs@planetnemo.com
+(CV, site web, travaux en ligne)
+Planet Nemo Games est un studio de création numérique dédié à la conception et la réalisation de contenus
+interactifs à destination des enfants, des adolescents et de la famille : sites Internet, DVD interactif, jeux vidéo
+(en ligne ou non) pour PC, mobile et consoles. Tout en développant ses propres univers (Bali, Mila, Groove
+High, Petit Lapin Blanc, etc.), Planet Nemo Games apporte son savoir-faire à ses partenaires (Disney, France
+5, TPS/Canal+, Fleurus Presse, Hachette, Mindscape, Micro Application, Lagardère, etc.) et adapte pour eux
+des licences de renom. Reconnu pour la qualité et l’originalité de ses productions, Planet Nemo Games est
+devenu une référence du jeu interactif en France.
+Le groupe Planet Nemo, c'est aussi Planet Nemo Animation, producteur indépendant de séries TV
+d’animation en 2D et 3D ciblant principalement les enfants et ados de 2 à 15 ans.
+www.planetnemoprod.com
+18, rue Truffaut 75017 Paris
+t. +33 (0)1 44 70 70 20
+f. +33 (0)1 53 04 04 14
+
+
+//////////////////////////////////////////////////////
+
+Société
+Morphee Interactive
+Ville
+Nîmes (30)
+
+Poste
+Programmeur Gameplay
+Description  
+Développeur iPhone
+
+Morphee Interactive recherche un Développeur iPhone pour rejoindre l’équipe Casual Games. 
+Mission 
+Vous intégrerez l’équipe en charge du développement d’un futur jeu iPhone qui sera distribué par l’un des éditeurs leaders européens. 
+Compétences
+Rigoureux, passionné, et aptitude à travailler en équipe. 
+Maîtrise du C et C++. 
+Maîtrise d'un langage de script. 
+Travailler proprement, de manière réfléchie, architecturée et structurée, créer des sources bien présentées, claires, commentées. 
+Pouvoir s'immerger dans un environnement de programmation déjà établit afin d'en comprendre les subtilités pour en tirer le meilleur parti. 
+La connaissance d’Unity 3D est un plus. 
+
+Rémunération 
+1/3 du SMIC
+A fournir
+CV, lettre de motivation, références, site Web 
+A
+Martini Charles
+Par email
+jobs@morphee-interactive.com
+A propos
+Morphée Interactive est un jeune studio indépendant de création de jeux vidéo crée en 2007 à Nîmes.
+Soutenue par la région Languedoc-Roussillon et par le Ministère de la Recherche pour ses projets innovants, notre société se développe rapidement et préfère miser sur la qualité, le bien-être et mettre dans les meilleures conditions possibles ses salariés pour maximiser sa productivité.
+Nos activités s’articulent autour du Casual Games ambitieux, que ce soit des jeux pour des clients comme Orange (Animal Crossing-Like, Diablo Like, ...), ou des jeux autoproduits.
+
+
+//////////////////////////////////////////////////////
+
+STAGE INGENIEUR D'ETUDES R&D C++/OPENGL
+Arkaz (www.arkaz.net) est une jeune société innovante qui conçoit et développe des
+solutions matérielles et logicielles pour la communication visuelle interactive (affichage
+digital, vidéo-mapping, réalité virtuelle, réalité augmentée, applications 3d interactives,...)
+Nous recherchons un(e) stagiaire Ingénieur d'Etudes R&D.
+Vous avez une expérience significative en développement C++/OpenGL et une bonne
+connaissance des concepts de modélisation et d'affichage 3D.
+Vous êtes doté(e) d'un esprit volontaire, ouvert et curieux, vous souhaitez expérimenter le
+travail dans une petite structure en pleine croissance. Vous faites preuve d'une bonne
+autonomie dans la résolution de problèmes complexes. Le sens du service et de la relation
+client ne vous sont pas inconnus.
+Vous avez un bon niveau d'anglais technique.
+Des connaissances personnelles en infographie 2D (Photoshop,Gimp,Illustrator,Inkscape),
+infographie 3D (3DSMax/Blender) et/ou montage hardware PC sont des plus significatifs.
+Descriptif des missions :
+Vous serez basé à Meudon (Hauts-de-Seine) ou vous participerez au développement et
+aux tests de nos modules logiciels spécialisés dans l'affichage 2D/3D temps réel.
+Vous apporterez votre aide à la rédaction de la documentation fonctionnelle technique de
+nos solutions et vous travaillerez sur la rédaction de la road map des futures versions de
+nos logiciels, en intégrant les besoins remontés par nos clients.
+Profil recherché
+Bac +4/5 en informatique ou école d'ingénieur en informatique.
+Stage de fin d'études ingénieur en informatique Bac +4/5.
+6 mois à temps plein de mars à août 2011.
+Rémunération : 550 Euros/mois
+Veuillez envoyer par e-mail à stephane.weibel @arkaz.net votre CV ainsi que vos références
+à des projets logiciels C++/OpenGL (projets d'études, stages ou projets personnels).
+
+//////////////////////////////////////////////////////
+
+Offre de stage programmeur et testeur Montreuil
+Basée à Paris, zSlide® est une société innovante spécialisée dans les jeux-vidéo communautaires addictifs. La société a créé I Kick You, le tout premier jeu flash intégré à Facebook en 2007. En 2009, zSlide a lancé le jeu Treasure Madness sur Facebook qui a passé la barre du million d'utilisateurs en 70 jours pour atteindre 3.6 millions de joueurs mensuels.
+
+La société zSLide recherche actuellement à renforcer ses équipe par des stagiaires (ou postes) en Programmation et Assurance qualité (QA/tester). Ainsi, les étudiants et diplômés de vos cursus Programmeur et Testeur pourraient convenir.
+Voici les coordonnées de la société :
+
+zSlide SAS
+111 rue Marceau 
+93100 Montreuil sous bois - France 
+France
+
+Tél : +33(0) 1 42 87 72 94
+Fax : +33(0) 9 57 69 13 71
+//////////////////////////////////////////////////////
+Offre de stage : Développeur Web et Smartphone Paris
+Offre : Développeur Web et Smartphone 
+Localisation : Paris 20ième – Proche du métro Nation 
+Rémunération : A négocier en fonction de l’expérience 
+Type de contrat : Convention 
+
+DESCRIPTIF: Stribe est l’un des 50 finalistes de TechCrunch50 et vainqueur de la conférence LeWeb 2009 
+
+http://www.techcrunch.com/2009/09/15/tc ... th-stribe/ 
+http://www.itespresso.fr/concours-leweb ... 32805.html
+
+Stribe est un service Web social qui permet de créer des réseaux sociaux sur des sites existants. Stribe développe aujourd’hui de nombreuses applications pour ses clients tant sur le web que sur le mobile (iPhone, Android). 
+
+Nous recherchons actuellement des développeurs stagiaires (fin d’étude ou jeunes diplômés), passionnés et talentueux pour rejoindre notre équipe dans le cadre du développement de ces services et projets. 
+
+Si vous souhaitez relever des défis techniques, travailler dans un environnement international, partager l’esprit d’une startup et construire un projet ambitieux, n’hésitez pas nous transmettre votre CV afin que nous puissions vous rencontrer : xavier@stribe.com 
+La mission associée consiste à : 
+
+- Contribuer activement au développement des projets en cours : Web, applications mobiles, de la modélisation jusqu’à la mise en production. 
+De formation supérieure en informatique, vous aimez le développement Web, les projets innovants, et les jeux vidéo. Nous recherchons avant tout des personnes passionnées, curieuses et autonomes, opérationnelles sur des cycles de développement rapides. Vous intégrerez une équipe d’excellence capable de vous encadrer dans ces projets à fort potentiel afin que vous puissiez donner le meilleur de vous-même. 
+
+
+Compétences requises : 
+
+ Développement Web : JavaScript, (X)HTML 4 et 5, Ajax, CSS 2 et 3. 
+ Expérience concrète de développement Web dans au moins un langage de type Python, Ruby ou PHP. 
+ Capacité à travailler de façon autonome et à apprendre rapidement 
+ Anglais courant 
+
+
+Autres compétences recommandées : 
+
+ Utilisation de Photoshop 
+ Utilisation d’un framework MVC de type Rails ou Django 
+ Utilisation d’une bibliothèque JS de type jquery 
+ Véritable intérêt pour le Web, les réseaux sociaux, les jeux mobiles 
+ Une expérience antérieure dans une start-up est un plus 
+
+Nous étudierons également les candidatures des développeurs autodidactes, talentueux et passionnés depuis toujours par la programmation )
+
+//////////////////////////////////////////////////////
+Stagiaire Développeur de Jeu Vidéo Paris
+Description du poste 
+Intégré à l'équipe de développement d'un jeu et d'une application mobile, vous 
+serrez en charge développer les mécaniques de jeu, l'interfaces.... mais aussi trouver 
+des solutions techniques pour mettre en oeuvre les différents systèmes imaginés 
+par le Game Designer. 
+
+Une précédente expérience en développement iPhone est recommandée et une 
+connaissance en Objective C est un plus. 
+
+Profil du candidat 
+
+• Une connaissance de l'ObjectiveC et du C++ 
+• Une connaissance de l'OpenGL 
+• Motivé, autonome avec un esprit d'équipe 
+• Un intérêt pour le jeu vidéo 
+• Une première expérience en développement iPhone serait un plus. 
+A fournir 
+
+Lettre de motivation + CV accompagné d’une photo 
+
+A propos 
+Fondé en 2010 par 3 professionnels du jeu vidéo, Egg Ball est une société française 
+de développement de jeux vidéo, basé à Paris, dont l'objectif est de fournir aux 
+joueurs du monde entier des expériences de jeu fun avec un réel travail graphique 
+et d'adaptation de gameplay. 
+BUREAU 
+27 avenue de l’Opéra 75001 Paris 
+TÉLÉPHONE 
+01 70 38 52 97 
+FAX 
+01 70 38 51 51 
+ADRESSE ÉLECTRONIQUE 
+contact@eggball-games.com 
+WEB 
+www.eggball-games.com 
+Julien Victor 
+C.E.O -Gérant 
+EGG BALL 
+27 Avenue de l’Opéra 
+75001 Paris
+
+
+//////////////////////////////////////////////////////
+Stagiaire programmeur CYANIDE 3 à 6 mois
+Stagiaire programmeur (H/F)
+
+Si vous avez envie de découvrir l’industrie du jeu vidéo, nous vous proposons de rejoindre notre équipe. Vous participerez au développement de nos prochains jeux, vous pourrez intervenir sur l’interface graphique, ou le game play ou l’intelligence artificielle ou encore le réseau et cela en fonction de vos affinités et de vos compétences. Nous vous confierons des missions qui vous donneront de solides bases pour démarrer une carrière dans l’industrie du jeu vidéo.
+
+La seule contrainte technique pour vous est de maîtriser le C ou le C++. 
+
+Stage basé à Nanterre (92), rémunération légale, à pourvoir rapidement. Stage de 3 à 6 mois
+
+Si vous souhaitez rejoindre une équipe de passionnés, envoyez votre candidature par mail (CV + lettre de motivation) sous la référence STPROG/09 à jobs@cyanide-studio.com. Pour plus de détails sur notre studio : www.cyanide-studio.com.
+
+
+La seule contrainte technique pour vous est de maîtriser le C ou le C++.
+
+
+//////////////////////////////////////////////////////
+ffre stage "engine support programmer" Arkane stu
+Vous souhaitez effectuez un stage au sein d’une équipe internationale et multiculturelle travaillant sur des titres ambitieux et innovants ? 
+
+Alors n’hésitez pas à nous envoyer votre candidature ! 
+
+Après avoir développé «Dark Messiah of Might and Magic» et «Arx Fatalis», ARKANE STUDIOS continue d’explorer de nouveaux concepts de jeux offrant un maximum de libertés aux joueurs et une immersion complète dans des univers uniques et réalistes. 
+
+Nous travaillons actuellement au développement d’un titre encore non annoncé (pour Xbox360, PS3 et PC et développé sur «Unreal Engine 3») et proposons à des étudiants passionnés de contribuer à son développement. 
+
+Objet du stage : 
+Sous la responsabilité du Directeur Technique votre mission, consistera à fournir du support a l’ensemble de l’équipe Technique. Extrêmement polyvalent, vous comprenez les parties « bas niveau » d’un moteur ainsi que les spécificités des différentes plateformes, mais vous avez également une bonne connaissance des différents systèmes composant un jeu « current-gen ». Autonome vous êtes capable d’analyser un crash et d’évaluer rapidement si vous êtes à même de proposer une solution ou si vous devez en référer au programmeur concerné. 
+
+Profil des programmeurs : 
+- Bonne maîtrise de la programmation en C/C++ 
+- Connaissance de Unreal Engine serait un plus. 
+- Bon niveau d’anglais (savoir lire/écrire des documents et participer à une réunion de travail). 
+- Excellentes capacités de communication et d’organisation. 
+- Sens du travail en équipe. 
+
+Lieu du stage : Lyon 
+
+Période du stage : à partir d’avril 2010 et pour au moins 4 mois 
+
+Pour postuler, merci de passer par notre site : http://www.arkane-studios.fr/fr/jobs.php 
+
+Merci de Transmettre des exemples de vos références en développement de jeu vidéo (screenshots, vidéos, extrait de code, etc.).
+
+
+//////////////////////////////////////////////////////
+Offre stage "engine programmer" Arkane studios
+Vous souhaitez effectuez un stage au sein d’une équipe internationale et multiculturelle travaillant sur des titres ambitieux et innovants ? 
+
+Alors n’hésitez pas à nous envoyer votre candidature ! 
+
+Après avoir développé «Dark Messiah of Might and Magic» et «Arx Fatalis», ARKANE STUDIOS continue d’explorer de nouveaux concepts de jeux offrant un maximum de libertés aux joueurs et une immersion complète dans des univers uniques et réalistes. 
+
+Objet du stage : 
+Sous la responsabilité du Directeur Technique votre mission consistera à identifier & reproduire des bugs de compatibilités d’un ancien moteur de jeu pour PC sur des configurations récentes. Autonome vous serez amené à évaluer les meilleures options pour assurer la pérennité du moteur. Rigoureux vous aurez à cœur de peaufiner la compatibilité avec les OS actuels tout en conservant les fonctionnalités d’origine. 
+
+Profil des programmeurs : 
+- Bonne maîtrise de la programmation en C/C++ 
+- Connaissance de DirectX 
+- Connaissance de l’API Windows 
+- Excellentes capacités de communication et d’organisation. 
+- Sens du travail en équipe. 
+
+Lieu du stage : Lyon 
+
+Période du stage : à partir d’avril 2010 et pour au moins 4 mois 
+
+Pour postuler, merci de passer par notre site :http://www.arkane-studios.fr/fr/jobs.php 
+
+Merci de Transmettre des exemples de vos références en développement de jeu vidéo (screenshots, vidéos, extrait de code, etc.). 
+
+code, etc.).
+
+
+
+//////////////////////////////////////////////////////
+Stagiaire Programmeur jeu vidéo C++
+Stage Programmeur Jeu Vidéo C++ / objective C 
+iPhone / iPod Touch / autres (5 mois minimum) 
+
+Responsabilités : 
+Dans le cadre de la production d’un jeu video ou d’une application sur iPhone / iPod touch… et sous la responsabilité du « lead programmeur », développer des applications / jeux en utilisant au mieux les contraintes techniques. 
+Profil recherché : 
+
+* Bac +2 au minimum 
+
+* Personne motivée, autonome, débrouillarde et passionnée de jeux vidéo 
+
+* Expérience en conception objet (UML, Design Patterns) 
+
+* Bon niveau en C++. La connaissance d’objective C est un plus. 
+
+* Connaissance d’open GL recommandée. 
+
+* La connaissance de l’environnement Mac est un Plus 
+
+* La connaissance de Flash / action script / Facebook est un plus 
+* Capacité à communiquer avec tous les corps de métiers constituant une équipe de développement de jeu vidéo. 
+* Bon niveau en Anglais. 
+
+Document à fourni par le candidat : CV, lettre de motivation, travaux personnels, site web… 
+
+Nom de la société : Bulkypix (www.bulkypix.com) 
+
+Contact : Elodie.martinaud@bulkypix.com 
+
+Adresse de la société : 23 av. Louis Breguet. 78140 Velizy Villacoublay
+
+
+
+//////////////////////////////////////////////////////
+
+Stage : Developpement C++ 4 à 6 mois
+Stage 4-6 mois – Projet 
+« Videobox » 
+Stage : Développement C++/OpenGL d’une IHM 
+d’animation publicitaire 
+Contexte 
+Videobox est un projet de création d’entreprise innovante soutenu par Innov’Up. Il 
+prévoit de devenir un acteur majeur du marché de la publicité sur le lieu de vente (PLV) 
+par un procédé de videoprojection de grande qualité destiné aux vitrines commerciales. 
+Mission 
+Directement rattaché au responsable informatique du projet, le candidat aura pour 
+mission de développer une application de création d’animations à partir de données 
+XML et d’une banque d’images. Le stagiaire aura notamment la responsabilité : 
+- Des spécifications du schéma XML ; 
+- De la conception/réalisation de l’application générant l’IHM animée ; 
+- De la gestion globale du projet. 
+Ce stage lui assurera de fortes montées en compétences dans les domaines suivant : 
+- Gestion de projet informatique (Vous aurez l’opportunité de mener un projet 
+depuis sa phase de spécifications jusqu’à sa réalisation.) ; 
+- Développement C++/OpenGL, Qualité logicielle ; 
+- Administration de systèmes Unix. 
+Profil du candidat 
+Actuellement en école de développement logiciel 3D, le candidat recherche un stage 
+(éventuellement un stage de fin d’études) de 4 à 6 mois. Il désire capitaliser des 
+compétences dans un environnement technologique à forte valeur ajoutée novatrice. 
+Les domaines de compétences et champs d'action du candidat résident 
+essentiellement autour des thèmes suivants : 
+- Expérience en développement C++/Eclipse ; 
+- Connaissance d'OpenGL et des technologies de parsing XML ; 
+- Intérêt pour la gestion de projets informatiques et le développement OpenGL. 
+Une première expérience dans le domaine du développement C++ est souhaitée. La 
+connaissance des systèmes Linux et des notions de traitement d’images sont des 
+atouts. 
+Modalités pratiques 
+Ce stage indemnisé se déroulera au sein de l’Ecole des Mines d’Alès à Nîmes (Gard, 
+30). Il est prévu pour une durée de 4 à 6 mois, les dates sont à convenir avec le 
+candidat. 
+Merci d'envoyer un CV et une lettre de motivation à marc.de-verdelhan@mines-ales.fr. 
+Mots-clefs 
+C++, OpenGL, Eclipse, Linux, XML, méthodes Agiles, gestion de projet, traitement 
+d’images 
+Videobox
+
+//////////////////////////////////////////////////////
+ Stage programmeur Iphone
+Description de la mission 
+Votre rôle consiste à développer les fonctionnalités d’un jeu basé sur la narration interactive, en collaboration avec les game designers et sous la direction du Lead Programmeur. Vous veillerez à les rendre génériques et exploitables par un outil d’édition interne. 
+
+Le poste est à pourvoir dès que possible à Valenciennes (à 30 min de Lille). 
+
+Votre profil 
+
+Autonome, rigoureux et productif 
+Goût pour l’innovation 
+Excellent niveau en programmation C/C++, Objective-C, Cocoa 
+Maîtrise de l’environnement Mac et de Xcode 
+Connaissances d’Open GL ES 
+Vous avez déjà à votre actif au moins une production sur iPhone 
+Capacité à produire un code clair, structuré, commenté 
+Bonne communication et sens du travail en équipe 
+Bon niveau d’anglais 
+
+A fournir 
+CV 
+Lettre de motivation 
+Travaux ou site web 
+
+Description de l’entreprise 
+
+Notre entreprise est un studio indépendant fondé par trois associés spécialisés dans l’innovation et la conception de jeux. Nous tirons notre expérience de plusieurs studios de développement tels que 10Tacle, Ankama, Hydravision, Mekensleep ou encore Ubisoft. Notre projet principal est la création d’un nouveau media à la croisée du livre et du jeu vidéo à destination des plateformes mobiles. 
+
+Soutenus par des grands noms de l’industrie vidéoludique française, nous voulons proposer une alternative aux méthodes de production existantes dans un esprit jeune, moderne et rigoureux. 
+
+Contact : adrian.narcisi@byook.com
+
+//////////////////////////////////////////////////////
+
+Offres d'emploi programmeurs
+========DEVELOPPEUR 3D TEMPS REEL============ 
+
+RECHERCHE POUR UN CONTRAT A DUREE INDETERMINEE 
+HORAIRES: 35H00 HEBDO 
+LIEU DE TRAVAIL : NIMES 
+
+NIVEAU BAC +4 
+Compétences impératives en 3D temps réel : programmation moteurs 3D en C++ (shaders, physique, IHM...) 
+Compétences souhaitées : Ogre3D, import/export Softimage, Flash, iPhone. 
+SALAIRE MENSUEL BRUT DE 2350 E (INDICATIF) 
+
+========DEVELOPPEUR 3D TEMPS REEL JUNIOR============ 
+
+RECHERCHE POUR UN CONTRAT A DUREE INDETERMINEE 
+HORAIRES: 35H00 HEBDO 
+LIEU DE TRAVAIL : NIMES 
+
+NIVEAU LICENCE 
+Bonnes compétences Flash + moteurs 3D temps réel 
+Compétences souhaitées : Softimage, Flash. 
+SALAIRE MENSUEL BRUT DE 1780 E (INDICATIF) 
+
+Westimages SARL 
+13 Av du Maréchal Juin 
+81600 GAILLAC 
+FRANCE 
+tel 09 50 18 80 61 
+fax 05 63 81 48 83 
+mob. 06 22 77 92 28 
+skype "westimages_benoit" 
+www.3d-test.com is published by Westimages
+
+
+
+//////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////////////////
+
+
+
