@@ -26,6 +26,7 @@ typedef Ogre :: Vector3 Vec3;
 //#include "DotSceneLoader.h"
 #ifdef PHYSICS
 #include <btBulletDynamicsCommon.h>
+#include "OgreMotionState.h"
 #endif
 
 #include "Gorilla.h"

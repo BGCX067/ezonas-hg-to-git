@@ -56,7 +56,7 @@ CCuboid::~CCuboid()
 DWORD CCuboid::Render()
 {
 	m_pD3DDevice->SetStreamSource(0, m_pVertexBuffer, 0, sizeof(CUBOID_CUSTOMVERTEX));
-    m_pD3DDevice->SetFVF( CUBOID_D3DFVF_CUSTOMVERTEX );
+    m_pD3DDevice->SetFVF(CUBOID_D3DFVF_CUSTOMVERTEX);
 
 	if(m_pTexture != NULL)
 	{
@@ -198,8 +198,8 @@ bool CCuboid::UpdateVertices()
 	//For each vertex, calculate and set the average normal
 	for(unsigned i = 0; i < m_dwNumOfVertices; i+=4)
 	{
-		vNormal = GetTriangeNormal( &D3DXVECTOR3(cvVertices[i].x, cvVertices[i].y, cvVertices[i].z), &D3DXVECTOR3(cvVertices[i+1].x, cvVertices[i+1].y, cvVertices[i+1].z), &D3DXVECTOR3(cvVertices[i+2].x, cvVertices[i+2].y, cvVertices[i+2].z) );
-		for ( unsigned j = i; j < i+4; ++j ) 
+		vNormal = GetTriangeNormal(&D3DXVECTOR3(cvVertices[i].x, cvVertices[i].y, cvVertices[i].z), &D3DXVECTOR3(cvVertices[i+1].x, cvVertices[i+1].y, cvVertices[i+1].z), &D3DXVECTOR3(cvVertices[i+2].x, cvVertices[i+2].y, cvVertices[i+2].z));
+		for (unsigned j = i; j < i+4; ++j) 
 		{
 			cvVertices[j].nx = vNormal.x;
 			cvVertices[j].ny = vNormal.y;

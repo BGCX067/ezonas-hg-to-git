@@ -58,7 +58,7 @@ CTerrain::~CTerrain()
 DWORD CTerrain::Render()
 {
 	m_pD3DDevice->SetStreamSource(0, m_pVertexBuffer, 0, sizeof(TERRAIN_CUSTOMVERTEX));
-    m_pD3DDevice->SetFVF( TERRAIN_D3DFVF_CUSTOMVERTEX );
+    m_pD3DDevice->SetFVF(TERRAIN_D3DFVF_CUSTOMVERTEX);
 	
 	if(m_pTexture != NULL)
 	{
@@ -122,16 +122,16 @@ bool CTerrain::CreateIndexBuffer()
 
     // Indices values initialisation
 	unsigned k = 0;
-    for ( unsigned i = 0; i < m_wCols ; ++i )
+    for (unsigned i = 0; i < m_wCols; ++i)
 	{
-		for ( unsigned j = 0; j < m_wRows; ++j ) 
+		for (unsigned j = 0; j < m_wRows; ++j) 
 		{
-			pIndices[k] = ( i ) + ( j * (m_wRows+1) );
-			pIndices[k+1] = ( i ) + ( j * (m_wRows+1) ) + 1;
-			pIndices[k+2] = ( i ) + ( j * (m_wRows+1) ) + (m_wRows+1);
-			pIndices[k+3] = ( i ) + ( j * (m_wRows+1) ) + (m_wRows+2);
-			pIndices[k+4] = ( i ) + ( j * (m_wRows+1) ) + (m_wRows+1);
-			pIndices[k+5] = ( i ) + ( j * (m_wRows+1) ) + 1;
+			pIndices[k] = (i) + (j * (m_wRows+1));
+			pIndices[k+1] = (i) + (j * (m_wRows+1)) + 1;
+			pIndices[k+2] = (i) + (j * (m_wRows+1)) + (m_wRows+1);
+			pIndices[k+3] = (i) + (j * (m_wRows+1)) + (m_wRows+2);
+			pIndices[k+4] = (i) + (j * (m_wRows+1)) + (m_wRows+1);
+			pIndices[k+5] = (i) + (j * (m_wRows+1)) + 1;
 			k += 6;
 		}
 	}
@@ -183,13 +183,13 @@ bool CTerrain::UpdateVertices()
 	//Clear memory and setup vertices for terrain
 	//Setup vertices for terrain
 	unsigned k = 0;
-	for ( unsigned i = 0; i < ( (unsigned) m_wCols + 1 ); i++)
+	for (unsigned i = 0; i < ((unsigned) m_wCols + 1); i++)
 	{
-		for ( unsigned j = 0; j < ( (unsigned) m_wRows + 1 ); j++)
+		for (unsigned j = 0; j < ((unsigned) m_wRows + 1); j++)
 		{
-			pcvVertices[k].x = i * m_fTileSize - ( m_fTileSize * m_wCols / 2 );
-			pcvVertices[k].z = j * m_fTileSize - ( m_fTileSize * m_wRows / 2 );
-			pcvVertices[k].y = (m_wMaxHeight) * ( ( (float) ( rand() % 100 ) ) / 100.0f )  ;
+			pcvVertices[k].x = i * m_fTileSize - (m_fTileSize * m_wCols / 2);
+			pcvVertices[k].z = j * m_fTileSize - (m_fTileSize * m_wRows / 2);
+			pcvVertices[k].y = (m_wMaxHeight) * (((float) (rand() % 100)) / 100.0f) ;
 			++k;
 		}
 	}
@@ -199,37 +199,37 @@ bool CTerrain::UpdateVertices()
 
 	//For each triangle, count the number of times each vertex is used and
 	//add together the normals of faces that share a vertex
-	for ( unsigned i = 0 ; i < ( (unsigned) m_dwNumOfVertices + 1 ); i++)
+	for (unsigned i = 0; i < ((unsigned) m_dwNumOfVertices + 1); i++)
 	{
 		vNormal.x = 0;
 		vNormal.y = 0;
 		vNormal.z = 0;
 
 		//si  le vertex n'est pas en haut ou a droite
-		if ( ( ( i + 1 ) %  ( m_wRows + 1 )  != 1 ) && ( i  <  ( m_dwNumOfVertices - ( m_wRows ) ) ) )
+		if (((i + 1) %  (m_wRows + 1)  != 1) && (i  <  (m_dwNumOfVertices - (m_wRows))))
 		{
-			vNormal += GetTriangeNormal( &D3DXVECTOR3( pcvVertices[ i ].x, pcvVertices[ i ].y, pcvVertices[ i ].z ) , &D3DXVECTOR3( pcvVertices[ i + ( m_wRows + 1 ) - 1 ].x, pcvVertices[ i + ( m_wRows + 1 ) - 1 ].y, pcvVertices[ i + ( m_wRows + 1 ) - 1 ].z ),&D3DXVECTOR3( pcvVertices[ i - 1 ].x, pcvVertices[ i - 1 ].y, pcvVertices[ i - 1 ].z ) );
-			vNormal += GetTriangeNormal( &D3DXVECTOR3( pcvVertices[ i ].x, pcvVertices[ i ].y, pcvVertices[ i ].z ) , &D3DXVECTOR3( pcvVertices[ i + ( m_wRows + 1 ) ].x, pcvVertices[ i + ( m_wRows + 1 ) ].y, pcvVertices[ i + ( m_wRows + 1 ) ].z ),&D3DXVECTOR3( pcvVertices[ i + ( m_wRows + 1 ) - 1 ].x, pcvVertices[ i + ( m_wRows + 1 ) - 1 ].y, pcvVertices[ i + ( m_wRows + 1 ) - 1 ].z ) );
+			vNormal += GetTriangeNormal(&D3DXVECTOR3(pcvVertices[ i ].x, pcvVertices[ i ].y, pcvVertices[ i ].z) , &D3DXVECTOR3(pcvVertices[ i + (m_wRows + 1) - 1 ].x, pcvVertices[ i + (m_wRows + 1) - 1 ].y, pcvVertices[ i + (m_wRows + 1) - 1 ].z),&D3DXVECTOR3(pcvVertices[ i - 1 ].x, pcvVertices[ i - 1 ].y, pcvVertices[ i - 1 ].z));
+			vNormal += GetTriangeNormal(&D3DXVECTOR3(pcvVertices[ i ].x, pcvVertices[ i ].y, pcvVertices[ i ].z) , &D3DXVECTOR3(pcvVertices[ i + (m_wRows + 1) ].x, pcvVertices[ i + (m_wRows + 1) ].y, pcvVertices[ i + (m_wRows + 1) ].z),&D3DXVECTOR3(pcvVertices[ i + (m_wRows + 1) - 1 ].x, pcvVertices[ i + (m_wRows + 1) - 1 ].y, pcvVertices[ i + (m_wRows + 1) - 1 ].z));
 		}
 
 		//si  le vertex n'est pas en bas ou a gauche
-		if ( ( i %  ( m_wRows + 1 )  != 0 ) && ( i  > ( ( unsigned ) m_wRows ) ) )
+		if ((i %  (m_wRows + 1)  != 0) && (i  > ((unsigned) m_wRows)))
 		{
-			vNormal += GetTriangeNormal( &D3DXVECTOR3( pcvVertices[ i ].x, pcvVertices[ i ].y, pcvVertices[ i ].z ) , &D3DXVECTOR3( pcvVertices[ i - ( m_wRows + 1 ) ].x, pcvVertices[ i - ( m_wRows + 1 ) ].y, pcvVertices[ i - ( m_wRows + 1 ) ].z ),&D3DXVECTOR3( pcvVertices[ i - ( m_wRows + 1 ) + 1 ].x, pcvVertices[ i - ( m_wRows + 1 ) + 1 ].y, pcvVertices[ i - ( m_wRows + 1 ) + 1 ].z ) );
-			vNormal += GetTriangeNormal( &D3DXVECTOR3( pcvVertices[ i ].x, pcvVertices[ i ].y, pcvVertices[ i ].z ) , &D3DXVECTOR3( pcvVertices[ i - ( m_wRows + 1 ) + 1 ].x, pcvVertices[ i - ( m_wRows + 1 ) + 1 ].y, pcvVertices[ i - ( m_wRows + 1 ) + 1 ].z ),&D3DXVECTOR3( pcvVertices[ i + 1 ].x, pcvVertices[ i + 1 ].y, pcvVertices[ i + 1 ].z ) );
+			vNormal += GetTriangeNormal(&D3DXVECTOR3(pcvVertices[ i ].x, pcvVertices[ i ].y, pcvVertices[ i ].z) , &D3DXVECTOR3(pcvVertices[ i - (m_wRows + 1) ].x, pcvVertices[ i - (m_wRows + 1) ].y, pcvVertices[ i - (m_wRows + 1) ].z),&D3DXVECTOR3(pcvVertices[ i - (m_wRows + 1) + 1 ].x, pcvVertices[ i - (m_wRows + 1) + 1 ].y, pcvVertices[ i - (m_wRows + 1) + 1 ].z));
+			vNormal += GetTriangeNormal(&D3DXVECTOR3(pcvVertices[ i ].x, pcvVertices[ i ].y, pcvVertices[ i ].z) , &D3DXVECTOR3(pcvVertices[ i - (m_wRows + 1) + 1 ].x, pcvVertices[ i - (m_wRows + 1) + 1 ].y, pcvVertices[ i - (m_wRows + 1) + 1 ].z),&D3DXVECTOR3(pcvVertices[ i + 1 ].x, pcvVertices[ i + 1 ].y, pcvVertices[ i + 1 ].z));
 		}
 
 
 		//si  le vertex n'est pas en haut ou a gauche
-		if ( ( ( i + 1 ) %  ( m_wRows + 1 )  != 1 ) && ( i  > ( unsigned ) ( m_wRows ) ) )
+		if (((i + 1) %  (m_wRows + 1)  != 1) && (i  > (unsigned) (m_wRows)))
 		{
-			vNormal += GetTriangeNormal( &D3DXVECTOR3( pcvVertices[ i ].x, pcvVertices[ i ].y, pcvVertices[ i ].z ) , &D3DXVECTOR3( pcvVertices[ i - 1 ].x, pcvVertices[ i - 1 ].y, pcvVertices[ i - 1 ].z ),&D3DXVECTOR3( pcvVertices[ i - ( m_wRows + 1 ) ].x, pcvVertices[ i - ( m_wRows + 1 ) ].y, pcvVertices[ i - ( m_wRows + 1 ) ].z ) );
+			vNormal += GetTriangeNormal(&D3DXVECTOR3(pcvVertices[ i ].x, pcvVertices[ i ].y, pcvVertices[ i ].z) , &D3DXVECTOR3(pcvVertices[ i - 1 ].x, pcvVertices[ i - 1 ].y, pcvVertices[ i - 1 ].z),&D3DXVECTOR3(pcvVertices[ i - (m_wRows + 1) ].x, pcvVertices[ i - (m_wRows + 1) ].y, pcvVertices[ i - (m_wRows + 1) ].z));
 		}
 
 		//si  le vertex n'est pas en bas ou a droite
-		if ( ( i %  ( m_wRows + 1 )  != 0 ) && ( i  <  ( m_dwNumOfVertices - ( m_wRows ) ) ) )
+		if ((i %  (m_wRows + 1)  != 0) && (i  <  (m_dwNumOfVertices - (m_wRows))))
 		{
-			vNormal += GetTriangeNormal( &D3DXVECTOR3( pcvVertices[ i ].x, pcvVertices[ i ].y, pcvVertices[ i ].z ) , &D3DXVECTOR3( pcvVertices[ i + 1 ].x, pcvVertices[ i + 1 ].y, pcvVertices[ i + 1 ].z ),&D3DXVECTOR3( pcvVertices[ i + ( m_wRows + 1 ) ].x, pcvVertices[ i + ( m_wRows + 1 ) ].y, pcvVertices[ i + ( m_wRows + 1 ) ].z ) );
+			vNormal += GetTriangeNormal(&D3DXVECTOR3(pcvVertices[ i ].x, pcvVertices[ i ].y, pcvVertices[ i ].z) , &D3DXVECTOR3(pcvVertices[ i + 1 ].x, pcvVertices[ i + 1 ].y, pcvVertices[ i + 1 ].z),&D3DXVECTOR3(pcvVertices[ i + (m_wRows + 1) ].x, pcvVertices[ i + (m_wRows + 1) ].y, pcvVertices[ i + (m_wRows + 1) ].z));
 		}
 
 		D3DXVec3Normalize(&vNormal, &vNormal);
@@ -246,15 +246,15 @@ bool CTerrain::UpdateVertices()
 	//For each vertex, calculate the textures coordonates
 	int iX, iY;
 	k = 0;
-	for ( unsigned i = 0; i < ( (unsigned) m_wCols + 1 ); i++)
+	for (unsigned i = 0; i < ((unsigned) m_wCols + 1); i++)
 	{
-		iX = ( i % 2 );
+		iX = (i % 2);
 		iY = 0;
-		for ( unsigned j = 0; j < ( (unsigned) m_wRows + 1 ); j++)
+		for (unsigned j = 0; j < ((unsigned) m_wRows + 1); j++)
 		{
-			pcvVertices[k].tu = ( float )iX;
-			pcvVertices[k].tv = ( float )iY;
-			iY = ( iY + 1 ) % 2 ; 
+			pcvVertices[k].tu = (float)iX;
+			pcvVertices[k].tv = (float)iY;
+			iY = (iY + 1) % 2; 
 			++k;
 		}
 	}
@@ -275,7 +275,7 @@ bool CTerrain::UpdateVertices()
 	
 
 	//Clean up
-	SafeDelete( pcvVertices );
+	SafeDelete(pcvVertices);
 	pcvVertices = NULL;
 
 	return true;

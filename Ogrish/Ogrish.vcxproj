@@ -82,6 +82,7 @@
     <ClInclude Include="ConfMgr.h" />
     <ClInclude Include="Gorilla.h" />
     <ClInclude Include="LaserCast.h" />
+    <ClInclude Include="OgreMotionState.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +98,7 @@
     <ClCompile Include="Gorilla.cpp" />
     <ClCompile Include="InitGorilla.cpp" />
     <ClCompile Include="LaserCast.cpp" />
+    <ClCompile Include="OgreMotionState.cpp" />
     <ClCompile Include="Ogrish_main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
