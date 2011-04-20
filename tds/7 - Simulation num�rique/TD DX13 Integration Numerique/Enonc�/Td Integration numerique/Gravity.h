@@ -24,8 +24,8 @@ class Gravity : public Behavior
 
 	public :
 
-		Gravity( D3DXVECTOR3* _vPosition, D3DXVECTOR3* _vVelocity );
-		virtual void Update( float _fTimeDelta );
+		Gravity(D3DXVECTOR3* _vPosition, D3DXVECTOR3* _vVelocity);
+		virtual void Update(float _fTimeDelta);
 };
 
 #endif //GRAVITY__H

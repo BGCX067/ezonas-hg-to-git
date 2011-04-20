@@ -80,10 +80,10 @@ void CameraThirdPerson::update(float timeDelta)
 	    D3DXVec3Normalize(&_up, &_up);
     }
 
-	if( ::GetAsyncKeyState('Q') & 0x8000f )
+	if(::GetAsyncKeyState('Q') & 0x8000f)
 		strafe(-4.0f * timeDelta);
 
-	if( ::GetAsyncKeyState('D') & 0x8000f )
+	if(::GetAsyncKeyState('D') & 0x8000f)
 		strafe(4.0f * timeDelta);
 }
 

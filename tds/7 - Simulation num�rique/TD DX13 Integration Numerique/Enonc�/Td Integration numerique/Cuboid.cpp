@@ -56,7 +56,7 @@ CCuboid::~CCuboid()
 DWORD CCuboid::Render()
 {
 	m_pD3DDevice->SetStreamSource(0, m_pVertexBuffer, 0, sizeof(CUBOID_CUSTOMVERTEX));
-    m_pD3DDevice->SetFVF( CUBOID_D3DFVF_CUSTOMVERTEX );
+    m_pD3DDevice->SetFVF(CUBOID_D3DFVF_CUSTOMVERTEX);
 
 	if(m_pTexture != NULL)
 	{
@@ -390,22 +390,22 @@ void CCuboid::pitch(float angle)
 
 void CCuboid::Update(float timeDelta)
 {	
-	if( ::GetAsyncKeyState('Z') & 0x8000f )
+	if(::GetAsyncKeyState('Z') & 0x8000f)
 		move(16.0f * timeDelta);
 
-	if( ::GetAsyncKeyState('S') & 0x8000f )
+	if(::GetAsyncKeyState('S') & 0x8000f)
 		move(-16.0f * timeDelta);
 
-	if( ::GetAsyncKeyState(VK_UP) & 0x8000f )
+	if(::GetAsyncKeyState(VK_UP) & 0x8000f)
 		pitch(1.0f * timeDelta);
 
-	if( ::GetAsyncKeyState(VK_DOWN) & 0x8000f )
+	if(::GetAsyncKeyState(VK_DOWN) & 0x8000f)
 		pitch(-1.0f * timeDelta);
 
-	if( ::GetAsyncKeyState(VK_LEFT) & 0x8000f )
+	if(::GetAsyncKeyState(VK_LEFT) & 0x8000f)
 		yaw(-2.0f * timeDelta);
 		
-	if( ::GetAsyncKeyState(VK_RIGHT) & 0x8000f )
+	if(::GetAsyncKeyState(VK_RIGHT) & 0x8000f)
 		yaw(2.0f * timeDelta);
 }
 

@@ -1,31 +1,31 @@
 #include "Game.h"
 
-LRESULT WINAPI MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
+LRESULT WINAPI MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	//Game::GetSingleton()->Render();
-    switch( msg )
+    switch(msg)
     {
         case WM_DESTROY:
-            PostQuitMessage( 0 );
+            PostQuitMessage(0);
             return 0;
 
         case WM_PAINT:
             Game::GetSingleton()->Render();
-            ValidateRect( hWnd, NULL );
+            ValidateRect(hWnd, NULL);
             return 0;
 		case WM_KEYDOWN:
-		if( wParam == VK_ESCAPE )
+		if(wParam == VK_ESCAPE)
 			::DestroyWindow(hWnd);
     }
 
-    return DefWindowProc( hWnd, msg, wParam, lParam );
+    return DefWindowProc(hWnd, msg, wParam, lParam);
 }
 
-INT WINAPI WinMain( HINSTANCE hInst, HINSTANCE hPrev, LPSTR lCmd, INT i)
+INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrev, LPSTR lCmd, INT i)
 {
-	Game *G = Game::GetSingleton() ; 
+	Game *G = Game::GetSingleton(); 
 
-	G->SetName(L"TD5 Cameras") ;
+	G->SetName(L"TD5 Cameras");
 
-	G->wWinMain(MsgProc, hInst, hPrev, lCmd, i) ;
+	G->wWinMain(MsgProc, hInst, hPrev, lCmd, i);
 }

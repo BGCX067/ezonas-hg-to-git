@@ -27,19 +27,19 @@ class Behavior
 		~Behavior();
 
 		//accesseurs
-		void SetForces( D3DXVECTOR3 _vForce );
-		void AddForces( D3DXVECTOR3 _vForce );
+		void SetForces(D3DXVECTOR3 _vForce);
+		void AddForces(D3DXVECTOR3 _vForce);
 		void ResetForces();
-		void SetAcceleration( D3DXVECTOR3 _vAcceleration );
-		void AddAcceleration( D3DXVECTOR3 _vAcceleration );
+		void SetAcceleration(D3DXVECTOR3 _vAcceleration);
+		void AddAcceleration(D3DXVECTOR3 _vAcceleration);
 		void ResetAcceleration();
-		void SetVelocity( D3DXVECTOR3 _vVelocity );
-		void AddVelocity( D3DXVECTOR3 _vVelocity );
+		void SetVelocity(D3DXVECTOR3 _vVelocity);
+		void AddVelocity(D3DXVECTOR3 _vVelocity);
 		void ResetVelocity();
-		void SetPosition( D3DXVECTOR3 _vPosition );
-		void AddPosition( D3DXVECTOR3 _vPosition );
+		void SetPosition(D3DXVECTOR3 _vPosition);
+		void AddPosition(D3DXVECTOR3 _vPosition);
 		void ResetPosition();
-		virtual void Update( float _fTimeDelta );
+		virtual void Update(float _fTimeDelta);
 		D3DXVECTOR3 GetForce();
 		D3DXVECTOR3 GetAcceleration();
 		D3DXVECTOR3 GetVelocity();

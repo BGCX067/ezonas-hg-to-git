@@ -1,51 +1,45 @@
 #include "Game.h"
 
-LPDIRECT3D9         Game::m_D3D = NULL ; 
-LPDIRECT3DDEVICE9   Game::m_D3DDevice = NULL ; 
+LPDIRECT3D9         Game::m_D3D = NULL; 
+LPDIRECT3DDEVICE9   Game::m_D3DDevice = NULL; 
 
 Game::Game()
 {
-	m_iX = 0 ;
-	m_iY = 0 ; 
-	m_iL = 800 ;
-	m_iH = 600 ; 
-	m_iR = 0 ;
-	m_iG = 0 ;
-	m_iB = 0 ;
+	m_iX = 0;
+	m_iY = 0; 
+	m_iL = 800;
+	m_iH = 600; 
+	m_iR = 0;
+	m_iG = 0;
+	m_iB = 0;
 	
-	m_szWindowName = L"Application" ;
+	m_szWindowName = L"Application";
 
-	m_vInitPosition = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
-	m_vInitVelocity = D3DXVECTOR3( 0.0f, 10.0f, 5.0f );
+	m_vInitPosition = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	m_vInitVelocity = D3DXVECTOR3(0.0f, 10.0f, 5.0f);
 
-	m_flKeyDown = 0 ;
-	m_flKeyDown2 = 0 ;
+	m_flKeyDown = 0;
+	m_flKeyDown2 = 0;
 }
 
 Game::~Game()
 {
 	//release le device
-	SafeRelease( m_D3DDevice );
+	SafeRelease(m_D3DDevice);
 
 	//release l'interface DX9
-    SafeRelease( m_D3D );
+    SafeRelease(m_D3D);
 }
-
 Game* Game::GetSingleton()
 {
-	static Game InstanceUnique ;
+	static Game InstanceUnique;
 
-	return &InstanceUnique ;
+	return &InstanceUnique;
 }
-
-//-----------------------------------------------------------------------------
-// Name: InitD3D()
-// Desc: Initializes Direct3D
-//-----------------------------------------------------------------------------
-HRESULT Game::InitD3D( HWND hWnd )
+HRESULT Game::InitD3D(HWND hWnd)
 {
     // Create the D3D object, which is needed to create the D3DDevice.
-    if( NULL == ( m_D3D = Direct3DCreate9( D3D_SDK_VERSION ) ) )
+    if(NULL == (m_D3D = Direct3DCreate9(D3D_SDK_VERSION)))
         return E_FAIL;
 
     // Set up the structure used to create the D3DDevice. Most parameters are
@@ -55,7 +49,7 @@ HRESULT Game::InitD3D( HWND hWnd )
     // we request a back buffer format that matches the current desktop display 
     // format.
     D3DPRESENT_PARAMETERS d3dpp;
-    ZeroMemory( &d3dpp, sizeof(d3dpp) );
+    ZeroMemory(&d3dpp, sizeof(d3dpp));
     d3dpp.Windowed = TRUE;
     d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
     d3dpp.BackBufferFormat = D3DFMT_UNKNOWN;
@@ -70,20 +64,19 @@ HRESULT Game::InitD3D( HWND hWnd )
     // specified since we know it will work on all cards. On cards that support 
     // hardware vertex processing, though, we would see a big performance gain 
     // by specifying hardware vertex processing.
-    if( FAILED( m_D3D->CreateDevice( D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd,
+    if(FAILED(m_D3D->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd,
                                       D3DCREATE_SOFTWARE_VERTEXPROCESSING,
-                                      &d3dpp, &m_D3DDevice ) ) )
+                                      &d3dpp, &m_D3DDevice)))
     {
         return E_FAIL;
     }
 
     // Device state would normally be set here
-	InitialiseLights() ;
-	SetupCamera() ;
+	InitialiseLights();
+	SetupCamera();
 
     return S_OK;
 }
-
 void Game::InitialiseLights()
 {	
 	D3DLIGHT9 d3dLight;
@@ -108,19 +101,17 @@ void Game::InitialiseLights()
 	d3dLight.Direction = D3DXVECTOR3(-1.0, -1.0, 0.0);
 
 	//Assign the point light to our device in position (index) 0
-	m_D3DDevice->SetLight(0, &d3dLight) ;
+	m_D3DDevice->SetLight(0, &d3dLight);
 
 	//Enable our point light in position (index) 0
-	m_D3DDevice->LightEnable(0, TRUE) ;
+	m_D3DDevice->LightEnable(0, TRUE);
 
 	//Turn on lighting
-    m_D3DDevice->SetRenderState(D3DRS_LIGHTING, TRUE) ;
+    m_D3DDevice->SetRenderState(D3DRS_LIGHTING, TRUE);
 
 	//Set ambient light level
-	m_D3DDevice->SetRenderState(D3DRS_AMBIENT, D3DCOLOR_XRGB(60, 60, 60)) ;
+	m_D3DDevice->SetRenderState(D3DRS_AMBIENT, D3DCOLOR_XRGB(60, 60, 60));
 }
-
-
 void Game::SetupCamera()
 {
 	//Here we will setup the camera.
@@ -140,14 +131,9 @@ void Game::SetupCamera()
     D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI/4, 1.0f, 1.0f, 2000.0f);
     m_D3DDevice->SetTransform(D3DTS_PROJECTION, &matProj);
 }
-
-//-----------------------------------------------------------------------------
-// Name: Render()
-// Desc: Draws the scene
-//-----------------------------------------------------------------------------
 void Game::Render()
 {
-    if( NULL == m_D3DDevice )
+    if(NULL == m_D3DDevice)
         return;
 
 	// Clear the backbuffer to a blue color
@@ -156,153 +142,121 @@ void Game::Render()
 	CameraManager* pCamManager = CameraManager::getCameraManager();
     CameraMode mode;
     pCamManager->getCameraMode(mode);
+	// space, R, 8642, 
+	if (::GetAsyncKeyState(VK_NUMPAD8)) m_vInitVelocity.z += 0.1f;
+	if (::GetAsyncKeyState(VK_NUMPAD2)) m_vInitVelocity.z -= 0.1f;
+	if (::GetAsyncKeyState(VK_NUMPAD6)) m_vInitVelocity.x += 0.1f;
+	if (::GetAsyncKeyState(VK_NUMPAD4)) m_vInitVelocity.x -= 0.1f;
+	if (::GetAsyncKeyState(VK_ADD)) m_vInitVelocity *= 1.05f;
+	if (::GetAsyncKeyState(VK_SUBTRACT)) m_vInitVelocity /= 1.05f;
 
-	if ( ::GetAsyncKeyState( VK_NUMPAD8 ) ) 
-	{
-		m_vInitVelocity.z += 0.1f;
-	}
-
-	if ( ::GetAsyncKeyState( VK_NUMPAD2 ) ) 
-	{
-		m_vInitVelocity.z -= 0.1f;
-	}
-
-	if ( ::GetAsyncKeyState( VK_NUMPAD6 ) ) 
-	{
-		m_vInitVelocity.x += 0.1f;
-	}
-
-	if ( ::GetAsyncKeyState( VK_NUMPAD4 ) ) 
-	{
-		m_vInitVelocity.x -= 0.1f;
-	}
-	
-	if ( ::GetAsyncKeyState( VK_ADD ) ) 
-	{
-		m_vInitVelocity *= 1.05f;
-	}
-
-	if ( ::GetAsyncKeyState( VK_SUBTRACT ) ) 
-	{
-		m_vInitVelocity /= 1.05f;
-	}
-
-	if ( ::GetAsyncKeyState( 'R' ) ) 
+	if (::GetAsyncKeyState('R')) 
 	{
 		m_bLaunch = false;
-		m_Cube->SetPosition ( m_vInitPosition.x, m_vInitPosition.y, m_vInitPosition.z );
-		CameraManager::getCameraManager()->setCameraMode(CAMDEBUG) ;
+		m_Cube->SetPosition (m_vInitPosition.x, m_vInitPosition.y, m_vInitPosition.z);
+		CameraManager::getCameraManager()->setCameraMode(CAMDEBUG);
 	}
 	
-	if ( ::GetAsyncKeyState( VK_SPACE ) && ( m_flKeyDown2 == 0 ) && ( m_bLaunch == false ) ) 
+	if (::GetAsyncKeyState(VK_SPACE) && (m_flKeyDown2 == 0) && (m_bLaunch == false)) 
 	{
-		m_CubePhys = new Gravity( &m_vInitPosition, &m_vInitVelocity );
+		m_CubePhys = new Gravity(&m_vInitPosition, &m_vInitVelocity);
 		m_bLaunch = true;
 		m_flKeyDown2 = true;
-		CameraManager::getCameraManager()->setCameraMode(CAMTHIRD) ;
-		CameraManager::getCameraManager()->setTarget(m_Cube) ;
+		CameraManager::getCameraManager()->setCameraMode(CAMTHIRD);
+		CameraManager::getCameraManager()->setTarget(m_Cube);
 	}
 	
-	if ( !::GetAsyncKeyState( VK_SPACE ) ) 
-	{
-		m_flKeyDown2 = false;
-	}
+	if (!::GetAsyncKeyState(VK_SPACE)) m_flKeyDown2 = false;
 
-	if ( m_bLaunch )
+	if (m_bLaunch)
 	{
-		m_CubePhys->Update( 0.1f );
+		m_CubePhys->Update(0.1f);
 		D3DXVECTOR3 vPos = m_CubePhys->GetPosition();
-		m_Cube->SetPosition ( vPos.x, vPos.y, vPos.z );
+		m_Cube->SetPosition (vPos.x, vPos.y, vPos.z);
 
-		if ( ( fabs( vPos.x ) > 300 ) || ( fabs( vPos.y ) > 100 ) || ( fabs( vPos.z ) > 300 ) )
+		if ((fabs(vPos.x) > 50) || (fabs(vPos.y) > 100) || (fabs(vPos.z) > 50))
 		{
 			m_bLaunch = false;
-			m_Cube->SetPosition ( m_vInitPosition.x, m_vInitPosition.y, m_vInitPosition.z );
-			CameraManager::getCameraManager()->setCameraMode(CAMDEBUG) ;
+			m_Cube->SetPosition (m_vInitPosition.x, m_vInitPosition.y, m_vInitPosition.z);
+			CameraManager::getCameraManager()->setCameraMode(CAMDEBUG);
 		}
 	}
 
-	pCamManager->update(0.1f) ;
+	pCamManager->update(0.1f);
 
     // Begin the scene
-    if( SUCCEEDED( m_D3DDevice->BeginScene() ) )
+    if(SUCCEEDED(m_D3DDevice->BeginScene()))
     {
 	    // Rendering of scene objects can happen here
 
-		m_Cube->Display(m_D3DDevice, 0.1f) ;
-		m_Cube->Render() ;
+		m_Cube->Display(m_D3DDevice, 0.1f);
+		m_Cube->Render();
 
-		D3DXVECTOR3 vLook( m_vInitVelocity.x, m_vInitVelocity.y, m_vInitVelocity.z );
-		m_Gun->SetLook( &vLook );
-		m_Gun->SetSize( 2.0f, 2.0f, D3DXVec3Length( &m_vInitVelocity ) );
-		m_Gun->Display( m_D3DDevice, 0.1f ) ;
-		m_Gun->Render() ;
+		D3DXVECTOR3 vLook(m_vInitVelocity.x, m_vInitVelocity.y, m_vInitVelocity.z);
+		m_Gun->SetLook(&vLook);
+		m_Gun->SetSize(2.0f, 2.0f, D3DXVec3Length(&m_vInitVelocity));
+		m_Gun->Display(m_D3DDevice, 0.1f);
+		m_Gun->Render();
 
-		D3DXMATRIX M ;
-		D3DXMatrixIdentity(&M) ;
-		m_D3DDevice->SetTransform(D3DTS_WORLD, &M) ;
-		m_Terrain->Render() ;
+		D3DXMATRIX M;
+		D3DXMatrixIdentity(&M);
+		m_D3DDevice->SetTransform(D3DTS_WORLD, &M);
+		m_Terrain->Render();
 
 		D3DXVECTOR3 a;
-		CameraManager::getCameraManager()->getPosition(&a) ;
+		CameraManager::getCameraManager()->getPosition(&a);
 
         // End the scene
         m_D3DDevice->EndScene();
     }
 
     // Present the backbuffer contents to the display
-    m_D3DDevice->Present( NULL, NULL, NULL, NULL );
+    m_D3DDevice->Present(NULL, NULL, NULL, NULL);
 }
-
-
-//-----------------------------------------------------------------------------
-// Name: wWinMain()
-// Desc: The application's entry point
-//-----------------------------------------------------------------------------
-INT WINAPI Game::wWinMain(WNDPROC _MsgProc, HINSTANCE hInst, HINSTANCE, LPSTR, INT )
+INT WINAPI Game::wWinMain(WNDPROC _MsgProc, HINSTANCE hInst, HINSTANCE, LPSTR, INT)
 {
     // Register the window class
     WNDCLASSEX wc =
     {
-		sizeof( WNDCLASSEX ), 
+		sizeof(WNDCLASSEX), 
 		CS_CLASSDC, 
 		_MsgProc, 
 		0L, 
 		0L,
-        GetModuleHandle( NULL ), 
+        GetModuleHandle(NULL), 
 		NULL, NULL, NULL, NULL,
         L"D3D Initiation", NULL
     };
 
-    RegisterClassEx( &wc );
+    RegisterClassEx(&wc);
 
     // Create the application's window
-    HWND hWnd = CreateWindow( L"D3D Initiation", m_szWindowName,
+    HWND hWnd = CreateWindow(L"D3D Initiation", m_szWindowName,
                               WS_OVERLAPPEDWINDOW, m_iX, m_iY, m_iL, m_iH,
-                              NULL, NULL, wc.hInstance, NULL );
+                              NULL, NULL, wc.hInstance, NULL);
 
     // Initialize Direct3D
-    if( SUCCEEDED( InitD3D( hWnd ) ) )
+    if(SUCCEEDED(InitD3D(hWnd)))
     {
 		//loading of object can append here 
-		m_Cube = new CCuboid(m_D3DDevice, 0.0f, 0.0f, 0.0f );
-		m_Cube->SetTexture(L"cube.bmp") ;
-		m_Cube->SetSize( 1.5f, 1.5f, 1.5f );
+		m_Cube = new CCuboid(m_D3DDevice, 0.0f, 0.0f, 0.0f);
+		m_Cube->SetTexture(L"cube.bmp");
+		m_Cube->SetSize(1.5f, 1.5f, 1.5f);
 
-		m_Gun = new CCuboid(m_D3DDevice, 0.0f, 0.0f, 0.0f );
-		m_Gun->SetSize( 2.0f, 2.0f, 10.0f );
+		m_Gun = new CCuboid(m_D3DDevice, 0.0f, 0.0f, 0.0f);
+		m_Gun->SetSize(2.0f, 2.0f, 10.0f);
 
-		m_Terrain = new CTerrain(m_D3DDevice, 30, 30, 10,1) ;
-		m_Terrain->SetTexture(L"Grass.bmp") ;
+		m_Terrain = new CTerrain(m_D3DDevice, 30, 30, 10,1);
+		m_Terrain->SetTexture(L"Grass.bmp");
 
-		CameraManager::getCameraManager()->setTarget(m_Cube) ;
-		CameraManager::getCameraManager()->setCameraMode(CAMTHIRD) ;
-		CameraManager::getCameraManager()->update(0.1f) ;
-		CameraManager::getCameraManager()->setCameraMode(CAMDEBUG) ;
+		CameraManager::getCameraManager()->setTarget(m_Cube);
+		CameraManager::getCameraManager()->setCameraMode(CAMTHIRD);
+		CameraManager::getCameraManager()->update(0.1f);
+		CameraManager::getCameraManager()->setCameraMode(CAMDEBUG);
 
         // Show the window
-        ShowWindow( hWnd, SW_SHOWDEFAULT );
-        UpdateWindow( hWnd );
+        ShowWindow(hWnd, SW_SHOWDEFAULT);
+        UpdateWindow(hWnd);
         
         // Enter the message loop
 		MSG msg; 
@@ -328,7 +282,7 @@ INT WINAPI Game::wWinMain(WNDPROC _MsgProc, HINSTANCE hInst, HINSTANCE, LPSTR, I
 		}
 	}
 
-    UnregisterClass( L"D3D Initiation", wc.hInstance );
+    UnregisterClass(L"D3D Initiation", wc.hInstance);
 
     return 0;
 }

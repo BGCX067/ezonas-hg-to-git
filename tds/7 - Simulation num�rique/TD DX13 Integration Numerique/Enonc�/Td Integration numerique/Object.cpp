@@ -29,7 +29,7 @@ bool Object::Display(IDirect3DDevice9* Device, float timeDelta)
 	static float y = 0.0f;
 	D3DXMatrixRotationY(&yRot, y);
 	//y += timeDelta;
-	if( y >= 6.28f )
+	if(y >= 6.28f)
 		y = 0.0f;
 
 	// Keep camera's axes orthogonal to each other

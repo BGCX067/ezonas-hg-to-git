@@ -58,7 +58,7 @@ CTerrain::~CTerrain()
 DWORD CTerrain::Render()
 {
 	m_pD3DDevice->SetStreamSource(0, m_pVertexBuffer, 0, sizeof(TERRAIN_CUSTOMVERTEX));
-    m_pD3DDevice->SetFVF( TERRAIN_D3DFVF_CUSTOMVERTEX );
+    m_pD3DDevice->SetFVF(TERRAIN_D3DFVF_CUSTOMVERTEX);
 	
 	if(m_pTexture != NULL)
 	{

@@ -60,28 +60,28 @@ void CameraDebug::update(float timeDelta)
 	// Update: Update the CameraDebug.
 	//
 
-	if( ::GetAsyncKeyState('Z') & 0x8000f )
+	if(::GetAsyncKeyState('Z') & 0x8000f)
 		walk(4.0f * timeDelta);
 
-	if( ::GetAsyncKeyState('S') & 0x8000f )
+	if(::GetAsyncKeyState('S') & 0x8000f)
 		walk(-4.0f * timeDelta);
 
-	if( ::GetAsyncKeyState('Q') & 0x8000f )
+	if(::GetAsyncKeyState('Q') & 0x8000f)
 		strafe(-4.0f * timeDelta);
 
-	if( ::GetAsyncKeyState('D') & 0x8000f )
+	if(::GetAsyncKeyState('D') & 0x8000f)
 		strafe(4.0f * timeDelta);
 
-	if( ::GetAsyncKeyState(VK_UP) & 0x8000f )
+	if(::GetAsyncKeyState(VK_UP) & 0x8000f)
 		pitch(-1.0f * timeDelta);
 
-	if( ::GetAsyncKeyState(VK_DOWN) & 0x8000f )
+	if(::GetAsyncKeyState(VK_DOWN) & 0x8000f)
 		pitch(1.0f * timeDelta);
 
-	if( ::GetAsyncKeyState(VK_LEFT) & 0x8000f )
+	if(::GetAsyncKeyState(VK_LEFT) & 0x8000f)
 		yaw(-1.0f * timeDelta);
 		
-	if( ::GetAsyncKeyState(VK_RIGHT) & 0x8000f )
+	if(::GetAsyncKeyState(VK_RIGHT) & 0x8000f)
 		yaw(1.0f * timeDelta);
 
 }
