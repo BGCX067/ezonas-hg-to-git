@@ -10,6 +10,6 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 		+ TO_STR(window -> getBatchCount()) + " bat"
 	);
 	frame_time = evt.timeSinceLastFrame;
-	return fpersoncam -> update();//evt.timeSinceLastFrame);
+	return cam_ctrlr -> update();//evt.timeSinceLastFrame);
 }
 

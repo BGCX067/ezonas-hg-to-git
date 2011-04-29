@@ -1,8 +1,7 @@
 #include "stdafx.h"
-template<> FPersonCam * Ogre :: Singleton <FPersonCam> :: ms_Singleton = 0;
+template<> CameraController * Ogre :: Singleton <CameraController> :: ms_Singleton = 0;
 
-// FPersonCam :: FPersonCam
-FPersonCam :: FPersonCam ():
+CameraController :: CameraController ():
 
 
 	rotating_speed	(ConfMgr :: getSingletonPtr() -> GetFloat ("rotating_speed")),
@@ -15,7 +14,8 @@ FPersonCam :: FPersonCam ():
 	bullet_tracer	(BulletTracer :: Instantiate()),
 	stop			(false),
 	frame_time		(Application :: getSingletonPtr() -> GetFT()),
-	translate		(Vec3(0,0,0))
+	translate		(Vec3(0,0,0)),
+	translate2		(Vec3(0,0,0))
 {
 	cam_pitch -> attachObject(cam);
 	ParamList parameters;
@@ -49,7 +49,7 @@ FPersonCam :: FPersonCam ():
 	keyboard -> setEventCallback(this);
 
 }
-FPersonCam :: ~ FPersonCam()
+CameraController :: ~ CameraController()
 {
 	inputmanager -> destroyInputObject(mouse);
 	inputmanager -> destroyInputObject(keyboard);
@@ -58,7 +58,7 @@ FPersonCam :: ~ FPersonCam()
 	//delete lasercast;
 	//delete bullet_tracer;
 }
-bool FPersonCam :: update ()//float frame_time)
+bool CameraController :: update ()//float frame_time)
 {
 	keyboard -> capture();
 	mouse -> capture();
@@ -83,7 +83,7 @@ bool FPersonCam :: update ()//float frame_time)
 }
 
 // mouse ////////////////////////////////////
-bool FPersonCam :: mouseMoved(const OIS::MouseEvent &e)
+bool CameraController :: mouseMoved(const OIS::MouseEvent &e)
 {
 	//cam_yaw -> yaw(Radian(- mouse -> getMouseState().X.rel * rotating_speed));
 	//cam_pitch -> pitch(Radian(- mouse -> getMouseState().Y.rel * rotating_speed));
@@ -91,7 +91,7 @@ bool FPersonCam :: mouseMoved(const OIS::MouseEvent &e)
 	cam_pitch -> pitch(Radian(- e.state.Y.rel * rotating_speed));
     return true;
 }
-bool FPersonCam :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
+bool CameraController :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
 	//if (mouse -> getMouseState() . buttonDown(MB_Left))
 	//if (MB_Left == e.state.)
@@ -100,80 +100,51 @@ bool FPersonCam :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 		bullet_tracer -> Fire();
     return true;
 }
-bool FPersonCam :: mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
+bool CameraController :: mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
     return true;
 }
 // keyboard ////////////////////////////////////
-bool FPersonCam :: keyPressed(const OIS::KeyEvent &e)
+bool CameraController :: keyPressed(const OIS::KeyEvent &e)
 {
 	switch(e.key)
 	{
-	case KC_ESCAPE:stop = true; break;
-	case KC_UP:
-	case KC_W: translate.z = - 1.f; break;
+	case KC_ESCAPE:
+		stop = true; break;
 
-	case KC_DOWN:
-	case KC_S: translate.z =  1.f; break;
-
-	case KC_LEFT:
-	case KC_A: translate.x = - 1.f; break;
-
-	case KC_RIGHT:
-	case KC_D: translate.x =  1.f; break;
-
-	case KC_PGUP:
-	case KC_Q: translate.y = - 1.f; break;
-
-	case KC_PGDOWN:
-	case KC_E: translate.y =  1.f; break;
+	case KC_UP: case KC_W:		translate2.z -=  1.f; break;
+	case KC_DOWN: case KC_S:	translate2.z +=  1.f; break;
+	case KC_LEFT: case KC_A:	translate2.x -=  1.f; break;
+	case KC_RIGHT: case KC_D:	translate2.x +=  1.f; break;
+	case KC_PGUP: case KC_Q:	translate2.y -=  1.f; break;
+	case KC_PGDOWN: case KC_E:	translate2.y +=  1.f; break;
 
 	default: break;
 	}
+	translate = translate2;
 	translate.normalise();
     return true;
 }
-bool FPersonCam :: keyReleased(const OIS::KeyEvent &e)
+bool CameraController :: keyReleased(const OIS::KeyEvent &e)
 {
 	//Ogre :: Vector3 translate(0, 0, 0);
 	switch(e.key)
 	{
 	case KC_ESCAPE:
 		stop = true;
-		//return false;
-		break;
-	case KC_UP:
-	case KC_W:
-		translate.z = 0.0f;
 		break;
 
-	case KC_DOWN:
-	case KC_S:
-		translate.z = 0.0f;
-		break;
+	case KC_UP: case KC_W:		translate2.z +=  1.f; break;
+	case KC_DOWN: case KC_S:	translate2.z -=  1.f; break;
+	case KC_LEFT: case KC_A:	translate2.x +=  1.f; break;
+	case KC_RIGHT: case KC_D:	translate2.x -=  1.f; break;
+	case KC_PGUP: case KC_Q:	translate2.y +=  1.f; break;
+	case KC_PGDOWN: case KC_E:	translate2.y -=  1.f; break;
 
-	case KC_LEFT:
-	case KC_A:
-		translate.x = 0.0f;
-		break;
-
-	case KC_RIGHT:
-	case KC_D:
-		translate.x = 0.0f;
-		break;
-
-	case KC_PGUP:
-	case KC_Q:
-		translate.y = 0.0f;
-		break;
-
-	case KC_PGDOWN:
-	case KC_E:
-		translate.y = 0.0f;
-		break;
 	default:
 		break;
 	}  
-	//translate.normalise();
+	translate = translate2;
+	translate.normalise();
 	return true;
 }

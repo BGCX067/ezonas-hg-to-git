@@ -49,7 +49,9 @@ Application :: Application():
 	// some sort of crosshair
 	ovl_mgr -> getByName("jokoon/crosshair") -> show();
 	//ConfMgr :: Instantiate();
-	fpersoncam = FPersonCam :: Instantiate();
+	//switch(ConfMgr :: getSingleton().GetInt("camera_mode"))
+	cam_ctrlr = CameraController :: Instantiate();
+
 
 	// CreateTerrain();
 
@@ -64,7 +66,7 @@ Application :: Application():
 }
 Application :: ~ Application()
 {
-	//delete fpersoncam;
+
 #ifdef USE_TERRAIN
 	OGRE_DELETE mTerrain;
 	OGRE_DELETE mGlobals;

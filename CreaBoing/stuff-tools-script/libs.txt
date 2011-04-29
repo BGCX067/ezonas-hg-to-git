@@ -1,0 +1,2 @@
+OgreTerrain_d.lib
+OgrePaging_d.lib

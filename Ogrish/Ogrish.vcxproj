@@ -76,7 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="FPersonCam.h" />
+    <ClInclude Include="CameraController.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="BulletTracer.h" />
     <ClInclude Include="ConfMgr.h" />
@@ -86,7 +86,7 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FPersonCam.cpp" />
+    <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BulletTracer.cpp" />
     <ClCompile Include="ConfMgr.cpp" />
@@ -104,6 +104,12 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="conf\gameconf.cfg" />
+    <None Include="conf\Ogre.cfg" />
+    <None Include="conf\plugins_d.cfg" />
+    <None Include="conf\resources_d.cfg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

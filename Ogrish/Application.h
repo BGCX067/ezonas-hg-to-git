@@ -44,7 +44,8 @@ private:
     Viewport * viewport;
 
 // game parameters
-    FPersonCam * fpersoncam;
+    CameraController * cam_ctrlr;
+    //Cam3rdperson * cam3rdperson;
 	
 // overlays
 	OverlayManager * ovl_mgr;

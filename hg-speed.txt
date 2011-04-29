@@ -1,0 +1,57 @@
+<jokoon> I need an expert on this: I want to convince people in my company to use hg instead of svn, and I need arguments about speed, because svn is kinda slow here
+<jokoon> what makes hg so much faster ?
+<jokoon> because of atomic changesets ? what does svn do wrong ?
+<jokoon> is it because svn diffs over the network ?
+* milko (~milko@190.195.144.31) has joined #mercurial
+<marmoute> what kind of operation are slow ?
+<jokoon> mainly the update
+<jokoon> when I right click in svntortoise
+<jokoon> right click update
+<jokoon> nothing shows for like 10s to 1min
+<jokoon> and it start to show updates
+<marmoute> Update request the new version ovent the network for SVN
+<marmoute> hg have all version locally
+<jokoon> ovent = over ?
+<marmoute> over
+* gilaniali has quit (Quit: gilaniali)
+<jokoon> so in svn, it requests the version of each file ?
+* gilaniali (~gilaniali@CPE0013f7ac9450-CM0013f7ac944c.cpe.net.cable.rogers.com) has joined #mercurial
+<jokoon> it checks the current rev and the distant revision
+<pmezard> jokoon: eveytime you need something not in the pristine tree (aka last checked out revision), svn has to talk to the central server
+<pmezard> while everything is local by default in mercurial, you only talk to the server when you decide to pull or push changes
+* hstuart (~hstuart@0x5734519c.virnxx12.dynamic.dsl.tele.dk) has joined #mercurial
+<pmezard> but everything is local means handling big files is not convenient with mercurial
+<jokoon> you mean on the central repo
+<jokoon> if one choose to use a main repo
+* mpm has quit (Quit: Leaving.)
+<jokoon> si it's a fact that mercurial is faster with project which have lots of files ?
+<pmezard> jokoon: i mean everywhere. handling hg repositories with large files may be a pain/impossible
+<pmezard> jokoon: if you have all those files checked out at the same time with svn, yes
+* milko has quit (Quit: Saliendo)
+* gilaniali has quit (Ping timeout: 250 seconds)
+<jokoon> everywhere ? you were refering to speed ?
+<pmezard> i was referring to large files
+<jokoon> <pmezard> jokoon: i mean everywhere. handling hg repositories with large files may be a pain/impossible
+<jokoon> there ?
+<pmezard> yes
+<pmezard> jokoon: but in general, hg is much faster at everything yes
+<jokoon> so is it safe to say hg has atomic revisions unlike svn ?
+<pmezard> no that's wrong, svn has atomic revision, unlike cvs
+* duellj (~duellj@c-98-246-177-190.hsd1.or.comcast.net) has joined #mercurial
+* abderrahim (~abderrahi@213.132.255.148) has joined #mercurial
+<jokoon> isn't hg more "atomical"
+<pmezard> but svn has mixed revision checkouts which is a mistake, and mercurial does not
+<pmezard> jokoon: let's say that mercurial always operate on the whole repository, which is much less error prone
+<jokoon> ok
+* TobiasFar (~prosody@vs0204.flosoft-servers.net) has joined #mercurial
+<pmezard> this is especially true with commit, because hg decouples commit from push
+<pmezard> while svn tries to resolve conflicts locally while ignoring other upstream changes
+<jokoon> what happens if there are 2 push at the same times
+<jokoon> does it branches ?
+<pmezard> yes, but unless they use --force, one will probably be aborted because it creates a new head
+* BrazilianStudent has quit (Quit: Page closed)
+<jokoon> mh so the one who fails will require to make another pull ?
+<pmezard> yes
+<jokoon> what if he doesn't ? it will refuse the push ?
+<pmezard> yes, unless he uses --force and create a branch
+<jokoon> ok

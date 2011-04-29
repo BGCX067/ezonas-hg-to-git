@@ -1,0 +1,7 @@
+Mercurial has a substantial performance advantage over Subversion on every revision control operation I have benchmarked. I have measured its advantage as ranging from a factor of two to a factor of six when compared with Subversion 1.4.3's ra_local file store, which is the fastest access method available. In more realistic deployments involving a network-based store, Subversion will be at a substantially larger disadvantage. Because many Subversion commands must talk to the server and Subversion does not have useful replication facilities, server capacity and network bandwidth become bottlenecks for modestly large projects.
+
+Additionally, Subversion incurs substantial storage overhead to avoid network transactions for a few common operations, such as finding modified files (status) and displaying modifications against the current revision (diff). As a result, a Subversion working copy is often the same size as, or larger than, a Mercurial repository and working directory, even though the Mercurial repository contains a complete history of the project.
+
+[...]
+
+In addition, it's often difficult or, more usually, impossible to merge different versions of a binary file. Subversion's ability to let a user lock a file, so that they temporarily have the exclusive right to commit changes to it, can be a significant advantage to a project where binary files are widely used.
