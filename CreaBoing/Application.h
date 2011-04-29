@@ -89,7 +89,7 @@ private:
 	Vec3 velocity, accel, position, gravity;
 	SceneNode * n_ball;
 	Entity * e_ball;
-	float ground_height;
+	float ground_height, y;
 	void UpdatePhysics();
 #endif
 };

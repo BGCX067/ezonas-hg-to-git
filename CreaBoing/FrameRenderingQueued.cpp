@@ -7,14 +7,16 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	(
 		TO_STR((int)(window -> getLastFPS())) + " Hz; "
 		+ TO_STR(window -> getTriangleCount()) + " tri; "
-		+ TO_STR(window -> getBatchCount()) + " bat"
+		+ TO_STR(window -> getBatchCount()) + " bat; "
+		+ "pos.y: " + TO_STR(position.y) + " "
+		+ "vel.y: " + TO_STR(velocity.y)
 	);
 	frame_time = evt.timeSinceLastFrame;
 	//n_ball -> translate(0,-frame_time * 10,0);
-	if(n_ball -> getPosition().y < ground_height)
+	if(position.y < ground_height)
 	{
 		n_ball -> setPosition(Vec3(0,0,0));
-		//velocity = - gravity;
+		//velocity = - gravity * frame_time;
 	}
 	UpdatePhysics();
 	n_ball -> setPosition(position);
@@ -22,9 +24,18 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	return cam_ctrlr -> update();
 }
 
-
 void Application :: UpdatePhysics()
 {
-	velocity += gravity * frame_time; // * 0.00001;
-	position += velocity * frame_time; // * 0.00001;
+	if(velocity.y < 20)
+	{
+		velocity += gravity * frame_time;
+		position += velocity * frame_time;
+	}
+	else
+	{
+		velocity = Vec3(0,0,0);
+	}
 };
+
+float interp_linear(float min, float max, float coeff) {return coeff * (max + min) / 2;}
+float interp_square(float min, float max, float coeff) {return coeff * (max + min) / 2;}
