@@ -8,7 +8,7 @@ class Application:
 /* ############ PUBLIC ############ */
 public:
     static Application * getSingletonPtr(void);
-
+	Vec3 * GetVelocityAddress();
 	float frame_time;
     //static Application * sglt();
     SceneManager * GetScMgr();
@@ -55,42 +55,20 @@ private:
     Entity * entplane;
     SceneNode * rootnode;
 
-// gorilla
-
-
 	Gorilla :: Silverback * mGorilla;
 	Gorilla :: Screen * gor_screen;
 	Gorilla :: Rectangle * gor_rect;
 	Gorilla :: Layer * gor_layer;
 	Gorilla :: Caption * gor_caption[15];
-	//Gorilla :: MarkupText * gor_mutext;
-	// terrain
-/* bullet physics */
-#ifdef PHYSICS
-    // Build the broadphase
-    btBroadphaseInterface* broadphase;// = new btDbvtBroadphase();
-    // Set up the collision configuration and dispatcher
-    btDefaultCollisionConfiguration* collisionConfiguration;// = new btDefaultCollisionConfiguration();
-    btCollisionDispatcher* dispatcher;// = new btCollisionDispatcher(collisionConfiguration);
-    // The actual physics solver
-    btSequentialImpulseConstraintSolver* solver;// = new btSequentialImpulseConstraintSolver;
-    // The world.
-    btDiscreteDynamicsWorld* dynamicsWorld;// = new btDiscreteDynamicsWorld(dispatcher,broadphase,solver,collisionConfiguration);
-#endif
 
-
-
-#ifdef USE_TERRAIN
-	Ogre::Terrain * mTerrain;
-	Ogre::TerrainGlobalOptions * mGlobals;
-#endif
 
 #ifdef CREABOING
-	Vec3 velocity, accel, position, gravity;
+	Vec3 velocity, accel, position, gravity, vel_prev, pos_prev, acc_prev;
 	SceneNode * n_ball;
 	Entity * e_ball;
-	float ground_height, y;
+	float y;
 	void UpdatePhysics();
+	Plane planes[100];
 #endif
 };
 

@@ -14,6 +14,7 @@ typedef Ogre :: Vector3 Vec3;
 // Project
 #define FOR(I) for(int i = 0; i < I; ++i)
 
+#define SGLT_APP Application :: getSingletonPtr()
 #define SGLT_CAM Application :: getSingletonPtr() -> GetCam()
 #define SGLT_RSN Application :: getSingletonPtr() -> GetRSN()
 #define SGLT_SCMGR Application :: getSingletonPtr() -> GetScMgr()

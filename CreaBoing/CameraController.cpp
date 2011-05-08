@@ -1,13 +1,13 @@
 #include "stdafx.h"
 template<> CameraController * Ogre :: Singleton <CameraController> :: ms_Singleton = 0;
-void CameraController :: setCamPosition (Vec3 dada)
-{ cam_node -> setPosition(dada); }
-
+void CameraController :: setCamPosition (Vec3 dada) { cam_node -> setPosition(dada); }
+SceneNode * CameraController :: GetNode () { return cam_node; }
 CameraController :: CameraController ():
 
 
 	rotating_speed	(ConfMgr :: getSingletonPtr() -> GetFloat ("rotating_speed")),
 	moving_speed	(ConfMgr :: getSingletonPtr() -> GetFloat ("moving_speed")),
+	vel_step		(ConfMgr :: getSingletonPtr() -> GetFloat ("vel_step")),
 	cam_node		(Application :: getSingletonPtr() -> GetRSN() -> createChildSceneNode ("cam_node")),
 	cam_yaw			(cam_node -> createChildSceneNode ("cam_yaw")),
 	cam_pitch		(cam_yaw -> createChildSceneNode ("cam_pitch")),
@@ -17,7 +17,10 @@ CameraController :: CameraController ():
 	stop			(false),
 	frame_time		(Application :: getSingletonPtr() -> GetFT()),
 	translate		(Vec3(0,0,0)),
-	translate2		(Vec3(0,0,0))
+	translate2		(Vec3(0,0,0)),
+	velocity		(SGLT_APP -> GetVelocityAddress()),
+	vel_modifier	(Vec3(0,0,0)),
+	key_pushed		(false)
 {
 	cam_pitch -> attachObject(cam);
 	ParamList parameters;
@@ -49,7 +52,6 @@ CameraController :: CameraController ():
 		(inputmanager -> createInputObject	(OISMouse, true));
 	mouse -> setEventCallback(this);
 	keyboard -> setEventCallback(this);
-
 }
 CameraController :: ~ CameraController()
 {
@@ -68,55 +70,39 @@ bool CameraController :: update ()//float frame_time)
 	cam_node -> translate(
 		cam_yaw -> getOrientation()
 		* cam_pitch -> getOrientation()
-		* translate
-		* moving_speed
-		* (* frame_time));
+		* translate * moving_speed * (* frame_time));
 
-
-	if (translate.length() > 1.0f)
-	{	
-		//cout << "dfs";
-		exit(0xb00bbabe);
+	* velocity += vel_modifier;
+	if(time_stack < 0.1f && key_pushed == false)
+	{
+		time_stack = 0.f;
 	}
+	if (time_stack > 0.1f) key_pushed = false;
+	time_stack += * frame_time;
 
+	if (translate.length() > 1.0f) exit(0xb00bbabe);
 	return ! stop;
 }
-
-// mouse ////////////////////////////////////
-bool CameraController :: mouseMoved(const OIS::MouseEvent &e)
-{
-	//cam_yaw -> yaw(Radian(- mouse -> getMouseState().X.rel * rotating_speed));
-	//cam_pitch -> pitch(Radian(- mouse -> getMouseState().Y.rel * rotating_speed));
-	cam_yaw -> yaw(Radian(- e.state.X.rel * rotating_speed));
-	cam_pitch -> pitch(Radian(- e.state.Y.rel * rotating_speed));
-    return true;
-}
-bool CameraController :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
-{
-	//if (mouse -> getMouseState() . buttonDown(MB_Left))
-	//if (MB_Left == e.state.)
-	//if (mouse -> getMouseState() . buttonDown(MB_Left))
-	if (MB_Left == id);
-    return true;
-}
-bool CameraController :: mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
-{
-    return true;
-}
-// keyboard ////////////////////////////////////
 bool CameraController :: keyPressed(const OIS::KeyEvent &e)
-{
+{	
+	key_pushed = true;
 	switch(e.key)
 	{
 	case KC_ESCAPE:
 		stop = true; break;
 
-	case KC_UP: case KC_W:		translate2.z -=  1.f; break;
-	case KC_DOWN: case KC_S:	translate2.z +=  1.f; break;
-	case KC_LEFT: case KC_A:	translate2.x -=  1.f; break;
-	case KC_RIGHT: case KC_D:	translate2.x +=  1.f; break;
-	case KC_PGUP: case KC_Q:	translate2.y -=  1.f; break;
-	case KC_PGDOWN: case KC_E:	translate2.y +=  1.f; break;
+	case KC_UP: case KC_W:		vel_modifier . z -=  vel_step; break;
+	case KC_DOWN: case KC_S:	vel_modifier . z +=  vel_step; break;
+	case KC_LEFT: case KC_A:	vel_modifier . x -=  vel_step; break;
+	case KC_RIGHT: case KC_D:	vel_modifier . x +=  vel_step; break;
+	case KC_PGUP: case KC_Q:	vel_modifier . y -=  vel_step; break;
+	case KC_PGDOWN: case KC_E:	vel_modifier . y +=  vel_step; break;
+	//case KC_UP: case KC_W:		translate2.z -=  1.f; break;
+	//case KC_DOWN: case KC_S:	translate2.z +=  1.f; break;
+	//case KC_LEFT: case KC_A:	translate2.x -=  1.f; break;
+	//case KC_RIGHT: case KC_D:	translate2.x +=  1.f; break;
+	//case KC_PGUP: case KC_Q:	translate2.y -=  1.f; break;
+	//case KC_PGDOWN: case KC_E:	translate2.y +=  1.f; break;
 
 	default: break;
 	}
@@ -126,19 +112,26 @@ bool CameraController :: keyPressed(const OIS::KeyEvent &e)
 }
 bool CameraController :: keyReleased(const OIS::KeyEvent &e)
 {
-	//Ogre :: Vector3 translate(0, 0, 0);
+	key_pushed = false;
 	switch(e.key)
 	{
 	case KC_ESCAPE:
 		stop = true;
 		break;
 
-	case KC_UP: case KC_W:		translate2.z +=  1.f; break;
-	case KC_DOWN: case KC_S:	translate2.z -=  1.f; break;
-	case KC_LEFT: case KC_A:	translate2.x +=  1.f; break;
-	case KC_RIGHT: case KC_D:	translate2.x -=  1.f; break;
-	case KC_PGUP: case KC_Q:	translate2.y +=  1.f; break;
-	case KC_PGDOWN: case KC_E:	translate2.y -=  1.f; break;
+	case KC_UP: case KC_W:		vel_modifier . z +=  vel_step; break;
+	case KC_DOWN: case KC_S:	vel_modifier . z -=  vel_step; break;
+	case KC_LEFT: case KC_A:	vel_modifier . x +=  vel_step; break;
+	case KC_RIGHT: case KC_D:	vel_modifier . x -=  vel_step; break;
+	case KC_PGUP: case KC_Q:	vel_modifier . y +=  vel_step; break;
+	case KC_PGDOWN: case KC_E:	vel_modifier . y -=  vel_step; break;
+
+	//case KC_UP: case KC_W:		translate2.z +=  1.f; break;
+	//case KC_DOWN: case KC_S:	translate2.z -=  1.f; break;
+	//case KC_LEFT: case KC_A:	translate2.x +=  1.f; break;
+	//case KC_RIGHT: case KC_D:	translate2.x -=  1.f; break;
+	//case KC_PGUP: case KC_Q:	translate2.y +=  1.f; break;
+	//case KC_PGDOWN: case KC_E:	translate2.y -=  1.f; break;
 
 	default:
 		break;
@@ -147,3 +140,16 @@ bool CameraController :: keyReleased(const OIS::KeyEvent &e)
 	translate.normalise();
 	return true;
 }
+bool CameraController :: mouseMoved(const OIS::MouseEvent &e)
+{
+	//cam_yaw -> yaw(Radian(- e.state.X.rel * rotating_speed));
+	//cam_pitch -> pitch(Radian(- e.state.Y.rel * rotating_speed));
+    return true;
+}
+bool CameraController :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
+{
+	if (MB_Left == id);
+    return true;
+}
+bool CameraController :: mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
+{ return true; }

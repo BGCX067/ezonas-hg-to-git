@@ -11,12 +11,14 @@ public:
     static CameraController * getSingletonPtr(void);
 	static CameraController * Instantiate();
 	void setCamPosition(Vec3);
+	void setCamRotation(Vec3);
+	SceneNode * GetNode ();
 protected:
 	SceneNode * cam_node, * cam_yaw, * cam_pitch;
-	float moving_speed, rotating_speed, * frame_time;
+	float moving_speed, rotating_speed, * frame_time, vel_step;
 	Camera * cam;
-	bool stop;
-
+	bool stop, key_pushed;
+	float time_stack;
 	// gameplay objects
 	//LaserCast * lasercast;
 	//BulletTracer * bullet_tracer;
@@ -25,7 +27,7 @@ protected:
 	InputManager * inputmanager;
 	Keyboard * keyboard;
 	Mouse * mouse;
-	Vec3 translate, translate2;
+	Vec3 translate, translate2, * velocity, vel_modifier;
 
 	/////////////// METHODS ///////////////
 	CameraController();
@@ -35,5 +37,5 @@ protected:
 	bool mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id);
 	bool keyPressed(const OIS::KeyEvent &e);
 	bool keyReleased(const OIS::KeyEvent &e);
-
+	Vec3 * GetVelocityAddress();
 };

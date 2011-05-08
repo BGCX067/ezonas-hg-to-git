@@ -21,10 +21,9 @@ void Application :: InitGorilla()
 	gor_rect -> background_colour(ColourValue(0.3, 0.3, 0.3, 0.3));
 
 	gor_caption[0] = gor_layer -> createCaption(atlas_index, 0, 0,
-		//string("Does the lazy fox quickly jumps over the brown dog ?"));
 		string("Counter Cake is Zevil"));
-	gor_caption[1] = gor_layer -> createCaption(atlas_index, 200, 2,
-		string("-"));
+	gor_caption[1] = gor_layer -> 
+		createCaption(atlas_index, 200, 2, string("-"));
 	//gor_caption[2] = gor_layer -> createCaption(atlas_index, 300, 2,
 	//	string("-"));
 	//gor_caption[3] = gor_layer -> createCaption(atlas_index, 400, 2,

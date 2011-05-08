@@ -10,7 +10,6 @@ bool Application :: init_config()
 	else
 		exit (0xdeadbeef);
 }
-
 Application :: Application():
 	FrameListener(),
 	root			(new Root("conf/plugins_d.cfg", "conf/Ogre.cfg", "conf/Ogre.log")),
@@ -26,13 +25,6 @@ Application :: Application():
 	rootnode		(scmgr -> getRootSceneNode()),
 
 	mGorilla		(new Gorilla :: Silverback())
-#ifdef PHYSICS
-	,broadphase(new btDbvtBroadphase()),
-    collisionConfiguration(new btDefaultCollisionConfiguration()),
-    dispatcher(new btCollisionDispatcher(collisionConfiguration)),
-    solver(new btSequentialImpulseConstraintSolver),
-    dynamicsWorld (new btDiscreteDynamicsWorld(dispatcher,broadphase,solver,collisionConfiguration))
-#endif
 {
 	window -> reposition(20, 20);
 	camera -> setNearClipDistance(1);
@@ -51,18 +43,11 @@ Application :: Application():
 	//ConfMgr :: Instantiate();
 	//switch(ConfMgr :: getSingleton().GetInt("camera_mode"))
 	cam_ctrlr = CameraController :: Instantiate();
-
-
-	// CreateTerrain();
-
+	
 	InitGorilla();
-
-	// create the scene
+	velocity = Vec3(0,0,0);
 	CreateScene();
 	camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
-#ifdef PHYSICS
-	dynamicsWorld->setGravity(btVector3(0,-10,0));
-#endif
 }
 Application :: ~ Application()
 {
@@ -84,10 +69,8 @@ Application :: ~ Application()
 	if(root) delete root;
 	else exit(0xb00b);
 }
-void Application :: go ()
-{
-	root -> startRendering();
-}
+void Application :: go ()					{ root -> startRendering(); }
+Vec3 * Application :: GetVelocityAddress()  { return & velocity; }
 SceneManager * Application :: GetScMgr()	{ return scmgr; }
 SceneNode * Application :: GetRSN()			{ return scmgr -> getRootSceneNode(); }
 Camera * Application :: GetCam()			{ return camera; }

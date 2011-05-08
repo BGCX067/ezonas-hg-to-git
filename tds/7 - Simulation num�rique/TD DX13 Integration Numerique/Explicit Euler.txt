@@ -6,5 +6,6 @@ void ExplicitEuler(N, new_S, prior_S, S_derivs, delta_t)
     for (i = 0; i < N; i++)
     {
         new_S[i] = prior_S[i] + delta_t * S_derivs[i];
+		// new = prior + t * deriv
     }
 }

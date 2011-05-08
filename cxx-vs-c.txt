@@ -1,0 +1,23 @@
+Pros and cons of C++ vs C
+Pros
+
+Organise your application into classes, to add a nice context to your functions.
+Inheritence allows a better and logical organisation of the code.
+The STL allows great understanding of important containers facility, and greatly improves coding speed.
+
+Cons
+
+OOP is not a good manner to think about coding. C++ has the advantage of being a statically compiled language, meaning faster execution time. OOP and sequential programming are not always compatible, while it was the most important feature of C: it's a contradiction of C++. Multithreading also makes OOP very difficult.
+virtual functions tables bloat and can slow down a program.
+template were good for the STL, but they are nearly useless for the lambda programmer.
+Compilers are horrific monsters and a very big headache for engineers to implement.
+References are mostly syntax sugar compared to pointers, and are less flexible that pointers.
+Private/public scopes mostly are some kind of program design choice rather than a language paradigm: there are no repercussion on the executable, only checked at compile time. Again, some sort of syntax sugar.
+new and delete are some sort of binds to malloc and free, makes it harder for programmer to understand what is going on.
+
+
+Global opinion of C++:
+C++ is mostly a mix between Java's philosophy and C's rigor. It ends up to get the inconvenients of both, and even if C++ inherit the simplicity, efficiency of C, the key features of C++ end up to cause a lot of headaches, where a language is supposed to ease the work of the programmer.
+A lot of new interpreted and bytecode languages appeared after C++: Python, Ruby, C#, Scala, and so on; those are much easier and intuitive, have more features and can be rightly used for a lot of cases.
+
+Please Understand that you can't always mix 2 things while getting advantages of both: designing a programming language is a complex task, and complex languages are complex to understand.
