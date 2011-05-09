@@ -142,8 +142,8 @@ bool CameraController :: keyReleased(const OIS::KeyEvent &e)
 }
 bool CameraController :: mouseMoved(const OIS::MouseEvent &e)
 {
-	//cam_yaw -> yaw(Radian(- e.state.X.rel * rotating_speed));
-	//cam_pitch -> pitch(Radian(- e.state.Y.rel * rotating_speed));
+	cam_yaw -> yaw(Radian(- e.state.X.rel * rotating_speed));
+	cam_pitch -> pitch(Radian(- e.state.Y.rel * rotating_speed));
     return true;
 }
 bool CameraController :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)

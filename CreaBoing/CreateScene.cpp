@@ -43,10 +43,17 @@ void Application :: AddPlane()
 					1, 1,
 					Ogre :: Vector3 :: UNIT_Z);
 
+<<<<<<< local
+	entplane = scmgr -> createEntity("LightPlaneEntity", "plane");
+	//ent
+	rootnode -> createChildSceneNode() -> attachObject(entplane);
+	entplane -> setMaterialName("jokoon/grass");
+=======
 			entplane = scmgr -> createEntity("LightPlaneEntity", "plane");
 			rootnode -> createChildSceneNode() -> attachObject(entplane);
 			entplane -> setMaterialName("jokoon/grass");
 		}
+>>>>>>> other
 }
 void Application :: InitResources()
 {

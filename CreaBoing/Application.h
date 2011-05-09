@@ -69,6 +69,7 @@ private:
 	float y;
 	void UpdatePhysics();
 	Plane planes[100];
+	SceneNode * nodes[100], * n_plane;
 #endif
 };
 

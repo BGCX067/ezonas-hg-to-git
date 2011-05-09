@@ -6,10 +6,17 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	gor_caption[1] -> text
 	(
 		TO_STR((int)(window -> getLastFPS())) + " Hz; "
+<<<<<<< local
+		//+ TO_STR(window -> getTriangleCount()) + " tri; "
+		//+ TO_STR(window -> getBatchCount()) + " bat; "
+		//+ "pos.y: " + TO_STR(position.y) + " "
+		//+ "vel.y: " + TO_STR(velocity.y)
+=======
 		+ TO_STR(window -> getTriangleCount()) + " tri; "
 		+ TO_STR(window -> getBatchCount()) + " bat; "
 		+ "position: " + TO_STR(position.y) + " "
 		+ "velocity: " + TO_STR(velocity.y)
+>>>>>>> other
 	);
 	frame_time = evt.timeSinceLastFrame;
 #define INTEGRATE
