@@ -27,33 +27,33 @@ void Application :: CreateScene()
 }
 void Application :: AddPlane()
 {
+	n_plane = rootnode -> createChildSceneNode();
+	n_plane -> setPosition(-11, 0, -11);
 	float width_length = ConfMgr :: getSingleton() . GetFloat("plane_width_length");
 	float altitude = ConfMgr :: getSingleton() . GetFloat("plane_altitude");
+	float grid_step = ConfMgr :: getSingleton() . GetFloat("grid_step");
 	for(int i = 0; i < 10; ++i)
 		for(int j = 0; j < 10; ++j)
 		{
 			Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, altitude);
 			Ogre :: MeshManager :: getSingleton().createPlane
-				("plane",
+				("plane" + TO_STR(i) + "-" + TO_STR(j),
 					ResourceGroupManager :: DEFAULT_RESOURCE_GROUP_NAME, plane,
-					width_length, width_length,
-					1, 1,
-					true,
-					1,
-					1, 1,
+					width_length * grid_step, width_length * grid_step,
+					// segments X, Y, NORMALS, numtexcoordset, uTile, vTile
+					1, 1, true, 1, 1, 1,
 					Ogre :: Vector3 :: UNIT_Z);
 
-<<<<<<< local
-	entplane = scmgr -> createEntity("LightPlaneEntity", "plane");
-	//ent
-	rootnode -> createChildSceneNode() -> attachObject(entplane);
-	entplane -> setMaterialName("jokoon/grass");
-=======
-			entplane = scmgr -> createEntity("LightPlaneEntity", "plane");
-			rootnode -> createChildSceneNode() -> attachObject(entplane);
+			entplane = scmgr -> createEntity
+				("LightPlaneEntity"+ TO_STR(i) + "-" + TO_STR(j),
+				"plane" + TO_STR(i) + "-" + TO_STR(j));
+			
+			nodes[i*10 + j] = n_plane -> createChildSceneNode();
+			nodes[i*10 + j] -> attachObject(entplane);
+			nodes[i*10 + j] -> setPosition(i * grid_step, 0, j * grid_step);
 			entplane -> setMaterialName("jokoon/grass");
 		}
->>>>>>> other
+
 }
 void Application :: InitResources()
 {
