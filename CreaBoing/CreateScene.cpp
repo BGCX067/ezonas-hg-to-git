@@ -53,7 +53,6 @@ void Application :: AddPlane()
 			nodes[i*10 + j] -> setPosition(i * grid_step, 0, j * grid_step);
 			entplane -> setMaterialName("jokoon/grass");
 		}
-
 }
 void Application :: InitResources()
 {
