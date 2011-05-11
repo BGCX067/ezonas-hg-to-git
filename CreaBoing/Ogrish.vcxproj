@@ -103,6 +103,9 @@
     <None Include="conf\Ogre.cfg" />
     <None Include="conf\plugins_d.cfg" />
     <None Include="conf\resources_d.cfg" />
+    <None Include="Explicit Euler no collision.txt" />
+    <None Include="Explicit Euler with collisions.txt" />
+    <None Include="Explicit Euler.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
