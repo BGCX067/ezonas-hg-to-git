@@ -24,7 +24,14 @@ Application :: Application():
 	viewport		(window -> addViewport(camera)),
 	rootnode		(scmgr -> getRootSceneNode()),
 
-	mGorilla		(new Gorilla :: Silverback())
+	mGorilla		(new Gorilla :: Silverback()),
+
+	velocity (Vec3 (0, 0, 0)),
+	vel_prev (Vec3 (0, 0, 0)),
+	pos_prev (Vec3 (0, 0, 0)),
+	acc_prev (Vec3 (0, 0, 0)),
+	forces (Vec3 (0, 0, 0))
+
 {
 	window -> reposition(20, 20);
 	camera -> setNearClipDistance(1);

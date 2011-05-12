@@ -7,34 +7,41 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 		TO_STR((int)(window -> getLastFPS())) + " Hz; "
 		+ TO_STR(window -> getTriangleCount()) + " tri; "
 		+ TO_STR(window -> getBatchCount()) + " bat; "
-		+ "position: " + TO_STR(position.y) + " "
-		+ "velocity: " + TO_STR(velocity.y)
+		+ "pos: " + TO_STR(position.x) + " " + TO_STR(position.y) + " " + TO_STR(position.z) + " "
+		+ "vel: " + TO_STR(velocity.x) + " " + TO_STR(velocity.y) + " " + TO_STR(velocity.z) + " "
 	);
 	frame_time = evt.timeSinceLastFrame;
-//#define INTEGRATE
-#ifdef INTEGRATE // unfisinshed stuff, dont mind
-	pos_prev = position;
-	vel_prev = velocity;
-	position = pos_prev + velocity * frame_time;
-	velocity = vel_prev + 
-
-#else
-	position += velocity * frame_time;
-	velocity += gravity * frame_time;
-#endif
-
-	if(position.y < 0.0f)
-	{
-		velocity.y *= -1;
-		//position.y *= -1;
-	}
-	n_ball -> setPosition(position);
-
+	UpdatePhysics();
 	return cam_ctrlr -> update();
 }
 
 void Application :: UpdatePhysics()
 {
+//#define INTEGRATE
+//#define INTEGRATE_DERIVATE_NEW
+//#define INTEGRATE_DERIVATE_PRIOR
+	if(position.y < 0.0f)
+		forces = - velocity;
+	else
+		forces = gravity;
+
+#ifdef INTEGRATE_DERIVATE_PRIOR
+	velocity = vel_prev + pos_prev * frame_time;
+	position = pos_prev + vel_prev * frame_time;
+	pos_prev = position;
+	vel_prev = velocity;
+
+#elif defined INTEGRATE_DERIVATE_NEW
+	velocity = vel_prev + position * frame_time;
+	position = pos_prev + velocity * frame_time;
+	pos_prev = position;
+	vel_prev = velocity;
+#else
+	velocity += forces * frame_time;
+	position += velocity * frame_time;
+#endif
+	n_ball -> setPosition(position);
+
 };
 
 float interp_linear(float min, float max, float coeff) {return coeff * (max + min) / 2;}

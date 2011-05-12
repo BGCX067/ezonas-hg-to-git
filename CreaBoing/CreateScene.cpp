@@ -17,13 +17,9 @@ void Application :: CreateScene()
 	ConfMgr :: getSingletonPtr() -> AddLight("light3");
 	ConfMgr :: getSingletonPtr() -> AddLight("light4");
 	gravity = Vec3 (0, - ConfMgr :: getSingleton() . GetFloat("gravity"), 0);
-	velocity = Vec3 (0, 0, 0);
-	vel_prev = Vec3 (0, 0, 0);
-	pos_prev = Vec3 (0, 0, 0);
-	acc_prev = Vec3 (0, 0, 0);
 	position = Vec3 (0, ConfMgr :: getSingleton() . GetFloat("initial_height"), 0);
-	cam_ctrlr -> GetNode() -> setPosition(0, 10, 10);
-	cam_ctrlr -> GetNode() -> rotate(Vec3(1,0,0), Radian(Degree(-75)));	
+	cam_ctrlr -> GetNode() -> setPosition(0, 5, 5);
+	cam_ctrlr -> GetNode() -> rotate(Vec3(1,0,0), Radian(Degree(-60)));	
 }
 void Application :: AddPlane()
 {
