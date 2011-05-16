@@ -63,7 +63,7 @@ private:
 
 
 #ifdef CREABOING
-	Vec3 velocity, accel, position, gravity, vel_prev, pos_prev, acc_prev, forces;
+	Vec3 velocity, accel, position, gravity, vel_prev, pos_prev, acc_prev, forces, impact;
 	SceneNode * n_ball;
 	Entity * e_ball;
 	float y;

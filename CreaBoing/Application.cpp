@@ -30,6 +30,7 @@ Application :: Application():
 	vel_prev (Vec3 (0, 0, 0)),
 	pos_prev (Vec3 (0, 0, 0)),
 	acc_prev (Vec3 (0, 0, 0)),
+	impact (Vec3 (0, 0, 0)),
 	forces (Vec3 (0, 0, 0))
 
 {
