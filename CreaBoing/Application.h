@@ -52,7 +52,7 @@ private:
 //Overlay * ovl_crosshair;
 
 // entities and nodes
-    Entity * entplane;
+    Entity * entplane[30][30];
     SceneNode * rootnode;
 
 	Gorilla :: Silverback * mGorilla;
@@ -67,6 +67,8 @@ private:
 	SceneNode * n_ball;
 	Entity * e_ball;
 	float y;
+	int cell_x, cell_z, grid_size;
+
 	void UpdatePhysics();
 	Plane planes[100];
 	SceneNode * nodes[100], * n_plane;

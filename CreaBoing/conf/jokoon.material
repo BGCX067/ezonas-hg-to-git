@@ -74,6 +74,11 @@ material jokoon/grass
 ambient 0.2 0.2 0.2
 texture_unit { texture terr_dirt-grass.jpg }
 }}}
+material jokoon/troll
+{ technique { pass {
+ambient 0.2 0.2 0.2
+texture_unit { texture 4chan512.png }
+}}}
 
 material jokoon/fish
 { technique { pass {
