@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="TD Integration numerique">
+</Property><Property Name="Fichier solution" Value="D:\SVN\2010-2011\Sections\Prog2\Programmation\Physique\7 - Simulation numérique\TD DX13 Integration Numerique\Enoncé\TD Integration numerique.sln">
+</Property><Property Name="Date" Value="mardi 12 avril 2011">
+</Property><Property Name="Time" Value="09:56">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="TD Integration numerique.sln" Description="Fichier correctement sauvegardé en tant que D:\SVN\2010-2011\Sections\Prog2\Programmation\Physique\7 - Simulation numérique\TD DX13 Integration Numerique\Enoncé\TD Integration numerique.sln.old">
+</Event><Event ErrorLevel="0" Project="TD Integration numerique" Source="Td Integration numerique\TD Integration numerique.vcproj" Description="Converting project file 'D:\SVN\2010-2011\Sections\Prog2\Programmation\Physique\7 - Simulation numérique\TD DX13 Integration Numerique\Enoncé\Td Integration numerique\TD Integration numerique.vcproj'.">
+</Event><Event ErrorLevel="1" Project="TD Integration numerique" Source="Td Integration numerique\TD Integration numerique.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="TD Integration numerique" Source="Td Integration numerique\TD Integration numerique.vcproj" Description="Done converting to new project file 'D:\SVN\2010-2011\Sections\Prog2\Programmation\Physique\7 - Simulation numérique\TD DX13 Integration Numerique\Enoncé\Td Integration numerique\TD Integration numerique.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="TD Integration numerique" Source="Td Integration numerique\TD Integration numerique.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="TD Integration numerique.sln" Description="Solution correctement convertie">
+</Event><Event ErrorLevel="3" Project="" Source="TD Integration numerique.sln" Description="Converted">
+</Event></UpgradeLog>

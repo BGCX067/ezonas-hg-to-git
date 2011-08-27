@@ -11,7 +11,8 @@ using namespace std;
 // #define BITS 0x100000000
 			 // 4294967296
 //			 16777216
-#define BITS 100000000
+// #define BITS 100000000UL
+#define BITS 10000000UL
 
 #define CRIBLE_CHUNK_SIZE 0x1000 // 4ko
 #define ULONG_BYTES 8

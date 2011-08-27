@@ -1,0 +1,31 @@
+primecrible.cc: In constructor ‘Crible::Crible(ulong, int, std::string, std::string)’:
+primecrible.cc:14: error: ‘CRIBLE_SIZE’ was not declared in this scope
+primecrible.cc: In member function ‘void Crible::ShowArray()’:
+primecrible.cc:38: error: no match for ‘operator*’ in ‘**(((Crible*)this)->Crible::crible + ((bitset64*)(((long unsigned int)i) * 8ul)))’
+primecrible.cc: In member function ‘void Crible::Generate()’:
+primecrible.cc:46: error: request for member ‘flip’ in ‘((Crible*)this)->Crible::crible’, which is of non-class type ‘bitset64*’
+primecrible.cc:47: error: no match for ‘operator*’ in ‘**((Crible*)this)->Crible::crible’
+primecrible.cc:48: error: no match for ‘operator*’ in ‘**(((Crible*)this)->Crible::crible + 8u)’
+primecrible.cc:61: error: no match for ‘operator*’ in ‘**(((Crible*)this)->Crible::crible + ((bitset64*)(i * 8u)))’
+primecrible.cc:65: error: no match for ‘operator*’ in ‘**(((Crible*)this)->Crible::crible + ((bitset64*)((i * k) * 8ul)))’
+primecrible.cc: In member function ‘void Crible::ShowPrimes(ulong, ulong)’:
+primecrible.cc:82: error: no match for ‘operator*’ in ‘**(((Crible*)this)->Crible::crible + ((bitset64*)(i * 8u)))’
+primecrible.cc: In member function ‘void Crible::ShowPrimes()’:
+primecrible.cc:92: error: no match for ‘operator*’ in ‘**(((Crible*)this)->Crible::crible + ((bitset64*)(i * 8u)))’
+primecrible.cc: In member function ‘void Crible::ShowPrimes30()’:
+primecrible.cc:102: error: no match for ‘operator*’ in ‘**(((Crible*)this)->Crible::crible + ((bitset64*)(i * 8u)))’
+primecrible.cc: In member function ‘void Crible::ShowPrimes36()’:
+primecrible.cc:112: error: no match for ‘operator*’ in ‘**(((Crible*)this)->Crible::crible + ((bitset64*)(i * 8u)))’
+primecrible.cc: In member function ‘void Crible::WriteFile()’:
+primecrible.cc:143: error: ‘word_vect_iter’ was not declared in this scope
+primecrible.cc:143: error: expected `;' before ‘iter’
+primecrible.cc:143: error: ‘iter’ was not declared in this scope
+primecrible.cc: In member function ‘void Crible::ShowCribleSet()’:
+primecrible.cc:158: error: ‘word_vect_iter’ was not declared in this scope
+primecrible.cc:158: error: expected `;' before ‘iter’
+primecrible.cc:158: error: ‘iter’ was not declared in this scope
+primecrible.cc: In member function ‘void Crible::Pack()’:
+primecrible.cc:169: error: could not convert ‘*(((Crible*)this)->Crible::crible + ((bitset64*)(i * 8u)))’ to ‘bool’
+primecrible.cc: At global scope:
+primecrible.cc:198: error: prototype for ‘void Crible::ShowPrimeByPosition(ulong)’ does not match any in class ‘Crible’
+primecrible.h:48: error: candidate is: void Crible::ShowPrimeByPosition(int)

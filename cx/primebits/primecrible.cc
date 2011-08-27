@@ -13,14 +13,18 @@ Crible :: Crible
 	count(0u),
 	size(_limit),
 	line_size(_line_size),
-	crible(new bitset<BITS>)
+	crible(new bitset<BITS>),
+	crible_vect(BITS/64)
 {
-	cout.setf (ios::hex, ios::basefield);
-	cout.setf (ios::showbase);
-	cout << "bitset hard limit = " << BITS
+	// cout.setf (ios::hex, ios::basefield);
+	// cout.setf (ios::showbase);
+	cout << "bitset hard limit = ";
+	string s("set at compile time");
+	string s2("how far the sieve will go");
+	printf("%lu = 0x%lX (%s)\n", BITS, BITS, s.c_str());
 	
-	cout << "crible size = " << size << endl;
-	cout << "bitset hard limit = " << BITS << endl;
+	cout << "crible size = ";
+	printf("%lu = 0x%lX (%s)\n", size, size, s2.c_str());
 	// shits makes no sense if not initialized properly against bitset
 	// (dude I like to talk like a computer scientist, it's so cool).
 	// cout << SIZE << "bits in the vcrible" << endl;
@@ -68,7 +72,7 @@ void Crible :: Generate ()
 			(* crible)[i*k] = false;
 	}
 	cout << "cribled, found " << count << " prime numbers." << endl;
-	cout << "The last primes (in the 100 last integers) which were found: " << endl;
+	// cout << "The last primes (in the 100 last integers) which were found: " << endl;
 	ShowPrimes(limit - 100, limit);
 	
 }
@@ -79,17 +83,17 @@ void Crible :: ShowPrimes(ulong a, ulong b)
 		cout << "bad range" << endl;
 		return;
 	}
-	cout << endl;
+	// cout << endl;
+	cout << "primes in {" << a << ", " << b << "} :" << endl;
 	for (ulong i = a; i < b; ++i)
 	{
 		if ((* crible)[i]) cout << (i) << ' ';
-		//else cout << '-';//"·";
 	}
-	cout << endl << endl;
+	cout << endl;
 }
 void Crible :: ShowPrimes()
 {
-	cout << endl;
+	// cout << endl;
 	for (ulong i = 0; i < limit; ++i)
 	{
 		if ((* crible)[i]) cout << (i) << ' ';
@@ -99,7 +103,7 @@ void Crible :: ShowPrimes()
 }
 void Crible :: ShowPrimes30()
 {
-	cout << endl;
+	// cout << endl;
 	for (ulong i = 0; i < limit; ++i)
 	{
 		if ((* crible)[i]) cout << unbase :: tumber30(i) << ' ';
@@ -109,7 +113,7 @@ void Crible :: ShowPrimes30()
 }
 void Crible :: ShowPrimes36()
 {
-	cout << endl;
+	// cout << endl;
 	for (ulong i = 0; i < limit; ++i)
 	{
 		if ((* crible)[i]) cout << unbase :: tumber36(i) << ' ';
@@ -117,11 +121,18 @@ void Crible :: ShowPrimes36()
 	}
 	cout << endl;	
 }
-/////////////////////////////////////////////////////////////////////////////
 Crible :: ~ Crible()
 {
-	if (in -> is_open()) in -> close();
-	if (out -> is_open()) out -> close();
+	if (in -> is_open())
+	{
+		in -> close();
+		cout << "input closed" << endl;
+	}
+	if (out -> is_open())
+	{
+		out -> close();
+		cout << "output closed" << endl;
+	}
 	delete in;
 	delete out;
 }
@@ -150,7 +161,8 @@ void Crible :: WriteFile()
 			++iter
 		)
 		{
-			(* out) << (* iter).to_ulong();
+			(* out) << (iter -> to_ulong())	;
+			cout << "just wrote " << iter -> to_ulong() << endl;
 		}
 		cout << "finished writing" << endl;
 	}
@@ -173,7 +185,6 @@ void Crible :: ShowCribleSet ()
 		cout << iter -> to_string() << endl;
 	}
 }
-
 void Crible :: Pack()
 {
 	pack = new ulong [count];
@@ -190,7 +201,6 @@ void Crible :: Pack()
 	ShowPack(count - 10, count);
 	// ShowPack(10, 100);
 }
-
 void Crible :: ShowPack(ulong a, ulong b)
 {
 	if(a >= b || a > count || b > count)
@@ -206,8 +216,6 @@ void Crible :: ShowPack(ulong a, ulong b)
 	}
 	cout << endl;
 }
-
-
 void Crible :: ShowPrimeByPosition(ulong i)
 {
 	if(i > count)
@@ -217,13 +225,14 @@ void Crible :: ShowPrimeByPosition(ulong i)
 	}
 	cout << "Prime #" << i << ": " << pack[i] << endl;
 }
-
 void Crible :: ChunkizeCrible()
 {
-	for(ulong i = 0; i < size; ++ i)
+	for(int i = 0; i < size; ++ i)
 	{
-		//crible_vect[i / 64] [i % 64] = crible[i];
+		// crible_vect[i / 64] [i % 64] = crible[i];
+		crible_vect[i / 64] [i % 64] = (*crible)[i];
 	}
+	cout << crible_vect[size/1000].to_ulong() << endl;
 }
 // void Crible :: OpenFiles()
 // {

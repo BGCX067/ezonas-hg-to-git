@@ -1,0 +1,10 @@
+// Pseudocode for an explicit Euler integrator that integrates a state vector of arbitrary length.
+// Here, N is the number of states, new_S is S(t+dt), prior_S is S(t), S_deriv is dS(t)/dt and delta_t is dt
+
+void ExplicitEuler(N, new_S, prior_S, S_derivs, delta_t)
+{
+    for (i = 0; i < N; i++)
+    {
+        new_S[i] = prior_S[i] + delta_t * S_derivs[i];
+    }
+}

@@ -1,0 +1,500 @@
+   62  top
+   63  kill 1659
+   64  py nit.py g
+   65  jobs
+   66  ps ax
+   67  ps
+   68  ps -h
+   69  man ps
+   70  ps u
+   71  ps e
+   72  ps |grep python
+   73  kill 1701
+   74  kill -1701
+   75  kill 
+   76  ps |grep Python
+   77  kill -1674
+   78  kill 1674
+   79  py nit.py g
+   80  gksh 
+   81  cd py/
+   82  py nit.py l
+   83  jobs
+   84  jobs
+   85  py nit.py l
+   86  jobs -k
+   87  jobs
+   88  jobs
+   89  jobs
+   90  ghc
+   91  ghs
+   92  gksh 
+   93  cd py/
+   94  py nit.py g
+   95  ps |grep Python
+   96  kill 1932
+   97  py nit.py g
+   98  py nit.py g
+   99  gksh 
+  100  gksh cd py/
+  101  cd
+  102  cd py/
+  103  py nit.py 
+  104  ping spark.ofloo.net
+  105  ifconfig 
+  106  ping 192.168.0.11
+  107  ping 192.168.0.12
+  108  ssh Moonx@192.168.0.12
+  109  ifconfig 
+  110  ssh Moonx@192.168.0.12
+  111  cd py
+  112  py nit.py m
+  113  py nit.py m
+  114  py nit.py m
+  115  cd py
+  116  py nit.py g
+  117  py locls.py 
+  118  python
+  119  py nit.py
+  120  py nit.py
+  121  py nit.py
+  122  py nit.py g
+  123  py nit.py g
+  124  jobs
+  125  jobs
+  126  jobs kill
+  127  jobs k
+  128  jobs -k
+  129  py nit.py g
+  130  py nit.py g
+  131  gksh
+  132  nano .bashrc
+  133  nano .bash_profile
+  134  l
+  135  la
+  136  cd .config/
+  137  la
+  138  ..
+  139  cd .profile 
+  140  nano .profile 
+  141  cd .local/
+  142  l
+  143  cat .Blog
+  144  ..
+  145  cat .Blog 
+  146  cd hiddenfiles 
+  147  cat hiddenfiles 
+  148  1;2c1;2c1;2c
+  149  l
+  150  nano .bashrc
+  151  l .bash
+  152  l .bashrc
+  153  chmod +x .bashrc
+  154  ./.bashrc 
+  155  mn
+  156  mn
+  157  cat bash
+  158  cat .bashrc
+  159  bash
+  160  help
+  161  mn
+  162  help
+  163  cat .bashrc
+  164  nano .bash_profile
+  165  cd py/
+  166  py nit.py 
+  167  py
+  168  cd py
+  169  scp
+  170  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  171  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  172  scp -h
+  173  man scp
+  174  man scp > scp.txt
+  175  rcp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  176  rcp nit.py jokoon@212.71.19.103:pynit/nit.py
+  177  ping6 ipv6.google.com
+  178  cd py/
+  179  py funtest.py 
+  180  py list.py 
+  181  py list.py 
+  182  py list.py 
+  183  py list.py 
+  184  py locks-thr.py 
+  185  py locks-thr.py 
+  186  py locks-thr.py 
+  187  py
+  188  ssh-keygen 
+  189  h
+  190  history 
+  191  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  192  ssh-agent gksh
+  193  ssh-agent gksh
+  194  mv gksh gksh.p
+  195  ssh-agent gksh.p
+  196  cat gksh.p
+  197  cat gksh.p
+  198  ssh-agent 
+  199  ssh-agent 
+  200  ssh-add gksh.p
+  201  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  202  gksh 
+  203  ssh-add gksh.pub 
+  204  ssh-agent gksh.pub 
+  205  cd
+  206  cd .ssh/
+  207  l
+  208  cd py
+  209  cd py
+  210  cd
+  211  cd py
+  212  ssh-keygen 
+  213  l
+  214  ssh-agent 
+  215  ssh-agent 
+  216  scp gksh.pub jokoon@spark.ofloo.net:.ssh/authorized_keys
+  217  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  218  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  219  gksh 
+  220  mn
+  221  ssh
+  222  ssh -h
+  223  man ssh
+  224  man ssh > ssh.man.txt
+  225  mn
+  226  gksh 
+  227  ssh-agent 
+  228  cd py/
+  229  py nit.py 
+  230  py nit.py 
+  231  py nit.py 
+  232  py nit.py 
+  233  py nit.py 
+  234  py nit.py 
+  235  py nit.py 
+  236  jobs 
+  237  jobs 
+  238  jobs 
+  239  py nit.py 
+  240  gksh 
+  241  ssh-agent 
+  242  cd py/
+  243  ..
+  244  cd py/
+  245  ssh-agent gksh.p
+  246  ssh-agent gksh.pub 
+  247  gksh 
+  248  gksh 
+  249  gksh 
+  250  ssh-add gksh.p
+  251  ssh-add gksh.pub 
+  252  ssh-add gksh.p
+  253  gksh 
+  254  nano .bash_profile
+  255  cd py/
+  256  py nit.py 
+  257  py locks-thr.py 
+  258  py locks-thr.py 
+  259  py locks-thr.py 
+  260  py locks-thr.py 
+  261  jobs
+  262  jobs
+  263  jobs
+  264  jobs
+  265  kill 336
+  266  jobs
+  267  jobs
+  268  py nit.py 
+  269  l
+  270  py locks-thr.py 
+  271  py locks-thr.py 
+  272  obs
+  273  jobs
+  274  jobs
+  275  psh Python
+  276  cd py/
+  277  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  278  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  279  py
+  280  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  281  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  282  psh python
+  283  psh Python
+  284  psh Python
+  285  psh Python
+  286  psh python
+  287  psh python
+  288  jobs
+  289  cd py
+  290  py nit.py 
+  291  jobs
+  292  py nit.py g
+  293  py nit.py g
+  294  py nit.py g
+  295  py nit.py g
+  296  py nit.py g
+  297  gksh 
+  298  psh ssh
+  299  cd py
+  300  ssh-add gksh.p
+  301  gksh 
+  302  cd py/
+  303  py process-data.py 
+  304  py process-data.py 
+  305  py process-data.py 
+  306  py process-data.py 
+  307  py process-data.py 
+  308  py process-data.py 
+  309  py nit.py 
+  310  py nit.py g
+  311  py nit.py g
+  312  py nit.py g
+  313  py nit.py g
+  314  py nit.py g
+  315  py nit.py g
+  316  py nit.py g
+  317  gksh 
+  318  h
+  319  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  320  cd py
+  321  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  322  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  323  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  324  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  325  l
+  326  cd static_mass/wallbricks-2011-0725/lol-things/
+  327  python html-list.py 
+  328  python html-list.py 
+  329  python html-list.py 
+  330  python html-list.py 
+  331  l
+  332  python html-list.py 
+  333  python html-list.py > loled.html
+  334  python html-list.py > loled.html
+  335  python html-list.py > loled.html
+  336  cd py
+  337  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  338  py process-data.py 
+  339  py process-data.py 
+  340  py process-data.py 
+  341  py process-data.py 
+  342  py process-data.py 
+  343  job
+  344  jobs 
+  345  jobs 
+  346  jobs 
+  347  py process-data.py 
+  348  py process-data.py 
+  349  jobs 
+  350  jobs 
+  351  py process-data.py 
+  352  py process-data.py 
+  353  psh Python
+  354  kill 2103
+  355  kill 2114
+  356  jobs
+  357  jobs
+  358  kill 2125
+  359  kill 2146
+  360  job
+  361  jobs
+  362  jobs
+  363  py process-data.py 
+  364  h
+  365  history 
+  366  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  367  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  368  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  369  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  370  py process-data.py 
+  371  py process-data.py 
+  372  py process-data.py 
+  373  py process-data.py 
+  374  py process-data.py 
+  375  py process-data.py 
+  376  scp nit.py jokoon@spark.ofloo.net:pynit/nit.py
+  377  psh vlc
+  378  psh video
+  379  psh videolan
+  380  psh VLC
+  381  kill 862
+  382  py py/process-data.py 
+  383  py py/process-data.py 
+  384  py py/nit.py 
+  385  py py/nit.py 
+  386  py py/nit.py 
+  387  py py/nit.py 
+  388  py py/nit.py 
+  389  py py/nit.py 
+  390  py py/nit.py 
+  391  py py/nit.py g
+  392  py py/nit.py g
+  393  cd py
+  394  psh ssh
+  395  psh ssh-agent
+  396  ssh-add gksh
+  397  gks
+  398  gksh 
+  399  dd
+  400  man dd
+  401  sudo dd if=/dev/mem | cat | strings > ram-dump.txt
+  402  cd Downloads/http/MplayerOSXB8r5
+  403  l
+  404  cd MPlayer\ OS\ X\ 2
+  405  cd MPlayer\ OS\ X\ 2.app/
+  406  l
+  407  cd Contents/
+  408  l
+  409  cd MacOS/
+  410  l
+  411  cd Downloads/http/MplayerOSXB8r5
+  412  cd MPlayer\ OS\ X\ 2.app/Contents/MacOS/
+  413  ./MPlayer\ OS\ X\ 2 
+  414  ./MPlayer\ OS\ X\ 2 ~/boo.avi -vo jpeg
+  415  cd
+  416  cd py/
+  417  ssh-add gksh
+  418  gksh 
+  419  cd
+  420  cd Movies/
+  421  mkdir ~/ffmpeg
+  422  cd ~/ffmpeg
+  423  cd
+  424  rm -d ffmpeg/
+  425  cd Movies/
+  426  mkdir ffmpeg
+  427  cd ffmpeg/
+  428  svn checkout svn://svn.ffmpeg.org/ffmpeg/trunk ffmpeg
+  429  cd ffmpeg/
+  430  ./configure --enable-shared
+  431  ./configure --enable-shared arch=x86_64
+  432  ./configure --enable-shared arch=x86_64 --disable-mmx
+  433  make
+  434  sudo make install
+  435  cd static_mass/wallbricks-2011-0725/lol-things/
+  436  py html-list.py 
+  437  py html-list.py > loled.html 
+  438  py html-list.py > loled.html 
+  439  py html-list.py > loled.html 
+  440  py html-list.py > loled.html 
+  441  py html-list.py > loled.html 
+  442  rm .DS_Store 
+  443  cd hg/ezonas/cx/eulerproj/
+  444  py xorz.py 
+  445  ..
+  446  cd base3x/
+  447  g++ 21030.cc base30_main.cc 
+  448  ./a.out 
+  449  ./a.out > base30.txt
+  450  g++ base30_main.cc 
+  451  ../primebits/
+  452  cd ../primebits/
+  453  g++ primecrible.cc crible_main.cc 
+  454  g++ primecrible.cc crible_main.cc 21030.cc 
+  455  ./a.out 
+  456  ./a.out > primes.txt
+  457  g++ primecrible.cc crible_main.cc 21030.cc
+  458  ./a.out 
+  459  g++ primecrible.cc crible_main.cc 21030.cc
+  460  g++ primecrible.cc crible_main.cc 21030.cc > errors.txt
+  461  g++ primecrible.cc crible_main.cc 21030.cc > errors.txt
+  462  g++ primecrible.cc crible_main.cc 21030.cc > errors.txt
+  463  g++ primecrible.cc crible_main.cc 21030.cc > errors.txt
+  464  g++ primecrible.cc crible_main.cc 21030.cc > errors.txt
+  465  g++ primecrible.cc crible_main.cc 21030.cc > errors.txt
+  466  g++ primecrible.cc crible_main.cc 21030.cc > errors.txt
+  467  g++ primecrible.cc crible_main.cc 21030.cc > errors.txt
+  468  g++ primecrible.cc crible_main.cc 21030.cc > errors.txt
+  469  ./a.out 
+  470  ./a.out 10000
+  471  touch ulong_test.cc
+  472  g++ ulong_test.cc 
+  473  g++ ulong_test.cc 
+  474  ./a.out 
+  475  g++ ulong_test.cc 
+  476  ./a.out 
+  477  g++ ulong_test.cc 
+  478  g++ ulong_test.cc 
+  479  ./a.out 
+  480  g++ ulong_test.cc 
+  481  g++ ulong_test.cc 
+  482  ./a.out 
+  483  g++ ulong_test.cc 
+  484  ./a.out 
+  485  g++ primecrible.cc crible_main.cc 21030.cc
+  486  g++ ulong_test.cc 
+  487  ./a.out 
+  488  g++ primecrible.cc crible_main.cc 21030.cc
+  489  g++ primecrible.cc crible_main.cc 21030.cc
+  490  g++ primecrible.cc crible_main.cc 21030.cc
+  491  g++ primecrible.cc crible_main.cc 21030.cc
+  492  g++ primecrible.cc crible_main.cc 21030.cc
+  493  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  494  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  495  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  496  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  497  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  498  ./a.out 
+  499  ./a.out 10000
+  500  cd hg/ezonas/cx/primebits/
+  501  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  502  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  503  ./a.out
+  504  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  505  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  506  ./a.out
+  507  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  508  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  509  ./a.out
+  510  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  511  ./a.out
+  512  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  513  ./a.out
+  514  ./a.out
+  515  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  516  ./a.out
+  517  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  518  ./a.out
+  519  clear;g++ primecrible.cc crible_main.cc 21030.cc
+  520  ./a.out
+  521  g++ multibitset.cc multibitset_main.cc 
+  522  g++ multibitset.cc multibitset_main.cc 
+  523  g++ multibitset.cc multibitset_main.cc 
+  524  g++ multibitset.cc multibitset_main.cc 
+  525  clear;g++ multibitset.cc multibitset_main.cc 
+  526  clear;g++ multibitset.cc multibitset_main.cc 
+  527  clear;g++ multibitset.cc multibitset_main.cc 
+  528  clear;g++ multibitset.cc multibitset_main.cc 
+  529  clear;g++ multibitset.cc multibitset_main.cc 
+  530  clear;g++ multibitset.cc multibitset_main.cc 
+  531  clear;g++ multibitset.cc multibitset_main.cc 
+  532  clear;g++ multibitset.cc multibitset_main.cc 
+  533  ./a.out 
+  534  clear;g++ multibitset.cc multibitset_main.cc 
+  535  clear;g++ multibitset.cc multibitset_main.cc 
+  536  clear;g++ multibitset.cc multibitset_main.cc 
+  537  ./a.out 
+  538  clear;g++ multibitset.cc multibitset_main.cc 
+  539  ./a.out 
+  540  clear;g++ multibitset.cc multibitset_main.cc 
+  541  ./a.out 
+  542  g++ memtest.cc 
+  543  cc memtest.cc 
+  544  mv memtest.cc memtest.c
+  545  cc memtest.cc 
+  546  cc memtest.c
+  547  ./a.out 
+  548  cc memtest.c
+  549  ./a.out 
+  550  mv memtest.cc memtest.c
+  551  cc memtest.c
+  552  cc memtest.c
+  553  ./a.out 
+  554  cc memtest.c
+  555  cc memtest.c
+  556  cc memtest.c
+  557  cc memtest.c
+  558  cc memtest.c
+  559  ./a.out 
+  560  h
+  561  history > history.txt

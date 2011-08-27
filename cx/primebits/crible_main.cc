@@ -23,9 +23,17 @@ int main(int n, char * arg[])
  		Crible c(value);
 		c.Generate();
 		c.Pack();
+		c.ChunkizeCrible();
 		c.WriteFile();
 	}
-	
+	if(n == 2 and arg[1][0] == 'r')
+	{
+ 		Crible c(BITS);
+		c.ReadFile();
+		
+		
+		
+	}
 	//c.ShowPrimeByPosition(10001);
 	//c.ShowArray();
 	// c.ShowPrimes36();

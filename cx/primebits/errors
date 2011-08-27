@@ -1,0 +1,4 @@
+primecrible.cc: In member function ‘void Crible::ChunkizeCrible()’:
+primecrible.cc:228: error: no match for ‘operator=’ in ‘std::bitset<_Nb>::operator[](size_t) [with long unsigned int _Nb = 64ul]((i & 63ul)) = *(((Crible*)this)->Crible::crible + ((std::bitset<10000000ul>*)(i * 1250000u)))’
+/usr/include/c++/4.2.1/bitset:695: note: candidates are: std::bitset<_Nb>::reference& std::bitset<_Nb>::reference::operator=(bool) [with long unsigned int _Nb = 64ul]
+/usr/include/c++/4.2.1/bitset:706: note:                 std::bitset<_Nb>::reference& std::bitset<_Nb>::reference::operator=(const std::bitset<_Nb>::reference&) [with long unsigned int _Nb = 64ul]

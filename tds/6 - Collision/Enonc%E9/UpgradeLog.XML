@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Résolution de collision">
+</Property><Property Name="Fichier solution" Value="J:\Taf\Stage\Code\TD\TD DX11 Resolution de collision\Enoncé\Résolution de collision.sln">
+</Property><Property Name="Date" Value="mercredi 22 septembre 2010">
+</Property><Property Name="Time" Value="16:13">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Résolution de collision.sln" Description="Fichier correctement sauvegardé en tant que J:\Taf\Stage\Code\TD\TD DX11 Resolution de collision\Enoncé\Résolution de collision.sln.old">
+</Event><Event ErrorLevel="0" Project="Résolution de collision" Source="Résolution de collision\Résolution de collision.vcproj" Description="Converting project file 'J:\Taf\Stage\Code\TD\TD DX11 Resolution de collision\Enoncé\Résolution de collision\Résolution de collision.vcproj'.">
+</Event><Event ErrorLevel="1" Project="Résolution de collision" Source="Résolution de collision\Résolution de collision.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="Résolution de collision" Source="Résolution de collision\Résolution de collision.vcproj" Description="Done converting to new project file 'J:\Taf\Stage\Code\TD\TD DX11 Resolution de collision\Enoncé\Résolution de collision\Résolution de collision.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="Résolution de collision" Source="Résolution de collision\Résolution de collision.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Résolution de collision.sln" Description="Solution correctement convertie">
+</Event><Event ErrorLevel="3" Project="" Source="Résolution de collision.sln" Description="Converted">
+</Event></UpgradeLog>
