@@ -1,10 +1,13 @@
 #include <iostream>
 #include <cstring>
+#include <cerrno>
+
 using namespace std;
 #define print(s) std::cout << s << std::endl
 #define printx(n) printf("0x%lX\n", n)
 typedef unsigned long ulong;
 #define FOR(n) for (int i = 0; i < n; ++i)
+#define BITS64 0xFFFFFFFFFFFFFFFF
 
 class base5
 {

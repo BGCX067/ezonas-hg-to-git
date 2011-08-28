@@ -2,7 +2,7 @@
 
 base5 :: base5():
 	table_alpha(" ABCDEFGHIJKLMNOPQRSTUVWXYZ"),
-	table_punct(",.'-"),
+	table_punct(",.'-^"),
 	table_math("+-*/="),
 	table_symb("#@&?!")
 {
@@ -24,48 +24,61 @@ base5 :: base5():
 ulong base5 :: encode(string s)
 {
 	if(s.length() > 12) { cerr << "string too long" << endl; return 0; }
-	cout << "encoding: ";
-	debug_string(s);
+	else if(s.length() < 12)
+	{
+		int l = s.length();
+		// cout << l << endl;
+		// s.append(12 - l, ' ')
+		s.insert(0, 12 - l, '_');
+	}
+	// debug_string(s);
 	ulong result = 0;
 
 	s = prepare(s);
 	for(int i = 0; i < 12; ++ i)
-	{
 		result |= (ulong(s[i]) << 5 * (11 - i));
-		cout << s[i] << " "; printx(result);
-	}
-
-	cout << "encoded into "; printx(result);
 	return result;
 }
 
 string base5 :: decode(ulong n)
 {
-	// unsigned char s[] = {"\0\0\0\0\0\0\0\0\0\0\0\0"};
 	string s(12, 'X');
-	
-	cout << "decoding:"; printx(n);
 	
 	FOR(12)
 		s[i] = char((n & masks [i]) >> 5 * (11 - i));
 
-	debug_string_int(s);
+	// debug_string_int(s);
 	return unprepare(s);
 }
 /* ------------------ translation functions ------------------ */
 string base5 :: prepare(string s)
 {
 	if(s.length() > 12)	{cerr << "string too long" << endl;	return s;}
-	cout << "will prepare string: " << s << endl;
-	debug_string(s);
+	// debug_string(s);
 	for(int i = 0; i < 12; ++ i)
 	{
 		if (s[i] > ('A' - 1) and s[i] < ('Z' + 1))		s[i] -= ('A' - 1);
 		else if (s[i] > ('a' - 1) and s[i] < ('z' + 1)) s[i] -= ('a' - 1);
-		else cerr << "bad character" << s[i] << endl;
+		else
+			switch (s[i])
+			{
+				// case ' ':  s[i] = 0; break;
+				case '_':  s[i] = 0; break;
+				case ',':  s[i] = 27; break;
+				case '.':  s[i] = 28; break;
+				case '\'': s[i] = 29; break;
+				case '-':  s[i] = 30; break;
+				case '^':  s[i] = 31; break;
+
+				default:
+					cerr << "bad character " << int(s[i]) << endl;
+					// debug
+					s[i] = 30;
+					break;
+			}
 	}
-	cout << "resulting prepared string: ";
-	debug_string_int(s);
+
+	// debug_string_int(s);
 
 	return s;
 }
@@ -73,13 +86,13 @@ string base5 :: prepare(string s)
 string base5 :: unprepare(string s)
 {
 	if(s.length() > 12) { cerr << "string too long" << endl; return s; }
-	cout << "unpreparing string: ";
-	debug_string_int(s);
+	// debug_string_int(s);
 	for(int i = 0; i < 12; ++ i)
 	{
 		switch(s[i])
 		{
-			case 0:  s[i] = ' '; break;
+			// case 0:  s[i] = ' '; break;
+			case 0:  s[i] = '_'; break;
 			case 27: s[i] = table_punct[0]; break;
 			case 28: s[i] = table_punct[1]; break;
 			case 29: s[i] = table_punct[2]; break;
