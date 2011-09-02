@@ -7,73 +7,64 @@ int main(int n, char * arg[])
 	// if (n >= 2) in = strtol(arg[1], NULL, 0);
 	// if (n >= 3)  l = strtol(arg[2], NULL, 0);
 
+	// printf("\n☯∫√✕∷≡=∃ ∇∞∵\n");
+	printf("\n████████████████████████ √∫ ████████████████████████\n");
+
+	if(n == 3) cout << "bad arguments" << endl;
 	if(n == 1)
 	{
 		cout << "no args given, will use default settings" << endl;
 		Crible c(BITS);//, l);
 		c.Generate();
+		// c.ShowCribleSet();
+		// c.Chunkize2();
+		// c.WriteFile("output.bit");
+
 		//c.Pack();
 		//c.ShowPrimes();
 	}
-	if(n == 2)// and arg[1] < ('9' + 1) and arg[1] > ('0' - 1))
-	{
-		int value = atoi(arg[1]);
-		cout << "Caught " << value << " as maximum" << endl;
-
- 		Crible c(value);
-		c.Generate();
-		c.Pack();
-		c.ChunkizeCrible();
-		c.WriteFile();
-	}
-	if(n == 2 and arg[1][0] == 'r')
-	{
- 		Crible c(BITS);
-		c.ReadFile();
-		
-		
-		
-	}
-	//c.ShowPrimeByPosition(10001);
-	//c.ShowArray();
-	// c.ShowPrimes36();
-//	system("pause");
-    //cin.get();
-	// return 0xdeadbeef;
 	
-	// c.ShowPrimes();
-	return 347;
+	if(n == 2)
+	{
+		if(arg[1][0] == 'r')
+		{
+	 		Crible c(BITS);
+			// c.ReadFile("output.bit");
+		}		
+		if(arg[1][0] == 't')
+			cout << "supply more arguments for testing" << endl;
 
-}
-/*
-void number_format(long n)
-{
-	// int r = n;
-	// do
-	// {
-	// 	r /= 1000;
-	// }
-	// while(r < 1)
-	char s[256], r[256];
-	itoa(n, s, 10);
-	int size = strlen(s);
-	int cursor = size - 1;
-	// copy s to r in reverse order
-	for (int i = 0, i < size; ++ i)
-	{
-		r[size - i] = s[i];
-	}
-	r[size + 1] = '\0';
-	int cursor = 0;
-	while (cursor < size)
-	{
+
+		else
+		{
+			ulong value = strtol(arg[1], 0, 16);
+			
+			printf("will divide by %lX, resulting sieve limit is %lX\n",
+			value, BITS / value);
+
+
+	 		Crible c(BITS / value);
+			c.Generate();
+			// c.Pack();
+			// c.Chunkize2();
+			// c.WriteFile("output.bit");
+		}
 		
 	}
+	if(n == 4)
+	{
+		if(arg[1][0] == 't')
+		{
+			cout << "performing some tests" << endl;
+	 		Crible c(BITS_FAST);
+			c.Generate();
+
+			c.VariousTests(ulong(atoi(arg[3])), arg[2][0]);
+
+		}
+	}
+	return 347;
 }
-
-
-
-*/
 
 
 

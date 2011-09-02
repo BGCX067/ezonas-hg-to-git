@@ -89,7 +89,7 @@ bool primecodec :: get()
 	rewind(file);
 	count = file_size / sz;
 	primes = new ulong[count];
-	ulong el = fread(primes, sz, count, file);
+	ulong items = fread(primes, sz, count, file);
 	//if (el == 0) cout << "Failed to read the content, 0 elements read" << endl;
 
 

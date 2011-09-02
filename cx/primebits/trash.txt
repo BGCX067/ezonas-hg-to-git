@@ -1,0 +1,102 @@
+void print_spaces_hex(ulong n)
+{
+	// n /= 8;
+	printf("%lu = 0x%lX = ", n, n);
+	ulong len   = n % 0x400;
+	ulong len_K = (n / 0x400) % 0x400;
+	ulong len_M = (len_K / 0x400) % 0x400;
+	ulong len_G = len_M / 0x100000;
+	printf("%04lu %04lu %04lu %04lu\n", len_G, len_M, len_K, len);
+}
+
+
+void Crible :: Generate ()
+{
+	cout << "[GEN] Using Eratosthenes Sieve algorithm to find primes " << endl;
+	crible->flip();
+	(* crible)[0] = false;
+	(* crible)[1] = false;
+	// ulong interval1_start = size_sieve * (0 / 10U);
+	cout << "size_sieve = " << size_sieve << endl;
+	size_t interval1_start = 2;
+	size_t interval1_end   = 1 * size_sieve / 5 - 1;
+
+	size_t interval2_start = 1 * size_sieve / 5;
+	size_t interval2_end   = 2 * size_sieve / 5 - 1;
+
+	size_t interval3_start = 2 * size_sieve / 5;
+	size_t interval3_end   = 3 * size_sieve / 5 - 1;
+
+	size_t interval4_start = 3 * size_sieve / 5;
+	size_t interval4_end   = 4 * size_sieve / 5 - 1;
+
+	size_t interval5_start = 4 * size_sieve / 5;
+	size_t interval5_end   = 5 * size_sieve / 5;
+	                                        
+	cout                                    
+	<< interval1_start << endl              
+	<< interval1_end   << endl              
+                                            
+	<< interval2_start << endl              
+	<< interval2_end   << endl
+                              
+	<< interval3_start << endl
+	<< interval3_end   << endl
+                              
+	<< interval4_start << endl
+	<< interval4_end   << endl
+                              
+	<< interval5_start << endl
+	<< interval5_end   << endl;
+//1/////////////////////////////////////////////////////////////		
+	for (ulong i = 2; i < interval1_end; ++i)
+	{
+		// if there is a false, loop next (false means i is not prime)
+		if((* crible)[i] == false) continue;
+		++ count;
+		// zeroes out all numbers from 2*m to n (means here, i is prime)
+		for(ulong k = 2; i*k < interval2_end; ++k)
+			(* crible)[i*k] = false;
+	}
+	printf("passed %lu iterations\n", interval1_end);
+//2/////////////////////////////////////////////////////////////	
+	for (ulong i = interval2_start; i < interval2_end; ++i)
+	{
+		if((* crible)[i] == false) continue;
+		++ count;
+		for(ulong k = 2; i*k < size_sieve; ++k)
+			(* crible)[i*k] = false;
+	}
+	printf("passed %lu iterations\n", interval2_end);
+//3/////////////////////////////////////////////////////////////	
+	for (ulong i = interval3_start; i < interval3_end; ++i)
+	{
+		if((* crible)[i] == false) continue;
+		++ count;
+		for(ulong k = 2; i*k < size_sieve; ++k)
+			(* crible)[i*k] = false;
+	}
+	printf("passed %lu iterations\n", interval3_end);
+//4/////////////////////////////////////////////////////////////	
+	for (ulong i = interval4_start; i < interval4_end; ++i)
+	{
+		if((* crible)[i] == false) continue;
+		++ count;
+		for(ulong k = 2; i*k < size_sieve; ++k)
+			(* crible)[i*k] = false;
+	}
+	printf("passed %lu iterations\n", interval4_end);
+//5/////////////////////////////////////////////////////////////	
+	for (ulong i = interval5_start; i < interval5_end; ++i)
+	{
+		if((* crible)[i] == false) continue;
+		++ count;
+		for(ulong k = 2; i*k < size_sieve; ++k)
+			(* crible)[i*k] = false;
+	}
+////////////////////////////////////////////////////////////////	
+
+	cout << "[GEN] found " << count << " prime numbers. ";
+	ShowPrimes(size_sieve - 25, size_sieve);
+	
+}

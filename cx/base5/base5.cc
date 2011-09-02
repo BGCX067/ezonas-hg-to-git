@@ -63,6 +63,7 @@ string base5 :: prepare(string s)
 			switch (s[i])
 			{
 				// case ' ':  s[i] = 0; break;
+				case ' ':  s[i] = 0; break;
 				case '_':  s[i] = 0; break;
 				case ',':  s[i] = 27; break;
 				case '.':  s[i] = 28; break;
@@ -119,3 +120,23 @@ void base5 :: debug_string(string s)
 		cout<< int(s[i]) << ":" << s[i]  << " ";
 	cout << endl;
 }
+
+void base5 :: writetofile(ulong array[10])
+{
+
+	FILE * file = fopen("dump.bit", "w");
+	if (file == NULL)
+	{
+		cerr << "Failed to open the file in read-binary mode." << endl;
+		return;
+	}	
+	else
+	{
+		ulong u[1] = {1L};
+		int i = fwrite(u, 8, 1, file);
+		cout << "wrote " << i << " things" << endl;
+	}
+}
+
+
+

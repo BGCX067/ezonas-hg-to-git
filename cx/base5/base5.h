@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include <cerrno>
+#include <fstream>
 
 using namespace std;
 #define print(s) std::cout << s << std::endl
@@ -23,6 +24,7 @@ public:
 	base5();
 	void debug_string(string s);
 	void debug_string_int(string s);
+	void writetofile(ulong array[10]);
 protected:
 	string
 		table_alpha,

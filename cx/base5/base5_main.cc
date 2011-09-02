@@ -5,10 +5,27 @@ int main(int n, char * arg[])
 	base5 b;
 	if(n == 1)
 	{
-		string s("HELLO WORLD.");
-		ulong n = b.encode(s);
-		cout << n << endl;
-		cout << b.decode(n) << endl;
+		string s[10];
+
+		s[0] = "HELLO_WORLD.";
+		s[1] = "HELLO_WORLD.";
+		s[2] = "HELLO_WORLD.";
+		s[3] = "HELLO_WORLD.";
+		s[4] = "I'M_JONAS";
+		s[5] = "WITH DOUDOUE";
+		s[6] = "AND DANDAN";
+		s[7] = "AND NAFNAF";
+		s[8] = "HELLO_WORLD.";
+		s[9] = "WE'RE HAPPY";
+		
+		ulong m[10];
+		FOR(10)
+			m[i] = b.encode(s[i]);
+		
+		b.writetofile(m);
+		// ulong n = b.encode(s);
+		// cout << n << endl;
+		// cout << b.decode(n) << endl;
 
 	}
 	if

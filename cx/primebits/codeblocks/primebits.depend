@@ -1,0 +1,51 @@
+# depslib dependency file v1.0
+1294841238 source:f:\cx-proj\primebits\primecrible.cc
+	"primecrible.h"
+	"21030.h"
+	<stdlib.h>
+
+1294841036 f:\cx-proj\primebits\primecrible.h
+	<bitset>
+	<iostream>
+	<vector>
+	<fstream>
+	<iostream>
+	"21030.h"
+
+1294838468 f:\cx-proj\primebits\21030.h
+	<string>
+	<iostream>
+
+1294841062 source:f:\cx-proj\primebits\21030.cc
+	"21030.h"
+
+1294848076 source:f:\cx-proj\primebits\main.cpp
+	<iostream>
+
+1296737027 source:c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\cx\primebits\crible_main.cc
+	"primecrible.h"
+	"stdio.h"
+
+1294849774 c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\cx\primebits\primecrible.h
+	<bitset>
+	<iostream>
+	<vector>
+	<fstream>
+	<iostream>
+	"21030.h"
+
+1294838468 c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\cx\primebits\21030.h
+	<string>
+	<iostream>
+
+1294848076 source:c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\cx\primebits\main.cpp
+	<iostream>
+
+1294841238 source:c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\cx\primebits\primecrible.cc
+	"primecrible.h"
+	"21030.h"
+	<stdlib.h>
+
+1294841062 source:c:\documents and settings\jorinovski.creadomain.001\mes documents\_hg\cx\primebits\21030.cc
+	"21030.h"
+
