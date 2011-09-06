@@ -14,11 +14,11 @@ int main(int n, char * arg[])
 	if(n == 1)
 	{
 		cout << "no args given, will use default settings" << endl;
-		Crible c(BITS);//, l);
-		c.Generate();
-		// c.ShowCribleSet();
-		// c.Chunkize2();
-		// c.WriteFile("output.bit");
+		cout << "using \"pretty good\" limit" << endl;
+		Crible c;//, l);
+		c.Generate(BITS_QUICK);
+
+		c.WriteFile("output.bit");
 
 		//c.Pack();
 		//c.ShowPrimes();
@@ -28,26 +28,34 @@ int main(int n, char * arg[])
 	{
 		if(arg[1][0] == 'r')
 		{
-	 		Crible c(BITS);
+	 		Crible c;
+			c.ReadFile("output.bit");
+			// c.ShowCribleSet(0, 100);
+			// c.ShowPrimes(0, 100);
+			c.ShowPrimes();
+
+		}		
+		else if(arg[1][0] == 'h')
+		{
+	 		Crible c;
 			// c.ReadFile("output.bit");
 		}		
-		if(arg[1][0] == 't')
-			cout << "supply more arguments for testing" << endl;
-
-
+		else if(arg[1][0] == 't')
+		{
+			cout << "supply additionnary argument:" << endl;
+			cout << "'g' <number>: show growth" << endl;
+			cout << "'p': show prime factorial" << endl;
+		}
 		else
 		{
-			ulong value = strtol(arg[1], 0, 16);
+			ulong value = strtol(arg[1], 0, 10);
+
+	 		Crible c;
+			c.Generate(value);
+			c.ShowPrimes();
+			// c.ShowCribleSet(0, value);
 			
-			printf("will divide by %lX, resulting sieve limit is %lX\n",
-			value, BITS / value);
-
-
-	 		Crible c(BITS / value);
-			c.Generate();
-			// c.Pack();
-			// c.Chunkize2();
-			// c.WriteFile("output.bit");
+			c.WriteFile("output.bit");
 		}
 		
 	}
@@ -56,14 +64,14 @@ int main(int n, char * arg[])
 		if(arg[1][0] == 't')
 		{
 			cout << "performing some tests" << endl;
-	 		Crible c(BITS_FAST);
-			c.Generate();
+	 		Crible c;
+			c.ReadFile("output.bit");
 
-			c.VariousTests(ulong(atoi(arg[3])), arg[2][0]);
+			c.VariousTests(intg(atoi(arg[3])), arg[2][0]);
 
 		}
 	}
-	return 347;
+//	return 347;
 }
 
 

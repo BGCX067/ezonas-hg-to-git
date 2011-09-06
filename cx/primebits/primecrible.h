@@ -5,19 +5,29 @@
 #include <iostream>
 #include <ctime>
 
+#include "jokoon.h"
 
 // #include "21030.h"
 using namespace std;
 
 // #define BITS 0x100000UL // mac book pro, 2GB ram: don't go further this value
-#define BITS 0x80000000UL // mac book pro, 2GB ram: don't go further this value
-#define BITS_FAST 0x80000000UL / 0x100 // for fast compile+run
+#define BITS 		0x80000000UL // mac book pro, 2GB ram: don't go further this value
+#define BITS_FAST 	0x1000000UL // for fast compile+run
+#define BITS_QUICK 	0x10000000UL // for fast compile+run
 #define FOR(n) for(int i = 0; i < n; ++ i)
 #define CRIBLE_CHUNK_SIZE 0x1000 // 4ko
+
 #define ULONG_BYTES 8
 #define ULONG_BITS 64
+
 #define UINT_BYTES 4
 #define UINT_BITS 32
+
+#define INTG_BYTES 4
+#define INTG_BITS 32
+#define INTG_MAX UINT_MAX
+
+
 #define str string
 // #define CRIBLE_SIZE 0xF80000 // nothing higher on a 32 bits windows
 // #define CRIBLE_SIZE 0x3000000 // nothing higher on a 64 bits processor
@@ -31,29 +41,33 @@ typedef unsigned int intg;
 class Crible
 {
 public:
-	Crible (ulong _limit = 100, int _line_size = 100);
+	// Crible (intg _limit = 100, int _line_size = 100);
+	Crible (int _line_size = 100);
 	~ Crible();
-	void Generate();
-	string number_fmt(ulong n);
+	void Generate(intg);
+	string number_fmt(intg n);
 	void ShowCribleSet();
-	void ShowArray();
-	void ShowPrimes(ulong a, ulong b);
-	void ShowPack(ulong a = 0, ulong b = 0);
+	void ShowCribleSet(intg, intg);
+	void ShowPrimes(intg a, intg b);
+	void ShowPack(intg a = 0, intg b = 0);
 	void ShowPrimes();
-	void ShowPrimeByPosition(ulong i);
+	void ShowArray();
+	void ShowPrimeByPosition(intg i);
 	// void ShowPrimes30();
 	// void ShowPrimes36();
 
-	// void ReadFile(string filename_output);
-	// void WriteFile(string);
+	
+	void ReadFile(string); // read ulong array, write into bitset
+	void WriteFile(string); // convert bitset into ulong array, writes it
 
+	void array2bitset();
+	// void bitset2bitset64();
+	void bitset2array();
+	
+	void Pack(intg n = 0);
+	void VariousTests(intg n, char c);
 
-	void Chunkize();
-	void Chunkize2();
-	void Pack(ulong n = 0);
-	void VariousTests(ulong n, char c);
-
-	void ShowProds(ulong n);
+	void ShowProds(intg n);
 	void Grow(int density);
 	void HideThis();
 	
@@ -63,15 +77,15 @@ protected:
 		size_array;
 
 	// ulong
-	uint
+	intg
 		count,
 		* pack,
 		* array;
 
-	int
-		line_size,
-		WordSize,
-		NumberOfWords;
+	// int
+	// 	line_size,
+		// WordSize,
+		// NumberOfWords;
 	
 	bitset<BITS> * crible;
 	vector <bitset64> crible_vect;

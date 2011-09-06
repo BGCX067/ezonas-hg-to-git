@@ -22,21 +22,22 @@ int main(int n, char * arg[])
 		FOR(10)
 			m[i] = b.encode(s[i]);
 		
-		b.writetofile(m);
+		b.writetofile(m, 10, string("dump.bit"));
 		// ulong n = b.encode(s);
 		// cout << n << endl;
 		// cout << b.decode(n) << endl;
 
 	}
-	if
-	(
-		n == 2 
-		and
-		(
-			(arg[1][0] > ('A'-1) and arg[1][0] < ('Z'+1))
-			or (arg[1][0] > ('a'-1) and arg[1][0] < ('z'+1))
-		)
-	)
+	if(n == 2 and arg[1][0] == 'r')
+	{
+		vector<string> r =
+			b.readfile("dump.bit");
+		FOR_ITR(string, r)
+			cout << (* itr) << endl;
+	}
+	else if
+	(n == 2 and ((arg[1][0] > ('A'-1) and arg[1][0] < ('Z'+1))
+			or   (arg[1][0] > ('a'-1) and arg[1][0] < ('z'+1))))
 	{
 		string s(arg[1]);
 		ulong n = b.encode(s);
@@ -44,7 +45,7 @@ int main(int n, char * arg[])
 		cout << b.decode(n) << endl;
 		
 	}
-	if(n == 2 and arg[1][0] > ('0'-1) and arg[1][0] < ('9'+1))
+	else if(n == 2 and arg[1][0] > ('0'-1) and arg[1][0] < ('9'+1))
 	{
 
 		string input(arg[1]);

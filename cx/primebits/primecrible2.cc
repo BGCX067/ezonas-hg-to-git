@@ -1,6 +1,6 @@
 #include "primecrible.h"
 
-void Crible :: VariousTests(ulong n, char c)
+void Crible :: VariousTests(intg n, char c)
 {
 	switch(c)
 	{
@@ -12,14 +12,14 @@ void Crible :: VariousTests(ulong n, char c)
 	}
 }
 
-void Crible :: ShowProds(ulong n)
+void Crible :: ShowProds(intg n)
 {
 	cout << "[PROD] showing 2 * 3 * 5 * 7 * 11 * etc" << endl;
 	Pack(n);
 	ShowPack(0, n);
 	ShowProds(n);
-	ulong u = 1;
-	for(intg i = 0; i < n and u < ULONG_MAX / 2; ++ i)
+	intg u = 1;
+	for(intg i = 0; i < n and u < INTG_MAX / 2; ++ i)
 	{
 		u *= pack[i];
 		cout << "2";
@@ -32,24 +32,35 @@ void Crible :: ShowProds(ulong n)
 
 void Crible :: Grow(int density)
 {
-	cout << "[GROW] counting occurences of numbers being primes "
-	 << endl;
-
-
-	for (intg i = 0, grow_index = 0; (i < size_sieve);)
+	
+	intg slice = size_sieve / density + 1;
+	cout
+		<< endl << "[GROW] showing how many primes there are every each "
+		<< slice << " number" << endl;
+	intg largest = 0, smallest = 0;
+	for (intg i = 0, grow_index = 0; i < size_sieve;)
 	{
-		for(intg j = 0; j < density; ++ j, ++i)
+		for(intg j = 0; j < slice and (i < size_sieve); ++ j, ++i)
 			if((* crible) [i]) ++ grow_index;
+		
+		if(grow_index > largest)
+			largest = grow_index;
+		if(grow_index < smallest or smallest == 0)
+			smallest = grow_index;
+		
 		grow.push_back(grow_index);
-		// cout << grow_index << " ";
 		grow_index = 0;
 	}
-	vector<int> diff;
-	for(vector<intg>::iterator i = grow.begin() + 1; i < grow.end(); ++ i)
-		// cout << *i << " ";
-		// diff.push_back(*(i - 1) - * i);
-		cout << int(*(i - 1)) - int(* i) << " " << endl;
-		// printf("%lu ", * i);
-		
+	int j = 0;
+	cout << "largest: " << largest << endl
+		<< "smallest: " << smallest << endl;
+
+	// for(vector<intg>::iterator i = grow.begin(); i < grow.end(); ++ i, ++ j)
+	// 	cout << *i << " ";
+	// cout  << endl;
+
+	for(vector<intg>::iterator i = grow.begin(); i < grow.end(); ++ i, ++ j)
+		// cout << 100.0 * float(*i) / float(slice) << " ";
+		printf("%.2f ", 100.0 * float(*i) / float(slice));// << " ";
 	cout  << endl;
 }

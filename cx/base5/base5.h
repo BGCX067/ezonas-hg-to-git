@@ -2,12 +2,14 @@
 #include <cstring>
 #include <cerrno>
 #include <fstream>
+#include <vector>
+#include "jokoon.h"
 
 using namespace std;
 #define print(s) std::cout << s << std::endl
 #define printx(n) printf("0x%lX\n", n)
-typedef unsigned long ulong;
-#define FOR(n) for (int i = 0; i < n; ++i)
+// typedef unsigned long ulong;
+// #define FOR(n) for (int i = 0; i < n; ++i)
 #define BITS64 0xFFFFFFFFFFFFFFFF
 
 class base5
@@ -24,7 +26,9 @@ public:
 	base5();
 	void debug_string(string s);
 	void debug_string_int(string s);
-	void writetofile(ulong array[10]);
+	void writetofile(ulong * array, int n, string filename);
+	vector<string> readfile(string filename);
+	
 protected:
 	string
 		table_alpha,

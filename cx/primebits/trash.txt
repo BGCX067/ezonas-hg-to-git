@@ -100,3 +100,30 @@ void Crible :: Generate ()
 	ShowPrimes(size_sieve - 25, size_sieve);
 	
 }
+
+// void Crible :: ulong2bitset()
+// {
+// 	cout << "[U2B] partitionning bitset into an array of ulong" << endl;
+// 	for(intg i = 0; i < size_array; ++ i)
+// 		for(intg j = 63; j > -1; -- j)
+// 			(* crible)[64 * i + j] = array[j] & (1UL << j);
+// 	
+// }
+// void Crible :: bitset2ulong()
+// {
+// 	cout << "[B2U] partitionning bitset into an array of ulong" << endl;	
+// 	for(intg i = 0; i < size_array - 1; ++ i)
+// 		for(intg j = 0; j < 64; ++ j)
+// 		// for(int j = 63; -1 < j; -- j)
+// 			if((* crible)[64 * i + j])
+// 				array[i / 64] &= (1UL << j);
+// }
+// 
+// void Crible :: bitset2bitset64()
+// {
+// 	cout << "[B2B64] partitionning bitset into 64 bits bitsets" << endl;
+// 	for(intg i = 0; i < size_sieve; ++ i)
+// 		crible_vect[i / 64] [i % 64] = (*crible)[i];
+// 		// crible_vect.push_back((*crible)[i]); // LOL STUPID !
+// }
+

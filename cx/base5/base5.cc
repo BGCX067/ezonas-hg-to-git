@@ -21,6 +21,17 @@ base5 :: base5():
 
 }	
 
+int filesize(FILE * file)
+{
+	if(file == NULL)
+		return NULL;
+
+	fseek(file, 0, SEEK_END);
+	int size = ftell(file);
+	rewind(file);
+	return size;
+	
+}
 ulong base5 :: encode(string s)
 {
 	if(s.length() > 12) { cerr << "string too long" << endl; return 0; }
@@ -121,22 +132,41 @@ void base5 :: debug_string(string s)
 	cout << endl;
 }
 
-void base5 :: writetofile(ulong array[10])
+void base5 :: writetofile(ulong * array, int n, string filename)
 {
-
-	FILE * file = fopen("dump.bit", "w");
+	FILE * file = fopen(filename.c_str(), "w");
 	if (file == NULL)
 	{
-		cerr << "Failed to open the file in read-binary mode." << endl;
+		cerr << "Failed to open the file " << filename << endl;
 		return;
 	}	
-	else
-	{
-		ulong u[1] = {1L};
-		int i = fwrite(u, 8, 1, file);
-		cout << "wrote " << i << " things" << endl;
-	}
+	int i = fwrite(array, sizeof(ulong), n, file);
+	cout << "wrote " << i << " things" << endl;
+	fclose(file);
 }
 
+vector<string> base5 :: readfile(string filename)
+{
+	FILE * file = fopen(filename.c_str(), "r");
+	if (file == NULL)
+	{
+		cerr << "Failed to open the file " << filename << endl;
+		vector<string> FUCKYOUCPP;
+		FUCKYOUCPP.push_back(string("LOL"));
+		return FUCKYOUCPP;
+	}
+	int size = filesize(file) / sizeof(ulong);
+	ulong array [size];
+	vector<string> results;
+	memset(array, 0, size * sizeof(ulong));
+	
+	int i = fread(array, sizeof(ulong), size, file);
+	cout << "read " << i << " things" << endl;
+	fclose(file);
+	FOR(size)
+		results.push_back(decode(array[i]));
+	
+	return results;
+}
 
 
