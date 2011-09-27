@@ -24,6 +24,8 @@ typedef std::string str;
 #define FOR_ITR(type, v) for(vector<type>::iterator itr = v.begin(); itr != v.end(); ++ itr)
 
 #define pr(s) cout << s << endl
+#define pvar(s1, s2) cout << s1 << " = " << s2 << endl
+
 #define pr_(s) cout << s << " "
 #define prln cout << endl
 #define prx(n) printf("0x%X\n", n)

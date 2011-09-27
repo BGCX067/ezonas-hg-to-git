@@ -1,5 +1,7 @@
 #include "primecrible.h"
-#include "stdio.h"
+#include "21030.h"
+
+#include <stdio.h>
 
 int main(int n, char * arg[])
 {
@@ -10,7 +12,9 @@ int main(int n, char * arg[])
 	// printf("\n☯∫√✕∷≡=∃ ∇∞∵\n");
 	printf("\n████████████████████████ √∫ ████████████████████████\n");
 
-	if(n == 3) cout << "bad arguments" << endl;
+	if(n == 3)
+		cout << "bad arguments" << endl;	
+
 	if(n == 1)
 	{
 		cout << "no args given, will use default settings" << endl;
@@ -18,7 +22,7 @@ int main(int n, char * arg[])
 		Crible c;//, l);
 		c.Generate(BITS_QUICK);
 
-		c.WriteFile("output.bit");
+		// c.WriteFile("output.bit");
 
 		//c.Pack();
 		//c.ShowPrimes();
@@ -35,27 +39,22 @@ int main(int n, char * arg[])
 			c.ShowPrimes();
 
 		}		
-		else if(arg[1][0] == 'h')
-		{
-	 		Crible c;
-			// c.ReadFile("output.bit");
-		}		
 		else if(arg[1][0] == 't')
 		{
 			cout << "supply additionnary argument:" << endl;
 			cout << "'g' <number>: show growth" << endl;
 			cout << "'p': show prime factorial" << endl;
+			cout << "'b': show primes in different bases" << endl;
 		}
 		else
 		{
 			ulong value = strtol(arg[1], 0, 10);
-
 	 		Crible c;
 			c.Generate(value);
 			c.ShowPrimes();
 			// c.ShowCribleSet(0, value);
 			
-			c.WriteFile("output.bit");
+			// c.WriteFile("output.bit");
 		}
 		
 	}
@@ -65,9 +64,16 @@ int main(int n, char * arg[])
 		{
 			cout << "performing some tests" << endl;
 	 		Crible c;
-			c.ReadFile("output.bit");
-
-			c.VariousTests(intg(atoi(arg[3])), arg[2][0]);
+			// c.ReadFile("output.bit");
+			int n = atoi(arg[3]);
+			// c.VariousTests(intg(atoi(arg[3])), );
+			switch(arg[2][0])
+			{
+				case 'p': c.ShowProds(n); 		break;
+				case 'g': c.Grow(n); 			break;
+				case 'b': c.ShowPrimesBase(n);	break;
+				default: cout << "supply a second argument: <t|g>" << endl;
+			}
 
 		}
 	}

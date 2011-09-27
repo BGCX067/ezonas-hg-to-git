@@ -34,9 +34,9 @@ using namespace std;
 
 typedef bitset<64> bitset64;
 typedef vector<bitset64> :: iterator vect_bs64_iter;
-typedef unsigned int uint;
-typedef unsigned long ulong;
-typedef unsigned int intg;
+// typedef unsigned int uint;
+// typedef unsigned long ulong;
+// typedef unsigned int intg;
 
 class Crible
 {
@@ -51,6 +51,8 @@ public:
 	void ShowPrimes(intg a, intg b);
 	void ShowPack(intg a = 0, intg b = 0);
 	void ShowPrimes();
+	void ShowPrimesBase(int);
+	
 	void ShowArray();
 	void ShowPrimeByPosition(intg i);
 	// void ShowPrimes30();
@@ -70,6 +72,7 @@ public:
 	void ShowProds(intg n);
 	void Grow(int density);
 	void HideThis();
+	
 	
 protected:
 	size_t

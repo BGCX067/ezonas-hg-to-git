@@ -1,5 +1,6 @@
 #include "primecrible.h"
-
+#include "21030.h"
+#include <map>
 // void Crible :: ShowArray()
 // {
 // 	cout << "\t ";
@@ -35,11 +36,44 @@ void Crible :: ShowPrimes()
 		if ((* crible) [i]) cout << number_fmt(i) << ", ";
 	cout << "end"<< endl;	
 }
+void Crible :: ShowPrimesBase(int n)
+{
+
+	Generate(n);
+	printf("10\t\t16\t\t27\t\t30\t\t36 -----\n");
+	map<int, vector<string> > results;
+	for (intg i = 0; i < size_sieve; ++i)
+		if ((* crible) [i])
+		{
+			// char s[0x100];
+			// sprintf(s, "%lX", i);
+			// results[16].push_back(string(s));
+			// results[27].push_back(unbase::tumber27(i));
+			// results[30].push_back(unbase::tumber30(i));
+			// results[36].push_back(unbase::tumber36(i));
+			
+			printf
+			(
+				"%lu\t\t%lX\t\t%s\t\t%s\t\t%s\n",
+				i, i,
+				unbase::tumber27(i).c_str(),
+				unbase::tumber30(i).c_str(),
+				unbase::tumber36(i).c_str()
+			);
+		}
+		
+	int fds[4] = {16, 27, 30, 36};
+	FOR(4)
+	{
+		
+	}
+	cout << "end"<< endl;	
+}
 void Crible :: ShowArray()
 {
 	cout << "[SHOW] array in hexadecimal: ";
 	FOR(size_array)
-		printf("0x%X, ", array[i]);
+		printf("0x%lX, ", array[i]);
 	printf("end\n");
 }
 void Crible :: ShowCribleSet ()

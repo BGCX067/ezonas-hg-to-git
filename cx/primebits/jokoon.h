@@ -9,8 +9,11 @@ using namespace std;
 // #define UINT_BITS 32
 
 typedef unsigned int uint;
-typedef unsigned int intg;
 typedef unsigned long ulong;
+
+// typedef uint intg;
+typedef ulong intg;
+
 typedef std::string str;
 
 #define INTG_BYTES 4
@@ -23,8 +26,11 @@ typedef std::string str;
 #define FORG(m, n) for(int i = m; i < n; ++ i)
 #define FOR_ITR(type, v) for(vector<type>::iterator itr = v.begin(); itr != v.end(); ++ itr)
 
+#define p(s) cout << s;
 #define pr(s) cout << s << endl
+#define pr2(s1, s2) cout << s1 << ' ' << s2 << endl
 #define pr_(s) cout << s << " "
 #define prln cout << endl
-#define prx(n) printf("0x%X\n", n)
+#define prx(n) printf("0x%lX\n", n)
+#define prx2(n) printf("0x%X\n", n)
 #define p_ cout << " "

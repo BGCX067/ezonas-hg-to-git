@@ -1,116 +1,93 @@
 # Echo server program
-import sys
-import socket
-import threading
-import multiprocessing
-import time
-import signal
+import sys, socket, threading, time, signal
+# os, multiprocessing
+# from multiprocessing import Pipe, Queue#, Lock
 
-from multiprocessing import Pipe, Queue, Lock
-#if sys.platform != "freebsd8":
-#	from Tkinter import *
-
-#print socket.gethostname()
-
-#####################
-### sender thread ###
-#####################	
-class nit_send(threading.Thread):
-	def __init__(self, stoprun, ip, port, pipe, sock, lock, peers):
-		threading.Thread.__init__(self)
-		if ip == None:
-			self.stoprun = False
-			print "NO SEND-TO ADDRESS: thread will terminate"
-		else:
-			self.stoprun = stoprun
-
-		self.ip, self.port = ip, port
-		self.sock = sock
-		self.pipe = pipe
-		self.lock = lock
-		self.peers = peers
-		print "send-to:",ip,":",port
-		self.ip_port = (self.ip, self.port)
-
-
-	# def run_noaddr(self):
-	# 	print "sender: waiting for an address"
-	# 	self.lock.acquire()
-	# 	self.lock.acquire() # will wait for a release() somewhere
-	# 	print "sender stopped"
-	# 	time.sleep(0.5)
-	# 	print self.peers
-	# 	addr = self.peers[-1]
-	# 	self.ip_port = (addr, self.port)
-	# 	print "sender: got address", addr
-	# 	self.runf = self.run_hasaddr
-
-	def run(self):
-		while self.stoprun:
-			self.sock.sendto(self.pipe.recv(), self.ip_port)
-
-
-#######################
-### receiver thread ###
-#######################
+### RECEIVER ### RECEIVER ### RECEIVER ### RECEIVER ### RECEIVER ###
 class nit_recv(threading.Thread):
-	def __init__(self, stoprun, sock, peers, lock): # , ip, port):		
+	def __init__(self):
 		threading.Thread.__init__(self)
-		self.stoprun = stoprun
-		self.sock = sock
-		self.lock = lock
-		self.peers = peers
-		print "Now receiving datagram packets..."
-	def run(self):
-		while self.stoprun:
-			data, addr = self.sock.recvfrom(1024)
-			print addr[0], data
-			
-			if addr[0] not in self.peers:
-				self.peers.append(addr[0])
-				print addr[0], "added to peerlist"
-				print "peers", self.peers
-				if len(self.peers) == 1: # lock should have been acquired
-					self.lock.release()
+		self.runs = True
+		# signal.signal(signal.SIGINT, self.sighandle)
 
-################
-### nit node ###
-################		
-class nit:
+	def run(self):
+		print "[RECV] LOOP STARTED !"
+		while self.runs == True:
+			data, addr = self.sock.recvfrom(1024)
+			if data == '00':
+				print "[RECV] received shutdown datagram"
+				# self.sock.sendto('00', addr)
+				self.sock.sendto('00', (socket.gethostname(), 10000))
+				self.runs = False
+			print time.ctime(time.time()), addr[0], data
+			if addr[0] not in self.peers:
+				self.send.ip_port = (addr[0], 10000)
+				self.peers.append(addr[0])
+				print "[RECV]", addr[0], "added to peerlist"
+		print "[RECV] end"
+	# def sighandle(self, signum, frame):
+	# 	sys.exit("SIGINT")
+		
+### SENDER ### SENDER ### SENDER ### SENDER ### SENDER ### SENDER ###
+class nit_send(threading.Thread):
+
+	def __init__(self):
+		threading.Thread.__init__(self)
+		self.runs = False
+	def run(self):
+		print "[SEND] loop started"
+		print "[SEND] sending to", self.ip_port
+		input = "I don't even"
+		while self.runs == True:
+			try:
+				input = raw_input(" > ")
+			except:
+				self.runs = False
+				
+			if input == '00':
+				self.runs = False
+				self.sock.sendto(input, (socket.gethostname(), 10000))
+			self.sock.sendto(input, self.ip_port)
+		print "[SEND] end"
+	# def sighandle(self, signum, frame):
+	# 	self.runs = False
+	# 	print "[SEND] captured SIGINT"
+	# 	sys.exit("SIGINT")
+		
+
+### MAIN ### MAIN ### MAIN ### MAIN ### MAIN ### MAIN ### MAIN ### MAIN ###
+class nit(threading.Thread):
 	def __init__(self, argv):
+		threading.Thread.__init__(self)
 		
 		l = len(argv)
 		ip_sendto = ""
 		self.port = 10000
-		print "--- PORT USED:", self.port, "---"
 		self.peers = []
-		##### argv managing #####
-		if l in [1,2]:
-			if l == 1:
-				# ip_sendto = raw_input("send-to address? > ")
-				ip_sendto = None
-			else:
-				ip_sendto = argv[1]
-				if ip_sendto == 'z':
-					ip_sendto = "82.242.58.229" # home
-				elif ip_sendto == 'g':
-					ip_sendto = "212.71.19.102" # ofloo
-				elif ip_sendto == 'l':
-					ip_sendto = "localhost"
-				elif ip_sendto == 'm':
-					ip_sendto = "192.168.0.12" # moon
-				elif ip_sendto == 'j':
-					ip_sendto = "192.168.0.10" # meoo
-
-		elif l == 3: # ip and port
-			ip_sendto = argv[1]
-			self.port = int(argv[2]) + 30000
-		elif l > 3:
+		self.hasaddr = False
+		
+		# print "seems my ip is", os.popen("curl curlmyip.com").readline()
+		if l > 3:
 			sys.exit("Too many arguments")
+		elif l == 1:
+			ip_sendto = None
+			print "args: <z|g|l|m|j>"
+		elif l == 2:
+			ip_sendto = argv[1]
+			if ip_sendto != None:
+				if   ip_sendto == 'z': ip_sendto = "82.242.58.229"
+				elif ip_sendto == 'l': ip_sendto = socket.gethostname()
+				elif ip_sendto == 'g': ip_sendto = "212.71.19.102"
+				elif ip_sendto == 'gg': ip_sendto = "212.71.19.103"
+				elif ip_sendto == 'qq': ip_sendto = "78.251.229.224"
+				else: sys.exit("[NIT] invalid addr argument !")
+
+				self.hasaddr = True
+				self.peers.append(ip_sendto)
+				
+		### network sockets and shoes and underpants and pipes ###
 
 		self.ip_port = (socket.gethostname(), self.port)
-		self.peers.append(ip_sendto)
-
 		# we create the socket and bind it
 		self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
  		# tells the socket to be reusable
@@ -118,46 +95,36 @@ class nit:
 		self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 		self.sock.bind(self.ip_port)
 
-		# the pipe so we can communicate with our thread
-		self.pipeA, self.pipeB = Pipe()
-		self.default_msg = "Oh."
-
-		# a queue and a lock
-		# self.q= Queue()
-		self.lock = Lock()
+		### the sender and receiver threads ###
+		self.nit_r = nit_recv()
+		self.nit_s = nit_send()
+		self.nit_r.peers = self.peers
+		self.nit_r.sock = self.sock
+		self.nit_s.sock = self.sock
+		self.nit_s.ip_port = (ip_sendto, self.port)
+		print self.nit_s.ip_port
+		self.nit_r.send = self.nit_r
+		self.nit_s.recv = self.nit_s
 		
-		self.stoprun = True
-		signal.signal(signal.SIGINT, self.sigint)
+		self.nit_r.runs = True
+		if self.hasaddr == True:
+			self.nit_s.runs = True
+			self.nit_s.hasaddr = True
 		
-		# the sender and receiver threads
-		self.nit_r = nit_recv(self.stoprun, self.sock, self.peers, self.lock)
-		self.nit_s = nit_send(self.stoprun, ip_sendto, self.port, self.pipeB, self.sock, self.lock, self.peers)
-
-		# self.nit_r.daemon = True
-		# self.nit_s.daemon = True
-
-		# print "sender alive?", self.nit_s.is_alive()
-		# print "receiver alive?", self.nit_r.is_alive()
-	def sigint(self, signal, frame):
-		self.run = False
-	def go(self):
+	def run(self):
 		self.nit_r.start()
-		self.nit_s.start()
-
-
-		while self.stoprun:
-			msg = raw_input(" > ")
-			if msg == '00':
-				self.sock.close()
-				break
-			else:
-				self.pipeA.send(msg)
-		# self.nit_r.terminate()
-		# self.nit_s.terminate()		
-		print "bye..."
+		time.sleep(0.3)
+		if self.nit_s.runs == True:
+			self.nit_s.start()
+		self.nit_r.join()
+		self.nit_s.join()
+		print "[NIT] end"
+		# self.sock.shutdown(socket.SHUT_RDWR)		
+		self.sock.close()		
 
 n = nit(sys.argv)
-n.go()
+n.start()
 
+### RUNS ? hasaddr ? LOL !
 
 

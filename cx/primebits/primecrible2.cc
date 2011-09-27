@@ -2,14 +2,6 @@
 
 void Crible :: VariousTests(intg n, char c)
 {
-	switch(c)
-	{
-		case'p': ShowProds(n); break;
-		case'g': 
-			// ShowPrimes();
-			Grow(n); break;
-		default: cout << "supply a second argument: <t|g>" << endl;
-	}
 }
 
 void Crible :: ShowProds(intg n)

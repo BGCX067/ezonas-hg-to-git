@@ -6,7 +6,7 @@ string Crible :: number_fmt(intg n)
 {
 	// cout << "(" << n << ")" << endl;
 	char s[128];
-	sprintf(s, "%u", n);
+	sprintf(s, "%lu", n);
 	string r(s);
 	reverse(r.begin(), r.end());
 	int space_inserted = 0;
@@ -42,7 +42,7 @@ void print_spaces_bytes(ulong n)
 
 	// printf("%03lu %03lu %03lu %03lu bits = %03luG %03luM %03luK %03lu bytes\n",
 	// printf("0x%lX bits = %03luM %03luK %03lu bytes\n", // UINT
-	printf("0x%lX bits = %03uM %03uK %03u bytes\n",
+	printf("0x%lX bits = %03luM %03luK %03lu bytes\n",
 		// len_G,  len_M,  len_K,  len,
 		n,
 		// len_G8,
@@ -108,7 +108,7 @@ void Crible :: Pack(intg n)
 	else
 		cout << "[PACK] Using argument value: " << n << endl;		
 	// pack = new ulong [n];
-	pack = new uint [n];
+	pack = new intg [n];
 
 	for (
 		// ulong pack_index = 0, i = 0;
