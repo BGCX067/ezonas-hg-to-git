@@ -102,3 +102,15 @@ void Crible :: array2bitset() // KOHRRRRREKT' !
 	cout << "[A2B] done" << endl;
 }
 
+void Crible :: WriteNumbers(string filename)
+{
+	FILE * file = fopen(filename.c_str(), "w");
+	if (file == NULL)
+	{
+		cerr << "Failed to open the file " << filename << endl;
+		return;
+	}	
+	int i = fwrite(pack, sizeof(intg), count, file);
+	cout << "wrote " << i << " things" << endl;
+	fclose(file);
+}

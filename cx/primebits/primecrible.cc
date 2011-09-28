@@ -109,7 +109,7 @@ void Crible :: Pack(intg n)
 		cout << "[PACK] Using argument value: " << n << endl;		
 	// pack = new ulong [n];
 	pack = new intg [n];
-
+	cout << "reminder, size_sieve = " << size_sieve << endl;
 	for (
 		// ulong pack_index = 0, i = 0;
 		intg pack_index = 0, i = 0;

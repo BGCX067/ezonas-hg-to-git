@@ -20,12 +20,16 @@ int main(int n, char * arg[])
 		cout << "no args given, will use default settings" << endl;
 		cout << "using \"pretty good\" limit" << endl;
 		Crible c;//, l);
+		// c.Generate(BITS_QUICK*4);
 		c.Generate(BITS_QUICK);
 
+		
 		// c.WriteFile("output.bit");
 
-		//c.Pack();
-		//c.ShowPrimes();
+		c.Pack();
+		// c.ShowPack();
+		c.WriteNumbers("NUMBERS.BIT");
+		// c.ShowPrimesLine();
 	}
 	
 	if(n == 2)

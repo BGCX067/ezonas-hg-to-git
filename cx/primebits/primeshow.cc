@@ -30,6 +30,12 @@ void Crible :: ShowPrimes(intg a, intg b)
 		if ((* crible)[i]) cout << (i) << ", ";
 	cout << "end" << endl;
 }
+void Crible :: ShowPrimesLine()
+{
+	for (intg i = 0; i < size_sieve; ++i)
+		if ((* crible) [i]) cout << i << endl;
+	cout << "end"<< endl;	
+}
 void Crible :: ShowPrimes()
 {
 	for (intg i = 0; i < size_sieve; ++i)

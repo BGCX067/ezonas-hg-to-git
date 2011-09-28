@@ -51,6 +51,7 @@ public:
 	void ShowPrimes(intg a, intg b);
 	void ShowPack(intg a = 0, intg b = 0);
 	void ShowPrimes();
+	void ShowPrimesLine();
 	void ShowPrimesBase(int);
 	
 	void ShowArray();
@@ -61,6 +62,7 @@ public:
 	
 	void ReadFile(string); // read ulong array, write into bitset
 	void WriteFile(string); // convert bitset into ulong array, writes it
+	void WriteNumbers(string);
 
 	void array2bitset();
 	// void bitset2bitset64();
