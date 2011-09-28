@@ -1,179 +1,137 @@
 #include "primecrible.h"
 #include "21030.h"
+#include <cstdlib>
 
-#include <stdlib.h>
-Crible :: Crible
-(uint n, uint l, string filename_i, string filename_o):
+string Crible :: number_fmt(intg n)
+{
+	// cout << "(" << n << ")" << endl;
+	char s[128];
+	sprintf(s, "%lu", n);
+	string r(s);
+	reverse(r.begin(), r.end());
+	int space_inserted = 0;
+	size_t how_many_spaces = r.length() / 3;
 
-	in(new ifstream(filename_i.c_str())),
-	out(new ofstream(filename_o.c_str())),
-	WordSize(sizeof(ulong)),
-	NumberOfWords(count/WordSize),
-	limit(n),
-	count(0u),
-	size(CRIBLE_SIZE),
-	line_size(l)
-{
-	cout << "crible size = " << size << endl;
-	cout << SIZE << "bits in the vcrible" << endl;
-	cout << NumberOfWords << " " << WordSize * 8 << " bits words" << endl;
-	cout << "The program will only consider " << NumberOfWords * WordSize * 8 << " bits." << endl;
-}
-void Crible :: ShowArray()
-{
-	cout << "\t ";
-	for (uint i = 1; i < line_size/10; i += 1)
-		cout << "         " << i;
-	cout << endl << "\t";
-	for (uint i = 0; i < line_size; ++i)
-		cout << i % 10;
-	for (uint i = 0; i < limit; ++i)
+	if(r.length() % 3 != 0)
+		how_many_spaces += 1;
+
+	for(int i = 1; i < how_many_spaces; ++i)
 	{
-		if (i % line_size == 0) cout << endl << "+"<< i << "\t";
-		if (crible[i]) cout << '#';
-		else cout << '-';//"·";
+		r.insert(3 * i + space_inserted, " ");
+		space_inserted += 1;
 	}
-	cout << endl;
+	reverse(r.begin(), r.end());
+
+	return r;
 }
-void Crible :: Generate ()
+void print_spaces_bytes(ulong n)
 {
-	// for(int i = 2; i < limit; ++i) crible[i] = true;
-	crible.flip();
-	crible[0] = false;
-	crible[1] = false;
-	for (uint i = 2; i < limit; ++i)
+//	ulong len   = n % 1000;
+//	ulong len_K = (n % 1000000) / 1000;
+//	ulong len_M = (n % 1000000000) / 1000000;
+//	ulong len_G = n / 1000000000;
+
+	intg n8 = n / 8UL;
+	
+	intg len8   = n8 % 1000;
+	intg len_K8 = (n8 % 1000000) / 1000;
+	intg len_M8 = (n8 % 1000000000) / 1000000;
+//	ulong len_G8 = n8 / 1000000000;
+	
+	// printf("%lu bits = %lu bytes\n", n, n8);
+
+	// printf("%03lu %03lu %03lu %03lu bits = %03luG %03luM %03luK %03lu bytes\n",
+	// printf("0x%lX bits = %03luM %03luK %03lu bytes\n", // UINT
+	printf("0x%lX bits = %03luM %03luK %03lu bytes\n",
+		// len_G,  len_M,  len_K,  len,
+		n,
+		// len_G8,
+		len_M8, len_K8, len8);
+}
+Crible :: Crible (int _line_size): pack(NULL), crible(NULL), array(NULL), count(0U)
+{
+	cout << "bitset hard limit (set at compile time) = ";
+	print_spaces_bytes(BITS);
+}
+void Crible :: Generate (intg _size_sieve)
+{
+	size_sieve = _size_sieve;
+	cout << "crible size (how far the sieve will go) = ";
+	print_spaces_bytes(size_sieve);
+
+	size_array  = size_sieve / INTG_BITS;
+	// cout << "[GEN] Using Eratosthenes Sieve algorithm to find primes" << endl;
+	cout << "[GEN] allocating bitset of " << number_fmt(BITS) << " bits" << endl;
+	// cout << "[GEN] remember that depending of BITS value, this can crash" << endl;
+	
+	crible = (new bitset<BITS>);
+
+	// cout << "[GEN] setting all bits to 1, setting [0] and [1] as not primes" << endl;
+	crible->set();
+	(* crible)[0] = false;
+	(* crible)[1] = false;
+	cout << "[GEN] let's loop !" << endl;
+	time_t start = time(NULL);
+
+	for (intg i = 2; i < size_sieve; ++i)
 	{
 		// if there is a false, loop next (false means i is not prime)
-		if(crible[i] == false) continue;
+		if((* crible)[i] == false) continue;
 		++ count;
 		// zeroes out all numbers from 2*m to n (means here, i is prime)
-		for(uint k = 2; i*k < limit; ++k)
-			crible[i*k] = false;
+		// for(ulong k = 2; i*k < size_sieve; ++k)
+		for(intg k = 2; i*k < size_sieve; ++k)
+			(* crible)[i*k] = false;
 	}
-	cout << "cribled, found " << count << " prime numbers." << endl;
-	cout << "The last primes (in the 100 last integers) which were found: " << endl;
-	ShowPrimes(limit - 100, limit);
-	
+	time_t end = time(NULL);
+	double sec = difftime(end, start);
+	if (sec > 1.0) 
+		cout << "[GEN] found " << number_fmt(count) <<
+		" prime numbers in " << sec << " seconds" << endl;
 }
-void Crible :: ShowPrimes(int a, int b)
-{
-	if(a >= b)
-	{
-		cout << "bad range" << endl;
-		return;
-	}
-	cout << endl;
-	for (int i = a; i < b; ++i)
-	{
-		if (crible[i]) cout << (i) << ' ';
-		//else cout << '-';//"·";
-	}
-	cout << endl << endl;
-}
-void Crible :: ShowPrimes()
-{
-	cout << endl;
-	for (uint i = 0; i < limit; ++i)
-	{
-		if (crible[i]) cout << (i) << ' ';
-		//else cout << '-';//"·";
-	}
-	cout << endl;	
-}
-void Crible :: ShowPrimes30()
-{
-	cout << endl;
-	for (uint i = 0; i < limit; ++i)
-	{
-		if (crible[i]) cout << unbase :: tumber30(i) << ' ';
-		//else cout << '-';//"·";
-	}
-	cout << endl;	
-}
-void Crible :: ShowPrimes36()
-{
-	cout << endl;
-	for (uint i = 0; i < limit; ++i)
-	{
-		if (crible[i]) cout << unbase :: tumber36(i) << ' ';
-		//else cout << '-';//"·";
-	}
-	cout << endl;	
-}
-/////////////////////////////////////////////////////////////////////////////
+
 Crible :: ~ Crible()
 {
-	in -> close();
-	out -> close();
-	delete in;
-	delete out;
+	if(pack)
+		delete [] pack;
+	if(crible)
+		delete crible;
 }
-void Crible :: ReadFile()
+void Crible :: Pack(intg n)
 {
-	// for(word_vect_iter iter = crible.begin(); iter != crible.end(); ++iter)
-	if (in -> is_open())
-	while(! in -> eof()) // MIGHT CRASH
+	cout << "[PACK] using the crible to make a list of prime numbers " << endl;
+	if (n == 0)
 	{
-		// buffer << (*in);
-		(* in) >> buffer;
-		vcrible.push_back(bitset <SIZE> (buffer));
+		cout << "[PACK] Using default count value: " << count << endl;
+		n = count;
 	}
-}
-void Crible :: WriteFile()
-{
-	for(word_vect_iter iter = vcrible.begin(); iter != vcrible.end(); ++iter)
+	else
+		cout << "[PACK] Using argument value: " << n << endl;		
+	// pack = new ulong [n];
+	pack = new intg [n];
+	cout << "reminder, size_sieve = " << size_sieve << endl;
+	for (
+		// ulong pack_index = 0, i = 0;
+		intg pack_index = 0, i = 0;
+		(i < size_sieve)
+			and (pack_index < n);
+		++ i)
+		
 	{
-		(* out) << (* iter).to_ulong();
-	}
-}
-void Crible :: Show ()
-{
-	for(word_vect_iter iter = vcrible.begin(); iter != vcrible.end(); ++iter)
-	{
-		cout << (* iter).to_string() << endl;
-	}
-}
-
-void Crible :: Pack()
-{
-	pack = new uint [count];
-	for (int pack_index = 0, i = 0; i < limit; ++ i)
-	{
-		if(crible [i])
+		// cout << (i < size_sieve) and (pack_index < n);
+		// cout << i << " " << pack_index << endl;
+		if((* crible) [i])
 		{
+			// cout << i << " is prime" << endl;
 			pack [pack_index] = i;
 			++ pack_index;
+			// cout << ((i < size_sieve) and (pack_index < n)) << " " << endl;
+			// packv.push_back(i);
 		}
+	
 	}
 	
-	cout << "finished packing ! here are the last 10 primes:" << endl;
-	ShowPack(count - 10, count);
-	// ShowPack(10, 100);
-}
+	// cout << "[PACK] finished packing ! here are the last 5 primes: ";
+	// ShowPack(count - 5, count);
 
-void Crible :: ShowPack(int a, int b)
-{
-	if(a >= b || a > count || b > count)
-	{
-		cout << "bad range or out of range..." << endl;
-		return;
-	}
-	cout << endl;
-	for (int i = a; i < b; ++i)
-	{
-		cout << pack [i] << ' ';
-		//else cout << '-';//"·";
-	}
-	cout << endl << endl;
-}
-
-
-void Crible :: ShowPrimeByPosition(int i)
-{
-	if(i > count)
-	{
-		cout << "Did not cribled enough;, try a bigger crible." << endl;
-		return;
-	}
-	cout << "Prime #" << i << ": " << pack[i] << endl;
 }
