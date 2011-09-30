@@ -68,13 +68,13 @@ void Sieve :: ReadFile(string filename_input)
 	cout << "[READ] " << how_many_read_items << " items in file" << endl;
 	// ShowArray();
 
-	Sieve = (new bitset<BITS>);
-	Sieve -> set();
+	databits = (new bitset<BITS>);
+	databits -> set();
 	// (* Sieve)[2] = false;
 	// (* Sieve)[97] = true;
 	array2bitset();
-	(* Sieve)[0] = false;
-	(* Sieve)[1] = false;
+	(* databits)[0] = false;
+	(* databits)[1] = false;
 	
 	delete [] array;
 	fclose(file_input);
@@ -85,7 +85,7 @@ void Sieve :: bitset2array() // KOHRRRRREKT' !
 {
 	cout << "[B2A] partitionning bitset into an array" << endl;	
 	for(intg i = 0; i < size_sieve; ++ i)
-		if((* Sieve)[i])
+		if((* databits)[i])
 			array[size_array - (i / INTG_BITS) - 1]
 				|= (1UL << (i % INTG_BITS));
 	cout << "[B2A] done" << endl;
@@ -96,7 +96,7 @@ void Sieve :: array2bitset() // KOHRRRRREKT' !
 {
 	cout << "[A2B] building bitset from array" << endl;
 	for(intg i = 0; i < size_sieve, i < size_array * INTG_BITS; ++ i)
-		(* Sieve)[i] =
+		(* databits)[i] =
 			array[size_array - i / INTG_BITS - 1]
 				& (1UL << ((i % INTG_BITS)));
 	cout << "[A2B] done" << endl;

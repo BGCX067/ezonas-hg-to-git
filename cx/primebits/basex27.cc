@@ -40,7 +40,7 @@ inline char basex :: chr27(intg num)
 	return num + '@';
 }
 
-intg basex :: number27(string str)
+intg basex :: s2n27(string str)
 {
 	intg sz = str.length();
 	if (str == "0")
@@ -55,7 +55,7 @@ intg basex :: number27(string str)
 	
 }
 
-string basex :: tumber27(intg ul)
+string basex :: n2s27(intg ul)
 {
 	// DADADADADA
 	if(ul == 0) return string("_");
@@ -95,9 +95,9 @@ void basex :: show_mult_table27()
 	{
 		cout << endl;
 		
-		cout << tumber27(i) << ": ";
+		cout << n2s27(i) << ": ";
 		for(int j = 2; j < 28; ++j)
-			cout << tumber27(i*j) << " ";
+			cout << n2s27(i*j) << " ";
 	}
 	cout << endl << "done !" << endl;
 }
@@ -129,7 +129,7 @@ void basex :: dictionnary(string filename)
 		cout << "14 chars or more: "<< lines13.size() << endl;
 		cout << "14 chars or more: "<< lines13.size() << endl;
 		FOR_ITR(string, lines)
-			cout << itr ->length() << " " << (* itr ) << " " << number27(*itr) << endl;
+			cout << itr ->length() << " " << (* itr ) << " " << s2n27(*itr) << endl;
 	}
 	else
 		pr("dict file not opened");

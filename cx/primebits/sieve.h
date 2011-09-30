@@ -92,7 +92,7 @@ protected:
 		// WordSize,
 		// NumberOfWords;
 	
-	bitset<BITS> * Sieve;
+	bitset<BITS> * databits;
 	vector <bitset64> Sieve_vect;
 	vector<intg> packv, grow;
 	// vector <ulong> long_vect;

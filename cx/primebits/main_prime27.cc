@@ -21,7 +21,7 @@ int main(int n, char * arg[])
 			while (not dict.eof())
 			{
 				dict >> s;
-				if(c.IsPrime(s2n(s))) pr(s);
+				if(c.IsPrime(basex::s2n27(s))) pr(s);
 			}
 			// for(int j = 0; j < s.length(); ++j)
 			// 	pr(int(s[j]));

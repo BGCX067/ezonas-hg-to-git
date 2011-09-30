@@ -27,7 +27,7 @@ int main(int n, char * arg[])
 		// intg a = strtol(arg[1], NULL, 10);
 		// 4645095845981
 		// pr(basex::n2s(a));
-		pr(basex::s2n(string(arg[1])));
+		pr(basex::s2n27(string(arg[1])));
 	}
 
 	// pr("overhead:");

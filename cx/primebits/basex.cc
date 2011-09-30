@@ -1,7 +1,7 @@
 #include "basex.h"
 
 basex :: basex() {}
-inline string basex :: tumber30(intg ul)
+inline string basex :: n2s30(intg ul)
 {
 	// DADADADADA
 	string str30 = ""; // ADDED
@@ -22,7 +22,7 @@ inline string basex :: tumber30(intg ul)
 	return str30; // ADDED
 	// Don't forget I changed numb to ul !
 }
-inline string basex :: tumber36(intg ul)
+inline string basex :: n2s36(intg ul)
 {
 	// DADADADADA
 	string str36 = ""; // ADDED
@@ -43,7 +43,7 @@ inline string basex :: tumber36(intg ul)
 	return str36; // ADDED
 	// Don't forget I changed numb to ul !
 }
-inline intg basex :: number30(string & str)
+inline intg basex :: s2n30(string & str)
 {
 	intg sz = str.length();
 	if (str == "0" or sz > POWER30)
@@ -53,7 +53,7 @@ inline intg basex :: number30(string & str)
 		r += num30(str[i]) * int_pow (30, sz-i-1);
 	return r;
 }
-inline intg basex :: number36(string & str)
+inline intg basex :: s2n36(string & str)
 {
 	intg sz = str.length();
 	if (str == "0" or sz > POWER30)
@@ -99,10 +99,10 @@ void basex :: show_mult_table30()
 		if(i < 10) cout << endl << "  . ";
 		else cout << endl << "(" << i << ")" ;
 		
-		cout << tumber30(i) << ": ";
+		cout << n2s30(i) << ": ";
 		for(int j = 2; j < 31; ++j)
 		{
-			cout << tumber30(i*j) << " ";		
+			cout << n2s30(i*j) << " ";		
 		}
 	}
 	cout << endl << "done !" << endl;
@@ -121,20 +121,20 @@ void basex :: show_mult_table36()
 		if(i < 10) cout << endl << "  . ";
 		else cout << endl << "(" << i << ")" ;
 		
-		cout << tumber36(i) << ": ";
+		cout << n2s36(i) << ": ";
 		for(int j = 2; j < 37; ++j)
-			cout << tumber36(i*j) << " ";
+			cout << n2s36(i*j) << " ";
 	}
 	cout << endl << "done !" << endl;
 }
 void basex :: show30(intg u)
-{ cout << u << " -> 30 -> " << tumber30(u) << endl; }
+{ cout << u << " -> 30 -> " << n2s30(u) << endl; }
 void basex :: show36(intg u)
-{ cout << u << " -> 36 -> " << tumber36(u) << endl; }
+{ cout << u << " -> 36 -> " << n2s36(u) << endl; }
 void basex :: show30(string str)
-{ cout << str << " -> 30 -> " << number30(str) << endl; }
+{ cout << str << " -> 30 -> " << s2n30(str) << endl; }
 void basex :: show36(string str)
-{ cout << str << " -> 36 -> " << number36(str) << endl; }
+{ cout << str << " -> 36 -> " << s2n36(str) << endl; }
 intg basex :: num30 (char c)
 {
 	if (c < '0' or c > 'T' or (c > '9' and c < 'A')) return '_';

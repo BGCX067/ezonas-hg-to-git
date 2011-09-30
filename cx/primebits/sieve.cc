@@ -48,7 +48,7 @@ void print_spaces_bytes(ulong n)
 		// len_G8,
 		len_M8, len_K8, len8);
 }
-Sieve :: Sieve (int _line_size): pack(NULL), Sieve(NULL), array(NULL), count(0U)
+Sieve :: Sieve (int _line_size): pack(NULL), databits(NULL), array(NULL), count(0U)
 {
 	cout << "bitset hard limit (set at compile time) = ";
 	print_spaces_bytes(BITS);
@@ -64,24 +64,24 @@ void Sieve :: Generate (intg _size_sieve)
 	cout << "[GEN] allocating bitset of " << number_fmt(BITS) << " bits" << endl;
 	// cout << "[GEN] remember that depending of BITS value, this can crash" << endl;
 	
-	Sieve = (new bitset<BITS>);
+	databits = (new bitset<BITS>);
 
 	// cout << "[GEN] setting all bits to 1, setting [0] and [1] as not primes" << endl;
-	Sieve->set();
-	(* Sieve)[0] = false;
-	(* Sieve)[1] = false;
+	databits->set();
+	(* databits)[0] = false;
+	(* databits)[1] = false;
 	cout << "[GEN] let's loop !" << endl;
 	time_t start = time(NULL);
 
 	for (intg i = 2; i < size_sieve; ++i)
 	{
 		// if there is a false, loop next (false means i is not prime)
-		if((* Sieve)[i] == false) continue;
+		if((* databits)[i] == false) continue;
 		++ count;
 		// zeroes out all numbers from 2*m to n (means here, i is prime)
 		// for(ulong k = 2; i*k < size_sieve; ++k)
 		for(intg k = 2; i*k < size_sieve; ++k)
-			(* Sieve)[i*k] = false;
+			(* databits)[i*k] = false;
 	}
 	time_t end = time(NULL);
 	double sec = difftime(end, start);
@@ -94,8 +94,8 @@ Sieve :: ~ Sieve()
 {
 	if(pack)
 		delete [] pack;
-	if(Sieve)
-		delete Sieve;
+	if(databits)
+		delete databits;
 }
 void Sieve :: Pack(intg n)
 {
@@ -120,7 +120,7 @@ void Sieve :: Pack(intg n)
 	{
 		// cout << (i < size_sieve) and (pack_index < n);
 		// cout << i << " " << pack_index << endl;
-		if((* Sieve) [i])
+		if((* databits) [i])
 		{
 			// cout << i << " is prime" << endl;
 			pack [pack_index] = i;

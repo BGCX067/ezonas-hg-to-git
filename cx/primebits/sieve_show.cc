@@ -27,19 +27,19 @@ void Sieve :: ShowPrimes(intg a, intg b)
 	}
 	cout << "[SHOW] primes in [" << number_fmt(a) << ".." << number_fmt(b) << "]: ";
 	for (intg i = a; i < b; ++i)
-		if ((* Sieve)[i]) cout << (i) << ", ";
+		if ((* databits)[i]) cout << (i) << ", ";
 	cout << "end" << endl;
 }
 void Sieve :: ShowPrimesLine()
 {
 	for (intg i = 0; i < size_sieve; ++i)
-		if ((* Sieve) [i]) cout << i << endl;
+		if ((* databits) [i]) cout << i << endl;
 	cout << "end"<< endl;	
 }
 void Sieve :: ShowPrimes()
 {
 	for (intg i = 0; i < size_sieve; ++i)
-		if ((* Sieve) [i]) cout << number_fmt(i) << ", ";
+		if ((* databits) [i]) cout << number_fmt(i) << ", ";
 	cout << "end"<< endl;	
 }
 void Sieve :: ShowPrimesBase(int n)
@@ -49,7 +49,7 @@ void Sieve :: ShowPrimesBase(int n)
 	printf("10\t\t16\t\t27\t\t30\t\t36 -----\n");
 	map<int, vector<string> > results;
 	for (intg i = 0; i < size_sieve; ++i)
-		if ((* Sieve) [i])
+		if ((* databits) [i])
 		{
 			// char s[0x100];
 			// sprintf(s, "%lX", i);
@@ -62,9 +62,9 @@ void Sieve :: ShowPrimesBase(int n)
 			(
 				"%lu\t\t%lX\t\t%s\t\t%s\t\t%s\n",
 				i, i,
-				basex::tumber27(i).c_str(),
-				basex::tumber30(i).c_str(),
-				basex::tumber36(i).c_str()
+				basex::n2s27(i).c_str(),
+				basex::n2s27(i).c_str(),
+				basex::n2s27(i).c_str()
 			);
 		}
 		
@@ -84,7 +84,7 @@ void Sieve :: ShowArray()
 }
 void Sieve :: ShowSieveSet ()
 {
-	cout << (*Sieve) << endl;
+	cout << (*databits) << endl;
 
 	// string whole = Sieve->to_string();
 	// 
@@ -118,7 +118,7 @@ void Sieve :: ShowSieveSet (intg a, intg b)
 	}
 	cout << "printing bits [" << a << ".." << b << "]" << endl;
 	FORG(a, b)
-		cout << (* Sieve) [i];
+		cout << (* databits) [i];
 	
 	prln;
 }

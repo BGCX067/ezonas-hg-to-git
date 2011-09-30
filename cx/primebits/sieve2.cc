@@ -33,7 +33,7 @@ void Sieve :: Grow(int density)
 	for (intg i = 0, grow_index = 0; i < size_sieve;)
 	{
 		for(intg j = 0; j < slice and (i < size_sieve); ++ j, ++i)
-			if((* Sieve) [i]) ++ grow_index;
+			if((* databits) [i]) ++ grow_index;
 		
 		if(grow_index > largest)
 			largest = grow_index;
@@ -64,5 +64,5 @@ bool Sieve :: IsPrime(intg i)
 		cerr<<"number queried too large, maximum is "<<size_sieve<<endl;
 		return false;
 	}
-	return (*Sieve)[i];
+	return (*databits)[i];
 }
