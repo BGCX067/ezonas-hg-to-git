@@ -15,6 +15,8 @@ using namespace std;
 #define POWER30 13
 #define ASC_OFS_N10 58
 #define ASC_OFS_N 48
+#define n2s unbase::tumber27
+#define s2n unbase::number27
 
 class unbase
 {

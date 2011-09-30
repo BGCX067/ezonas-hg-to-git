@@ -1,9 +1,9 @@
-#include "21030.h"
+#include "basex.h"
 #include <vector>
 #include <fstream>
 
 
-inline intg unbase :: num27(char c)
+inline intg basex :: num27(char c)
 {
 	switch(c)
 	{
@@ -34,20 +34,20 @@ inline intg unbase :: num27(char c)
 	}
 }
 
-inline char unbase :: chr27(intg num)
+inline char basex :: chr27(intg num)
 {
 	if(num < 1 or num > 26) return '_';
 	return num + '@';
 }
 
-intg unbase :: number27(string str)
+intg basex :: number27(string str)
 {
 	intg sz = str.length();
 	if (str == "0")
 		return 0;
 	
  	if(sz > 13)
-	{ return unbase::int_pow(27,13)-1; }
+	{ return basex::int_pow(27,13)-1; }
 	intg r = 0;	
 	for (intg i = 0; i < sz; ++i)
 		r += num27(str[i]) * int_pow (27, sz-i-1);
@@ -55,7 +55,7 @@ intg unbase :: number27(string str)
 	
 }
 
-string unbase :: tumber27(intg ul)
+string basex :: tumber27(intg ul)
 {
 	// DADADADADA
 	if(ul == 0) return string("_");
@@ -85,7 +85,7 @@ string unbase :: tumber27(intg ul)
 	
 }
 
-void unbase :: show_mult_table27()
+void basex :: show_mult_table27()
 {
 	cout << "27-based [A-Z] multiplication table" << endl << "   ";
 	for(int i = 1; i < 27; ++i)
@@ -102,7 +102,7 @@ void unbase :: show_mult_table27()
 	cout << endl << "done !" << endl;
 }
 
-void unbase :: dictionnary(string filename)
+void basex :: dictionnary(string filename)
 {
 	// ifstream dict("words-nix");
 	ifstream dict(filename.c_str(),ifstream::in );

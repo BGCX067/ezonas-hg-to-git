@@ -1,10 +1,10 @@
-#include "primecrible.h"
+#include "sieve.h"
 
-void Crible :: VariousTests(intg n, char c)
+void Sieve :: VariousTests(intg n, char c)
 {
 }
 
-void Crible :: ShowProds(intg n)
+void Sieve :: ShowProds(intg n)
 {
 	cout << "[PROD] showing 2 * 3 * 5 * 7 * 11 * etc" << endl;
 	Pack(n);
@@ -22,7 +22,7 @@ void Crible :: ShowProds(intg n)
 	
 }
 
-void Crible :: Grow(int density)
+void Sieve :: Grow(int density)
 {
 	
 	intg slice = size_sieve / density + 1;
@@ -33,7 +33,7 @@ void Crible :: Grow(int density)
 	for (intg i = 0, grow_index = 0; i < size_sieve;)
 	{
 		for(intg j = 0; j < slice and (i < size_sieve); ++ j, ++i)
-			if((* crible) [i]) ++ grow_index;
+			if((* Sieve) [i]) ++ grow_index;
 		
 		if(grow_index > largest)
 			largest = grow_index;
@@ -55,4 +55,14 @@ void Crible :: Grow(int density)
 		// cout << 100.0 * float(*i) / float(slice) << " ";
 		printf("%.2f ", 100.0 * float(*i) / float(slice));// << " ";
 	cout  << endl;
+}
+
+bool Sieve :: IsPrime(intg i)
+{
+	if(i > size_sieve)
+	{
+		cerr<<"number queried too large, maximum is "<<size_sieve<<endl;
+		return false;
+	}
+	return (*Sieve)[i];
 }

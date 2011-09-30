@@ -1,10 +1,10 @@
 import struct
 
-f = open("NUMBERS.BIT")
+f = open("BIGFILES/NUMBERS.BIT")
 l = []
 
 d = {}
-for a in sorted(open('alphabet27.txt').readlines()):
+for a in sorted(open('BIGFILES/alphabet27.txt').readlines()):
 	l = a.split(' ')
 	d[int(l[2])] = l[1].upper()
 

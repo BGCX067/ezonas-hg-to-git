@@ -15,7 +15,7 @@ using namespace std;
 #define BITS_FAST 	0x1000000UL // for fast compile+run
 #define BITS_QUICK 	0x10000000UL // for fast compile+run
 #define FOR(n) for(int i = 0; i < n; ++ i)
-#define CRIBLE_CHUNK_SIZE 0x1000 // 4ko
+#define Sieve_CHUNK_SIZE 0x1000 // 4ko
 
 #define ULONG_BYTES 8
 #define ULONG_BITS 64
@@ -29,8 +29,8 @@ using namespace std;
 
 
 #define str string
-// #define CRIBLE_SIZE 0xF80000 // nothing higher on a 32 bits windows
-// #define CRIBLE_SIZE 0x3000000 // nothing higher on a 64 bits processor
+// #define Sieve_SIZE 0xF80000 // nothing higher on a 32 bits windows
+// #define Sieve_SIZE 0x3000000 // nothing higher on a 64 bits processor
 
 typedef bitset<64> bitset64;
 typedef vector<bitset64> :: iterator vect_bs64_iter;
@@ -38,16 +38,16 @@ typedef vector<bitset64> :: iterator vect_bs64_iter;
 // typedef unsigned long ulong;
 // typedef unsigned int intg;
 
-class Crible
+class Sieve
 {
 public:
-	// Crible (intg _limit = 100, int _line_size = 100);
-	Crible (int _line_size = 100);
-	~ Crible();
+	// Sieve (intg _limit = 100, int _line_size = 100);
+	Sieve (int _line_size = 100);
+	~ Sieve();
 	void Generate(intg);
 	string number_fmt(intg n);
-	void ShowCribleSet();
-	void ShowCribleSet(intg, intg);
+	void ShowSieveSet();
+	void ShowSieveSet(intg, intg);
 	void ShowPrimes(intg a, intg b);
 	void ShowPack(intg a = 0, intg b = 0);
 	void ShowPrimes();
@@ -59,7 +59,7 @@ public:
 	// void ShowPrimes30();
 	// void ShowPrimes36();
 
-	
+	bool IsPrime(intg);
 	void ReadFile(string); // read ulong array, write into bitset
 	void WriteFile(string); // convert bitset into ulong array, writes it
 	void WriteNumbers(string);
@@ -92,8 +92,8 @@ protected:
 		// WordSize,
 		// NumberOfWords;
 	
-	bitset<BITS> * crible;
-	vector <bitset64> crible_vect;
+	bitset<BITS> * Sieve;
+	vector <bitset64> Sieve_vect;
 	vector<intg> packv, grow;
 	// vector <ulong> long_vect;
 	// ifstream * in;

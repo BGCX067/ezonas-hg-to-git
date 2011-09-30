@@ -1,5 +1,5 @@
-#include "primecrible.h"
-#include "21030.h"
+#include "sieve.h"
+#include "basex.h"
 
 #include <stdio.h>
 
@@ -19,7 +19,7 @@ int main(int n, char * arg[])
 	{
 		cout << "no args given, will use default settings" << endl;
 		cout << "using \"pretty good\" limit" << endl;
-		Crible c;//, l);
+		Sieve c;//, l);
 		// c.Generate(BITS_QUICK*4);
 		c.Generate(BITS_QUICK);
 
@@ -36,9 +36,9 @@ int main(int n, char * arg[])
 	{
 		if(arg[1][0] == 'r')
 		{
-	 		Crible c;
+	 		Sieve c;
 			c.ReadFile("output.bit");
-			// c.ShowCribleSet(0, 100);
+			// c.ShowSieveSet(0, 100);
 			// c.ShowPrimes(0, 100);
 			c.ShowPrimes();
 
@@ -53,10 +53,10 @@ int main(int n, char * arg[])
 		else
 		{
 			ulong value = strtol(arg[1], 0, 10);
-	 		Crible c;
+	 		Sieve c;
 			c.Generate(value);
 			c.ShowPrimes();
-			// c.ShowCribleSet(0, value);
+			// c.ShowSieveSet(0, value);
 			
 			// c.WriteFile("output.bit");
 		}
@@ -67,7 +67,7 @@ int main(int n, char * arg[])
 		if(arg[1][0] == 't')
 		{
 			cout << "performing some tests" << endl;
-	 		Crible c;
+	 		Sieve c;
 			// c.ReadFile("output.bit");
 			int n = atoi(arg[3]);
 			// c.VariousTests(intg(atoi(arg[3])), );

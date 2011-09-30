@@ -1,7 +1,7 @@
-#include "21030.h"
+#include "basex.h"
 
-unbase :: unbase() {}
-inline string unbase :: tumber30(intg ul)
+basex :: basex() {}
+inline string basex :: tumber30(intg ul)
 {
 	// DADADADADA
 	string str30 = ""; // ADDED
@@ -22,7 +22,7 @@ inline string unbase :: tumber30(intg ul)
 	return str30; // ADDED
 	// Don't forget I changed numb to ul !
 }
-inline string unbase :: tumber36(intg ul)
+inline string basex :: tumber36(intg ul)
 {
 	// DADADADADA
 	string str36 = ""; // ADDED
@@ -43,7 +43,7 @@ inline string unbase :: tumber36(intg ul)
 	return str36; // ADDED
 	// Don't forget I changed numb to ul !
 }
-inline intg unbase :: number30(string & str)
+inline intg basex :: number30(string & str)
 {
 	intg sz = str.length();
 	if (str == "0" or sz > POWER30)
@@ -53,7 +53,7 @@ inline intg unbase :: number30(string & str)
 		r += num30(str[i]) * int_pow (30, sz-i-1);
 	return r;
 }
-inline intg unbase :: number36(string & str)
+inline intg basex :: number36(string & str)
 {
 	intg sz = str.length();
 	if (str == "0" or sz > POWER30)
@@ -63,28 +63,28 @@ inline intg unbase :: number36(string & str)
 		r += num36(str[i]) * int_pow (36, sz-i-1);
 	return r;
 }
-inline char unbase :: chr30 (intg n)
+inline char basex :: chr30 (intg n)
 {
 	if (n < 0 or n > 29) return '_';
 	if (n < 10)
 		return (char)(n + ASC_OFS_N);
 	return (char)(n + ASC_OFS - 9);
 }
-inline char unbase :: chr36 (intg n)
+inline char basex :: chr36 (intg n)
 {
 	if (n < 0 or n > 35) return '_';
 	if (n < 10)
 		return (char)(n + ASC_OFS_N);
 	return (char)(n + ASC_OFS - 9);
 }
-inline intg unbase :: int_pow (intg n, int p)
+inline intg basex :: int_pow (intg n, int p)
 {
 	if (p == 0) return 1;
 	intg r = 1;
 	for(int i = 0; i < p; ++i) r *= n;
  	return r;
 }
-void unbase :: show_mult_table30()
+void basex :: show_mult_table30()
 {
 	cout << "30-based [[0-9][A-T]] multiplication table" << endl << "    ";
 	
@@ -107,7 +107,7 @@ void unbase :: show_mult_table30()
 	}
 	cout << endl << "done !" << endl;
 }
-void unbase :: show_mult_table36()
+void basex :: show_mult_table36()
 {
 	cout << "36-based [[0-9][A-Z]] multiplication table" << endl << "    ";
 	for(int i = 1; i < 37; ++i)
@@ -127,22 +127,22 @@ void unbase :: show_mult_table36()
 	}
 	cout << endl << "done !" << endl;
 }
-void unbase :: show30(intg u)
+void basex :: show30(intg u)
 { cout << u << " -> 30 -> " << tumber30(u) << endl; }
-void unbase :: show36(intg u)
+void basex :: show36(intg u)
 { cout << u << " -> 36 -> " << tumber36(u) << endl; }
-void unbase :: show30(string str)
+void basex :: show30(string str)
 { cout << str << " -> 30 -> " << number30(str) << endl; }
-void unbase :: show36(string str)
+void basex :: show36(string str)
 { cout << str << " -> 36 -> " << number36(str) << endl; }
-intg unbase :: num30 (char c)
+intg basex :: num30 (char c)
 {
 	if (c < '0' or c > 'T' or (c > '9' and c < 'A')) return '_';
 	if (c < ASC_OFS_N10) return (intg)(c - ASC_OFS_N);
 	if (c == '0') return 0;
 	return (intg)(c - ASC_OFS + 9);
 }
-intg unbase :: num36 (char c)
+intg basex :: num36 (char c)
 {
 	if (c < '0' or c > 'Z' or (c > '9' and c < 'A')) return '_';
 	if (c < ASC_OFS_N10) return (intg)(c - ASC_OFS_N);

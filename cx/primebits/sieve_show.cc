@@ -1,7 +1,7 @@
-#include "primecrible.h"
-#include "21030.h"
+#include "sieve.h"
+#include "basex.h"
 #include <map>
-// void Crible :: ShowArray()
+// void Sieve :: ShowArray()
 // {
 // 	cout << "\t ";
 // 	for (intg i = 1; i < line_size/10; i += 1)
@@ -12,13 +12,13 @@
 // 	for (intg i = 0; i < size_sieve; ++i)
 // 	{
 // 		if (i % line_size == 0) cout << endl << "+"<< i << "\t";
-// 		if ((* crible)[i]) cout << '#';
+// 		if ((* Sieve)[i]) cout << '#';
 // 		else cout << '-';//"·";
 // 	}
 // 	cout << endl;
 // }
 
-void Crible :: ShowPrimes(intg a, intg b)
+void Sieve :: ShowPrimes(intg a, intg b)
 {
 	if(a >= b)
 	{
@@ -27,44 +27,44 @@ void Crible :: ShowPrimes(intg a, intg b)
 	}
 	cout << "[SHOW] primes in [" << number_fmt(a) << ".." << number_fmt(b) << "]: ";
 	for (intg i = a; i < b; ++i)
-		if ((* crible)[i]) cout << (i) << ", ";
+		if ((* Sieve)[i]) cout << (i) << ", ";
 	cout << "end" << endl;
 }
-void Crible :: ShowPrimesLine()
+void Sieve :: ShowPrimesLine()
 {
 	for (intg i = 0; i < size_sieve; ++i)
-		if ((* crible) [i]) cout << i << endl;
+		if ((* Sieve) [i]) cout << i << endl;
 	cout << "end"<< endl;	
 }
-void Crible :: ShowPrimes()
+void Sieve :: ShowPrimes()
 {
 	for (intg i = 0; i < size_sieve; ++i)
-		if ((* crible) [i]) cout << number_fmt(i) << ", ";
+		if ((* Sieve) [i]) cout << number_fmt(i) << ", ";
 	cout << "end"<< endl;	
 }
-void Crible :: ShowPrimesBase(int n)
+void Sieve :: ShowPrimesBase(int n)
 {
 
 	Generate(n);
 	printf("10\t\t16\t\t27\t\t30\t\t36 -----\n");
 	map<int, vector<string> > results;
 	for (intg i = 0; i < size_sieve; ++i)
-		if ((* crible) [i])
+		if ((* Sieve) [i])
 		{
 			// char s[0x100];
 			// sprintf(s, "%lX", i);
 			// results[16].push_back(string(s));
-			// results[27].push_back(unbase::tumber27(i));
-			// results[30].push_back(unbase::tumber30(i));
-			// results[36].push_back(unbase::tumber36(i));
+			// results[27].push_back(basex::tumber27(i));
+			// results[30].push_back(basex::tumber30(i));
+			// results[36].push_back(basex::tumber36(i));
 			
 			printf
 			(
 				"%lu\t\t%lX\t\t%s\t\t%s\t\t%s\n",
 				i, i,
-				unbase::tumber27(i).c_str(),
-				unbase::tumber30(i).c_str(),
-				unbase::tumber36(i).c_str()
+				basex::tumber27(i).c_str(),
+				basex::tumber30(i).c_str(),
+				basex::tumber36(i).c_str()
 			);
 		}
 		
@@ -75,18 +75,18 @@ void Crible :: ShowPrimesBase(int n)
 	}
 	cout << "end"<< endl;	
 }
-void Crible :: ShowArray()
+void Sieve :: ShowArray()
 {
 	cout << "[SHOW] array in hexadecimal: ";
 	FOR(size_array)
 		printf("0x%lX, ", array[i]);
 	printf("end\n");
 }
-void Crible :: ShowCribleSet ()
+void Sieve :: ShowSieveSet ()
 {
-	cout << (*crible) << endl;
+	cout << (*Sieve) << endl;
 
-	// string whole = crible->to_string();
+	// string whole = Sieve->to_string();
 	// 
 	// FOR(size_sieve)
 	// {
@@ -98,8 +98,8 @@ void Crible :: ShowCribleSet ()
 	// 
 	// for
 	// (
-	// 	vect_bs64_iter iter = crible_vect.begin();
-	// 	iter != crible_vect.end();
+	// 	vect_bs64_iter iter = Sieve_vect.begin();
+	// 	iter != Sieve_vect.end();
 	// 	++iter
 	// )
 	// {
@@ -109,7 +109,7 @@ void Crible :: ShowCribleSet ()
 	// }
 
 }
-void Crible :: ShowCribleSet (intg a, intg b)
+void Sieve :: ShowSieveSet (intg a, intg b)
 {
 	if(a >= b)
 	{
@@ -118,11 +118,11 @@ void Crible :: ShowCribleSet (intg a, intg b)
 	}
 	cout << "printing bits [" << a << ".." << b << "]" << endl;
 	FORG(a, b)
-		cout << (* crible) [i];
+		cout << (* Sieve) [i];
 	
 	prln;
 }
-void Crible :: ShowPack(intg a, intg b)
+void Sieve :: ShowPack(intg a, intg b)
 {
 	if (b == 0)
 		b = count;
@@ -138,27 +138,27 @@ void Crible :: ShowPack(intg a, intg b)
 		// cout << number_fmt((*i)) << ", ";
 	cout << "end." << endl;
 }
-void Crible :: ShowPrimeByPosition(intg i)
+void Sieve :: ShowPrimeByPosition(intg i)
 {
 	if(i > count)
 	{
-		cerr << "[SHOW] Did not cribled enough;, try a bigger crible." << endl;
+		cerr << "[SHOW] Did not Sieved enough;, try a bigger Sieve." << endl;
 		return;
 	}
 	cout << "[SHOW] Prime #" << i << ": " << pack[i] << endl;
 }
-void Crible :: HideThis()
+void Sieve :: HideThis()
 {
-// void Crible :: ShowPrimes30()
+// void Sieve :: ShowPrimes30()
 // {
 // 	for (ulong i = 0; i < size_sieve; ++i)
-// 		if ((* crible)[i]) cout << unbase :: tumber30(i) << ' ';
+// 		if ((* Sieve)[i]) cout << basex :: tumber30(i) << ' ';
 // 	cout << endl;	
 // }
-// void Crible :: ShowPrimes36()
+// void Sieve :: ShowPrimes36()
 // {
 // 	for (ulong i = 0; i < size_sieve; ++i)
-// 		if ((* crible)[i]) cout << unbase :: tumber36(i) << ' ';
+// 		if ((* Sieve)[i]) cout << basex :: tumber36(i) << ' ';
 // 	cout << endl;	
 // }
 }

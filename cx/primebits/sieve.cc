@@ -1,8 +1,8 @@
-#include "primecrible.h"
-#include "21030.h"
+#include "sieve.h"
+#include "basex.h"
 #include <cstdlib>
 
-string Crible :: number_fmt(intg n)
+string Sieve :: number_fmt(intg n)
 {
 	// cout << "(" << n << ")" << endl;
 	char s[128];
@@ -48,15 +48,15 @@ void print_spaces_bytes(ulong n)
 		// len_G8,
 		len_M8, len_K8, len8);
 }
-Crible :: Crible (int _line_size): pack(NULL), crible(NULL), array(NULL), count(0U)
+Sieve :: Sieve (int _line_size): pack(NULL), Sieve(NULL), array(NULL), count(0U)
 {
 	cout << "bitset hard limit (set at compile time) = ";
 	print_spaces_bytes(BITS);
 }
-void Crible :: Generate (intg _size_sieve)
+void Sieve :: Generate (intg _size_sieve)
 {
 	size_sieve = _size_sieve;
-	cout << "crible size (how far the sieve will go) = ";
+	cout << "Sieve size (how far the sieve will go) = ";
 	print_spaces_bytes(size_sieve);
 
 	size_array  = size_sieve / INTG_BITS;
@@ -64,24 +64,24 @@ void Crible :: Generate (intg _size_sieve)
 	cout << "[GEN] allocating bitset of " << number_fmt(BITS) << " bits" << endl;
 	// cout << "[GEN] remember that depending of BITS value, this can crash" << endl;
 	
-	crible = (new bitset<BITS>);
+	Sieve = (new bitset<BITS>);
 
 	// cout << "[GEN] setting all bits to 1, setting [0] and [1] as not primes" << endl;
-	crible->set();
-	(* crible)[0] = false;
-	(* crible)[1] = false;
+	Sieve->set();
+	(* Sieve)[0] = false;
+	(* Sieve)[1] = false;
 	cout << "[GEN] let's loop !" << endl;
 	time_t start = time(NULL);
 
 	for (intg i = 2; i < size_sieve; ++i)
 	{
 		// if there is a false, loop next (false means i is not prime)
-		if((* crible)[i] == false) continue;
+		if((* Sieve)[i] == false) continue;
 		++ count;
 		// zeroes out all numbers from 2*m to n (means here, i is prime)
 		// for(ulong k = 2; i*k < size_sieve; ++k)
 		for(intg k = 2; i*k < size_sieve; ++k)
-			(* crible)[i*k] = false;
+			(* Sieve)[i*k] = false;
 	}
 	time_t end = time(NULL);
 	double sec = difftime(end, start);
@@ -90,16 +90,16 @@ void Crible :: Generate (intg _size_sieve)
 		" prime numbers in " << sec << " seconds" << endl;
 }
 
-Crible :: ~ Crible()
+Sieve :: ~ Sieve()
 {
 	if(pack)
 		delete [] pack;
-	if(crible)
-		delete crible;
+	if(Sieve)
+		delete Sieve;
 }
-void Crible :: Pack(intg n)
+void Sieve :: Pack(intg n)
 {
-	cout << "[PACK] using the crible to make a list of prime numbers " << endl;
+	cout << "[PACK] using the Sieve to make a list of prime numbers " << endl;
 	if (n == 0)
 	{
 		cout << "[PACK] Using default count value: " << count << endl;
@@ -120,7 +120,7 @@ void Crible :: Pack(intg n)
 	{
 		// cout << (i < size_sieve) and (pack_index < n);
 		// cout << i << " " << pack_index << endl;
-		if((* crible) [i])
+		if((* Sieve) [i])
 		{
 			// cout << i << " is prime" << endl;
 			pack [pack_index] = i;

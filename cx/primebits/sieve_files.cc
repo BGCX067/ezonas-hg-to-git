@@ -1,6 +1,6 @@
-#include "primecrible.h"
+#include "sieve.h"
 
-void Crible :: WriteFile(string filename_output)
+void Sieve :: WriteFile(string filename_output)
 {
 	FILE * file_output = fopen(filename_output.c_str(), "w");
 	
@@ -9,9 +9,9 @@ void Crible :: WriteFile(string filename_output)
 		return;		
 	}
 	// remember fread takes a pointer, so I can't use to_ulong() directly
-	cout << "[WRITE] Will write crible to " << filename_output << endl;
-	// cout << "[WRITE] " << crible_vect.size() << " elements will be written" << endl;
-	// size_t size_vect = crible_vect.size();
+	cout << "[WRITE] Will write Sieve to " << filename_output << endl;
+	// cout << "[WRITE] " << Sieve_vect.size() << " elements will be written" << endl;
+	// size_t size_vect = Sieve_vect.size();
 	// size_array++;
 	cout << "alloacting array of " << size_array << " items" << endl;
 	array = new intg[size_array];
@@ -29,7 +29,7 @@ void Crible :: WriteFile(string filename_output)
 
 }
 //////////////////////////////////////////////////////////////////////
-void Crible :: ReadFile(string filename_input)
+void Sieve :: ReadFile(string filename_input)
 {
 	FILE * file_input = fopen(filename_input.c_str(), "r");
 	if(file_input == NULL)
@@ -68,41 +68,41 @@ void Crible :: ReadFile(string filename_input)
 	cout << "[READ] " << how_many_read_items << " items in file" << endl;
 	// ShowArray();
 
-	crible = (new bitset<BITS>);
-	crible -> set();
-	// (* crible)[2] = false;
-	// (* crible)[97] = true;
+	Sieve = (new bitset<BITS>);
+	Sieve -> set();
+	// (* Sieve)[2] = false;
+	// (* Sieve)[97] = true;
 	array2bitset();
-	(* crible)[0] = false;
-	(* crible)[1] = false;
+	(* Sieve)[0] = false;
+	(* Sieve)[1] = false;
 	
 	delete [] array;
 	fclose(file_input);
 
 }
 
-void Crible :: bitset2array() // KOHRRRRREKT' !
+void Sieve :: bitset2array() // KOHRRRRREKT' !
 {
 	cout << "[B2A] partitionning bitset into an array" << endl;	
 	for(intg i = 0; i < size_sieve; ++ i)
-		if((* crible)[i])
+		if((* Sieve)[i])
 			array[size_array - (i / INTG_BITS) - 1]
 				|= (1UL << (i % INTG_BITS));
 	cout << "[B2A] done" << endl;
 	// cout << "[B2A] some elements: " << endl;
 }
 
-void Crible :: array2bitset() // KOHRRRRREKT' !
+void Sieve :: array2bitset() // KOHRRRRREKT' !
 {
 	cout << "[A2B] building bitset from array" << endl;
 	for(intg i = 0; i < size_sieve, i < size_array * INTG_BITS; ++ i)
-		(* crible)[i] =
+		(* Sieve)[i] =
 			array[size_array - i / INTG_BITS - 1]
 				& (1UL << ((i % INTG_BITS)));
 	cout << "[A2B] done" << endl;
 }
 
-void Crible :: WriteNumbers(string filename)
+void Sieve :: WriteNumbers(string filename)
 {
 	FILE * file = fopen(filename.c_str(), "w");
 	if (file == NULL)
