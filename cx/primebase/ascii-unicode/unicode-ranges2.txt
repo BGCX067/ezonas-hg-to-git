@@ -1,0 +1,92 @@
+<table border="1 
+<tbody><tr><th>Range</th><th>Decimal</th><th>Name</th></tr>
+0x0000-0x007F 0-127     #x0000 Basic Latin
+0x0080-0x00FF 128-255   #x0080 Latin-1 Supplement
+0x0100-0x017F 256-383   #x0100 Latin Extended-A
+0x0180-0x024F 384-591   #x0180 Latin Extended-B
+0x0250-0x02AF 592-687   #x0250 IPA Extensions
+0x02B0-0x02FF 688-767   #x02B0 Spacing Modifier Letters
+0x0300-0x036F 768-879   #x0300 Combining Diacritical Marks
+0x0370-0x03FF 880-1023  #x0370 Greek
+0x0400-0x04FF 1024-1279 #x0400 Cyrillic
+0x0530-0x058F 1328-1423 #x0530 Armenian
+0x0590-0x05FF 1424-1535 #x0590 Hebrew
+0x0600-0x06FF 1536-1791 #x0600 Arabic
+0x0700-0x074F 1792-1871 #x0700 Syriac  
+0x0780-0x07BF 1920-1983 #x0780 Thaana
+0x0900-0x097F 2304-2431 #x0900 Devanagari
+0x0980-0x09FF 2432-2559 #x0980 Bengali
+0x0A00-0x0A7F 2560-2687 #x0A00 Gurmukhi
+0x0A80-0x0AFF 2688-2815 #x0A80 Gujarati
+0x0B00-0x0B7F 2816-2943 #x0B00 Oriya
+0x0B80-0x0BFF 2944-3071 #x0B80 Tamil
+0x0C00-0x0C7F 3072-3199 #x0C00 Telugu
+0x0C80-0x0CFF 3200-3327 #x0C80 Kannada
+0x0D00-0x0D7F 3328-3455 #x0D00 Malayalam
+0x0D80-0x0DFF 3456-3583 #x0D80 Sinhala
+0x0E00-0x0E7F 3584-3711 #x0E00 Thai
+0x0E80-0x0EFF 3712-3839 #x0E80 Lao
+0x0F00-0x0FFF 3840-4095 #x0F00 Tibetan
+0x1000-0x109F 4096-4255 #x1000 Myanmar 
+0x10A0-0x10FF 4256-4351 #x10A0 Georgian
+0x1100-0x11FF 4352-4607 #x1100 Hangul Jamo
+0x1200-0x137F 4608-4991 #x1200 Ethiopic
+0x13A0-0x13FF 5024-5119 #x13A0 Cherokee
+0x1400-0x167F 5120-5759 #x1400 Unified Canadian Aboriginal Syllabics
+0x1680-0x169F 5760-5791 #x1680 Ogham
+0x16A0-0x16FF 5792-5887 #x16A0 Runic
+0x1780-0x17FF 6016-6143 #x1780 Khmer
+0x1800-0x18AF 6144-6319 #x1800 Mongolian
+0x1E00-0x1EFF 7680-7935 #x1E00 Latin Extended Additional
+0x1F00-0x1FFF 7936-8191 #x1F00 Greek Extended
+0x2000-0x206F 8192-8303 #x2000 General Punctuation
+0x2070-0x209F 8304-8351 #x2070 Superscripts and Subscripts
+0x20A0-0x20CF 8352-8399 #x20A0 Currency Symbols
+0x20D0-0x20FF 8400-8447 #x20D0 Combining Marks for Symbols
+0x2100-0x214F 8448-8527 #x2100 Letterlike Symbols
+0x2150-0x218F 8528-8591 #x2150 Number Forms
+0x2190-0x21FF 8592-8703 #x2190 Arrows
+0x2200-0x22FF 8704-8959 #x2200 Mathematical Operators
+0x2300-0x23FF 8960-9215 #x2300 Miscellaneous Technical
+0x2400-0x243F 9216-9279 #x2400 Control Pictures
+0x2440-0x245F 9280-9311 #x2440 Optical Character Recognition
+0x2460-0x24FF 9312-9471 #x2460 Enclosed Alphanumerics
+0x2500-0x257F 9472-9599 #x2500 Box Drawing
+0x2580-0x259F 9600-9631 #x2580 Block Elements
+0x25A0-0x25FF 9632-9727 #x25A0 Geometric Shapes
+0x2600-0x26FF 9728-9983 #x2600 Miscellaneous Symbols
+0x2700-0x27BF 9984-10175 #x2700 Dingbats
+0x2800-0x28FF 10240-10495 #x2800 Braille Patterns
+0x2E80-0x2EFF 11904-12031 #x2E80 CJK Radicals Supplement
+0x2F00-0x2FDF 12032-12255 #x2F00 Kangxi Radicals
+0x2FF0-0x2FFF 12272-12287 #x2FF0 Ideographic Description Characters
+0x3000-0x303F 12288-12351 #x3000 CJK Symbols and Punctuation
+0x3040-0x309F 12352-12447 #x3040 Hiragana
+0x30A0-0x30FF 12448-12543 #x30A0 Katakana
+0x3100-0x312F 12544-12591 #x3100 Bopomofo
+0x3130-0x318F 12592-12687 #x3130 Hangul Compatibility Jamo
+0x3190-0x319F 12688-12703 #x3190 Kanbun
+0x31A0-0x31BF 12704-12735 #x31A0 Bopomofo Extended
+0x3200-0x32FF 12800-13055 #x3200 Enclosed CJK Letters and Months
+0x3300-0x33FF 13056-13311 #x3300 CJK Compatibility
+0x3400-0x4DB5 13312-19893 #x3400 CJK Unified Ideographs Extension A
+0x4E00-0x9FFF 19968-40959 #x4E00 CJK Unified Ideographs
+0xA000-0xA48F 40960-42127 #xA000 Yi Syllables
+0xA490-0xA4CF 42128-42191 #xA490 Yi Radicals
+0xAC00-0xD7A3 44032-55203 #xAC00 Hangul Syllables
+0xD800-0xDB7F 55296-56191 #xD800 High Surrogates
+0xDB80-0xDBFF 56192-56319 #xDB80 High Private Use Surrogates
+0xDC00-0xDFFF 56320-57343 #xDC00 Low Surrogates
+0xE000-0xF8FF 57344-63743 #xE000 Private Use
+0xF900-0xFAFF 63744-64255 #xF900 CJK Compatibility Ideographs
+0xFB00-0xFB4F 64256-64335 #xFB00 Alphabetic Presentation Forms
+0xFB50-0xFDFF 64336-65023 #xFB50 Arabic Presentation Forms-A
+0xFE20-0xFE2F 65056-65071 #xFE20 Combining Half Marks
+0xFE30-0xFE4F 65072-65103 #xFE30 CJK Compatibility Forms
+0xFE50-0xFE6F 65104-65135 #xFE50 Small Form Variants
+0xFE70-0xFEFE 65136-65278 #xFE70 Arabic Presentation Forms-B
+0xFEFF-0xFEFF 65279-65279 #xFEFF Specials
+0xFF00-0xFFEF 65280-65519 #xFF00 Halfwidth and Fullwidth Forms
+0xFFF0-0xFFFD 65520-65533 #xFFF0 Specials
+  #notes Notes
+</tbody></table>

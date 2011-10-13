@@ -1,0 +1,1 @@
+clear;g++ basex.cc basex27.cc main_basen.cc basen.cc -lgmpxx -lgmp && mv a.out basen.out

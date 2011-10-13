@@ -1,0 +1,7 @@
+0xxx xxxx                                           0-127 ASCII              1 byte
+10xx xxxx yyyy yyyy                                 2^14 other codepoints    2 bytes
+110x xxxx yyyy yyyy zzzz zzzz                       2^21 other codepoints    3 bytes
+1110 xxxx yyyy yyyy zzzz zzzz uuuu uuuu             2^28 other codepoints    4 bytes
+1111 0xxx yyyy yyyy zzzz zzzz uuuu uuuu vvvv vvvv   2^35 other codepoints    5 bytes
+
+and so on...

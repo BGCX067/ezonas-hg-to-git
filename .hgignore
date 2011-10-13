@@ -1,5 +1,10 @@
 syntax: glob
 
+*.big.txt
+*.pbm
+*.zip
+*.bit
+*.BIT
 *.wav
 *.mp3
 *.avi

@@ -1,0 +1,15 @@
+arm
+break
+cast
+chain
+crisis
+critic
+dust
+effect
+final
+miss
+oil
+point
+wall
+weak
+flame

@@ -1,0 +1,1 @@
+﻿g++ primecodec.cc primewords.cc words_main.cc
