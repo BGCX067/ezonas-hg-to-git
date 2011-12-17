@@ -1,1 +1,1 @@
-import Imageimport randoml = []random.seed(None)print "whoopsies"for a in range(160000):	# l.append(random.randint(0,4))	l.append(0)imgf2 = Image.new('1', (400, 400))imgf2.putdata(l)imgf2.show()# imgf.close()
+import Imageimport randoml = []random.seed(None)print "whoopsies"for a in range(160000):	l.append(random.randint(0,2))	# l.append(0)imgf2 = Image.new('1', (400, 400))imgf2.putdata(l)imgf2.show()# imgf.close()

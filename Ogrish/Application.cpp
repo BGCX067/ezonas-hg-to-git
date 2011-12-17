@@ -47,7 +47,8 @@ Application :: Application():
 	ovl_mgr = OverlayManager :: getSingletonPtr();
 	
 	// some sort of crosshair
-	ovl_mgr -> getByName("jokoon/crosshair") -> show();
+	//ovl_mgr -> getByName("jokoon/crosshair") -> show();
+	
 	//ConfMgr :: Instantiate();
 	//switch(ConfMgr :: getSingleton().GetInt("camera_mode"))
 	cam_ctrlr = CameraController :: Instantiate();
