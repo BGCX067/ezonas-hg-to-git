@@ -1,0 +1,29 @@
+ enum character_event
+{
+	JUMPS
+	LANDS
+	MOVES
+	STOPS
+	USE_ITEM
+}
+
+// enum character_event
+// {
+	// JUMPS = 1,
+	// LANDS = 2,
+	// MOVES = 4,
+	// STOPS = 8,
+	// USE_ITEM
+// }
+
+
+// enum character_state
+// {
+	// MOVING = 1,
+	// RUNNING = 2,
+	// FALLING = 4,
+	// STUNNED = 8,
+	// VISIBLE = 16,
+	// STEALTH = 32,
+	// KNOCKED = 64,
+// }
