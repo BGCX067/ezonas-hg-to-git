@@ -54,6 +54,8 @@ public:
 	void ShowPrimesLine();
 	void ShowPrimesBase(int);
 	
+	
+	void sum();
 	void ShowArray();
 	void ShowPrimeByPosition(intg i);
 	// void ShowPrimes30();
@@ -75,7 +77,8 @@ public:
 	void Grow(int density);
 	void HideThis();
 	void WritePBM(string filename);
-	
+	void nth_prime(intg n)
+	{ pr(pack[n]); }
 protected:
 	size_t
 		size_sieve,

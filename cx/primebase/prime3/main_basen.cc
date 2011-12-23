@@ -5,6 +5,15 @@ int main(int n, char * arg[])
 {
 	if(n == 3)
 	{
+		unsigned int base = strtol(arg[2], NULL, 10);
+		// p("using ") << n << " and " << base << " as arguments" << endl;
+		number num = basex :: z(mpz_class(arg[1], 10), base);
+		FOR_ITR(unsigned int, num)
+			cout << (* itr) << ", ";
+		cout << "end" << endl;
+	}
+	else if(n == 4)
+	{
 		intg n = strtol(arg[1], NULL, 10);
 		unsigned int base = strtol(arg[2], NULL, 10);
 		p("using ") << n << " and " << base << " as arguments" << endl;
@@ -14,9 +23,8 @@ int main(int n, char * arg[])
 			cout << (* itr) << ", ";
 		}
 		cout << "end" << endl;
+		
 	}
 	else
-	{
 		pr("at least 2 arguments, number and base");
-	}
 }

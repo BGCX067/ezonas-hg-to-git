@@ -1,0 +1,13 @@
+M-Y                     Color syntax highlighting enable/disable
+^W      (F6)            Search for a string or a regular expression
+^K      (F9)            Cut the current line and store it in the cutbuffer
+^U      (F10)           Uncut from the cutbuffer into the current line
+^C      (F11)           Display the position of the cursor
+(F16)   (M-W)   Repeat last search
+M-^             (M-6)   Copy the current line and store it in the cutbuffer
+M-<             (M-,)   Switch to the previous file buffer
+M->             (M-.)   Switch to the next file buffer
+M-D                     Count the number of words, lines, and characters
+M-X                     Help mode enable/disable
+M-C                     Constant cursor position display enable/disable
+M-O                     Use of one more line for editing enable/disable

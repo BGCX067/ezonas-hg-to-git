@@ -66,3 +66,13 @@ bool Sieve :: IsPrime(intg i)
 	}
 	return (*databits)[i];
 }
+
+void Sieve::sum()
+{
+	int a = 0;
+	FOR(count)
+	{
+		a+= pack[i];
+	}
+	pr(a);
+}

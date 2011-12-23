@@ -4,56 +4,62 @@ number basex :: z(intg n, unsigned int base)
 {
 	number r;
 	int exponent = 10;
-	pr("hello to universal base conversion");
+	// pr("hello to universal base conversion");
 	while (n > int_pow (base, exponent))
 	{
 		-- exponent;
 		p(exponent)<<" ";
 	}
-	p("base = ") << exponent << endl;
+	p("exponent = ") << exponent << endl;
 	intg rest = n;
 	while (exponent >= 0) // loop
 	{
 		if (n >= int_pow ((intg)base, exponent))
 		{
-			// strbase += chrbase(r / int_pow(base, exponent)); //
-			unsigned int f = rest / int_pow(base, exponent);
-			// pr_(f);
-			r.push_back(f);
+			r.push_back(rest / int_pow(base, exponent));
 			rest %= int_pow(base, exponent);
 		}
 		-- exponent;
 	}
-	// if(strbase.length() == 1)
-	// 	return " " + strbase;
-	return r; // ADDED
+	return r;
 }
-number basex :: z(mpz_t n, unsigned int base)
+number basex :: z(mpz_class n, unsigned int base)
 {
 	number r;
-	int exponent = 100;
-	pr("hello to universal base conversion");
+	int exponent = 1;
 	// while (n > int_pow (base, exponent))
-	while (n > int_pow (base, exponent))
+	mpz_class t;
+
+	mpz_ui_pow_ui(t.get_mpz_t(), base, exponent); // t = n ^ exponent
+	pr(t);
+	pr(n);
+	// pr(cmp(t, n))
+	pr((n >= t));
+	while (n > t)
 	{
-		-- exponent;
-		p(exponent)<<" ";
+		++ exponent;
+		mpz_ui_pow_ui(t.get_mpz_t(), base, exponent); // t = n ^ exponent
+		// p(t) << " ";
+		// p(exponent)<<" ";
 	}
-	p("base = ") << exponent << endl;
-	intg rest = n;
+	p("exponent = ") << exponent << endl;
+	// intg rest = n;
+	mpz_class rest(n);
 	while (exponent >= 0) // loop
 	{
-		if (n >= int_pow ((intg)base, exponent))
+		mpz_ui_pow_ui(t.get_mpz_t(), base, exponent);
+		// if (n >= int_pow ((intg)base, exponent))
+		// cout << rest << " " << t << endl;
+		if (cmp(n, t) != -1)
 		{
-			// strbase += chrbase(r / int_pow(base, exponent)); //
-			unsigned int f = rest / int_pow(base, exponent);
-			// pr_(f);
-			r.push_back(f);
-			rest %= int_pow(base, exponent);
+			// unsigned int f = rest / int_pow(base, exponent);
+			mpz_class d;
+			mpz_ui_pow_ui(d.get_mpz_t(), base, exponent);
+			r.push_back((mpz_class(rest / d)).get_ui());
+			// rest %= int_pow(base, exponent);
+			rest %= d;
 		}
 		-- exponent;
 	}
-	// if(strbase.length() == 1)
-	// 	return " " + strbase;
-	return r; // ADDED
+	return r;
 }

@@ -25,6 +25,7 @@ public:
 
 	static number z(intg n, unsigned int base);
 	static number z(mpz_t n, unsigned int base);
+	static number z(mpz_class n, unsigned int base);
 	
 	static inline intg num27(char c);
 	static inline char chr27(intg num);
