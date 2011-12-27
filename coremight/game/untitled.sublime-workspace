@@ -1,0 +1,263 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Gam",
+				"Game_machine"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "mask-define.h",
+			"settings":
+			{
+				"buffer_size": 993,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "gamemachine.h",
+			"settings":
+			{
+				"buffer_size": 1094,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "struct.h",
+			"settings":
+			{
+				"buffer_size": 733,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 45.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 115.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/lubethan/hg/ezonas/playcore/game/trash/trash.txt",
+		"/Users/lubethan/hg/ezonas/playcore/game/compile.sh",
+		"/Users/lubethan/hg/ezonas/playcore/game/gamemachine_main.cc",
+		"/Users/lubethan/hg/ezonas/playcore/game/gamemachine.cc",
+		"/Users/lubethan/Library/Application Support/Sublime Text 2/Packages/Default/Global.sublime-settings",
+		"/Users/lubethan/Library/Application Support/Sublime Text 2/Packages/Default/Base File.sublime-settings",
+		"/Users/lubethan/hg/ezonas/playcore/game/struct.h",
+		"/Users/lubethan/hg/ezonas/playcore/game/mask-define.h",
+		"/Users/lubethan/Library/Application Support/Sublime Text 2/Packages/User/Base File.sublime-settings",
+		"/Users/lubethan/Library/Application Support/Sublime Text 2/Packages/User/Global.sublime-settings",
+		"/Users/lubethan/Library/Application Support/Sublime Text 2/Packages/Color Scheme - Default/SUPERCOOLBIG BRIGHT.tmTheme",
+		"/Users/lubethan/Library/Application Support/Sublime Text 2/Packages/netpro2k-SublimeBlockCursor-f598d33/SublimeBlockCursor.py",
+		"/Users/lubethan/hg/ezonas/playcore/game/state-masks.h",
+		"/Users/lubethan/Library/Application Support/Sublime Text 2/Packages/Color Scheme - Default/Monokai 2.tmTheme"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 91.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"brace",
+			"quote",
+			"clos",
+			"gamemachine.cc "
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "mask-define.h",
+					"settings":
+					{
+						"buffer_size": 993,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								313,
+								313
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "gamemachine.h",
+					"settings":
+					{
+						"buffer_size": 1094,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								95,
+								95
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 418.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "struct.h",
+					"settings":
+					{
+						"buffer_size": 733,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18,
+								18
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 120.0,
+	"status_bar_visible": true
+}

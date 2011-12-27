@@ -26,9 +26,20 @@ Game_machine :: Game_machine()
 
 }
 
-bool Game_machine :: pass()
+void Game_machine :: diagnose_events()
 {
 	
+}
+
+void Game_machine :: diagnose_characters()
+{
+	
+}
+
+bool Game_machine :: pass()
+{
+	if (EventQueue
+	for(deque<event_s>::iterator iter; iter != )
 }
 
 void Game_machine :: fire_ability(int emitter, int target)
@@ -63,10 +74,8 @@ character_s Game_machine :: make_character()
 	return ret;
 }
 
-#define GET_BIT(n) (mask & n))
+#define GET_BIT(n) (mask & n)
 bool get_bit(uint mask, int n) { return mask & n; }
-
 bool set_bit(uint * mask, int n)   { (*mask) |= n; }
-
 bool unset_bit(uint * mask, int n) { (*mask) &= ~ n; }
 

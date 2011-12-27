@@ -1,0 +1,51 @@
+ enum character_event
+{
+	JUMPS
+	LANDS
+	MOVES
+	STOPS
+	USE_ITEM
+}
+
+// enum character_event
+// {
+	// JUMPS = 1,
+	// LANDS = 2,
+	// MOVES = 4,
+	// STOPS = 8,
+	// USE_ITEM
+// }
+
+
+// enum character_state
+// {
+	// MOVING = 1,
+	// RUNNING = 2,
+	// FALLING = 4,
+	// STUNNED = 8,
+	// VISIBLE = 16,
+	// STEALTH = 32,
+	// KNOCKED = 64,
+// }
+
+
+	// bool allow_movement,
+	//      target_in_front,
+	//      requires_target,
+	// 	    click_location_event,
+	//      splash_damage;
+
+
+ability_s Game_machine :: make_ability(
+		string name,
+		float cast_time,
+		float range,
+		float missile_speed,
+		float dmg_timed,
+		float dmg_instant,
+		int effect_moment,
+		int mask)
+{
+	ability_s ret = { cast_time, range, missile_speed, dmg_timed, dmg_instant, effect_moment, mask, name };
+	return ret;
+}

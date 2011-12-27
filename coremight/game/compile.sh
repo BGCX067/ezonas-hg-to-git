@@ -1,0 +1,1 @@
+clear; g++ gamemachine.cc gamemachine_main.cc && ./a.out

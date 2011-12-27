@@ -9,12 +9,18 @@
 #define DEAD	(1 << 7)
 #define	BLINDED	(1 << 8)
 
+
 // events
-#define JUMPS    (1 << 0)
-#define LANDS    (1 << 1)
-#define MOVES    (1 << 2)
-#define STOPS    (1 << 3)
-#define USE_ITEM (1 << 4)
+enum event_e
+{
+	JUMPS,
+	LANDS,
+	MOVES,
+	STOPS,
+	USE_ITEM,
+	ABILITY,
+	
+}
 // #define (1 << 5)
 // #define (1 << 6)
 

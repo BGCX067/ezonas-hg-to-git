@@ -1,0 +1,4 @@
+gamemachine.cc: In constructor ‘Game_machine::Game_machine()’:
+gamemachine.cc:33: error: no matching function for call to ‘ability_s::ability_s()’
+gamemachine.cc:19: note: candidates are: ability_s::ability_s(std::string, float, float, float, float, float, float, float, int, int, int)
+datastruct.h:2: note:                 ability_s::ability_s(const ability_s&)
