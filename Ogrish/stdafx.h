@@ -37,3 +37,5 @@ typedef Ogre :: Vector3 Vec3;
 //#include "Cam3rdperson.h"
 #include "Application.h"
 
+#include "datastruct.h"
+#include "gamemachine.h"
