@@ -4,69 +4,10 @@
 // handling them in game and also send events on the network.
 // networking is mainly handled by sending events to a peer.
 
-ability_s :: ability_s(const ability_s & ab):
-cast_time     (ab.cast_time    ),
-range         (ab.range        ),
-splash_range  (ab.splash_range ),
-missile_speed (ab.missile_speed),
-dmg_tick      (ab.dmg_tick     ),
-dmg_instant   (ab.dmg_instant  ),
-dmg_splash    (ab.dmg_splash   ),
-
-ticks		  (ab.ticks),
-effect_moment (ab.effect_moment),
-mask		  (ab.mask),
-
-name		  (ab.name)
-{}
-
-
-ability_s :: ability_s
-(
-	float _cast_time     = 1.f  ,
-	float _range         = 100.f,
-	float _splash_range  = 5.f  ,
-	float _missile_speed = 100.f,
-
-	float _dmg_tick      = 1.f  ,
-	float _dmg_instant   = 15.f ,
-	float _dmg_splash    = 3.f  ,
-
-	int _ticks           = 1    ,
-	int _effect_moment   = 5    ,
-
-	int _mask            = 0 + (ALLOW_MOVEMENT | TARGET_IN_FRONT | REQUIRES_TARGET | SPLASH_DAMAGE),
-	string _name         = string("FireBall")
-):
-
-cast_time     (_cast_time    ),
-range         (_range        ),
-splash_range  (_splash_range ),
-missile_speed (_missile_speed),
-dmg_tick      (_dmg_tick     ),
-dmg_instant   (_dmg_instant  ),
-dmg_splash    (_dmg_splash   ),
-
-ticks		  (_ticks),
-effect_moment (_effect_moment),
-mask		  (_mask),
-
-name		  (_name)
-	{}
-
 Game_machine :: Game_machine()
 {
-//	Abilities[1]
-	        ability_s dfs
-				//= ability_s
-			(
-					1.f, 100.f, 5.f, 100.f,
-					1.f, 15.f, 3.f,
-					1, 5,
-					0 + (ALLOW_MOVEMENT | TARGET_IN_FRONT | REQUIRES_TARGET | SPLASH_DAMAGE),
-					string("FireBall")
-			);
-
+	//Abilities[1] = ;
+	ability_s ab;
 
 	//Abilities[1] = ability_s(string("Flame"), 1.0f, 100.f, 100.f, 1, 0 + (ALLOW_MOVEMENT | TARGET_IN_FRONT | REQUIRES_TARGET | SPLASH_DAMAGE));
 
@@ -147,7 +88,7 @@ character_s Game_machine :: make_character(
 
 
 #define GET_BIT(n) (mask & n)
-bool get_bit(int mask, int n) { return mask & n; }
+bool get_bit(int mask, int n) { return bool(mask & n); }
 void set_bit(int * mask, int n)   { (*mask) |= n; }
 void unset_bit(int * mask, int n) { (*mask) &= ~ n; }
 int get_int_from_mask(int n, int top, int bottom)

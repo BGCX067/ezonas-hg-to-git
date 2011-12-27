@@ -94,6 +94,7 @@
     <ClCompile Include="ConfMgr.cpp" />
     <ClCompile Include="CreateScene.cpp" />
     <ClCompile Include="CreateTerrain.cpp" />
+    <ClCompile Include="datastruct.cpp" />
     <ClCompile Include="Execute.cpp" />
     <ClCompile Include="FrameRenderingQueued.cpp" />
     <ClCompile Include="gamemachine.cc" />
