@@ -8,6 +8,8 @@ public:
 	//static ConfMgr * sglt();
 	float GetFloat(string);
 	int GetInt(string _s);
+
+	// quickly add a model by it's filename without .mesh naming the node the same
 	SceneNode * FastAdd(string);
 	SceneNode * AddLevel(string);
 	SceneNode * AddLight(string);

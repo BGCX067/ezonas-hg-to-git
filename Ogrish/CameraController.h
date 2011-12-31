@@ -10,9 +10,16 @@ public:
 	bool update();//float);
     static CameraController * getSingletonPtr(void);
 	static CameraController * Instantiate();
+	void setFollowedTarget(SceneNode * node);
+
 
 protected:
-	SceneNode * cam_node, * cam_yaw, * cam_pitch;
+	SceneNode
+		* cam_node,
+		* cam_yaw,
+		* cam_pitch,
+		* target_node,
+		* absolute_node;
 	float moving_speed, rotating_speed, * frame_time;
 	Camera * cam;
 	bool stop;

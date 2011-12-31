@@ -20,6 +20,7 @@ name		  (ab.name)
 ability_s :: ability_s
 (
 	float _cast_time    ,
+	float _cooldown,
 	float _range        ,
 	float _splash_range ,
 	float _missile_speed,
@@ -36,6 +37,7 @@ ability_s :: ability_s
 ):
 
 cast_time     (_cast_time    ),
+cooldown     (_cooldown    ),
 range         (_range        ),
 splash_range  (_splash_range ),
 missile_speed (_missile_speed),

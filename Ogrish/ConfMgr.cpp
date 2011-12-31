@@ -13,7 +13,7 @@ ConfMgr :: ~ ConfMgr()
 }
 float ConfMgr :: GetFloat(string _s)
 {
-	float result = 0xdeadbeef;
+	float result = float(0xdeadbeef);
 	istringstream istrstr(configfile -> getSetting(_s, StringUtil :: BLANK, "1.0"));
 	istrstr >> result;
 	return result;
@@ -33,6 +33,7 @@ SceneNode * ConfMgr :: FastAdd(string _s)
 	float x, y, z, scale;
 	string mesh_filename, material_name;
 
+	// unwraps config string
 	iss >> mesh_filename >> scale >> material_name >> x >> y >> z;
 
 	SceneNode * node = Application :: getSingletonPtr() -> GetScMgr() -> createSceneNode(_s);
@@ -58,17 +59,6 @@ SceneNode * ConfMgr :: FastAdd(string _s)
 	if(scale != 1.0f) 
 		node -> setScale(scale, scale, scale);
 	node -> setPosition(x, y, z);
-	return node;
-}
-SceneNode * ConfMgr :: AddLevel(string _s)
-{
-#define STAT_GEOM
-
-	SceneNode * node = SGLT_RSN -> createChildSceneNode(_s);
-	Entity * ent = SGLT_SCMGR -> createEntity(_s + ".mesh");
-	//ent -> setMaterialName(_s + ".material");
-	node -> attachObject(ent);
-	//SGLT_SCMGR -> createStaticGeometry(_s + "-stat-geo");
 	return node;
 }
 SceneNode * ConfMgr :: AddLight(string _s)

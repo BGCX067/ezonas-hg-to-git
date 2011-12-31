@@ -20,7 +20,7 @@ public:
 		
 // a pass is a frame in term of gameplay.
 // the game engine can tun at 60 while the graphics can run at 50 or 120.
-// every state is checked in a pass,
+// every state is checked in a pass
 	bool pass();
 	void fire_ability(event_abil);
 
@@ -34,9 +34,12 @@ public:
 //	ability_s make_ability(string, float, float, float, float, float, int, int);
 	void go();
 private:
+	// data oriented
 	std::map <int, Ogre::Entity *> Entities; // each entity alredy has coord in ogre
-	std::map <int, character_s> Characters; // each entity alredy has coord in ogre
-	std::map <int, ability_s> Abilities; // each entity alredy has coord in ogre
+	std::map <int, character_s> Characters;
+
+
+	std::map <int, ability_s> Abilities;
 	std::map <string, int> IDs;
 
 	queue <Event> Events;

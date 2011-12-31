@@ -1,6 +1,11 @@
 #include "stdafx.h"
 template<> CameraController * Ogre :: Singleton <CameraController> :: ms_Singleton = 0;
 
+void CameraController::setFollowedTarget(SceneNode * node)
+{
+
+}
+
 CameraController :: CameraController ():
 
 
@@ -9,6 +14,7 @@ CameraController :: CameraController ():
 	cam_node		(Application :: getSingletonPtr() -> GetRSN() -> createChildSceneNode ("cam_node")),
 	cam_yaw			(cam_node -> createChildSceneNode ("cam_yaw")),
 	cam_pitch		(cam_yaw -> createChildSceneNode ("cam_pitch")),
+	//absolute_node   (cam_pitch -> createChildSceneNode ("cam_abs")),
 	cam				(Application :: getSingletonPtr() -> GetCam()),
 	lasercast		(LaserCast :: Instantiate()),
 	bullet_tracer	(BulletTracer :: Instantiate()),
@@ -18,6 +24,8 @@ CameraController :: CameraController ():
 	translate2		(Vec3(0,0,0))
 {
 	cam_pitch -> attachObject(cam);
+
+	//absolute_node->translate(30,0,0);
 	ParamList parameters;
 	unsigned int windowHandle = 0;
 	ostringstream windowHandleString;
@@ -54,9 +62,6 @@ CameraController :: ~ CameraController()
 	inputmanager -> destroyInputObject(mouse);
 	inputmanager -> destroyInputObject(keyboard);
 	InputManager :: destroyInputSystem(inputmanager);
-
-	//delete lasercast;
-	//delete bullet_tracer;
 }
 bool CameraController :: update ()//float frame_time)
 {
@@ -70,25 +75,22 @@ bool CameraController :: update ()//float frame_time)
 		* moving_speed
 		* (* frame_time));
 
-	lasercast -> update();//frame_time);
-	bullet_tracer -> update();//frame_time);
+	lasercast -> update();
+	bullet_tracer -> update();
 
-	if (translate.length() > 1.0f)
-	{	
-		//cout << "dfs";
-		exit(0xb00bbabe);
-	}
-
+	if (translate.length() > 1.0f) exit(0xb00bbabe);
 	return ! stop;
 }
 
-// mouse ////////////////////////////////////
+// ######## mouse ########
 bool CameraController :: mouseMoved(const OIS::MouseEvent &e)
 {
-	//cam_yaw -> yaw(Radian(- mouse -> getMouseState().X.rel * rotating_speed));
-	//cam_pitch -> pitch(Radian(- mouse -> getMouseState().Y.rel * rotating_speed));
+#ifdef FIRSTPERSON
 	cam_yaw -> yaw(Radian(- e.state.X.rel * rotating_speed));
 	cam_pitch -> pitch(Radian(- e.state.Y.rel * rotating_speed));
+#endif
+
+
     return true;
 }
 bool CameraController :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
@@ -101,10 +103,8 @@ bool CameraController :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButton
     return true;
 }
 bool CameraController :: mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
-{
-    return true;
-}
-// keyboard ////////////////////////////////////
+{ return true; }
+// ######## keyboard ########
 bool CameraController :: keyPressed(const OIS::KeyEvent &e)
 {
 	switch(e.key)
@@ -114,8 +114,10 @@ bool CameraController :: keyPressed(const OIS::KeyEvent &e)
 
 	case KC_UP: case KC_W:		translate2.z -=  1.f; break;
 	case KC_DOWN: case KC_S:	translate2.z +=  1.f; break;
+
 	case KC_LEFT: case KC_A:	translate2.x -=  1.f; break;
 	case KC_RIGHT: case KC_D:	translate2.x +=  1.f; break;
+
 	case KC_PGUP: case KC_Q:	translate2.y -=  1.f; break;
 	case KC_PGDOWN: case KC_E:	translate2.y +=  1.f; break;
 
@@ -136,8 +138,10 @@ bool CameraController :: keyReleased(const OIS::KeyEvent &e)
 
 	case KC_UP: case KC_W:		translate2.z +=  1.f; break;
 	case KC_DOWN: case KC_S:	translate2.z -=  1.f; break;
+
 	case KC_LEFT: case KC_A:	translate2.x +=  1.f; break;
 	case KC_RIGHT: case KC_D:	translate2.x -=  1.f; break;
+
 	case KC_PGUP: case KC_Q:	translate2.y +=  1.f; break;
 	case KC_PGDOWN: case KC_E:	translate2.y -=  1.f; break;
 

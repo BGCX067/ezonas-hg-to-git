@@ -24,12 +24,17 @@ struct Event { event_state type; union { event_abil ev_abil; event_pos ev_pos; }
 #define SPLASH_DAMAGE        (1 << 4)
 
 
+#define ABIL_DEFAULT (ALLOW_MOVEMENT | TARGET_IN_FRONT | REQUIRES_TARGET | SPLASH_DAMAGE)
+
+
+
 struct ability_s
 {
 	//ability_s(float, float, float, float, float, float, float, int, int, int, string);
 	ability_s
 	(
 		float _cast_time     = 1.f  ,
+		float _cooldown      = 1.f,
 		float _range         = 100.f,
 		float _splash_range  = 5.f  ,
 		float _missile_speed = 100.f,
@@ -46,7 +51,8 @@ struct ability_s
 	);	
 ability_s(const ability_s &);
 	float cast_time, 	// 0 means instant
-	      range,		// 0 means melee with hitboxes
+		  cooldown,	     
+		  range,		// 0 means melee with hitboxes
 		  splash_range, // 0 won't mean it doesn't splash
 	      missile_speed,// 0 mean instant
 		  dmg_tick,
@@ -69,6 +75,13 @@ struct character_s // remember most values don't go over 100
 	      life;
 	int mask;
 	string name;
+};
+
+struct cast_state
+{
+	cast_state(float _time_buffer): time_buffer(_time_buffer) {}
+	float time_buffer;
+	int ability_id;
 };
 
 //struct event_stop { float pos[6]; };

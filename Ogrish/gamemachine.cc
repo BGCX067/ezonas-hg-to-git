@@ -6,8 +6,8 @@
 
 Game_machine :: Game_machine()
 {
-	//Abilities[1] = ;
-	ability_s ab;
+	Abilities[1] = ability_s();
+	//ability_s ab;
 
 	//Abilities[1] = ability_s(string("Flame"), 1.0f, 100.f, 100.f, 1, 0 + (ALLOW_MOVEMENT | TARGET_IN_FRONT | REQUIRES_TARGET | SPLASH_DAMAGE));
 
@@ -58,7 +58,7 @@ bool Game_machine :: pass()
 }
 void Game_machine :: fire_ability(event_abil ev)
 {
-
+	//switch(Abilities[ev.spell_id].)
 }
 
 character_s Game_machine :: make_character(
@@ -91,10 +91,9 @@ character_s Game_machine :: make_character(
 bool get_bit(int mask, int n) { return bool(mask & n); }
 void set_bit(int * mask, int n)   { (*mask) |= n; }
 void unset_bit(int * mask, int n) { (*mask) &= ~ n; }
-int get_int_from_mask(int n, int top, int bottom)
-{
+
 	// shifts right bottom times
 	// ANDs it with a top-times left-shifted FFF
-	return (n >> (bottom - 1)) & (0xFFFFFFFF >> (top - bottom + 1));
-}
+int get_int_from_mask(int n, int top, int bottom)
+{ return (n >> (bottom - 1)) & (0xFFFFFFFF >> (top - bottom + 1));}
 

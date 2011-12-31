@@ -18,7 +18,7 @@ void Application :: InitGorilla()
 	//gor_layer ->
 
 	gor_rect = gor_layer -> createRectangle(0,0,300, 50);
-	gor_rect -> background_colour(ColourValue(0.3, 0.3, 0.3, 0.3));
+	gor_rect -> background_colour(ColourValue(0.3f, 0.3f, 0.3f, 0.3f));
 
 	gor_caption[0] = gor_layer -> createCaption(atlas_index, 0, 0,
 		//string("Does the lazy fox quickly jumps over the brown dog ?"));

@@ -7,8 +7,11 @@ void Application :: CreateScene()
 	AddPlane();
 	//scmgr -> showBoundingBoxes(true);
 	//ConfMgr :: getSingletonPtr() -> AddLevel("guy"); 
-	ConfMgr :: getSingletonPtr() -> AddLevel("mifflin3"); 
 	
+	//ConfMgr :: getSingletonPtr() -> AddLevel("mifflin3");
+
+	ConfMgr :: getSingletonPtr() -> FastAdd("Plane");
+
 	ConfMgr :: getSingletonPtr() -> AddLight("light3");
 	ConfMgr :: getSingletonPtr() -> AddLight("light4");
 }

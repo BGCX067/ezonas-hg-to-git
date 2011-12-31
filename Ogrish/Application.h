@@ -5,13 +5,15 @@ class Application:
 	public FrameListener,
 	public Ogre :: Singleton <Application>
 {
-/* ############ PUBLIC ############ */
-public:
+
+public: /* ############ PUBLIC ############ */
     static Application * getSingletonPtr(void);
 
 	float frame_time;
+
     //static Application * sglt();
-    SceneManager * GetScMgr();
+	// getters for ogre objects
+	SceneManager * GetScMgr();
     SceneNode * GetRSN();
 	Camera * GetCam();
 	RenderWindow * GetRW();
@@ -19,8 +21,8 @@ public:
     void go();
     bool frameRenderingQueued(const FrameEvent & evt);
 	static Application * Instantiate();
-/* ############ PRIVATE ############ */
-private:
+
+private: /* ############ PRIVATE ############ */
 	bool init_config();
     void CreateScene();
 	void InitGorilla();
@@ -32,32 +34,34 @@ private:
 	Application();
     ~ Application();
     void AddPlane();
-	
+	/* ############ PRIVATE VARIABLES ############ */
+	// ######## EVERYTHING OGRE ########
     // Ogre core objects: remember that the order they are declared MATTERS !
     Root * root;
 
-	bool last_init;
+	bool last_init; // some flag to allow constructor init syntax
 
+	// actual ogre objects
 	RenderWindow * window;
     SceneManager * scmgr;
     Camera * camera;
     Viewport * viewport;
 
-// game parameters
+	// ######## OTHER CLASSES ########
+	// game
     CameraController * cam_ctrlr;
     //Cam3rdperson * cam3rdperson;
 	
-// overlays
+	Game_machine * game_machine;
+	// overlays
 	OverlayManager * ovl_mgr;
-//Overlay * ovl_crosshair;
+	//Overlay * ovl_crosshair;
 
-// entities and nodes
+	// entities and nodes
     Entity * entplane;
     SceneNode * rootnode;
 
-// gorilla
-
-
+	// ######## gorilla objects ########
 	Gorilla :: Silverback * mGorilla;
 	Gorilla :: Screen * gor_screen;
 	Gorilla :: Rectangle * gor_rect;
@@ -65,7 +69,8 @@ private:
 	Gorilla :: Caption * gor_caption[15];
 	//Gorilla :: MarkupText * gor_mutext;
 	// terrain
-/* bullet physics */
+	
+// ######## bullet physics ########
 #ifdef PHYSICS
     // Build the broadphase
     btBroadphaseInterface* broadphase;// = new btDbvtBroadphase();
@@ -79,7 +84,7 @@ private:
 #endif
 
 
-
+// terrain manager
 #ifdef USE_TERRAIN
 	Ogre::Terrain * mTerrain;
 	Ogre::TerrainGlobalOptions * mGlobals;

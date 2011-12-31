@@ -25,7 +25,10 @@ Application :: Application():
 	viewport		(window -> addViewport(camera)),
 	rootnode		(scmgr -> getRootSceneNode()),
 
-	mGorilla		(new Gorilla :: Silverback())
+	mGorilla		(new Gorilla :: Silverback()),
+	game_machine(new Game_machine)
+
+
 #ifdef PHYSICS
 	,broadphase(new btDbvtBroadphase()),
     collisionConfiguration(new btDefaultCollisionConfiguration()),
@@ -36,7 +39,7 @@ Application :: Application():
 {
 	window -> reposition(20, 20);
 	camera -> setNearClipDistance(1);
-	viewport -> setBackgroundColour(ColourValue(0.1, 0.1, 0.1));
+	viewport -> setBackgroundColour(ColourValue(0.1f, 0.1f, 0.1f));
 	camera -> setAspectRatio
 		(Real(viewport -> getActualWidth())/ Real(viewport -> getActualHeight()));
 	root -> addFrameListener(this);
@@ -73,6 +76,7 @@ Application :: ~ Application()
 	OGRE_DELETE mGlobals;
 #endif
 	delete mGorilla;
+	delete game_machine;
 	// bullet
 #ifdef PHYSICS
 	delete dynamicsWorld;
@@ -88,6 +92,7 @@ Application :: ~ Application()
 void Application :: go ()
 {
 	root -> startRendering();
+	//while(!stop) root ->renderOneFrame();
 }
 /*Application * Application :: sglt()
 {

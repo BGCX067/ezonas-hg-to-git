@@ -29,6 +29,9 @@ typedef Ogre :: Vector3 Vec3;
 #include "OgreMotionState.h"
 #endif
 
+#include "datastruct.h"
+#include "gamemachine.h"
+
 #include "Gorilla.h"
 #include "ConfMgr.h"
 #include "BulletTracer.h"
@@ -37,5 +40,3 @@ typedef Ogre :: Vector3 Vec3;
 //#include "Cam3rdperson.h"
 #include "Application.h"
 
-#include "datastruct.h"
-#include "gamemachine.h"
