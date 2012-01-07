@@ -1,31 +1,67 @@
 #include "stdafx.h"
 template<> CameraController * Ogre :: Singleton <CameraController> :: ms_Singleton = 0;
-
-void CameraController::setFollowedTarget(SceneNode * node)
-{
-
-}
-
 CameraController :: CameraController ():
 
+#ifndef FOLDTHISFFS
+	rotating_speed	(SGLT_APP -> GetFloat ("rotating_speed")),
+	moving_speed	(SGLT_APP -> GetFloat ("moving_speed")),
 
-	rotating_speed	(ConfMgr :: getSingletonPtr() -> GetFloat ("rotating_speed")),
-	moving_speed	(ConfMgr :: getSingletonPtr() -> GetFloat ("moving_speed")),
-	cam_node		(Application :: getSingletonPtr() -> GetRSN() -> createChildSceneNode ("cam_node")),
-	cam_yaw			(cam_node -> createChildSceneNode ("cam_yaw")),
-	cam_pitch		(cam_yaw -> createChildSceneNode ("cam_pitch")),
-	//absolute_node   (cam_pitch -> createChildSceneNode ("cam_abs")),
+	n_root			(Application :: getSingletonPtr() -> GetRSN()),
+
+#define ORBIT
+#ifdef ORBIT
+	n_master	(n_root->	createChildSceneNode("master")),
+	n_target	(n_master->	createChildSceneNode("target")),	
+	n_cam		(n_target->	createChildSceneNode("cam")),
+#else
+	n_master		(n_root		-> createChildSceneNode ("master")),
+
+	n_target		(n_master	-> createChildSceneNode ("target")),
+	n_yaw			(n_target	-> createChildSceneNode ("yaw")),
+	n_pitch			(n_yaw		-> createChildSceneNode ("pitch")),
+	n_cam			(n_pitch	-> createChildSceneNode ("cam")),
+#endif
 	cam				(Application :: getSingletonPtr() -> GetCam()),
 	lasercast		(LaserCast :: Instantiate()),
 	bullet_tracer	(BulletTracer :: Instantiate()),
 	stop			(false),
 	frame_time		(Application :: getSingletonPtr() -> GetFT()),
 	translate		(Vec3(0,0,0)),
-	translate2		(Vec3(0,0,0))
+	translate2		(Vec3(0,0,0)),
+	offset			(SGLT_APP -> GetVect3("offset")),
+	camera_mode		("1st")
+#endif
 {
-	cam_pitch -> attachObject(cam);
+	/*
+1. put a node (A) at the focus point you want to orbit around 			 # Target
+2. make a child node (B) and set its position to (0,0, orbitdistance) 	 # cam
+3. reset the orientation & position of the camera 						 #
+4. attach the camera to node B 											 # cam
+5. optionally setFixedYaw on node A 									 #
+6. to orbit, yaw and pitch node A based on the x/y of the mouse 		 #
+	*/
+	// root master target yaw pitch cam	
 
-	//absolute_node->translate(30,0,0);
+	//n_master = n_root->createChildSceneNode("master");
+	//n_target = n_master->createChildSceneNode("target");	
+	//n_cam = n_target->createChildSceneNode("cam");
+	n_cam->setPosition(0,0,10);
+	n_cam->attachObject(cam);
+	n_target->setFixedYawAxis(true); // optional
+
+
+	//n_master -> addChild(n_target);   //"master"  
+	//n_cam -> translate(0,0, 10);		//"target"  
+	//n_target -> addChild(n_cam);		//"cam"     
+										//"yawpitch"
+	
+	//n_master->translate(SGLT_APP->GetVect3("cam_master"));
+	//n_cam->setFixedYawAxis(true);
+	//n_cam -> translate(offset); 
+	//cam->setAutoTracking(true, n_target, offset);
+
+#ifndef FOLDTHISFFS
+
 	ParamList parameters;
 	unsigned int windowHandle = 0;
 	ostringstream windowHandleString;
@@ -48,50 +84,60 @@ CameraController :: CameraController ():
 /* ### Inputs Objects ################################################## */
 	inputmanager = InputManager :: createInputSystem(parameters);
 	keyboard = static_cast<Keyboard *>
-		//(inputmanager -> createInputObject(OISKeyboard, false));
 		(inputmanager -> createInputObject(OISKeyboard, true));
 	mouse = static_cast<Mouse *>
-		//(inputmanager -> createInputObject	(OISMouse, false));
 		(inputmanager -> createInputObject	(OISMouse, true));
 	mouse -> setEventCallback(this);
 	keyboard -> setEventCallback(this);
+#endif
+}
 
-}
-CameraController :: ~ CameraController()
+void CameraController :: setCameraMode(string str)
 {
-	inputmanager -> destroyInputObject(mouse);
-	inputmanager -> destroyInputObject(keyboard);
-	InputManager :: destroyInputSystem(inputmanager);
+	// root master target yaw pitch cam	
+	if(str == camera_mode) return;
+	if (camera_mode == "1st") {
+		camera_mode = "3rd";
+		//n_cam -> translate(-offset);
+		return;
+	}
+	if (camera_mode == "3rd"){
+		camera_mode = "1st";
+		//n_cam -> translate(offset); 
+		return;
+	}
 }
-bool CameraController :: update ()//float frame_time)
+bool CameraController :: update ()
 {
 	keyboard -> capture();
 	mouse -> capture();
 
-	cam_node -> translate(
-		cam_yaw -> getOrientation()
-		* cam_pitch -> getOrientation()
-		* translate
-		* moving_speed
-		* (* frame_time));
-
+	//n_cam -> getOrientation()
+	n_master -> translate(
+		n_target -> getOrientation() * // warning, comment this if you want to blabla front of
+		//* n_pitch -> getOrientation()
+		//*
+		//n_target -> getOrientation() *
+		translate * moving_speed * (* frame_time));
+		
+	//cam ->setAutoTracking
+	//cam -> lookAt(n_target->getPosition());
 	lasercast -> update();
 	bullet_tracer -> update();
 
 	if (translate.length() > 1.0f) exit(0xb00bbabe);
 	return ! stop;
 }
-
-// ######## mouse ########
 bool CameraController :: mouseMoved(const OIS::MouseEvent &e)
 {
+#define FIRSTPERSON
 #ifdef FIRSTPERSON
-	cam_yaw -> yaw(Radian(- e.state.X.rel * rotating_speed));
-	cam_pitch -> pitch(Radian(- e.state.Y.rel * rotating_speed));
+	n_target ->   yaw(Radian(- e.state.X.rel * rotating_speed), Ogre::Node::TS_WORLD);
+	n_target -> pitch(Radian(- e.state.Y.rel * rotating_speed));
+	//cam ->     yaw(Radian(- e.state.X.rel * rotating_speed));
+	//cam -> pitch(Radian(- e.state.Y.rel * rotating_speed));
 #endif
-
-
-    return true;
+	return true;
 }
 bool CameraController :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
@@ -102,24 +148,24 @@ bool CameraController :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButton
 		bullet_tracer -> Fire();
     return true;
 }
-bool CameraController :: mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id)
-{ return true; }
-// ######## keyboard ########
+bool CameraController :: mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id){ return true; }
 bool CameraController :: keyPressed(const OIS::KeyEvent &e)
 {
 	switch(e.key)
 	{
-	case KC_ESCAPE:
-		stop = true; break;
+	case KC_ESCAPE: stop = true; break;
+	case KC_F1: setCameraMode("1st"); break;
+	case KC_F2: setCameraMode("3rd"); break;
 
-	case KC_UP: case KC_W:		translate2.z -=  1.f; break;
-	case KC_DOWN: case KC_S:	translate2.z +=  1.f; break;
+	// index up, thumb left
+	case KC_UP: case KC_W:							translate2.z -=  1.f; break;
+	case KC_DOWN: case KC_S:						translate2.z +=  1.f; break;
 
-	case KC_LEFT: case KC_A:	translate2.x -=  1.f; break;
-	case KC_RIGHT: case KC_D:	translate2.x +=  1.f; break;
+	case KC_LEFT: case KC_A:						translate2.x -=  1.f; break;
+	case KC_RIGHT: case KC_D:						translate2.x +=  1.f; break;
 
-	case KC_PGUP: case KC_Q:	translate2.y -=  1.f; break;
-	case KC_PGDOWN: case KC_E:	translate2.y +=  1.f; break;
+	case KC_PGUP: case KC_Q: case KC_LSHIFT:		translate2.y -=  1.f; break;
+	case KC_PGDOWN: case KC_E: case KC_SPACE:		translate2.y +=  1.f; break;
 
 	default: break;
 	}
@@ -136,14 +182,14 @@ bool CameraController :: keyReleased(const OIS::KeyEvent &e)
 		stop = true;
 		break;
 
-	case KC_UP: case KC_W:		translate2.z +=  1.f; break;
-	case KC_DOWN: case KC_S:	translate2.z -=  1.f; break;
+	case KC_UP: case KC_W:							translate2.z +=  1.f; break;
+	case KC_DOWN: case KC_S:						translate2.z -=  1.f; break;
 
-	case KC_LEFT: case KC_A:	translate2.x +=  1.f; break;
-	case KC_RIGHT: case KC_D:	translate2.x -=  1.f; break;
+	case KC_LEFT: case KC_A:						translate2.x +=  1.f; break;
+	case KC_RIGHT: case KC_D:						translate2.x -=  1.f; break;
 
-	case KC_PGUP: case KC_Q:	translate2.y +=  1.f; break;
-	case KC_PGDOWN: case KC_E:	translate2.y -=  1.f; break;
+	case KC_PGUP: case KC_Q: case KC_LSHIFT:		translate2.y +=  1.f; break;
+	case KC_PGDOWN: case KC_E: case KC_SPACE:		translate2.y -=  1.f; break;
 
 	default:
 		break;
@@ -152,3 +198,12 @@ bool CameraController :: keyReleased(const OIS::KeyEvent &e)
 	translate.normalise();
 	return true;
 }
+CameraController :: ~ CameraController()
+{
+	inputmanager -> destroyInputObject(mouse);
+	inputmanager -> destroyInputObject(keyboard);
+	InputManager :: destroyInputSystem(inputmanager);
+}
+void CameraController::setFollowedTarget(SceneNode * node) { n_target = node; }
+SceneNode * CameraController :: getTargetNode() { return n_target; }
+SceneNode * CameraController :: getMasterNode() { return n_master; }

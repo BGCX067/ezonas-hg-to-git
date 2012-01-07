@@ -39,8 +39,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Ogre172\include;C:\Ogre172\boost_1_42;C:\Ogre172\include\OGRE;C:\bullet278\src;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Ogre172\lib\debug;C:\Ogre172\boost_1_42\lib;C:\Ogre172\lib\debug\opt;C:\bullet278\lib\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\boost\boost_1_47;C:\Ogre173src\OgreMain\include;C:\bullet278\src;C:\Ogre173src\include;C:\Ogre173src\Dependencies\include\OIS;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Ogre173src\lib\Debug;C:\boost\boost_1_47\lib;C:\bullet278\lib\Debug;C:\Ogre173src\Dependencies\lib\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -79,11 +79,11 @@
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="BulletTracer.h" />
-    <ClInclude Include="ConfMgr.h" />
     <ClInclude Include="datastruct.h" />
     <ClInclude Include="gamemachine.h" />
     <ClInclude Include="Gorilla.h" />
     <ClInclude Include="LaserCast.h" />
+    <ClInclude Include="OgreConsoleForGorilla.h" />
     <ClInclude Include="OgreMotionState.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -91,7 +91,7 @@
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BulletTracer.cpp" />
-    <ClCompile Include="ConfMgr.cpp" />
+    <ClCompile Include="Config.cpp" />
     <ClCompile Include="CreateScene.cpp" />
     <ClCompile Include="CreateTerrain.cpp" />
     <ClCompile Include="datastruct.cpp" />
@@ -102,6 +102,7 @@
     <ClCompile Include="Gorilla.cpp" />
     <ClCompile Include="InitGorilla.cpp" />
     <ClCompile Include="LaserCast.cpp" />
+    <ClCompile Include="OgreConsoleForGorilla.cpp" />
     <ClCompile Include="OgreMotionState.cpp" />
     <ClCompile Include="Ogrish_main.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -21,7 +21,18 @@ public: /* ############ PUBLIC ############ */
     void go();
     bool frameRenderingQueued(const FrameEvent & evt);
 	static Application * Instantiate();
+		float GetFloat(string);
+	int GetInt(string _s);
 
+	// quickly add a model by it's filename without .mesh naming the node the same
+	void LoadAttachEntity(string);
+	void LoadEntity(string); // those 2 functions are the same, the first just attach to a same named node
+	SceneNode * AddLevel(string);
+	SceneNode * AddLight(string);
+	SceneTypeMask GetScMgrType();
+	Vec3 & GetVect3(string _s);
+
+protected:
 private: /* ############ PRIVATE ############ */
 	bool init_config();
     void CreateScene();
@@ -47,6 +58,8 @@ private: /* ############ PRIVATE ############ */
     Camera * camera;
     Viewport * viewport;
 
+	ConfigFile * configfile;
+
 	// ######## OTHER CLASSES ########
 	// game
     CameraController * cam_ctrlr;
@@ -58,6 +71,7 @@ private: /* ############ PRIVATE ############ */
 	//Overlay * ovl_crosshair;
 
 	// entities and nodes
+	std::map <string, SceneNode *> Nodes;
     Entity * entplane;
     SceneNode * rootnode;
 

@@ -47,7 +47,12 @@ protected:
 		camera,
 		result,
 		* vertices;
-
+#define OPTIM
+#ifdef OPTIM
+	std::vector<Ogre :: Vector3> verts;
+	std::vector<Ogre :: uint32> inds;
+	size_t previous_vertex_count, previous_indice_count;
+#endif
 	Ogre :: uint32
 		* indices,
 		* hwBuf32;

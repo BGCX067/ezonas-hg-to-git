@@ -25,6 +25,34 @@ int ConfMgr :: GetInt(string _s)
 	istrstr >> result;
 	return result;
 }
+Entity * ConfMgr :: FastLoad(string _s)
+{
+	istringstream iss(configfile -> getSetting(_s));
+
+	// string s = configfile -> getSetting(_s);
+	float x, y, z, scale;
+	string mesh_filename, material_name;
+
+	// unwraps config string
+	iss >> mesh_filename >> scale >> material_name >> x >> y >> z;
+
+	/* "-" loads the same named .mesh */
+	Entity * ent;
+	if(mesh_filename == "-")
+		ent = SGLT_SCMGR -> createEntity(_s, _s + ".mesh");
+	else 
+		ent = SGLT_SCMGR -> createEntity(_s, mesh_filename);
+
+	/* "-" loads the same named .material */
+	if (material_name == "-")
+		ent -> setMaterialName(_s + ".material");
+	else if (material_name == "x")
+		LogManager::getSingleton().getDefaultLog()->logMessage("No material used for "+_s);
+	else
+		ent -> setMaterialName(material_name);
+
+	return ent;
+}
 SceneNode * ConfMgr :: FastAdd(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
@@ -36,26 +64,23 @@ SceneNode * ConfMgr :: FastAdd(string _s)
 	// unwraps config string
 	iss >> mesh_filename >> scale >> material_name >> x >> y >> z;
 
-	SceneNode * node = Application :: getSingletonPtr() -> GetScMgr() -> createSceneNode(_s);
+	SceneNode * node = SGLT_SCMGR -> createSceneNode(_s);
 	/* "-" loads the same named .mesh */
 	Entity * ent;
 	if(mesh_filename == "-")
-		ent = Application :: getSingletonPtr() -> GetScMgr() -> createEntity(_s + ".mesh");
-	else
-		ent = Application :: getSingletonPtr() -> GetScMgr() -> createEntity(mesh_filename);
-	/*   */
-
-	/* "+" loads the same named .material */
-	/* "-" loads no material */
-	if (material_name != "-")
-		ent -> setMaterialName(material_name);
+		ent = SGLT_SCMGR -> createEntity(_s, _s + ".mesh");
 	else 
-		if (material_name == "+")
-			ent -> setMaterialName(_s + ".material");
+		ent = SGLT_SCMGR -> createEntity(_s, mesh_filename);
+
+	/* "-" loads the same named .material */
+	if (material_name == "-")
+		ent -> setMaterialName(_s + ".material");
+	else 
+		ent -> setMaterialName(material_name);
 	/*   */
-	//node -> attachObject(Application :: getSingletonPtr() -> GetScMgr() -> createEntity(mesh_filename));
+	//node -> attachObject(SGLT_SCMGR -> createEntity(mesh_filename));
 	node -> attachObject(ent);
-	((Application :: getSingletonPtr() -> GetScMgr()) -> getRootSceneNode()) -> addChild(node);
+	((SGLT_SCMGR) -> getRootSceneNode()) -> addChild(node);
 	if(scale != 1.0f) 
 		node -> setScale(scale, scale, scale);
 	node -> setPosition(x, y, z);
@@ -70,8 +95,8 @@ SceneNode * ConfMgr :: AddLight(string _s)
 
 	iss >> dir_x >> dir_y >> dir_z >> type >> x >> y >> z;
 
-	SceneNode * node = Application :: getSingletonPtr() -> GetScMgr() -> createSceneNode(_s);
-	Light * light = Application :: getSingletonPtr() -> GetScMgr() -> createLight(_s);
+	SceneNode * node = SGLT_SCMGR -> createSceneNode(_s);
+	Light * light = SGLT_SCMGR -> createLight(_s);
 	
 	if(type == "DIR")
 	{
@@ -88,13 +113,13 @@ SceneNode * ConfMgr :: AddLight(string _s)
 	
 	node -> attachObject(light);
 	
-	((Application :: getSingletonPtr() -> GetScMgr()) -> getRootSceneNode()) -> addChild(node);
+	((SGLT_SCMGR) -> getRootSceneNode()) -> addChild(node);
 	
 	node -> setPosition(x, y, z);
 
 	return node;
 }
-Vec3 & ConfMgr :: getvect(string _s)
+Vec3 & ConfMgr :: GetVect3(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
 	// string s = configfile -> getSetting(_s);
@@ -121,6 +146,4 @@ ST_EXTERIOR_CLOSE - Terrain Scene Manager
 ST_EXTERIOR_FAR - Nature scene manager <sub>This mode is not present anymore in Ogre 1.0. Use "Terrain", or "Paging Landscape" instead.</sub>
 ST_EXTERIOR_REAL_FAR - Paging Scene Manager
 ST_INTERIOR - BSP scene manager
-
-
 */

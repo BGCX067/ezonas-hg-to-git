@@ -3,11 +3,6 @@
     -------
     
     Copyright (c) 2010 Robin Southern
-
-    Additional contributions by:
-
-    - Murat Sari
-    - Nigel Atkinson
                                                                                   
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -29,15 +24,12 @@
     
 */
 
-//#include "Gorilla.h"
 #include "stdafx.h"
+#include "Gorilla.h"
+
 #pragma warning ( disable : 4244 )
 
-#if OGRE_VERSION < 67584 // 1.8.0
 template<> Gorilla::Silverback* Ogre::Singleton<Gorilla::Silverback>::ms_Singleton = 0;
-#else
-template<> Gorilla::Silverback* Ogre::Singleton<Gorilla::Silverback>::msSingleton = 0;
-#endif
 
 #define PUSH_VERTEX(VERTICES, VERTEX, X, Y, UV, COLOUR)   \
   VERTEX.position.x = X;                                           \
@@ -152,7 +144,6 @@ namespace Gorilla
     
     _loadGlyphs(settings, glyphData);
     _loadKerning(settings, glyphData);
-    _loadVerticalOffsets(settings, glyphData);
    }
    else if (secName == "sprites")
     _loadSprites(settings);
@@ -375,39 +366,6 @@ namespace Gorilla
   
  }
 
- void  TextureAtlas::_loadVerticalOffsets(Ogre::ConfigFile::SettingsMultiMap* settings, GlyphData* glyphData)
- {
-  
-  Ogre::String left_name, data;
-  Ogre::ConfigFile::SettingsMultiMap::iterator i;
-  Ogre::uint glyph_id;
-  int verticalOffset;
-  
-  for (i = settings->begin(); i != settings->end(); ++i)
-  {
-   
-   left_name = i->first;
-   data = i->second;
-   Ogre::StringUtil::toLowerCase(left_name);
-   
-   if (left_name.substr(0,15) != "verticaloffset_")
-    continue;
-   
-   size_t comment = data.find_first_of('#');
-   if (comment != std::string::npos)
-    data = data.substr(0, comment);
-   
-   left_name = left_name.substr(15); // chop of verticalOffset_
-   glyph_id = Ogre::StringConverter::parseUnsignedInt(left_name);
-   
-   verticalOffset = Ogre::StringConverter::parseInt(data);
-   
-   glyphData->getGlyph(glyph_id)->verticalOffset = verticalOffset;
-   
-  }
-  
- }
-
  void  TextureAtlas::_loadSprites(Ogre::ConfigFile::SettingsMultiMap* settings)
  {
   
@@ -451,24 +409,8 @@ namespace Gorilla
  {
   Ogre::MaterialPtr d2Material = Ogre::MaterialManager::getSingletonPtr()->getByName("Gorilla2D");
   if (d2Material.isNull() == false)
-  {
-    Ogre::Pass* pass = d2Material->getTechnique(0)->getPass(0);
-
-    if(pass->hasVertexProgram())
-    {
-      Ogre::GpuProgramPtr gpuPtr = pass->getVertexProgram();
-      gpuPtr->load();
-    }
-
-    if(pass->hasFragmentProgram())
-    {
-      Ogre::GpuProgramPtr gpuPtr = pass->getFragmentProgram();
-      gpuPtr->load();
-    }
-
-    return d2Material;
-  }
-
+   return d2Material;
+  
   d2Material = Ogre::MaterialManager::getSingletonPtr()->create("Gorilla2D", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
   Ogre::Pass* pass = d2Material->getTechnique(0)->getPass(0);
   pass->setCullingMode(Ogre::CULL_NONE);
@@ -485,27 +427,12 @@ namespace Gorilla
  }
  
  Ogre::MaterialPtr TextureAtlas::createOrGet3DMasterMaterial()
- {  
+ {
+  
   Ogre::MaterialPtr d3Material = Ogre::MaterialManager::getSingletonPtr()->getByName("Gorilla3D");
   if (d3Material.isNull() == false)
-  {
-    Ogre::Pass* pass = d3Material->getTechnique(0)->getPass(0);
-
-    if(pass->hasVertexProgram())
-    {
-      Ogre::GpuProgramPtr gpuPtr = pass->getVertexProgram();
-      gpuPtr->load();
-    }
-
-    if(pass->hasFragmentProgram())
-    {
-      Ogre::GpuProgramPtr gpuPtr = pass->getFragmentProgram();
-      gpuPtr->load();
-    }
-
-    return d3Material;
-  }
-
+   return d3Material;
+  
   d3Material = Ogre::MaterialManager::getSingletonPtr()->create("Gorilla3D", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
   Ogre::Pass* pass = d3Material->getTechnique(0)->getPass(0);
   pass->setCullingMode(Ogre::CULL_NONE);
@@ -744,7 +671,7 @@ namespace Gorilla
  }
  
  LayerContainer::LayerContainer(TextureAtlas* atlas)
- : mIndexRedrawAll(false), mAtlas(atlas)
+ : mAtlas(atlas), mIndexRedrawAll(false)
  {
  }
  
@@ -1011,7 +938,7 @@ namespace Gorilla
  
  
  Screen::Screen(Ogre::Viewport* viewport, TextureAtlas* atlas)
- : LayerContainer(atlas), mViewport(viewport), mIsVisible(true), mCanRender(false), mScale(1,1,1)
+ : LayerContainer(atlas), mViewport(viewport), mIsVisible(true), mScale(1,1,1), mCanRender(false)
  {
   mRenderOpPtr = &mRenderOp;
   mSceneMgr = mViewport->getCamera()->getSceneManager();
@@ -1916,8 +1843,6 @@ void  QuadList::border(Ogre::Real x, Ogre::Real y, Ogre::Real w, Ogre::Real h, O
   Glyph* glyph = glyphData->getGlyph(character);
   if (glyph == 0)
    return;
-
-  y += glyph->verticalOffset;
   
   Quad q;
   q.mPosition[TopLeft].x = x;
@@ -1961,8 +1886,6 @@ void  QuadList::border(Ogre::Real x, Ogre::Real y, Ogre::Real w, Ogre::Real h, O
   Glyph* glyph = glyphData->getGlyph(character);
   if (glyph == 0)
    return;
-
-  y += glyph->verticalOffset;
   
   Quad q;
   q.mPosition[TopLeft].x = x;
@@ -2159,7 +2082,7 @@ void  QuadList::border(Ogre::Real x, Ogre::Real y, Ogre::Real w, Ogre::Real h, O
   Vertex temp;
   mClippedLeftIndex = std::string::npos;
   mClippedRightIndex = std::string::npos;
-
+  
   cursorX = Ogre::Math::Floor( cursorX );
   cursorY = Ogre::Math::Floor( cursorY );
   
@@ -2188,7 +2111,7 @@ void  QuadList::border(Ogre::Real x, Ogre::Real y, Ogre::Real w, Ogre::Real h, O
     kerning = mGlyphData->mLetterSpacing;
    
    left = cursorX - texelOffsetX;
-   top = cursorY - texelOffsetY + glyph->verticalOffset;
+   top = cursorY - texelOffsetY;
    right = left + glyph->glyphWidth + texelOffsetX;
    bottom = top + glyph->glyphHeight + texelOffsetY;
    
@@ -2273,8 +2196,6 @@ void  QuadList::border(Ogre::Real x, Ogre::Real y, Ogre::Real w, Ogre::Real h, O
   Ogre::Real cursorX = mLeft, cursorY = mTop, kerning = 0, texelOffsetX = mLayer->_getTexelX(), texelOffsetY = mLayer->_getTexelY(), right = 0, bottom = 0, left = 0, top = 0;
   unsigned int thisChar = 0, lastChar = 0;
   Glyph* glyph = 0;
-
-  mMaxTextWidth = 0;
   
   mCharacters.remove_all();
   
@@ -2391,7 +2312,7 @@ void  QuadList::border(Ogre::Real x, Ogre::Real y, Ogre::Real w, Ogre::Real h, O
        continue;
       
       left = cursorX - texelOffsetX;
-      top = cursorY - texelOffsetY + glyph->verticalOffset;
+      top = cursorY - texelOffsetY;
       right = left + sprite->spriteWidth + texelOffsetX;
       bottom = top + sprite->spriteHeight + texelOffsetY;
       
@@ -2435,18 +2356,16 @@ void  QuadList::border(Ogre::Real x, Ogre::Real y, Ogre::Real w, Ogre::Real h, O
      kerning = glyphData->mLetterSpacing;
    }
    
-   left = cursorX;
-   top = cursorY + glyph->verticalOffset;
    right = cursorX + glyph->glyphWidth + texelOffsetX;
-   bottom = top + glyph->glyphHeight + texelOffsetY;
+   bottom = cursorY + glyph->glyphHeight + texelOffsetY;
    
    Character c;
    c.mIndex = i;
-   c.mPosition[TopLeft].x = left;
-   c.mPosition[TopLeft].y = top;
+   c.mPosition[TopLeft].x = cursorX;
+   c.mPosition[TopLeft].y = cursorY;
    c.mPosition[TopRight].x = right;
-   c.mPosition[TopRight].y = top;
-   c.mPosition[BottomLeft].x = left;
+   c.mPosition[TopRight].y = cursorY;
+   c.mPosition[BottomLeft].x = cursorX;
    c.mPosition[BottomLeft].y = bottom;
    c.mPosition[BottomRight].x = right;
    c.mPosition[BottomRight].y = bottom;
@@ -2463,13 +2382,8 @@ void  QuadList::border(Ogre::Real x, Ogre::Real y, Ogre::Real w, Ogre::Real h, O
    else
      cursorX  += glyph->glyphAdvance + kerning;
    
-   if( cursorX > mMaxTextWidth )
-       mMaxTextWidth = cursorX;
-
    lastChar = thisChar;
   }
-
-  mMaxTextWidth -= mLeft;
   
   mTextDirty = false;
  }
@@ -2492,3 +2406,4 @@ void  QuadList::border(Ogre::Real x, Ogre::Real y, Ogre::Real w, Ogre::Real h, O
  }
 
 } // namespace Gorilla
+

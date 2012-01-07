@@ -10,18 +10,32 @@ void Application :: CreateScene()
 	
 	//ConfMgr :: getSingletonPtr() -> AddLevel("mifflin3");
 
-	ConfMgr :: getSingletonPtr() -> FastAdd("Plane");
+	LoadEntity("bonome");
 
-	ConfMgr :: getSingletonPtr() -> AddLight("light3");
-	ConfMgr :: getSingletonPtr() -> AddLight("light4");
+	LoadAttachEntity("dummy1");
+	LoadAttachEntity("dummy2");
+	LoadAttachEntity("dummy3");
+
+	//cam_ctrlr -> getTargetNode()->attachObject(SGLT_SCMGR ->getEntity("bonome"));
+	cam_ctrlr -> getMasterNode()->attachObject(SGLT_SCMGR ->getEntity("bonome"));
+	//	Entity * ent = (_s);
+	//n_target -> ent);
+
+	AddLight("light3");
+	AddLight("light4");
 }
 void Application :: AddPlane()
 {
-	Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -10);
+	Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -1); // -1 is the y position
+
 	Ogre :: MeshManager :: getSingleton().createPlane
 		("plane",
 			ResourceGroupManager :: DEFAULT_RESOURCE_GROUP_NAME, plane,
-			1500, 1500, 20, 20, true, 1, 5, 5, Ogre :: Vector3 :: UNIT_Z);
+			50, 50, 10, 10, // width height xseg yseg
+			true,
+			1, 5, 5,
+			//Vec3(1,1,4));
+			Ogre :: Vector3 :: UNIT_Z);
 
 	entplane = scmgr -> createEntity("LightPlaneEntity", "plane");
 	rootnode -> createChildSceneNode() -> attachObject(entplane);

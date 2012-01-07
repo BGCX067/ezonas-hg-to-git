@@ -11,19 +11,25 @@ public:
     static CameraController * getSingletonPtr(void);
 	static CameraController * Instantiate();
 	void setFollowedTarget(SceneNode * node);
-
-
+	void setCameraMode(string str);
+	SceneNode * getTargetNode();
+	SceneNode * getMasterNode();
 protected:
 	SceneNode
-		* cam_node,
-		* cam_yaw,
-		* cam_pitch,
-		* target_node,
-		* absolute_node;
+		* n_root	,
+
+		* n_master  ,	 // those 3 in this exact order
+		* n_target	,	 // those 3 in this exact order
+		* n_cam		,	 // those 3 in this exact order
+		
+		* n_yawpitch;
+
 	float moving_speed, rotating_speed, * frame_time;
 	Camera * cam;
 	bool stop;
-
+	Vec3 offset;
+	string camera_mode;
+	
 	// gameplay objects
 	LaserCast * lasercast;
 	BulletTracer * bullet_tracer;

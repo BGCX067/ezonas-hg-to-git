@@ -4,6 +4,9 @@ template<> Application * Ogre :: Singleton <Application> :: ms_Singleton = 0;
 
 bool Application :: init_config()
 {
+	configfile = new ConfigFile;
+	configfile -> load("conf/gameconf.cfg");
+
 	if(root -> restoreConfig()) return true;
 	else
 		if(root -> showConfigDialog()) return false;
@@ -20,21 +23,22 @@ Application :: Application():
 	last_init		(init_config()),
 
 	window			(root -> initialise(true, "Zevil")),
-	scmgr			(root -> createSceneManager(ConfMgr :: getSingletonPtr() -> GetScMgrType())),
+	scmgr			(root -> createSceneManager(GetScMgrType())),
 	camera			(scmgr -> createCamera("Camera")),
 	viewport		(window -> addViewport(camera)),
 	rootnode		(scmgr -> getRootSceneNode()),
 
 	mGorilla		(new Gorilla :: Silverback()),
-	game_machine(new Game_machine)
-
+	game_machine	(new Game_machine)
+	
 
 #ifdef PHYSICS
-	,broadphase(new btDbvtBroadphase()),
-    collisionConfiguration(new btDefaultCollisionConfiguration()),
-    dispatcher(new btCollisionDispatcher(collisionConfiguration)),
-    solver(new btSequentialImpulseConstraintSolver),
-    dynamicsWorld (new btDiscreteDynamicsWorld(dispatcher,broadphase,solver,collisionConfiguration))
+	,
+	broadphase				(new btDbvtBroadphase()),
+    collisionConfiguration	(new btDefaultCollisionConfiguration()),
+    dispatcher				(new btCollisionDispatcher(collisionConfiguration)),
+    solver					(new btSequentialImpulseConstraintSolver),
+    dynamicsWorld			(new btDiscreteDynamicsWorld(dispatcher,broadphase,solver,collisionConfiguration))
 #endif
 {
 	window -> reposition(20, 20);
@@ -46,26 +50,20 @@ Application :: Application():
 	InitResources();
 
 	// PROJECT CODE ////////////////////////////////////////
-	// overlays mgr
 	ovl_mgr = OverlayManager :: getSingletonPtr();
-	
-	// some sort of crosshair
 	//ovl_mgr -> getByName("jokoon/crosshair") -> show();
 	
-	//ConfMgr :: Instantiate();
 	//switch(ConfMgr :: getSingleton().GetInt("camera_mode"))
 	cam_ctrlr = CameraController :: Instantiate();
-
-
+	
 	// CreateTerrain();
-
 	InitGorilla();
-
-	// create the scene
 	CreateScene();
-	camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
+	//camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
+
 #ifdef PHYSICS
 	dynamicsWorld->setGravity(btVector3(0,-10,0));
+	
 #endif
 }
 Application :: ~ Application()
@@ -85,6 +83,7 @@ Application :: ~ Application()
     delete collisionConfiguration;
     delete broadphase;
 #endif
+	delete configfile;
 
 	if(root) delete root;
 	else exit(0xb00b);

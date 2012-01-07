@@ -8,7 +8,6 @@ int main(int argc, char * argv[])
 int WinMain(HINSTANCE a, HINSTANCE b, LPSTR c, int d)
 #endif
 {
-	ConfMgr :: Instantiate();
 	Application :: Instantiate();
 	Application :: getSingletonPtr() -> go();
 	return 0;

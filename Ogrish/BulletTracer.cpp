@@ -4,19 +4,19 @@ template<> BulletTracer * Ogre :: Singleton <BulletTracer> :: ms_Singleton = 0;
 
 BulletTracer :: BulletTracer ():
 	
-	bullet_speed	(ConfMgr :: getSingletonPtr() -> GetFloat("bullet_speed")),
-	trace_width		(ConfMgr :: getSingletonPtr() -> GetFloat("trace_width")),
-	trace_length	(ConfMgr :: getSingletonPtr() -> GetFloat("trace_length")),
+	bullet_speed	(SGLT_APP -> GetFloat("bullet_speed")),
+	trace_width		(SGLT_APP -> GetFloat("trace_width")),
+	trace_length	(SGLT_APP -> GetFloat("trace_length")),
 	cam				(Application :: getSingletonPtr() -> GetCam()),
 	// bb_bullet_model	(Application :: sglt() -> GetScMgr() -> createBillboardChain("bullet trace")),
 	n_cannon		(Application :: getSingletonPtr() -> GetRSN() -> createChildSceneNode()),
 	nextbullet		(0),
 	was_fired		(false),
 	time_stack		(0),
-	fire_delay		(ConfMgr :: getSingletonPtr() -> GetFloat("fire_delay")),
+	fire_delay		(SGLT_APP -> GetFloat("fire_delay")),
 	frame_time		(Application :: getSingletonPtr() -> GetFT()),
-	offset_x		(ConfMgr :: getSingletonPtr() -> GetFloat("offset_x")),
-	offset_y		(ConfMgr :: getSingletonPtr() -> GetFloat("offset_y"))
+	offset_x		(SGLT_APP -> GetFloat("offset_x")),
+	offset_y		(SGLT_APP -> GetFloat("offset_y"))
 
 {
 	char str[2];

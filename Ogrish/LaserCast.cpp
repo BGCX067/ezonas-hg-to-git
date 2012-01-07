@@ -14,8 +14,12 @@ LaserCast :: LaserCast():
 	bboard		(bb_dot -> createBillboard(Ogre :: Vector3(0, 0, 0))),
 	bb_beam		(SGLT_SCMGR -> createBillboardChain("laser beam")),
 	
-	laser_width		(ConfMgr :: getSingletonPtr() -> GetFloat("laser_width")),
+	laser_width		(Application :: getSingletonPtr() -> GetFloat("laser_width")),
 	frame_time		(Application :: getSingletonPtr() -> GetFT())
+#ifdef OPTIM
+	,previous_vertex_count(0)
+	,previous_indice_count(0)
+#endif
 {
 	n_laserbeam -> attachObject (bb_beam);
 	n_laserdot -> attachObject (bb_dot);
@@ -33,6 +37,7 @@ LaserCast :: LaserCast():
 
 	bb_beam -> setUseTextureCoords(true);
 	bb_beam -> setTextureCoordDirection(BillboardChain :: TCD_V);
+
 	}
 void LaserCast :: update()
 {

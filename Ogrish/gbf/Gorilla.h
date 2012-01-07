@@ -3,11 +3,6 @@
     -------
     
     Copyright (c) 2010 Robin Southern
-
-    Additional contributions by:
-
-    - Murat Sari
-    - Nigel Atkinson
                                                                                   
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -31,12 +26,10 @@
 
 #ifndef GORILLA_H
 #define GORILLA_H
-#include "stdafx.h"
-//#include "Ogre.h"
 
-#ifndef GORILLA_USES_EXCEPTIONS
-#  define GORILLA_USES_EXCEPTIONS 0
-#endif
+#include "Ogre.h"
+
+#define GORILLA_USES_EXCEPTIONS 0
 
 #if OGRE_COMP == OGRE_COMPILER_GNUC
 #   define __FUNC__ __PRETTY_FUNCTION__
@@ -349,18 +342,18 @@ namespace Gorilla
    
   public:
    
-   Glyph() : uvTop(0), uvBottom(0), uvWidth(0), uvHeight(0), uvLeft(0), uvRight(0), glyphWidth(0), glyphHeight(0), glyphAdvance(0), verticalOffset(0) {}
+   Glyph() : uvTop(0), uvBottom(0), uvWidth(0), uvHeight(0), uvLeft(0), uvRight(0), glyphWidth(0), glyphHeight(0), glyphAdvance(0) {}
    
   ~Glyph() {}
    
    Ogre::Vector2    texCoords[4];
    Ogre::Real uvTop, uvBottom, uvWidth, uvHeight, uvLeft, uvRight,
-                       glyphWidth, glyphHeight, glyphAdvance, verticalOffset;
+                       glyphWidth, glyphHeight, glyphAdvance;
    buffer<Kerning> kerning;
    
    // Get kerning value of a character to the right of another.
    // Ab -- get the kerning value of b, pass on A.
-   inline const Ogre::Real getKerning(unsigned char left_of) const
+   inline const Ogre::Real getKerning(char left_of) const
    {
     if (kerning.size() == 0)
      return 0;
@@ -702,7 +695,6 @@ namespace Gorilla
     void  _loadTexture(Ogre::ConfigFile::SettingsMultiMap*);
     void  _loadGlyphs(Ogre::ConfigFile::SettingsMultiMap*, GlyphData*);
     void  _loadKerning(Ogre::ConfigFile::SettingsMultiMap*, GlyphData*);
-    void  _loadVerticalOffsets(Ogre::ConfigFile::SettingsMultiMap*, GlyphData*);
     void  _loadSprites(Ogre::ConfigFile::SettingsMultiMap*);
     void  _create2DMaterial();
     void  _create3DMaterial();
@@ -2818,7 +2810,6 @@ namespace Gorilla
     {
      mLeft = left;
      mDirty = true;
-     mTextDirty = true;
      mLayer->_markDirty();
     }
 
@@ -2839,7 +2830,6 @@ namespace Gorilla
     {
      mTop = top;
      mDirty = true;
-     mTextDirty = true;
      mLayer->_markDirty();
     }
     
@@ -2896,16 +2886,6 @@ namespace Gorilla
      mLayer->_markDirty();
     }
     
-    /*! function. maxTextWidth
-        desc.
-            Get the width of the text once drawn.
-    */
-    Ogre::Real maxTextWidth()
-    {
-     _calculateCharacters();
-     return mMaxTextWidth;
-    }
-
     /*! function. caption
         desc.
             Get the text indented to show.
@@ -2990,7 +2970,6 @@ namespace Gorilla
     Layer*                mLayer;
     GlyphData*            mDefaultGlyphData;
     Ogre::Real            mLeft, mTop, mWidth, mHeight;
-    Ogre::Real            mMaxTextWidth;
     Ogre::String          mText;
     Ogre::ColourValue     mBackground;
     bool                  mDirty, mTextDirty;
