@@ -13,6 +13,7 @@ CameraController :: CameraController ():
 	n_master	(n_root->	createChildSceneNode("master")),
 	n_target	(n_master->	createChildSceneNode("target")),	
 	n_cam		(n_target->	createChildSceneNode("cam")),
+	n_yawpitch_ptr(n_target),
 #else
 	n_master		(n_root		-> createChildSceneNode ("master")),
 
@@ -29,7 +30,7 @@ CameraController :: CameraController ():
 	translate		(Vec3(0,0,0)),
 	translate2		(Vec3(0,0,0)),
 	offset			(SGLT_APP -> GetVect3("offset")),
-	camera_mode		("1st")
+	camera_mode		(3)
 #endif
 {
 	/*
@@ -49,7 +50,7 @@ CameraController :: CameraController ():
 	n_cam->attachObject(cam);
 	n_target->setFixedYawAxis(true); // optional
 
-
+	/*
 	//n_master -> addChild(n_target);   //"master"  
 	//n_cam -> translate(0,0, 10);		//"target"  
 	//n_target -> addChild(n_cam);		//"cam"     
@@ -59,7 +60,7 @@ CameraController :: CameraController ():
 	//n_cam->setFixedYawAxis(true);
 	//n_cam -> translate(offset); 
 	//cam->setAutoTracking(true, n_target, offset);
-
+	*/
 #ifndef FOLDTHISFFS
 
 	ParamList parameters;
@@ -92,19 +93,42 @@ CameraController :: CameraController ():
 #endif
 }
 
-void CameraController :: setCameraMode(string str)
+void CameraController :: setCameraMode(int mode)
 {
 	// root master target yaw pitch cam	
-	if(str == camera_mode) return;
-	if (camera_mode == "1st") {
-		camera_mode = "3rd";
-		//n_cam -> translate(-offset);
-		return;
-	}
-	if (camera_mode == "3rd"){
-		camera_mode = "1st";
-		//n_cam -> translate(offset); 
-		return;
+	if(mode == camera_mode) return;
+
+	n_master -> detachAllObjects();
+	n_master -> removeAllChildren();
+	n_target -> detachAllObjects();
+	n_target -> removeAllChildren();
+	n_cam	 -> detachAllObjects();
+	n_cam	 -> removeAllChildren();
+	switch(mode)
+	{
+	case 1:
+		n_master->addChild(n_cam);
+		n_cam->setPosition(0,0,0);
+		cam->setPosition(0,0,0);
+		n_cam->attachObject(cam);
+
+		n_yawpitch_ptr = n_cam;
+		camera_mode = mode;
+		//n_target->setFixedYawAxis(false); // optional
+		break;
+
+	case 3:
+		n_root->addChild(n_master);
+		n_master->addChild(n_target);
+		n_target->addChild(n_cam);
+		n_yawpitch_ptr = n_target;
+
+		n_cam->setPosition(0,0,10);
+		n_cam->attachObject(cam);
+		n_target->setFixedYawAxis(true); // optional
+
+		camera_mode = mode;
+		break;
 	}
 }
 bool CameraController :: update ()
@@ -114,7 +138,7 @@ bool CameraController :: update ()
 
 	//n_cam -> getOrientation()
 	n_master -> translate(
-		n_target -> getOrientation() * // warning, comment this if you want to blabla front of
+		n_yawpitch_ptr -> getOrientation() * // warning, comment this if you want to blabla front of
 		//* n_pitch -> getOrientation()
 		//*
 		//n_target -> getOrientation() *
@@ -132,8 +156,14 @@ bool CameraController :: mouseMoved(const OIS::MouseEvent &e)
 {
 #define FIRSTPERSON
 #ifdef FIRSTPERSON
-	n_target ->   yaw(Radian(- e.state.X.rel * rotating_speed), Ogre::Node::TS_WORLD);
-	n_target -> pitch(Radian(- e.state.Y.rel * rotating_speed));
+
+
+	if(camera_mode == 3)
+		n_yawpitch_ptr ->   yaw(Radian(- e.state.X.rel * rotating_speed), Ogre::Node::TS_WORLD);
+	else
+		n_yawpitch_ptr ->   yaw(Radian(- e.state.X.rel * rotating_speed));
+
+	n_yawpitch_ptr -> pitch(Radian(- e.state.Y.rel * rotating_speed));
 	//cam ->     yaw(Radian(- e.state.X.rel * rotating_speed));
 	//cam -> pitch(Radian(- e.state.Y.rel * rotating_speed));
 #endif
@@ -154,8 +184,8 @@ bool CameraController :: keyPressed(const OIS::KeyEvent &e)
 	switch(e.key)
 	{
 	case KC_ESCAPE: stop = true; break;
-	case KC_F1: setCameraMode("1st"); break;
-	case KC_F2: setCameraMode("3rd"); break;
+	case KC_F1: setCameraMode(1); break;
+	case KC_F2: setCameraMode(3); break;
 
 	// index up, thumb left
 	case KC_UP: case KC_W:							translate2.z -=  1.f; break;

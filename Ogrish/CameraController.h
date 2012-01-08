@@ -11,7 +11,7 @@ public:
     static CameraController * getSingletonPtr(void);
 	static CameraController * Instantiate();
 	void setFollowedTarget(SceneNode * node);
-	void setCameraMode(string str);
+	void setCameraMode(int mode);
 	SceneNode * getTargetNode();
 	SceneNode * getMasterNode();
 protected:
@@ -22,13 +22,13 @@ protected:
 		* n_target	,	 // those 3 in this exact order
 		* n_cam		,	 // those 3 in this exact order
 		
-		* n_yawpitch;
+		* n_yawpitch_ptr; // this node will serve as a pointer to switch between 1st/rd person cam
 
 	float moving_speed, rotating_speed, * frame_time;
 	Camera * cam;
 	bool stop;
 	Vec3 offset;
-	string camera_mode;
+	int camera_mode;
 	
 	// gameplay objects
 	LaserCast * lasercast;
