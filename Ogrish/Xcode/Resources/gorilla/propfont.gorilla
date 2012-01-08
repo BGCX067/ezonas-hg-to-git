@@ -1,0 +1,105 @@
+[Texture]
+file propfont.png
+whitepixel 0 0
+
+[Font.7]
+lineheight 12
+spacelength 6
+baseline 10
+kerning 0
+monowidth 6
+range 33 126
+glyph_33 0 0 6 12 3
+glyph_34 6 0 6 12 6
+glyph_35 12 0 6 12 6
+glyph_36 18 0 6 12 6
+glyph_37 24 0 6 12 6
+glyph_38 30 0 6 12 6
+glyph_39 36 0 6 12 3
+glyph_40 42 0 6 12 6
+glyph_41 48 0 6 12 6
+glyph_42 54 0 6 12 6
+glyph_43 60 0 6 12 6
+glyph_44 66 0 6 12 6
+glyph_45 72 0 6 12 6
+glyph_46 78 0 6 12 6
+glyph_47 84 0 6 12 6
+glyph_48 90 0 6 12 6
+glyph_49 96 0 6 12 6
+glyph_50 102 0 6 12 6
+glyph_51 108 0 6 12 6
+glyph_52 114 0 6 12 6
+glyph_53 120 0 6 12 6
+glyph_54 126 0 6 12 6
+glyph_55 132 0 6 12 6
+glyph_56 138 0 6 12 6
+glyph_57 144 0 6 12 6
+glyph_58 150 0 6 12 6
+glyph_59 156 0 6 12 6
+glyph_60 162 0 6 12 6
+glyph_61 168 0 6 12 6
+glyph_62 174 0 6 12 6
+glyph_63 180 0 6 12 6
+glyph_64 186 0 6 12 6
+glyph_65 192 0 6 12 6
+glyph_66 198 0 6 12 6
+glyph_67 204 0 6 12 6
+glyph_68 210 0 6 12 6
+glyph_69 216 0 6 12 6
+glyph_70 222 0 6 12 6
+glyph_71 228 0 6 12 6
+glyph_72 234 0 6 12 6
+glyph_73 240 0 6 12 6
+glyph_74 246 0 6 12 6
+glyph_75 0 12 6 12 6
+glyph_76 6 12 6 12 6
+glyph_77 12 12 6 12 6
+glyph_78 18 12 6 12 6
+glyph_79 24 12 6 12 6
+glyph_80 30 12 6 12 6
+glyph_81 36 12 6 12 6
+glyph_82 42 12 6 12 6
+glyph_83 48 12 6 12 6
+glyph_84 54 12 6 12 6
+glyph_85 60 12 6 12 6
+glyph_86 66 12 6 12 6
+glyph_87 72 12 6 12 6
+glyph_88 78 12 6 12 6
+glyph_89 84 12 6 12 6
+glyph_90 90 12 6 12 6
+glyph_91 96 12 6 12 6
+glyph_92 102 12 6 12 6
+glyph_93 108 12 6 12 6
+glyph_94 114 12 6 12 6
+glyph_95 120 12 6 12 6
+glyph_96 126 12 6 12 6
+glyph_97 132 12 6 12 6
+glyph_98 138 12 6 12 6
+glyph_99 144 12 6 12 6
+glyph_100 150 12 6 12 6
+glyph_101 156 12 6 12 6
+glyph_102 162 12 6 12 6
+glyph_103 168 12 6 12 6
+glyph_104 174 12 6 12 6
+glyph_105 180 12 6 12 6
+glyph_106 186 12 6 12 6
+glyph_107 192 12 6 12 6
+glyph_108 198 12 6 12 6
+glyph_109 204 12 6 12 6
+glyph_110 210 12 6 12 6
+glyph_111 216 12 6 12 6
+glyph_112 222 12 6 12 6
+glyph_113 228 12 6 12 6
+glyph_114 234 12 6 12 6
+glyph_115 240 12 6 12 6
+glyph_116 246 12 6 12 6
+glyph_117 0 24 6 12 6
+glyph_118 6 24 6 12 6
+glyph_119 12 24 6 12 6
+glyph_120 18 24 6 12 6
+glyph_121 24 24 6 12 6
+glyph_122 30 24 6 12 6
+glyph_123 36 24 6 12 6
+glyph_124 42 24 6 12 6
+glyph_125 48 24 6 12 6
+glyph_126 54 24 6 12 6

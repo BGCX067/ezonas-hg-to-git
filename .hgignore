@@ -54,3 +54,7 @@ Debug/**
 Release/**
 
 *.sxw
+
+*.dat
+*.app
+

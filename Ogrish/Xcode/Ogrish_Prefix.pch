@@ -1,0 +1,9 @@
+//
+// Prefix header for all source files of the 'Ogrish' target in the 'Ogrish' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
+
+#include "stdafx.h"

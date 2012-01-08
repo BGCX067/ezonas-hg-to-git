@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		9C4991E5105B462300CD2FB6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4991E4105B462300CD2FB6 /* Carbon.framework */; };
+		9C4991E9105B462300CD2FB6 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4991E8105B462300CD2FB6 /* OpenGL.framework */; };
+		9C4991F5105B46AC00CD2FB6 /* Cg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4991F2105B46AC00CD2FB6 /* Cg.framework */; };
+		9C4991F6105B46AC00CD2FB6 /* Ogre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4991F3105B46AC00CD2FB6 /* Ogre.framework */; };
+		9C49939F105B46B700CD2FB6 /* libOIS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C49939E105B46B700CD2FB6 /* libOIS.a */; };
+		9C98EE43105B6E3F007B4280 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C98EE42105B6E3F007B4280 /* IOKit.framework */; };
+		9C98EE57105B6E94007B4280 /* Cg.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4991F2105B46AC00CD2FB6 /* Cg.framework */; };
+		9C98EE58105B6E94007B4280 /* Ogre.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 9C4991F3105B46AC00CD2FB6 /* Ogre.framework */; };
+		9CB3F7B3106D8B0000C72815 /* Plugin_CgProgramManager.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB3F7B0106D8B0000C72815 /* Plugin_CgProgramManager.dylib */; };
+		9CB3F7B4106D8B0100C72815 /* Plugin_OctreeSceneManager.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB3F7B1106D8B0000C72815 /* Plugin_OctreeSceneManager.dylib */; };
+		9CB3F7B5106D8B0100C72815 /* RenderSystem_GL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB3F7B2106D8B0000C72815 /* RenderSystem_GL.dylib */; };
+		9CB3F7B6106D8B1400C72815 /* Plugin_CgProgramManager.dylib in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = 9CB3F7B0106D8B0000C72815 /* Plugin_CgProgramManager.dylib */; };
+		9CB3F7B7106D8B1400C72815 /* Plugin_OctreeSceneManager.dylib in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = 9CB3F7B1106D8B0000C72815 /* Plugin_OctreeSceneManager.dylib */; };
+		9CB3F7B8106D8B1400C72815 /* RenderSystem_GL.dylib in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = 9CB3F7B2106D8B0000C72815 /* RenderSystem_GL.dylib */; };
+		D8064A5E14B9A29C00AA520C /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A2C14B9A29C00AA520C /* Application.cpp */; };
+		D8064A6014B9A29C00AA520C /* BulletTracer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A2F14B9A29C00AA520C /* BulletTracer.cpp */; };
+		D8064A6214B9A29C00AA520C /* CameraController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A3314B9A29C00AA520C /* CameraController.cpp */; };
+		D8064A6314B9A29C00AA520C /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A3514B9A29C00AA520C /* Config.cpp */; };
+		D8064A6514B9A29C00AA520C /* CreateScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A3814B9A29C00AA520C /* CreateScene.cpp */; };
+		D8064A6614B9A29C00AA520C /* CreateTerrain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A3914B9A29C00AA520C /* CreateTerrain.cpp */; };
+		D8064A6714B9A29C00AA520C /* datastruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A3A14B9A29C00AA520C /* datastruct.cpp */; };
+		D8064A6A14B9A29C00AA520C /* Execute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A4214B9A29C00AA520C /* Execute.cpp */; };
+		D8064A6B14B9A29C00AA520C /* FrameRenderingQueued.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A4314B9A29C00AA520C /* FrameRenderingQueued.cpp */; };
+		D8064A6D14B9A29C00AA520C /* gamemachine.cc in Sources */ = {isa = PBXBuildFile; fileRef = D8064A4514B9A29C00AA520C /* gamemachine.cc */; };
+		D8064A6E14B9A29C00AA520C /* GetSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A4714B9A29C00AA520C /* GetSingleton.cpp */; };
+		D8064A6F14B9A29C00AA520C /* Gorilla.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A4814B9A29C00AA520C /* Gorilla.cpp */; };
+		D8064A7014B9A29C00AA520C /* InitGorilla.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A4A14B9A29C00AA520C /* InitGorilla.cpp */; };
+		D8064A7114B9A29C00AA520C /* LaserCast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A4B14B9A29C00AA520C /* LaserCast.cpp */; };
+		D8064A7314B9A29C00AA520C /* OgreConsoleForGorilla.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A4E14B9A29C00AA520C /* OgreConsoleForGorilla.cpp */; };
+		D8064A7614B9A29C00AA520C /* Ogrish_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A5414B9A29C00AA520C /* Ogrish_main.cpp */; };
+		D8064A7714B9A29C00AA520C /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8064A5514B9A29C00AA520C /* stdafx.cpp */; };
+		D87653A214B9F41400B6ED85 /* conf in Resources */ = {isa = PBXBuildFile; fileRef = D876539514B9F41400B6ED85 /* conf */; };
+		D87653F314B9FE5100B6ED85 /* gorilla in Resources */ = {isa = PBXBuildFile; fileRef = D87653BC14B9FE5000B6ED85 /* gorilla */; };
+		D87653F414B9FE5100B6ED85 /* textures in Resources */ = {isa = PBXBuildFile; fileRef = D87653CB14B9FE5000B6ED85 /* textures */; };
+		D876544C14BA16EF00B6ED85 /* mesh in Resources */ = {isa = PBXBuildFile; fileRef = D876544714BA16EF00B6ED85 /* mesh */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9C98F01C105B6EB3007B4280 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9C98EE57105B6E94007B4280 /* Cg.framework in Copy Frameworks */,
+				9C98EE58105B6E94007B4280 /* Ogre.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CB3F7A1106D859000C72815 /* Copy PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9CB3F7B6106D8B1400C72815 /* Plugin_CgProgramManager.dylib in Copy PlugIns */,
+				9CB3F7B7106D8B1400C72815 /* Plugin_OctreeSceneManager.dylib in Copy PlugIns */,
+				9CB3F7B8106D8B1400C72815 /* RenderSystem_GL.dylib in Copy PlugIns */,
+			);
+			name = "Copy PlugIns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		256AC3F00F4B6AF500CF3369 /* Ogrish_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ogrish_Prefix.pch; sourceTree = "<group>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		8D1107310486CEB800E47090 /* Ogrish-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ogrish-Info.plist"; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Ogrish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ogrish.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C4991E4105B462300CD2FB6 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		9C4991E8105B462300CD2FB6 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		9C4991F2105B46AC00CD2FB6 /* Cg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cg.framework; path = /Library/Frameworks/Cg.framework; sourceTree = "<absolute>"; };
+		9C4991F3105B46AC00CD2FB6 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = /OgreSDK/lib/release/Ogre.framework; sourceTree = "<absolute>"; };
+		9C49939E105B46B700CD2FB6 /* libOIS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOIS.a; path = /OgreSDK/lib/release/libOIS.a; sourceTree = "<absolute>"; };
+		9C98EE42105B6E3F007B4280 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
+		9CB3F7B0106D8B0000C72815 /* Plugin_CgProgramManager.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = Plugin_CgProgramManager.dylib; path = /OgreSDK/lib/Plugin_CgProgramManager.dylib; sourceTree = "<absolute>"; };
+		9CB3F7B1106D8B0000C72815 /* Plugin_OctreeSceneManager.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = Plugin_OctreeSceneManager.dylib; path = /OgreSDK/lib/Plugin_OctreeSceneManager.dylib; sourceTree = "<absolute>"; };
+		9CB3F7B2106D8B0000C72815 /* RenderSystem_GL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = RenderSystem_GL.dylib; path = /OgreSDK/lib/RenderSystem_GL.dylib; sourceTree = "<absolute>"; };
+		D8064A2C14B9A29C00AA520C /* Application.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Application.cpp; path = Classes/Application.cpp; sourceTree = "<group>"; };
+		D8064A2D14B9A29C00AA520C /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Application.h; path = Classes/Application.h; sourceTree = "<group>"; };
+		D8064A2F14B9A29C00AA520C /* BulletTracer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BulletTracer.cpp; path = Classes/BulletTracer.cpp; sourceTree = "<group>"; };
+		D8064A3014B9A29C00AA520C /* BulletTracer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BulletTracer.h; path = Classes/BulletTracer.h; sourceTree = "<group>"; };
+		D8064A3314B9A29C00AA520C /* CameraController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CameraController.cpp; path = Classes/CameraController.cpp; sourceTree = "<group>"; };
+		D8064A3414B9A29C00AA520C /* CameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraController.h; path = Classes/CameraController.h; sourceTree = "<group>"; };
+		D8064A3514B9A29C00AA520C /* Config.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Config.cpp; path = Classes/Config.cpp; sourceTree = "<group>"; };
+		D8064A3814B9A29C00AA520C /* CreateScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreateScene.cpp; path = Classes/CreateScene.cpp; sourceTree = "<group>"; };
+		D8064A3914B9A29C00AA520C /* CreateTerrain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreateTerrain.cpp; path = Classes/CreateTerrain.cpp; sourceTree = "<group>"; };
+		D8064A3A14B9A29C00AA520C /* datastruct.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = datastruct.cpp; path = Classes/datastruct.cpp; sourceTree = "<group>"; };
+		D8064A3B14B9A29C00AA520C /* datastruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = datastruct.h; path = Classes/datastruct.h; sourceTree = "<group>"; };
+		D8064A4214B9A29C00AA520C /* Execute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Execute.cpp; path = Classes/Execute.cpp; sourceTree = "<group>"; };
+		D8064A4314B9A29C00AA520C /* FrameRenderingQueued.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FrameRenderingQueued.cpp; path = Classes/FrameRenderingQueued.cpp; sourceTree = "<group>"; };
+		D8064A4514B9A29C00AA520C /* gamemachine.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gamemachine.cc; path = Classes/gamemachine.cc; sourceTree = "<group>"; };
+		D8064A4614B9A29C00AA520C /* gamemachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gamemachine.h; path = Classes/gamemachine.h; sourceTree = "<group>"; };
+		D8064A4714B9A29C00AA520C /* GetSingleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GetSingleton.cpp; path = Classes/GetSingleton.cpp; sourceTree = "<group>"; };
+		D8064A4814B9A29C00AA520C /* Gorilla.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Gorilla.cpp; path = Classes/Gorilla.cpp; sourceTree = "<group>"; };
+		D8064A4914B9A29C00AA520C /* Gorilla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gorilla.h; path = Classes/Gorilla.h; sourceTree = "<group>"; };
+		D8064A4A14B9A29C00AA520C /* InitGorilla.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InitGorilla.cpp; path = Classes/InitGorilla.cpp; sourceTree = "<group>"; };
+		D8064A4B14B9A29C00AA520C /* LaserCast.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LaserCast.cpp; path = Classes/LaserCast.cpp; sourceTree = "<group>"; };
+		D8064A4C14B9A29C00AA520C /* LaserCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LaserCast.h; path = Classes/LaserCast.h; sourceTree = "<group>"; };
+		D8064A4E14B9A29C00AA520C /* OgreConsoleForGorilla.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OgreConsoleForGorilla.cpp; path = Classes/OgreConsoleForGorilla.cpp; sourceTree = "<group>"; };
+		D8064A4F14B9A29C00AA520C /* OgreConsoleForGorilla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreConsoleForGorilla.h; path = Classes/OgreConsoleForGorilla.h; sourceTree = "<group>"; };
+		D8064A5414B9A29C00AA520C /* Ogrish_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Ogrish_main.cpp; path = Classes/Ogrish_main.cpp; sourceTree = "<group>"; };
+		D8064A5514B9A29C00AA520C /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = stdafx.cpp; path = Classes/stdafx.cpp; sourceTree = "<group>"; };
+		D8064A5614B9A29C00AA520C /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stdafx.h; path = Classes/stdafx.h; sourceTree = "<group>"; };
+		D876539514B9F41400B6ED85 /* conf */ = {isa = PBXFileReference; lastKnownFileType = folder; name = conf; path = Resources/conf; sourceTree = "<group>"; };
+		D87653BC14B9FE5000B6ED85 /* gorilla */ = {isa = PBXFileReference; lastKnownFileType = folder; name = gorilla; path = Resources/gorilla; sourceTree = "<group>"; };
+		D87653CB14B9FE5000B6ED85 /* textures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = textures; path = Resources/textures; sourceTree = "<group>"; };
+		D876544714BA16EF00B6ED85 /* mesh */ = {isa = PBXFileReference; lastKnownFileType = folder; name = mesh; path = Resources/mesh; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				9C4991E5105B462300CD2FB6 /* Carbon.framework in Frameworks */,
+				9C4991E9105B462300CD2FB6 /* OpenGL.framework in Frameworks */,
+				9C4991F5105B46AC00CD2FB6 /* Cg.framework in Frameworks */,
+				9C4991F6105B46AC00CD2FB6 /* Ogre.framework in Frameworks */,
+				9C49939F105B46B700CD2FB6 /* libOIS.a in Frameworks */,
+				9C98EE43105B6E3F007B4280 /* IOKit.framework in Frameworks */,
+				9CB3F7B3106D8B0000C72815 /* Plugin_CgProgramManager.dylib in Frameworks */,
+				9CB3F7B4106D8B0100C72815 /* Plugin_OctreeSceneManager.dylib in Frameworks */,
+				9CB3F7B5106D8B0100C72815 /* RenderSystem_GL.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D8064A2C14B9A29C00AA520C /* Application.cpp */,
+				D8064A2D14B9A29C00AA520C /* Application.h */,
+				D8064A2F14B9A29C00AA520C /* BulletTracer.cpp */,
+				D8064A3014B9A29C00AA520C /* BulletTracer.h */,
+				D8064A3314B9A29C00AA520C /* CameraController.cpp */,
+				D8064A3414B9A29C00AA520C /* CameraController.h */,
+				D8064A3514B9A29C00AA520C /* Config.cpp */,
+				D8064A3814B9A29C00AA520C /* CreateScene.cpp */,
+				D8064A3914B9A29C00AA520C /* CreateTerrain.cpp */,
+				D8064A3A14B9A29C00AA520C /* datastruct.cpp */,
+				D8064A3B14B9A29C00AA520C /* datastruct.h */,
+				D8064A4214B9A29C00AA520C /* Execute.cpp */,
+				D8064A4314B9A29C00AA520C /* FrameRenderingQueued.cpp */,
+				D8064A4514B9A29C00AA520C /* gamemachine.cc */,
+				D8064A4614B9A29C00AA520C /* gamemachine.h */,
+				D8064A4714B9A29C00AA520C /* GetSingleton.cpp */,
+				D8064A4814B9A29C00AA520C /* Gorilla.cpp */,
+				D8064A4914B9A29C00AA520C /* Gorilla.h */,
+				D8064A4A14B9A29C00AA520C /* InitGorilla.cpp */,
+				D8064A4B14B9A29C00AA520C /* LaserCast.cpp */,
+				D8064A4C14B9A29C00AA520C /* LaserCast.h */,
+				D8064A4E14B9A29C00AA520C /* OgreConsoleForGorilla.cpp */,
+				D8064A4F14B9A29C00AA520C /* OgreConsoleForGorilla.h */,
+				D8064A5414B9A29C00AA520C /* Ogrish_main.cpp */,
+				D8064A5514B9A29C00AA520C /* stdafx.cpp */,
+				D8064A5614B9A29C00AA520C /* stdafx.h */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C4991F2105B46AC00CD2FB6 /* Cg.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				9C49939E105B46B700CD2FB6 /* libOIS.a */,
+				9C4991F3105B46AC00CD2FB6 /* Ogre.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CB3F7B0106D8B0000C72815 /* Plugin_CgProgramManager.dylib */,
+				9CB3F7B1106D8B0000C72815 /* Plugin_OctreeSceneManager.dylib */,
+				9CB3F7B2106D8B0000C72815 /* RenderSystem_GL.dylib */,
+				9C4991E4105B462300CD2FB6 /* Carbon.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				9C98EE42105B6E3F007B4280 /* IOKit.framework */,
+				9C4991E8105B462300CD2FB6 /* OpenGL.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Ogrish.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Ogrish */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = Ogrish;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				256AC3F00F4B6AF500CF3369 /* Ogrish_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D876544714BA16EF00B6ED85 /* mesh */,
+				D87653BC14B9FE5000B6ED85 /* gorilla */,
+				D87653CB14B9FE5000B6ED85 /* textures */,
+				D876539514B9F41400B6ED85 /* conf */,
+				8D1107310486CEB800E47090 /* Ogrish-Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* Ogrish */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Ogrish" */;
+			buildPhases = (
+				9CE2F71D10E0739F0099B92A /* Copy media folder */,
+				8D1107290486CEB800E47090 /* Resources */,
+				9CB3F7A1106D859000C72815 /* Copy PlugIns */,
+				9C98F01C105B6EB3007B4280 /* Copy Frameworks */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Ogrish;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Ogrish;
+			productReference = 8D1107320486CEB800E47090 /* Ogrish.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Ogrish" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Ogrish */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Ogrish */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				D87653A214B9F41400B6ED85 /* conf in Resources */,
+				D87653F314B9FE5100B6ED85 /* gorilla in Resources */,
+				D87653F414B9FE5100B6ED85 /* textures in Resources */,
+				D876544C14BA16EF00B6ED85 /* mesh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9CE2F71D10E0739F0099B92A /* Copy media folder */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy media folder";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"${PROJECT_DIR}\"/build/\"${CONFIGURATION}\"/\"${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\n\n/Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn  -resolve-src-symlinks \"${PROJECT_DIR}\"/Resources/media \"${PROJECT_DIR}\"/build/\"${CONFIGURATION}\"/\"${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8064A5E14B9A29C00AA520C /* Application.cpp in Sources */,
+				D8064A6014B9A29C00AA520C /* BulletTracer.cpp in Sources */,
+				D8064A6214B9A29C00AA520C /* CameraController.cpp in Sources */,
+				D8064A6314B9A29C00AA520C /* Config.cpp in Sources */,
+				D8064A6514B9A29C00AA520C /* CreateScene.cpp in Sources */,
+				D8064A6614B9A29C00AA520C /* CreateTerrain.cpp in Sources */,
+				D8064A6714B9A29C00AA520C /* datastruct.cpp in Sources */,
+				D8064A6A14B9A29C00AA520C /* Execute.cpp in Sources */,
+				D8064A6B14B9A29C00AA520C /* FrameRenderingQueued.cpp in Sources */,
+				D8064A6D14B9A29C00AA520C /* gamemachine.cc in Sources */,
+				D8064A6E14B9A29C00AA520C /* GetSingleton.cpp in Sources */,
+				D8064A6F14B9A29C00AA520C /* Gorilla.cpp in Sources */,
+				D8064A7014B9A29C00AA520C /* InitGorilla.cpp in Sources */,
+				D8064A7114B9A29C00AA520C /* LaserCast.cpp in Sources */,
+				D8064A7314B9A29C00AA520C /* OgreConsoleForGorilla.cpp in Sources */,
+				D8064A7614B9A29C00AA520C /* Ogrish_main.cpp in Sources */,
+				D8064A7714B9A29C00AA520C /* stdafx.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/OgreSDK/lib/release,
+					/OgreSDK/Dependencies,
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Ogrish_Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					/OgreSDK/lib/release/Ogre.framework/Headers,
+					/OgreSDK/lib/release/Ogre.framework/Headers/OSX,
+					/OgreSDK/boost_1_46_1,
+					/OgreSDK/Dependencies/include,
+				);
+				INFOPLIST_FILE = "Ogrish-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/OgreSDK/Dependencies/lib/Release,
+					/OgreSDK/Dependencies,
+					/OgreSDK/lib,
+				);
+				PRODUCT_NAME = Ogrish;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/OgreSDK/lib/release,
+					/OgreSDK/Dependencies,
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Ogrish_Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					/OgreSDK/lib/release/Ogre.framework/Headers,
+					/OgreSDK/lib/release/Ogre.framework/Headers/OSX,
+					/OgreSDK/boost_1_46_1,
+					/OgreSDK/Dependencies/include,
+				);
+				INFOPLIST_FILE = "Ogrish-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/OgreSDK/Dependencies/lib/Release,
+					/OgreSDK/Dependencies,
+					/OgreSDK/lib,
+				);
+				PRODUCT_NAME = Ogrish;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = 4.2;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = 4.0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Ogrish" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Ogrish" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
