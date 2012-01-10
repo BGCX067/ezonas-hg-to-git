@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	089C165DFE840E0CC02AAC07 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 554}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 45}";
+			sepNavWindowFrame = "{{38, 86}, {712, 666}}";
+		};
+	};
+	256AC3F00F4B6AF500CF3369 /* Ogrish_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 577}}";
+			sepNavSelRange = "{164, 0}";
+			sepNavVisRange = "{0, 164}";
+			sepNavWindowFrame = "{{258, 112}, {712, 666}}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = D86458DA14B97CAB00070DB1 /* Ogrish */;
+		activeTarget = 8D1107260486CEB800E47090 /* Ogrish */;
+		addToTargets = (
+			8D1107260486CEB800E47090 /* Ogrish */,
+		);
+		breakpoints = (
+			D876545014BA1F1400B6ED85 /* CreateScene.cpp:14 */,
+			D876545214BA1F3500B6ED85 /* CreateScene.cpp:16 */,
+			D876545414BA1F3600B6ED85 /* CreateScene.cpp:19 */,
+			D876545614BA1F3700B6ED85 /* CreateScene.cpp:23 */,
+			D876545814BA1F3700B6ED85 /* CreateScene.cpp:26 */,
+		);
+		codeSenseManager = D86458F114B97CB000070DB1 /* Code sense */;
+		executables = (
+			D86458DA14B97CAB00070DB1 /* Ogrish */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					352,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 347729533;
+			PBXWorkspaceStateSaveDate = 347729533;
+		};
+		perUserProjectItems = {
+			D876542C14BA15F200B6ED85 /* PBXBookmark */ = D876542C14BA15F200B6ED85 /* PBXBookmark */;
+			D876542E14BA15F200B6ED85 /* PBXTextBookmark */ = D876542E14BA15F200B6ED85 /* PBXTextBookmark */;
+			D876547514BA243600B6ED85 /* PBXBookmark */ = D876547514BA243600B6ED85 /* PBXBookmark */;
+			D876547C14BA24D700B6ED85 /* PBXTextBookmark */ = D876547C14BA24D700B6ED85 /* PBXTextBookmark */;
+			D876547E14BA24D700B6ED85 /* PBXTextBookmark */ = D876547E14BA24D700B6ED85 /* PBXTextBookmark */;
+		};
+		sourceControlManager = D86458F014B97CB000070DB1 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	8D1107260486CEB800E47090 /* Ogrish */ = {
+		activeExec = 0;
+		executables = (
+			D86458DA14B97CAB00070DB1 /* Ogrish */,
+		);
+	};
+	8D1107310486CEB800E47090 /* Ogrish-Info.plist */ = {
+		uiCtxt = {
+			sepNavWindowFrame = "{{61, 65}, {712, 666}}";
+		};
+	};
+	D8064A2C14B9A29C00AA520C /* Application.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {738, 1610}}";
+			sepNavSelRange = "{2677, 0}";
+			sepNavVisRange = "{955, 1050}";
+			sepNavWindowFrame = "{{539, 89}, {712, 666}}";
+		};
+	};
+	D8064A2D14B9A29C00AA520C /* Application.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 1638}}";
+			sepNavSelRange = "{1010, 0}";
+			sepNavVisRange = "{886, 995}";
+			sepNavWindowFrame = "{{527, 84}, {712, 666}}";
+		};
+	};
+	D8064A2F14B9A29C00AA520C /* BulletTracer.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 1484}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{1265, 954}";
+			sepNavWindowFrame = "{{84, 44}, {712, 666}}";
+		};
+	};
+	D8064A3014B9A29C00AA520C /* BulletTracer.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 577}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{0, 868}";
+			sepNavWindowFrame = "{{15, 107}, {712, 666}}";
+		};
+	};
+	D8064A3314B9A29C00AA520C /* CameraController.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 3024}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{5243, 1214}";
+			sepNavWindowFrame = "{{84, 44}, {712, 666}}";
+		};
+	};
+	D8064A3414B9A29C00AA520C /* CameraController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 840}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{0, 1009}";
+			sepNavWindowFrame = "{{15, 107}, {712, 666}}";
+		};
+	};
+	D8064A3514B9A29C00AA520C /* Config.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 1750}}";
+			sepNavSelRange = "{607, 0}";
+			sepNavVisRange = "{0, 1190}";
+			sepNavWindowFrame = "{{395, 85}, {712, 666}}";
+		};
+	};
+	D8064A3814B9A29C00AA520C /* CreateScene.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 1260}}";
+			sepNavSelRange = "{536, 0}";
+			sepNavVisRange = "{0, 1145}";
+			sepNavWindowFrame = "{{68, 111}, {712, 666}}";
+		};
+	};
+	D8064A3914B9A29C00AA520C /* CreateTerrain.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 577}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{0, 843}";
+			sepNavWindowFrame = "{{38, 86}, {712, 666}}";
+		};
+	};
+	D8064A3A14B9A29C00AA520C /* datastruct.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 784}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{366, 765}";
+			sepNavWindowFrame = "{{61, 65}, {712, 666}}";
+		};
+	};
+	D8064A3B14B9A29C00AA520C /* datastruct.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 1652}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{0, 1168}";
+			sepNavWindowFrame = "{{84, 44}, {712, 666}}";
+		};
+	};
+	D8064A4214B9A29C00AA520C /* Execute.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 3584}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{19, 1471}";
+			sepNavWindowFrame = "{{15, 107}, {712, 666}}";
+		};
+	};
+	D8064A4314B9A29C00AA520C /* FrameRenderingQueued.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 577}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{0, 526}";
+			sepNavWindowFrame = "{{38, 86}, {712, 666}}";
+		};
+	};
+	D8064A4514B9A29C00AA520C /* gamemachine.cc */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 1428}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{0, 1122}";
+			sepNavWindowFrame = "{{84, 44}, {712, 666}}";
+		};
+	};
+	D8064A4614B9A29C00AA520C /* gamemachine.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 756}}";
+			sepNavSelRange = "{227, 0}";
+			sepNavVisRange = "{0, 1196}";
+			sepNavWindowFrame = "{{15, 107}, {712, 666}}";
+		};
+	};
+	D8064A4714B9A29C00AA520C /* GetSingleton.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {812, 224}}";
+			sepNavSelRange = "{50, 0}";
+			sepNavVisRange = "{0, 938}";
+			sepNavWindowFrame = "{{38, 86}, {712, 666}}";
+		};
+	};
+	D8064A4814B9A29C00AA520C /* Gorilla.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 33838}}";
+			sepNavSelRange = "{1586, 0}";
+			sepNavVisRange = "{3065, 1599}";
+			sepNavWindowFrame = "{{61, 65}, {712, 666}}";
+		};
+	};
+	D8064A4914B9A29C00AA520C /* Gorilla.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 42336}}";
+			sepNavSelRange = "{1600, 0}";
+			sepNavVisRange = "{0, 1703}";
+			sepNavWindowFrame = "{{84, 44}, {712, 666}}";
+		};
+	};
+	D8064A4A14B9A29C00AA520C /* InitGorilla.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 574}}";
+			sepNavSelRange = "{136, 0}";
+			sepNavVisRange = "{0, 1273}";
+			sepNavWindowFrame = "{{15, 107}, {712, 666}}";
+		};
+	};
+	D8064A4B14B9A29C00AA520C /* LaserCast.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 798}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{578, 1261}";
+			sepNavWindowFrame = "{{38, 86}, {712, 666}}";
+		};
+	};
+	D8064A4C14B9A29C00AA520C /* LaserCast.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 1274}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{0, 945}";
+			sepNavWindowFrame = "{{61, 65}, {712, 666}}";
+		};
+	};
+	D8064A4E14B9A29C00AA520C /* OgreConsoleForGorilla.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 3486}}";
+			sepNavSelRange = "{375, 0}";
+			sepNavVisRange = "{0, 1102}";
+			sepNavWindowFrame = "{{15, 107}, {712, 666}}";
+		};
+	};
+	D8064A4F14B9A29C00AA520C /* OgreConsoleForGorilla.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 1414}}";
+			sepNavSelRange = "{558, 0}";
+			sepNavVisRange = "{152, 876}";
+			sepNavWindowFrame = "{{38, 86}, {712, 666}}";
+		};
+	};
+	D8064A5414B9A29C00AA520C /* Ogrish_main.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 577}}";
+			sepNavSelRange = "{48, 0}";
+			sepNavVisRange = "{0, 297}";
+			sepNavWindowFrame = "{{381, 81}, {712, 666}}";
+		};
+	};
+	D8064A5514B9A29C00AA520C /* stdafx.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 577}}";
+			sepNavSelRange = "{229, 0}";
+			sepNavVisRange = "{0, 320}";
+			sepNavWindowFrame = "{{61, 65}, {712, 666}}";
+		};
+	};
+	D8064A5614B9A29C00AA520C /* stdafx.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {653, 966}}";
+			sepNavSelRange = "{88, 0}";
+			sepNavVisRange = "{0, 1036}";
+			sepNavWindowFrame = "{{227, 112}, {712, 666}}";
+		};
+	};
+	D86458DA14B97CAB00070DB1 /* Ogrish */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = Ogrish;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	D86458F014B97CB000070DB1 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	D86458F114B97CB000070DB1 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	D876542C14BA15F200B6ED85 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = D876542D14BA15F200B6ED85 /* ray-red-2.png */;
+	};
+	D876542D14BA15F200B6ED85 /* ray-red-2.png */ = {
+		isa = PBXFileReference;
+		name = "ray-red-2.png";
+		path = "/Users/lubethan/hg/ezonas/Ogrish/Xcode/Resources/textures/laser-bullet/ray-red-2.png";
+		sourceTree = "<absolute>";
+	};
+	D876542E14BA15F200B6ED85 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D876542F14BA15F200B6ED85 /* features.txt */;
+		name = "features.txt: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 37;
+		vrLoc = 0;
+	};
+	D876542F14BA15F200B6ED85 /* features.txt */ = {
+		isa = PBXFileReference;
+		name = features.txt;
+		path = /Users/lubethan/hg/ezonas/Ogrish/Xcode/Resources/conf/features.txt;
+		sourceTree = "<absolute>";
+	};
+	D876545014BA1F1400B6ED85 /* CreateScene.cpp:14 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = D8064A3814B9A29C00AA520C /* CreateScene.cpp */;
+		functionName = "Application :: CreateScene()";
+		hitCount = 1;
+		ignoreCount = 0;
+		lineNumber = 14;
+		location = Ogrish;
+		modificationTime = 347741983.212437;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	D876545214BA1F3500B6ED85 /* CreateScene.cpp:16 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = D8064A3814B9A29C00AA520C /* CreateScene.cpp */;
+		functionName = "Application :: CreateScene()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 16;
+		location = Ogrish;
+		modificationTime = 347742005.543076;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	D876545414BA1F3600B6ED85 /* CreateScene.cpp:19 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = D8064A3814B9A29C00AA520C /* CreateScene.cpp */;
+		functionName = "Application :: CreateScene()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 19;
+		location = Ogrish;
+		modificationTime = 347742006.525037;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	D876545614BA1F3700B6ED85 /* CreateScene.cpp:23 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = D8064A3814B9A29C00AA520C /* CreateScene.cpp */;
+		functionName = "Application :: CreateScene()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 23;
+		location = Ogrish;
+		modificationTime = 347742007.061847;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	D876545814BA1F3700B6ED85 /* CreateScene.cpp:26 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = D8064A3814B9A29C00AA520C /* CreateScene.cpp */;
+		functionName = "Application :: CreateScene()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 26;
+		location = Ogrish;
+		modificationTime = 347742007.676792;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	D876547514BA243600B6ED85 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = D8064A3814B9A29C00AA520C /* CreateScene.cpp */;
+	};
+	D876547C14BA24D700B6ED85 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D876547D14BA24D700B6ED85 /* features.txt */;
+		name = "features.txt: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 37;
+		vrLoc = 0;
+	};
+	D876547D14BA24D700B6ED85 /* features.txt */ = {
+		isa = PBXFileReference;
+		name = features.txt;
+		path = /Users/lubethan/hg/ezonas/Ogrish/Xcode/Resources/conf/features.txt;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {530, 195}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 37}";
+		};
+	};
+	D876547E14BA24D700B6ED85 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8064A3814B9A29C00AA520C /* CreateScene.cpp */;
+		name = "CreateScene.cpp: 22";
+		rLen = 0;
+		rLoc = 536;
+		rType = 0;
+		vrLen = 1145;
+		vrLoc = 0;
+	};
+}
