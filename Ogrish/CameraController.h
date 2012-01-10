@@ -14,6 +14,7 @@ public:
 	void setCameraMode(int mode);
 	SceneNode * getTargetNode();
 	SceneNode * getMasterNode();
+	void setEntity(Entity * ent);
 protected:
 	SceneNode
 		* n_root	,
@@ -24,6 +25,7 @@ protected:
 		
 		* n_yawpitch_ptr; // this node will serve as a pointer to switch between 1st/rd person cam
 
+	Entity * character;
 	float moving_speed, rotating_speed, * frame_time;
 	Camera * cam;
 	bool stop;

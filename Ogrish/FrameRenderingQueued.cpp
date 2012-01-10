@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#define TO_STR StringConverter :: toString
 // ############################# frameStarted #############################
 bool Application :: frameRenderingQueued(const FrameEvent & evt)
 {

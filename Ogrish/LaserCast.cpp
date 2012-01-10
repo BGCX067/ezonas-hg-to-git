@@ -25,7 +25,7 @@ LaserCast :: LaserCast():
 	n_laserdot -> attachObject (bb_dot);
 	bb_dot -> setMaterialName("jokoon/laser_dot");
 	bb_beam -> setMaterialName("jokoon/laser_beam");
-	n_laserdot -> setScale(0.005f, 0.005f, 0.005f);
+	n_laserdot -> setScale(SGLT_APP->GetVect3("dotscale"));
 	
 	bb_beam -> setMaxChainElements(2);
 	bb_beam -> addChainElement

@@ -8,6 +8,10 @@ class Application:
 
 public: /* ############ PUBLIC ############ */
     static Application * getSingletonPtr(void);
+	static string str_vect(Vec3 v)
+	{ return TO_STR(v.x) + " " + TO_STR(v.y)+ " " + TO_STR(v.z); }
+	static string str_quat(Quaternion q)
+	{ return TO_STR(q.w) + " " + TO_STR(q.x) + " " + TO_STR(q.y)+ " " + TO_STR(q.z); }
 
 	float frame_time;
 
@@ -21,7 +25,7 @@ public: /* ############ PUBLIC ############ */
     void go();
     bool frameRenderingQueued(const FrameEvent & evt);
 	static Application * Instantiate();
-		float GetFloat(string);
+	float GetFloat(string);
 	int GetInt(string _s);
 
 	// quickly add a model by it's filename without .mesh naming the node the same

@@ -16,10 +16,8 @@ void Application :: CreateScene()
 	LoadAttachEntity("dummy2");
 	LoadAttachEntity("dummy3");
 
-	//cam_ctrlr -> getTargetNode()->attachObject(SGLT_SCMGR ->getEntity("bonome"));
-	cam_ctrlr -> getMasterNode()->attachObject(SGLT_SCMGR ->getEntity("bonome"));
-	//	Entity * ent = (_s);
-	//n_target -> ent);
+	//cam_ctrlr -> getMasterNode()->attachObject(SGLT_SCMGR ->getEntity("bonome"));
+	cam_ctrlr -> setEntity(SGLT_SCMGR ->getEntity("bonome"));
 
 	AddLight("light3");
 	AddLight("light4");

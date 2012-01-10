@@ -10,7 +10,7 @@ using namespace Ogre;
 using namespace OIS;
 
 typedef Ogre :: Vector3 Vec3;
-
+#define TO_STR StringConverter :: toString
 // Project
 #define FOR(I) for(int i = 0; i < I; ++i)
 

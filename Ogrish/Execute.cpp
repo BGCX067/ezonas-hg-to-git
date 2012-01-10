@@ -71,15 +71,23 @@ bool LaserCast :: execute()
 
 				// Allocate space for the vertices and indices
 				
-
+				
 #ifndef OPTIM
 				vertices = new Ogre :: Vector3[vertex_count];
 				indices = new Ogre :: uint32[index_count];
 #else
 				if(vertex_count > previous_vertex_count)// first time here, fill with zero
+				{
 					verts.resize(vertex_count);
+					//PRINTLOG("resized v to "+TO_STR(vertex_count));
+					previous_vertex_count = vertex_count;
+				}
 				if(index_count > previous_indice_count) // first time here, fill with zero
+				{
 					inds.resize(index_count);
+					//PRINTLOG("resized i to "+TO_STR(index_count));
+					previous_indice_count = index_count;
+				}
 #endif
 				added_shared = false;
 

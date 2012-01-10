@@ -22,16 +22,13 @@ public:
 // the game engine can tun at 60 while the graphics can run at 50 or 120.
 // every state is checked in a pass
 	bool pass();
-	void fire_ability(event_abil);
 
 	void sample_spell(); // proceed
 	void diagnose_characters();
 	void diagnose_events();
-	// character_s make_character();
 	// moving_speed_default, stealth_range, defense, attack_bonus, power, life, mask, name
-	character_s make_character(float, float, float, float, float, float, int, string);
 	// cast_time, range, missile_speed, effect_moment, mask
-//	ability_s make_ability(string, float, float, float, float, float, int, int);
+	// ability_s make_ability(string, float, float, float, float, float, int, int);
 	void go();
 private:
 	// data oriented
