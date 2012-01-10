@@ -82,6 +82,7 @@
     <ClInclude Include="datastruct.h" />
     <ClInclude Include="gamemachine.h" />
     <ClInclude Include="Gorilla.h" />
+    <ClInclude Include="items.h" />
     <ClInclude Include="LaserCast.h" />
     <ClInclude Include="OgreConsoleForGorilla.h" />
     <ClInclude Include="OgreMotionState.h" />
@@ -101,6 +102,7 @@
     <ClCompile Include="GetSingleton.cpp" />
     <ClCompile Include="Gorilla.cpp" />
     <ClCompile Include="InitGorilla.cpp" />
+    <ClCompile Include="items.cpp" />
     <ClCompile Include="LaserCast.cpp" />
     <ClCompile Include="OgreConsoleForGorilla.cpp" />
     <ClCompile Include="OgreMotionState.cpp" />

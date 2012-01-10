@@ -1,11 +1,8 @@
 #include "stdafx.h"
 enum event_state { JUMPS, LANDS, MOVES, STOPS, USE_ITEM, ABILITY };
-struct event_abil
-	{ int target_id, emitter_id, spell_id; };
-struct event_pos
-	{ float pos[6]; };
-struct event_item
-	{ int item_id; };
+struct event_abil { int target_id, emitter_id, spell_id; };
+struct event_pos  { float pos[6]; };
+struct event_item { int item_id; };
 
 struct Event
 {
@@ -77,7 +74,6 @@ struct ability_s
 
 	string name;
 };
-
 struct character_s // remember most values don't go over 100
 {
 	float moving_speed_default, // might be a int, since it's multiplier
@@ -100,7 +96,6 @@ struct character_s // remember most values don't go over 100
 			string _name			    = "dou"	
 		);
 };
-
 struct cast_state
 {
 	cast_state(float _time_buffer):
@@ -117,24 +112,5 @@ struct cast_state
  */
 // type mask
 #define PLAYER (1 << 0) // player or MOB
-// #define (1 << 1)
-// #define (1 << 2)
 
-
-// #define (1 << 5)
-// #define (1 << 6)
-// #define (1 << 7)
-// #define	(1 << 8)
-// #define	(1 << 9)
-// #define	(1 << 10)
-// #define	(1 << 11)
-// #define	(1 << 12)
-// #define	(1 << 13)
-// #define	(1 << 14)
-// #define	(1 << 15)
-// #define	(1 << 16)
-// #define	(1 << 17)
-// #define	(1 << 18)
-// #define	(1 << 19)
-// #define	(1 << 20)
 
