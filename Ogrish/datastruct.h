@@ -12,17 +12,12 @@ struct Event
 	event_state type;
 	union
 	{
-	event_abil
-		//{ int target_id, emitter_id, spell_id; }
-		ev_abil;
-	event_pos
-		//{ float pos[6]; }
-		ev_pos;
-	event_item
-		//{ int item_id; }
-		ev_item;
+		event_abil ev_abil;
+		event_pos ev_pos;
+		event_item ev_item;
 	};
 };
+
 
 // state masks
 #define MOVING    (1 << 0)
