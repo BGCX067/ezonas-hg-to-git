@@ -1,10 +1,21 @@
 #include "stdafx.h"
 enum event_state { JUMPS, LANDS, MOVES, STOPS, USE_ITEM, ABILITY };
-struct event_abil { int target_id, emitter_id, spell_id; };
+struct event_abil { int target_id, spell_id; };
 struct event_pos  { float pos[6]; };
 struct event_item { int item_id; };
 
 struct Event
+{
+	event_state type;
+	int emitter_id;
+	union
+	{
+		event_abil ev_abil;
+		event_pos ev_pos;
+		event_item ev_item;
+	};
+};
+struct Event_network
 {
 	event_state type;
 	union

@@ -30,6 +30,7 @@ bool Game_machine :: pass()
 		switch(Events.back().type)
 		{
 		case JUMPS:
+			// make the character jump
 			break;
 
 		case LANDS:
