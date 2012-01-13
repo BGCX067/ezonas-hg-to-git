@@ -113,6 +113,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="conf\conf-guns.cfg" />
     <None Include="conf\gameconf.cfg" />
     <None Include="conf\Ogre.cfg" />
     <None Include="conf\plugins_d.cfg" />

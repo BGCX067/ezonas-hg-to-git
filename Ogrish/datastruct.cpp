@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
-ability_s :: ability_s(const ability_s & ab):
+ability_s :: ability_s // copy constr
+	(const ability_s & ab):
 cast_time     (ab.cast_time    ),
 range         (ab.range        ),
 splash_range  (ab.splash_range ),
@@ -15,8 +16,6 @@ mask		  (ab.mask),
 
 name		  (ab.name)
 {}
-
-
 ability_s :: ability_s
 (
 #ifndef DEFAULT_VALUES
@@ -35,7 +34,6 @@ ability_s :: ability_s
 
 	int _mask           ,
 	string _name         
-#endif
 ):
 
 cast_time     (_cast_time    ),
@@ -52,11 +50,11 @@ effect_moment (_effect_moment),
 mask		  (_mask),
 
 name		  (_name)
+#endif
 	{}
-
-
 character_s :: character_s
 	(
+#ifndef DEFAULT_VALUES
 		float _moving_speed_default	,
 		float _stealth_range		,
 		float _defense 			   	,
@@ -74,9 +72,10 @@ power				 (_power			   ),
 life				 (_life				   ), 
 mask				 (_mask				   ), 
 name			     (_name			   	   )
+#endif
 {}
-
-character_s :: character_s (const character_s & ch):
+character_s :: character_s // copy constr
+	(const character_s & ch): 
 moving_speed_default (ch.moving_speed_default  ),
 stealth_range		 (ch.stealth_range		   ),
 defense 			 (ch.defense 			   ),

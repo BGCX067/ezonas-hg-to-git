@@ -21,6 +21,7 @@ public: /* ############ PUBLIC ############ */
     SceneNode * GetRSN();
 	Camera * GetCam();
 	RenderWindow * GetRW();
+	Ogre::ConfigFile * GetCFG();
 	float * GetFT();
     void go();
     bool frameRenderingQueued(const FrameEvent & evt);
@@ -35,6 +36,7 @@ public: /* ############ PUBLIC ############ */
 	SceneNode * AddLight(string);
 	SceneTypeMask GetScMgrType();
 	Vec3 & GetVect3(string _s);
+
 
 protected:
 private: /* ############ PRIVATE ############ */

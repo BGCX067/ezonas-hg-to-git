@@ -19,13 +19,14 @@ public:
 	Game_machine();
 		
 // a pass is a frame in term of gameplay.
-// the game engine can tun at 60 while the graphics can run at 50 or 120.
-// every state is checked in a pass
 	bool pass();
 
 	void sample_spell(); // proceed
 	void diagnose_characters();
 	void diagnose_events();
+	void removeState(int id);
+	void addState(float f, int id);
+	void checkAndApplyAbility(Event * ev);
 	// moving_speed_default, stealth_range, defense, attack_bonus, power, life, mask, name
 	// cast_time, range, missile_speed, effect_moment, mask
 	// ability_s make_ability(string, float, float, float, float, float, int, int);
@@ -33,14 +34,22 @@ public:
 private:
 	// data oriented
 	std::map <int, Ogre::Entity *> Entities; // each entity alredy has coord in ogre
-	std::map <int, character_s> Characters;
+	
+	std::map <int, character_s>	Characters;
+	std::map <string, int>		characters_id;
 
+	std::map <int, ability_s>	Abilities;
+	std::map <string, int>		abilities_id;
 
-	std::map <int, ability_s> Abilities;
-	std::map <string, int> IDs;
+	std::vector<cast_state> States; // object pool
+	std::queue<int> Availables; // which ones are available
 
 	queue <Event> Events;
 	//ability_s ab_sample;
+	std::vector<int> AbilityIDHolders;
+
+
+	ItemMgr item_mgr;
 
 };
 /*

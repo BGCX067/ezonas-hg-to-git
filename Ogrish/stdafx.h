@@ -49,10 +49,12 @@ typedef Ogre :: Vector3 Vec3;
 
 
 #include "datastruct.h"
+#include "items.h"
 #include "gamemachine.h"
 
 #include "Gorilla.h"
 #include "OgreConsoleForGorilla.h"
+
 
 //#include "ConfMgr.h"
 #include "BulletTracer.h"

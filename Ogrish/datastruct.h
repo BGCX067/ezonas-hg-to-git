@@ -1,8 +1,8 @@
 #include "stdafx.h"
-enum event_state { JUMPS, LANDS, MOVES, STOPS, USE_ITEM, ABILITY };
-struct event_abil { int target_id, spell_id; };
-struct event_pos  { float pos[6]; };
-struct event_item { int item_id; };
+enum event_state   { JUMPS, LANDS, MOVES, STOPS, USE_ITEM, ABILITY };
+struct event_abil  { int target_id, spell_id; };
+struct event_phys  { float pos[3], vel[3], orient[4]; };
+struct event_item  { int item_id; };
 
 struct Event
 {
@@ -11,21 +11,10 @@ struct Event
 	union
 	{
 		event_abil ev_abil;
-		event_pos ev_pos;
+		event_phys ev_phys;
 		event_item ev_item;
 	};
 };
-struct Event_network
-{
-	event_state type;
-	union
-	{
-		event_abil ev_abil;
-		event_pos ev_pos;
-		event_item ev_item;
-	};
-};
-
 
 // state masks
 #define MOVING    (1 << 0)
@@ -71,6 +60,10 @@ struct ability_s
 #endif
 	);	
 	ability_s(const ability_s &);
+	float cast_time, cooldown, range, splash_range, missile_speed,
+		  dmg_tick, dmg_instant, dmg_splash;
+	int ticks, effect_moment, mask;
+	/*
 	float cast_time, 	// 0 means instant
 		  cooldown,	     
 		  range,		// 0 means melee with hitboxes
@@ -82,7 +75,7 @@ struct ability_s
 	int ticks,
 		effect_moment,
 		mask; // start, end, channeled
-
+		*/
 	string name;
 };
 struct character_s // remember most values don't go over 100
@@ -109,10 +102,11 @@ struct character_s // remember most values don't go over 100
 };
 struct cast_state
 {
-	cast_state(float _time_buffer):
-		time_buffer(_time_buffer) {}
+	cast_state(float _time_buffer, int _abilityHolderID):
+		time_buffer(_time_buffer),
+		abilityHolderID(_abilityHolderID) {}
 	float time_buffer;
-	int ability_id;
+	int abilityHolderID;
 };
 
 //struct event_stop { float pos[6]; };

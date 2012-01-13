@@ -3,7 +3,6 @@
 // this state machine is about taking inputs and generating outputs,
 // handling them in game and also send events on the network.
 // networking is mainly handled by sending events to a peer.
-
 Game_machine :: Game_machine()
 {
 	Abilities[1] = ability_s();
@@ -22,39 +21,59 @@ void Game_machine :: diagnose_events()
 {}
 void Game_machine :: diagnose_characters()
 {}
+void Game_machine :: removeState(int id)
+{
+	Availables.push(id);
+}
+void Game_machine :: addState(float f, int id)
+{
+	if(!Availables.empty())
+	{
+		States[Availables.front()].ability_id = id;
+		States[Availables.front()].time_buffer = f;
+		Availables.pop();
+	}
+	else
+		States.push_back(cast_state(f, id));
+}
+
+void Game_machine :: checkAndApplyAbility(Event * ev)
+{
+	// Ability
+	//		float cast_time, cooldown, range, splash_range, missile_speed,
+	//			dmg_tick, dmg_instant, dmg_splash;
+	//		int ticks, effect_moment, mask;
+	// State_cast
+}
 
 bool Game_machine :: pass()
 {
 	if (! Events.empty())
 	{
-		switch(Events.back().type)
+		switch(Events.front().type)
 		{
-		case JUMPS:
-			// make the character jump
-			break;
-
-		case LANDS:
-			break;
-
-		case MOVES:
-			break;
-
-		case STOPS:
-			break;
-
 		case USE_ITEM:
 			break;
-
 		case ABILITY:
 			break;
+		//case JUMPS: //case LANDS:  //case MOVES:  //case STOPS:
+		//	break;	  //	break;	 //	break;		//	break;
+		
 		}
+		Events.pop();
 		return true;
 	}
-
-
-
 	return false;
 }
+
+int get_bit(int mask, int n) { return (mask & n); }
+void set_bit(int * mask, int n)   { (*mask) |= n; }
+void unset_bit(int * mask, int n) { (*mask) &= ~ n; }
+
+// shifts right bottom times
+// ANDs it with a top-times left-shifted FFF
+int get_int_from_mask(int n, int top, int bottom)
+{ return (n >> (bottom - 1)) & (0xFFFFFFFF >> (top - bottom + 1));}
 
 #ifndef _MSC_VER
 character_s Game_machine :: make_character(
@@ -83,13 +102,4 @@ character_s Game_machine :: make_character(
 }
 #endif
 
-#define GET_BIT(n) (mask & n)
-int get_bit(int mask, int n) { return (mask & n); }
-void set_bit(int * mask, int n)   { (*mask) |= n; }
-void unset_bit(int * mask, int n) { (*mask) &= ~ n; }
-
-	// shifts right bottom times
-	// ANDs it with a top-times left-shifted FFF
-int get_int_from_mask(int n, int top, int bottom)
-{ return (n >> (bottom - 1)) & (0xFFFFFFFF >> (top - bottom + 1));}
 
