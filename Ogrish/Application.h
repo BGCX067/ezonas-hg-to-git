@@ -1,4 +1,6 @@
+#ifndef __APPLE__
 #include "stdafx.h"
+#endif
 
 //typedef RaySceneQueryResult :: iterator RSQR_iter_t;
 class Application:
@@ -35,7 +37,7 @@ public: /* ############ PUBLIC ############ */
 	SceneNode * AddLevel(string);
 	SceneNode * AddLight(string);
 	SceneTypeMask GetScMgrType();
-	Vec3 & GetVect3(string _s);
+	Vec3 GetVect3(string _s);
 
 
 protected:

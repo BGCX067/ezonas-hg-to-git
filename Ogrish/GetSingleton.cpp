@@ -1,4 +1,6 @@
+#ifndef __APPLE__
 #include "stdafx.h"
+#endif
 
 Application * Application :: getSingletonPtr(void)				{ return ms_Singleton; }
 LaserCast * LaserCast :: getSingletonPtr(void)					{ return ms_Singleton; }

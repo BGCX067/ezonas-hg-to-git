@@ -1,4 +1,6 @@
+#ifndef __APPLE__
 #include "stdafx.h"
+#endif
 
 void Application :: LoadEntity(string _s)
 {
@@ -70,7 +72,7 @@ SceneNode * Application :: AddLight(string _s)
 }
 
 // simple parameters readers
-Vec3 & Application :: GetVect3(string _s)
+Vec3 Application :: GetVect3(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
 	// string s = configfile -> getSetting(_s);

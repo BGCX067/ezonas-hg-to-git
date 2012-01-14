@@ -1,7 +1,21 @@
 #pragma once
 
+#ifdef __APPLE__
+#include <macUtils.h>
+#endif
+
+#ifdef __APPLE__
+#define CROSSLOAD(s) load(macBundlePath() + "/Contents/Resources/"+s)
+#else
+#define CROSSLOAD(s) load(s)
+#endif
+
 #include "Ogre.h"
+#ifdef __APPLE__
+#include "OIS/OIS.h"
+#else
 #include "OIS.h"
+#endif
 //#include "Ogre\Terrain\OgreTerrain.h"
 
 //#define PHYSICS

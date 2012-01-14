@@ -1,4 +1,6 @@
+#ifndef __APPLE__
 #include "stdafx.h"
+#endif
 
 // this state machine is about taking inputs and generating outputs,
 // handling them in game and also send events on the network.
@@ -14,7 +16,7 @@ Game_machine :: Game_machine()
 	Characters[21] = character_s(15.f, 20.f, 1.f, 0.f, 100.f, 20.f, 0, "dou");
 	Characters[22] = character_s(20.f, 20.f, 2.f, 0.f, 100.f, 100.f, 0, "dan");
 	Characters[23] = character_s(20.f, 20.f, 1.f, 0.f, 100.f, 100.f, 0, "doue");
-
+	Characters[22].AbilityIDs.push_back(1);
 }
 
 void Game_machine :: diagnose_events()
@@ -24,12 +26,15 @@ void Game_machine :: diagnose_characters()
 void Game_machine :: removeState(int id)
 {
 	Availables.push(id);
+	States[id].abilityID = -1; // queue is a list and States is a vector
+									 // so queue is used to reuse
+									 // but we need something else when iterating the vector
 }
 void Game_machine :: addState(float f, int id)
 {
 	if(!Availables.empty())
 	{
-		States[Availables.front()].ability_id = id;
+		States[Availables.front()].abilityID = id;
 		States[Availables.front()].time_buffer = f;
 		Availables.pop();
 	}
@@ -44,10 +49,21 @@ void Game_machine :: checkAndApplyAbility(Event * ev)
 	//			dmg_tick, dmg_instant, dmg_splash;
 	//		int ticks, effect_moment, mask;
 	// State_cast
+	//		abilityHolderID, time_buffer
+	/*
+	1. check for reach, cooldown, mana, character avail.
+		distance/range, collision with obstacle
+	2. spawn a cast_cast for non instant
+	NOTE: no concept of actions/reactions, if an ability checks, the reaction is automatic
+	3.
+	*/
 }
 
-bool Game_machine :: pass()
+void Game_machine :: pass()
 {
+	// event queue
+	// problem is, with network, I will need to control the rate at which I
+	// process events. Normally I can just process one event per frame.
 	if (! Events.empty())
 	{
 		switch(Events.front().type)
@@ -61,9 +77,21 @@ bool Game_machine :: pass()
 		
 		}
 		Events.pop();
-		return true;
 	}
-	return false;
+	// process timed cast states
+
+	for(std::vector<cast_state>::iterator it = States.begin();
+		it != States.end(); ++ it)
+		{
+			if (it -> abilityID == -1) continue;
+			if(it -> time_buffer < 0.0f)
+			{
+				
+			}
+			else
+				it->time_buffer -= (*timeSinceLastFrame);
+		}
+
 }
 
 int get_bit(int mask, int n) { return (mask & n); }
@@ -75,7 +103,7 @@ void unset_bit(int * mask, int n) { (*mask) &= ~ n; }
 int get_int_from_mask(int n, int top, int bottom)
 { return (n >> (bottom - 1)) & (0xFFFFFFFF >> (top - bottom + 1));}
 
-#ifndef _MSC_VER
+#ifdef OBSOLETE
 character_s Game_machine :: make_character(
 	float moving_speed_default,
 	float stealth_range,

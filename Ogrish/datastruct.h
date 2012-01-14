@@ -1,4 +1,6 @@
+#ifndef __APPLE__
 #include "stdafx.h"
+#endif
 enum event_state   { JUMPS, LANDS, MOVES, STOPS, USE_ITEM, ABILITY };
 struct event_abil  { int target_id, spell_id; };
 struct event_phys  { float pos[3], vel[3], orient[4]; };
@@ -88,6 +90,7 @@ struct character_s // remember most values don't go over 100
 	      life;
 	int mask;
 	string name;
+	std::vector<int> AbilityIDs;
 	character_s(const character_s &);
 	character_s(
 			float _moving_speed_default = 15.f	,
@@ -102,11 +105,11 @@ struct character_s // remember most values don't go over 100
 };
 struct cast_state
 {
-	cast_state(float _time_buffer, int _abilityHolderID):
+	cast_state(float _time_buffer, int _abilityID):
 		time_buffer(_time_buffer),
-		abilityHolderID(_abilityHolderID) {}
+		abilityID(_abilityID) {}
 	float time_buffer;
-	int abilityHolderID;
+	int abilityID;
 };
 
 //struct event_stop { float pos[6]; };

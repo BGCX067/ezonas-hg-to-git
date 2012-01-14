@@ -1,4 +1,6 @@
+#ifndef __APPLE__
 #include "stdafx.h"
+#endif
 // ############################# frameStarted #############################
 bool Application :: frameRenderingQueued(const FrameEvent & evt)
 {

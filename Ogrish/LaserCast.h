@@ -1,4 +1,6 @@
+#ifndef __APPLE__
 #include "stdafx.h"
+#endif
 
 class LaserCast:
 	public Ogre :: Singleton <LaserCast>

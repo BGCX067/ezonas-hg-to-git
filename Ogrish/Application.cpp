@@ -1,11 +1,18 @@
+#ifndef __APPLE__
 #include "stdafx.h"
+#endif
 
 template<> Application * Ogre :: Singleton <Application> :: ms_Singleton = 0;
 
 bool Application :: init_config()
 {
 	configfile = new ConfigFile;
+#ifdef __APPLE__
+	configfile -> load(macBundlePath() +
+		"/Contents/Resources/"+"conf/gameconf.cfg");
+#else
 	configfile -> load("conf/gameconf.cfg");
+#endif
 
 	if(root -> restoreConfig()) return true;
 	else
@@ -16,8 +23,13 @@ bool Application :: init_config()
 
 Application :: Application():
 	FrameListener(),
-	root			(new Root("conf/plugins_d.cfg", "conf/Ogre.cfg", "conf/Ogre.log")),
-	// this tricks was made to make sure all those objects are
+#ifdef __APPLE__
+root			(new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.cfg",
+						  macBundlePath() + "/Contents/Resources/"+"conf/Ogre.cfg",
+						  macBundlePath() + "/Contents/Resources/"+"conf/Ogre.log")),
+#else
+root			(new Root("conf/plugins_d.cfg", "conf/Ogre.cfg", "conf/Ogre.log")),
+#endif	// this tricks was made to make sure all those objects are
 	// initiallized at the creation of the application
 	// (some speed up maybe...)
 	last_init		(init_config()),

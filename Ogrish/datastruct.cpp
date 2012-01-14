@@ -1,4 +1,6 @@
+#ifndef __APPLE__
 #include "stdafx.h"
+#endif
 
 ability_s :: ability_s // copy constr
 	(const ability_s & ab):

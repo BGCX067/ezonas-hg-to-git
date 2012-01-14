@@ -6,7 +6,9 @@
 #include <queue>
 using namespace std;
 
+#ifndef __APPLE__
 #include "stdafx.h"
+#endif
 
 #define pr(s) printf("%s\n", s)
 #define prx(s) printf("0x%X\n", s)
@@ -19,7 +21,7 @@ public:
 	Game_machine();
 		
 // a pass is a frame in term of gameplay.
-	bool pass();
+	void pass();
 
 	void sample_spell(); // proceed
 	void diagnose_characters();
@@ -33,6 +35,7 @@ public:
 	void go();
 private:
 	// data oriented
+	float * timeSinceLastFrame;
 	std::map <int, Ogre::Entity *> Entities; // each entity alredy has coord in ogre
 	
 	std::map <int, character_s>	Characters;
@@ -42,12 +45,9 @@ private:
 	std::map <string, int>		abilities_id;
 
 	std::vector<cast_state> States; // object pool
-	std::queue<int> Availables; // which ones are available
+	std::queue<int> Availables;		// which ones are available
 
 	queue <Event> Events;
-	//ability_s ab_sample;
-	std::vector<int> AbilityIDHolders;
-
 
 	ItemMgr item_mgr;
 

@@ -1,4 +1,6 @@
+#ifndef __APPLE__
 #include "stdafx.h"
+#endif
 
 ItemMgr :: ItemMgr()
 {
@@ -58,13 +60,13 @@ ItemMgr :: ItemMgr()
 #endif	
 	
 	Ogre::ConfigFile cf;
-	cf.load("conf/conf-guns.cfg");
+	cf.CROSSLOAD("conf/conf-guns.cfg");
 	
 	for(std::map<std::string, item_e>::iterator it = ItemIDs.begin();
 			it != ItemIDs.end(); ++ it)
 	{
-		auto truc = it->first;
-		ItemsDescr[ItemIDs[truc]] = cf.getSetting(truc);
+//		auto truc = it->first;
+		ItemsDescr[ItemIDs[it->first]] = cf.getSetting(it->first);
 		//PRINTLOG(truc + " ## " + ItemsDescr[ItemIDs[truc]]);
 	}
 }
