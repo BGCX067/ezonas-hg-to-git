@@ -37,14 +37,18 @@ private:
 	float * timeSinceLastFrame;
 	std::map <int, Ogre::Entity *> Entities; // each entity alredy has coord in ogre
 	
-	std::map <int, character_s>	Characters;
-	std::map <string, int>		characters_id;
+	std::vector <state_cast> States;
+	std::vector <character_s> Characters;
+	std::vector <ability_s> Abilities;
+	
+//	std::map <int, character_s>	Characters;
+//	std::map <string, int>		characters_id;
 
-	std::map <int, ability_s>	Abilities;
-	std::map <string, int>		abilities_id;
+//	std::map <int, ability_s>	Abilities;
+//	std::map <string, int>		abilities_id;
 
-	std::vector<cast_state> States; // object pool
-	std::queue<int> Availables;		// which ones are available
+//	std::vector<cast_state> States; // object pool
+//	std::queue<int> Availables;		// which ones are available
 
 	queue <Event> Events;
 

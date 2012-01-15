@@ -152,29 +152,15 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D8EB5B0B14C3166800E084A5 /* functions */,
+				D8EB5B0A14C3166200E084A5 /* effects */,
+				D8EB5B0914C3165A00E084A5 /* gorilla */,
+				D8EB5B0714C3165000E084A5 /* game */,
 				D874ED2A14C1BEC600A47D38 /* Application.cpp */,
 				D874ED2B14C1BEC600A47D38 /* Application.h */,
-				D874ED2C14C1BEC600A47D38 /* BulletTracer.cpp */,
-				D874ED2D14C1BEC600A47D38 /* BulletTracer.h */,
 				D874ED3014C1BEC600A47D38 /* CameraController.cpp */,
 				D874ED3114C1BEC600A47D38 /* CameraController.h */,
 				D874ED3214C1BEC600A47D38 /* Config.cpp */,
-				D874ED3514C1BEC600A47D38 /* CreateScene.cpp */,
-				D874ED3614C1BEC600A47D38 /* CreateTerrain.cpp */,
-				D874ED3714C1BEC600A47D38 /* datastruct.cpp */,
-				D874ED3814C1BEC600A47D38 /* datastruct.h */,
-				D874ED3D14C1BEC600A47D38 /* Execute.cpp */,
-				D874ED3E14C1BEC600A47D38 /* FrameRenderingQueued.cpp */,
-				D874ED4014C1BEC600A47D38 /* gamemachine.cc */,
-				D874ED4114C1BEC600A47D38 /* gamemachine.h */,
-				D874ED4214C1BEC600A47D38 /* GetSingleton.cpp */,
-				D874ED4314C1BEC600A47D38 /* Gorilla.cpp */,
-				D874ED4414C1BEC600A47D38 /* Gorilla.h */,
-				D874ED4514C1BEC600A47D38 /* InitGorilla.cpp */,
-				D874ED4614C1BEC600A47D38 /* items.cpp */,
-				D874ED4714C1BEC600A47D38 /* items.h */,
-				D874ED4814C1BEC600A47D38 /* LaserCast.cpp */,
-				D874ED4914C1BEC600A47D38 /* LaserCast.h */,
 				D874ED4A14C1BEC600A47D38 /* OgreConsoleForGorilla.cpp */,
 				D874ED4B14C1BEC600A47D38 /* OgreConsoleForGorilla.h */,
 				D874ED4C14C1BEC600A47D38 /* OgreMotionState.cpp */,
@@ -259,6 +245,52 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8EB5B0714C3165000E084A5 /* game */ = {
+			isa = PBXGroup;
+			children = (
+				D874ED3714C1BEC600A47D38 /* datastruct.cpp */,
+				D874ED4614C1BEC600A47D38 /* items.cpp */,
+				D874ED4714C1BEC600A47D38 /* items.h */,
+				D874ED3814C1BEC600A47D38 /* datastruct.h */,
+				D874ED4014C1BEC600A47D38 /* gamemachine.cc */,
+				D874ED4114C1BEC600A47D38 /* gamemachine.h */,
+			);
+			name = game;
+			sourceTree = "<group>";
+		};
+		D8EB5B0914C3165A00E084A5 /* gorilla */ = {
+			isa = PBXGroup;
+			children = (
+				D874ED4314C1BEC600A47D38 /* Gorilla.cpp */,
+				D874ED4414C1BEC600A47D38 /* Gorilla.h */,
+				D874ED4514C1BEC600A47D38 /* InitGorilla.cpp */,
+			);
+			name = gorilla;
+			sourceTree = "<group>";
+		};
+		D8EB5B0A14C3166200E084A5 /* effects */ = {
+			isa = PBXGroup;
+			children = (
+				D874ED3D14C1BEC600A47D38 /* Execute.cpp */,
+				D874ED2C14C1BEC600A47D38 /* BulletTracer.cpp */,
+				D874ED2D14C1BEC600A47D38 /* BulletTracer.h */,
+				D874ED4814C1BEC600A47D38 /* LaserCast.cpp */,
+				D874ED4914C1BEC600A47D38 /* LaserCast.h */,
+			);
+			name = effects;
+			sourceTree = "<group>";
+		};
+		D8EB5B0B14C3166800E084A5 /* functions */ = {
+			isa = PBXGroup;
+			children = (
+				D874ED3514C1BEC600A47D38 /* CreateScene.cpp */,
+				D874ED3614C1BEC600A47D38 /* CreateTerrain.cpp */,
+				D874ED3E14C1BEC600A47D38 /* FrameRenderingQueued.cpp */,
+				D874ED4214C1BEC600A47D38 /* GetSingleton.cpp */,
+			);
+			name = functions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

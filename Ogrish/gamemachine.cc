@@ -6,22 +6,23 @@
 // networking is mainly handled by sending events to a peer.
 Game_machine :: Game_machine()
 {
-	Abilities[1] = ability_s();
+//	Abilities[1] = ability_s();
 
 	// moving_speed_default, stealth_range, defense, attack_bonus, power, life, mask, name
 	// cast_time, range, missile_speed, effect_moment, mask
 
-	Characters[3] = character_s();
-	Characters[21] = character_s(15.f, 20.f, 1.f, 0.f, 100.f, 20.f, 0, "dou");
-	Characters[22] = character_s(20.f, 20.f, 2.f, 0.f, 100.f, 100.f, 0, "dan");
-	Characters[23] = character_s(20.f, 20.f, 1.f, 0.f, 100.f, 100.f, 0, "doue");
-	Characters[22].AbilityIDs.push_back(1);
+//	Characters[3] = character_s();
+//	Characters[21] = character_s(15.f, 20.f, 1.f, 0.f, 100.f, 20.f, 0, "dou");
+//	Characters[22] = character_s(20.f, 20.f, 2.f, 0.f, 100.f, 100.f, 0, "dan");
+//	Characters[23] = character_s(20.f, 20.f, 1.f, 0.f, 100.f, 100.f, 0, "doue");
+//	Characters[22].AbilityIDs.push_back(1);
 }
 
 void Game_machine :: diagnose_events()
 {}
 void Game_machine :: diagnose_characters()
 {}
+/*
 void Game_machine :: removeState(int id)
 {
 	Availables.push(id);		// queue is a list and States is a vector so queue is used
@@ -38,6 +39,7 @@ void Game_machine :: addState(float f, int id)
 	else
 		States.push_back(cast_state(f, id));
 }
+*/
 void Game_machine :: checkAndApplyAbility(Event * ev)
 {
 	// Ability
@@ -85,9 +87,7 @@ void Game_machine :: pass()
 		{
 			if (it -> abilityID == -1) continue;
 			if(it -> time_buffer < 0.0f)
-			{
-				Events.push(Event(
-			}
+				Events.push(Event());
 			else
 				it->time_buffer -= (*timeSinceLastFrame);
 		}

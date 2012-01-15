@@ -16,10 +16,30 @@ struct Event
 		//event_phys ev_phys;
 		event_item ev_item;
 	};
+	// ############# ABILITY #############
 	Event(int _emitter_id, int _target_id, int _spell_id): // ability event constructor
-		type(ABILITY)//,
-		//event_abil({_emitter_id, _target_id, _spell_id})
-	{}
+	type(ABILITY)//,
+	{
+		emitter_id = _emitter_id;
+		ev_abil.target_id = _target_id;
+		ev_abil.spell_id = _spell_id;
+	}
+	// ############# ITEM #############
+	Event(int _item_id): // ability event constructor
+	type(USE_ITEM)//,
+	{
+		emitter_id = _emitter_id;
+		ev_abil.target_id = _target_id;
+		ev_abil.spell_id = _spell_id;
+	}
+	// ############# CAST_END #############
+	Event(int _emitter_id, int _target_id, int _spell_id): // ability event constructor
+	type(ABILITY)//,
+	{
+		emitter_id = _emitter_id;
+		ev_abil.target_id = _target_id;
+		ev_abil.spell_id = _spell_id;
+	}
 };
 
 // state masks
@@ -87,31 +107,63 @@ struct ability_s
 struct character_s // remember most values don't go over 100
 {
 	float moving_speed_default, // might be a int, since it's multiplier
-	      stealth_range, 		// the smaller the stealthier
-	      defense, 				// percentage of damage reduction, negative
-	      attack_bonus, 		// % of bonus attacks, apply in the final pass
-	      power, 				// might, mana, energy, etc
-	      life;
+	stealth_range, 		// the smaller the stealthier
+	defense, 				// percentage of damage reduction, negative
+	attack_bonus, 		// % of bonus attacks, apply in the final pass
+	power, 				// might, mana, energy, etc
+	life;
 	int mask;
 	string name;
 	std::vector<int> AbilityIDs;
 	character_s(const character_s &);
 	character_s(
-			float _moving_speed_default = 15.f	,
-			float _stealth_range	    = 20.f	,
-			float _defense 			    = 1.f	,
-			float _attack_bonus 	    = 0.f	,
-			float _power			    = 100.f	,
-			float _life				    = 20.f	,
-			int _mask				    = 0		,
-			string _name			    = "dou"	
-		);
+				float _moving_speed_default = 15.f	,
+				float _stealth_range	    = 20.f	,
+				float _defense 			    = 1.f	,
+				float _attack_bonus 	    = 0.f	,
+				float _power			    = 100.f	,
+				float _life				    = 20.f	,
+				int _mask				    = 0		,
+				string _name			    = "dou"	
+				);
 };
-struct cast_state
+struct character_states // remember most values don't go over 100
 {
-	cast_state(float _time_buffer, int _abilityID):
+	std::vector<float>
+		moving_speed_default,
+		stealth_range, 		
+		defense, 				
+		attack_bonus, 		
+		power, 				
+		life,
+	
+		time_buffer,
+		casting_ability_id
+		vector<bool;
+	
+	;
+	std::vector<int> mask;
+	std::vector<string> name;
+	std::vector<std::vector<int> > AbilityIDs;
+/*	character_s(const character_s &);
+	character_s(
+				float _moving_speed_default = 15.f	,
+				float _stealth_range	    = 20.f	,
+				float _defense 			    = 1.f	,
+				float _attack_bonus 	    = 0.f	,
+				float _power			    = 100.f	,
+				float _life				    = 20.f	,
+				int _mask				    = 0		,
+				string _name			    = "dou"	
+				);
+ */
+};
+struct state_cast
+{
+	state_cast(float _time_buffer, int _abilityID):
 		time_buffer(_time_buffer),
-		abilityID(_abilityID) {}
+		abilityID(_abilityID)
+			{}
 	float time_buffer;
 	int abilityID;
 };
