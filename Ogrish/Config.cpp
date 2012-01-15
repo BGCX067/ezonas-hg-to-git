@@ -1,7 +1,6 @@
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
-
+//#endif
 void Application :: LoadEntity(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));

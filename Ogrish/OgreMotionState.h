@@ -1,6 +1,6 @@
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
+//#endif
 #ifdef PHYSICS
 
 class OgreMotionState : public btMotionState

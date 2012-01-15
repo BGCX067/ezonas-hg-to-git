@@ -1,7 +1,6 @@
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
-
+//#endif
 // this state machine is about taking inputs and generating outputs,
 // handling them in game and also send events on the network.
 // networking is mainly handled by sending events to a peer.
@@ -25,10 +24,8 @@ void Game_machine :: diagnose_characters()
 {}
 void Game_machine :: removeState(int id)
 {
-	Availables.push(id);
-	States[id].abilityID = -1; // queue is a list and States is a vector
-									 // so queue is used to reuse
-									 // but we need something else when iterating the vector
+	Availables.push(id);		// queue is a list and States is a vector so queue is used
+	States[id].abilityID = -1; 	// to reuse but we need something else when iterating the vector
 }
 void Game_machine :: addState(float f, int id)
 {
@@ -41,7 +38,6 @@ void Game_machine :: addState(float f, int id)
 	else
 		States.push_back(cast_state(f, id));
 }
-
 void Game_machine :: checkAndApplyAbility(Event * ev)
 {
 	// Ability
@@ -50,31 +46,35 @@ void Game_machine :: checkAndApplyAbility(Event * ev)
 	//		int ticks, effect_moment, mask;
 	// State_cast
 	//		abilityHolderID, time_buffer
-	/*
-	1. check for reach, cooldown, mana, character avail.
-		distance/range, collision with obstacle
-	2. spawn a cast_cast for non instant
-	NOTE: no concept of actions/reactions, if an ability checks, the reaction is automatic
-	3.
-	*/
 }
-
 void Game_machine :: pass()
 {
 	// event queue
 	// problem is, with network, I will need to control the rate at which I
 	// process events. Normally I can just process one event per frame.
+
+	// ######################################################
+	// ############# EVENT AND STATE PROCESSING #############
+	// ######################################################
+
 	if (! Events.empty())
 	{
 		switch(Events.front().type)
 		{
+		case CAST_END:
+			break;
 		case USE_ITEM:
 			break;
 		case ABILITY:
+	/*
+	1. check for reach, cooldown, mana, character avail.
+		distance/range, collision with obstacle
+	2. spawn a state_cast if non instant
+	NOTE: no concept of actions/reactions, if an ability checks, the reaction is automatic
+	3. 
+	*/
 			break;
-		//case JUMPS: //case LANDS:  //case MOVES:  //case STOPS:
-		//	break;	  //	break;	 //	break;		//	break;
-		
+		case JUMPS: case LANDS: case MOVES: case STOPS: break;
 		}
 		Events.pop();
 	}
@@ -86,7 +86,7 @@ void Game_machine :: pass()
 			if (it -> abilityID == -1) continue;
 			if(it -> time_buffer < 0.0f)
 			{
-				
+				Events.push(Event(
 			}
 			else
 				it->time_buffer -= (*timeSinceLastFrame);

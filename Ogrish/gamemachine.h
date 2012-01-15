@@ -6,10 +6,9 @@
 #include <queue>
 using namespace std;
 
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
-
+//#endif
 #define pr(s) printf("%s\n", s)
 #define prx(s) printf("0x%X\n", s)
 

@@ -1,7 +1,6 @@
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
-
+//#endif
 template<> Application * Ogre :: Singleton <Application> :: ms_Singleton = 0;
 
 bool Application :: init_config()

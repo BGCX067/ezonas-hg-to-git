@@ -1,7 +1,6 @@
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
-
+//#endif
 #define WEAPON        (1 << 24)
 #define MELEE         (1 << 25)
 #define GUN           (1 << 26)

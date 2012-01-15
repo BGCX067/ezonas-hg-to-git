@@ -1,7 +1,6 @@
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
-
+//#endif
 ability_s :: ability_s // copy constr
 	(const ability_s & ab):
 cast_time     (ab.cast_time    ),

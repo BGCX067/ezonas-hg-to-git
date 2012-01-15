@@ -1,6 +1,6 @@
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
+//#endif
 template<> CameraController * Ogre :: Singleton <CameraController> :: ms_Singleton = 0;
 CameraController :: CameraController ():
 

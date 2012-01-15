@@ -21,9 +21,9 @@
    
 */
 
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
+//#endif
 //#include "Ogre.h"
 //#include "OIS.h"
 //#include "Gorilla.h"

@@ -1,3 +1,0 @@
-camera system
-recoil
-buffered input

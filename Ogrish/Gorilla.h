@@ -31,9 +31,9 @@
 
 #ifndef GORILLA_H
 #define GORILLA_H
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
+//#endif
 //#include "Ogre.h"
 
 #ifndef GORILLA_USES_EXCEPTIONS

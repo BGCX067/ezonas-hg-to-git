@@ -1,7 +1,7 @@
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
-enum event_state   { JUMPS, LANDS, MOVES, STOPS, USE_ITEM, ABILITY };
+//#endif
+enum event_state   { JUMPS, LANDS, MOVES, STOPS, USE_ITEM, ABILITY, CAST_END };
 struct event_abil  { int target_id, spell_id; };
 struct event_phys  { float pos[3], vel[3], orient[4]; };
 struct event_item  { int item_id; };
@@ -13,9 +13,13 @@ struct Event
 	union
 	{
 		event_abil ev_abil;
-		event_phys ev_phys;
+		//event_phys ev_phys;
 		event_item ev_item;
 	};
+	Event(int _emitter_id, int _target_id, int _spell_id): // ability event constructor
+		type(ABILITY)//,
+		//event_abil({_emitter_id, _target_id, _spell_id})
+	{}
 };
 
 // state masks

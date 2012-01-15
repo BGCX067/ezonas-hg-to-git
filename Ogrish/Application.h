@@ -1,8 +1,7 @@
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
-
-//typedef RaySceneQueryResult :: iterator RSQR_iter_t;
+//#endif
+typedef RaySceneQueryResult :: iterator RSQR_iter_t;
 class Application:
 	public FrameListener,
 	public Ogre :: Singleton <Application>

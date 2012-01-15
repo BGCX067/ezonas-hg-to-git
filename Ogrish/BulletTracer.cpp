@@ -1,7 +1,6 @@
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
-
+//#endif
 template<> BulletTracer * Ogre :: Singleton <BulletTracer> :: ms_Singleton = 0;
 
 BulletTracer :: BulletTracer ():

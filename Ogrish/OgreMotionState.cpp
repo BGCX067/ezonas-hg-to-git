@@ -1,6 +1,6 @@
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
+//#endif
 #ifdef PHYSICS
 OgreMotionState :: OgreMotionState(const btTransform &initialpos, Ogre :: SceneNode *node)
 {

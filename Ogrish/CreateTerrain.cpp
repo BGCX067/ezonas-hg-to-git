@@ -1,6 +1,6 @@
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
+//#endif
 #ifdef USE_TERRAIN
 void Application :: CreateTerrain()
 {

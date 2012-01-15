@@ -1,7 +1,6 @@
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
-
+//#endif
 template<> LaserCast * Ogre :: Singleton <LaserCast> :: ms_Singleton = 0;
 
 LaserCast :: LaserCast():

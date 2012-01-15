@@ -1,7 +1,6 @@
-#ifndef __APPLE__
+//#ifndef __APPLE__
 #include "stdafx.h"
-#endif
-
+//#endif
 void Application :: CreateScene()
 {
 	//camera -> setPolygonMode(PM_WIREFRAME);
