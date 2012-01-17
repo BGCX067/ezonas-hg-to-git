@@ -72,7 +72,7 @@ private: /* ############ PRIVATE ############ */
     CameraController * cam_ctrlr;
     //Cam3rdperson * cam3rdperson;
 	
-	Game_machine * game_machine;
+	game_machine * machine;
 	// overlays
 	OverlayManager * ovl_mgr;
 	//Overlay * ovl_crosshair;

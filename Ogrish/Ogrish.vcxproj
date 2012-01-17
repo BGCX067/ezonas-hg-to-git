@@ -76,9 +76,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ability.h" />
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="BulletTracer.h" />
+    <ClInclude Include="character.h" />
     <ClInclude Include="datastruct.h" />
     <ClInclude Include="gamemachine.h" />
     <ClInclude Include="Gorilla.h" />

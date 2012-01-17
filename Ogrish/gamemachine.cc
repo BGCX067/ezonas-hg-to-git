@@ -4,94 +4,70 @@
 // this state machine is about taking inputs and generating outputs,
 // handling them in game and also send events on the network.
 // networking is mainly handled by sending events to a peer.
-Game_machine :: Game_machine()
+game_machine :: game_machine()
 {
-//	Abilities[1] = ability_s();
-
+	FOR_VECT(Abilities, ability_s) // those loops grants all character with all abilities
+	{
+		FOR_VECT2(Characters, character_s)
+		{
+			it2->Abilities.push_back(state_abil(std::distance(Abilities.begin(), it),100,it->delay));
+		}
+	}
 	// moving_speed_default, stealth_range, defense, attack_bonus, power, life, mask, name
 	// cast_time, range, missile_speed, effect_moment, mask
-
-//	Characters[3] = character_s();
-//	Characters[21] = character_s(15.f, 20.f, 1.f, 0.f, 100.f, 20.f, 0, "dou");
-//	Characters[22] = character_s(20.f, 20.f, 2.f, 0.f, 100.f, 100.f, 0, "dan");
-//	Characters[23] = character_s(20.f, 20.f, 1.f, 0.f, 100.f, 100.f, 0, "doue");
-//	Characters[22].AbilityIDs.push_back(1);
 }
 
-void Game_machine :: diagnose_events()
-{}
-void Game_machine :: diagnose_characters()
-{}
-/*
-void Game_machine :: removeState(int id)
+void game_machine :: process_queue()
 {
-	Availables.push(id);		// queue is a list and States is a vector so queue is used
-	States[id].abilityID = -1; 	// to reuse but we need something else when iterating the vector
-}
-void Game_machine :: addState(float f, int id)
-{
-	if(!Availables.empty())
-	{
-		States[Availables.front()].abilityID = id;
-		States[Availables.front()].time_buffer = f;
-		Availables.pop();
-	}
-	else
-		States.push_back(cast_state(f, id));
-}
-*/
-void Game_machine :: checkAndApplyAbility(Event * ev)
-{
-	// Ability
-	//		float cast_time, cooldown, range, splash_range, missile_speed,
-	//			dmg_tick, dmg_instant, dmg_splash;
-	//		int ticks, effect_moment, mask;
-	// State_cast
-	//		abilityHolderID, time_buffer
-}
-void Game_machine :: pass()
-{
-	// event queue
-	// problem is, with network, I will need to control the rate at which I
-	// process events. Normally I can just process one event per frame.
-
-	// ######################################################
-	// ############# EVENT AND STATE PROCESSING #############
-	// ######################################################
-
-	if (! Events.empty())
-	{
+	if (! Events.empty()) // here comes inputs, network and controls
+	{					  // we just transfer events into states
 		switch(Events.front().type)
 		{
-		case CAST_END:
-			break;
 		case USE_ITEM:
 			break;
 		case ABILITY:
-	/*
-	1. check for reach, cooldown, mana, character avail.
-		distance/range, collision with obstacle
-	2. spawn a state_cast if non instant
-	NOTE: no concept of actions/reactions, if an ability checks, the reaction is automatic
-	3. 
-	*/
+			/* TODO: check for reach, cooldown, mana, character avail.
+			   distance/range, collision with obstacle */
+			cached_target = Events.front().ev_abil.target_id;
+			cached_abil = Events.front().ev_abil.ability_state_id;
+			cached_emitter = Events.front().emitter_id;
+			if(Abilities[Characters[cached_emitter].Abilities[cached_abil].ability_id].mask & HAS_COOLDOWN)
+			{ // fires instantly, cooldown after
+				Characters[cached_emitter].Abilities[cached_abil].timeleft = 
+					Abilities[Characters[cached_emitter].Abilities[cached_abil].ability_id].delay; 
+			}
+			else
+			{ // loads up, fire after
+				Characters[cached_emitter].Abilities[cached_abil].timeleft = 
+					Abilities[Characters[cached_emitter].Abilities[cached_abil].ability_id].delay;
+			}
 			break;
 		case JUMPS: case LANDS: case MOVES: case STOPS: break;
 		}
 		Events.pop();
 	}
-	// process timed cast states
-
-	for(std::vector<cast_state>::iterator it = States.begin();
-		it != States.end(); ++ it)
+}
+// TODO: dfs skip check flag 
+void game_machine :: process_states()
+{
+	FOR_VECT(Characters, character_s)
+	{
+		FOR_VECT2(it->Abilities, state_abil)
 		{
-			if (it -> abilityID == -1) continue;
-			if(it -> time_buffer < 0.0f)
-				Events.push(Event());
+			if(it2->timeleft > 0.f)
+			{
+				it2->timeleft -= (*timeSinceLastFrame);
+				continue;
+			}
+			
 			else
-				it->time_buffer -= (*timeSinceLastFrame);
+			if(Abilities[it2->ability_id].mask & HAS_COOLDOWN)
+			{ // casting finished, firing now
+				Characters[it->target_id].life -= Abilities[it2->ability_id].dmg_instant;
+			}
+			// else {} // fired, cd is over
 		}
-
+	}
 }
 
 int get_bit(int mask, int n) { return (mask & n); }
@@ -102,32 +78,3 @@ void unset_bit(int * mask, int n) { (*mask) &= ~ n; }
 // ANDs it with a top-times left-shifted FFF
 int get_int_from_mask(int n, int top, int bottom)
 { return (n >> (bottom - 1)) & (0xFFFFFFFF >> (top - bottom + 1));}
-
-#ifdef OBSOLETE
-character_s Game_machine :: make_character(
-	float moving_speed_default,
-	float stealth_range,
-	float defense,
-	float attack_bonus,
-	float power,
-	float life,
-	int mask,
-	string name)
-{
-	character_s ret =
-	{
-		moving_speed_default,
-		stealth_range,
-		defense,
-		attack_bonus,
-		power,
-		life,
-		mask,
-		name
-	};
-
-	return ret;
-}
-#endif
-
-

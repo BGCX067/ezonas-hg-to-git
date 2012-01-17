@@ -40,7 +40,7 @@ root			(new Root("conf/plugins_d.cfg", "conf/Ogre.cfg", "conf/Ogre.log")),
 	rootnode		(scmgr -> getRootSceneNode()),
 
 	mGorilla		(new Gorilla :: Silverback()),
-	game_machine	(new Game_machine)
+	machine			(new game_machine)
 	
 
 #ifdef PHYSICS
@@ -85,7 +85,7 @@ Application :: ~ Application()
 	OGRE_DELETE mGlobals;
 #endif
 	delete mGorilla;
-	delete game_machine;
+	delete machine;
 	// bullet
 #ifdef PHYSICS
 	delete dynamicsWorld;
