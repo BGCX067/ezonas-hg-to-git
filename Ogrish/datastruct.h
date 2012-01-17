@@ -29,12 +29,6 @@ struct state_abil
 	{}
 
 };
-struct state_cast
-{
-	float time_buffer; int abil_state_id;
-	state_cast(float _time_buffer, int _abil_state_id):
-		time_buffer(_time_buffer), abil_state_id(_abil_state_id) {}
-};
 
 //struct event_stop { float pos[6]; };
 /*

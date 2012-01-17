@@ -29,7 +29,7 @@ void game_machine :: process_queue()
 			/* TODO: check for reach, cooldown, mana, character avail.
 			   distance/range, collision with obstacle */
 			cached_target = Events.front().ev_abil.target_id;
-			cached_abil = Events.front().ev_abil.ability_state_id;
+			cached_abil = Events.front().ev_abil.abil_state_id;
 			cached_emitter = Events.front().emitter_id;
 			if(Abilities[Characters[cached_emitter].Abilities[cached_abil].ability_id].mask & HAS_COOLDOWN)
 			{ // fires instantly, cooldown after

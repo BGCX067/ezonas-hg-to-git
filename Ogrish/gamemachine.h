@@ -30,7 +30,7 @@ private:
 		cached_target;
 	std::vector <Ogre::Entity *>	Entities;
 
-	std::vector <state_cast>		States;
+	std::vector <state_abil>		States;
 	std::vector <character_s>		Characters;
 	std::vector <ability_s>			Abilities;
 	queue <Event>					Events;
