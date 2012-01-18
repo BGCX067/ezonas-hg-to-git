@@ -18,9 +18,10 @@ public:
 	void process_states();
 	void process_queue();
 	
-	void removeState(int id);
-	void addState(float f, int id);
 	void go();
+	int checkUsability(int emitter_id, int target_id, int ability_id);
+	void applyEffects(int target_id, int ability_id);
+	void spendPower(int emitter_id, int abil_state_id);
 private:
 	// data oriented
 	float * timeSinceLastFrame;
@@ -30,7 +31,7 @@ private:
 		cached_target;
 	std::vector <Ogre::Entity *>	Entities;
 
-	std::vector <state_abil>		States;
+	std::vector <abil_state>		States;
 	std::vector <character_s>		Characters;
 	std::vector <ability_s>			Abilities;
 	queue <Event>					Events;

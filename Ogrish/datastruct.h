@@ -20,15 +20,7 @@ struct Event
 	Event(int, int, int);
 };
 
-struct state_abil
-{
-	int ability_id, experience;
-	float timeleft;
-	state_abil(int a, int b, float c):
-		ability_id(a), experience(b), timeleft(c)
-	{}
 
-};
 
 //struct event_stop { float pos[6]; };
 /*

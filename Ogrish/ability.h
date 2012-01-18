@@ -7,9 +7,10 @@
 #define CLICK_LOCATION_EVENT (1 << 3)
 #define SPLASH_DAMAGE        (1 << 4)
 #define HAS_COOLDOWN         (1 << 5)
-
+#define HAS_DOT				 (1 << 6)
 
 #define ABIL_DEFAULT (ALLOW_MOVEMENT | TARGET_IN_FRONT | REQUIRES_TARGET | SPLASH_DAMAGE)
+
 
 struct ability_s
 {
@@ -21,8 +22,6 @@ struct ability_s
 	ability_s
 #ifndef DEFAULT_VALUES
 	(
-		//float _cast_time     = 1.f  ,
-		//float _cooldown      = 1.f  ,
 		float _delay		 = 1.f  ,
 		float _range         = 100.f,
 		float _splash_range  = 5.f  ,
@@ -42,3 +41,22 @@ struct ability_s
 #endif
 	ability_s(const ability_s &);
 };
+
+struct abil_base
+{ int ticks, mask; };
+
+struct abil_stats
+{ int delay, dmg_tick, dmg_instant, dmg_splash, power_cost; };
+
+struct abil_state
+{ int ability_id, experience; float timeleft; };
+
+struct abil_phys
+{ float range, splash_range, missile_speed; };
+
+struct abil_bonus
+{
+// TODO
+};
+
+//abil_state(int a, int b, float c): ability_id(a), experience(b), timeleft(c) {}

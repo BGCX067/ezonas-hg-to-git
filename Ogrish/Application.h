@@ -74,8 +74,8 @@ private: /* ############ PRIVATE ############ */
 	
 	game_machine * machine;
 	// overlays
-	OverlayManager * ovl_mgr;
-	//Overlay * ovl_crosshair;
+	// OverlayManager * ovl_mgr;
+	// Overlay * ovl_crosshair;
 
 	// entities and nodes
 	std::map <string, SceneNode *> Nodes;

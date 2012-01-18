@@ -23,7 +23,7 @@ struct character_s // remember most values don't go over 100
 	int mask, casting_ability_id, target_id;
 	std::string name;
 	//std::vector<int> AbilityIDs;
-	std::vector<state_abil> Abilities;
+	std::vector<abil_state> Abilities;
 	character_s(const character_s &);
 #ifndef DEFAULT_VALUES
 	character_s(

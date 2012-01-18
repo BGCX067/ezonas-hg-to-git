@@ -61,8 +61,8 @@ root			(new Root("conf/plugins_d.cfg", "conf/Ogre.cfg", "conf/Ogre.log")),
 	InitResources();
 
 	// PROJECT CODE ////////////////////////////////////////
-	ovl_mgr = OverlayManager :: getSingletonPtr();
-	//ovl_mgr -> getByName("jokoon/crosshair") -> show();
+	if(GetInt("crosshair") == 1)
+		OverlayManager :: getSingletonPtr() -> getByName("jokoon/crosshair") -> show();
 	
 	//switch(ConfMgr :: getSingleton().GetInt("camera_mode"))
 	cam_ctrlr = CameraController :: Instantiate();

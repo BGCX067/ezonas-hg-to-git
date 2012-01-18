@@ -10,7 +10,7 @@ game_machine :: game_machine()
 	{
 		FOR_VECT2(Characters, character_s)
 		{
-			it2->Abilities.push_back(state_abil(std::distance(Abilities.begin(), it),100,it->delay));
+			it2->Abilities.push_back(abil_state(std::distance(Abilities.begin(), it),100,it->delay));
 		}
 	}
 	// moving_speed_default, stealth_range, defense, attack_bonus, power, life, mask, name
@@ -33,6 +33,7 @@ void game_machine :: process_queue()
 			cached_emitter = Events.front().emitter_id;
 			if(Abilities[Characters[cached_emitter].Abilities[cached_abil].ability_id].mask & HAS_COOLDOWN)
 			{ // fires instantly, cooldown after
+				applyEffects(cached_target, Characters[cached_emitter].Abilities[cached_abil].ability_id);
 				Characters[cached_emitter].Abilities[cached_abil].timeleft = 
 					Abilities[Characters[cached_emitter].Abilities[cached_abil].ability_id].delay; 
 			}
@@ -52,24 +53,33 @@ void game_machine :: process_states()
 {
 	FOR_VECT(Characters, character_s)
 	{
-		FOR_VECT2(it->Abilities, state_abil)
+		FOR_VECT2(it->Abilities, abil_state)
 		{
 			if(it2->timeleft > 0.f)
-			{
 				it2->timeleft -= (*timeSinceLastFrame);
-				continue;
-			}
-			
-			else
-			if(Abilities[it2->ability_id].mask & HAS_COOLDOWN)
-			{ // casting finished, firing now
-				Characters[it->target_id].life -= Abilities[it2->ability_id].dmg_instant;
-			}
+			else if(Abilities[it2->ability_id].mask & HAS_COOLDOWN) // casting finished, firing now
+				applyEffects(it->target_id, it2->ability_id);
 			// else {} // fired, cd is over
 		}
 	}
 }
 
+void game_machine :: spendPower(int emitter_id, int abil_state_id)
+{}
+
+int game_machine :: checkUsability(int emitter_id, int target_id, int ability_id)
+{
+
+}
+void game_machine :: applyEffects(int target_id, int ability_id)
+{
+// Characters[it->target_id].life -= Abilities[it2->ability_id].dmg_instant;
+	Characters[target_id].life -= Abilities[ability_id].dmg_instant;
+	// WARNING dottable spells are not spammable
+	if(Abilities[ability_id].mask & HAS_DOT)
+		Characters[target_id].dmg_tick += Abilities[ability_id].dmg_tick;
+}
+	
 int get_bit(int mask, int n) { return (mask & n); }
 void set_bit(int * mask, int n)   { (*mask) |= n; }
 void unset_bit(int * mask, int n) { (*mask) &= ~ n; }

@@ -98,7 +98,7 @@ float Application :: GetFloat(string _s)
 int Application :: GetInt(string _s)
 {
 	int result = 0xdeadbeef;
-	istringstream istrstr(configfile -> getSetting(_s, StringUtil :: BLANK, "1.0"));
+	istringstream istrstr(configfile -> getSetting(_s, StringUtil :: BLANK, "0"));
 	istrstr >> result;
 	return result;
 }
