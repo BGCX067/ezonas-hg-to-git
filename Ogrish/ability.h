@@ -43,16 +43,26 @@ struct ability_s
 };
 
 struct abil_base
-{ int ticks, mask; };
+{ int ticks, mask; abil_base(int _ticks = 5, int _mask=ABIL_DEFAULT);};
 
 struct abil_stats
-{ int delay, dmg_tick, dmg_instant, dmg_splash, power_cost; };
+{ 
+	int delay, dmg_tick, dmg_instant, dmg_splash, power_cost;
+	abil_stats(int d = 1000, int dt = 0, int di = 0, int ds = 0, in cost = 0);
+	void make_data(abil_data * ab, abil_bonus * bonus);
+};
 
-struct abil_state
-{ int ability_id, experience; float timeleft; };
+struct abil_data
+{
+	int ability_id, experience; float timeleft;
+	abil_data(int ab_id = 0, int xp = 0, float t = 1.f);
+};
 
 struct abil_phys
-{ float range, splash_range, missile_speed; };
+{
+	float range, splash_range, missile_speed;
+	abil_phys(float r = 30.f, float sr = 5.f, float sp = 100.f);
+};
 
 struct abil_bonus
 {

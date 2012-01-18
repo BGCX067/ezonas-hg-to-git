@@ -52,14 +52,16 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 348328889;
-			PBXWorkspaceStateSaveDate = 348328889;
+			PBXPerProjectTemplateStateSaveDate = 348565335;
+			PBXWorkspaceStateSaveDate = 348565335;
 		};
 		perUserProjectItems = {
-			D8EB5B1814C329D300E084A5 /* PBXBookmark */ = D8EB5B1814C329D300E084A5 /* PBXBookmark */;
-			D8EB5B1D14C336EC00E084A5 /* PBXTextBookmark */ = D8EB5B1D14C336EC00E084A5 /* PBXTextBookmark */;
-			D8EB5B1E14C336EC00E084A5 /* PBXTextBookmark */ = D8EB5B1E14C336EC00E084A5 /* PBXTextBookmark */;
-			D8EB5B2114C336EC00E084A5 /* PBXTextBookmark */ = D8EB5B2114C336EC00E084A5 /* PBXTextBookmark */;
+			D8AD546F14C6B14E00F5C618 /* XCBuildMessageTextBookmark */ = D8AD546F14C6B14E00F5C618 /* XCBuildMessageTextBookmark */;
+			D8AD547014C6B14E00F5C618 /* PBXTextBookmark */ = D8AD547014C6B14E00F5C618 /* PBXTextBookmark */;
+			D8EB5B1814C329D300E084A5 = D8EB5B1814C329D300E084A5 /* PBXBookmark */;
+			D8EB5B1D14C336EC00E084A5 = D8EB5B1D14C336EC00E084A5 /* PBXTextBookmark */;
+			D8EB5B1E14C336EC00E084A5 = D8EB5B1E14C336EC00E084A5 /* PBXTextBookmark */;
+			D8EB5B2114C336EC00E084A5 = D8EB5B2114C336EC00E084A5 /* PBXTextBookmark */;
 		};
 		sourceControlManager = D86458F014B97CB000070DB1 /* Source Control */;
 		userBuildSettings = {
@@ -83,7 +85,7 @@
 		argumentStrings = (
 		);
 		autoAttachOnCrash = 1;
-		breakpointsEnabled = 0;
+		breakpointsEnabled = 1;
 		configStateDict = {
 		};
 		customDataFormattersEnabled = 1;
@@ -162,18 +164,17 @@
 	};
 	D874ED3814C1BEC600A47D38 /* datastruct.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {664, 2478}}";
+			sepNavIntBoundsRect = "{{0, 0}, {664, 826}}";
 			sepNavSelRange = "{1246, 0}";
-			sepNavVisRange = "{675, 1230}";
+			sepNavVisRange = "{341, 960}";
 			sepNavWindowFrame = "{{554, 68}, {723, 710}}";
 		};
 	};
 	D874ED4014C1BEC600A47D38 /* gamemachine.cc */ = {
 		uiCtxt = {
-			sepNavFolds = "{\n    c =     (\n                {\n            r = \"{1190, 117}\";\n            s = 0;\n        },\n                {\n            r = \"{1420, 215}\";\n            s = 0;\n        }\n    );\n    r = \"{0, 3531}\";\n    s = 0;\n}";
-			sepNavIntBoundsRect = "{{0, 0}, {767, 1582}}";
-			sepNavSelRange = "{950, 0}";
-			sepNavVisRange = "{0, 1162}";
+			sepNavIntBoundsRect = "{{0, 0}, {784, 1274}}";
+			sepNavSelRange = "{711, 0}";
+			sepNavVisRange = "{52, 1814}";
 			sepNavWindowFrame = "{{15, 66}, {843, 712}}";
 		};
 	};
@@ -194,9 +195,9 @@
 	};
 	D874ED4514C1BEC600A47D38 /* InitGorilla.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {767, 602}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 641}";
+			sepNavIntBoundsRect = "{{0, 0}, {767, 532}}";
+			sepNavSelRange = "{138, 0}";
+			sepNavVisRange = "{0, 1075}";
 		};
 	};
 	D874ED4614C1BEC600A47D38 /* items.cpp */ = {
@@ -214,6 +215,41 @@
 			sepNavWindowFrame = "{{15, 53}, {723, 720}}";
 		};
 	};
+	D8AD546814C6AFF500F5C618 /* ability.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {784, 882}}";
+			sepNavSelRange = "{1107, 0}";
+			sepNavVisRange = "{474, 1059}";
+			sepNavWindowFrame = "{{426, 66}, {843, 712}}";
+		};
+	};
+	D8AD546914C6AFF500F5C618 /* character.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {784, 623}}";
+			sepNavSelRange = "{699, 0}";
+			sepNavVisRange = "{0, 1203}";
+			sepNavWindowFrame = "{{15, 66}, {843, 712}}";
+		};
+	};
+	D8AD546F14C6B14E00F5C618 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Unused variable 'w'";
+		fRef = D874ED4514C1BEC600A47D38 /* InitGorilla.cpp */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 8;
+		rType = 1;
+	};
+	D8AD547014C6B14E00F5C618 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D874ED4514C1BEC600A47D38 /* InitGorilla.cpp */;
+		name = "InitGorilla.cpp: 9";
+		rLen = 0;
+		rLoc = 138;
+		rType = 0;
+		vrLen = 1075;
+		vrLoc = 0;
+	};
 	D8EB5B1814C329D300E084A5 /* PBXBookmark */ = {
 		isa = PBXBookmark;
 		fRef = D874ED4014C1BEC600A47D38 /* gamemachine.cc */;
@@ -223,7 +259,7 @@
 		fRef = D874ED3814C1BEC600A47D38 /* datastruct.h */;
 		name = "datastruct.h: 137";
 		rLen = 0;
-		rLoc = 4523;
+		rLoc = 1301;
 		rType = 0;
 		vrLen = 1164;
 		vrLoc = 0;
@@ -235,7 +271,7 @@
 		rLen = 0;
 		rLoc = 1246;
 		rType = 0;
-		vrLen = 1230;
+		vrLen = 626;
 		vrLoc = 675;
 	};
 	D8EB5B2114C336EC00E084A5 /* PBXTextBookmark */ = {
@@ -243,9 +279,9 @@
 		fRef = D874ED4014C1BEC600A47D38 /* gamemachine.cc */;
 		name = "gamemachine.cc: 42";
 		rLen = 0;
-		rLoc = 1361;
+		rLoc = 1356;
 		rType = 0;
-		vrLen = 1206;
+		vrLen = 1046;
 		vrLoc = 2154;
 	};
 }

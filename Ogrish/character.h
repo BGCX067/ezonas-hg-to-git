@@ -20,10 +20,11 @@ struct character_s // remember most values don't go over 100
 	power, 					    // might, mana, energy, etc
 	life,					    
 	dmg_tick;				    // dmg taken per tick
-	int mask, casting_ability_id, target_id;
-	std::string name;
-	//std::vector<int> AbilityIDs;
-	std::vector<abil_state> Abilities;
+	int mask, target_id;
+
+	
+	std::vector<abil_data> Abildatas;
+	std::vector<abil_stats> AbilStats;
 	character_s(const character_s &);
 #ifndef DEFAULT_VALUES
 	character_s(

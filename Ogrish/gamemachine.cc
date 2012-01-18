@@ -7,12 +7,12 @@
 game_machine :: game_machine()
 {
 	FOR_VECT(Abilities, ability_s) // those loops grants all character with all abilities
-	{
 		FOR_VECT2(Characters, character_s)
 		{
-			it2->Abilities.push_back(abil_state(std::distance(Abilities.begin(), it),100,it->delay));
+			it2->Abilities.push_back(
+				abil_state(std::distance(Abilities.begin(), it),100,it->delay));
 		}
-	}
+	
 	// moving_speed_default, stealth_range, defense, attack_bonus, power, life, mask, name
 	// cast_time, range, missile_speed, effect_moment, mask
 }

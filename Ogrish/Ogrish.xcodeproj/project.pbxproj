@@ -46,6 +46,7 @@
 		D874EDB614C1BF6A00A47D38 /* gorilla in Resources */ = {isa = PBXBuildFile; fileRef = D874ED7614C1BF6A00A47D38 /* gorilla */; };
 		D874EDB714C1BF6A00A47D38 /* mesh in Resources */ = {isa = PBXBuildFile; fileRef = D874ED8514C1BF6A00A47D38 /* mesh */; };
 		D874EDB814C1BF6A00A47D38 /* textures in Resources */ = {isa = PBXBuildFile; fileRef = D874ED8A14C1BF6A00A47D38 /* textures */; };
+		D8AD547414C6E6FB00F5C618 /* ability.cc in Sources */ = {isa = PBXBuildFile; fileRef = D8AD547314C6E6FB00F5C618 /* ability.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -126,6 +127,10 @@
 		D874ED7614C1BF6A00A47D38 /* gorilla */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gorilla; sourceTree = "<group>"; };
 		D874ED8514C1BF6A00A47D38 /* mesh */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mesh; sourceTree = "<group>"; };
 		D874ED8A14C1BF6A00A47D38 /* textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = textures; sourceTree = "<group>"; };
+		D8AD546814C6AFF500F5C618 /* ability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ability.h; sourceTree = "<group>"; };
+		D8AD546914C6AFF500F5C618 /* character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = character.h; sourceTree = "<group>"; };
+		D8AD547214C6E6FB00F5C618 /* ability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ability.h; sourceTree = "<group>"; };
+		D8AD547314C6E6FB00F5C618 /* ability.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ability.cc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,12 +255,16 @@
 		D8EB5B0714C3165000E084A5 /* game */ = {
 			isa = PBXGroup;
 			children = (
+				D8AD546814C6AFF500F5C618 /* ability.h */,
+				D8AD546914C6AFF500F5C618 /* character.h */,
 				D874ED3714C1BEC600A47D38 /* datastruct.cpp */,
 				D874ED4614C1BEC600A47D38 /* items.cpp */,
 				D874ED4714C1BEC600A47D38 /* items.h */,
 				D874ED3814C1BEC600A47D38 /* datastruct.h */,
 				D874ED4014C1BEC600A47D38 /* gamemachine.cc */,
 				D874ED4114C1BEC600A47D38 /* gamemachine.h */,
+				D8AD547214C6E6FB00F5C618 /* ability.h */,
+				D8AD547314C6E6FB00F5C618 /* ability.cc */,
 			);
 			name = game;
 			sourceTree = "<group>";
@@ -397,6 +406,7 @@
 				D874ED6514C1BEC600A47D38 /* OgreMotionState.cpp in Sources */,
 				D874ED6614C1BEC600A47D38 /* Ogrish_main.cpp in Sources */,
 				D874ED6714C1BEC600A47D38 /* stdafx.cpp in Sources */,
+				D8AD547414C6E6FB00F5C618 /* ability.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
