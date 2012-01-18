@@ -11,7 +11,7 @@
 
 #define ABIL_DEFAULT (ALLOW_MOVEMENT | TARGET_IN_FRONT | REQUIRES_TARGET | SPLASH_DAMAGE)
 
-
+/*
 struct ability_s
 {
 	float delay, range, splash_range, missile_speed,
@@ -41,32 +41,35 @@ struct ability_s
 #endif
 	ability_s(const ability_s &);
 };
-
-struct abil_base
+*/
+struct abil_base // this are constant data for the abilities
 { int ticks, mask; abil_base(int _ticks = 5, int _mask=ABIL_DEFAULT);};
 
-struct abil_stats
-{ 
-	int delay, dmg_tick, dmg_instant, dmg_splash, power_cost;
-	abil_stats(int d = 1000, int dt = 0, int di = 0, int ds = 0, in cost = 0);
-	void make_data(abil_data * ab, abil_bonus * bonus);
-};
 
-struct abil_data
-{
-	int ability_id, experience; float timeleft;
-	abil_data(int ab_id = 0, int xp = 0, float t = 1.f);
-};
-
-struct abil_phys
+struct abil_phys // only hold float values -- those should stay constant
 {
 	float range, splash_range, missile_speed;
 	abil_phys(float r = 30.f, float sr = 5.f, float sp = 100.f);
 };
 
-struct abil_bonus
+struct abil_bonus // this hold values used to calculate abil_stat values
 {
-// TODO
+
+	// TODO
 };
+
+struct abil_data // hold by players
+{
+	int ability_id, experience; float timeleft;
+	abil_data(int ab_id = 0, int xp = 0, float t = 1.f);
+};
+
+struct abil_stats 
+{ // those are hold by players, it stores actual ability constant statistic after applying bonuses
+	int delay, dmg_tick, dmg_instant, dmg_splash, power_cost;
+	abil_stats(int d = 1000, int dt = 0, int di = 0, int ds = 0, int cost = 0);
+	void make_data(abil_data * ab, abil_bonus * bonus);
+};
+
 
 //abil_state(int a, int b, float c): ability_id(a), experience(b), timeleft(c) {}

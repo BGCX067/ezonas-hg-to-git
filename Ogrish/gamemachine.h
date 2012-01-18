@@ -31,10 +31,15 @@ private:
 		cached_target;
 	std::vector <Ogre::Entity *>	Entities;
 
-	std::vector <abil_state>		States;
 	std::vector <character_s>		Characters;
-	std::vector <ability_s>			Abilities;
 	queue <Event>					Events;
+
+	std::vector <abil_base>			AbilBases;
+	std::vector <abil_data>			AbilData;
+	std::vector <abil_stats>		AbilStats;
+	std::vector <abil_phys>			AbilPhysics;
+	std::vector <abil_bonus>		AbilBonuses;
+
 	ItemMgr item_mgr;
 
 };

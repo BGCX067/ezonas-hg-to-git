@@ -91,6 +91,7 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ability.cc" />
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BulletTracer.cpp" />
