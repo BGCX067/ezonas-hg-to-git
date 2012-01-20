@@ -57,4 +57,6 @@ Release/**
 
 *.dat
 *.app
-*.build
+
+*.pbxbtree
+*.pbxsymbols

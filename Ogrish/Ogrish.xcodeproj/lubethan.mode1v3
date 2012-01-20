@@ -202,6 +202,46 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
+				<string>D8EB5B1F14C336EC00E084A5</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>gamemachine.cc</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>D8EB5B2014C336EC00E084A5</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>gamemachine.cc</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>D84D2ED114C77BEF0030ED8A</string>
+						<key>history</key>
+						<array>
+							<string>D8EB5B2114C336EC00E084A5</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {843, 637}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>15 100 843 678 0 0 1280 778 </string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
 				<string>D8EB5B1B14C336EC00E084A5</string>
 				<key>PBXProjectModuleLabel</key>
 				<string>datastruct.h</string>
@@ -216,10 +256,10 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>D8EB5B1E14C336EC00E084A5</string>
+						<string>D84D2ED214C77BEF0030ED8A</string>
 						<key>history</key>
 						<array>
-							<string>D8EB5B1D14C336EC00E084A5</string>
+							<string>D8EB5B1E14C336EC00E084A5</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -236,46 +276,6 @@
 				<false/>
 				<key>RubberWindowFrame</key>
 				<string>554 100 723 678 0 0 1280 778 </string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>D8EB5B1F14C336EC00E084A5</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>gamemachine.cc</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>D8EB5B2014C336EC00E084A5</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>gamemachine.cc</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>D8EB5B2114C336EC00E084A5</string>
-						<key>history</key>
-						<array>
-							<string>D8EB5B1814C329D300E084A5</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {843, 639}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>15 98 843 680 0 0 1280 778 </string>
 			</dict>
 		</dict>
 	</array>
@@ -343,21 +343,22 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
+								<string>D8EB5B0714C3165000E084A5</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
-								<string>D874ED6814C1BF6A00A47D38</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>6</integer>
+									<integer>9</integer>
+									<integer>5</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {211, 474}}</string>
+							<string>{{0, 17}, {211, 474}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -451,9 +452,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>D8EB5B0114C313CF00E084A5</string>
+				<string>D84D2EC914C763310030ED8A</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>D8EB5B0214C313CF00E084A5</string>
+				<string>D84D2ECA14C763310030ED8A</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -574,7 +575,7 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>D8EB5B0314C313CF00E084A5</string>
+				<string>D84D2ECB14C763310030ED8A</string>
 				<string>11E0B1FE06471DED0097A5F4</string>
 			</array>
 			<key>ToolbarConfigUserDefaultsMinorVersion</key>
@@ -609,11 +610,10 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>D86458EE14B97CB000070DB1</string>
-		<string>D8EB5B1F14C336EC00E084A5</string>
-		<string>/Users/lubethan/hg/ezonas/Ogrish/Ogrish.xcodeproj</string>
 		<string>D8EB5B1B14C336EC00E084A5</string>
+		<string>/Users/lubethan/hg/ezonas/Ogrish/Ogrish.xcodeproj</string>
+		<string>D8EB5B1F14C336EC00E084A5</string>
 	</array>
 	<key>WindowString</key>
 	<string>23 256 376 512 0 0 1280 778 </string>
@@ -632,14 +632,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>gamemachine.cc</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -695,7 +693,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>D86458EE14B97CB000070DB1</string>
-				<string>D8EB5B0414C313CF00E084A5</string>
+				<string>D84D2ECE14C763310030ED8A</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -708,7 +706,7 @@
 			<key>WindowToolGUID</key>
 			<string>D86458EE14B97CB000070DB1</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
