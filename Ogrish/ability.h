@@ -45,37 +45,3 @@ struct abil_stats_base
 	abil_stats_base	(int _dmg_tick = 0, int _dmg_instant = 0, int _dmg_splash = 0, int _power_cost = 0);
 }
 
-//abil_state(int a, int b, float c): ability_id(a), experience(b), timeleft(c) {}
-
-
-/*
-struct ability_s
-{
-	float delay, range, splash_range, missile_speed,
-		  dmg_tick, dmg_instant, dmg_splash, power_cost;
-	int ticks, effect_moment, mask;
-	std::string name;
-
-	ability_s
-#ifndef DEFAULT_VALUES
-	(
-		float _delay		 = 1.f  ,
-		float _range         = 100.f,
-		float _splash_range  = 5.f  ,
-		float _missile_speed = 100.f,
-
-		float _dmg_tick      = 1.f  ,
-		float _dmg_instant   = 15.f ,
-		float _dmg_splash    = 3.f  ,
-		float _power_cost	 = 1.f  ,
-
-		int _ticks           = 1    ,
-		int _effect_moment   = 5    ,
-
-		int _mask            = 0 + (ALLOW_MOVEMENT | TARGET_IN_FRONT | REQUIRES_TARGET | SPLASH_DAMAGE),
-		std::string _name    = string("FireBall")
-	);	
-#endif
-	ability_s(const ability_s &);
-};
-*/

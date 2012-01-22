@@ -1,7 +1,23 @@
 //#ifndef __APPLE__
 #include "stdafx.h"
-#define AB_BASE(ch, ab) AbilBases [AbilDatas[ch][ab].ability_id]
 //#endif
+//#define AB_BASE(ch, ab) AbilBases [AbilDatas[ch][ab].ability_id]
+#define AB_BASE(ch, ab) AbilBases [Characters[ch].AbilDatas[ab].ability_id]
+/*
+for(std::vector<XXXX>::iterator it = XXX.begin(); it != XXX.end(); ++it)
+*/
+void game_machine :: loadAbilStatBases()
+{
+	Ogre::ConfigFile cf;
+	cf. CROSSLOAD("conf/abils.txt");
+}
+
+void game_machine :: loadAbilBonuses()
+{
+	Ogre::ConfigFile cf;
+	cf. CROSSLOAD("conf/abilbonus.txt");
+}
+
 // this state machine is about taking inputs and generating outputs,
 // handling them in game and also send events on the network.
 // networking is mainly handled by sending events to a peer.
@@ -45,22 +61,22 @@ void game_machine :: process_queue()
 			chd_ab   = Events.front().ev_abil.abil_state_id;
 			chd_emit = Events.front().emitter_id;
 
-			if(AB_BASE(chd_emit, chd_ab).mask & HAS_COOLDOWN)// fires instantly, cooldown after
+			if(AB_BASE(chd_emit, chd_ab).mask & HAS_COOLDOWN) // fires instantly, cooldown after
 			{
-				Characters[chd_trg].life -= AbilStats[chd_emit][chd_ab].dmg_instant;       //
-				// WARNING dottable spells are not spammable						       // 
-				if(AB_BASE(chd_emit, chd_ab).mask & HAS_DOT)						       //
-					Characters[chd_trg].dmg_tick += AbilStats[chd_emit][chd_ab].dmg_tick;  // apply damage and dot ONCE
+				Characters[chd_trg].life -= Characters[chd_emit].AbilStats[chd_ab].dmg_instant;
+				// WARNING dottable spells are not spammable						        
+				if(AB_BASE(chd_emit, chd_ab).mask & HAS_DOT) // apply damage and dot ONCE					       
+					Characters[chd_trg].dmg_tick += Characters[chd_emit].AbilStats[chd_ab].dmg_tick;  
  
-				AbilDatas[chd_emit][chd_ab].timeleft = 								       // 
-					AbilDatas[chd_emit][chd_ab].delay;								       // init timer
+				Characters[chd_emit].AbilDatas[chd_ab].timeleft =  // 
+					Characters[chd_emit].AbilDatas[chd_ab].delay;  // init timer
 			}
 			else // loads up, fire after
 			{ 
-				AbilDatas[chd_emit][chd_ab].timeleft = 
-					AbilDatas[chd_emit][chd_ab].delay;
-				if(AB_BASE(chd_emit, chd_ab).mask & HAS_DOT)						       //
-					Characters[chd_trg].dmg_tick += AbilStats[chd_emit][chd_ab].dmg_tick;  // apply damage and dot ONCE
+				Characters[chd_emit].AbilDatas[chd_ab].timeleft = 
+					Characters[chd_emit].AbilDatas[chd_ab].delay;
+				//if(AB_BASE(chd_emit, chd_ab).mask & HAS_DOT)			
+					//Characters[chd_trg].dmg_tick += Characters[chd_emit].AbilStats[chd_ab].dmg_tick;  // apply damage and dot ONCE
 			}
 			break;
 		case JUMPS: case LANDS: case MOVES: case STOPS: break;
@@ -68,37 +84,27 @@ void game_machine :: process_queue()
 		Events.pop();
 	}
 }
-// TODO: dfs skip check flag 
 void game_machine :: process_states()
 {
-	FOR_VECT(AbilDatas, array<abil_data, 10>)
+	for(std::vector<character_s>::iterator it = Characters.begin(); it != Characters.end(); ++it)
 	{
-		FOR(10)
+		for(std::vector<abil_data>::iterator it2 = it->AbilDatas.begin(); it2 != it->AbilDatas.end(); ++it2)
 		{
-			if((*it)[i].timeleft > 0.f || (*it)[i])
-				(*it)[i].timeleft -= (*timeSinceLastFrame);
-			else if(Abilities[it2->ability_id].mask & HAS_COOLDOWN) // casting finished, firing now
-				applyEffects(it->target_id, it2->ability_id);
+			if(it2->timeleft > 0.f)
+				it2->timeleft -= (*timeSinceLastFrame);
+			else if(AbilBases[it2->ability_id].mask & HAS_COOLDOWN) // casting finished, firing now
+			{
+				Characters[chd_trg].life -= Characters[chd_emit].AbilStats[chd_ab].dmg_instant;
+				// WARNING dottable spells are not spammable						        
+				if(AB_BASE(chd_emit, chd_ab).mask & HAS_DOT)						       
+					Characters[chd_trg].dmg_tick += Characters[chd_emit].AbilStats[chd_ab].dmg_tick;  // apply damage and dot ONCE
+			}
+			//applyEffects(it->target_id, it2->ability_id);
 			// else {} // fired, cd is over
-			//if(it->timeleft > 0.f)
-			//	it->timeleft -= (*timeSinceLastFrame);
-			//else if(Abilities[it2->ability_id].mask & HAS_COOLDOWN) // casting finished, firing now
-			//	applyEffects(it->target_id, it2->ability_id);
-			//// else {} // fired, cd is over
 		}
 	}
 }
-
-//void game_machine :: spendPower(int emitter_id, int abil_state_id){}
 int game_machine :: checkUsability(int emitter_id, int target_id, int ability_id){}
-void game_machine :: applyEffects(int target_id, int ability_id)
-{
-// Characters[it->target_id].life -= Abilities[it2->ability_id].dmg_instant;
-	Characters[target_id].life -= AbilStats[ability_id].dmg_instant;
-	// WARNING dottable spells are not spammable
-	if(Abilities[ability_id].mask & HAS_DOT)
-		Characters[target_id].dmg_tick += Abilities[ability_id].dmg_tick;
-}
 	
 int get_bit(int mask, int n) { return (mask & n); }
 void set_bit(int * mask, int n)   { (*mask) |= n; }
