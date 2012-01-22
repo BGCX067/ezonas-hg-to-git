@@ -1,4 +1,12 @@
 #pragma once
+/*
+ * This game use those following libraries/engines:
+ * Bullet   - Physics Engine
+ * Enet     - UDP networking library
+ * Ogre3D   - 3d engine (opengl)
+ * Gorilla  - 2D graphics interface for Ogre3D
+ */
+
 
 #ifdef __APPLE__
 #include <macUtils.h>

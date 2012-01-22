@@ -4,10 +4,13 @@
 #include <map>
 #include <string>
 #include <queue>
+#include <array>
 using namespace std;
 #define pr(s) printf("%s\n", s)
 #define prx(s) printf("0x%X\n", s)
 typedef unsigned int uint;
+
+#define AR(type) type[10];
 
 class game_machine
 {
@@ -26,20 +29,24 @@ private:
 	// data oriented
 	float * timeSinceLastFrame;
 	int
-		cached_abil,
-		cached_emitter,
-		cached_target;
-	std::vector <Ogre::Entity *>	Entities;
-
-	std::vector <character_s>		Characters;
-	queue <Event>					Events;
-
-	std::vector <abil_base>			AbilBases;
-	std::vector <abil_data>			AbilData;
-	std::vector <abil_stats>		AbilStats;
-	std::vector <abil_phys>			AbilPhysics;
-	std::vector <abil_bonus>		AbilBonuses;
-
+		chd_ab,
+		chd_emit,
+		chd_trg;
+	std::vector <Ogre::Entity *>		Entities;
+										
+	std::vector <character_s>			Characters;
+	queue <Event>						Events;
+										
+	std::vector <abil_base>				AbilBases;   // BASE -- unique
+	std::vector <abil_phys>				AbilPhysics; // PHYS -- unique
+	// the following data is character-wise
+	//std::vector <std::vector <abil_bonus>>	AbilBonuses; // BONUS
+	//std::vector <std::vector <abil_data >>	AbilDatas;	 // DATA --  ability_id, experience; timeleft, delay;
+	//std::vector <std::vector <abil_stats>>	AbilStats;	 // STATS -- dmg_tick, dmg_instant, dmg_splash, power_cost;
+	std::vector <array<abil_bonus, 10>>	AbilBonuses; // BONUS
+	std::vector <array<abil_data,  10>>	AbilDatas;	 // DATA --  ability_id, experience; timeleft, delay;
+	std::vector <array<abil_stats, 10>>	AbilStats;	 // STATS -- dmg_tick, dmg_instant, dmg_splash, power_cost;
+	
 	ItemMgr item_mgr;
 
 };

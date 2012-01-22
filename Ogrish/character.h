@@ -23,8 +23,8 @@ struct character_s // remember most values don't go over 100
 	int mask, target_id;
 
 	
-	std::vector<abil_data> Abildatas;
-	std::vector<abil_stats> AbilStats;
+	//std::vector<abil_data> Abildatas;
+	//std::vector<abil_stats> AbilStats;
 	character_s(const character_s &);
 #ifndef DEFAULT_VALUES
 	character_s(
@@ -34,8 +34,8 @@ struct character_s // remember most values don't go over 100
 		float _attack_bonus 	    = 0.f	,
 		float _power			    = 100.f	,
 		float _life				    = 20.f	,
-		int _mask				    = 0		,
-		string _name			    = "dou"	
+		int _mask				    = 0		
+		//,string _name			    = "dou"	
 		);
 #endif
 };
