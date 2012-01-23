@@ -1,6 +1,9 @@
 //#ifndef __APPLE__
 #include "stdafx.h"
 //#endif
+
+#define COMPOSITION
+
 #include <map>
 #include <string>
 #include <queue>
@@ -20,12 +23,16 @@ public:
 	void pass();
 	void process_states();
 	void process_queue();
+	
 	void loadAbilStatBases();
 	void loadAbilBonuses();
-	
-	int make_mask(string flags);
+	void loadCharacters();
+
+	int make_abil_mask(string flags);
+	void make_stat(int abst_base, abil_stats & abst, abil_bonus & bonus);
 
 	void go();
+
 	int checkUsability(int emitter_id, int target_id, int ability_id);
 	void applyEffects(int target_id, int ability_id);
 	void spendPower(int emitter_id, int abil_state_id);
@@ -37,18 +44,22 @@ private:
 		chd_emit,
 		chd_trg;
 	std::vector <Ogre::Entity *> Entities;
-								 
+
+	std::vector <std::string>	   CharNames;		
 	std::vector <character_s>	   Characters;
 	queue <Event>				   Events;
 
 	std::vector <std::string>	   AbilNames;		
-								 
+
+#ifndef COMPOSITION
+	std::vector <abil_stats> AbilStats;
+	std::vector <abil_data> AbilDatas;
+#endif
 	std::vector <abil_base>		   AbilBases;		// BASE -- unique
 	std::vector <abil_phys>		   AbilPhysics;		// PHYS -- unique
 	std::vector <abil_stats_base>  AbilStatBases;
 	
 	ItemMgr item_mgr;
-
 };
 /*
 inputs (controls + network) into events queue

@@ -10,7 +10,6 @@ character_s :: character_s (
 	float _power				,
 	float _life				   	,
 	int _mask				   	
-	//,string _name			   	
 ):
 	moving_speed_default (_moving_speed_default),
 	stealth_range		 (_stealth_range	   ),
@@ -19,7 +18,6 @@ character_s :: character_s (
 	power				 (_power			   ),
 	life				 (_life				   ), 
 	mask				 (_mask				   )//, 
-	//name			     (_name			   	   )
 #endif
 {}
 
@@ -33,5 +31,4 @@ character_s :: character_s (const character_s & ch):
 	power				 (ch.power				   ),
 	life				 (ch.life				   ),
 	mask				 (ch.mask				   )
-	//,name			     (ch.name			       )
 {}

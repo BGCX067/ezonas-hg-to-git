@@ -1,9 +1,5 @@
 #include "stdafx.h"
 
-void abil_stats :: make_data(abil_data * ab, abil_bonus * bonus)
-{
-// TODO
-}
 abil_stats :: abil_stats
 	(int _dmg_tick, int _dmg_instant, int _dmg_splash, int _power_cost):
 	dmg_tick		(_dmg_tick),

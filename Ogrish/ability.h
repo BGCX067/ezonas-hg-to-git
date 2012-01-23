@@ -34,16 +34,15 @@ struct abil_data
 	int ability_id, experience; float timeleft;
 	abil_data(int _ability_id = 0, int _experience = 0, float _timeleft = 1.f); void diagnose();
 };
+struct abil_stats_base;
 struct abil_stats 
 { 							 // STATS -- charact-wize
 	int dmg_tick, dmg_instant, dmg_splash, power_cost;
 	abil_stats(int _dmg_tick = 0, int _dmg_instant = 0, int _dmg_splash = 0, int _power_cost = 0); void diagnose();
-	void make_data(abil_data * ab, abil_bonus * bonus);
+	
 };
 struct abil_stats_base
 { 							 // STATS -- charact-wize
 	int dmg_tick, dmg_instant, dmg_splash, power_cost;
 	abil_stats_base	(int _dmg_tick = 0, int _dmg_instant = 0, int _dmg_splash = 0, int _power_cost = 0); void diagnose();
 };
-
-void diagnose();
