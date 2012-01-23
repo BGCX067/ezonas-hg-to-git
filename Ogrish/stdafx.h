@@ -7,7 +7,7 @@
  * Gorilla  - 2D graphics interface for Ogre3D
  */
 
-
+#include <boost/algorithm/string.hpp>
 #ifdef __APPLE__
 #include <macUtils.h>
 #endif
@@ -44,7 +44,7 @@ typedef Ogre :: Vector3 Vec3;
 #define SGLT_RSN Application :: getSingletonPtr() -> GetRSN()
 #define SGLT_SCMGR Application :: getSingletonPtr() -> GetScMgr()
 #define SGLT_RW Application :: getSingletonPtr() -> GetRW()
-
+#define SGLT_LOG LogManager::getSingleton().getDefaultLog()
 #define OG_SGLT Ogre::Singleton
 
 #define PRINTLOG(s) LogManager::getSingleton().getDefaultLog()->logMessage(s)

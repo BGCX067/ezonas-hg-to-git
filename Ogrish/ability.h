@@ -18,30 +18,32 @@ struct abil_data;	// hold by players
 struct abil_stats;	// those are hold by players, it stores actual ability constant statistic after applying bonuses
 
 struct abil_base			 // BASE -- unique
-{ int ticks, mask; abil_base(int _ticks = 5, int _mask = ABIL_DEFAULT);};
+{ int ticks, mask; float delay; abil_base(int _ticks = 5, int _mask = ABIL_DEFAULT, float _delay = 1.0f); void diagnose();};
 struct abil_phys 
 {							 // PHYS -- unique
 	float range, splash_range, missile_speed;
-	abil_phys(float _range = 30.f, float _splash_range = 5.f, float _missile_speed = 100.f);
+	abil_phys(float _range = 30.f, float _splash_range = 5.f, float _missile_speed = 100.f); void diagnose();
 };
 struct abil_bonus 
 {							 // BONUS -- charact-wise
 	// TODO
+void diagnose();
 };
 struct abil_data 
 {							 // DATA -- charact-wise
-	int ability_id, experience; float timeleft, delay;
-	abil_data(int _ability_id = 0, int _experience = 0, float _timeleft = 1.f, float _delay = 1.0f);
+	int ability_id, experience; float timeleft;
+	abil_data(int _ability_id = 0, int _experience = 0, float _timeleft = 1.f); void diagnose();
 };
 struct abil_stats 
 { 							 // STATS -- charact-wize
 	int dmg_tick, dmg_instant, dmg_splash, power_cost;
-	abil_stats(int _dmg_tick = 0, int _dmg_instant = 0, int _dmg_splash = 0, int _power_cost = 0);
+	abil_stats(int _dmg_tick = 0, int _dmg_instant = 0, int _dmg_splash = 0, int _power_cost = 0); void diagnose();
 	void make_data(abil_data * ab, abil_bonus * bonus);
 };
 struct abil_stats_base
 { 							 // STATS -- charact-wize
 	int dmg_tick, dmg_instant, dmg_splash, power_cost;
-	abil_stats_base	(int _dmg_tick = 0, int _dmg_instant = 0, int _dmg_splash = 0, int _power_cost = 0);
-}
+	abil_stats_base	(int _dmg_tick = 0, int _dmg_instant = 0, int _dmg_splash = 0, int _power_cost = 0); void diagnose();
+};
 
+void diagnose();

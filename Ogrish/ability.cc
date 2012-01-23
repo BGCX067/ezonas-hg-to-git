@@ -5,37 +5,78 @@ void abil_stats :: make_data(abil_data * ab, abil_bonus * bonus)
 // TODO
 }
 abil_stats :: abil_stats
-	(int _dmg_tick = 0, int _dmg_instant = 0, int _dmg_splash = 0, int _power_cost = 0):
+	(int _dmg_tick, int _dmg_instant, int _dmg_splash, int _power_cost):
 	dmg_tick		(_dmg_tick),
 	dmg_instant		(_dmg_instant),
 	dmg_splash		(_dmg_splash),
 	power_cost		(_power_cost)
 {}
 abil_stats_base :: abil_stats_base
-	(int _dmg_tick = 0, int _dmg_instant = 0, int _dmg_splash = 0, int _power_cost = 0):
+	(int _dmg_tick, int _dmg_instant, int _dmg_splash, int _power_cost):
 	dmg_tick		(_dmg_tick),
 	dmg_instant		(_dmg_instant),
 	dmg_splash		(_dmg_splash),
 	power_cost		(_power_cost)
 {}
 abil_data :: abil_data
-	(int _ability_id = 0, int _experience = 0, float _timeleft = 1.f, float _delay = 1.f):
+	(int _ability_id, int _experience, float _timeleft):
 	ability_id	(_ability_id),
 	experience	(_experience),
-	timeleft	(_timeleft),
-	delay		(_delay) // for now cooldown as casting timer will be fixed
+	timeleft	(_timeleft)
 {}
 abil_base :: abil_base
-	(int _ticks = 5, int _mask = ABIL_DEFAULT):
+	(int _ticks, int _mask, float _delay):
 	ticks		(_ticks),
-	mask		(_mask)
+	mask		(_mask),
+	delay		(_delay)
 {}
 abil_phys :: abil_phys	
-	(float _range = 30.f, float _splash_range = 5.f, float _missile_speed = 100.f):
+	(float _range, float _splash_range, float _missile_speed):
 	range(_range),
 	splash_range	(_splash_range),
 	missile_speed	(_missile_speed)
 {}
+
+
+
+void abil_phys :: diagnose()
+{
+	SGLT_LOG->stream() << "range splash_range missile_speed " ;
+	SGLT_LOG->stream() << range 		;
+	SGLT_LOG->stream() << splash_range	;
+	SGLT_LOG->stream() << missile_speed	;
+}
+void abil_base :: diagnose()
+{
+	SGLT_LOG->stream() << "ticks mask " ;
+	SGLT_LOG->stream() << ticks	;
+	SGLT_LOG->stream() << mask	;
+	SGLT_LOG->stream() << delay	;
+}
+void abil_data :: diagnose()
+{
+	SGLT_LOG->stream() << "ability_id experience timeleft delay ";
+	SGLT_LOG->stream() << ability_id;
+	SGLT_LOG->stream() << experience;
+	SGLT_LOG->stream() << timeleft	;
+}
+void abil_stats_base :: diagnose()
+{
+
+	SGLT_LOG->stream() << "dmg_tick dmg_instant dmg_splash power_cost delay"	;
+	SGLT_LOG->stream() << dmg_tick	;
+	SGLT_LOG->stream() << dmg_instant;
+	SGLT_LOG->stream() << dmg_splash;
+	SGLT_LOG->stream() << power_cost;
+}
+void abil_stats :: diagnose()
+{
+	SGLT_LOG->stream() << "dmg_tick dmg_instant dmg_splash power_cost ";
+	SGLT_LOG->stream() << dmg_tick		;
+	SGLT_LOG->stream() << dmg_instant	;
+	SGLT_LOG->stream() << dmg_splash	;
+	SGLT_LOG->stream() << power_cost	;
+}
 
 #ifdef OBSOLETE
 // ############# ABILITY #############

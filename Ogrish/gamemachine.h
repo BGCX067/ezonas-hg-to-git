@@ -23,7 +23,7 @@ public:
 	void loadAbilStatBases();
 	void loadAbilBonuses();
 	
-
+	int make_mask(string flags);
 
 	void go();
 	int checkUsability(int emitter_id, int target_id, int ability_id);
@@ -40,6 +40,8 @@ private:
 								 
 	std::vector <character_s>	   Characters;
 	queue <Event>				   Events;
+
+	std::vector <std::string>	   AbilNames;		
 								 
 	std::vector <abil_base>		   AbilBases;		// BASE -- unique
 	std::vector <abil_phys>		   AbilPhysics;		// PHYS -- unique
