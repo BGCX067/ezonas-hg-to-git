@@ -27,7 +27,9 @@ struct abil_phys
 struct abil_bonus 
 {							 // BONUS -- charact-wise
 	// TODO
-void diagnose();
+	int dmg_tick, dmg_instant, dmg_splash, power_cost;
+	abil_bonus(int _dmg_tick = 0, int _dmg_instant = 0, int _dmg_splash = 0, int _power_cost = 0);
+	void diagnose();
 };
 struct abil_data 
 {							 // DATA -- charact-wise

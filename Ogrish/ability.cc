@@ -14,6 +14,13 @@ abil_stats_base :: abil_stats_base
 	dmg_splash		(_dmg_splash),
 	power_cost		(_power_cost)
 {}
+abil_bonus :: abil_bonus
+	(int _dmg_tick, int _dmg_instant, int _dmg_splash, int _power_cost):
+	dmg_tick		(_dmg_tick),
+	dmg_instant		(_dmg_instant),
+	dmg_splash		(_dmg_splash),
+	power_cost		(_power_cost)
+{}
 abil_data :: abil_data
 	(int _ability_id, int _experience, float _timeleft):
 	ability_id	(_ability_id),

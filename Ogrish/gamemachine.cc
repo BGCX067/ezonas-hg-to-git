@@ -26,16 +26,15 @@ void game_machine :: loadAbilStatBases()
 			iss >> mask >> delay >> ticks >> d_t >> d_i >> d_s >> range >> splr >> speed >> p_cost;
 
 			if (delay == 0.f) delay = 0.5f; // "global cd"
-			AbilStatBases	.push_back(abil_stats_base(d_t, d_i, d_s, p_cost));
-			AbilPhysics		.push_back(abil_phys(range, splr, speed));
-			AbilBases		.push_back(abil_base(ticks, make_abil_mask(mask), delay));
-			AbilNames		.push_back(*it);
+			AbilStatBases .push_back(abil_stats_base(d_t, d_i, d_s, p_cost));
+			AbilPhysics	  .push_back(abil_phys(range, splr, speed));
+			AbilBases	  .push_back(abil_base(ticks, make_abil_mask(mask), delay));
+			AbilNames	  .push_back(*it);
 		}
 	}
-
 }
 
-void game_machine::loadCharacters()
+void game_machine :: loadCharacters()
 {
 	// some chars
 	Characters.push_back(character_s());
@@ -61,17 +60,21 @@ void game_machine::loadCharacters()
 		// I needed the actual index, and was lazy enough to use std::distance
 		FOR(sz) //it->AbilStats[i]
 		make_stat(  it->AbilDatas[i].ability_id,
+					it->AbilDatas[i].experience,
 					it->AbilStats[i], 
 					it->AbilBonuses[i]);
 	}
 }
-
-void make_stat(int abst_base, abil_stats & abst, abil_bonus & bonus)
+void game_machine :: make_stat
+	(int abst_base, int experience,abil_stats & abst, abil_bonus & bonus)
 {
-	
+	int level = experience / 100;
+	abst.dmg_instant = AbilStatBases[abst_base].dmg_instant	+ (level * bonus.dmg_instant);
+	abst.dmg_splash  = AbilStatBases[abst_base].dmg_splash	+ (level * bonus.dmg_splash );
+	abst.dmg_tick    = AbilStatBases[abst_base].dmg_tick	+ (level * bonus.dmg_tick   );
+	abst.power_cost  = AbilStatBases[abst_base].power_cost	+ (level * bonus.power_cost );
 }
-
-int game_machine::make_abil_mask(string flags)
+int game_machine :: make_abil_mask(string flags)
 {
 	size_t n = flags.size();
 	int ret = 0;
@@ -80,13 +83,11 @@ int game_machine::make_abil_mask(string flags)
 			ret += (1 << i);
 	return ret;
 }
-
 void game_machine :: loadAbilBonuses()
 {
 	Ogre::ConfigFile cf;
 	cf. CROSSLOAD("conf/abilbonus.cfg");
 }
-
 // this state machine is about taking inputs and generating outputs,
 // handling them in game and also send events on the network.
 // networking is mainly handled by sending events to a peer.

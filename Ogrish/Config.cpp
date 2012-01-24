@@ -16,6 +16,8 @@ void Application :: LoadEntity(string _s)
 	if (material_name == "-")		ent -> setMaterialName(_s + ".material");
 	else if (material_name == "x")  PRINTLOG("No material used for "+_s);
 	else							ent -> setMaterialName(material_name);
+	Entities.push_back(ent);
+	SGLT_RSN->attachObject(ent);
 }
 void Application :: LoadAttachEntity(string _s)
 {
@@ -30,6 +32,7 @@ void Application :: LoadAttachEntity(string _s)
 	else					 ent = SGLT_SCMGR -> createEntity(_s, mesh_filename);
 
 	if (material_name == "-") ent -> setMaterialName(_s + ".material");
+	else if (material_name == "x")  PRINTLOG("No material used for "+_s);
 	else					  ent -> setMaterialName(material_name);
 
 	SGLT_RSN->createChildSceneNode(_s,Vec3(x, y, z)) -> attachObject(ent);
@@ -69,8 +72,6 @@ SceneNode * Application :: AddLight(string _s)
 
 	return node;
 }
-
-// simple parameters readers
 Vec3 Application :: GetVect3(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));

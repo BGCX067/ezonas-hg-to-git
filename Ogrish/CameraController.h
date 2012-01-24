@@ -42,6 +42,7 @@ protected:
 	Keyboard * keyboard;
 	Mouse * mouse;
 	Vec3 translate, translate2;
+	float rot;
 
 	/////////////// METHODS ///////////////
 	CameraController();

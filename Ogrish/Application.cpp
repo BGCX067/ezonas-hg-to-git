@@ -23,11 +23,11 @@ bool Application :: init_config()
 Application :: Application():
 	FrameListener(),
 #ifdef __APPLE__
-root			(new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.cfg",
+root				(new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.cfg",
 						  macBundlePath() + "/Contents/Resources/"+"conf/Ogre.cfg",
 						  macBundlePath() + "/Contents/Resources/"+"conf/Ogre.log")),
 #else
-root			(new Root("conf/plugins_d.cfg", "conf/Ogre.cfg", "conf/Ogre.log")),
+	root			(new Root("conf/plugins_d.cfg", "conf/Ogre.cfg", "conf/Ogre.log")),
 #endif	// this tricks was made to make sure all those objects are
 	// initiallized at the creation of the application
 	// (some speed up maybe...)

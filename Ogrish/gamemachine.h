@@ -13,8 +13,6 @@ using namespace std;
 #define prx(s) printf("0x%X\n", s)
 typedef unsigned int uint;
 
-#define AR(type) type[10];
-
 class game_machine
 {
 public:
@@ -29,7 +27,7 @@ public:
 	void loadCharacters();
 
 	int make_abil_mask(string flags);
-	void make_stat(int abst_base, abil_stats & abst, abil_bonus & bonus);
+	void make_stat(int abst_base, int experience, abil_stats & abst, abil_bonus & bonus);
 
 	void go();
 

@@ -9,28 +9,26 @@ class Application:
 
 public: /* ############ PUBLIC ############ */
     static Application * getSingletonPtr(void);
-	static string str_vect(Vec3 v)
-	{ return TO_STR(v.x) + " " + TO_STR(v.y)+ " " + TO_STR(v.z); }
-	static string str_quat(Quaternion q)
-	{ return TO_STR(q.w) + " " + TO_STR(q.x) + " " + TO_STR(q.y)+ " " + TO_STR(q.z); }
+	static string str_vect(Vec3 v) { return TO_STR(v.x) + " " + TO_STR(v.y)+ " " + TO_STR(v.z); }
+	static string str_quat(Quaternion q) { return TO_STR(q.w) + " " + TO_STR(q.x) + " " + TO_STR(q.y)+ " " + TO_STR(q.z); }
 
 	float frame_time;
 
-    //static Application * sglt();
-	// getters for ogre objects
+	// getters
 	SceneManager * GetScMgr();
     SceneNode * GetRSN();
 	Camera * GetCam();
 	RenderWindow * GetRW();
 	Ogre::ConfigFile * GetCFG();
 	float * GetFT();
+
     void go();
     bool frameRenderingQueued(const FrameEvent & evt);
 	static Application * Instantiate();
 	float GetFloat(string);
 	int GetInt(string _s);
 
-	// quickly add a model by it's filename without .mesh naming the node the same
+	
 	void LoadAttachEntity(string);
 	void LoadEntity(string); // those 2 functions are the same, the first just attach to a same named node
 	SceneNode * AddLevel(string);
@@ -79,6 +77,7 @@ private: /* ############ PRIVATE ############ */
 
 	// entities and nodes
 	std::map <string, SceneNode *> Nodes;
+	std::vector<Entity *> Entities;
     Entity * entplane;
     SceneNode * rootnode;
 
