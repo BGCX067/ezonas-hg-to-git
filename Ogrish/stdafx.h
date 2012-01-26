@@ -26,7 +26,7 @@
 #endif
 //#include "Ogre\Terrain\OgreTerrain.h"
 
-//#define PHYSICS
+#define PHYSICS
 using namespace std;
 using namespace Ogre;
 using namespace OIS;
@@ -55,7 +55,7 @@ typedef Ogre :: Vector3 Vec3;
 #include <OgreTextAreaOverlayElement.h>
 
 #ifdef PHYSICS
-#include <btBulletDynamicsCommon.h>
+#include <btBulletCollisionCommon.h>
 #include "OgreMotionState.h"
 #endif
 

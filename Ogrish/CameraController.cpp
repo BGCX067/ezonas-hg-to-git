@@ -207,10 +207,10 @@ bool CameraController :: keyPressed(const OIS::KeyEvent &e)
 	case KC_UP: case KC_W:							translate2.z -=  1.f; break;
 	case KC_DOWN: case KC_S:						translate2.z +=  1.f; break;
 
-	//case KC_LEFT: case KC_A:						translate2.x -=  1.f; break;
-	//case KC_RIGHT: case KC_D:						translate2.x +=  1.f; break;
-	case KC_LEFT: case KC_A:						rot += .002f; break;
-	case KC_RIGHT: case KC_D:						rot -= .002f; break;
+	case KC_LEFT: case KC_A:						translate2.x -=  1.f; break;
+	case KC_RIGHT: case KC_D:						translate2.x +=  1.f; break;
+	//case KC_LEFT: case KC_A:						rot += .002f; break;
+	//case KC_RIGHT: case KC_D:						rot -= .002f; break;
 
 	case KC_PGUP: case KC_Q: case KC_LSHIFT:		translate2.y -=  1.f; break;
 	case KC_PGDOWN: case KC_E: case KC_SPACE:		translate2.y +=  1.f; break;
@@ -233,10 +233,10 @@ bool CameraController :: keyReleased(const OIS::KeyEvent &e)
 	case KC_UP: case KC_W:							translate2.z +=  1.f; break;
 	case KC_DOWN: case KC_S:						translate2.z -=  1.f; break;
 
-	case KC_LEFT: case KC_A:						rot -= .002f; break;
-	case KC_RIGHT: case KC_D:						rot += .002f; break;
-	//case KC_LEFT: case KC_A:						translate2.x +=  1.f; break;
-	//case KC_RIGHT: case KC_D:						translate2.x -=  1.f; break;
+	//case KC_LEFT: case KC_A:						rot -= .002f; break;
+	//case KC_RIGHT: case KC_D:						rot += .002f; break;
+	case KC_LEFT: case KC_A:						translate2.x +=  1.f; break;
+	case KC_RIGHT: case KC_D:						translate2.x -=  1.f; break;
 
 	case KC_PGUP: case KC_Q: case KC_LSHIFT:		translate2.y +=  1.f; break;
 	case KC_PGDOWN: case KC_E: case KC_SPACE:		translate2.y -=  1.f; break;

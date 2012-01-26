@@ -48,8 +48,9 @@ root				(new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.c
 	broadphase				(new btDbvtBroadphase()),
     collisionConfiguration	(new btDefaultCollisionConfiguration()),
     dispatcher				(new btCollisionDispatcher(collisionConfiguration)),
-    solver					(new btSequentialImpulseConstraintSolver),
-    dynamicsWorld			(new btDiscreteDynamicsWorld(dispatcher,broadphase,solver,collisionConfiguration))
+	//solver					(new btSequentialImpulseConstraintSolver),
+    //dynamicsWorld			(new btDiscreteDynamicsWorld(dispatcher,broadphase,solver,collisionConfiguration))
+    collisionWorld			(new btCollisionWorld(dispatcher,broadphase,collisionConfiguration))
 #endif
 {
 	window -> reposition(20, 20);
@@ -72,10 +73,6 @@ root				(new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.c
 	CreateScene();
 	//camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
 
-#ifdef PHYSICS
-	dynamicsWorld->setGravity(btVector3(0,-10,0));
-	
-#endif
 }
 Application :: ~ Application()
 {
@@ -88,8 +85,8 @@ Application :: ~ Application()
 	delete machine;
 	// bullet
 #ifdef PHYSICS
-	delete dynamicsWorld;
-    delete solver;
+//	delete dynamicsWorld;
+//    delete solver;
     delete dispatcher;
     delete collisionConfiguration;
     delete broadphase;
