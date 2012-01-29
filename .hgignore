@@ -48,7 +48,6 @@ syntax: glob
 *.ipch
 *.ncb
 *.user
-*.vcxproj.*
 
 ipch/**
 Debug/**

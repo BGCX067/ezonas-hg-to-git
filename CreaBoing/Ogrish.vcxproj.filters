@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="CameraController.cpp" />
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="ConfMgr.cpp" />
+    <ClCompile Include="Gorilla.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="CreateScene.cpp">
+      <Filter>fun</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameRenderingQueued.cpp">
+      <Filter>fun</Filter>
+    </ClCompile>
+    <ClCompile Include="GetSingleton.cpp">
+      <Filter>fun</Filter>
+    </ClCompile>
+    <ClCompile Include="InitGorilla.cpp">
+      <Filter>fun</Filter>
+    </ClCompile>
+    <ClCompile Include="Ogrish_main.cpp">
+      <Filter>fun</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CameraController.h" />
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="ConfMgr.h" />
+    <ClInclude Include="Gorilla.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="conf\Ogre.cfg">
+      <Filter>config</Filter>
+    </None>
+    <None Include="conf\plugins_d.cfg">
+      <Filter>config</Filter>
+    </None>
+    <None Include="conf\resources_d.cfg">
+      <Filter>config</Filter>
+    </None>
+    <None Include="conf\gameconf.cfg">
+      <Filter>config</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="fun">
+      <UniqueIdentifier>{6c1b6524-962a-4c5c-a716-a63e6561b785}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{a0cd6711-67ad-43f7-826c-efcb9f17a412}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
