@@ -18,6 +18,12 @@ void Application :: LoadEntity(string _s)
 	else							ent -> setMaterialName(material_name);
 	Entities.push_back(ent);
 	SGLT_RSN->attachObject(ent);
+
+#ifdef PHYSICS
+	btCollisionObject * colobj = new btCollisionObject();
+	collisionWorld->getCollisionObjectArray().push_back(colobj);
+	colobj->setCollisionShape(sphere);
+#endif
 }
 void Application :: LoadAttachEntity(string _s)
 {
@@ -35,7 +41,10 @@ void Application :: LoadAttachEntity(string _s)
 	else if (material_name == "x")  PRINTLOG("No material used for "+_s);
 	else					  ent -> setMaterialName(material_name);
 
-	SGLT_RSN->createChildSceneNode(_s,Vec3(x, y, z)) -> attachObject(ent);
+	SceneNode * node = SGLT_RSN->createChildSceneNode(_s,Vec3(x, y, z));
+	node -> attachObject(ent);
+	Entities.push_back(ent);
+	Nodes.push_back(node);
 	//if(scale != 1.0f) 
 	//	node -> setScale(scale, scale, scale);
 }

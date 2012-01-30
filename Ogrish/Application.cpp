@@ -31,6 +31,7 @@ root				(new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.c
 #endif	// this tricks was made to make sure all those objects are
 	// initiallized at the creation of the application
 	// (some speed up maybe...)
+#ifndef CONSTR
 	last_init		(init_config()),
 
 	window			(root -> initialise(true, "Zevil")),
@@ -51,6 +52,8 @@ root				(new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.c
 	//solver					(new btSequentialImpulseConstraintSolver),
     //dynamicsWorld			(new btDiscreteDynamicsWorld(dispatcher,broadphase,solver,collisionConfiguration))
     collisionWorld			(new btCollisionWorld(dispatcher,broadphase,collisionConfiguration))
+
+#endif
 #endif
 {
 	window -> reposition(20, 20);
@@ -72,7 +75,22 @@ root				(new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.c
 	InitGorilla();
 	CreateScene();
 	//camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
+#ifdef PHYSICS
+	btCollisionObject * colobj = new btCollisionObject;
 
+	//collisionWorld->getCollisionObjectArray().resize(10, colobj);
+
+
+	sphere = new btSphereShape(GetFloat("sphere_radius"));
+	
+	//	collisionWorld->addCollisionObject(new );
+
+	//collisionWorld->addCollisionObject(new btSphereShape(3));
+	//collisionWorld->addCollisionObject(new btSphereShape(3));
+	//collisionWorld->addCollisionObject(new btSphereShape(3));
+	//collisionWorld->addCollisionObject(new btSphereShape(3));
+	//collisionWorld->getCollisionObjectArray()[0]->setWorldTransform(
+#endif
 }
 Application :: ~ Application()
 {
@@ -85,8 +103,14 @@ Application :: ~ Application()
 	delete machine;
 	// bullet
 #ifdef PHYSICS
-//	delete dynamicsWorld;
-//    delete solver;
+	int sz = colobjs.size();
+	for(size_t i = 0; i < sz; ++i)
+		if(collisionWorld->getCollisionObjectArray()[i])
+			delete collisionWorld->getCollisionObjectArray()[i];
+
+	delete sphere;
+	// delete dynamicsWorld;
+	// delete solver;
     delete dispatcher;
     delete collisionConfiguration;
     delete broadphase;
