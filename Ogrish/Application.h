@@ -36,7 +36,8 @@ public: /* ############ PUBLIC ############ */
 	SceneTypeMask GetScMgrType();
 	Vec3 GetVect3(string _s);
 
-
+	void handle_bullet();
+	void check_collisions();
 protected:
 private: /* ############ PRIVATE ############ */
 	bool init_config();
@@ -88,6 +89,8 @@ private: /* ############ PRIVATE ############ */
 	btCollisionWorld :: ContactResultCallback * result;
 	btTransform transf;
 	btSphereShape * sphere;
+
+	float sphere_radius_squared;
 #endif
 #ifdef USE_TERRAIN
 	Ogre::Terrain * mTerrain;

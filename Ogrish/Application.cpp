@@ -82,7 +82,6 @@ root				(new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.c
 
 
 	sphere = new btSphereShape(GetFloat("sphere_radius"));
-	
 	//	collisionWorld->addCollisionObject(new );
 
 	//collisionWorld->addCollisionObject(new btSphereShape(3));
@@ -91,6 +90,8 @@ root				(new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.c
 	//collisionWorld->addCollisionObject(new btSphereShape(3));
 	//collisionWorld->getCollisionObjectArray()[0]->setWorldTransform(
 #endif
+	sphere_radius_squared = GetFloat("sphere_radius");
+	sphere_radius_squared *= sphere_radius_squared;
 }
 Application :: ~ Application()
 {
@@ -103,7 +104,7 @@ Application :: ~ Application()
 	delete machine;
 	// bullet
 #ifdef PHYSICS
-	int sz = colobjs.size();
+	int sz = collisionWorld->getCollisionObjectArray().size();
 	for(size_t i = 0; i < sz; ++i)
 		if(collisionWorld->getCollisionObjectArray()[i])
 			delete collisionWorld->getCollisionObjectArray()[i];

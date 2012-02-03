@@ -10,20 +10,11 @@ CameraController :: CameraController ():
 
 	n_root			(Application :: getSingletonPtr() -> GetRSN()),
 
-#define ORBIT
-#ifdef ORBIT
-	n_master	(n_root->	createChildSceneNode("master")),
-	n_target	(n_master->	createChildSceneNode("target")),	
-	n_cam		(n_target->	createChildSceneNode("cam")),
-	n_yawpitch_ptr(n_target),
-#else
-	n_master		(n_root		-> createChildSceneNode ("master")),
-
-	n_target		(n_master	-> createChildSceneNode ("target")),
-	n_yaw			(n_target	-> createChildSceneNode ("yaw")),
-	n_pitch			(n_yaw		-> createChildSceneNode ("pitch")),
-	n_cam			(n_pitch	-> createChildSceneNode ("cam")),
-#endif
+	n_master	    (n_root->	createChildSceneNode("master")),
+	n_target	    (n_master->	createChildSceneNode("target")),	
+	n_cam		    (n_target->	createChildSceneNode("cam")),
+	n_yawpitch_ptr  (n_target),
+	
 	cam				(Application :: getSingletonPtr() -> GetCam()),
 	lasercast		(LaserCast :: Instantiate()),
 	bullet_tracer	(BulletTracer :: Instantiate()),
@@ -36,25 +27,11 @@ CameraController :: CameraController ():
 	rot(0.0f)
 #endif
 {
-	//PRINTLOG("default cam direction = " + Application::str_vect(cam->getDirection()));
-	//PRINTLOG("default cam orientation = " + Application::str_quat(cam->getOrientation()));
 	
 	n_cam->setPosition(0,0,10);
 	n_cam->attachObject(cam);
 	n_target->setFixedYawAxis(true); // optional
-
-
-	/*
-	//n_master -> addChild(n_target);   //"master"  
-	//n_cam -> translate(0,0, 10);		//"target"  
-	//n_target -> addChild(n_cam);		//"cam"     
-										//"yawpitch"
 	
-	//n_master->translate(SGLT_APP->GetVect3("cam_master"));
-	//n_cam->setFixedYawAxis(true);
-	//n_cam -> translate(offset); 
-	//cam->setAutoTracking(true, n_target, offset);
-	*/
 #ifndef CONTROLS_AND_OTHER
 	ParamList parameters;
 	unsigned int windowHandle = 0;
@@ -85,7 +62,7 @@ CameraController :: CameraController ():
 	keyboard -> setEventCallback(this);
 #endif
 }
-
+#define REINIT(node) { node -> setPosition(0,0,0); node->setOrientation(Quaternion()); }
 void CameraController :: setCameraMode(int mode)
 {
 	/*
@@ -96,55 +73,56 @@ void CameraController :: setCameraMode(int mode)
 5. optionally setFixedYaw on node A 									 #
 6. to orbit, yaw and pitch node A based on the x/y of the mouse 		 #
 	// root master target yaw pitch cam	
-
-	//n_master = n_root->createChildSceneNode("master");
-	//n_target = n_master->createChildSceneNode("target");	
-	//n_cam = n_target->createChildSceneNode("cam");
 	*/	// root master target yaw pitch cam	
+	/* 
+	default arch:
+	root --> master --> target --> cam 
+	yaw_pitch_ptr = target
+	*/
 	if(mode == camera_mode) return;
 
 	n_master -> detachAllObjects(); n_master -> removeAllChildren();
 	n_target -> detachAllObjects(); n_target -> removeAllChildren();
 	n_cam	 -> detachAllObjects();	n_cam	 -> removeAllChildren();
+
+	n_root -> removeChild(n_master);
 	switch(mode)
 	{
 	case 1:
-		
-		n_cam	 -> setPosition(0,0,0);
-		n_cam	 -> setOrientation(Quaternion());
-		cam		 -> setPosition(0,0,0);
-		cam	     -> setOrientation(Quaternion());
-		//cam->set
-		
-		n_master -> addChild(n_cam);
-		n_cam	 -> attachObject(cam);
-		n_yawpitch_ptr = n_cam;
 		camera_mode = mode;
-		n_target->setFixedYawAxis(false); // optional
+		REINIT(n_cam)
+		REINIT(n_master)
+		REINIT(cam)
+		REINIT(n_target)
+		
+		/////////////////////
+		n_root	 -> addChild	(n_master);
+		n_master -> addChild	(n_cam);
+		n_cam	 -> attachObject(cam);
+		/////////////////////
+		n_target->setFixedYawAxis(false);
+		n_yawpitch_ptr = n_cam;
 		break;
 
 	case 3:
-		n_cam ->	setPosition(0,0,0);   
-		n_master -> setPosition(0,0,0);  
-		n_target -> setPosition(0,0,0);
-
-		n_cam ->	setOrientation(Quaternion()); 
-		n_master -> setOrientation(Quaternion());
-		n_target -> setOrientation(Quaternion());
-
-		n_master->addChild(n_target);
-		n_target->addChild(n_cam);
-		n_yawpitch_ptr = n_target;
-
-		n_cam->setPosition(0,0,10);
-		cam		 -> setPosition(0,0,0);
-		cam	     -> yaw(Radian(0));
-		cam	     -> pitch(Radian(0));
-		cam	     -> roll(Radian(0));
-		n_cam->attachObject(cam);
-		n_target->setFixedYawAxis(true); // optional
-		n_target->attachObject(character);
 		camera_mode = mode;
+		REINIT(n_cam)
+		REINIT(n_master)
+		REINIT(cam)
+		REINIT(n_target)
+
+		/////////////////////
+		n_root	 -> addChild(n_master);
+		n_master -> addChild(n_target);
+		n_target -> addChild(n_cam);
+
+		//n_cam	 -> attachObject(cam);
+		n_target -> attachObject(character);
+		n_cam->setPosition(0,0,10);
+		n_cam->attachObject(cam);
+		/////////////////////
+		n_target->setFixedYawAxis(true);
+		n_yawpitch_ptr = n_target;
 		break;
 	}
 }
@@ -153,12 +131,13 @@ bool CameraController :: update ()
 	keyboard -> capture();
 	mouse -> capture();
 	//n_cam -> getOrientation()
-	n_master -> translate(
-		n_yawpitch_ptr -> getOrientation() * // warning, comment this if you want to blabla front of
-		//* n_pitch -> getOrientation()
-		//*
-		//n_target -> getOrientation() *
-		translate * moving_speed * (* frame_time));
+	n_master -> translate
+	(
+		n_yawpitch_ptr -> getOrientation() *
+		translate *
+		moving_speed *
+		(* frame_time)
+	);
 		
 	//cam ->setAutoTracking
 	//cam -> lookAt(n_target->getPosition());
@@ -170,19 +149,8 @@ bool CameraController :: update ()
 }
 bool CameraController :: mouseMoved(const OIS::MouseEvent &e)
 {
-#define FIRSTPERSON
-#ifdef FIRSTPERSON
-
-
-	//if(camera_mode == 3)
-		n_yawpitch_ptr ->   yaw(Radian(- e.state.X.rel * rotating_speed), Ogre::Node::TS_WORLD);
-	//else
-	//	n_yawpitch_ptr ->   yaw(Radian(- e.state.X.rel * rotating_speed));
-
+	n_yawpitch_ptr ->   yaw(Radian(- e.state.X.rel * rotating_speed), Ogre::Node::TS_WORLD);
 	n_yawpitch_ptr -> pitch(Radian(- e.state.Y.rel * rotating_speed));
-	//cam ->     yaw(Radian(- e.state.X.rel * rotating_speed));
-	//cam -> pitch(Radian(- e.state.Y.rel * rotating_speed));
-#endif
 	return true;
 }
 bool CameraController :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)

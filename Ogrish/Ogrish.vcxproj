@@ -105,6 +105,7 @@
     <ClCompile Include="gamemachine.cc" />
     <ClCompile Include="GetSingleton.cpp" />
     <ClCompile Include="Gorilla.cpp" />
+    <ClCompile Include="handle_bullet.cpp" />
     <ClCompile Include="InitGorilla.cpp" />
     <ClCompile Include="items.cpp" />
     <ClCompile Include="LaserCast.cpp" />

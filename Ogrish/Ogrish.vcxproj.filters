@@ -121,5 +121,8 @@
     <ClCompile Include="InitGorilla.cpp">
       <Filter>gorilla</Filter>
     </ClCompile>
+    <ClCompile Include="handle_bullet.cpp">
+      <Filter>func</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

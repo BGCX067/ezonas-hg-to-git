@@ -17,7 +17,7 @@ void Application :: LoadEntity(string _s)
 	else if (material_name == "x")  PRINTLOG("No material used for "+_s);
 	else							ent -> setMaterialName(material_name);
 	Entities.push_back(ent);
-	SGLT_RSN->attachObject(ent);
+	//SGLT_RSN->attachObject(ent);
 
 #ifdef PHYSICS
 	btCollisionObject * colobj = new btCollisionObject();

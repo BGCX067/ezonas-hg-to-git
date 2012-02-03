@@ -12,8 +12,9 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	);
 	frame_time = evt.timeSinceLastFrame;
 
-	//Entities[1]->
-	//transf.
+	//transf.set
+	//handle_bullet();
+	check_collisions();
 	return cam_ctrlr -> update();//evt.timeSinceLastFrame);
 }
 
