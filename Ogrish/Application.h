@@ -38,6 +38,7 @@ public: /* ############ PUBLIC ############ */
 
 	void handle_bullet();
 	void check_collisions();
+	void moveTo(int entity_id, Vec3 dest, float speed = 3.f);
 protected:
 private: /* ############ PRIVATE ############ */
 	bool init_config();
@@ -71,6 +72,8 @@ private: /* ############ PRIVATE ############ */
 
 	std::vector<Entity *> Entities;
 	std::vector<SceneNode *> Nodes;
+	std::vector<Vec3> velocities;
+	std::vector<bool> isMoving;
     Entity * entplane;
     SceneNode * rootnode;
 

@@ -126,14 +126,19 @@ void Application :: go ()
 	root -> startRendering();
 	//while(!stop) root ->renderOneFrame();
 }
-/*Application * Application :: sglt()
+
+void Application :: moveTo(int idx, Vec3 dest, float speed)
 {
-	static Application _;
-	return & _;
-}*/
-SceneManager * Application :: GetScMgr()	{ return scmgr; }
-SceneNode * Application :: GetRSN()			{ return scmgr -> getRootSceneNode(); }
-Camera * Application :: GetCam()			{ return camera; }
-RenderWindow * Application :: GetRW()		{ return window; }
-float * Application :: GetFT()				{ return & frame_time; }
-Ogre::ConfigFile * Application :: GetCFG()  { return configfile; }
+	if(idx < Nodes.size())
+	{
+		isMoving[idx] = true;
+		velocities[idx] = (Nodes[idx].getPosition() - dest) * speed / direction.length();
+	}
+}
+
+SceneManager * Application :: GetScMgr()	{ return scmgr;						   }
+SceneNode * Application :: GetRSN()			{ return scmgr -> getRootSceneNode();  }
+Camera * Application :: GetCam()			{ return camera;					   }
+RenderWindow * Application :: GetRW()		{ return window;					   }
+float * Application :: GetFT()				{ return & frame_time;				   }
+Ogre::ConfigFile * Application :: GetCFG()  { return configfile;				   }

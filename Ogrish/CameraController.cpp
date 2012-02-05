@@ -84,19 +84,16 @@ void CameraController :: setCameraMode(int mode)
 	n_master -> detachAllObjects(); n_master -> removeAllChildren();
 	n_target -> detachAllObjects(); n_target -> removeAllChildren();
 	n_cam	 -> detachAllObjects();	n_cam	 -> removeAllChildren();
+	camera_mode = mode;
 
-	n_root -> removeChild(n_master);
+	REINIT(n_cam)
+	REINIT(n_master)
+	REINIT(cam)
+	REINIT(n_target)
 	switch(mode)
 	{
 	case 1:
-		camera_mode = mode;
-		REINIT(n_cam)
-		REINIT(n_master)
-		REINIT(cam)
-		REINIT(n_target)
-		
 		/////////////////////
-		n_root	 -> addChild	(n_master);
 		n_master -> addChild	(n_cam);
 		n_cam	 -> attachObject(cam);
 		/////////////////////
@@ -105,24 +102,17 @@ void CameraController :: setCameraMode(int mode)
 		break;
 
 	case 3:
-		camera_mode = mode;
-		REINIT(n_cam)
-		REINIT(n_master)
-		REINIT(cam)
-		REINIT(n_target)
-
 		/////////////////////
-		n_root	 -> addChild(n_master);
 		n_master -> addChild(n_target);
 		n_target -> addChild(n_cam);
 
-		//n_cam	 -> attachObject(cam);
 		n_target -> attachObject(character);
 		n_cam->setPosition(0,0,10);
 		n_cam->attachObject(cam);
 		/////////////////////
 		n_target->setFixedYawAxis(true);
 		n_yawpitch_ptr = n_target;
+		//character
 		break;
 	}
 }
