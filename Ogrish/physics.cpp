@@ -37,7 +37,7 @@
 
 */
 
-
+#ifdef PHYSICS
 void Application :: handle_bullet()
 {
 	static Vec3 temp;
@@ -59,6 +59,7 @@ void Application :: handle_bullet()
 	}
 
 }
+#endif
 
 void Application :: check_collisions()
 {
@@ -66,15 +67,15 @@ void Application :: check_collisions()
 	for(size_t i = 0; i < num; ++i)
 		for(size_t j = i + 1; j < num; ++j)
 		{
-			if(Nodes[i]->getPosition().squaredDistance(Nodes[j]->getPosition()) < sphere_radius_squared)
+			if(Entities[i]->getPosition().squaredDistance(Nodes[j]->getPosition()) < sphere_radius_squared)
 			{
-				Nodes[i]->showBoundingBox(true);
-				Nodes[j]->showBoundingBox(true);
+/*				Entities[i]->showBoundingBox(true);
+				Entities[j]->showBoundingBox(true);*/
 			}
 			else
 			{
-				Nodes[i]->showBoundingBox(false);
-				Nodes[j]->showBoundingBox(false);
+//				Nodes[i]->showBoundingBox(false);
+//				Nodes[j]->showBoundingBox(false);
 			}
 		}
 }

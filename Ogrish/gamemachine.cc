@@ -12,9 +12,12 @@ void game_machine :: loadAbilStatBases()
 	// getting spell name list
 	Ogre::ConfigFile cf;
 	cf. CROSSLOAD("conf/abils.cfg");
-	std::vector<std::string> strs;
-	boost::split(strs, cf.getSetting("spells"), boost::is_any_of("\t "));
-	for(auto it = strs.begin(); it != strs.end(); ++it)
+	Ogre::StringVector strs = StringUtil::split(cf.getSetting("spells"));
+
+/*	boost::split(strs,
+				 std::string(cf.getSetting("spells")),
+				 boost::is_any_of("\t "));*/
+	for(StringVector::iterator it = strs.begin(); it != strs.end(); ++it)
 	{
 		istringstream iss(cf.getSetting(*it));
 		if(iss)
@@ -54,7 +57,7 @@ void game_machine :: loadCharacters()
 	Characters[2].AbilStats.push_back(abil_stats());
 		
 	// now applying ability bonuses
-	for(auto it = Characters.begin(); it != Characters.end(); ++it)
+	for(std::vector<character_s>::iterator it = Characters.begin(); it != Characters.end(); ++it)
 	{
 		size_t sz = it->AbilStats.size();
 		// I needed the actual index, and was lazy enough to use std::distance

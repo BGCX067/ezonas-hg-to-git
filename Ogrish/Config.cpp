@@ -1,38 +1,17 @@
 //#ifndef __APPLE__
 #include "stdafx.h"
 //#endif
+
 void Application :: LoadEntity(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
 	float x, y, z, scale;
-	string mesh_filename, material_name;
-	iss >> mesh_filename >> scale >> material_name >> x >> y >> z; // unwraps config string
+	string mesh_filename, material_name, scenenode_create;
 
-	/* "-" loads the same named .mesh / .material */
-	Entity * ent;
-	if(mesh_filename == "-")		ent = SGLT_SCMGR -> createEntity(_s, _s + ".mesh");
-	else							ent = SGLT_SCMGR -> createEntity(_s, mesh_filename);
-
-	if (material_name == "-")		ent -> setMaterialName(_s + ".material");
-	else if (material_name == "x")  PRINTLOG("No material used for "+_s);
-	else							ent -> setMaterialName(material_name);
-	Entities.push_back(ent);
-	isMoving.push_back(false);
-	//SGLT_RSN->attachObject(ent);
-
-#ifdef PHYSICS
-	btCollisionObject * colobj = new btCollisionObject();
-	collisionWorld->getCollisionObjectArray().push_back(colobj);
-	colobj->setCollisionShape(sphere);
-#endif
-}
-void Application :: LoadAttachEntity(string _s)
-{
-	istringstream iss(configfile -> getSetting(_s));
-	float x, y, z, scale;
-	string mesh_filename, material_name;
-	iss >> mesh_filename >> scale >> material_name >> x >> y >> z;	// unwraps config string
-
+	iss >> mesh_filename >> scale >> material_name >> x >> y >> z >> scenenode_create;
+	bool scenenode_create_bool;
+	if(scenenode_create == "true") scenenode_create_bool = true;
+	else scenenode_create_bool = false;
 	/* "-" loads the same named .mesh / material */
 	Entity * ent;
 	if(mesh_filename == "-") ent = SGLT_SCMGR -> createEntity(_s, _s + ".mesh");
@@ -42,12 +21,26 @@ void Application :: LoadAttachEntity(string _s)
 	else if (material_name == "x")  PRINTLOG("No material used for "+_s);
 	else					  ent -> setMaterialName(material_name);
 
-	SceneNode * node = SGLT_RSN->createChildSceneNode(_s,Vec3(x, y, z));
-	node -> attachObject(ent);
+	if(scenenode_create_bool)
+	{
+		SceneNode * node = SGLT_RSN->createChildSceneNode(_s, Vec3(x, y, z));
+		node -> attachObject(ent);
+		Nodes.push_back(node);
+		node->showBoundingBox(true);
+	}
+	else
+		Nodes.push_back(NULL);
+
+		
+	//ent->setP
 	Entities.push_back(ent);
-	Nodes.push_back(node);
-	//if(scale != 1.0f) 
-	//	node -> setScale(scale, scale, scale);
+	isMoving.push_back(false);
+
+#ifdef PHYSICS
+	btCollisionObject * colobj = new btCollisionObject();
+	collisionWorld->getCollisionObjectArray().push_back(colobj);
+	colobj->setCollisionShape(sphere);
+#endif
 }
 SceneNode * Application :: AddLight(string _s)
 {

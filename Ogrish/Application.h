@@ -28,9 +28,7 @@ public: /* ############ PUBLIC ############ */
 	float GetFloat(string);
 	int GetInt(string _s);
 
-	
-	void LoadAttachEntity(string);
-	void LoadEntity(string); // those 2 functions are the same, the first just attach to a same named node
+	void LoadEntity(string);
 	SceneNode * AddLevel(string);
 	SceneNode * AddLight(string);
 	SceneTypeMask GetScMgrType();
@@ -93,8 +91,8 @@ private: /* ############ PRIVATE ############ */
 	btTransform transf;
 	btSphereShape * sphere;
 
-	float sphere_radius_squared;
 #endif
+	float sphere_radius_squared;
 #ifdef USE_TERRAIN
 	Ogre::Terrain * mTerrain;
 	Ogre::TerrainGlobalOptions * mGlobals;

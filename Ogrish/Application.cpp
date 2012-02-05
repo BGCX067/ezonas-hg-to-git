@@ -132,7 +132,8 @@ void Application :: moveTo(int idx, Vec3 dest, float speed)
 	if(idx < Nodes.size())
 	{
 		isMoving[idx] = true;
-		velocities[idx] = (Nodes[idx].getPosition() - dest) * speed / direction.length();
+		Vec3 direction (Nodes[idx]->getPosition() - dest);
+		velocities[idx] = direction * speed / direction.length();
 	}
 }
 

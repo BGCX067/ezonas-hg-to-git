@@ -47,6 +47,8 @@
 		D874EDB714C1BF6A00A47D38 /* mesh in Resources */ = {isa = PBXBuildFile; fileRef = D874ED8514C1BF6A00A47D38 /* mesh */; };
 		D874EDB814C1BF6A00A47D38 /* textures in Resources */ = {isa = PBXBuildFile; fileRef = D874ED8A14C1BF6A00A47D38 /* textures */; };
 		D8AD547414C6E6FB00F5C618 /* ability.cc in Sources */ = {isa = PBXBuildFile; fileRef = D8AD547314C6E6FB00F5C618 /* ability.cc */; };
+		D8C3EEB814DECDED009CEC17 /* physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8C3EEB714DECDED009CEC17 /* physics.cpp */; };
+		D8C3EEBD14DECE44009CEC17 /* character.cc in Sources */ = {isa = PBXBuildFile; fileRef = D8C3EEBC14DECE44009CEC17 /* character.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -131,6 +133,8 @@
 		D8AD546914C6AFF500F5C618 /* character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = character.h; sourceTree = "<group>"; };
 		D8AD547214C6E6FB00F5C618 /* ability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ability.h; sourceTree = "<group>"; };
 		D8AD547314C6E6FB00F5C618 /* ability.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ability.cc; sourceTree = "<group>"; };
+		D8C3EEB714DECDED009CEC17 /* physics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = physics.cpp; sourceTree = "<group>"; };
+		D8C3EEBC14DECE44009CEC17 /* character.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = character.cc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,17 +161,16 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D8C3EEC414DED1EE009CEC17 /* conf */,
 				D8EB5B0B14C3166800E084A5 /* functions */,
 				D8EB5B0A14C3166200E084A5 /* effects */,
 				D8EB5B0914C3165A00E084A5 /* gorilla */,
 				D8EB5B0714C3165000E084A5 /* game */,
 				D874ED2A14C1BEC600A47D38 /* Application.cpp */,
+				D8C3EEB714DECDED009CEC17 /* physics.cpp */,
 				D874ED2B14C1BEC600A47D38 /* Application.h */,
 				D874ED3014C1BEC600A47D38 /* CameraController.cpp */,
 				D874ED3114C1BEC600A47D38 /* CameraController.h */,
-				D874ED3214C1BEC600A47D38 /* Config.cpp */,
-				D874ED4A14C1BEC600A47D38 /* OgreConsoleForGorilla.cpp */,
-				D874ED4B14C1BEC600A47D38 /* OgreConsoleForGorilla.h */,
 				D874ED4C14C1BEC600A47D38 /* OgreMotionState.cpp */,
 				D874ED4D14C1BEC600A47D38 /* OgreMotionState.h */,
 				D874ED4E14C1BEC600A47D38 /* Ogrish_main.cpp */,
@@ -252,9 +255,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D8C3EEC414DED1EE009CEC17 /* conf */ = {
+			isa = PBXGroup;
+			children = (
+				D874ED3214C1BEC600A47D38 /* Config.cpp */,
+			);
+			name = conf;
+			sourceTree = "<group>";
+		};
 		D8EB5B0714C3165000E084A5 /* game */ = {
 			isa = PBXGroup;
 			children = (
+				D8C3EEBC14DECE44009CEC17 /* character.cc */,
 				D8AD546814C6AFF500F5C618 /* ability.h */,
 				D8AD546914C6AFF500F5C618 /* character.h */,
 				D874ED3714C1BEC600A47D38 /* datastruct.cpp */,
@@ -272,6 +284,8 @@
 		D8EB5B0914C3165A00E084A5 /* gorilla */ = {
 			isa = PBXGroup;
 			children = (
+				D874ED4A14C1BEC600A47D38 /* OgreConsoleForGorilla.cpp */,
+				D874ED4B14C1BEC600A47D38 /* OgreConsoleForGorilla.h */,
 				D874ED4314C1BEC600A47D38 /* Gorilla.cpp */,
 				D874ED4414C1BEC600A47D38 /* Gorilla.h */,
 				D874ED4514C1BEC600A47D38 /* InitGorilla.cpp */,
@@ -407,6 +421,8 @@
 				D874ED6614C1BEC600A47D38 /* Ogrish_main.cpp in Sources */,
 				D874ED6714C1BEC600A47D38 /* stdafx.cpp in Sources */,
 				D8AD547414C6E6FB00F5C618 /* ability.cc in Sources */,
+				D8C3EEB814DECDED009CEC17 /* physics.cpp in Sources */,
+				D8C3EEBD14DECE44009CEC17 /* character.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

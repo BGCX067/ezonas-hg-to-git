@@ -27,7 +27,7 @@ CameraController :: CameraController ():
 	rot(0.0f)
 #endif
 {
-	
+	cam -> setPosition(0,10,30);
 	n_cam->setPosition(0,0,10);
 	n_cam->attachObject(cam);
 	n_target->setFixedYawAxis(true); // optional

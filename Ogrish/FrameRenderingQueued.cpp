@@ -11,13 +11,14 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 		+ TO_STR(window -> getBatchCount()) + " bat"
 	);
 	frame_time = evt.timeSinceLastFrame;
-	size_t sz = Nodes.size();
+	size_t sz = velocities.size();
 	for(size_t i = 0; i < sz; ++ i)
 	{
 		Nodes[i]->translate(velocities[i] * frame_time);
 	}
 	//transf.set
 	//handle_bullet();
+	
 	check_collisions();
 	return cam_ctrlr -> update();//evt.timeSinceLastFrame);
 }

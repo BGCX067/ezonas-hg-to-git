@@ -7,7 +7,8 @@
 #include <map>
 #include <string>
 #include <queue>
-#include <array>
+
+//#include <array>
 using namespace std;
 #define pr(s) printf("%s\n", s)
 #define prx(s) printf("0x%X\n", s)

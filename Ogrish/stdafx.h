@@ -26,7 +26,10 @@
 #endif
 //#include "Ogre\Terrain\OgreTerrain.h"
 
+#ifndef __APPLE__
 #define PHYSICS
+#endif
+
 using namespace std;
 using namespace Ogre;
 using namespace OIS;
