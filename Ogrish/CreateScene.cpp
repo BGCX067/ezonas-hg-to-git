@@ -13,26 +13,39 @@ void Application :: CreateScene()
 
 	LoadEntity("bonome");
 
-	LoadEntity("dummy1");
-	LoadEntity("dummy2");
-	LoadEntity("dummy3");
+	//LoadEntity("dummy1");
+	//LoadEntity("dummy2");
+	//LoadEntity("dummy3");
+
+	Populate();
 
 	//cam_ctrlr -> getMasterNode()->attachObject(SGLT_SCMGR ->getEntity("bonome"));
 	// cam_ctrlr -> getTargetNode() -> attachObject(SGLT_SCMGR -> getEntity("bonome"));
 
-	cam_ctrlr -> setEntity(SGLT_SCMGR -> getEntity("bonome"));
+	//cam_ctrlr -> setTarget(SGLT_SCMGR -> getSceneNode("bonome"));
 
-	AddLight("light3");
-	AddLight("light4");
+	AddLight("light1");
+	AddLight("light2");
+
+	Nodes.push_back(SGLT_SCMGR->getSceneNode("master"));
+	int sz = Nodes.size();
+	for (int i = 0; i < sz; ++ i)
+	{
+		PRINTLOG(Nodes[i]->getName());
+	}
 }
 void Application :: AddPlane()
 {
 	Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -1); // -1 is the y position
 
+	float plane_width = GetFloat("plane_width");
+	float plane_depth = GetFloat("plane_depth");
+
+
 	Ogre :: MeshManager :: getSingleton().createPlane
 		("plane",
 			ResourceGroupManager :: DEFAULT_RESOURCE_GROUP_NAME, plane,
-			50, 50, 10, 10, // width height xseg yseg
+			plane_width, plane_depth, 10, 10, // width height xseg yseg
 			true,
 			1, 5, 5,
 			//Vec3(1,1,4));

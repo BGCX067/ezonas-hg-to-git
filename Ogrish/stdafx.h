@@ -36,7 +36,7 @@ using namespace OIS;
 
 typedef Ogre :: Vector3 Vec3;
 #define TO_STR StringConverter :: toString
-#define FOR(I) for(int i = 0; i < I; ++i)
+#define FOR(I) for(size_t i = 0; i < I; ++i)
 #define FOR_VECT(vect, type) for(std::vector<type>::iterator it = vect.begin(); it != vect.end(); ++it)
 #define FOR_VECT2(vect, type) for(std::vector<type>::iterator it2 = vect.begin(); it2 != vect.end(); ++it2)
 

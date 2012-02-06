@@ -15,6 +15,7 @@ public:
 	void setCameraMode(int mode);
 	SceneNode * getTargetNode();
 	SceneNode * getMasterNode();
+	void setTarget(SceneNode * node);
 	void setEntity(Entity * ent);
 protected:
 	SceneNode

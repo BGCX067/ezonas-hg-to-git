@@ -48,12 +48,12 @@ private:
 	std::vector <character_s>	   Characters;
 	queue <Event>				   Events;
 
-	std::vector <std::string>	   AbilNames;		
 
 #ifndef COMPOSITION
 	std::vector <abil_stats> AbilStats;
 	std::vector <abil_data> AbilDatas;
 #endif
+	std::vector <std::string>	   AbilNames;
 	std::vector <abil_base>		   AbilBases;		// BASE -- unique
 	std::vector <abil_phys>		   AbilPhysics;		// PHYS -- unique
 	std::vector <abil_stats_base>  AbilStatBases;

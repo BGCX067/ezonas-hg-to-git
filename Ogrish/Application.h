@@ -34,6 +34,7 @@ public: /* ############ PUBLIC ############ */
 	SceneTypeMask GetScMgrType();
 	Vec3 GetVect3(string _s);
 
+	void Populate();
 	void handle_bullet();
 	void check_collisions();
 	void moveTo(int entity_id, Vec3 dest, float speed = 3.f);
@@ -67,7 +68,8 @@ private: /* ############ PRIVATE ############ */
 #endif
     CameraController * cam_ctrlr;	
 	game_machine * machine;
-
+	float sphere_radius_squared;
+	Vec3 temp;
 	std::vector<Entity *> Entities;
 	std::vector<SceneNode *> Nodes;
 	std::vector<Vec3> velocities;
@@ -92,7 +94,8 @@ private: /* ############ PRIVATE ############ */
 	btSphereShape * sphere;
 
 #endif
-	float sphere_radius_squared;
+
+	//Material * hover_idle, hover_hover;
 #ifdef USE_TERRAIN
 	Ogre::Terrain * mTerrain;
 	Ogre::TerrainGlobalOptions * mGlobals;

@@ -18,7 +18,7 @@ struct abil_data;	// hold by players
 struct abil_stats;	// those are hold by players, it stores actual ability constant statistic after applying bonuses
 
 struct abil_base			 // BASE -- unique
-{ int ticks, mask; float delay; abil_base(int _ticks = 5, int _mask = ABIL_DEFAULT, float _delay = 1.0f); void diagnose();};
+{ unsigned short ticks, mask; float delay; abil_base(unsigned short _ticks = 5, unsigned short _mask = ABIL_DEFAULT, float _delay = 1.0f); void diagnose();};
 struct abil_phys 
 {							 // PHYS -- unique
 	float range, splash_range, missile_speed;
@@ -27,24 +27,24 @@ struct abil_phys
 struct abil_bonus 
 {							 // BONUS -- charact-wise
 	// TODO
-	int dmg_tick, dmg_instant, dmg_splash, power_cost;
-	abil_bonus(int _dmg_tick = 0, int _dmg_instant = 0, int _dmg_splash = 0, int _power_cost = 0);
+	unsigned short dmg_tick, dmg_instant, dmg_splash, power_cost;
+	abil_bonus(unsigned short _dmg_tick = 0, unsigned short _dmg_instant = 0, unsigned short _dmg_splash = 0, unsigned short _power_cost = 0);
 	void diagnose();
 };
 struct abil_data 
 {							 // DATA -- charact-wise
-	int ability_id, experience; float timeleft;
-	abil_data(int _ability_id = 0, int _experience = 0, float _timeleft = 1.f); void diagnose();
+	unsigned short ability_id, experience; float timeleft;
+	abil_data(unsigned short _ability_id = 0, unsigned short _experience = 0, float _timeleft = 1.f); void diagnose();
 };
 struct abil_stats_base;
 struct abil_stats 
 { 							 // STATS -- charact-wize
-	int dmg_tick, dmg_instant, dmg_splash, power_cost;
-	abil_stats(int _dmg_tick = 0, int _dmg_instant = 0, int _dmg_splash = 0, int _power_cost = 0); void diagnose();
+	unsigned short dmg_tick, dmg_instant, dmg_splash, power_cost;
+	abil_stats(unsigned short _dmg_tick = 0, unsigned short _dmg_instant = 0, unsigned short _dmg_splash = 0, unsigned short _power_cost = 0); void diagnose();
 	
 };
 struct abil_stats_base
 { 							 // STATS -- charact-wize
-	int dmg_tick, dmg_instant, dmg_splash, power_cost;
-	abil_stats_base	(int _dmg_tick = 0, int _dmg_instant = 0, int _dmg_splash = 0, int _power_cost = 0); void diagnose();
+	unsigned short dmg_tick, dmg_instant, dmg_splash, power_cost;
+	abil_stats_base	(unsigned short _dmg_tick = 0, unsigned short _dmg_instant = 0, unsigned short _dmg_splash = 0, unsigned short _power_cost = 0); void diagnose();
 };

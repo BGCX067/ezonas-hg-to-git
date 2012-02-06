@@ -1,19 +1,20 @@
 #1
-	glock19
-	m9
-	m3benelli
-	M416
-	M24
-#2
-	Ruger MKIII
-	P99 .40
-	deagle
-	mp5
-	AK
-	XM8
-#3
-	SIGPRO
-	M1911
-	FAMAS
-	C/M/TAR21
-	PSG1
+	glock19          *     glock19      
+	m9               *     m9           
+	m3benelli        *     M3benelli    
+	M416             *     M416         
+	M24              *     M24          
+#2                                      
+	Ruger MKIII      mk3   MK3          
+	P99 .40          P99   P99          
+	deagle           *     deagle       
+	mp5              *     MP5          
+	AK               *     AK           
+	FAMAS            *     Famas        
+#3                                      
+	SIGPRO           *     sigpro       
+	M1911            *     M1911        
+	C/M/TAR21        *     tar21        
+	XM8              *     XM8          
+	PSG1             *     PSG1         
+	

@@ -1,0 +1,1996 @@
+1>------ Build started: Project: Ogrish, Configuration: Debug Win32 ------
+1>c:\_hg\ezonas\ogrish\gorilla.h(43): warning C4668: 'OGRE_COMP' is not defined as a preprocessor macro, replacing with '0' for '#if/#elif'
+1>c:\_hg\ezonas\ogrish\gorilla.h(45): warning C4668: 'OGRE_COMP' is not defined as a preprocessor macro, replacing with '0' for '#if/#elif'
+1>c:\_hg\ezonas\ogrish\gorilla.h(464): warning C4820: 'Gorilla::Silverback' : '3' bytes padding added after data member 'Gorilla::Silverback::frameStarted'
+1>c:\_hg\ezonas\ogrish\gorilla.h(468): warning C4625: 'Gorilla::Silverback' : copy constructor could not be generated because a base class copy constructor is inaccessible
+1>c:\_hg\ezonas\ogrish\gorilla.h(468): warning C4626: 'Gorilla::Silverback' : assignment operator could not be generated because a base class assignment operator is inaccessible
+1>c:\_hg\ezonas\ogrish\gorilla.h(495): warning C4296: '>=' : expression is always true
+1>c:\_hg\ezonas\ogrish\gorilla.h(840): warning C4820: 'Gorilla::LayerContainer::IndexData' : '3' bytes padding added after data member 'Gorilla::LayerContainer::IndexData::mRedrawNeeded'
+1>c:\_hg\ezonas\ogrish\gorilla.h(852): warning C4820: 'Gorilla::LayerContainer' : '2' bytes padding added after data member 'Gorilla::LayerContainer::mIndexRedrawAll'
+1>c:\_hg\ezonas\ogrish\gorilla.h(965): warning C4820: 'Gorilla::Screen' : '3' bytes padding added after data member 'Gorilla::Screen::mOrientationChanged'
+1>c:\_hg\ezonas\ogrish\gorilla.h(968): warning C4820: 'Gorilla::Screen' : '2' bytes padding added after data member 'Gorilla::Screen::mCanRender'
+1>c:\_hg\ezonas\ogrish\gorilla.h(1380): warning C4820: 'Gorilla::Layer' : '3' bytes padding added after data member 'Gorilla::Layer::mVisible'
+1>c:\_hg\ezonas\ogrish\gorilla.h(1937): warning C4820: 'Gorilla::Rectangle' : '3' bytes padding added after data member 'Gorilla::Rectangle::mDirty'
+1>c:\_hg\ezonas\ogrish\gorilla.h(2255): warning C4820: 'Gorilla::Polygon' : '3' bytes padding added after data member 'Gorilla::Polygon::mDirty'
+1>c:\_hg\ezonas\ogrish\gorilla.h(2321): warning C4820: 'Gorilla::LineList' : '3' bytes padding added after data member 'Gorilla::LineList::mIsClosed'
+1>c:\_hg\ezonas\ogrish\gorilla.h(2323): warning C4820: 'Gorilla::LineList' : '3' bytes padding added after data member 'Gorilla::LineList::mDirty'
+1>c:\_hg\ezonas\ogrish\gorilla.h(2457): warning C4820: 'Gorilla::QuadList' : '3' bytes padding added after data member 'Gorilla::QuadList::mDirty'
+1>c:\_hg\ezonas\ogrish\gorilla.h(2786): warning C4820: 'Gorilla::Caption' : '3' bytes padding added after data member 'Gorilla::Caption::mDirty'
+1>c:\_hg\ezonas\ogrish\gorilla.h(2999): warning C4820: 'Gorilla::MarkupText' : '2' bytes padding added after data member 'Gorilla::MarkupText::mTextDirty'
+1>c:\_hg\ezonas\ogrish\ogreconsoleforgorilla.h(72): warning C4820: 'OgreConsole' : '2' bytes padding added after data member 'OgreConsole::mIsInitialised'
+1>c:\_hg\ezonas\ogrish\ogreconsoleforgorilla.h(82): warning C4820: 'OgreConsole' : '2' bytes padding added after data member 'OgreConsole::mUpdatePrompt'
+1>c:\_hg\ezonas\ogrish\ogreconsoleforgorilla.h(88): warning C4625: 'OgreConsole' : copy constructor could not be generated because a base class copy constructor is inaccessible
+1>c:\_hg\ezonas\ogrish\ogreconsoleforgorilla.h(88): warning C4626: 'OgreConsole' : assignment operator could not be generated because a base class assignment operator is inaccessible
+1>c:\_hg\ezonas\ogrish\bullettracer.h(19): warning C4820: 'BulletTracer' : '3' bytes padding added after data member 'BulletTracer::~BulletTracer'
+1>c:\_hg\ezonas\ogrish\bullettracer.h(26): warning C4820: 'BulletTracer' : '3' bytes padding added after data member 'BulletTracer::was_fired'
+1>c:\_hg\ezonas\ogrish\bullettracer.h(37): warning C4625: 'BulletTracer' : copy constructor could not be generated because a base class copy constructor is inaccessible
+1>c:\_hg\ezonas\ogrish\bullettracer.h(37): warning C4626: 'BulletTracer' : assignment operator could not be generated because a base class assignment operator is inaccessible
+1>c:\_hg\ezonas\ogrish\lasercast.h(83): warning C4625: 'LaserCast' : copy constructor could not be generated because a base class copy constructor is inaccessible
+1>c:\_hg\ezonas\ogrish\lasercast.h(83): warning C4626: 'LaserCast' : assignment operator could not be generated because a base class assignment operator is inaccessible
+1>c:\_hg\ezonas\ogrish\cameracontroller.h(34): warning C4820: 'CameraController' : '3' bytes padding added after data member 'CameraController::stop'
+1>c:\_hg\ezonas\ogrish\cameracontroller.h(57): warning C4625: 'CameraController' : copy constructor could not be generated because a base class copy constructor is inaccessible
+1>c:\_hg\ezonas\ogrish\cameracontroller.h(57): warning C4626: 'CameraController' : assignment operator could not be generated because a base class assignment operator is inaccessible
+1>c:\_hg\ezonas\ogrish\application.h(62): warning C4820: 'Application' : '3' bytes padding added after data member 'Application::last_init'
+1>c:\_hg\ezonas\ogrish\application.h(92): warning C4820: 'Application' : '4' bytes padding added after data member 'Application::result'
+1>c:\_hg\ezonas\ogrish\application.h(103): warning C4820: 'Application' : '8' bytes padding added after data member 'Application::sphere_radius_squared'
+1>c:\_hg\ezonas\ogrish\application.h(103): warning C4625: 'Application' : copy constructor could not be generated because a base class copy constructor is inaccessible
+1>c:\_hg\ezonas\ogrish\application.h(103): warning C4626: 'Application' : assignment operator could not be generated because a base class assignment operator is inaccessible
+1>c:\_hg\ezonas\ogrish\stdafx.cpp(10): warning C4710: 'int swprintf(wchar_t *,size_t,const wchar_t *,...)' : function not inlined
+1>          c:\program files\microsoft visual studio 10.0\vc\include\swprintf.inl(36) : see declaration of 'swprintf'
+1>c:\_hg\ezonas\ogrish\stdafx.cpp(10): warning C4710: 'std::_Exception_ptr std::_Exception_ptr::_Current_exception(void)' : function not inlined
+1>          c:\program files\microsoft visual studio 10.0\vc\include\exception(448) : see declaration of 'std::_Exception_ptr::_Current_exception'
+1>c:\_hg\ezonas\ogrish\stdafx.cpp(10): warning C4710: 'std::string std::locale::name(void) const' : function not inlined
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocale(425) : see declaration of 'std::locale::name'
+1>c:\_hg\ezonas\ogrish\stdafx.cpp(10): warning C4710: 'std::locale std::ios_base::getloc(void) const' : function not inlined
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xiosbase(450) : see declaration of 'std::ios_base::getloc'
+1>c:\_hg\ezonas\ogrish\stdafx.cpp(10): warning C4710: 'std::string std::_Narrow_str(std::wstring)' : function not inlined
+1>          c:\program files\microsoft visual studio 10.0\vc\include\string(697) : see declaration of 'std::_Narrow_str'
+1>c:\_hg\ezonas\ogrish\stdafx.cpp(10): warning C4710: 'boost::detail::basic_condition_variable::entry_ptr boost::detail::basic_condition_variable::get_wait_entry(void)' : function not inlined
+1>          c:\boost\boost_1_47\boost\thread\win32\condition_variable.hpp(157) : see declaration of 'boost::detail::basic_condition_variable::get_wait_entry'
+
+
+1>  physics.cpp
+1>c:\_hg\ezonas\ogrish\physics.cpp(6): warning C4640: 'temp' : construction of local static object is not thread-safe
+1>c:\_hg\ezonas\ogrish\physics.cpp(14): warning C4365: 'argument' : conversion from 'size_t' to 'int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\physics.cpp(18): warning C4365: 'initializing' : conversion from 'int' to 'size_t', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\physics.cpp(13): warning C4101: 'colobj' : unreferenced local variable
+1>c:\_hg\ezonas\ogrish\physics.cpp(33): warning C4189: 'fd' : local variable is initialized but not referenced
+1>  Ogrish_main.cpp
+1>c:\_hg\ezonas\ogrish\ogrish_main.cpp(6): warning C4668: '_CONSOLE' is not defined as a preprocessor macro, replacing with '0' for '#if/#elif'
+1>c:\_hg\ezonas\ogrish\ogrish_main.cpp(11): warning C4007: 'WinMain' : must be '__stdcall'
+1>  OgreMotionState.cpp
+1>  OgreConsoleForGorilla.cpp
+1>c:\_hg\ezonas\ogrish\ogreconsoleforgorilla.cpp(121): warning C4018: '<' : signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\ogreconsoleforgorilla.cpp(129): warning C4389: '==' : signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\ogreconsoleforgorilla.cpp(130): warning C4242: 'argument' : conversion from 'const unsigned int' to 'char', possible loss of data
+1>c:\_hg\ezonas\ogrish\ogreconsoleforgorilla.cpp(130): warning C4365: 'argument' : conversion from 'const unsigned int' to 'char', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\ogreconsoleforgorilla.cpp(157): warning C4018: '>' : signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\ogreconsoleforgorilla.cpp(158): warning C4365: '=' : conversion from 'unsigned int' to 'int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\ogreconsoleforgorilla.cpp(201): warning C4365: 'initializing' : conversion from 'unsigned int' to 'int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\ogreconsoleforgorilla.cpp(216): warning C4365: '=' : conversion from 'unsigned int' to 'int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\ogreconsoleforgorilla.cpp(200): warning C4189: 'count' : local variable is initialized but not referenced
+1>c:\_hg\ezonas\ogrish\ogreconsoleforgorilla.cpp(200): warning C4189: 'start' : local variable is initialized but not referenced
+
+1>  GetSingleton.cpp
+1>  gamemachine.cc
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(64): warning C4018: '<' : signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(65): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(66): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(67): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(68): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(75): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(76): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(77): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(78): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(128): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(128): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(128): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(130): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(130): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(130): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(132): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(132): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(132): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(133): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(133): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(133): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(135): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(135): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(136): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(136): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(136): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(140): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(140): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(141): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(141): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(141): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(181): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(183): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(183): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(183): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(185): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(185): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(185): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(186): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(186): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(186): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\gamemachine.cc(222): warning C4365: 'return' : conversion from 'unsigned int' to 'int', signed/unsigned mismatch
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<abil_data,std::allocator<abil_data>>,
+1>              _Ty=abil_data
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(780) : see declaration of 'std::vector<_Ty>::begin'
+1>          with
+1>          [
+1>              _Ty=abil_data
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty>::end(void)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<abil_data,std::allocator<abil_data>>,
+1>              _Ty=abil_data
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(790) : see declaration of 'std::vector<_Ty>::end'
+1>          with
+1>          [
+1>              _Ty=abil_data
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<character_s,std::allocator<character_s>>,
+1>              _Ty=character_s
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(780) : see declaration of 'std::vector<_Ty>::begin'
+1>          with
+1>          [
+1>              _Ty=character_s
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty>::end(void)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<character_s,std::allocator<character_s>>,
+1>              _Ty=character_s
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(790) : see declaration of 'std::vector<_Ty>::end'
+1>          with
+1>          [
+1>              _Ty=character_s
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>>,
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(805) : see declaration of 'std::_Tree<_Traits>::begin'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::end(void)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>>,
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(815) : see declaration of 'std::_Tree<_Traits>::end'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::erase(std::_Tree_const_iterator<_Mytree>,std::_Tree_const_iterator<_Mytree>)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>>,
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(1378) : see declaration of 'std::_Tree<_Traits>::erase'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>>,
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(805) : see declaration of 'std::_Tree<_Traits>::begin'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::end(void)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>>,
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(815) : see declaration of 'std::_Tree<_Traits>::end'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::erase(std::_Tree_const_iterator<_Mytree>,std::_Tree_const_iterator<_Mytree>)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>>,
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(1378) : see declaration of 'std::_Tree<_Traits>::erase'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Deque_iterator<_Ty,_Alloc> std::deque<_Ty>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Ty=Event,
+1>              _Alloc=std::allocator<Event>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\deque(1049) : see declaration of 'std::deque<_Ty>::begin'
+1>          with
+1>          [
+1>              _Ty=Event
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::erase(std::_Tree_const_iterator<_Mytree>)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>>,
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(1194) : see declaration of 'std::_Tree<_Traits>::erase'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::erase(std::_Tree_const_iterator<_Mytree>)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>>,
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(1194) : see declaration of 'std::_Tree<_Traits>::erase'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Tree_const_iterator<_Mytree> std::_Tree_const_iterator<_Mytree>::operator ++(int)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(269) : see declaration of 'std::_Tree_const_iterator<_Mytree>::operator ++'
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Tree_const_iterator<_Mytree> std::_Tree_const_iterator<_Mytree>::operator ++(int)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(269) : see declaration of 'std::_Tree_const_iterator<_Mytree>::operator ++'
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::falsename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(82) : see declaration of 'std::numpunct<_Elem>::falsename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::truename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(87) : see declaration of 'std::numpunct<_Elem>::truename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::do_falsename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(177) : see declaration of 'std::numpunct<_Elem>::do_falsename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::do_truename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(182) : see declaration of 'std::numpunct<_Elem>::do_truename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::string std::numpunct<_Elem>::do_grouping(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(172) : see declaration of 'std::numpunct<_Elem>::do_grouping'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::string std::numpunct<_Elem>::grouping(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(77) : see declaration of 'std::numpunct<_Elem>::grouping'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::locale std::ios_base::getloc(void) const' : function not inlined
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xiosbase(450) : see declaration of 'std::ios_base::getloc'
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::basic_stringbuf<_Elem,_Traits,_Alloc>::str(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>,
+1>              _Alloc=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\sstream(92) : see declaration of 'std::basic_stringbuf<_Elem,_Traits,_Alloc>::str'
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Alloc=std::allocator<char>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::basic_stringstream<_Elem,_Traits,_Alloc>::str(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>,
+1>              _Alloc=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\sstream(712) : see declaration of 'std::basic_stringstream<_Elem,_Traits,_Alloc>::str'
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Alloc=std::allocator<char>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty,_Ax>::end(void)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<Ogre::String,Ogre::STLAllocator<Ogre::String,Ogre::GeneralAllocPolicy>>,
+1>              _Ty=Ogre::String,
+1>              _Ax=Ogre::STLAllocator<Ogre::String,Ogre::GeneralAllocPolicy>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(790) : see declaration of 'std::vector<_Ty,_Ax>::end'
+1>          with
+1>          [
+1>              _Ty=Ogre::String,
+1>              _Ax=Ogre::STLAllocator<Ogre::String,Ogre::GeneralAllocPolicy>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty,_Ax>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<Ogre::String,Ogre::STLAllocator<Ogre::String,Ogre::GeneralAllocPolicy>>,
+1>              _Ty=Ogre::String,
+1>              _Ax=Ogre::STLAllocator<Ogre::String,Ogre::GeneralAllocPolicy>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(780) : see declaration of 'std::vector<_Ty,_Ax>::begin'
+1>          with
+1>          [
+1>              _Ty=Ogre::String,
+1>              _Ax=Ogre::STLAllocator<Ogre::String,Ogre::GeneralAllocPolicy>
+1>          ]
+1>  FrameRenderingQueued.cpp
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(878): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::operator +<char,std::char_traits<char>,std::allocator<_Ty>>(std::basic_string<_Elem,_Traits,_Ax> &&,std::basic_string<_Elem,_Traits,_Ax> &&)' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>,
+1>              _Ty=char
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\string(109) : see declaration of 'std::operator +'
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(878): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::operator +<char,std::char_traits<char>,std::allocator<_Ty>>(std::basic_string<_Elem,_Traits,_Ax> &&,const _Elem *)' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>,
+1>              _Ty=char
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\string(143) : see declaration of 'std::operator +'
+1>  Execute.cpp
+1>c:\_hg\ezonas\ogrish\execute.cpp(223): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\execute.cpp(224): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\execute.cpp(225): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty,_Ax>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<std::_Vbase,std::allocator<char32_t>>,
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(780) : see declaration of 'std::vector<_Ty,_Ax>::begin'
+1>          with
+1>          [
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty,_Ax>::end(void)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<std::_Vbase,std::allocator<char32_t>>,
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(790) : see declaration of 'std::vector<_Ty,_Ax>::end'
+1>          with
+1>          [
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty,_Ax>::erase(std::_Vector_const_iterator<_Myvec>,std::_Vector_const_iterator<_Myvec>)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<std::_Vbase,std::allocator<char32_t>>,
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(1188) : see declaration of 'std::vector<_Ty,_Ax>::erase'
+1>          with
+1>          [
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<Ogre::Vector3,std::allocator<Ogre::Vector3>>,
+1>              _Ty=Ogre::Vector3
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(780) : see declaration of 'std::vector<_Ty>::begin'
+1>          with
+1>          [
+1>              _Ty=Ogre::Vector3
+1>          ]
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty>::end(void)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<Ogre::Vector3,std::allocator<Ogre::Vector3>>,
+1>              _Ty=Ogre::Vector3
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(790) : see declaration of 'std::vector<_Ty>::end'
+1>          with
+1>          [
+1>              _Ty=Ogre::Vector3
+1>          ]
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty>::erase(std::_Vector_const_iterator<_Myvec>,std::_Vector_const_iterator<_Myvec>)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<Ogre::Vector3,std::allocator<Ogre::Vector3>>,
+1>              _Ty=Ogre::Vector3
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(1188) : see declaration of 'std::vector<_Ty>::erase'
+1>          with
+1>          [
+1>              _Ty=Ogre::Vector3
+1>          ]
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'std::_Vector_iterator<_Myvec> std::_Vector_iterator<_Myvec>::operator +(__w64 int) const' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<std::_Vbase,std::allocator<char32_t>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(362) : see declaration of 'std::_Vector_iterator<_Myvec>::operator +'
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<std::_Vbase,std::allocator<char32_t>>
+1>          ]
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'std::_Vector_iterator<_Myvec> std::_Vector_iterator<_Myvec>::operator +(__w64 int) const' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<Ogre::Vector3,std::allocator<Ogre::Vector3>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(362) : see declaration of 'std::_Vector_iterator<_Myvec>::operator +'
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<Ogre::Vector3,std::allocator<Ogre::Vector3>>
+1>          ]
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty,_Ax>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<Ogre::RaySceneQueryResultEntry,Ogre::STLAllocator<Ogre::RaySceneQueryResultEntry,Ogre::GeneralAllocPolicy>>,
+1>              _Ty=Ogre::RaySceneQueryResultEntry,
+1>              _Ax=Ogre::STLAllocator<Ogre::RaySceneQueryResultEntry,Ogre::GeneralAllocPolicy>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(780) : see declaration of 'std::vector<_Ty,_Ax>::begin'
+1>          with
+1>          [
+1>              _Ty=Ogre::RaySceneQueryResultEntry,
+1>              _Ax=Ogre::STLAllocator<Ogre::RaySceneQueryResultEntry,Ogre::GeneralAllocPolicy>
+1>          ]
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty,_Ax>::end(void)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<Ogre::RaySceneQueryResultEntry,Ogre::STLAllocator<Ogre::RaySceneQueryResultEntry,Ogre::GeneralAllocPolicy>>,
+1>              _Ty=Ogre::RaySceneQueryResultEntry,
+1>              _Ax=Ogre::STLAllocator<Ogre::RaySceneQueryResultEntry,Ogre::GeneralAllocPolicy>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(790) : see declaration of 'std::vector<_Ty,_Ax>::end'
+1>          with
+1>          [
+1>              _Ty=Ogre::RaySceneQueryResultEntry,
+1>              _Ax=Ogre::STLAllocator<Ogre::RaySceneQueryResultEntry,Ogre::GeneralAllocPolicy>
+1>          ]
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty,_Ax>::erase(std::_Vector_const_iterator<_Myvec>,std::_Vector_const_iterator<_Myvec>)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<Ogre::RaySceneQueryResultEntry,Ogre::STLAllocator<Ogre::RaySceneQueryResultEntry,Ogre::GeneralAllocPolicy>>,
+1>              _Ty=Ogre::RaySceneQueryResultEntry,
+1>              _Ax=Ogre::STLAllocator<Ogre::RaySceneQueryResultEntry,Ogre::GeneralAllocPolicy>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(1188) : see declaration of 'std::vector<_Ty,_Ax>::erase'
+1>          with
+1>          [
+1>              _Ty=Ogre::RaySceneQueryResultEntry,
+1>              _Ax=Ogre::STLAllocator<Ogre::RaySceneQueryResultEntry,Ogre::GeneralAllocPolicy>
+1>          ]
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty,_Ax>::_Make_iter(std::_Vector_const_iterator<_Myvec>) const' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<std::_Vbase,std::allocator<char32_t>>,
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(800) : see declaration of 'std::vector<_Ty,_Ax>::_Make_iter'
+1>          with
+1>          [
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty>::_Make_iter(std::_Vector_const_iterator<_Myvec>) const' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<Ogre::Vector3,std::allocator<Ogre::Vector3>>,
+1>              _Ty=Ogre::Vector3
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(800) : see declaration of 'std::vector<_Ty>::_Make_iter'
+1>          with
+1>          [
+1>              _Ty=Ogre::Vector3
+1>          ]
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty,_Ax>::_Make_iter(std::_Vector_const_iterator<_Myvec>) const' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<Ogre::RaySceneQueryResultEntry,Ogre::STLAllocator<Ogre::RaySceneQueryResultEntry,Ogre::GeneralAllocPolicy>>,
+1>              _Ty=Ogre::RaySceneQueryResultEntry,
+1>              _Ax=Ogre::STLAllocator<Ogre::RaySceneQueryResultEntry,Ogre::GeneralAllocPolicy>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(800) : see declaration of 'std::vector<_Ty,_Ax>::_Make_iter'
+1>          with
+1>          [
+1>              _Ty=Ogre::RaySceneQueryResultEntry,
+1>              _Ax=Ogre::STLAllocator<Ogre::RaySceneQueryResultEntry,Ogre::GeneralAllocPolicy>
+1>          ]
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'boost::exception_detail::clone_impl<T> boost::enable_current_exception<boost::exception_detail::error_info_injector<boost::lock_error>>(const T &)' : function not inlined
+1>          with
+1>          [
+1>              T=boost::exception_detail::error_info_injector<boost::lock_error>
+1>          ]
+1>          c:\boost\boost_1_47\boost\exception\exception.hpp(447) : see declaration of 'boost::enable_current_exception'
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'boost::exception_detail::error_info_injector<T> boost::enable_error_info<E>(const T &)' : function not inlined
+1>          with
+1>          [
+1>              T=boost::lock_error,
+1>              E=boost::lock_error
+1>          ]
+1>          c:\boost\boost_1_47\boost\exception\exception.hpp(365) : see declaration of 'boost::enable_error_info'
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'boost::exception_detail::clone_impl<T> boost::enable_current_exception<boost::exception_detail::error_info_injector<boost::thread_resource_error>>(const T &)' : function not inlined
+1>          with
+1>          [
+1>              T=boost::exception_detail::error_info_injector<boost::thread_resource_error>
+1>          ]
+1>          c:\boost\boost_1_47\boost\exception\exception.hpp(447) : see declaration of 'boost::enable_current_exception'
+1>c:\ogre173src\ogremain\include\ogrememorystlallocator.h(160): warning C4710: 'boost::exception_detail::error_info_injector<T> boost::enable_error_info<E>(const T &)' : function not inlined
+1>          with
+1>          [
+1>              T=boost::thread_resource_error,
+1>              E=boost::thread_resource_error
+1>          ]
+1>          c:\boost\boost_1_47\boost\exception\exception.hpp(365) : see declaration of 'boost::enable_error_info'
+1>  datastruct.cpp
+1>  CreateTerrain.cpp
+1>  CreateScene.cpp
+1>c:\_hg\ezonas\ogrish\createscene.cpp(31): warning C4365: 'initializing' : conversion from 'unsigned int' to 'int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\createscene.cpp(34): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> Ogre::MapIteratorWrapper<T,IteratorType>::peekNextKey(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>,
+1>              T=Ogre::ConfigFile::SettingsBySection,
+1>              IteratorType=std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<Ogre::String,std::multimap<Ogre::String,Ogre::String,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,Ogre::String>,Ogre::GeneralAllocPolicy>> ,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,std::multimap<Ogre::String,Ogre::String,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,Ogre::String>,Ogre::GeneralAllocPolicy>> >,Ogre::GeneralAllocPolicy>,false>>>
+1>          ]
+1>          c:\ogre173src\ogremain\include\ogreiteratorwrapper.h(279) : see declaration of 'Ogre::MapIteratorWrapper<T,IteratorType>::peekNextKey'
+1>          with
+1>          [
+1>              T=Ogre::ConfigFile::SettingsBySection,
+1>              IteratorType=std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<Ogre::String,std::multimap<Ogre::String,Ogre::String,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,Ogre::String>,Ogre::GeneralAllocPolicy>> ,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,std::multimap<Ogre::String,Ogre::String,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,Ogre::String>,Ogre::GeneralAllocPolicy>> >,Ogre::GeneralAllocPolicy>,false>>>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<Ogre::String,Ogre::String,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,Ogre::String>,Ogre::GeneralAllocPolicy>,true>>,
+1>              _Traits=std::_Tmap_traits<Ogre::String,Ogre::String,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,Ogre::String>,Ogre::GeneralAllocPolicy>,true>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(805) : see declaration of 'std::_Tree<_Traits>::begin'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<Ogre::String,Ogre::String,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,Ogre::String>,Ogre::GeneralAllocPolicy>,true>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::end(void)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<Ogre::String,Ogre::String,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,Ogre::String>,Ogre::GeneralAllocPolicy>,true>>,
+1>              _Traits=std::_Tmap_traits<Ogre::String,Ogre::String,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,Ogre::String>,Ogre::GeneralAllocPolicy>,true>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(815) : see declaration of 'std::_Tree<_Traits>::end'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<Ogre::String,Ogre::String,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,Ogre::String>,Ogre::GeneralAllocPolicy>,true>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree_iterator<_Mytree>::operator ++(int)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<Ogre::String,std::multimap<Ogre::String,Ogre::String,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,Ogre::String>,Ogre::GeneralAllocPolicy>> ,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,std::multimap<Ogre::String,Ogre::String,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,Ogre::String>,Ogre::GeneralAllocPolicy>> >,Ogre::GeneralAllocPolicy>,false>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(410) : see declaration of 'std::_Tree_iterator<_Mytree>::operator ++'
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<Ogre::String,std::multimap<Ogre::String,Ogre::String,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,Ogre::String>,Ogre::GeneralAllocPolicy>> ,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,std::multimap<Ogre::String,Ogre::String,std::less<std::string>,Ogre::STLAllocator<std::pair<const Ogre::String,Ogre::String>,Ogre::GeneralAllocPolicy>> >,Ogre::GeneralAllocPolicy>,false>>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'boost::exception_detail::clone_impl<T> boost::enable_current_exception<boost::exception_detail::error_info_injector<boost::lock_error>>(const T &)' : function not inlined
+1>          with
+1>          [
+1>              T=boost::exception_detail::error_info_injector<boost::lock_error>
+1>          ]
+1>          c:\boost\boost_1_47\boost\exception\exception.hpp(447) : see declaration of 'boost::enable_current_exception'
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'boost::exception_detail::error_info_injector<T> boost::enable_error_info<E>(const T &)' : function not inlined
+1>          with
+1>          [
+1>              T=boost::lock_error,
+1>              E=boost::lock_error
+1>          ]
+1>          c:\boost\boost_1_47\boost\exception\exception.hpp(365) : see declaration of 'boost::enable_error_info'
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'boost::exception_detail::clone_impl<T> boost::enable_current_exception<boost::exception_detail::error_info_injector<boost::thread_resource_error>>(const T &)' : function not inlined
+1>          with
+1>          [
+1>              T=boost::exception_detail::error_info_injector<boost::thread_resource_error>
+1>          ]
+1>          c:\boost\boost_1_47\boost\exception\exception.hpp(447) : see declaration of 'boost::enable_current_exception'
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(201): warning C4710: 'boost::exception_detail::error_info_injector<T> boost::enable_error_info<E>(const T &)' : function not inlined
+1>          with
+1>          [
+1>              T=boost::thread_resource_error,
+1>              E=boost::thread_resource_error
+1>          ]
+1>          c:\boost\boost_1_47\boost\exception\exception.hpp(365) : see declaration of 'boost::enable_error_info'
+1>  Config.cpp
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::_Vb_iterator<_Alloc> std::vector<_Ty,_Ax>::insert(std::_Vb_const_iterator<_Alloc>,bool)' : function not inlined
+1>          with
+1>          [
+1>              _Alloc=std::allocator<bool>,
+1>              _Ty=bool,
+1>              _Ax=std::allocator<bool>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(2396) : see declaration of 'std::vector<_Ty,_Ax>::insert'
+1>          with
+1>          [
+1>              _Ty=bool,
+1>              _Ax=std::allocator<bool>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::_Vb_iterator<_Alloc> std::_Vb_iterator<_Alloc>::operator +(__w64 int) const' : function not inlined
+1>          with
+1>          [
+1>              _Alloc=std::allocator<bool>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(1956) : see declaration of 'std::_Vb_iterator<_Alloc>::operator +'
+1>          with
+1>          [
+1>              _Alloc=std::allocator<bool>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty,_Ax>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<std::_Vbase,std::allocator<char32_t>>,
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(780) : see declaration of 'std::vector<_Ty,_Ax>::begin'
+1>          with
+1>          [
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty,_Ax>::end(void)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<std::_Vbase,std::allocator<char32_t>>,
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(790) : see declaration of 'std::vector<_Ty,_Ax>::end'
+1>          with
+1>          [
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty,_Ax>::erase(std::_Vector_const_iterator<_Myvec>,std::_Vector_const_iterator<_Myvec>)' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<std::_Vbase,std::allocator<char32_t>>,
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(1188) : see declaration of 'std::vector<_Ty,_Ax>::erase'
+1>          with
+1>          [
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::_Vector_iterator<_Myvec> std::_Vector_iterator<_Myvec>::operator +(__w64 int) const' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<std::_Vbase,std::allocator<char32_t>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(362) : see declaration of 'std::_Vector_iterator<_Myvec>::operator +'
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<std::_Vbase,std::allocator<char32_t>>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::_Vector_iterator<_Myvec> std::vector<_Ty,_Ax>::_Make_iter(std::_Vector_const_iterator<_Myvec>) const' : function not inlined
+1>          with
+1>          [
+1>              _Myvec=std::_Vector_val<std::_Vbase,std::allocator<char32_t>>,
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(800) : see declaration of 'std::vector<_Ty,_Ax>::_Make_iter'
+1>          with
+1>          [
+1>              _Ty=std::_Vbase,
+1>              _Ax=std::allocator<char32_t>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::operator +<char,std::char_traits<char>,std::allocator<_Ty>>(const std::basic_string<_Elem,_Traits,_Ax> &,const _Elem *)' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>,
+1>              _Ty=char
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\string(61) : see declaration of 'std::operator +'
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: '_BidIt2 std::copy_backward<std::_Vb_iterator<_Alloc>,std::_Vb_iterator<_Alloc>>(_BidIt1,_BidIt1,_BidIt2)' : function not inlined
+1>          with
+1>          [
+1>              _BidIt2=std::_Vb_iterator<std::allocator<bool>>,
+1>              _Alloc=std::allocator<bool>,
+1>              _BidIt1=std::_Vb_iterator<std::allocator<bool>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xutility(2497) : see declaration of 'std::copy_backward'
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: '_Iter std::_Unchecked<_FwdIt>(_Iter)' : function not inlined
+1>          with
+1>          [
+1>              _Iter=std::_Vb_iterator<std::allocator<bool>>,
+1>              _FwdIt=std::_Vb_iterator<std::allocator<bool>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xutility(265) : see declaration of 'std::_Unchecked'
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: '_BidIt2 std::_Copy_backward<_Iter,_BidIt2>(_BidIt1,_BidIt1,_BidIt2,std::tr1::true_type)' : function not inlined
+1>          with
+1>          [
+1>              _BidIt2=std::_Vb_iterator<std::allocator<bool>>,
+1>              _Iter=std::_Vb_iterator<std::allocator<bool>>,
+1>              _BidIt1=std::_Vb_iterator<std::allocator<bool>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xutility(2478) : see declaration of 'std::_Copy_backward'
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: '_BidIt2 std::_Copy_backward<_Iter,_BidIt2>(_BidIt1,_BidIt1,_BidIt2)' : function not inlined
+1>          with
+1>          [
+1>              _BidIt2=std::_Vb_iterator<std::allocator<bool>>,
+1>              _Iter=std::_Vb_iterator<std::allocator<bool>>,
+1>              _BidIt1=std::_Vb_iterator<std::allocator<bool>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xutility(2457) : see declaration of 'std::_Copy_backward'
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: '_BidIt2 std::_Copy_backward<_Iter,_BidIt2>(_BidIt1,_BidIt1,_BidIt2,std::_Nonscalar_ptr_iterator_tag)' : function not inlined
+1>          with
+1>          [
+1>              _BidIt2=std::_Vb_iterator<std::allocator<bool>>,
+1>              _Iter=std::_Vb_iterator<std::allocator<bool>>,
+1>              _BidIt1=std::_Vb_iterator<std::allocator<bool>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xutility(2436) : see declaration of 'std::_Copy_backward'
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::falsename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(82) : see declaration of 'std::numpunct<_Elem>::falsename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::truename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(87) : see declaration of 'std::numpunct<_Elem>::truename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::_Vb_reference<_Alloc> std::_Vb_iterator<_Alloc>::operator *(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Alloc=std::allocator<bool>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(1919) : see declaration of 'std::_Vb_iterator<_Alloc>::operator *'
+1>          with
+1>          [
+1>              _Alloc=std::allocator<bool>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::do_falsename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(177) : see declaration of 'std::numpunct<_Elem>::do_falsename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::do_truename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(182) : see declaration of 'std::numpunct<_Elem>::do_truename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::string std::numpunct<_Elem>::do_grouping(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(172) : see declaration of 'std::numpunct<_Elem>::do_grouping'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::string std::numpunct<_Elem>::grouping(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(77) : see declaration of 'std::numpunct<_Elem>::grouping'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::_Vb_iterator<_Alloc> std::vector<_Ty,_Ax>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Alloc=std::allocator<bool>,
+1>              _Ty=bool,
+1>              _Ax=std::allocator<bool>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(2205) : see declaration of 'std::vector<_Ty,_Ax>::begin'
+1>          with
+1>          [
+1>              _Ty=bool,
+1>              _Ax=std::allocator<bool>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::_Vb_iterator<_Alloc> std::vector<_Ty,_Ax>::end(void)' : function not inlined
+1>          with
+1>          [
+1>              _Alloc=std::allocator<bool>,
+1>              _Ty=bool,
+1>              _Ax=std::allocator<bool>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(2215) : see declaration of 'std::vector<_Ty,_Ax>::end'
+1>          with
+1>          [
+1>              _Ty=bool,
+1>              _Ax=std::allocator<bool>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::locale std::ios_base::getloc(void) const' : function not inlined
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xiosbase(450) : see declaration of 'std::ios_base::getloc'
+1>c:\program files\microsoft visual studio 10.0\vc\include\vector(1831): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::operator +<char,std::char_traits<char>,std::allocator<_Ty>>(const _Elem *,const std::basic_string<_Elem,_Traits,_Ax> &)' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>,
+1>              _Ty=char
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\string(33) : see declaration of 'std::operator +'
+1>  character.cc
+1>  BulletTracer.cpp
+1>  Application.cpp
+1>c:\_hg\ezonas\ogrish\application.cpp(80): warning C4189: 'colobj' : local variable is initialized but not referenced
+1>c:\_hg\ezonas\ogrish\application.cpp(109): warning C4018: '<' : signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\application.cpp(110): warning C4365: 'argument' : conversion from 'size_t' to 'int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\application.cpp(111): warning C4365: 'argument' : conversion from 'size_t' to 'int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\application.cpp(133): warning C4018: '<' : signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\application.cpp(135): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\application.cpp(136): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\_hg\ezonas\ogrish\application.cpp(137): warning C4365: 'argument' : conversion from 'int' to 'unsigned int', signed/unsigned mismatch
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(212): warning C4710: 'std::_Vb_reference<_Alloc> std::vector<_Ty,_Ax>::operator [](unsigned int)' : function not inlined
+1>          with
+1>          [
+1>              _Alloc=std::allocator<bool>,
+1>              _Ty=bool,
+1>              _Ax=std::allocator<bool>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(2336) : see declaration of 'std::vector<_Ty,_Ax>::operator []'
+1>          with
+1>          [
+1>              _Ty=bool,
+1>              _Ax=std::allocator<bool>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(212): warning C4710: 'std::_Vb_iterator<_Alloc> std::_Vb_iterator<_Alloc>::operator +(__w64 int) const' : function not inlined
+1>          with
+1>          [
+1>              _Alloc=std::allocator<bool>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(1956) : see declaration of 'std::_Vb_iterator<_Alloc>::operator +'
+1>          with
+1>          [
+1>              _Alloc=std::allocator<bool>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(212): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>>,
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(805) : see declaration of 'std::_Tree<_Traits>::begin'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(212): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::end(void)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>>,
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(815) : see declaration of 'std::_Tree<_Traits>::end'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(212): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::erase(std::_Tree_const_iterator<_Mytree>,std::_Tree_const_iterator<_Mytree>)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>>,
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(1378) : see declaration of 'std::_Tree<_Traits>::erase'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(212): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>>,
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(805) : see declaration of 'std::_Tree<_Traits>::begin'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(212): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::end(void)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>>,
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(815) : see declaration of 'std::_Tree<_Traits>::end'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(212): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::erase(std::_Tree_const_iterator<_Mytree>,std::_Tree_const_iterator<_Mytree>)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>>,
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(1378) : see declaration of 'std::_Tree<_Traits>::erase'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(212): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::erase(std::_Tree_const_iterator<_Mytree>)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>>,
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(1194) : see declaration of 'std::_Tree<_Traits>::erase'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(212): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::erase(std::_Tree_const_iterator<_Mytree>)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>>,
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(1194) : see declaration of 'std::_Tree<_Traits>::erase'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(212): warning C4710: 'std::_Tree_const_iterator<_Mytree> std::_Tree_const_iterator<_Mytree>::operator ++(int)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(269) : see declaration of 'std::_Tree_const_iterator<_Mytree>::operator ++'
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<item_e,std::string,std::less<item_e>,std::allocator<std::pair<const item_e,std::string>>,false>>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(212): warning C4710: 'std::_Tree_const_iterator<_Mytree> std::_Tree_const_iterator<_Mytree>::operator ++(int)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(269) : see declaration of 'std::_Tree_const_iterator<_Mytree>::operator ++'
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,item_e,std::less<std::string>,std::allocator<std::pair<const std::string,item_e>>,false>>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(212): warning C4710: 'std::_Vb_iterator<_Alloc> std::vector<_Ty,_Ax>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Alloc=std::allocator<bool>,
+1>              _Ty=bool,
+1>              _Ax=std::allocator<bool>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(2205) : see declaration of 'std::vector<_Ty,_Ax>::begin'
+1>          with
+1>          [
+1>              _Ty=bool,
+1>              _Ax=std::allocator<bool>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xmemory(212): warning C4710: 'std::_Vb_reference<_Alloc> std::_Vb_iterator<_Alloc>::operator *(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Alloc=std::allocator<bool>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\vector(1919) : see declaration of 'std::_Vb_iterator<_Alloc>::operator *'
+1>          with
+1>          [
+1>              _Alloc=std::allocator<bool>
+1>          ]
+1>  CameraController.cpp
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_MEDIASELECT' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_MAIL' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_MYCOMPUTER' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_WEBBACK' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_WEBFORWARD' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_WEBSTOP' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_WEBREFRESH' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_WEBFAVORITES' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_WEBSEARCH' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_WAKE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_SLEEP' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_POWER' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_APPS' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_RWIN' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_LWIN' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_DELETE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_INSERT' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_END' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_HOME' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_PAUSE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_RMENU' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_SYSRQ' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_DIVIDE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NUMPADCOMMA' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_WEBHOME' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_VOLUMEUP' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_VOLUMEDOWN' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_MEDIASTOP' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_PLAYPAUSE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_CALCULATOR' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_MUTE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_RCONTROL' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NUMPADENTER' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NEXTTRACK' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_UNLABELED' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_AX' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_STOP' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_KANJI' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_UNDERLINE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_COLON' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_AT' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_PREVTRACK' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NUMPADEQUALS' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_ABNT_C2' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_YEN' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NOCONVERT' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_CONVERT' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_ABNT_C1' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_KANA' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_F15' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_F14' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_F13' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_F12' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_F11' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_OEM_102' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_DECIMAL' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NUMPAD0' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NUMPAD3' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NUMPAD2' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NUMPAD1' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_ADD' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NUMPAD6' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NUMPAD5' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NUMPAD4' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_SUBTRACT' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NUMPAD9' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NUMPAD8' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NUMPAD7' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_SCROLL' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_NUMLOCK' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_F10' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_F9' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_F8' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_F7' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_F6' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_F5' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_F4' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_F3' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_CAPITAL' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_LMENU' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_MULTIPLY' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_RSHIFT' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_SLASH' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_PERIOD' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_COMMA' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_M' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_N' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_B' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_V' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_C' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_X' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_Z' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_BACKSLASH' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_GRAVE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_APOSTROPHE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_SEMICOLON' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_L' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_K' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_J' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_H' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_G' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_F' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_LCONTROL' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_RETURN' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_RBRACKET' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_LBRACKET' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_P' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_O' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_I' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_U' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_Y' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_T' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_R' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_TAB' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_BACK' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_EQUALS' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_MINUS' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_0' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_9' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_8' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_7' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_6' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_5' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_4' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_3' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_2' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_1' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(183): warning C4061: enumerator 'KC_UNASSIGNED' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_MEDIASELECT' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_MAIL' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_MYCOMPUTER' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_WEBBACK' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_WEBFORWARD' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_WEBSTOP' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_WEBREFRESH' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_WEBFAVORITES' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_WEBSEARCH' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_WAKE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_SLEEP' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_POWER' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_APPS' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_RWIN' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_LWIN' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_DELETE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_INSERT' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_END' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_HOME' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_PAUSE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_RMENU' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_SYSRQ' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_DIVIDE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NUMPADCOMMA' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_WEBHOME' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_VOLUMEUP' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_VOLUMEDOWN' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_MEDIASTOP' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_PLAYPAUSE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_CALCULATOR' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_MUTE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_RCONTROL' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NUMPADENTER' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NEXTTRACK' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_UNLABELED' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_AX' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_STOP' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_KANJI' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_UNDERLINE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_COLON' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_AT' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_PREVTRACK' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NUMPADEQUALS' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_ABNT_C2' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_YEN' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NOCONVERT' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_CONVERT' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_ABNT_C1' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_KANA' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F15' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F14' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F13' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F12' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F11' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_OEM_102' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_DECIMAL' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NUMPAD0' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NUMPAD3' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NUMPAD2' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NUMPAD1' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_ADD' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NUMPAD6' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NUMPAD5' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NUMPAD4' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_SUBTRACT' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NUMPAD9' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NUMPAD8' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NUMPAD7' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_SCROLL' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_NUMLOCK' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F10' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F9' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F8' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F7' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F6' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F5' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F4' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F3' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F2' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F1' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_CAPITAL' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_LMENU' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_MULTIPLY' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_RSHIFT' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_SLASH' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_PERIOD' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_COMMA' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_M' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_N' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_B' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_V' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_C' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_X' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_Z' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_BACKSLASH' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_GRAVE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_APOSTROPHE' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_SEMICOLON' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_L' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_K' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_J' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_H' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_G' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_F' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_LCONTROL' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_RETURN' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_RBRACKET' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_LBRACKET' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_P' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_O' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_I' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_U' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_Y' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_T' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_R' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_TAB' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_BACK' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_EQUALS' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_MINUS' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_0' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_9' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_8' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_7' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_6' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_5' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_4' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_3' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_2' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_1' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\_hg\ezonas\ogrish\cameracontroller.cpp(210): warning C4061: enumerator 'KC_UNASSIGNED' in switch of enum 'OIS::KeyCode' is not explicitly handled by a case label
+1>          c:\ogre173src\dependencies\include\ois\oiskeyboard.h(32) : see declaration of 'OIS::KeyCode'
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::begin(void)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>>,
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(805) : see declaration of 'std::_Tree<_Traits>::begin'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::end(void)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>>,
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(815) : see declaration of 'std::_Tree<_Traits>::end'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::erase(std::_Tree_const_iterator<_Mytree>,std::_Tree_const_iterator<_Mytree>)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>>,
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(1378) : see declaration of 'std::_Tree<_Traits>::erase'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::erase(std::_Tree_const_iterator<_Mytree>)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>>,
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(1194) : see declaration of 'std::_Tree<_Traits>::erase'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::_Tree_const_iterator<_Mytree> std::_Tree_const_iterator<_Mytree>::operator ++(int)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(269) : see declaration of 'std::_Tree_const_iterator<_Mytree>::operator ++'
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::pair<_Ty1,_Ty2> std::make_pair<const char[7],std::basic_string<_Elem,_Traits,_Ax>>(const char (&),_Ty2 &&)' : function not inlined
+1>          with
+1>          [
+1>              _Ty1=const char *,
+1>              _Ty2=std::basic_string<char,std::char_traits<char>,std::allocator<char>>,
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\utility(367) : see declaration of 'std::make_pair'
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::_Tree_iterator<_Mytree> std::multimap<_Kty,_Ty>::insert<std::pair<_Ty1,_Ty2>>(_Valty &&)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>>,
+1>              _Kty=std::string,
+1>              _Ty=std::string,
+1>              _Ty1=const char *,
+1>              _Ty2=std::basic_string<char,std::char_traits<char>,std::allocator<char>>,
+1>              _Valty=std::pair<const char *,std::basic_string<char,std::char_traits<char>,std::allocator<char>>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\map(362) : see declaration of 'std::multimap<_Kty,_Ty>::insert'
+1>          with
+1>          [
+1>              _Kty=std::string,
+1>              _Ty=std::string
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::pair<_Ty1,_Ty2> std::make_pair<std::basic_string<_Elem,_Traits,_Ax>,std::basic_string<_Elem,_Traits,_Ax>>(_Ty1 &&,_Ty2 &&)' : function not inlined
+1>          with
+1>          [
+1>              _Ty1=Ogre::String,
+1>              _Ty2=Ogre::String,
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\utility(355) : see declaration of 'std::make_pair'
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::_Tree_iterator<_Mytree> std::multimap<_Kty,_Ty>::insert<std::pair<_Ty1,_Ty2>>(_Valty &&)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>>,
+1>              _Kty=std::string,
+1>              _Ty=std::string,
+1>              _Ty1=Ogre::String,
+1>              _Ty2=Ogre::String,
+1>              _Valty=std::pair<Ogre::String,Ogre::String>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\map(362) : see declaration of 'std::multimap<_Kty,_Ty>::insert'
+1>          with
+1>          [
+1>              _Kty=std::string,
+1>              _Ty=std::string
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::pair<_Ty1,_Ty2> std::_Tree<_Traits>::insert<_Ty>(_Valty &&)' : function not inlined
+1>          with
+1>          [
+1>              _Ty1=std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>>>,
+1>              _Ty2=bool,
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>,
+1>              _Ty=std::pair<const char *,std::basic_string<char,std::char_traits<char>,std::allocator<char>>>,
+1>              _Valty=std::pair<const char *,std::basic_string<char,std::char_traits<char>,std::allocator<char>>>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(753) : see declaration of 'std::_Tree<_Traits>::insert'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::pair<_Ty1,_Ty2> std::_Tree<_Traits>::insert<_Ty>(_Valty &&)' : function not inlined
+1>          with
+1>          [
+1>              _Ty1=std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>>>,
+1>              _Ty2=bool,
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>,
+1>              _Ty=std::pair<Ogre::String,Ogre::String>,
+1>              _Valty=std::pair<Ogre::String,Ogre::String>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(753) : see declaration of 'std::_Tree<_Traits>::insert'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::pair<_Ty1,_Ty2> std::_Tree<_Traits>::_Linsert(std::_Tree_nod<_Traits>::_Node *,bool)' : function not inlined
+1>          with
+1>          [
+1>              _Ty1=std::_Tree_iterator<std::_Tree_val<std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>>>,
+1>              _Ty2=bool,
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(943) : see declaration of 'std::_Tree<_Traits>::_Linsert'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::_Tree_iterator<_Mytree> std::_Tree<_Traits>::_Insert(bool,std::_Tree_nod<_Traits>::_Node *,std::_Tree_nod<_Traits>::_Node *)' : function not inlined
+1>          with
+1>          [
+1>              _Mytree=std::_Tree_val<std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>>,
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xtree(1629) : see declaration of 'std::_Tree<_Traits>::_Insert'
+1>          with
+1>          [
+1>              _Traits=std::_Tmap_traits<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const Ogre::String,Ogre::String>>,true>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::basic_stringbuf<_Elem,_Traits,_Alloc>::str(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>,
+1>              _Alloc=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\sstream(92) : see declaration of 'std::basic_stringbuf<_Elem,_Traits,_Alloc>::str'
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Alloc=std::allocator<char>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::basic_ostringstream<_Elem,_Traits,_Alloc>::str(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>,
+1>              _Alloc=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\sstream(591) : see declaration of 'std::basic_ostringstream<_Elem,_Traits,_Alloc>::str'
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Alloc=std::allocator<char>
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::truename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(87) : see declaration of 'std::numpunct<_Elem>::truename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::falsename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(82) : see declaration of 'std::numpunct<_Elem>::falsename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::do_falsename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(177) : see declaration of 'std::numpunct<_Elem>::do_falsename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::do_truename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(182) : see declaration of 'std::numpunct<_Elem>::do_truename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::string std::numpunct<_Elem>::do_grouping(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(172) : see declaration of 'std::numpunct<_Elem>::do_grouping'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::string std::numpunct<_Elem>::grouping(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(77) : see declaration of 'std::numpunct<_Elem>::grouping'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\program files\microsoft visual studio 10.0\vc\include\xtree(559): warning C4710: 'std::locale std::ios_base::getloc(void) const' : function not inlined
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xiosbase(450) : see declaration of 'std::ios_base::getloc'
+1>  Generating Code...
+1>c:\_hg\ezonas\ogrish\initgorilla.cpp(26): warning C4701: potentially uninitialized local variable 'atlas_index' used
+1>  Compiling...
+1>  ability.cc
+1>c:\_hg\ezonas\ogrish\ability.cc(147): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::truename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(87) : see declaration of 'std::numpunct<_Elem>::truename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\_hg\ezonas\ogrish\ability.cc(147): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::falsename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(82) : see declaration of 'std::numpunct<_Elem>::falsename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\_hg\ezonas\ogrish\ability.cc(147): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::do_falsename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(177) : see declaration of 'std::numpunct<_Elem>::do_falsename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\_hg\ezonas\ogrish\ability.cc(147): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::numpunct<_Elem>::do_truename(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(182) : see declaration of 'std::numpunct<_Elem>::do_truename'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\_hg\ezonas\ogrish\ability.cc(147): warning C4710: 'std::locale std::ios_base::getloc(void) const' : function not inlined
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xiosbase(450) : see declaration of 'std::ios_base::getloc'
+1>c:\_hg\ezonas\ogrish\ability.cc(147): warning C4710: 'std::string std::numpunct<_Elem>::do_grouping(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(172) : see declaration of 'std::numpunct<_Elem>::do_grouping'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\_hg\ezonas\ogrish\ability.cc(147): warning C4710: 'std::string std::numpunct<_Elem>::grouping(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\xlocnum(77) : see declaration of 'std::numpunct<_Elem>::grouping'
+1>          with
+1>          [
+1>              _Elem=char
+1>          ]
+1>c:\_hg\ezonas\ogrish\ability.cc(147): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::basic_stringbuf<_Elem,_Traits,_Alloc>::str(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>,
+1>              _Alloc=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\sstream(92) : see declaration of 'std::basic_stringbuf<_Elem,_Traits,_Alloc>::str'
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Alloc=std::allocator<char>
+1>          ]
+1>c:\_hg\ezonas\ogrish\ability.cc(147): warning C4710: 'std::basic_string<_Elem,_Traits,_Ax> std::basic_stringstream<_Elem,_Traits,_Alloc>::str(void) const' : function not inlined
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Ax=std::allocator<char>,
+1>              _Alloc=std::allocator<char>
+1>          ]
+1>          c:\program files\microsoft visual studio 10.0\vc\include\sstream(712) : see declaration of 'std::basic_stringstream<_Elem,_Traits,_Alloc>::str'
+1>          with
+1>          [
+1>              _Elem=char,
+1>              _Traits=std::char_traits<char>,
+1>              _Alloc=std::allocator<char>
+1>          ]
+1>  Generating Code...
+1>  Ogrish.vcxproj -> C:\_HG\ezonas\Ogrish\Debug\Ogrish.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

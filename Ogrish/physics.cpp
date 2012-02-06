@@ -1,5 +1,48 @@
 #include "stdafx.h"
 
+#ifdef PHYSICS
+void Application :: handle_bullet()
+{
+	//for(auto it = Nodes.begin(); it != Nodes.end(); ++ it)
+	size_t sz = Nodes.size();
+	// mirroring movements
+	for(size_t i = 0; i < sz; ++ i)
+	{
+		temp = Nodes[i]->getPosition();
+		btCollisionObject * colobj;
+		collisionWorld->getCollisionObjectArray()[i]->
+			setWorldTransform(btTransform(btQuaternion(), btVector3(temp.x, temp.y, temp.z)));
+	}
+	
+	size_t num = dispatcher->getNumManifolds();
+	for(size_t i = 0; i < num; ++i)
+	{
+		
+	}
+
+}
+#endif
+
+void Application :: check_collisions()
+{
+	size_t num = Nodes.size();
+	for(size_t i = 0; i < num; ++i)
+		for(size_t j = i + 1; j < num; ++j)
+		{
+			float fd = Nodes[i]->getPosition().squaredDistance(Nodes[j]->getPosition());
+			if(Nodes[i]->getPosition().squaredDistance(Nodes[j]->getPosition()) < sphere_radius_squared)
+			{
+				Nodes[i]->showBoundingBox(true);
+				Nodes[j]->showBoundingBox(true);
+			}
+			else
+			{
+				Nodes[i]->showBoundingBox(false);
+				Nodes[j]->showBoundingBox(false);
+			}
+		}
+}
+
 /*
     btBroadphaseInterface				* broadphase;
     btDefaultCollisionConfiguration		* collisionConfiguration;
@@ -37,45 +80,3 @@
 
 */
 
-#ifdef PHYSICS
-void Application :: handle_bullet()
-{
-	static Vec3 temp;
-	//for(auto it = Nodes.begin(); it != Nodes.end(); ++ it)
-	size_t sz = Nodes.size();
-	// mirroring movements
-	for(size_t i = 0; i < sz; ++ i)
-	{
-		temp = Nodes[i]->getPosition();
-		btCollisionObject * colobj;
-		collisionWorld->getCollisionObjectArray()[i]->
-			setWorldTransform(btTransform(btQuaternion(), btVector3(temp.x, temp.y, temp.z)));
-	}
-	
-	size_t num = dispatcher->getNumManifolds();
-	for(size_t i = 0; i < num; ++i)
-	{
-		
-	}
-
-}
-#endif
-
-void Application :: check_collisions()
-{
-	size_t num = Nodes.size();
-	for(size_t i = 0; i < num; ++i)
-		for(size_t j = i + 1; j < num; ++j)
-		{
-			if(Entities[i]->getPosition().squaredDistance(Nodes[j]->getPosition()) < sphere_radius_squared)
-			{
-/*				Entities[i]->showBoundingBox(true);
-				Entities[j]->showBoundingBox(true);*/
-			}
-			else
-			{
-//				Nodes[i]->showBoundingBox(false);
-//				Nodes[j]->showBoundingBox(false);
-			}
-		}
-}

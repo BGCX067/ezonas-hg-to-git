@@ -6,12 +6,10 @@ void Application :: LoadEntity(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
 	float x, y, z, scale;
-	string mesh_filename, material_name, scenenode_create;
+	string mesh_filename, material_name, flag;
 
-	iss >> mesh_filename >> scale >> material_name >> x >> y >> z >> scenenode_create;
-	bool scenenode_create_bool;
-	if(scenenode_create == "true") scenenode_create_bool = true;
-	else scenenode_create_bool = false;
+	iss >> mesh_filename >> scale >> material_name >> x >> y >> z >> flag;
+
 	/* "-" loads the same named .mesh / material */
 	Entity * ent;
 	if(mesh_filename == "-") ent = SGLT_SCMGR -> createEntity(_s, _s + ".mesh");
@@ -20,19 +18,21 @@ void Application :: LoadEntity(string _s)
 	if (material_name == "-") ent -> setMaterialName(_s + ".material");
 	else if (material_name == "x")  PRINTLOG("No material used for "+_s);
 	else					  ent -> setMaterialName(material_name);
-
-	if(scenenode_create_bool)
+	
+	SceneNode * node;
+	if (flag == "target")
 	{
-		SceneNode * node = SGLT_RSN->createChildSceneNode(_s, Vec3(x, y, z));
-		node -> attachObject(ent);
-		Nodes.push_back(node);
-		node->showBoundingBox(true);
+		node = cam_ctrlr -> getTargetNode();
+		cam_ctrlr -> setEntity(ent);
 	}
 	else
-		Nodes.push_back(NULL);
-
-		
-	//ent->setP
+	{
+		node = SGLT_RSN->createChildSceneNode(_s, Vec3(x, y, z));
+		node -> attachObject(ent);
+		Nodes.push_back(node);
+	}
+	node->showBoundingBox(true);
+	
 	Entities.push_back(ent);
 	isMoving.push_back(false);
 
@@ -42,6 +42,28 @@ void Application :: LoadEntity(string _s)
 	colobj->setCollisionShape(sphere);
 #endif
 }
+void Application :: Populate()
+{
+	// REMINDER: FOR THE 5432nd TIME, HEIGHT IS Y (forward is x)
+	int population = GetInt("population");
+	istringstream iss(configfile -> getSetting("pop_zone"));
+	float  A_x, A_z, B_x, B_z;
+	iss >> A_x >> A_z >> B_x >> B_z;
+
+	std::string pop_mesh = configfile -> getSetting("pop_mesh");
+	for(int i = 0 ; i < population; ++ i)
+	{
+		SceneNode * node = SGLT_RSN -> createChildSceneNode();
+		node -> attachObject(SGLT_SCMGR -> createEntity(pop_mesh));
+		node -> setPosition(
+			Math::RangeRandom(A_x, B_x),
+			Real(0),
+			Math::RangeRandom(A_z, B_z)
+			);
+		Nodes.push_back(node);
+	}
+}
+
 SceneNode * Application :: AddLight(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));

@@ -2,6 +2,13 @@
 #include "stdafx.h"
 //#endif
 template<> CameraController * Ogre :: Singleton <CameraController> :: ms_Singleton = 0;
+
+void CameraController::setFollowedTarget(SceneNode * node) { n_target = node; }
+SceneNode * CameraController :: getTargetNode() { return n_target; }
+SceneNode * CameraController :: getMasterNode() { return n_master; }
+//void CameraController :: setTarget(SceneNode * node) { n_target = node; }
+void CameraController :: setEntity(Entity * ent) { character = ent; }
+
 CameraController :: CameraController ():
 
 #ifndef FOLDTHISFFS
@@ -27,10 +34,9 @@ CameraController :: CameraController ():
 	rot(0.0f)
 #endif
 {
-	cam -> setPosition(0,10,30);
-	n_cam->setPosition(0,0,10);
-	n_cam->attachObject(cam);
-	n_target->setFixedYawAxis(true); // optional
+	n_cam -> setPosition(0,0,10);
+	n_cam -> attachObject(cam);
+	n_target -> setFixedYawAxis(true); // optional
 	
 #ifndef CONTROLS_AND_OTHER
 	ParamList parameters;
@@ -86,11 +92,11 @@ void CameraController :: setCameraMode(int mode)
 	n_cam	 -> detachAllObjects();	n_cam	 -> removeAllChildren();
 	camera_mode = mode;
 
-	REINIT(n_cam)
-	REINIT(n_master)
-	REINIT(cam)
-	REINIT(n_target)
-	switch(mode)
+	REINIT (n_cam)
+	REINIT (n_master)
+	REINIT (cam)
+	REINIT (n_target)
+	switch (mode)
 	{
 	case 1:
 		/////////////////////
@@ -113,6 +119,8 @@ void CameraController :: setCameraMode(int mode)
 		n_target->setFixedYawAxis(true);
 		n_yawpitch_ptr = n_target;
 		//character
+		break;
+	default:
 		break;
 	}
 }
@@ -212,7 +220,3 @@ CameraController :: ~ CameraController()
 	inputmanager -> destroyInputObject(keyboard);
 	InputManager :: destroyInputSystem(inputmanager);
 }
-void CameraController::setFollowedTarget(SceneNode * node) { n_target = node; }
-SceneNode * CameraController :: getTargetNode() { return n_target; }
-SceneNode * CameraController :: getMasterNode() { return n_master; }
-void CameraController :: setEntity(Entity * ent) { character = ent; }

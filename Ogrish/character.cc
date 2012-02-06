@@ -3,13 +3,13 @@
 // ############# CHARACTER #############
 character_s :: character_s (
 #ifndef DEFAULT_VALUES
-	float _moving_speed_default	,
-	float _stealth_range		,
-	float _defense 			   	,
-	float _attack_bonus 		,
-	float _power				,
-	float _life				   	,
-	int _mask				   	
+	float _moving_speed_default ,
+	float _stealth_range	    ,
+	unsigned short _defense 	,
+	unsigned short _attack_bonus,
+	unsigned short _power		,
+	unsigned short _life		,
+	unsigned short _mask			
 ):
 	moving_speed_default (_moving_speed_default),
 	stealth_range		 (_stealth_range	   ),

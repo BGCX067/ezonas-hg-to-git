@@ -34,14 +34,15 @@ root				(new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.c
 #ifndef CONSTR
 	last_init		(init_config()),
 
-	window			(root -> initialise(true, "Zevil")),
-	scmgr			(root -> createSceneManager(GetScMgrType())),
-	camera			(scmgr -> createCamera("Camera")),
-	viewport		(window -> addViewport(camera)),
-	rootnode		(scmgr -> getRootSceneNode()),
-
-	mGorilla		(new Gorilla :: Silverback()),
-	machine			(new game_machine)
+	window			(root -> initialise(true, "Zevil")			),
+	scmgr			(root -> createSceneManager(GetScMgrType())	),
+	camera			(scmgr -> createCamera("Camera")			),
+	viewport		(window -> addViewport(camera)				),
+	rootnode		(scmgr -> getRootSceneNode()				),
+	mGorilla		(new Gorilla :: Silverback()				),
+	machine			(new game_machine)/*,
+	hover_idle		(MaterialManager::getSingleton().getByName("hover/idle")),
+	hover_hover		(MaterialManager::getSingleton().getByName("hover/hover"))*/
 	
 
 #ifdef PHYSICS
