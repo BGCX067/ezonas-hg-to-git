@@ -18,7 +18,7 @@ template<> OgreConsole* Ogre::Singleton<OgreConsole>::ms_Singleton=0;
 template<> OgreConsole* Ogre::Singleton<OgreConsole>::msSingleton=0;
 #endif
 
-#define CONSOLE_FONT_INDEX 14
+#define CONSOLE_FONT_INDEX 7
 
 #define CONSOLE_LINE_LENGTH 85
 #define CONSOLE_LINE_COUNT 15

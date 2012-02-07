@@ -26,6 +26,11 @@ void Application :: InitGorilla()
 		string("Counter Cake is Zevil"));
 	gor_caption[1] = gor_layer -> createCaption(atlas_index, 200, 2,
 		string("-"));
+
+	console = new OgreConsole;
+	console ->init(gor_screen);
+	console ->setVisible(true);
+
 	//gor_caption[2] = gor_layer -> createCaption(atlas_index, 300, 2,
 	//	string("-"));
 	//gor_caption[3] = gor_layer -> createCaption(atlas_index, 400, 2,

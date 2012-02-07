@@ -82,6 +82,7 @@ private: /* ############ PRIVATE ############ */
 	Gorilla :: Rectangle	* gor_rect;
 	Gorilla :: Layer		* gor_layer;
 	Gorilla :: Caption		* gor_caption[15];
+	OgreConsole * console;
 	
 #ifdef PHYSICS
     btBroadphaseInterface				* broadphase;

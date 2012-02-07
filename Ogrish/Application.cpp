@@ -74,6 +74,7 @@ root				(new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.c
 	
 	// CreateTerrain();
 	InitGorilla();
+
 	CreateScene();
 	//camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
 #ifdef PHYSICS
@@ -101,6 +102,7 @@ Application :: ~ Application()
 	OGRE_DELETE mTerrain;
 	OGRE_DELETE mGlobals;
 #endif
+	delete console;
 	delete mGorilla;
 	delete machine;
 	// bullet

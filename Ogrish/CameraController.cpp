@@ -166,7 +166,7 @@ bool CameraController :: keyPressed(const OIS::KeyEvent &e)
 	switch(e.key)
 	{
 	case KC_ESCAPE: stop = true; break;
-	case KC_F1: setCameraMode(1); break;
+	//case KC_F1: setCameraMode(1); break;
 	case KC_F2: setCameraMode(3); break;
 
 	// index up, thumb left
