@@ -3,60 +3,53 @@
 //#endif
 template<> Application * Ogre :: Singleton <Application> :: ms_Singleton = 0;
 
-bool Application :: init_config()
+Application :: Application():
+	FrameListener()
 {
 	configfile = new ConfigFile;
+
+	/* initializing all objects */
 #ifdef __APPLE__
-	configfile -> load(macBundlePath() +
-		"/Contents/Resources/"+"conf/gameconf.cfg");
+	root			 = new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.cfg",
+						macBundlePath() + "/Contents/Resources/"+"conf/Ogre.cfg",
+						macBundlePath() + "/Contents/Resources/"+"conf/Ogre.log");
+	configfile -> load(macBundlePath() + "/Contents/Resources/"+"conf/gameconf.cfg");
 #else
+	root			 = new Root("conf/plugins_d.cfg", "conf/Ogre.cfg", "conf/Ogre.log");
 	configfile -> load("conf/gameconf.cfg");
 #endif
+	if(root -> restoreConfig() == false)
+		if (root -> showConfigDialog() == false)
+			exit (0xdeadbeef);
 
-	if(root -> restoreConfig()) return true;
-	else
-		if(root -> showConfigDialog()) return false;
-	else
-		exit (0xdeadbeef);
-}
-
-Application :: Application():
-	FrameListener(),
-#ifdef __APPLE__
-root				(new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.cfg",
-						  macBundlePath() + "/Contents/Resources/"+"conf/Ogre.cfg",
-						  macBundlePath() + "/Contents/Resources/"+"conf/Ogre.log")),
-#else
-	root			(new Root("conf/plugins_d.cfg", "conf/Ogre.cfg", "conf/Ogre.log")),
-#endif	// this tricks was made to make sure all those objects are
-	// initiallized at the creation of the application
-	// (some speed up maybe...)
-#ifndef CONSTR
-	last_init		(init_config()),
-
-	window			(root -> initialise(true, "Zevil")			),
-	scmgr			(root -> createSceneManager(GetScMgrType())	),
-	camera			(scmgr -> createCamera("Camera")			),
-	viewport		(window -> addViewport(camera)				),
-	rootnode		(scmgr -> getRootSceneNode()				),
-	mGorilla		(new Gorilla :: Silverback()				),
-	machine			(new game_machine)/*,
-	hover_idle		(MaterialManager::getSingleton().getByName("hover/idle")),
-	hover_hover		(MaterialManager::getSingleton().getByName("hover/hover"))*/
+	window			 = root -> initialise(true, "Zevil");
+	scmgr			 = root -> createSceneManager(GetScMgrType());
+	camera			 = scmgr -> createCamera("Camera");
+	viewport		 = window -> addViewport(camera);
+	rootnode		 = scmgr -> getRootSceneNode();
 	
+	InitResources(); // DONT FORGET THIS STEP
+
+	cam_ctrlr		 = CameraController :: Instantiate();
+	lasercast		 = LaserCast :: Instantiate();
+	bullet_tracer	 = BulletTracer :: Instantiate();
+	mGorilla		 = new Gorilla :: Silverback();
+	machine			 = new game_machine;
+	mat3_zero		 = btMatrix3x3(0,0,0,0,0,0,0,0,0);
+	transf			 = btTransform(mat3_zero);
+	hover_idle		 = MaterialManager::getSingleton().getByName("hover/idle");
+	hover_hover		 = MaterialManager::getSingleton().getByName("hover/hover");
 
 #ifdef PHYSICS
-	,
-	broadphase				(new btDbvtBroadphase()),
-    collisionConfiguration	(new btDefaultCollisionConfiguration()),
-    dispatcher				(new btCollisionDispatcher(collisionConfiguration)),
-	//solver					(new btSequentialImpulseConstraintSolver),
-    //dynamicsWorld			(new btDiscreteDynamicsWorld(dispatcher,broadphase,solver,collisionConfiguration))
-    collisionWorld			(new btCollisionWorld(dispatcher,broadphase,collisionConfiguration))
+	broadphase				 = new btDbvtBroadphase();
+    collisionConfiguration	 = new btDefaultCollisionConfiguration();
+    dispatcher				 = new btCollisionDispatcher(collisionConfiguration);
+	//solver				 = new btSequentialImpulseConstraintSolver;
+    //dynamicsWorld			 = new btDiscreteDynamicsWorld(dispatcher,broadphase,solver,collisionConfiguration);
+    collisionWorld			 = new btCollisionWorld(dispatcher,broadphase,collisionConfiguration);
+#endif
 
-#endif
-#endif
-{
+	/* changing some settings */
 	window -> reposition(20, 20);
 	camera -> setNearClipDistance(1);
 	viewport -> setBackgroundColour(ColourValue(0.1f, 0.1f, 0.1f));
@@ -65,35 +58,7 @@ root				(new Root(macBundlePath() + "/Contents/Resources/"+"conf/plugins_d-mac.c
 	root -> addFrameListener(this);
 	InitResources();
 
-	// PROJECT CODE ////////////////////////////////////////
-	if(GetInt("crosshair") == 1)
-		OverlayManager :: getSingletonPtr() -> getByName("jokoon/crosshair") -> show();
-	
-	//switch(ConfMgr :: getSingleton().GetInt("camera_mode"))
-	cam_ctrlr = CameraController :: Instantiate();
-	
-	// CreateTerrain();
-	InitGorilla();
-
-	CreateScene();
-	//camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
-#ifdef PHYSICS
-	btCollisionObject * colobj = new btCollisionObject;
-
-	//collisionWorld->getCollisionObjectArray().resize(10, colobj);
-
-
-	sphere = new btSphereShape(GetFloat("sphere_radius"));
-	//	collisionWorld->addCollisionObject(new );
-
-	//collisionWorld->addCollisionObject(new btSphereShape(3));
-	//collisionWorld->addCollisionObject(new btSphereShape(3));
-	//collisionWorld->addCollisionObject(new btSphereShape(3));
-	//collisionWorld->addCollisionObject(new btSphereShape(3));
-	//collisionWorld->getCollisionObjectArray()[0]->setWorldTransform(
-#endif
-	sphere_radius_squared = GetFloat("sphere_radius");
-	sphere_radius_squared *= sphere_radius_squared;
+	initialize();
 }
 Application :: ~ Application()
 {
@@ -130,15 +95,6 @@ void Application :: go ()
 	//while(!stop) root ->renderOneFrame();
 }
 
-void Application :: moveTo(int idx, Vec3 dest, float speed)
-{
-	if(idx < Nodes.size())
-	{
-		isMoving[idx] = true;
-		Vec3 direction (Nodes[idx]->getPosition() - dest);
-		velocities[idx] = direction * speed / direction.length();
-	}
-}
 
 SceneManager * Application :: GetScMgr()	{ return scmgr;						   }
 SceneNode * Application :: GetRSN()			{ return scmgr -> getRootSceneNode();  }

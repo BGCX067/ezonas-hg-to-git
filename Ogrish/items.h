@@ -16,7 +16,6 @@ enum item_melee
 	melee_ripclaw   = 1 ,  
 	melee_blade	    = 2 ,  
 	melee_kitchen   = 3 ,  
-
 };
 enum item_gun
 {
@@ -35,7 +34,6 @@ enum item_gun
 
 	gun_ezgun		= 10,  
 	gun_snaket		= 11,  
-
 };
 enum item_gun2
 {
@@ -73,7 +71,6 @@ enum item_consum
 
 	consum_serum	= 10,  
 	consum_pill		= 11,  
-
 };
 enum item_ammun
 {
@@ -84,7 +81,6 @@ enum item_ammun
 	ammun_stackcap	= 5 ,  
 	ammun_combcap	= 6 ,  
 	ammun_flak		= 7 ,  
-
 };
 enum item_tool
 {
@@ -109,7 +105,7 @@ enum item_e
 	blade	    = melee_blade	+ WEAPON + MELEE,
 	kitchen     = melee_kitchen + WEAPON + MELEE,
 								
-	// guns_	    =// guns		+ WEAPON
+	// guns_
 	klobr	    = gun_klobr		+ WEAPON + GUN,
 	lark	    = gun_lark	    + WEAPON + GUN,
 
@@ -126,7 +122,7 @@ enum item_e
 	ezgun		= gun_ezgun		+ WEAPON + GUN,
 	snaket		= gun_snaket	+ WEAPON + GUN,
 									
-	// consum_	=// consum			ON + GUN
+	// consum_
 	gr_light	= consum_gr_light	+ WEAPON + CONSUM,
 	gr_tron		= consum_gr_tron	+ WEAPON + CONSUM,
 	gr_wave		= consum_gr_wave	+ WEAPON + CONSUM,
@@ -141,7 +137,7 @@ enum item_e
 	serum		= consum_serum		+ WEAPON + CONSUM + MELEE,	
 	pill		= consum_pill		+ WEAPON + CONSUM + MELEE,	
 											
-	// ammun_	=// ammun					
+	// ammun_
 	stdb		= ammun_stdb		+ AMMUN,
 	hvel		= ammun_hvel		+ AMMUN,
 	srg			= ammun_srg			+ AMMUN,
@@ -150,7 +146,7 @@ enum item_e
 	combcap		= ammun_combcap		+ AMMUN,
 	flak		= ammun_flak		+ AMMUN,
 									
-	// tool_		=// tool			
+	// tool_
 	breath		= tool_breath		+ TOOL,
 	lightbender	= tool_lightbender	+ TOOL,
 	spyborg		= tool_spyborg		+ TOOL,

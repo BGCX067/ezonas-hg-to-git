@@ -33,6 +33,15 @@
     <None Include="conf\resources_d.cfg">
       <Filter>conf</Filter>
     </None>
+    <None Include="conf\fucking_roadmap.txt">
+      <Filter>conf</Filter>
+    </None>
+    <None Include="conf\jokoon.material">
+      <Filter>conf</Filter>
+    </None>
+    <None Include="conf\crosshair.overlay">
+      <Filter>conf</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ability.h">
@@ -122,5 +131,8 @@
       <Filter>gorilla</Filter>
     </ClCompile>
     <ClCompile Include="physics.cpp" />
+    <ClCompile Include="initialize.cpp">
+      <Filter>func</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

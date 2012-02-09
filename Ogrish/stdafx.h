@@ -29,6 +29,14 @@
 #ifndef __APPLE__
 #define PHYSICS
 #endif
+#define ITV(T)    std::vector	<T>::Iterator	
+#define ITA(T)    std::array	<T>::Iterator	
+#define ITQ(T)    std::queue	<T>::Iterator	
+#define ITD(T)    std::deque	<T>::Iterator	
+#define ITL(T)    std::list		<T>::Iterator	
+#define ITM(T,U)  std::map		<T,U>::Iterator 
+#define ITS(T)    std::stack	<T>::Iterator	
+
 
 using namespace std;
 using namespace Ogre;

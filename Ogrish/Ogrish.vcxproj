@@ -106,6 +106,7 @@
     <ClCompile Include="GetSingleton.cpp" />
     <ClCompile Include="Gorilla.cpp" />
     <ClCompile Include="InitGorilla.cpp" />
+    <ClCompile Include="initialize.cpp" />
     <ClCompile Include="items.cpp" />
     <ClCompile Include="LaserCast.cpp" />
     <ClCompile Include="OgreConsoleForGorilla.cpp" />
@@ -119,7 +120,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="conf\conf-guns.cfg" />
+    <None Include="conf\crosshair.overlay" />
+    <None Include="conf\fucking_roadmap.txt" />
     <None Include="conf\gameconf.cfg" />
+    <None Include="conf\jokoon.material" />
     <None Include="conf\Ogre.cfg" />
     <None Include="conf\plugins_d.cfg" />
     <None Include="conf\resources_d.cfg" />

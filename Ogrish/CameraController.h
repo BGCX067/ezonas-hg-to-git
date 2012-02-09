@@ -17,6 +17,7 @@ public:
 	SceneNode * getMasterNode();
 	void setTarget(SceneNode * node);
 	void setEntity(Entity * ent);
+	void setBulletTracer(BulletTracer *);
 protected:
 	SceneNode
 		* n_root	,
@@ -34,10 +35,7 @@ protected:
 	Vec3 offset;
 	int camera_mode;
 	
-	// gameplay objects
-	LaserCast * lasercast;
 	BulletTracer * bullet_tracer;
-
 	// inputs
 	InputManager * inputmanager;
 	Keyboard * keyboard;

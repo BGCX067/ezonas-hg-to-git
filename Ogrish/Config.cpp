@@ -107,6 +107,16 @@ Vec3 Application :: GetVect3(string _s)
 
 	return Vec3(x, y, z);
 }
+Ogre::Vector2 Application :: GetVect2(string _s)
+{
+	istringstream iss(configfile -> getSetting(_s));
+	// string s = configfile -> getSetting(_s);
+	float x, y;
+
+	iss >>  x >> y;
+
+	return Ogre::Vector2(x, y);
+}
 SceneTypeMask Application :: GetScMgrType()
 {
 	string str = configfile -> getSetting("SceneManager");

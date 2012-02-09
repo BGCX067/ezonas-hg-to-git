@@ -11,17 +11,49 @@ void Application :: handle_bullet()
 		temp = Nodes[i]->getPosition();
 		btCollisionObject * colobj;
 		collisionWorld->getCollisionObjectArray()[i]->
-			setWorldTransform(btTransform(btQuaternion(), btVector3(temp.x, temp.y, temp.z)));
+			getWorldTransform().setOrigin(btVector3(temp.x, temp.y, temp.z));
 	}
 	
 	size_t num = dispatcher->getNumManifolds();
 	for(size_t i = 0; i < num; ++i)
 	{
-		
+		// mirror Node position with collision objects
 	}
-
 }
 #endif
+
+void Application :: init_physics()
+{
+	btCollisionObject * colobj = new btCollisionObject;
+	sphere_radius_squared = GetFloat("sphere_radius");
+	sphere_radius_squared *= sphere_radius_squared;
+	sphere = new btSphereShape(GetFloat("sphere_radius"));
+
+	//collisionWorld->getCollisionObjectArray().resize(10, colobj);
+
+	float
+		range_xz_down	= GetFloat("range_xz_down"),
+		range_xz_up		= GetFloat("range_xz_up");
+	for(auto it = Nodes.begin(); it != Nodes.end(); ++ it)
+	{
+		velocities.push_back(Vec3(Math::RangeRandom(range_xz_down, range_xz_up),0,Math::RangeRandom(range_xz_down, range_xz_up)));
+
+		btCollisionObject * colobj = new btCollisionObject;
+		colobj->setCollisionShape(sphere);
+		temp = (*it)->getPosition();
+		colobj->getWorldTransform().setOrigin(btVector3(temp.x, temp.y, temp.z));
+		collisionWorld->addCollisionObject(colobj);
+	}
+}
+void Application :: moveTo(int idx, Vec3 dest, float speed)
+{
+	if(idx < Nodes.size())
+	{
+		isMoving[idx] = true;
+		Vec3 direction (Nodes[idx]->getPosition() - dest);
+		velocities[idx] = direction * speed / direction.length();
+	}
+}
 
 void Application :: check_collisions()
 {

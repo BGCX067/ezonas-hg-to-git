@@ -18,15 +18,17 @@ class game_machine
 {
 public:
 	game_machine();
-		
+	void update();
 	void pass();
+
 	void process_states();
 	void process_queue();
-	
+	void process_ability (ushort _abil, ushort _emit, ushort _target);
+
 	void loadAbilStatBases();
 	void loadAbilBonuses();
 	void loadCharacters();
-
+	void apply_effect(ushort, ushort, ushort);
 	int make_abil_mask(string flags);
 	void make_stat(int abst_base, int experience, abil_stats & abst, abil_bonus & bonus);
 
@@ -38,16 +40,11 @@ public:
 private:
 	// data oriented
 	float * timeSinceLastFrame;
-	int
-		chd_ab,
-		chd_emit,
-		chd_trg;
 	std::vector <Ogre::Entity *> Entities;
 
 	std::vector <std::string>	   CharNames;		
 	std::vector <character_s>	   Characters;
 	queue <Event>				   Events;
-
 
 #ifndef COMPOSITION
 	std::vector <abil_stats> AbilStats;
@@ -58,6 +55,10 @@ private:
 	std::vector <abil_phys>		   AbilPhysics;		// PHYS -- unique
 	std::vector <abil_stats_base>  AbilStatBases;
 	
+	std::vector<timer_state> Timers;
+	std::queue<size_t> availables;
+
+
 	ItemMgr item_mgr;
 };
 /*

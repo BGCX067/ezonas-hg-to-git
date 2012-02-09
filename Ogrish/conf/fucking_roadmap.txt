@@ -1,5 +1,5 @@
 console & console input
 bullets ray cast something
-replace queue system
+
 code some character control system -> hook launch spell, fire bullets etc
 

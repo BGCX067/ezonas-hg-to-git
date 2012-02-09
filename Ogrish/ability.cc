@@ -1,34 +1,33 @@
 #include "stdafx.h"
 
 abil_stats :: abil_stats
-	(unsigned short _dmg_tick, unsigned short _dmg_instant, unsigned short _dmg_splash, unsigned short _power_cost):
+	(ushort _dmg_tick, ushort _dmg_instant, ushort _dmg_splash, ushort _power_cost):
 	dmg_tick		(_dmg_tick),
 	dmg_instant		(_dmg_instant),
 	dmg_splash		(_dmg_splash),
 	power_cost		(_power_cost)
 {}
 abil_stats_base :: abil_stats_base
-	(unsigned short _dmg_tick, unsigned short _dmg_instant, unsigned short _dmg_splash, unsigned short _power_cost):
+	(ushort _dmg_tick, ushort _dmg_instant, ushort _dmg_splash, ushort _power_cost):
 	dmg_tick		(_dmg_tick),
 	dmg_instant		(_dmg_instant),
 	dmg_splash		(_dmg_splash),
 	power_cost		(_power_cost)
 {}
 abil_bonus :: abil_bonus
-	(unsigned short _dmg_tick, unsigned short _dmg_instant, unsigned short _dmg_splash, unsigned short _power_cost):
+	(ushort _dmg_tick, ushort _dmg_instant, ushort _dmg_splash, ushort _power_cost):
 	dmg_tick		(_dmg_tick),
 	dmg_instant		(_dmg_instant),
 	dmg_splash		(_dmg_splash),
 	power_cost		(_power_cost)
 {}
 abil_data :: abil_data
-	(unsigned short _ability_id, unsigned short _experience, float _timeleft):
+	(ushort _ability_id, ushort _experience):
 	ability_id	(_ability_id),
-	experience	(_experience),
-	timeleft	(_timeleft)
+	experience	(_experience)
 {}
 abil_base :: abil_base
-	(unsigned short _ticks, unsigned short _mask, float _delay):
+	(ushort _ticks, ushort _mask, float _delay):
 	ticks		(_ticks),
 	mask		(_mask),
 	delay		(_delay)
@@ -63,8 +62,7 @@ void abil_data :: diagnose()
 	SGLT_LOG->stream() << "ability_id experience timeleft delay ";
 	SGLT_LOG->stream() <<
 		TO_STR(ability_id)+
-		TO_STR(experience)+
-		TO_STR(timeleft);
+		TO_STR(experience);
 }
 void abil_stats_base :: diagnose()
 {

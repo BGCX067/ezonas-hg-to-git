@@ -29,6 +29,10 @@ BulletTracer :: BulletTracer ():
 		bb_dot[i] = SGLT_SCMGR -> createBillboardSet();
 		bb_dot[i] -> createBillboard(Vec3(0,0,0));
 		bb_dot[i] -> setMaterialName("jokoon/bullet_dot");
+		Ogre::Vector2 v = SGLT_APP->GetVect2("bullet_dot");
+		bb_dot[i]
+			-> getMaterial() -> getTechnique(0u) -> getPass(0u)
+			-> getTextureUnitState(0u) -> setTextureScale(v.x, v.y);
 		n_bullet[i] = SGLT_RSN -> createChildSceneNode(string(str));
 		n_bullet[i] -> attachObject(bb_bullet[i]);
 		n_bullet[i] -> attachObject(bb_dot[i]);

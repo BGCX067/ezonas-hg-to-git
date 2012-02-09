@@ -23,8 +23,8 @@ CameraController :: CameraController ():
 	n_yawpitch_ptr  (n_target),
 	
 	cam				(Application :: getSingletonPtr() -> GetCam()),
-	lasercast		(LaserCast :: Instantiate()),
-	bullet_tracer	(BulletTracer :: Instantiate()),
+	//lasercast		(LaserCast :: Instantiate()),
+	//bullet_tracer	(BulletTracer :: Instantiate()),
 	stop			(false),
 	frame_time		(Application :: getSingletonPtr() -> GetFT()),
 	translate		(Vec3(0,0,0)),
@@ -139,8 +139,6 @@ bool CameraController :: update ()
 		
 	//cam ->setAutoTracking
 	//cam -> lookAt(n_target->getPosition());
-	lasercast -> update();
-	bullet_tracer -> update();
 
 	if (translate.length() > 1.0f) exit(0xb00bbabe);
 	return ! stop;
@@ -220,3 +218,4 @@ CameraController :: ~ CameraController()
 	inputmanager -> destroyInputObject(keyboard);
 	InputManager :: destroyInputSystem(inputmanager);
 }
+void CameraController :: setBulletTracer(BulletTracer * a) { bullet_tracer = a; }

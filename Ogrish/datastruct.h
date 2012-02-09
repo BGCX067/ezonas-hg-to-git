@@ -4,7 +4,7 @@
 
 enum event_state   { JUMPS, LANDS, MOVES, STOPS, USE_ITEM, ABILITY };
 struct event_abil  { int target_id, abil_state_id; };
-struct event_phys  { float pos[3], vel[3], orient[4]; };
+struct event_phys  { Vec3 pos, vel; Quaternion orient; };
 struct event_item  { int item_id; };
 
 struct Event
@@ -20,6 +20,17 @@ struct Event
 	Event(int, int, int);
 };
 
+struct timer_state
+{
+	ushort emit, abil, target;
+	float delay;
+	timer_state(ushort _emit, ushort _abil, ushort _target, float _delay):
+		emit(_emit),
+		abil(_abil),
+		target(_target),
+		delay(_delay)
+		{}
+};
 
 
 //struct event_stop { float pos[6]; };

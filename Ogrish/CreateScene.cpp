@@ -4,35 +4,15 @@
 void Application :: CreateScene()
 {
 	//camera -> setPolygonMode(PM_WIREFRAME);
-//	SceneNode * node;
-	AddPlane();
 	//scmgr -> showBoundingBoxes(true);
 	//ConfMgr :: getSingletonPtr() -> AddLevel("guy"); 
-	
 	//ConfMgr :: getSingletonPtr() -> AddLevel("mifflin3");
-
+	AddPlane();
 	LoadEntity("bonome");
-
-	//LoadEntity("dummy1");
-	//LoadEntity("dummy2");
-	//LoadEntity("dummy3");
-
 	Populate();
-
-	//cam_ctrlr -> getMasterNode()->attachObject(SGLT_SCMGR ->getEntity("bonome"));
-	// cam_ctrlr -> getTargetNode() -> attachObject(SGLT_SCMGR -> getEntity("bonome"));
-
-	//cam_ctrlr -> setTarget(SGLT_SCMGR -> getSceneNode("bonome"));
 
 	AddLight("light1");
 	AddLight("light2");
-
-	Nodes.push_back(SGLT_SCMGR->getSceneNode("master"));
-	int sz = Nodes.size();
-	for (int i = 0; i < sz; ++ i)
-	{
-		PRINTLOG(Nodes[i]->getName());
-	}
 }
 void Application :: AddPlane()
 {
