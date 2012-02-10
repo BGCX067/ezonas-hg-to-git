@@ -35,7 +35,6 @@ texture_unit {
 }
 }}}
 
-/* LASER DOT ////////////////////////////////////////////// */
 material jokoon/cubicube
 { technique { pass {
 //scene_blend alpha_blend
@@ -52,7 +51,6 @@ diffuse 0.0 1.0 0.0
 // }
 }}}
 
-/* LASER DOT ////////////////////////////////////////////// */
 material Examples/Ninja
 { technique { pass { texture_unit { texture nskingr.jpg }}}}
 

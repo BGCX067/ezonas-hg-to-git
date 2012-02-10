@@ -41,7 +41,6 @@ class OgreConsole : public Ogre::Singleton<OgreConsole>, Ogre::FrameListener, Og
     
     void   init(Gorilla::Screen* screen_to_use);
     void   shutdown();
-    
     void   setVisible(bool mIsVisible);
     bool   isVisible(){return mIsVisible;}
     
@@ -83,8 +82,6 @@ class OgreConsole : public Ogre::Singleton<OgreConsole>, Ogre::FrameListener, Og
     std::list<Ogre::String>      lines;
     Ogre::String            prompt;
     std::map<Ogre::String, OgreConsoleFunctionPtr>  commands;
- 
- 
 };
 
 

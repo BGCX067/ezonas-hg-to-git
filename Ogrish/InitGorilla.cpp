@@ -1,6 +1,7 @@
 //#ifndef __APPLE__
 #include "stdafx.h"
 //#endif
+
 void Application :: InitGorilla()
 {
 	string fontname("test");
@@ -29,7 +30,10 @@ void Application :: InitGorilla()
 
 	console = new OgreConsole;
 	console ->init(gor_screen);
-	console ->setVisible(true);
+	//console -> addCommand("quit",
+	//	root -> addFrameListener(console);
+
+	
 
 	//gor_caption[2] = gor_layer -> createCaption(atlas_index, 300, 2,
 	//	string("-"));

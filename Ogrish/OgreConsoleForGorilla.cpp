@@ -21,14 +21,13 @@ template<> OgreConsole* Ogre::Singleton<OgreConsole>::msSingleton=0;
 #define CONSOLE_FONT_INDEX 7
 
 #define CONSOLE_LINE_LENGTH 85
-#define CONSOLE_LINE_COUNT 15
+#define CONSOLE_LINE_COUNT 30
 static const char legalchars[]="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890+!\"'#%&/()=?[]\\*-_.:,; ";
 
 OgreConsole::OgreConsole()
 : mScreen(0), mStartline(0), mUpdateConsole(false), mUpdatePrompt(false), mIsInitialised(false), mIsVisible(true)
-{
-}
-	
+{}
+
 OgreConsole::~OgreConsole()
 {
 	if (mIsInitialised)
@@ -74,6 +73,9 @@ void OgreConsole::shutdown()
 }
 void OgreConsole::onKeyPressed(const OIS::KeyEvent &arg)
 {
+	if(arg.key == KC_F1)
+		mIsVisible = ! mIsVisible;
+
 	if(!mIsVisible)
 		return;
 
@@ -147,7 +149,6 @@ bool OgreConsole::frameStarted(const Ogre::FrameEvent &evt)
 }
 void OgreConsole::updateConsole()
 {
-	
 	mUpdateConsole = false;
 	
 	std::stringstream text;
