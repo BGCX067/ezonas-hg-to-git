@@ -1,13 +1,13 @@
-//#ifndef __APPLE__
+#ifdef FUCKSHIT
 #include "stdafx.h"
 //#endif
 template<> CameraController * Ogre :: Singleton <CameraController> :: ms_Singleton = 0;
 
-void CameraController::setFollowedTarget(SceneNode * node) { n_target = node; }
-SceneNode * CameraController :: getTargetNode() { return n_target; }
-SceneNode * CameraController :: getMasterNode() { return n_master; }
+void CameraController::setFollowedTarget(Ogre::SceneNode * node) { n_target = node; }
+Ogre::SceneNode * CameraController :: getTargetNode() { return n_target; }
+Ogre::SceneNode * CameraController :: getMasterNode() { return n_master; }
 //void CameraController :: setTarget(SceneNode * node) { n_target = node; }
-void CameraController :: setEntity(Entity * ent) { character = ent; }
+void CameraController :: setEntity(Ogre::Entity * ent) { character = ent; }
 
 CameraController :: CameraController ():
 
@@ -27,11 +27,11 @@ CameraController :: CameraController ():
 	//bullet_tracer	(BulletTracer :: Instantiate()),
 	stop			(false),
 	frame_time		(Application :: getSingletonPtr() -> GetFT()),
-	translate		(Vec3(0,0,0)),
-	translate2		(Vec3(0,0,0)),
+	translate		(Ogre::Vector3(0,0,0)),
+	translate2		(Ogre::Vector3(0,0,0)),
 	offset			(SGLT_APP -> GetVect3("offset")),
 	camera_mode		(3),
-	rot(0.0f)
+	rot				(0.0f)
 #endif
 {
 	n_cam -> setPosition(0,0,10);
@@ -68,7 +68,7 @@ CameraController :: CameraController ():
 	keyboard -> setEventCallback(this);
 #endif
 }
-#define REINIT(node) { node -> setPosition(0,0,0); node->setOrientation(Quaternion()); }
+#define REINIT(node) { node -> setPosition(0,0,0); node->setOrientation(Ogre::Quaternion()); }
 void CameraController :: setCameraMode(int mode)
 {
 	/*
@@ -145,8 +145,8 @@ bool CameraController :: update ()
 }
 bool CameraController :: mouseMoved(const OIS::MouseEvent &e)
 {
-	n_yawpitch_ptr ->   yaw(Radian(- e.state.X.rel * rotating_speed), Ogre::Node::TS_WORLD);
-	n_yawpitch_ptr -> pitch(Radian(- e.state.Y.rel * rotating_speed));
+	n_yawpitch_ptr ->   yaw(Ogre::Radian(- e.state.X.rel * rotating_speed), Ogre::Node::TS_WORLD);
+	n_yawpitch_ptr -> pitch(Ogre::Radian(- e.state.Y.rel * rotating_speed));
 	return true;
 }
 bool CameraController :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
@@ -220,3 +220,4 @@ CameraController :: ~ CameraController()
 	InputManager :: destroyInputSystem(inputmanager);
 }
 void CameraController :: setBulletTracer(BulletTracer * a) { bullet_tracer = a; }
+#endif

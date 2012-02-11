@@ -1,12 +1,12 @@
-//#ifndef __APPLE__
+#ifdef FUCKSHIT
 #include "stdafx.h"
 //#endif
 template<> Application * Ogre :: Singleton <Application> :: ms_Singleton = 0;
 
 Application :: Application():
-	FrameListener()
+	Ogre::FrameListener()
 {
-	configfile = new ConfigFile;
+	configfile = new Ogre::ConfigFile;
 
 	/* initializing all objects */
 #ifdef __APPLE__
@@ -15,7 +15,7 @@ Application :: Application():
 						macBundlePath() + "/Contents/Resources/"+"conf/Ogre.log");
 	configfile -> load(macBundlePath() + "/Contents/Resources/"+"conf/gameconf.cfg");
 #else
-	root			 = new Root("conf/plugins_d.cfg", "conf/Ogre.cfg", "conf/Ogre.log");
+	root			 = new Ogre::Root("conf/plugins_d.cfg", "conf/Ogre.cfg", "conf/Ogre.log");
 	configfile -> load("conf/gameconf.cfg");
 #endif
 	if(root -> restoreConfig() == false)
@@ -37,8 +37,8 @@ Application :: Application():
 	machine			 = new game_machine;
 	mat3_zero		 = btMatrix3x3(0,0,0,0,0,0,0,0,0);
 	transf			 = btTransform(mat3_zero);
-	hover_idle		 = MaterialManager::getSingleton().getByName("hover/idle");
-	hover_hover		 = MaterialManager::getSingleton().getByName("hover/hover");
+	hover_idle		 = Ogre::MaterialManager::getSingleton().getByName("hover/idle");
+	hover_hover		 = Ogre::MaterialManager::getSingleton().getByName("hover/hover");
 
 #ifdef PHYSICS
 	broadphase				 = new btDbvtBroadphase();
@@ -52,9 +52,9 @@ Application :: Application():
 	/* changing some settings */
 	window -> reposition(20, 20);
 	camera -> setNearClipDistance(1);
-	viewport -> setBackgroundColour(ColourValue(0.1f, 0.1f, 0.1f));
+	viewport -> setBackgroundColour(Ogre::ColourValue(0.1f, 0.1f, 0.1f));
 	camera -> setAspectRatio
-		(Real(viewport -> getActualWidth())/ Real(viewport -> getActualHeight()));
+		(Ogre::Real(viewport -> getActualWidth())/ Real(viewport -> getActualHeight()));
 	root -> addFrameListener(this);
 	InitResources();
 
@@ -96,9 +96,10 @@ void Application :: go ()
 }
 
 
-SceneManager * Application :: GetScMgr()	{ return scmgr;						   }
-SceneNode * Application :: GetRSN()			{ return scmgr -> getRootSceneNode();  }
-Camera * Application :: GetCam()			{ return camera;					   }
-RenderWindow * Application :: GetRW()		{ return window;					   }
+Ogre::SceneManager * Application :: GetScMgr()	{ return scmgr;						   }
+Ogre::SceneNode * Application :: GetRSN()			{ return scmgr -> getRootSceneNode();  }
+Ogre::Camera * Application :: GetCam()			{ return camera;					   }
+Ogre::RenderWindow * Application :: GetRW()		{ return window;					   }
 float * Application :: GetFT()				{ return & frame_time;				   }
 Ogre::ConfigFile * Application :: GetCFG()  { return configfile;				   }
+#endif

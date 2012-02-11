@@ -1,3 +1,4 @@
+#ifdef FUCKSHIT
 #include "stdafx.h"
 
 abil_stats :: abil_stats
@@ -146,4 +147,5 @@ name		  (ab.name)
 {}
 
 
+#endif
 #endif

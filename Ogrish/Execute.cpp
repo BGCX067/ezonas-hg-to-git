@@ -1,4 +1,4 @@
-//#ifndef __APPLE__
+#ifdef FUCKSHIT
 #include "stdafx.h"
 //#endif
 bool LaserCast :: execute()
@@ -8,7 +8,7 @@ bool LaserCast :: execute()
 	//if (RSQ == NULL) exit (0xdeadc0de);
 	//RSQ -> setRay(ray_cam = Ray(cam -> getRealPosition(), cam -> getRealDirection()));
 	//RSQ -> setRay(ray_cam = Ray(cam -> getPosition(), cam -> getDirection()));
-	RSQ -> setRay(ray_cam = Ray(cam -> getDerivedPosition(), cam -> getDerivedDirection()));
+	RSQ -> setRay(ray_cam = Ogre::Ray(cam -> getDerivedPosition(), cam -> getDerivedDirection()));
 	if (RSQ -> execute() . size() <= 0) return false;
 
 	RSQR = RSQ -> getLastResults();
@@ -267,3 +267,4 @@ bool LaserCast :: execute()
 		return false;
 
 }
+#endif

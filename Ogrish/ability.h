@@ -1,3 +1,5 @@
+#ifdef FUCKSHIT
+
 #include "stdafx.h"
 
 // ability masks
@@ -55,3 +57,4 @@ struct abil_stats_base
 	abil_stats_base	(ushort _dmg_tick = 0, ushort _dmg_instant = 0, ushort _dmg_splash = 0, ushort _power_cost = 0);
 	void diagnose();
 };
+#endif

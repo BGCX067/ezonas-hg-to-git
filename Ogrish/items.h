@@ -1,4 +1,4 @@
-//#ifndef __APPLE__
+#ifdef FUCKSHIT
 #include "stdafx.h"
 //#endif
 #define WEAPON        (1 << 24)
@@ -234,3 +234,4 @@ private:
 	binoculars	 = 10 + TOOL
 #endif
 };*/
+#endif

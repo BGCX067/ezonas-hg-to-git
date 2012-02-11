@@ -1,8 +1,8 @@
-//#ifndef __APPLE__
+#ifdef FUCKSHIT
 #include "stdafx.h"
 //#endif
 // ############################# frameStarted #############################
-bool Application :: frameRenderingQueued(const FrameEvent & evt)
+bool Application :: frameRenderingQueued(const Ogre::FrameEvent & evt)
 {
 	gor_caption[1] -> text
 	(
@@ -26,3 +26,4 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	return cam_ctrlr -> update();//evt.timeSinceLastFrame);
 }
 
+#endif

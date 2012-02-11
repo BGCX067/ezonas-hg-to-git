@@ -1,4 +1,4 @@
-//#ifndef __APPLE__
+#ifdef FUCKSHIT
 #include "stdafx.h"
 //#endif
 template<> BulletTracer * Ogre :: Singleton <BulletTracer> :: ms_Singleton = 0;
@@ -27,7 +27,7 @@ BulletTracer :: BulletTracer ():
 		sprintf(str,"%d",i);
 		bb_bullet[i] = MakeABullet(string(str));
 		bb_dot[i] = SGLT_SCMGR -> createBillboardSet();
-		bb_dot[i] -> createBillboard(Vec3(0,0,0));
+		bb_dot[i] -> createBillboard(Ogre::Vector3(0,0,0));
 		bb_dot[i] -> setMaterialName("jokoon/bullet_dot");
 		Ogre::Vector2 v = SGLT_APP->GetVect2("bullet_dot");
 		bb_dot[i]
@@ -52,7 +52,7 @@ void BulletTracer :: Fire ()
 	if (was_fired == false)
 	{
 		n_bullet[nextbullet] -> setPosition(cam -> getDerivedPosition()
-			+ Vec3(0,
+			+ Ogre::Vector3(0,
 			offset_x,
 			offset_y));
 		n_bullet[nextbullet] -> setOrientation(cam -> getDerivedOrientation());
@@ -84,22 +84,23 @@ void BulletTracer :: update ()//float frame_time)
 //	static BulletTracer _;
 //	return & _;
 //}
-BillboardChain * BulletTracer :: MakeABullet(string str)
+Ogre::BillboardChain * BulletTracer :: MakeABullet(string str)
 {
 	// MovableObject*
-	BillboardChain * result = (BillboardChain *) createInstance (str, SGLT_SCMGR);
+	Ogre::BillboardChain * result = (Ogre::BillboardChain *) createInstance (str, SGLT_SCMGR);
 
 	result -> setMaterialName("jokoon/bullet_trace");
-	result -> setTextureCoordDirection(BillboardChain :: TCD_V);
+	result -> setTextureCoordDirection(Ogre::BillboardChain :: TCD_V);
 	result -> setUseTextureCoords(true);
 	result -> setMaxChainElements(2);
 
-	result -> addChainElement (0, BillboardChain::Element
-								(Vec3(0, 0, 0), trace_width, 0, ColourValue()));
+	result -> addChainElement (0, Ogre::BillboardChain::Element
+								(Ogre::Vector3(0, 0, 0), trace_width, 0, Ogre::ColourValue()));
 
-	result -> addChainElement (0, BillboardChain::Element
-								(Vec3(0, 0, trace_length), trace_width, 0, ColourValue()));
+	result -> addChainElement (0, Ogre::BillboardChain::Element
+								(Ogre::Vector3(0, 0, trace_length), trace_width, 0, Ogre::ColourValue()));
 
 	return result;
 }
 
+#endif

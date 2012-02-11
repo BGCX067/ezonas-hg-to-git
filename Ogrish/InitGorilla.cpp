@@ -1,4 +1,4 @@
-//#ifndef __APPLE__
+#ifdef FUCKSHIT
 #include "stdafx.h"
 //#endif
 
@@ -46,3 +46,4 @@ void Application :: InitGorilla()
 	//gor_rect -> border(10, ColourValue());
 }
 
+#endif

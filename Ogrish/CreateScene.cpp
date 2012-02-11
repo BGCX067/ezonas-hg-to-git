@@ -1,4 +1,4 @@
-//#ifndef __APPLE__
+#ifdef FUCKSHIT
 #include "stdafx.h"
 //#endif
 void Application :: CreateScene()
@@ -24,11 +24,11 @@ void Application :: AddPlane()
 
 	Ogre :: MeshManager :: getSingleton().createPlane
 		("plane",
-			ResourceGroupManager :: DEFAULT_RESOURCE_GROUP_NAME, plane,
+			Ogre::ResourceGroupManager :: DEFAULT_RESOURCE_GROUP_NAME, plane,
 			plane_width, plane_depth, 10, 10, // width height xseg yseg
 			true,
 			1, 5, 5,
-			//Vec3(1,1,4));
+			//Ogre::Vector3(1,1,4));
 			Ogre :: Vector3 :: UNIT_Z);
 
 	entplane = scmgr -> createEntity("LightPlaneEntity", "plane");
@@ -38,7 +38,7 @@ void Application :: AddPlane()
 void Application :: InitResources()
 {
 	// RESOURCES ////////////////////////////////////////
-    ConfigFile cf;
+    Ogre::ConfigFile cf;
 #ifdef __APPLE__
     cf.load(macBundlePath() + "/Contents/Resources/"+"conf/resources_d.cfg");
 	PRINTLOG(macBundlePath() + "/Contents/Resources/");
@@ -46,13 +46,13 @@ void Application :: InitResources()
     cf.load("conf/resources_d.cfg");
 #endif
 
-    ConfigFile :: SectionIterator sectionIter = cf.getSectionIterator();
-    String sectionName, typeName, dataname;
+    Ogre::ConfigFile :: SectionIterator sectionIter = cf.getSectionIterator();
+    Ogre::String sectionName, typeName, dataname;
     while (sectionIter.hasMoreElements())
     {
         sectionName = sectionIter.peekNextKey();
-        ConfigFile :: SettingsMultiMap * settings = sectionIter.getNext();
-        ConfigFile :: SettingsMultiMap :: iterator i;
+        Ogre::ConfigFile :: SettingsMultiMap * settings = sectionIter.getNext();
+        Ogre::ConfigFile :: SettingsMultiMap :: iterator i;
         for (i = settings -> begin(); i != settings -> end(); ++i)
         {
             typeName = i -> first;
@@ -65,9 +65,10 @@ void Application :: InitResources()
             if (!Ogre::StringUtil::startsWith(dataname, "/", false)) // only adjust relative dirs
                 dataname = Ogre::String(Ogre::macBundlePath() + "/Contents/Resources/" + dataname);
 #endif
-            ResourceGroupManager :: getSingleton().addResourceLocation(
+            Ogre::ResourceGroupManager :: getSingleton().addResourceLocation(
 				dataname, typeName, sectionName);
         }
 	}
-    ResourceGroupManager :: getSingleton().initialiseAllResourceGroups();
+    Ogre::ResourceGroupManager :: getSingleton().initialiseAllResourceGroups();
 }
+#endif

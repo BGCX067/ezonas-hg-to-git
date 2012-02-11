@@ -1,11 +1,11 @@
-//#ifndef __APPLE__
+#ifdef FUCKSHIT
 #include "stdafx.h"
 //#endif
 template<> LaserCast * Ogre :: Singleton <LaserCast> :: ms_Singleton = 0;
 
 LaserCast :: LaserCast():
 	cam(SGLT_CAM),
-	ray_cam		(Ray(Vec3(0, 0, 0), Vec3(-1, -1, -1))),
+	ray_cam		(Ray(Ogre::Vector3(0, 0, 0), Ogre::Vector3(-1, -1, -1))),
 	RSQ (SGLT_SCMGR -> createRayQuery(ray_cam)),
 	n_root		(SGLT_RSN),
 	n_laserbeam (SGLT_RSN -> createChildSceneNode("laser beam")),
@@ -30,14 +30,14 @@ LaserCast :: LaserCast():
 	
 	bb_beam -> setMaxChainElements(2);
 	bb_beam -> addChainElement
-		(0, BillboardChain::Element
-			(Vec3(0, 0, 100), laser_width, 0, ColourValue()));
+		(0, Ogre::BillboardChain::Element
+			(Ogre::Vector3(0, 0, 100), laser_width, 0, Ogre::ColourValue()));
 	bb_beam -> addChainElement
-		(0, BillboardChain::Element
-			(Vec3(0, 0, 0), laser_width, 0, ColourValue()));
+		(0, Ogre::BillboardChain::Element
+			(Ogre::Vector3(0, 0, 0), laser_width, 0, Ogre::ColourValue()));
 
 	bb_beam -> setUseTextureCoords(true);
-	bb_beam -> setTextureCoordDirection(BillboardChain :: TCD_V);
+	bb_beam -> setTextureCoordDirection(Ogre::BillboardChain :: TCD_V);
 
 	}
 void LaserCast :: update()
@@ -46,10 +46,11 @@ void LaserCast :: update()
 	{
 		n_laserdot -> setPosition(result);
 		bb_beam -> updateChainElement
-			(0, 0, BillboardChain :: Element
-				(result, laser_width, 0, ColourValue()));
+			(0, 0, Ogre::BillboardChain :: Element
+				(result, laser_width, 0, Ogre::ColourValue()));
 		bb_beam -> updateChainElement
-			(0, 1, BillboardChain :: Element
-			(SGLT_CAM -> getRealPosition() + Vec3(0,2,0), laser_width, 0, ColourValue()));
+			(0, 1, Ogre::BillboardChain :: Element
+			(SGLT_CAM -> getRealPosition() + Ogre::Vector3(0,2,0), laser_width, 0, Ogre::ColourValue()));
 	}
 }
+#endif

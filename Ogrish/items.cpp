@@ -1,4 +1,4 @@
-//#ifndef __APPLE__
+#ifndef FUCKSHIT
 #include "stdafx.h"
 //#endif
 ItemMgr :: ItemMgr()
@@ -69,3 +69,4 @@ ItemMgr :: ItemMgr()
 		//PRINTLOG(truc + " ## " + ItemsDescr[ItemIDs[truc]]);
 	}
 }
+#endif

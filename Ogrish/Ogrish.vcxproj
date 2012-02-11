@@ -76,41 +76,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ability.h" />
+    <ClInclude Include="BtOgreExtras.h" />
+    <ClInclude Include="BtOgreGP.h" />
+    <ClInclude Include="BtOgrePG.h" />
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="Application.h" />
-    <ClInclude Include="BulletTracer.h" />
-    <ClInclude Include="character.h" />
-    <ClInclude Include="datastruct.h" />
-    <ClInclude Include="gamemachine.h" />
+    <ClInclude Include="fx_BulletTracer.h" />
+    <ClInclude Include="fx_LaserCast.h" />
+    <ClInclude Include="game_ability.h" />
+    <ClInclude Include="game_character.h" />
+    <ClInclude Include="game_datastruct.h" />
+    <ClInclude Include="game_gamemachine.h" />
+    <ClInclude Include="game_items.h" />
     <ClInclude Include="Gorilla.h" />
-    <ClInclude Include="items.h" />
-    <ClInclude Include="LaserCast.h" />
     <ClInclude Include="OgreConsoleForGorilla.h" />
-    <ClInclude Include="OgreMotionState.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ability.cc" />
+    <ClCompile Include="BtOgre.cpp" />
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="BulletTracer.cpp" />
-    <ClCompile Include="character.cc" />
     <ClCompile Include="Config.cpp" />
-    <ClCompile Include="CreateScene.cpp" />
-    <ClCompile Include="CreateTerrain.cpp" />
-    <ClCompile Include="datastruct.cpp" />
-    <ClCompile Include="Execute.cpp" />
-    <ClCompile Include="FrameRenderingQueued.cpp" />
-    <ClCompile Include="gamemachine.cc" />
-    <ClCompile Include="GetSingleton.cpp" />
+    <ClCompile Include="func_CreateScene.cpp" />
+    <ClCompile Include="func_CreateTerrain.cpp" />
+    <ClCompile Include="func_Execute.cpp" />
+    <ClCompile Include="func_FrameRenderingQueued.cpp" />
+    <ClCompile Include="func_GetSingleton.cpp" />
+    <ClCompile Include="func_InitGorilla.cpp" />
+    <ClCompile Include="func_initialize.cpp" />
+    <ClCompile Include="fx_BulletTracer.cpp" />
+    <ClCompile Include="fx_LaserCast.cpp" />
+    <ClCompile Include="game_ability.cc" />
+    <ClCompile Include="game_character.cc" />
+    <ClCompile Include="game_datastruct.cpp" />
+    <ClCompile Include="game_gamemachine.cc" />
+    <ClCompile Include="game_items.cpp" />
     <ClCompile Include="Gorilla.cpp" />
-    <ClCompile Include="InitGorilla.cpp" />
-    <ClCompile Include="initialize.cpp" />
-    <ClCompile Include="items.cpp" />
-    <ClCompile Include="LaserCast.cpp" />
     <ClCompile Include="OgreConsoleForGorilla.cpp" />
-    <ClCompile Include="OgreMotionState.cpp" />
     <ClCompile Include="Ogrish_main.cpp" />
     <ClCompile Include="physics.cpp" />
     <ClCompile Include="stdafx.cpp">

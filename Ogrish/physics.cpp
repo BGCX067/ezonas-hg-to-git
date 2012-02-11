@@ -1,5 +1,5 @@
 #include "stdafx.h"
-
+#ifdef FUCKSHIT
 #ifdef PHYSICS
 void Application :: handle_bullet()
 {
@@ -36,7 +36,7 @@ void Application :: init_physics()
 		range_xz_up		= GetFloat("range_xz_up");
 	for(auto it = Nodes.begin(); it != Nodes.end(); ++ it)
 	{
-		velocities.push_back(Vec3(Math::RangeRandom(range_xz_down, range_xz_up),0,Math::RangeRandom(range_xz_down, range_xz_up)));
+		velocities.push_back(Ogre::Vector3(Ogre::Math::RangeRandom(range_xz_down, range_xz_up),0,Ogre::Math::RangeRandom(range_xz_down, range_xz_up)));
 
 		btCollisionObject * colobj = new btCollisionObject;
 		colobj->setCollisionShape(sphere);
@@ -45,12 +45,12 @@ void Application :: init_physics()
 		collisionWorld->addCollisionObject(colobj);
 	}
 }
-void Application :: moveTo(int idx, Vec3 dest, float speed)
+void Application :: moveTo(int idx, Ogre::Vector3 dest, float speed)
 {
 	if(idx < Nodes.size())
 	{
 		isMoving[idx] = true;
-		Vec3 direction (Nodes[idx]->getPosition() - dest);
+		Ogre::Vector3 direction (Nodes[idx]->getPosition() - dest);
 		velocities[idx] = direction * speed / direction.length();
 	}
 }
@@ -112,3 +112,4 @@ void Application :: check_collisions()
 
 */
 
+#endif

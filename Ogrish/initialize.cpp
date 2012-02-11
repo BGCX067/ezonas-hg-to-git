@@ -1,9 +1,10 @@
+#ifdef FUCKSHIT
 #include "stdafx.h"
 
 void Application :: initialize()
 {
 	if(GetInt("crosshair") == 1)
-		OverlayManager :: getSingletonPtr() -> getByName("jokoon/crosshair") -> show();
+		Ogre::OverlayManager :: getSingletonPtr() -> getByName("jokoon/crosshair") -> show();
 	
 	//switch(ConfMgr :: getSingleton().GetInt("camera_mode"))
 	
@@ -15,3 +16,4 @@ void Application :: initialize()
 	//camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
 
 }
+#endif

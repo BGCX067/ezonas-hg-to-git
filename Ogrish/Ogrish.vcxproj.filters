@@ -16,6 +16,9 @@
     <Filter Include="gorilla">
       <UniqueIdentifier>{9627990c-2baf-4d81-9c47-da3d3af04df9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="physics">
+      <UniqueIdentifier>{140d1716-62d8-4e75-94f3-8581dd5ac9ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="conf\conf-guns.cfg">
@@ -44,95 +47,107 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ability.h">
-      <Filter>game</Filter>
-    </ClInclude>
-    <ClInclude Include="character.h">
-      <Filter>game</Filter>
-    </ClInclude>
-    <ClInclude Include="datastruct.h">
-      <Filter>game</Filter>
-    </ClInclude>
-    <ClInclude Include="gamemachine.h">
-      <Filter>game</Filter>
-    </ClInclude>
-    <ClInclude Include="items.h">
-      <Filter>game</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="CameraController.h" />
+    <ClInclude Include="game_gamemachine.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="game_items.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="game_ability.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="game_character.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="game_datastruct.h">
+      <Filter>game</Filter>
+    </ClInclude>
     <ClInclude Include="OgreConsoleForGorilla.h">
       <Filter>gorilla</Filter>
     </ClInclude>
     <ClInclude Include="Gorilla.h">
       <Filter>gorilla</Filter>
     </ClInclude>
-    <ClInclude Include="BulletTracer.h">
+    <ClInclude Include="fx_BulletTracer.h">
       <Filter>effects</Filter>
     </ClInclude>
-    <ClInclude Include="LaserCast.h">
+    <ClInclude Include="fx_LaserCast.h">
       <Filter>effects</Filter>
     </ClInclude>
-    <ClInclude Include="Application.h" />
-    <ClInclude Include="OgreMotionState.h" />
-    <ClInclude Include="CameraController.h" />
+    <ClInclude Include="BtOgreExtras.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="BtOgreGP.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="BtOgrePG.h">
+      <Filter>physics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ability.cc">
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="CameraController.cpp" />
+    <ClCompile Include="Ogrish_main.cpp" />
+    <ClCompile Include="game_gamemachine.cc">
       <Filter>game</Filter>
     </ClCompile>
-    <ClCompile Include="character.cc">
+    <ClCompile Include="game_items.cpp">
       <Filter>game</Filter>
     </ClCompile>
-    <ClCompile Include="datastruct.cpp">
+    <ClCompile Include="game_ability.cc">
       <Filter>game</Filter>
     </ClCompile>
-    <ClCompile Include="gamemachine.cc">
+    <ClCompile Include="game_character.cc">
       <Filter>game</Filter>
     </ClCompile>
-    <ClCompile Include="items.cpp">
+    <ClCompile Include="game_datastruct.cpp">
       <Filter>game</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateTerrain.cpp">
-      <Filter>func</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateScene.cpp">
-      <Filter>func</Filter>
-    </ClCompile>
-    <ClCompile Include="FrameRenderingQueued.cpp">
-      <Filter>func</Filter>
-    </ClCompile>
-    <ClCompile Include="GetSingleton.cpp">
-      <Filter>func</Filter>
-    </ClCompile>
-    <ClCompile Include="Gorilla.cpp">
-      <Filter>gorilla</Filter>
     </ClCompile>
     <ClCompile Include="OgreConsoleForGorilla.cpp">
       <Filter>gorilla</Filter>
     </ClCompile>
-    <ClCompile Include="BulletTracer.cpp">
-      <Filter>effects</Filter>
-    </ClCompile>
-    <ClCompile Include="LaserCast.cpp">
-      <Filter>effects</Filter>
+    <ClCompile Include="Gorilla.cpp">
+      <Filter>gorilla</Filter>
     </ClCompile>
     <ClCompile Include="Config.cpp">
       <Filter>conf</Filter>
     </ClCompile>
-    <ClCompile Include="Application.cpp" />
-    <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="CameraController.cpp" />
-    <ClCompile Include="OgreMotionState.cpp" />
-    <ClCompile Include="Ogrish_main.cpp" />
-    <ClCompile Include="Execute.cpp">
+    <ClCompile Include="fx_BulletTracer.cpp">
       <Filter>effects</Filter>
     </ClCompile>
-    <ClCompile Include="InitGorilla.cpp">
-      <Filter>gorilla</Filter>
+    <ClCompile Include="fx_LaserCast.cpp">
+      <Filter>effects</Filter>
     </ClCompile>
-    <ClCompile Include="physics.cpp" />
-    <ClCompile Include="initialize.cpp">
+    <ClCompile Include="func_FrameRenderingQueued.cpp">
       <Filter>func</Filter>
+    </ClCompile>
+    <ClCompile Include="func_GetSingleton.cpp">
+      <Filter>func</Filter>
+    </ClCompile>
+    <ClCompile Include="func_InitGorilla.cpp">
+      <Filter>func</Filter>
+    </ClCompile>
+    <ClCompile Include="func_initialize.cpp">
+      <Filter>func</Filter>
+    </ClCompile>
+    <ClCompile Include="func_CreateScene.cpp">
+      <Filter>func</Filter>
+    </ClCompile>
+    <ClCompile Include="func_CreateTerrain.cpp">
+      <Filter>func</Filter>
+    </ClCompile>
+    <ClCompile Include="func_Execute.cpp">
+      <Filter>func</Filter>
+    </ClCompile>
+    <ClCompile Include="physics.cpp">
+      <Filter>physics</Filter>
+    </ClCompile>
+    <ClCompile Include="BtOgre.cpp">
+      <Filter>physics</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -21,7 +21,7 @@
    
 */
 
-//#ifndef __APPLE__
+#ifdef FUCKSHIT
 #include "stdafx.h"
 //#endif
 //#include "Ogre.h"
@@ -86,3 +86,4 @@ class OgreConsole : public Ogre::Singleton<OgreConsole>, Ogre::FrameListener, Og
 
 
 
+#endif

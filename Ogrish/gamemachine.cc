@@ -1,4 +1,4 @@
-//#ifndef __APPLE__
+#ifdef FUCKSHIT
 #include "stdafx.h"
 //#endif
 //#define AB_BASE(ch, ab) AbilBases [AbilDatas[ch][ab].ability_id]
@@ -10,12 +10,12 @@ void game_machine :: loadAbilStatBases()
 	// getting spell name list
 	Ogre::ConfigFile cf;
 	cf. CROSSLOAD("conf/abils.cfg");
-	Ogre::StringVector strs = StringUtil::split(cf.getSetting("spells"));
+	Ogre::StringVector strs = Ogre::StringUtil::split(cf.getSetting("spells"));
 
 /*	boost::split(strs,
 				 std::string(cf.getSetting("spells")),
 				 boost::is_any_of("\t "));*/
-	for(StringVector::iterator it = strs.begin(); it != strs.end(); ++it)
+	for(Ogre::StringVector::iterator it = strs.begin(); it != strs.end(); ++it)
 	{
 		istringstream iss(cf.getSetting(*it));
 		if(iss)
@@ -163,3 +163,4 @@ int get_int_from_mask	(int n, int top, int bottom)
 { return (n >> (bottom - 1)) & (0xFFFFFFFF >> (top - bottom + 1));}
 void unset_bit			(int & mask, int n)		{ mask &= ~ n; }
 
+#endif

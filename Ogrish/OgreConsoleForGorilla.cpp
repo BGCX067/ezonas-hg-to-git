@@ -7,7 +7,7 @@
 	been added but they are minor and do not add to the actual functionality of the class.
 */
 
-//#ifndef __APPLE__
+#ifdef FUCKSHIT
 #include "stdafx.h"
 //#endif
 //#include "OgreConsoleForGorilla.h"
@@ -246,3 +246,4 @@ void OgreConsole::messageLogged( const Ogre::String& message, Ogre::LogMessageLe
 {
 	print(message);
 }
+#endif

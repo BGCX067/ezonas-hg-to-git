@@ -1,4 +1,4 @@
-//#ifndef __APPLE__
+#ifdef FUCKSHIT
 #include "stdafx.h"
 //#endif
 #ifdef USE_TERRAIN
@@ -28,4 +28,5 @@ void Application :: CreateTerrain()
 	
 	mTerrain->freeTemporaryResources();
 }
+#endif
 #endif
