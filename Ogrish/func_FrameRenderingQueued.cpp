@@ -2,7 +2,7 @@
 #include "stdafx.h"
 //#endif
 // ############################# frameStarted #############################
-bool Application :: frameRenderingQueued(const FrameEvent & evt)
+bool Application :: frameEnded(const FrameEvent & evt)
 {
 	gor_caption[1] -> text
 	(
@@ -26,3 +26,11 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	return cam_ctrlr -> update();//evt.timeSinceLastFrame);
 }
 
+bool Application :: frameRenderingQueued(const FrameEvent & evt)
+{
+return true;
+}
+bool Application :: frameStarted(const FrameEvent & evt)
+{
+return true;
+}

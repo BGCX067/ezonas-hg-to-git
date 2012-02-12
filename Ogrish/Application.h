@@ -35,6 +35,8 @@ public: /* ######################## PUBLIC ######################## */
 
 	// overloading
 	bool frameRenderingQueued(const FrameEvent & evt);
+	bool frameStarted(const FrameEvent & evt);
+	bool frameEnded(const FrameEvent & evt);
 
     void go();
 	float frame_time;

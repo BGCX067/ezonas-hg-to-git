@@ -9,7 +9,7 @@ void Application :: CreateScene()
 	//ConfMgr :: getSingletonPtr() -> AddLevel("mifflin3");
 	AddPlane();
 	LoadEntity("bonome");
-	Populate();
+	if (configfile->getSetting("Populate") == "yes") Populate();
 
 	AddLight("light1");
 	AddLight("light2");

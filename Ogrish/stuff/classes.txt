@@ -1,0 +1,29 @@
+tactician:
+   demolitioner		specialist of explosives, he can deal high amount of damages to several target in a short amount of time
+	timed bomb, shotgun, napalm
+   assassin		knows all sneaky tricks to take advantage in the battle, also like to harass and to escape battle
+	stealth, snipe (3s cd), sprint, stab
+   engineer		controls all sorts of robots and drones.
+	
+   armorist		immune to ranged attack thanks to his special armor, the armorist is best at melee and can deal deadly blows thanks to his knowledge of anatomy
+	shield armor, charge bump, jump, 
+mage
+   wizard		rely on physics to take advantage of the battle
+	
+   elementalist		combines elements to hurl incapacitating spells of all sorts
+	flames, shock, frost needle, wind
+   warper		only class wielding the lethal plasma blade, the warper quickly strikes before disapearing 
+	teleport, plasma blade, force, 
+   biochemist		healer and caster of nasty chemicals and bacterias, the biochemist use the science of life to achieve his goals
+
+demon
+   invoker		able to invoke all sorts of creatures and demons, which he can also transform into
+   frenzy		manipulates emotions of both enemies and allies, he motivates and encourages.
+   illusion		tricks the minds of his enemies to lure them into traps and deception, he can also inflict pain to cause real or fake damage
+   spirit		can revive the dead and insert life into objects
+
+
+
+tactician		assassin, engineer, armorist
+mage		wizard, elementalist, biochemist
+demon		invoker, frenzy, illusions

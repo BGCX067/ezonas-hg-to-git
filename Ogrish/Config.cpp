@@ -61,6 +61,9 @@ void Application :: Populate()
 			Math::RangeRandom(A_z, B_z)
 			);
 		Nodes.push_back(node);
+		
+		if(i%2) (static_cast<Entity *>(node->getAttachedObject(0)))->getSubEntity(0)->getMaterial()->getTechnique(0)->getPass(0)->setAmbient(ColourValue(1,0,0));
+		if(i%2) (static_cast<Entity *>(node->getAttachedObject(0)))->getSubEntity(0)->getMaterial()->getTechnique(0)->getPass(0)->setAmbient(ColourValue(1,0,0));
 	}
 }
 
@@ -113,7 +116,7 @@ Ogre::Vector2 Application :: GetVect2(string _s)
 	// string s = configfile -> getSetting(_s);
 	float x, y;
 
-	iss >>  x >> y;
+	iss >> x >> y;
 
 	return Ogre::Vector2(x, y);
 }

@@ -21,7 +21,7 @@ template<> OgreConsole* Ogre::Singleton<OgreConsole>::msSingleton=0;
 #define CONSOLE_FONT_INDEX 7
 
 #define CONSOLE_LINE_LENGTH 85
-#define CONSOLE_LINE_COUNT 30
+#define CONSOLE_LINE_COUNT 50
 static const char legalchars[]="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890+!\"'#%&/()=?[]\\*-_.:,; ";
 
 OgreConsole::OgreConsole()
@@ -74,7 +74,10 @@ void OgreConsole::shutdown()
 void OgreConsole::onKeyPressed(const OIS::KeyEvent &arg)
 {
 	if(arg.key == KC_F1)
-		mIsVisible = ! mIsVisible;
+	{
+		setVisible(!mIsVisible);
+		updatePrompt();
+	}
 
 	if(!mIsVisible)
 		return;
