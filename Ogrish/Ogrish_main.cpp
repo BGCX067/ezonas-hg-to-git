@@ -1,3 +1,4 @@
+//#ifndef __APPLE__
 #include "stdafx.h"
 //#endif
 #ifdef __APPLE__

@@ -1,4 +1,3 @@
-#ifdef FUCKSHIT
 #include "stdafx.h"
 
 // ############# CHARACTER #############
@@ -33,4 +32,3 @@ character_s :: character_s (const character_s & ch):
 	life				 (ch.life				   ),
 	mask				 (ch.mask				   )
 {}
-#endif

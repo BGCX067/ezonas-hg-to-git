@@ -1,4 +1,3 @@
-#ifdef FUCKSHIT
 #include "stdafx.h"
 // state masks
 #define MOVING    (1 << 0)
@@ -43,4 +42,3 @@ struct character_s // remember most values don't go over 100
 		);
 #endif
 };
-#endif

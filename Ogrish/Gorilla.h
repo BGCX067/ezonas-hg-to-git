@@ -31,7 +31,7 @@
 
 #ifndef GORILLA_H
 #define GORILLA_H
-#ifdef FUCKSHIT
+//#ifndef __APPLE__
 #include "stdafx.h"
 //#endif
 //#include "Ogre.h"
@@ -3004,5 +3004,4 @@ namespace Gorilla
 }
 
 
-#endif
 #endif

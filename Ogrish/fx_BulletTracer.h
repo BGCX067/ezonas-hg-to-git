@@ -1,10 +1,10 @@
-#ifdef FUCKSHIT
+//#ifndef __APPLE__
 #include "stdafx.h"
 //#endif
 #define BULLET_MAX 5
 
 class BulletTracer:
-	public Ogre:: BillboardChainFactory,
+	public BillboardChainFactory,
 	public Ogre :: Singleton <BulletTracer>
 {
 public:
@@ -16,23 +16,22 @@ public:
 private:
 	BulletTracer();
 	~ BulletTracer();
-	Ogre::SceneManager * scmgr;
+	SceneManager * scmgr;
 	int nextbullet, bullets_max;
 	float bullet_speed,
 		trace_width, trace_length,
 		time_stack, fire_delay, * frame_time,
 		offset_x, offset_y;
 	bool was_fired;
-	Ogre::Camera * cam;
-	Ogre::SceneNode * n_bullet [BULLET_MAX];
+	Camera * cam;
+	SceneNode * n_bullet [BULLET_MAX];
 
-	Ogre::BillboardChain * bb_bullet_model;
-	Ogre::BillboardSet * bb_dot[BULLET_MAX];
-	Ogre::BillboardChain * bb_bullet[BULLET_MAX];
-	Ogre::SceneNode * n_cannon;
+	BillboardChain * bb_bullet_model;
+	BillboardSet * bb_dot[BULLET_MAX];
+	BillboardChain * bb_bullet[BULLET_MAX];
+	SceneNode * n_cannon;
 //	BulletFactory * bulletfactory;
 
-	Ogre::BillboardChain * MakeABullet(string);
+	BillboardChain * MakeABullet(string);
 
 };
-#endif

@@ -1,4 +1,4 @@
-#ifdef FUCKSHIT
+//#ifndef __APPLE__
 #include "stdafx.h"
 //#endif
 
@@ -13,4 +13,3 @@ type(USE_ITEM)//,
 { emitter_id = _emitter_id; ev_item.item_id = _item_id; }
 
 
-#endif

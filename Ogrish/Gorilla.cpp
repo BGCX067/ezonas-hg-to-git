@@ -30,7 +30,7 @@
 */
 
 //#include "Gorilla.h"
-#ifdef FUCKSHIT
+//#ifndef __APPLE__
 #include "stdafx.h"
 //#endif
 #pragma warning ( disable : 4244 )
@@ -2494,4 +2494,3 @@ void  QuadList::border(Ogre::Real x, Ogre::Real y, Ogre::Real w, Ogre::Real h, O
  }
 
 } // namespace Gorilla
-#endif

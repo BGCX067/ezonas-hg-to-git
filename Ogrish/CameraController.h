@@ -1,4 +1,4 @@
-#ifdef FUCKSHIT
+//#ifndef __APPLE__
 #include "stdafx.h"
 //#endif
 class CameraController:
@@ -11,15 +11,15 @@ public:
 	bool update();//float);
     static CameraController * getSingletonPtr(void);
 	static CameraController * Instantiate();
-	void setFollowedTarget(Ogre::SceneNode * node);
+	void setFollowedTarget(SceneNode * node);
 	void setCameraMode(int mode);
-	Ogre::SceneNode * getTargetNode();
-	Ogre::SceneNode * getMasterNode();
-	void setTarget(Ogre::SceneNode * node);
-	void setEntity(Ogre::Entity * ent);
+	SceneNode * getTargetNode();
+	SceneNode * getMasterNode();
+	void setTarget(SceneNode * node);
+	void setEntity(Entity * ent);
 	void setBulletTracer(BulletTracer *);
 protected:
-	Ogre::SceneNode
+	SceneNode
 		* n_root	,
 
 		* n_master  ,	 // those 3 in this exact order
@@ -28,11 +28,11 @@ protected:
 		
 		* n_yawpitch_ptr; // this node will serve as a pointer to switch between 1st/rd person cam
 
-	Ogre::Entity * character;
+	Entity * character;
 	float moving_speed, rotating_speed, * frame_time;
-	Ogre::Camera * cam;
+	Camera * cam;
 	bool stop;
-	Ogre::Vector3 offset;
+	Vec3 offset;
 	int camera_mode;
 	
 	BulletTracer * bullet_tracer;
@@ -40,7 +40,7 @@ protected:
 	InputManager * inputmanager;
 	Keyboard * keyboard;
 	Mouse * mouse;
-	Ogre::Vector3 translate, translate2;
+	Vec3 translate, translate2;
 	float rot;
 
 	/////////////// METHODS ///////////////
@@ -53,4 +53,3 @@ protected:
 	bool keyReleased(const OIS::KeyEvent &e);
 
 };
-#endif

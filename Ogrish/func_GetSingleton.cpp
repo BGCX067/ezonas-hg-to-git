@@ -1,4 +1,4 @@
-#ifdef FUCKSHIT
+//#ifndef __APPLE__
 #include "stdafx.h"
 //#endif
 Application * Application :: getSingletonPtr(void)				{ return ms_Singleton; }
@@ -12,4 +12,3 @@ LaserCast * LaserCast :: Instantiate(void)					{ new LaserCast; return ms_Single
 CameraController * CameraController :: Instantiate(void)	{ new CameraController; return ms_Singleton; }
 BulletTracer * BulletTracer :: Instantiate(void)			{ new BulletTracer; return ms_Singleton; }
 //Cam3rdperson * Cam3rdperson :: Instantiate(void)			{ new Cam3rdperson; return ms_Singleton; }
-#endif

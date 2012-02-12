@@ -1,4 +1,4 @@
-#ifdef FUCKSHIT
+//#ifndef __APPLE__
 #include "stdafx.h"
 //#endif
 
@@ -67,4 +67,3 @@ pass unstacks and checks
 generates output accordingly
 outputs to ogre
 */
-#endif

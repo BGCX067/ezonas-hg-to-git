@@ -23,8 +23,8 @@
 
 namespace BtOgre {
 
-typedef std::map<unsigned char, Vector3Array*> BoneIndex;
-typedef std::pair<unsigned short, Vector3Array*> BoneKeyIndex;
+typedef std::map<unsigned char, Vec3Array*> BoneIndex;
+typedef std::pair<unsigned short, Vec3Array*> BoneKeyIndex;
 
 class VertexIndexToShape
 {
@@ -33,7 +33,7 @@ public:
 	~VertexIndexToShape();
 
 	Ogre::Real getRadius();
-	Ogre::Vector3 getSize();
+	Vec3 getSize();
 
 
 	btSphereShape* createSphere();
@@ -42,7 +42,7 @@ public:
 	btCylinderShape* createCylinder();
 	btConvexHullShape* createConvex();
 
-	const Ogre::Vector3* getVertices();
+	const Vec3* getVertices();
 	unsigned int getVertexCount();
 	const unsigned int* getIndices();
 	unsigned int getIndexCount();
@@ -59,7 +59,7 @@ protected:
 
 
 protected:
-	Ogre::Vector3*	    mVertexBuffer;
+	Vec3*	    mVertexBuffer;
 	unsigned int*       mIndexBuffer;
 	unsigned int        mVertexCount;
 	unsigned int        mIndexCount;
@@ -67,11 +67,11 @@ protected:
 	Ogre::Matrix4		mTransform;
 
 	Ogre::Real		    mBoundRadius;
-	Ogre::Vector3		mBounds;
+	Vec3		mBounds;
 
 	BoneIndex           *mBoneIndex;
 
-	Ogre::Vector3		mScale;
+	Vec3		mScale;
 };
 
 //For static (non-animated) meshes.
@@ -109,32 +109,32 @@ public:
 	void addMesh(const Ogre::MeshPtr &mesh, const Ogre::Matrix4 &transform);
 
 	btBoxShape* createAlignedBox(unsigned char bone, 
-		const Ogre::Vector3 &bonePosition,
+		const Vec3 &bonePosition,
 		const Ogre::Quaternion &boneOrientation);
 
 	btBoxShape* createOrientedBox(unsigned char bone, 
-		const Ogre::Vector3 &bonePosition,
+		const Vec3 &bonePosition,
 		const Ogre::Quaternion &boneOrientation);
 
 protected:
 
 	bool getBoneVertices(unsigned char bone, 
 		unsigned int &vertex_count, 
-		Ogre::Vector3* &vertices,
-		const Ogre::Vector3 &bonePosition);
+		Vec3* &vertices,
+		const Vec3 &bonePosition);
 
 	bool getOrientedBox(unsigned char bone, 
-		const Ogre::Vector3 &bonePosition,
+		const Vec3 &bonePosition,
 		const Ogre::Quaternion &boneOrientation,
-		Ogre::Vector3 &extents,
-		Ogre::Vector3 *axis,
-		Ogre::Vector3 &center);
+		Vec3 &extents,
+		Vec3 *axis,
+		Vec3 &center);
 
 	
 	Ogre::Entity*		mEntity;
 	Ogre::SceneNode*	mNode;
 
-	Ogre::Vector3       *mTransformedVerticesTemp;
+	Vec3       *mTransformedVerticesTemp;
 	size_t               mTransformedVerticesTempSize;
 };
 

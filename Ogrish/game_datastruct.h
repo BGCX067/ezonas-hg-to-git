@@ -1,10 +1,10 @@
-#ifdef FUCKSHIT
+//#ifndef __APPLE__
 #include "stdafx.h"
 //#endif
 
 enum event_state   { JUMPS, LANDS, MOVES, STOPS, USE_ITEM, ABILITY };
 struct event_abil  { int target_id, abil_state_id; };
-struct event_phys  { Ogre::Vector3 pos, vel; Ogre::Quaternion orient; };
+struct event_phys  { Vec3 pos, vel; Quaternion orient; };
 struct event_item  { int item_id; };
 
 struct Event
@@ -67,4 +67,3 @@ struct character_states // remember most values don't go over 100
 				);
 };
 */
-#endif

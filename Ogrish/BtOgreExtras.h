@@ -29,7 +29,7 @@
 namespace BtOgre
 {
 
-typedef std::vector<Ogre::Vector3> Vector3Array;
+typedef std::vector<Vec3> Vec3Array;
 
 //Converts from and to Bullet and Ogre stuff. Pretty self-explanatory.
 class Convert
@@ -42,7 +42,7 @@ public:
 	{
 		return btQuaternion(q.x, q.y, q.z, q.w);
 	}
-	static btVector3 toBullet(const Ogre::Vector3 &v)
+	static btVector3 toBullet(const Vec3 &v)
 	{
 		return btVector3(v.x, v.y, v.z);
 	}
@@ -51,9 +51,9 @@ public:
 	{
 		return Ogre::Quaternion(q.w(), q.x(), q.y(), q.z());
 	}
-	static Ogre::Vector3 toOgre(const btVector3 &v)
+	static Vec3 toOgre(const btVector3 &v)
 	{
-		return Ogre::Vector3(v.x(), v.y(), v.z());
+		return Vec3(v.x(), v.y(), v.z());
 	}
 };
 
@@ -123,7 +123,7 @@ protected:
 
 class DynamicLines : public DynamicRenderable
 {
-  typedef Ogre::Vector3 Vector3;
+  typedef Vec3 Vec3;
   typedef Ogre::Quaternion Quaternion;
   typedef Ogre::Camera Camera;
   typedef Ogre::Real Real;
@@ -135,15 +135,15 @@ public:
   virtual ~DynamicLines();
 
   /// Add a point to the point list
-  void addPoint(const Ogre::Vector3 &p);
+  void addPoint(const Vec3 &p);
   /// Add a point to the point list
   void addPoint(Real x, Real y, Real z);
 
   /// Change the location of an existing point in the point list
-  void setPoint(unsigned short index, const Vector3 &value);
+  void setPoint(unsigned short index, const Vec3 &value);
 
   /// Return the location of an existing point in the point list
-  const Vector3& getPoint(unsigned short index) const;
+  const Vec3& getPoint(unsigned short index) const;
 
   /// Return the total number of points in the point list
   unsigned short getNumPoints(void) const;
@@ -174,7 +174,7 @@ protected:
   virtual void fillHardwareBuffers();
 
 private:
-  std::vector<Vector3> mPoints;
+  std::vector<Vec3> mPoints;
   bool mDirty;
 };
 

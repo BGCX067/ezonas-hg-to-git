@@ -50,6 +50,30 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="CameraController.h" />
+    <ClInclude Include="OgreConsoleForGorilla.h">
+      <Filter>gorilla</Filter>
+    </ClInclude>
+    <ClInclude Include="Gorilla.h">
+      <Filter>gorilla</Filter>
+    </ClInclude>
+    <ClInclude Include="BtOgreExtras.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="BtOgreGP.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="BtOgrePG.h">
+      <Filter>physics</Filter>
+    </ClInclude>
+    <ClInclude Include="fx_LaserCast.h">
+      <Filter>effects</Filter>
+    </ClInclude>
+    <ClInclude Include="fx_BulletTracer.h">
+      <Filter>effects</Filter>
+    </ClInclude>
+    <ClInclude Include="game_datastruct.h">
+      <Filter>game</Filter>
+    </ClInclude>
     <ClInclude Include="game_gamemachine.h">
       <Filter>game</Filter>
     </ClInclude>
@@ -62,51 +86,12 @@
     <ClInclude Include="game_character.h">
       <Filter>game</Filter>
     </ClInclude>
-    <ClInclude Include="game_datastruct.h">
-      <Filter>game</Filter>
-    </ClInclude>
-    <ClInclude Include="OgreConsoleForGorilla.h">
-      <Filter>gorilla</Filter>
-    </ClInclude>
-    <ClInclude Include="Gorilla.h">
-      <Filter>gorilla</Filter>
-    </ClInclude>
-    <ClInclude Include="fx_BulletTracer.h">
-      <Filter>effects</Filter>
-    </ClInclude>
-    <ClInclude Include="fx_LaserCast.h">
-      <Filter>effects</Filter>
-    </ClInclude>
-    <ClInclude Include="BtOgreExtras.h">
-      <Filter>physics</Filter>
-    </ClInclude>
-    <ClInclude Include="BtOgreGP.h">
-      <Filter>physics</Filter>
-    </ClInclude>
-    <ClInclude Include="BtOgrePG.h">
-      <Filter>physics</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="Ogrish_main.cpp" />
-    <ClCompile Include="game_gamemachine.cc">
-      <Filter>game</Filter>
-    </ClCompile>
-    <ClCompile Include="game_items.cpp">
-      <Filter>game</Filter>
-    </ClCompile>
-    <ClCompile Include="game_ability.cc">
-      <Filter>game</Filter>
-    </ClCompile>
-    <ClCompile Include="game_character.cc">
-      <Filter>game</Filter>
-    </ClCompile>
-    <ClCompile Include="game_datastruct.cpp">
-      <Filter>game</Filter>
-    </ClCompile>
     <ClCompile Include="OgreConsoleForGorilla.cpp">
       <Filter>gorilla</Filter>
     </ClCompile>
@@ -116,14 +101,11 @@
     <ClCompile Include="Config.cpp">
       <Filter>conf</Filter>
     </ClCompile>
-    <ClCompile Include="fx_BulletTracer.cpp">
-      <Filter>effects</Filter>
+    <ClCompile Include="physics.cpp">
+      <Filter>physics</Filter>
     </ClCompile>
-    <ClCompile Include="fx_LaserCast.cpp">
-      <Filter>effects</Filter>
-    </ClCompile>
-    <ClCompile Include="func_FrameRenderingQueued.cpp">
-      <Filter>func</Filter>
+    <ClCompile Include="BtOgre.cpp">
+      <Filter>physics</Filter>
     </ClCompile>
     <ClCompile Include="func_GetSingleton.cpp">
       <Filter>func</Filter>
@@ -140,14 +122,32 @@
     <ClCompile Include="func_CreateTerrain.cpp">
       <Filter>func</Filter>
     </ClCompile>
-    <ClCompile Include="func_Execute.cpp">
+    <ClCompile Include="func_FrameRenderingQueued.cpp">
       <Filter>func</Filter>
     </ClCompile>
-    <ClCompile Include="physics.cpp">
-      <Filter>physics</Filter>
+    <ClCompile Include="fx_Execute.cpp">
+      <Filter>effects</Filter>
     </ClCompile>
-    <ClCompile Include="BtOgre.cpp">
-      <Filter>physics</Filter>
+    <ClCompile Include="fx_LaserCast.cpp">
+      <Filter>effects</Filter>
+    </ClCompile>
+    <ClCompile Include="fx_BulletTracer.cpp">
+      <Filter>effects</Filter>
+    </ClCompile>
+    <ClCompile Include="game_gamemachine.cc">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="game_items.cpp">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="game_ability.cc">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="game_character.cc">
+      <Filter>game</Filter>
+    </ClCompile>
+    <ClCompile Include="game_datastruct.cpp">
+      <Filter>game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

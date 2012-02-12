@@ -1,4 +1,4 @@
-#ifdef FUCKSHIT
+//#ifndef __APPLE__
 #include "stdafx.h"
 //#endif
 class LaserCast:
@@ -16,27 +16,27 @@ protected:
 	bool execute();
 // necessary objects
 	// MaterialPtr matptr;
-	Ogre::Camera * cam;
-	Ogre::SceneNode
+	Camera * cam;
+	SceneNode
 		* n_root,
 		* n_laserdot,
 		* n_laserbeam;
 		//* n_bullet;
-	Ogre::Ray ray_cam;
+	Ray ray_cam;
 	
-	Ogre::RaySceneQuery * RSQ;
-	Ogre::RaySceneQueryResult RSQR;
+	RaySceneQuery * RSQ;
+	RaySceneQueryResult RSQR;
 // tweakables
 	float laser_width, * frame_time; //, bullet_speed, trace_width, trace_length;
 	
 //////////////////////////////////////
 // Billboards ////////////////////////
 //////////////////////////////////////
-	Ogre::BillboardSet
+	BillboardSet
 		//* bb_bullet, // do that later
 		* bb_dot;
-	Ogre::Billboard * bboard;
-	Ogre::BillboardChain
+	Billboard * bboard;
+	BillboardChain
 		* bb_beam;
 		//* bb_bullet;
 
@@ -69,16 +69,15 @@ protected:
 //////////////////////////////////////
 // other, late in getmeshinfo ////////
 //////////////////////////////////////
-	Ogre::Entity * ent_check;
-	Ogre::MeshPtr mesh_check;
+	Entity * ent_check;
+	MeshPtr mesh_check;
 	Ogre :: SubMesh* submesh;
-	Ogre::IndexData * index_data;
-	Ogre::HardwareIndexBufferSharedPtr ibuf;
-	Ogre::HardwareVertexBufferSharedPtr vbuf;
+	IndexData * index_data;
+	HardwareIndexBufferSharedPtr ibuf;
+	HardwareVertexBufferSharedPtr vbuf;
 	Ogre :: Vector3 position;
 	Ogre :: Quaternion orient;
 	Ogre :: Vector3 scale;
 	Ogre :: VertexData* vertex_data;
 	const Ogre :: VertexElement* posElem;
 };
-#endif
