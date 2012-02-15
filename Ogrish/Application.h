@@ -26,10 +26,10 @@ public: /* ######################## PUBLIC ######################## */
 	SceneNode * AddLight(string);
 
 	// getters
-	SceneManager * GetScMgr();
-    SceneNode * GetRSN();
-	Camera * GetCam();
-	RenderWindow * GetRW();
+	SceneManager	* GetScMgr();
+    SceneNode		* GetRSN();
+	Camera			* GetCam();
+	RenderWindow	* GetRW();
 	Ogre::ConfigFile * GetCFG();
 	float * GetFT();
 
@@ -52,6 +52,7 @@ private: /* ######################## PRIVATE ######################## */
 	void check_collisions();
 	void moveTo(int entity_id, Vec3 dest, float speed = 3.f);
 
+	// at loading
 	void initialize();
 	void init_physics();
 	void Populate();
@@ -61,6 +62,8 @@ private: /* ######################## PRIVATE ######################## */
 	void InitGorilla();
 	void AddLights();
 	void InitResources();
+
+	MaterialPtr create_hover_material(MaterialPtr mat);
 #ifdef USE_TERRAIN
     void CreateTerrain();
 #endif
@@ -96,6 +99,8 @@ private: /* ######################## PRIVATE ######################## */
     btCollisionDispatcher				* dispatcher;
 	btCollisionWorld					* collisionWorld;
 
+
+
 #endif
 #ifdef USE_TERRAIN
 	Ogre::Terrain * mTerrain;
@@ -112,7 +117,7 @@ private: /* ######################## PRIVATE ######################## */
 
 	// data
 	float sphere_radius_squared;
-	MaterialPtr hover_idle, hover_hover;
+	MaterialPtr material_hover;
 #ifdef PHYSICS
 	// intermediate Ogre/bullet data
 	Vec3 temp;

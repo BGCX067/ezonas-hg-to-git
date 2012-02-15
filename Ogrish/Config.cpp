@@ -12,12 +12,12 @@ void Application :: LoadEntity(string _s)
 
 	/* "-" loads the same named .mesh / material */
 	Entity * ent;
-	if(mesh_filename == "-") ent = SGLT_SCMGR -> createEntity(_s, _s + ".mesh");
-	else					 ent = SGLT_SCMGR -> createEntity(_s, mesh_filename);
+	if (mesh_filename == "-")		ent = SGLT_SCMGR -> createEntity(_s, _s + ".mesh");
+	else							ent = SGLT_SCMGR -> createEntity(_s, mesh_filename);
 
-	if (material_name == "-") ent -> setMaterialName(_s + ".material");
+	if (material_name == "-")		ent -> setMaterialName(_s + ".material");
 	else if (material_name == "x")  PRINTLOG("No material used for "+_s);
-	else					  ent -> setMaterialName(material_name);
+	else							ent -> setMaterialName(material_name);
 	
 	SceneNode * node;
 	if (flag == "target")
@@ -31,10 +31,8 @@ void Application :: LoadEntity(string _s)
 		node -> attachObject(ent);
 		Nodes.push_back(node);
 	}
-	node->showBoundingBox(true);
 	
 	Entities.push_back(ent);
-	isMoving.push_back(false);
 
 #ifdef PHYSICS
 	btCollisionObject * colobj = new btCollisionObject();
@@ -50,31 +48,35 @@ void Application :: Populate()
 	float  A_x, A_z, B_x, B_z;
 	iss >> A_x >> A_z >> B_x >> B_z;
 
+	material_hover = create_hover_material(scmgr->getEntity("bonome")->getSubEntity(0)->getMaterial());
+
 	std::string pop_mesh = configfile -> getSetting("pop_mesh");
 	for(int i = 0 ; i < population; ++ i)
 	{
 		SceneNode * node = SGLT_RSN -> createChildSceneNode();
 		node -> attachObject(SGLT_SCMGR -> createEntity(pop_mesh));
+		
 		node -> setPosition(
 			Math::RangeRandom(A_x, B_x),
 			Real(0),
 			Math::RangeRandom(A_z, B_z)
 			);
 		Nodes.push_back(node);
-		
-		if(i%2) (static_cast<Entity *>(node->getAttachedObject(0)))->getSubEntity(0)->getMaterial()->getTechnique(0)->getPass(0)->setAmbient(ColourValue(1,0,0));
-		if(i%2) (static_cast<Entity *>(node->getAttachedObject(0)))->getSubEntity(0)->getMaterial()->getTechnique(0)->getPass(0)->setAmbient(ColourValue(1,0,0));
 	}
 }
-
 SceneNode * Application :: AddLight(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
 	// string s = configfile -> getSetting(_s);
-	float x, y, z, dir_x, dir_y, dir_z;
+	float x, y, z,
+		dir_x, dir_y, dir_z,
+		color_r, color_g, color_b;
 	string type;
 
-	iss >> dir_x >> dir_y >> dir_z >> type >> x >> y >> z;
+	iss >> dir_x >> dir_y >> dir_z
+		>> type
+		>> x >> y >> z
+		>> color_r >> color_g >> color_b;
 
 	SceneNode * node = SGLT_SCMGR -> createSceneNode(_s);
 	Light * light = SGLT_SCMGR -> createLight(_s);
@@ -93,7 +95,8 @@ SceneNode * Application :: AddLight(string _s)
 	if(type == "POINT") light -> setType(Light :: LT_POINT);
 	
 	node -> attachObject(light);
-	
+	light->setSpecularColour(Real(color_r), Real(color_g), Real(color_b));
+	light->setDiffuseColour(Real(color_r), Real(color_g), Real(color_b));
 	((SGLT_SCMGR) -> getRootSceneNode()) -> addChild(node);
 	
 	node -> setPosition(x, y, z);
@@ -140,6 +143,14 @@ int Application :: GetInt(string _s)
 	istringstream istrstr(configfile -> getSetting(_s, StringUtil :: BLANK, "0"));
 	istrstr >> result;
 	return result;
+}
+MaterialPtr Application :: create_hover_material(MaterialPtr mat)
+{
+	MaterialPtr ret;
+	ret = mat->clone(mat->getName()+"_hover");
+	ret->setAmbient(ColourValue(0.1,0.1,0.1,0.1));
+	ret->setDiffuse(ColourValue(0.1,0.1,0.1,0.1));
+	return ret;
 }
 
 /*

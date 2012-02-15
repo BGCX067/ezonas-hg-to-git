@@ -5,14 +5,15 @@ void Application :: CreateScene()
 {
 	//camera -> setPolygonMode(PM_WIREFRAME);
 	//scmgr -> showBoundingBoxes(true);
-	//ConfMgr :: getSingletonPtr() -> AddLevel("guy"); 
+	//ConfMgr :: getSingletonPtr() -> AddLevel("guy");
 	//ConfMgr :: getSingletonPtr() -> AddLevel("mifflin3");
 	AddPlane();
 	LoadEntity("bonome");
 	if (configfile->getSetting("Populate") == "yes") Populate();
 
-	AddLight("light1");
-	AddLight("light2");
+	AddLight("light3");
+	AddLight("light3b");
+	//AddLight("light2");
 }
 void Application :: AddPlane()
 {
@@ -20,7 +21,6 @@ void Application :: AddPlane()
 
 	float plane_width = GetFloat("plane_width");
 	float plane_depth = GetFloat("plane_depth");
-
 
 	Ogre :: MeshManager :: getSingleton().createPlane
 		("plane",

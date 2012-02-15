@@ -11,7 +11,10 @@ public:
     static LaserCast * getSingletonPtr(void);
 	static LaserCast * Instantiate();
 
+	void set_hover(MaterialPtr a) { material_hover = a; }
+
 protected:
+	MaterialPtr material_hover;
 	LaserCast();
 	bool execute();
 // necessary objects

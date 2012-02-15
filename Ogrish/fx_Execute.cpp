@@ -18,11 +18,7 @@ bool LaserCast :: execute()
     {
 	// stop checking if we have found a LaserCast hit that is closer
 	// than all remaining entities
-		if
-			(
-				(closest_distance >= 0.0f) &&
-				(closest_distance < RSQR[qr_idx].distance)
-			)
+		if ( (closest_distance >= 0.0f) && (closest_distance < RSQR[qr_idx].distance))
 				break;
 
 		// only check this result if its a hit against an entity
@@ -31,6 +27,7 @@ bool LaserCast :: execute()
 		{
 			// get the entity to check
 			ent_check = static_cast<Ogre::Entity*>(RSQR[qr_idx].movable);
+			ent_check->setMaterial(material_hover);
 	/***************************************************************************************/			
 	/* from here i pasted the getmeshinfo method, to have maximum predeclared
 	attributes and minimum passed variables */
@@ -254,10 +251,11 @@ bool LaserCast :: execute()
 			if (new_closest_found)
 			closest_result = ray_cam.getPoint(closest_distance - 1.0f);
 		}
-		}
-		// return the result
-		if (closest_distance >= 0.0f)
-		{
+		//else;
+	}
+	// return the result
+	if (closest_distance >= 0.0f)
+	{
 		// LaserCast success
 		result = closest_result;
 			//matptr->setAmbient(0.5, 0.5, 0.5);

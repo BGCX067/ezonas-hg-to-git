@@ -37,8 +37,7 @@ Application :: Application():
 	machine			 = new game_machine;
 	mat3_zero		 = btMatrix3x3(0,0,0,0,0,0,0,0,0);
 	transf			 = btTransform(mat3_zero);
-	hover_idle		 = MaterialManager::getSingleton().getByName("hover/idle");
-	hover_hover		 = MaterialManager::getSingleton().getByName("hover/hover");
+	
 
 #ifdef PHYSICS
 	broadphase				 = new btDbvtBroadphase();

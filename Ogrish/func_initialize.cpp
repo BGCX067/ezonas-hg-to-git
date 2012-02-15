@@ -8,6 +8,7 @@ void Application :: initialize()
 	//switch(ConfMgr :: getSingleton().GetInt("camera_mode"))
 	
 	cam_ctrlr -> setBulletTracer(bullet_tracer);
+	lasercast-> set_hover(material_hover);
 	// CreateTerrain();
 	InitGorilla();
 	CreateScene();
