@@ -2,7 +2,7 @@
 #include "stdafx.h"
 //#endif
 // ############################# frameStarted #############################
-bool Application :: frameEnded(const FrameEvent & evt)
+bool Application :: frameRenderingQueued(const FrameEvent & evt)
 {
 	gor_caption[1] -> text
 	(
@@ -14,23 +14,15 @@ bool Application :: frameEnded(const FrameEvent & evt)
 	size_t sz = velocities.size();
 	for(size_t i = 0; i < sz; ++ i)
 		Nodes[i]->translate(velocities[i] * frame_time);
-	//transf.set
-	//handle_bullet();
-	
-	check_collisions();
+
+	//check_collisions();
+	handle_bullet();
 
 	lasercast -> update();
 	bullet_tracer -> update();
 
-
 	return cam_ctrlr -> update();//evt.timeSinceLastFrame);
 }
 
-bool Application :: frameRenderingQueued(const FrameEvent & evt)
-{
-return true;
-}
-bool Application :: frameStarted(const FrameEvent & evt)
-{
-return true;
-}
+bool Application :: frameEnded(const FrameEvent & evt) { return true; }
+bool Application :: frameStarted(const FrameEvent & evt) { return true; }

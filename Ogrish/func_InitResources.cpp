@@ -3,15 +3,6 @@
 //#endif
 void Application :: CreateScene()
 {
-	//ConfMgr :: getSingletonPtr() -> AddLevel("guy");
-	//ConfMgr :: getSingletonPtr() -> AddLevel("mifflin3");
-	AddPlane();
-	LoadEntity("bonome");
-	if (configfile->getSetting("Populate") == "yes") Populate();
-
-	AddLight("light3");
-	AddLight("light3b");
-	//AddLight("light2");
 }
 void Application :: AddPlane()
 {

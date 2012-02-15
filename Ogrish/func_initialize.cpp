@@ -4,15 +4,23 @@ void Application :: initialize()
 {
 	if(GetInt("crosshair") == 1)
 		OverlayManager :: getSingletonPtr() -> getByName("jokoon/crosshair") -> show();
-	
-	//switch(ConfMgr :: getSingleton().GetInt("camera_mode"))
-	
+	//camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
+
 	cam_ctrlr -> setBulletTracer(bullet_tracer);
 	lasercast-> set_hover(material_hover);
 	// CreateTerrain();
 	InitGorilla();
-	CreateScene();
+
+	// ########################## add entities and nodes ##########################
+	//ConfMgr :: getSingletonPtr() -> AddLevel("guy");
+	//ConfMgr :: getSingletonPtr() -> AddLevel("mifflin3");
+	AddPlane();
+	LoadEntity("bonome");
+	if (configfile->getSetting("Populate") == "yes") Populate();
+
+	AddLight("light3");
+	AddLight("light3b");
+
 	init_physics();
-	//camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
 
 }

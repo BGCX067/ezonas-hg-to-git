@@ -51,8 +51,14 @@ void Application :: Populate()
 	material_hover = create_hover_material(scmgr->getEntity("bonome")->getSubEntity(0)->getMaterial());
 
 	std::string pop_mesh = configfile -> getSetting("pop_mesh");
+	float
+		range_xz_down	= GetFloat("range_xz_down"),
+		range_xz_up		= GetFloat("range_xz_up");
+
 	for(int i = 0 ; i < population; ++ i)
 	{
+		velocities.push_back(Vec3(Math::RangeRandom(range_xz_down, range_xz_up),0,
+			Math::RangeRandom(range_xz_down, range_xz_up)));
 		SceneNode * node = SGLT_RSN -> createChildSceneNode();
 		node -> attachObject(SGLT_SCMGR -> createEntity(pop_mesh));
 		
@@ -103,16 +109,6 @@ SceneNode * Application :: AddLight(string _s)
 
 	return node;
 }
-Vec3 Application :: GetVect3(string _s)
-{
-	istringstream iss(configfile -> getSetting(_s));
-	// string s = configfile -> getSetting(_s);
-	float x, y, z;
-
-	iss >>  x >> y >> z;
-
-	return Vec3(x, y, z);
-}
 Ogre::Vector2 Application :: GetVect2(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
@@ -130,19 +126,29 @@ SceneTypeMask Application :: GetScMgrType()
 	if(str == "OCTREE_GENERIC") return ST_GENERIC;
 	return ST_GENERIC;
 }
-float Application :: GetFloat(string _s)
+float Application	::GetFloat(string _s)
 {
 	float result = float(0xdeadbeef);
 	istringstream istrstr(configfile -> getSetting(_s, StringUtil :: BLANK, "1.0"));
 	istrstr >> result;
 	return result;
 }
-int Application :: GetInt(string _s)
+int Application		::GetInt(string _s)
 {
 	int result = 0xdeadbeef;
 	istringstream istrstr(configfile -> getSetting(_s, StringUtil :: BLANK, "0"));
 	istrstr >> result;
 	return result;
+}
+Vec3 Application	::GetVect3(string _s)
+{
+	istringstream iss(configfile -> getSetting(_s));
+	// string s = configfile -> getSetting(_s);
+	float x, y, z;
+
+	iss >>  x >> y >> z;
+
+	return Vec3(x, y, z);
 }
 MaterialPtr Application :: create_hover_material(MaterialPtr mat)
 {

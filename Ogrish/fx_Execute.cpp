@@ -27,7 +27,7 @@ bool LaserCast :: execute()
 		{
 			// get the entity to check
 			ent_check = static_cast<Ogre::Entity*>(RSQR[qr_idx].movable);
-			ent_check->setMaterial(material_hover);
+			//ent_check->setMaterial(material_hover);
 	/***************************************************************************************/			
 	/* from here i pasted the getmeshinfo method, to have maximum predeclared
 	attributes and minimum passed variables */

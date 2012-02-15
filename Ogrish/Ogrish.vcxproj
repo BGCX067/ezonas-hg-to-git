@@ -97,7 +97,7 @@
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Config.cpp" />
-    <ClCompile Include="func_CreateScene.cpp" />
+    <ClCompile Include="func_InitResources.cpp" />
     <ClCompile Include="func_CreateTerrain.cpp" />
     <ClCompile Include="func_FrameRenderingQueued.cpp" />
     <ClCompile Include="func_GetSingleton.cpp" />

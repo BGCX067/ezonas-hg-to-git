@@ -2,13 +2,15 @@
 #include "stdafx.h"
 //#endif
 template<> CameraController * Ogre :: Singleton <CameraController> :: ms_Singleton = 0;
+#define REINIT(node) { node -> setPosition(0,0,0); node->setOrientation(Quaternion()); }
 
 void CameraController::setFollowedTarget(SceneNode * node) { n_target = node; }
 SceneNode * CameraController :: getTargetNode() { return n_target; }
 SceneNode * CameraController :: getMasterNode() { return n_master; }
 //void CameraController :: setTarget(SceneNode * node) { n_target = node; }
 void CameraController :: setEntity(Entity * ent) { character = ent; }
-
+bool CameraController :: mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id){ return true; }
+void CameraController :: setBulletTracer(BulletTracer * a) { bullet_tracer = a; }
 CameraController :: CameraController ():
 
 #ifndef FOLDTHISFFS
@@ -68,7 +70,6 @@ CameraController :: CameraController ():
 	keyboard -> setEventCallback(this);
 #endif
 }
-#define REINIT(node) { node -> setPosition(0,0,0); node->setOrientation(Quaternion()); }
 void CameraController :: setCameraMode(int mode)
 {
 	/*
@@ -156,7 +157,6 @@ bool CameraController :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButton
 		bullet_tracer -> Fire();
     return true;
 }
-bool CameraController :: mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id){ return true; }
 bool CameraController :: keyPressed(const OIS::KeyEvent &e)
 {
 	switch(e.key)
@@ -176,7 +176,14 @@ bool CameraController :: keyPressed(const OIS::KeyEvent &e)
 
 	case KC_PGUP: case KC_Q: case KC_LSHIFT:	translate2.y -=  1.f; break;
 	case KC_PGDOWN: case KC_E: case KC_SPACE:	translate2.y +=  1.f; break;
-
+	case KC_MINUS:
+		if(cam->getFOVy() > Degree(10.f))
+			cam->setFOVy(cam->getFOVy() - Radian(*frame_time)*20.f);
+		break;
+	case KC_EQUALS:
+		if(cam->getFOVy() < Degree(90.f))
+			cam->setFOVy(cam->getFOVy() + Radian(*frame_time)*20.f);
+		break;
 	default: break;
 	}
 	translate = translate2;
@@ -217,4 +224,3 @@ CameraController :: ~ CameraController()
 	inputmanager -> destroyInputObject(keyboard);
 	InputManager :: destroyInputSystem(inputmanager);
 }
-void CameraController :: setBulletTracer(BulletTracer * a) { bullet_tracer = a; }
