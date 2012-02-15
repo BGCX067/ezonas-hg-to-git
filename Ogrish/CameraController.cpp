@@ -136,10 +136,8 @@ bool CameraController :: update ()
 		moving_speed *
 		(* frame_time)
 	);
-		
 	//cam ->setAutoTracking
 	//cam -> lookAt(n_target->getPosition());
-
 	if (translate.length() > 1.0f) exit(0xb00bbabe);
 	return ! stop;
 }

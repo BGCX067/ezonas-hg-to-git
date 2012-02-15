@@ -3,8 +3,6 @@
 //#endif
 void Application :: CreateScene()
 {
-	//camera -> setPolygonMode(PM_WIREFRAME);
-	//scmgr -> showBoundingBoxes(true);
 	//ConfMgr :: getSingletonPtr() -> AddLevel("guy");
 	//ConfMgr :: getSingletonPtr() -> AddLevel("mifflin3");
 	AddPlane();

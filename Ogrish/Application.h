@@ -98,8 +98,13 @@ private: /* ######################## PRIVATE ######################## */
     btDefaultCollisionConfiguration		* collisionConfiguration;
     btCollisionDispatcher				* dispatcher;
 	btCollisionWorld					* collisionWorld;
-
-
+	// btogre etc
+	// intermediate Ogre/bullet data
+	Vec3 temp;
+	btMatrix3x3 mat3_zero;		   // warning :
+	btTransform transf;			   // the order of those 2 object matters
+	btCollisionWorld :: ContactResultCallback * result;
+	btSphereShape * sphere;
 
 #endif
 #ifdef USE_TERRAIN
@@ -118,15 +123,6 @@ private: /* ######################## PRIVATE ######################## */
 	// data
 	float sphere_radius_squared;
 	MaterialPtr material_hover;
-#ifdef PHYSICS
-	// intermediate Ogre/bullet data
-	Vec3 temp;
-	btMatrix3x3 mat3_zero;		   // warning :
-	btTransform transf;			   // the order of those 2 object matters
-	btCollisionWorld :: ContactResultCallback * result;
-	btSphereShape * sphere;
-#endif
-
 
 	// tracks of entities, nodes, velocities and other
 	std::vector<Entity *> Entities;
