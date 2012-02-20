@@ -30,9 +30,8 @@
 */
 
 //#include "Gorilla.h"
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 #pragma warning ( disable : 4244 )
 
 #if OGRE_VERSION < 67584 // 1.8.0

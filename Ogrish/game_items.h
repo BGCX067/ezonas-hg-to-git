@@ -1,6 +1,5 @@
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 #define WEAPON        (1 << 24)
 #define MELEE         (1 << 25)
 #define GUN           (1 << 26)
@@ -161,7 +160,7 @@ enum item_e
 #endif
 
 };
-class ItemMgr
+struct ItemMgr
 {
 public:
 	ItemMgr();

@@ -7,43 +7,31 @@
     <Filter Include="effects">
       <UniqueIdentifier>{bccf96f1-334c-4c48-a67f-6efd099bfadf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="func">
-      <UniqueIdentifier>{3eb56d8a-7ef5-4844-830e-5b42830684e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="conf">
-      <UniqueIdentifier>{680eebf9-3abc-4f86-9c20-140d57c7aaa2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gorilla">
       <UniqueIdentifier>{9627990c-2baf-4d81-9c47-da3d3af04df9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="physics">
+    <Filter Include="init">
+      <UniqueIdentifier>{3eb56d8a-7ef5-4844-830e-5b42830684e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="loop">
+      <UniqueIdentifier>{e53685ad-3301-4e84-962c-0cadabd28b8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="btogre">
       <UniqueIdentifier>{140d1716-62d8-4e75-94f3-8581dd5ac9ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="conf-files">
+      <UniqueIdentifier>{bf12f068-d63c-4ad8-9903-8711e43c233d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="conf\conf-guns.cfg">
-      <Filter>conf</Filter>
+    <None Include="conf\jokoon.material">
+      <Filter>conf-files</Filter>
     </None>
     <None Include="conf\gameconf.cfg">
-      <Filter>conf</Filter>
-    </None>
-    <None Include="conf\Ogre.cfg">
-      <Filter>conf</Filter>
+      <Filter>conf-files</Filter>
     </None>
     <None Include="conf\plugins_d.cfg">
-      <Filter>conf</Filter>
-    </None>
-    <None Include="conf\resources_d.cfg">
-      <Filter>conf</Filter>
-    </None>
-    <None Include="conf\fucking_roadmap.txt">
-      <Filter>conf</Filter>
-    </None>
-    <None Include="conf\jokoon.material">
-      <Filter>conf</Filter>
-    </None>
-    <None Include="conf\crosshair.overlay">
-      <Filter>conf</Filter>
+      <Filter>conf-files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -57,13 +45,13 @@
       <Filter>gorilla</Filter>
     </ClInclude>
     <ClInclude Include="BtOgreExtras.h">
-      <Filter>physics</Filter>
+      <Filter>btogre</Filter>
     </ClInclude>
     <ClInclude Include="BtOgreGP.h">
-      <Filter>physics</Filter>
+      <Filter>btogre</Filter>
     </ClInclude>
     <ClInclude Include="BtOgrePG.h">
-      <Filter>physics</Filter>
+      <Filter>btogre</Filter>
     </ClInclude>
     <ClInclude Include="fx_LaserCast.h">
       <Filter>effects</Filter>
@@ -86,6 +74,7 @@
     <ClInclude Include="game_character.h">
       <Filter>game</Filter>
     </ClInclude>
+    <ClInclude Include="defines.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
@@ -98,26 +87,11 @@
     <ClCompile Include="Gorilla.cpp">
       <Filter>gorilla</Filter>
     </ClCompile>
-    <ClCompile Include="Config.cpp">
-      <Filter>conf</Filter>
-    </ClCompile>
-    <ClCompile Include="physics.cpp">
-      <Filter>physics</Filter>
-    </ClCompile>
     <ClCompile Include="BtOgre.cpp">
-      <Filter>physics</Filter>
+      <Filter>btogre</Filter>
     </ClCompile>
     <ClCompile Include="func_GetSingleton.cpp">
-      <Filter>func</Filter>
-    </ClCompile>
-    <ClCompile Include="func_initialize.cpp">
-      <Filter>func</Filter>
-    </ClCompile>
-    <ClCompile Include="func_CreateTerrain.cpp">
-      <Filter>func</Filter>
-    </ClCompile>
-    <ClCompile Include="func_FrameRenderingQueued.cpp">
-      <Filter>func</Filter>
+      <Filter>init</Filter>
     </ClCompile>
     <ClCompile Include="fx_Execute.cpp">
       <Filter>effects</Filter>
@@ -143,11 +117,26 @@
     <ClCompile Include="game_datastruct.cpp">
       <Filter>game</Filter>
     </ClCompile>
-    <ClCompile Include="func_InitResources.cpp">
-      <Filter>func</Filter>
-    </ClCompile>
     <ClCompile Include="func_InitGorilla.cpp">
       <Filter>gorilla</Filter>
+    </ClCompile>
+    <ClCompile Include="loop.cc">
+      <Filter>loop</Filter>
+    </ClCompile>
+    <ClCompile Include="func_FrameRenderingQueued.cpp">
+      <Filter>loop</Filter>
+    </ClCompile>
+    <ClCompile Include="load_InitResources.cpp">
+      <Filter>init</Filter>
+    </ClCompile>
+    <ClCompile Include="load_initialize.cpp">
+      <Filter>init</Filter>
+    </ClCompile>
+    <ClCompile Include="load_data.cpp">
+      <Filter>init</Filter>
+    </ClCompile>
+    <ClCompile Include="load_params.cc">
+      <Filter>init</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

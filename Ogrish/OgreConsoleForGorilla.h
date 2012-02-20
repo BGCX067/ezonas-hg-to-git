@@ -21,16 +21,15 @@
    
 */
 
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 //#include "Ogre.h"
 //#include "OIS.h"
 //#include "Gorilla.h"
 
 typedef void (*OgreConsoleFunctionPtr)(Ogre::StringVector&);
 
-class OgreConsole : public Ogre::Singleton<OgreConsole>, Ogre::FrameListener, Ogre::LogListener
+struct OgreConsole : public Ogre::Singleton<OgreConsole>, Ogre::FrameListener, Ogre::LogListener
 {
     
  public:

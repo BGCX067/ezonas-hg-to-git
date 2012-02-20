@@ -39,11 +39,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\boost\boost_1_47;C:\Ogre173src\OgreMain\include;C:\bullet278\src;C:\Ogre173src\include;C:\Ogre173src\Dependencies\include\OIS;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Ogre173src\lib\Debug;C:\boost\boost_1_47\lib;C:\bullet278\lib\Debug;C:\Ogre173src\Dependencies\lib\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Ogre1-7-4\boost_1_47;C:\bullet278\src;C:\Ogre1-7-4\include\OGRE;C:\Ogre1-7-4\include\OIS;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\bullet278\lib\Debug;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Ogre1-7-4\boost_1_47;C:\bullet278\src;C:\Ogre1-7-4\include\OGRE;C:\Ogre1-7-4\include\OIS;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\bullet278\lib\Release;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -67,12 +69,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>/Zm150 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>OgreMain.lib;OIS.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -81,6 +85,7 @@
     <ClInclude Include="BtOgrePG.h" />
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="defines.h" />
     <ClInclude Include="fx_BulletTracer.h" />
     <ClInclude Include="fx_LaserCast.h" />
     <ClInclude Include="game_ability.h" />
@@ -96,13 +101,11 @@
     <ClCompile Include="BtOgre.cpp" />
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="Config.cpp" />
-    <ClCompile Include="func_InitResources.cpp" />
-    <ClCompile Include="func_CreateTerrain.cpp" />
+    <ClCompile Include="load_InitResources.cpp" />
     <ClCompile Include="func_FrameRenderingQueued.cpp" />
     <ClCompile Include="func_GetSingleton.cpp" />
     <ClCompile Include="func_InitGorilla.cpp" />
-    <ClCompile Include="func_initialize.cpp" />
+    <ClCompile Include="load_initialize.cpp" />
     <ClCompile Include="fx_BulletTracer.cpp" />
     <ClCompile Include="fx_Execute.cpp" />
     <ClCompile Include="fx_LaserCast.cpp" />
@@ -112,23 +115,20 @@
     <ClCompile Include="game_gamemachine.cc" />
     <ClCompile Include="game_items.cpp" />
     <ClCompile Include="Gorilla.cpp" />
+    <ClCompile Include="load_data.cpp" />
+    <ClCompile Include="load_params.cc" />
+    <ClCompile Include="loop.cc" />
     <ClCompile Include="OgreConsoleForGorilla.cpp" />
     <ClCompile Include="Ogrish_main.cpp" />
-    <ClCompile Include="physics.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="conf\conf-guns.cfg" />
-    <None Include="conf\crosshair.overlay" />
-    <None Include="conf\fucking_roadmap.txt" />
     <None Include="conf\gameconf.cfg" />
     <None Include="conf\jokoon.material" />
-    <None Include="conf\Ogre.cfg" />
     <None Include="conf\plugins_d.cfg" />
-    <None Include="conf\resources_d.cfg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,9 +1,8 @@
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 #define BULLET_MAX 5
 
-class BulletTracer:
+struct BulletTracer:
 	public BillboardChainFactory,
 	public Ogre :: Singleton <BulletTracer>
 {
@@ -20,7 +19,7 @@ private:
 	int nextbullet, bullets_max;
 	float bullet_speed,
 		trace_width, trace_length,
-		time_stack, fire_delay, * frame_time,
+		time_stack, fire_delay, & timeSinceLastFrame,
 		offset_x, offset_y;
 	bool was_fired;
 	Camera * cam;

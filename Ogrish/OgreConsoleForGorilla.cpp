@@ -7,9 +7,8 @@
 	been added but they are minor and do not add to the actual functionality of the class.
 */
 
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 //#include "OgreConsoleForGorilla.h"
 
 #if OGRE_VERSION < 67584 // 1.8.0

@@ -1,6 +1,5 @@
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 template<> BulletTracer * Ogre :: Singleton <BulletTracer> :: ms_Singleton = 0;
 
 BulletTracer :: BulletTracer ():
@@ -15,7 +14,7 @@ BulletTracer :: BulletTracer ():
 	was_fired		(false),
 	time_stack		(0),
 	fire_delay		(SGLT_APP -> GetFloat("fire_delay")),
-	frame_time		(Application :: getSingletonPtr() -> GetFT()),
+	timeSinceLastFrame		(Application :: getSingletonPtr() -> timeSinceLastFrame),
 	offset_x		(SGLT_APP -> GetFloat("offset_x")),
 	offset_y		(SGLT_APP -> GetFloat("offset_y"))
 
@@ -67,11 +66,11 @@ void BulletTracer :: update ()//float frame_time)
 	//n_bullet -> translate(0, 0, -frame_time * bullet_speed, Ogre :: Node :: TS_LOCAL);
 	FOR(BULLET_MAX)
 	{
-		n_bullet[i] -> translate(0, 0, - * frame_time * bullet_speed, Ogre :: Node :: TS_LOCAL);
+		n_bullet[i] -> translate(0, 0, -  timeSinceLastFrame * bullet_speed, Ogre :: Node :: TS_LOCAL);
 	}
 	if(was_fired == true)
 	{
-		time_stack += * frame_time;
+		time_stack += timeSinceLastFrame;
 		if (time_stack > fire_delay)
 		{
 			time_stack = 0.0f;

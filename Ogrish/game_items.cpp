@@ -1,6 +1,5 @@
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 ItemMgr :: ItemMgr()
 {
 #ifndef STRING_IDS

@@ -1,6 +1,5 @@
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 
 // ############# ABILITY EVENT #############
 Event::Event(int _emitter_id, int _target_id, int _abil_state_id): // ability event constructor

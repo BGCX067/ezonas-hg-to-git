@@ -1,6 +1,5 @@
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 
 #define COMPOSITION
 
@@ -14,7 +13,7 @@ using namespace std;
 #define prx(s) printf("0x%X\n", s)
 typedef unsigned int uint;
 
-class game_machine
+struct game_machine
 {
 public:
 	game_machine();
@@ -39,7 +38,7 @@ public:
 	void spendPower(int emitter_id, int abil_state_id);
 private:
 	// data oriented
-	float * timeSinceLastFrame;
+	float & timeSinceLastFrame;
 	std::vector <Ogre::Entity *> Entities;
 
 	std::vector <std::string>	   CharNames;		

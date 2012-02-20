@@ -1,7 +1,6 @@
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
-class CameraController:
+
+struct CameraController:
 	public Ogre :: Singleton <CameraController>,
 	public KeyListener,
 	public MouseListener
@@ -16,9 +15,8 @@ public:
 	SceneNode * getTargetNode();
 	SceneNode * getMasterNode();
 	void setTarget(SceneNode * node);
-	void setEntity(Entity * ent);
+	void attachEntity(Entity * ent);
 	void setBulletTracer(BulletTracer *);
-protected:
 	SceneNode
 		* n_root	,
 
@@ -27,9 +25,10 @@ protected:
 		* n_cam		,	 // those 3 in this exact order
 		
 		* n_yawpitch_ptr; // this node will serve as a pointer to switch between 1st/rd person cam
+protected:
 
 	Entity * character;
-	float moving_speed, rotating_speed, * frame_time;
+	float moving_speed, rotating_speed, & timeSinceLastFrame;
 	Camera * cam;
 	bool stop;
 	Vec3 offset;
@@ -37,9 +36,6 @@ protected:
 	
 	BulletTracer * bullet_tracer;
 	// inputs
-	InputManager * inputmanager;
-	Keyboard * keyboard;
-	Mouse * mouse;
 	Vec3 translate, translate2;
 	float rot;
 

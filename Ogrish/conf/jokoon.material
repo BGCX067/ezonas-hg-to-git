@@ -11,7 +11,9 @@ material jokoon/laser_beam
 { technique { pass {
 scene_blend alpha_blend
 depth_write off
-texture_unit { texture ray-red-32.png }
+texture_unit { texture laser_ray.png }
+//texture_unit { texture ray-red-64.png }
+//texture_unit { texture ray-white21.png }
 }}}
 
 /* BULLET TRACE ////////////////////////////////////////////// */

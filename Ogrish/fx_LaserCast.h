@@ -1,7 +1,6 @@
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
-class LaserCast:
+
+struct LaserCast:
 	public Ogre :: Singleton <LaserCast>
 {
 public:
@@ -10,8 +9,7 @@ public:
     //static LaserCast * sglt();
     static LaserCast * getSingletonPtr(void);
 	static LaserCast * Instantiate();
-
-	void set_hover(MaterialPtr a) { material_hover = a; }
+	Entity * ent_check, * last_entity, * current_entity;
 
 protected:
 	MaterialPtr material_hover;
@@ -30,33 +28,21 @@ protected:
 	RaySceneQuery * RSQ;
 	RaySceneQueryResult RSQR;
 // tweakables
-	float laser_width, * frame_time; //, bullet_speed, trace_width, trace_length;
+	float laser_width, & timeSinceLastFrame; //, bullet_speed, trace_width, trace_length;
 	
-//////////////////////////////////////
 // Billboards ////////////////////////
-//////////////////////////////////////
-	BillboardSet
-		//* bb_bullet, // do that later
-		* bb_dot;
+	BillboardSet * bb_dot;
 	Billboard * bboard;
-	BillboardChain
-		* bb_beam;
-		//* bb_bullet;
-
-//////////////////////////////////////
+	BillboardChain * bb_beam;
 // raycast function/ /////////////////
-//////////////////////////////////////
 	Ogre :: Vector3
 		closest_result,
 		camera,
 		result,
 		* vertices;
-#define OPTIM
-#ifdef OPTIM
 	std::vector<Ogre :: Vector3> verts;
 	std::vector<Ogre :: uint32> inds;
 	size_t previous_vertex_count, previous_indice_count;
-#endif
 	Ogre :: uint32
 		* indices,
 		* hwBuf32;
@@ -72,7 +58,6 @@ protected:
 //////////////////////////////////////
 // other, late in getmeshinfo ////////
 //////////////////////////////////////
-	Entity * ent_check;
 	MeshPtr mesh_check;
 	Ogre :: SubMesh* submesh;
 	IndexData * index_data;

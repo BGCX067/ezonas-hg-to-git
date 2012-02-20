@@ -1,3 +1,8 @@
+namespace Globals
+{
+	
+}
+
 struct core:
 	public Ogre :: Singleton <core>,
 	public FrameListener,
@@ -20,6 +25,5 @@ struct core:
 	bool mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id);
 	bool keyPressed(const OIS::KeyEvent &e);
 	bool keyReleased(const OIS::KeyEvent &e);
-	
 	
 };

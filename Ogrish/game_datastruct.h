@@ -1,6 +1,5 @@
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 
 enum event_state   { JUMPS, LANDS, MOVES, STOPS, USE_ITEM, ABILITY };
 struct event_abil  { int target_id, abil_state_id; };

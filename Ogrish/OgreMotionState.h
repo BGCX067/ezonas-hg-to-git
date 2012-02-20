@@ -1,9 +1,8 @@
-//#ifndef __APPLE__
-#include "stdafx.h"
+//#ifndef __APPLE__#include "stdafx.h"
 //#endif
 #ifdef PHYSICS
 
-class OgreMotionState : public btMotionState
+struct OgreMotionState : public btMotionState
 {
 public:
     OgreMotionState(const btTransform &initialpos, Ogre :: SceneNode *node);

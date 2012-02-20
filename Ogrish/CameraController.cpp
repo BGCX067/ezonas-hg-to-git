@@ -1,6 +1,5 @@
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 template<> CameraController * Ogre :: Singleton <CameraController> :: ms_Singleton = 0;
 #define REINIT(node) { node -> setPosition(0,0,0); node->setOrientation(Quaternion()); }
 
@@ -8,8 +7,8 @@ void CameraController::setFollowedTarget(SceneNode * node) { n_target = node; }
 SceneNode * CameraController :: getTargetNode() { return n_target; }
 SceneNode * CameraController :: getMasterNode() { return n_master; }
 //void CameraController :: setTarget(SceneNode * node) { n_target = node; }
-void CameraController :: setEntity(Entity * ent) { character = ent; }
-bool CameraController :: mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id){ return true; }
+void CameraController :: attachEntity(Entity * ent) { character = ent; n_target->attachObject(ent); }
+bool CameraController :: mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id) { return true; }
 void CameraController :: setBulletTracer(BulletTracer * a) { bullet_tracer = a; }
 CameraController :: CameraController ():
 
@@ -28,12 +27,12 @@ CameraController :: CameraController ():
 	//lasercast		(LaserCast :: Instantiate()),
 	//bullet_tracer	(BulletTracer :: Instantiate()),
 	stop			(false),
-	frame_time		(Application :: getSingletonPtr() -> GetFT()),
+	timeSinceLastFrame		(Application :: getSingletonPtr() -> timeSinceLastFrame),
 	translate		(Vec3(0,0,0)),
 	translate2		(Vec3(0,0,0)),
 	offset			(SGLT_APP -> GetVect3("offset")),
 	camera_mode		(3),
-	rot(0.0f)
+	rot				(0.0f)
 #endif
 {
 	n_cam -> setPosition(0,0,10);
@@ -61,13 +60,13 @@ CameraController :: CameraController ():
 	parameters.insert(make_pair(string("XAutoRepeatOn"), string("true")));
 #endif
 /* ### Inputs Objects ################################################## */
-	inputmanager = InputManager :: createInputSystem(parameters);
-	keyboard = static_cast<Keyboard *>
-		(inputmanager -> createInputObject(OISKeyboard, true));
-	mouse = static_cast<Mouse *>
-		(inputmanager -> createInputObject	(OISMouse, true));
-	mouse -> setEventCallback(this);
-	keyboard -> setEventCallback(this);
+	SGLT_APP -> inputmanager = InputManager :: createInputSystem(parameters);
+	SGLT_APP -> keyboard = static_cast<Keyboard *>
+		(SGLT_APP -> inputmanager -> createInputObject(OISKeyboard, true));
+	SGLT_APP -> mouse = static_cast<Mouse *>
+		(SGLT_APP -> inputmanager -> createInputObject	(OISMouse, true));
+	SGLT_APP -> mouse -> setEventCallback(this);
+	SGLT_APP -> keyboard -> setEventCallback(this);
 #endif
 }
 void CameraController :: setCameraMode(int mode)
@@ -127,15 +126,15 @@ void CameraController :: setCameraMode(int mode)
 }
 bool CameraController :: update ()
 {
-	keyboard -> capture();
-	mouse -> capture();
+	SGLT_APP -> keyboard -> capture();
+	SGLT_APP -> mouse -> capture();
 	//n_cam -> getOrientation()
 	n_master -> translate
 	(
 		n_yawpitch_ptr -> getOrientation() *
 		translate *
 		moving_speed *
-		(* frame_time)
+		timeSinceLastFrame
 	);
 	//cam ->setAutoTracking
 	//cam -> lookAt(n_target->getPosition());
@@ -163,7 +162,8 @@ bool CameraController :: keyPressed(const OIS::KeyEvent &e)
 	{
 	case KC_ESCAPE: stop = true; break;
 	//case KC_F1: setCameraMode(1); break;
-	case KC_F2: setCameraMode(3); break;
+	case KC_F2: setCameraMode(1); break;
+	case KC_F3: setCameraMode(3); break;
 
 	// index up, thumb left
 	case KC_UP: case KC_W:						translate2.z -=  1.f; break;
@@ -178,11 +178,11 @@ bool CameraController :: keyPressed(const OIS::KeyEvent &e)
 	case KC_PGDOWN: case KC_E: case KC_SPACE:	translate2.y +=  1.f; break;
 	case KC_MINUS:
 		if(cam->getFOVy() > Degree(10.f))
-			cam->setFOVy(cam->getFOVy() - Radian(*frame_time)*20.f);
+			cam->setFOVy(cam->getFOVy() - Radian(timeSinceLastFrame) *20.f);
 		break;
 	case KC_EQUALS:
 		if(cam->getFOVy() < Degree(90.f))
-			cam->setFOVy(cam->getFOVy() + Radian(*frame_time)*20.f);
+			cam->setFOVy(cam->getFOVy() + Radian(timeSinceLastFrame) *20.f);
 		break;
 	default: break;
 	}
@@ -220,7 +220,7 @@ bool CameraController :: keyReleased(const OIS::KeyEvent &e)
 }
 CameraController :: ~ CameraController()
 {
-	inputmanager -> destroyInputObject(mouse);
-	inputmanager -> destroyInputObject(keyboard);
-	InputManager :: destroyInputSystem(inputmanager);
+	SGLT_APP -> inputmanager -> destroyInputObject(SGLT_APP -> mouse);
+	SGLT_APP -> inputmanager -> destroyInputObject(SGLT_APP -> keyboard);
+	InputManager :: destroyInputSystem(SGLT_APP -> inputmanager);
 }

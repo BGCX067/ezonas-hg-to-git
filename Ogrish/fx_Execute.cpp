@@ -1,6 +1,5 @@
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 bool LaserCast :: execute()
 {
 	// execute the query, returns a vector of hits
@@ -49,7 +48,6 @@ bool LaserCast :: execute()
 				for (unsigned short i = 0; i < mesh_check -> getNumSubMeshes(); ++i)
 				{
 					submesh = mesh_check -> getSubMesh( i );
-
 					// We only need to add the shared vertices once
 					if(submesh -> useSharedVertices)
 					{
@@ -61,34 +59,21 @@ bool LaserCast :: execute()
 					}
 					else
 						vertex_count += submesh -> vertexData -> vertexCount;
-
 					// Add the indices
 					index_count += submesh -> indexData -> indexCount;
 				}
-
-
 				// Allocate space for the vertices and indices
-				
-				
-#ifndef OPTIM
-				vertices = new Ogre :: Vector3[vertex_count];
-				indices = new Ogre :: uint32[index_count];
-#else
 				if(vertex_count > previous_vertex_count)// first time here, fill with zero
 				{
 					verts.resize(vertex_count);
-					//PRINTLOG("resized v to "+TO_STR(vertex_count));
 					previous_vertex_count = vertex_count;
 				}
 				if(index_count > previous_indice_count) // first time here, fill with zero
 				{
 					inds.resize(index_count);
-					//PRINTLOG("resized i to "+TO_STR(index_count));
 					previous_indice_count = index_count;
 				}
-#endif
 				added_shared = false;
-
 				// Run through the submeshes again, adding the data into the arrays
 				for (unsigned short i = 0; i < mesh_check -> getNumSubMeshes(); ++i)
 				{
@@ -105,32 +90,20 @@ bool LaserCast :: execute()
 							: ent_check -> getSubEntity(i) -> _getSkelAnimVertexData();
 					else
 						vertex_data = submesh -> useSharedVertices
-							? mesh_check -> sharedVertexData
+						? mesh_check -> sharedVertexData
 							: submesh -> vertexData;
 
-					if
-					(
-						(!submesh -> useSharedVertices)
-						||
-						(submesh -> useSharedVertices && !added_shared)
-					)
+					if( (!submesh -> useSharedVertices) || (submesh -> useSharedVertices && !added_shared) )
 					{
 						if(submesh -> useSharedVertices)
-						{
-							added_shared = true;
-							shared_offset = current_offset;
-						}
+						{ added_shared = true; shared_offset = current_offset; }
 
 						// const Ogre :: VertexElement* posElem =
-						posElem =
-							vertex_data -> vertexDeclaration -> findElementBySemantic
-																(Ogre :: VES_POSITION);
-
-						vbuf =
-							vertex_data -> vertexBufferBinding -> getBuffer(posElem -> getSource());
-
-						unsigned char* vertex =
-							static_cast<unsigned char*>
+						posElem = vertex_data -> vertexDeclaration
+							-> findElementBySemantic (Ogre :: VES_POSITION);
+						vbuf = vertex_data -> vertexBufferBinding
+							-> getBuffer(posElem -> getSource());
+						unsigned char* vertex = static_cast<unsigned char*>
 								(vbuf -> lock(Ogre :: HardwareBuffer :: HBL_READ_ONLY));
 
 						// There is _no_ baseVertexPointerToElement() which takes an
@@ -138,21 +111,12 @@ bool LaserCast :: execute()
 						// to avoid trouble when Ogre :: Real will be comiled/typedefed
 						//   as double: Ogre :: Real* pReal;
 						float* pReal;
-
-						for
-						(
-							size_t j = 0;
-							j < vertex_data -> vertexCount;
-							++j, vertex += vbuf -> getVertexSize()
-						)
+						for ( size_t j = 0; j < vertex_data -> vertexCount;
+							++j, vertex += vbuf -> getVertexSize() )
 						{
 							posElem -> baseVertexPointerToElement (vertex, &pReal);
 							Ogre :: Vector3 pt (pReal[0], pReal[1], pReal[2]);
-#ifdef OPTIM
 							verts [current_offset + j] = (orient * (pt * scale)) + position;
-#else
-							vertices [current_offset + j] = (orient * (pt * scale)) + position;
-#endif
 						}
 
 						vbuf -> unlock();
@@ -166,13 +130,8 @@ bool LaserCast :: execute()
 
 					use32bitindexes =
 					(ibuf -> getType() == Ogre :: HardwareIndexBuffer :: IT_32BIT);
-
 					void * hwBuf = ibuf -> lock(Ogre :: HardwareBuffer :: HBL_READ_ONLY);
-
-					offset =
-						(submesh -> useSharedVertices)
-							? shared_offset
-							: current_offset;
+					offset = (submesh -> useSharedVertices) ? shared_offset : current_offset;
 				
 					index_start = index_data -> indexStart;
 					last_index = numTris * 3 + index_start;
@@ -181,71 +140,43 @@ bool LaserCast :: execute()
 					{
 						hwBuf32 = static_cast<Ogre :: uint32*>(hwBuf);
 						for (size_t k = index_start; k < last_index; ++k)
-#ifdef OPTIM
 							inds[index_offset++] =
-#else
-							indices[index_offset++] =
-#endif
 								hwBuf32[k] + static_cast<Ogre :: uint32>(offset);
 					}
 					else
 					{
 						Ogre :: uint16* hwBuf16 = static_cast<Ogre :: uint16*>(hwBuf);
 						for (size_t k = index_start; k < last_index; ++k)
-#ifdef OPTIM
 							inds[index_offset++] =
-#else
-							indices[index_offset++] =
-#endif
 							static_cast<Ogre :: uint32>(hwBuf16[k]) +
 								static_cast<Ogre :: uint32>(offset);
 					}
-
 					ibuf -> unlock();
 					current_offset = next_offset;
 				}
 
-	/***************************************************************************************/			
 	/* meshinfo method is supposed to end here */
-	/***************************************************************************************/			
 			// test for hitting individual triangles on the mesh
 			new_closest_found = false;
 			for (int i = 0; i < static_cast<int>(index_count); i += 3)
 			{
 			// check for a hit against this triangle
 					hit = Ogre :: Math :: intersects
-					(
-						ray_cam,
-#ifdef OPTIM
-						verts[inds[i]],
-						verts[inds[i+1]],
-						verts[inds[i+2]],
-#else
-						vertices[indices[i]],
-						vertices[indices[i+1]],
-						vertices[indices[i+2]],
-#endif
-						true, false
-					);
+					(ray_cam, verts[inds[i]], verts[inds[i+1]], verts[inds[i+2]], true, false);
 
-			// if it was a hit check if its the closest
-			if (hit.first)
-			{
-				if ((closest_distance < 0.0f) ||
-				(hit.second < closest_distance))
+				// if it was a hit check if its the closest
+				if (hit.first)
 				{
-				// this is the closest so far, save it off
-				closest_distance = hit.second;
-				new_closest_found = true;
+					if ((closest_distance < 0.0f) ||
+					(hit.second < closest_distance))
+					{
+						// this is the closest so far, save it off
+						closest_distance = hit.second; new_closest_found = true;
+					}
 				}
-			}
 			}
 
 		 // free the verticies and indicies memory
-#ifndef OPTIM
-			delete[] vertices;
-			delete[] indices;
-#endif
 			// if we found a new closest LaserCast for this object, update the
 			// closest_result before moving on to the next object.
 			if (new_closest_found)

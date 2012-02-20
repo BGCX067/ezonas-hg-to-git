@@ -1,6 +1,5 @@
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 //#define AB_BASE(ch, ab) AbilBases [AbilDatas[ch][ab].ability_id]
 #define AB_BASE(ch, ab) AbilBases [Characters[ch].AbilDatas[ab].ability_id]
 
@@ -90,7 +89,7 @@ int  game_machine :: make_abil_mask		(string flags)
 
 // called in game loop
 /**/ game_machine :: game_machine():
-	timeSinceLastFrame(SGLT_APP -> GetFT())
+timeSinceLastFrame(SGLT_APP -> timeSinceLastFrame)
 {
 // this state machine is about taking inputs and generating outputs,
 // handling them in game and also send events on the network.
@@ -142,7 +141,7 @@ void game_machine :: process_states()
 	for(auto it = Timers.begin(); it != Timers.end(); ++ it)
 	{
 		if(it -> delay > 0.f)
-			it -> delay -= (*timeSinceLastFrame);
+			it -> delay -= timeSinceLastFrame;
 		else if(AB_BASE(it->emit, it->abil).mask & HAS_COOLDOWN) // casting finished, firing now
 		{
 			apply_effect(it->emit, it->target, it->abil);

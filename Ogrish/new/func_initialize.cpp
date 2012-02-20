@@ -7,15 +7,18 @@ void Application :: initialize()
 	//camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
 
 	cam_ctrlr -> setBulletTracer(bullet_tracer);
-	lasercast-> set_hover(material_hover);
 	// CreateTerrain();
 	InitGorilla();
 
-	// ########################## add entities and nodes ##########################
-	//ConfMgr :: getSingletonPtr() -> AddLevel("guy");
-	//ConfMgr :: getSingletonPtr() -> AddLevel("mifflin3");
+	// scene creation
+	// AddLevel("guy");
+	// AddLevel("mifflin3");
 	AddPlane();
+	last_entity_raycast = entplane; // for current target
+	current_ent_raycast = entplane;
+
 	LoadEntity("bonome");
+	material_hover = create_hover_material(scmgr->getEntity("bonome")->getSubEntity(0)->getMaterial());
 	if (configfile->getSetting("Populate") == "yes") Populate();
 
 	AddLight("light3");

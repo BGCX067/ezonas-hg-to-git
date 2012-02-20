@@ -31,9 +31,8 @@
 
 #ifndef GORILLA_H
 #define GORILLA_H
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 //#include "Ogre.h"
 
 #ifndef GORILLA_USES_EXCEPTIONS
@@ -49,18 +48,18 @@
 namespace Gorilla
 {
  
- class Silverback;
- class TextureAtlas;
- class LayerContainer;
- class Screen;
- class ScreenRenderable;
- class Layer;
- class Rectangle;
- class Polygon;
- class LineList;
- class QuadList;
- class Caption;
- class MarkupText;
+ struct Silverback;
+ struct TextureAtlas;
+ struct LayerContainer;
+ struct Screen;
+ struct ScreenRenderable;
+ struct Layer;
+ struct Rectangle;
+ struct Polygon;
+ struct LineList;
+ struct QuadList;
+ struct Caption;
+ struct MarkupText;
  
  template<typename T> struct VectorType
  {
@@ -215,9 +214,9 @@ namespace Gorilla
  
  /*! enum. buffer<T>
      desc.
-         Internal container class that is similar to std::vector
+         Internal container struct that is similar to std::vector
  */
- template<typename T> class buffer
+ template<typename T> struct buffer
  {
    
   public:
@@ -346,7 +345,7 @@ namespace Gorilla
      desc.
          Texture and size information about a single character loaded from a TextureAtlas.
  */
- class Glyph : public Ogre::GeneralAllocatedObject
+ struct Glyph : public Ogre::GeneralAllocatedObject
  {
    
   public:
@@ -380,7 +379,7 @@ namespace Gorilla
      desc.
          Portions of a texture from a TextureAtlas.
  */
- class Sprite : public Ogre::GeneralAllocatedObject
+ struct Sprite : public Ogre::GeneralAllocatedObject
  {
    
   public:
@@ -396,9 +395,9 @@ namespace Gorilla
  
  /* class. Silverback
     desc.
-        Main singleton class for Gorilla
+        Main singleton struct for Gorilla
  */
- class Silverback : public Ogre::Singleton<Silverback>, public Ogre::GeneralAllocatedObject, public Ogre::FrameListener
+ struct Silverback : public Ogre::Singleton<Silverback>, public Ogre::GeneralAllocatedObject, public Ogre::FrameListener
  {
    
   public:
@@ -471,10 +470,10 @@ namespace Gorilla
      desc.
          Collection of glyphs of the same size.
  */
- class GlyphData : public Ogre::GeneralAllocatedObject
+ struct GlyphData : public Ogre::GeneralAllocatedObject
  {
    
-  friend class TextureAtlas;
+  friend struct TextureAtlas;
    
    public:
     
@@ -513,10 +512,10 @@ namespace Gorilla
           describes the portions of a single texture. Such as Glyph and Sprite information, text kerning,
           line heights and so on. It isn't typically used by the end-user.
  */
- class TextureAtlas : public Ogre::GeneralAllocatedObject
+ struct TextureAtlas : public Ogre::GeneralAllocatedObject
  {
    
-   friend class Silverback;
+   friend struct Silverback;
    
    public:
     
@@ -721,7 +720,7 @@ namespace Gorilla
     
   };
   
-  class LayerContainer
+  struct LayerContainer
   {
     
    public:
@@ -863,12 +862,12 @@ namespace Gorilla
   };
   
   
-  class Screen : public LayerContainer, public Ogre::RenderQueueListener, public Ogre::GeneralAllocatedObject
+  struct Screen : public LayerContainer, public Ogre::RenderQueueListener, public Ogre::GeneralAllocatedObject
   {
    public:
     
-    friend class Silverback;
-    friend class Layer;
+    friend struct Silverback;
+    friend struct Layer;
     
     /*! desc. getTexelOffsetX
             Helper function to get horizontal texel offset.
@@ -969,7 +968,7 @@ namespace Gorilla
     
   };
   
-  class ScreenRenderable : public LayerContainer, public Ogre::SimpleRenderable
+  struct ScreenRenderable : public LayerContainer, public Ogre::SimpleRenderable
   {
    
    public:
@@ -1008,10 +1007,10 @@ namespace Gorilla
       desc.
           Text
   */
-  class Layer : public Ogre::GeneralAllocatedObject
+  struct Layer : public Ogre::GeneralAllocatedObject
   {
    
-   friend class LayerContainer;
+   friend struct LayerContainer;
    
    public:
     
@@ -1385,10 +1384,10 @@ namespace Gorilla
       desc.
           Single rectangle with an optional border.
   */
-  class Rectangle : public Ogre::GeneralAllocatedObject
+  struct Rectangle : public Ogre::GeneralAllocatedObject
   {
    
-   friend class Layer;
+   friend struct Layer;
    
    public:
     
@@ -1941,10 +1940,10 @@ namespace Gorilla
       desc.
           A regular n-sided polygon.
   */
-  class Polygon : public Ogre::GeneralAllocatedObject
+  struct Polygon : public Ogre::GeneralAllocatedObject
   {
    
-   friend class Layer;
+   friend struct Layer;
    
    public:
    
@@ -2256,10 +2255,10 @@ namespace Gorilla
     
   };
   
-  class LineList : public Ogre::GeneralAllocatedObject
+  struct LineList : public Ogre::GeneralAllocatedObject
   {
    
-   friend class Layer;
+   friend struct Layer;
    
    public:
     
@@ -2325,12 +2324,12 @@ namespace Gorilla
   
   /*! class. QuadList
       desc.
-          "ManualObject" like class to quickly draw rectangles, gradients, sprites and borders.
+          "ManualObject" like struct to quickly draw rectangles, gradients, sprites and borders.
   */
-  class QuadList : public Ogre::GeneralAllocatedObject
+  struct QuadList : public Ogre::GeneralAllocatedObject
   {
    
-   friend class Layer;
+   friend struct Layer;
    
    public:
     
@@ -2460,10 +2459,10 @@ namespace Gorilla
      desc.
          A single line piece of text
   */
-  class Caption : public Ogre::GeneralAllocatedObject
+  struct Caption : public Ogre::GeneralAllocatedObject
   {
     
-   friend class Layer;
+   friend struct Layer;
    
    public:
     
@@ -2793,10 +2792,10 @@ namespace Gorilla
          A multi-line collection of text formatted by a light markup language, that can
          switch colours, change to monospace and insert sprites directly into the text.
   */
-  class MarkupText : public Ogre::GeneralAllocatedObject
+  struct MarkupText : public Ogre::GeneralAllocatedObject
   {
     
-   friend class Layer;
+   friend struct Layer;
    
    public:
     

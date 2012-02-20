@@ -1,6 +1,5 @@
-//#ifndef __APPLE__
 #include "stdafx.h"
-//#endif
+
 // ############################# frameStarted #############################
 bool Application :: frameRenderingQueued(const FrameEvent & evt)
 {
@@ -10,10 +9,10 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 		+ TO_STR(window -> getTriangleCount()) + " tri; "
 		+ TO_STR(window -> getBatchCount()) + " bat"
 	);
-	frame_time = evt.timeSinceLastFrame;
+	timeSinceLastFrame = evt.timeSinceLastFrame;
 	size_t sz = velocities.size();
 	for(size_t i = 0; i < sz; ++ i)
-		Nodes[i]->translate(velocities[i] * frame_time);
+		Nodes[i]->translate(velocities[i] * timeSinceLastFrame);
 
 	//check_collisions();
 	handle_bullet();
