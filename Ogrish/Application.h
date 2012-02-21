@@ -9,14 +9,14 @@ struct Application:
 	static Application * getSingletonPtr(void);
 	static Application * Instantiate();
 
-	// interface
 	// config file reading
 	static string str_vect(Vec3 v) { return TO_STR(v.x) + " " + TO_STR(v.y)+ " " + TO_STR(v.z); }
 	static string str_quat(Quaternion q) { return TO_STR(q.w)+" "+TO_STR(q.x)+" "+TO_STR(q.y)+" "+TO_STR(q.z); }
-	float	GetFloat	(string);
-	int		GetInt		(string _s);
-	Vec3	GetVect3	(string _s);
-	Ogre::Vector2 GetVect2(string _s);
+	float	GetFloat		(string _s);
+	int		GetInt			(string _s);
+	Vec3	GetVect3		(string _s);
+	string	GetString		(string _s);
+	Ogre::Vector2 GetVect2	(string _s);
 
 	// ####### data loading #######
 	SceneTypeMask GetScMgrType();
@@ -24,11 +24,11 @@ struct Application:
 	SceneNode * AddLight(string);
 
 	// ####### getters #######
-	SceneManager *		GetScMgr()	{ return scmgr;						   }
-	SceneNode *			GetRSN()	{ return scmgr -> getRootSceneNode();  }
-	Camera *			GetCam()	{ return camera;					   }
-	RenderWindow *		GetRW()		{ return window;					   }
-	Ogre::ConfigFile *	GetCFG()	{ return configfile;				   }
+	SceneManager		* GetScMgr()	{ return scmgr;						   }
+	SceneNode			* GetRSN()		{ return scmgr -> getRootSceneNode();  }
+	Camera				* GetCam()		{ return camera;					   }
+	RenderWindow		* GetRW()		{ return window;					   }
+	Ogre::ConfigFile	* GetCFG()		{ return configfile;				   }
 
 	// ####### overloading #######
 	bool frameRenderingQueued(const FrameEvent & evt);
@@ -44,7 +44,7 @@ struct Application:
 	// ####### inside the game loop #######
 	void handle_bullet();
 	void check_collisions();
-	void moveTo(int entity_id, Vec3 dest, float speed = 3.f);
+	void moveTo(ushort idx, Vec3 dest, float speed = 3.f);
 
 	// ####### at loading #######
 	void initialize();

@@ -16,15 +16,16 @@ void Application :: initialize()
 	AddPlane();
 	lasercast->last_entity = entplane;
 	LoadEntity("bonome");
-	material_hover = create_hover_material(scmgr->getEntity("bonome")->getSubEntity(0)->getMaterial());
-	if (configfile->getSetting("Populate") == "yes") Populate();
+	material_hover = create_hover_material(scmgr->getEntity("bonome")
+		->getSubEntity(0)->getMaterial());
+	if (configfile->getSetting("Populate") == "yes")
+		Populate();
 
 	AddLight("light3");
 	AddLight("light3b");
 
 	// physics: todo
 
-	btCollisionObject * colobj = new btCollisionObject;
 	sphere_radius_squared = GetFloat("sphere_radius");
 	sphere_radius_squared *= sphere_radius_squared;
 	sphere = new btSphereShape(GetFloat("sphere_radius"));

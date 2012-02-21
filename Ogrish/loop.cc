@@ -8,7 +8,6 @@ void Application :: handle_bullet()
 	for(size_t i = 0; i < sz; ++ i)
 	{
 		temp = Nodes[i]->getPosition();
-		btCollisionObject * colobj;
 		collisionWorld->getCollisionObjectArray()[i]->
 			getWorldTransform().setOrigin(btVector3(temp.x, temp.y, temp.z));
 	}
@@ -22,7 +21,7 @@ void Application :: handle_bullet()
 	//collisionWorld->
 }
 
-void Application :: moveTo(int idx, Vec3 dest, float speed)
+void Application :: moveTo(ushort idx, Vec3 dest, float speed)
 {
 	if(idx < Nodes.size())
 	{

@@ -70,7 +70,7 @@ Application :: ~ Application()
 	delete mGorilla;
 	delete machine;
 	// bullet
-	int sz = collisionWorld->getCollisionObjectArray().size();
+	size_t sz = collisionWorld->getCollisionObjectArray().size();
 	for(size_t i = 0; i < sz; ++i)
 		if(collisionWorld->getCollisionObjectArray()[i])
 			delete collisionWorld->getCollisionObjectArray()[i];
