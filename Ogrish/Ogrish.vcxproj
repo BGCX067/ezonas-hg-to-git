@@ -83,6 +83,7 @@
     <ClInclude Include="BtOgreExtras.h" />
     <ClInclude Include="BtOgreGP.h" />
     <ClInclude Include="BtOgrePG.h" />
+    <ClInclude Include="bullet_callback.h" />
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="defines.h" />
@@ -98,6 +99,8 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="appli-constr.cpp" />
+    <ClCompile Include="appli-destruct.cpp" />
     <ClCompile Include="BtOgre.cpp" />
     <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="Application.cpp" />
@@ -117,7 +120,7 @@
     <ClCompile Include="Gorilla.cpp" />
     <ClCompile Include="load_data.cpp" />
     <ClCompile Include="load_params.cc" />
-    <ClCompile Include="loop.cc" />
+    <ClCompile Include="gameloop.cc" />
     <ClCompile Include="OgreConsoleForGorilla.cpp" />
     <ClCompile Include="Ogrish_main.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -129,6 +132,7 @@
     <None Include="conf\gameconf.cfg" />
     <None Include="conf\jokoon.material" />
     <None Include="conf\plugins_d.cfg" />
+    <None Include="conf\resources_d.cfg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-void Application :: Populate()
+void			Application :: Populate()
 {
 	// REMINDER: FOR THE 5432nd TIME, HEIGHT IS Y (forward is x)
 	int population = GetInt("population");
@@ -30,7 +30,7 @@ void Application :: Populate()
 		Entities.push_back(ent);
 	}
 }
-MaterialPtr Application :: create_hover_material(MaterialPtr mat)
+MaterialPtr		Application :: create_hover_material(MaterialPtr mat)
 {
 	MaterialPtr ret;
 	ret = mat->clone(mat->getName()+"_hover");
@@ -38,7 +38,7 @@ MaterialPtr Application :: create_hover_material(MaterialPtr mat)
 	ret->setDiffuse(ColourValue(0.1f,0.1f,0.1f,0.1f));
 	return ret;
 }
-void Application :: LoadEntity(string _s)
+void			Application :: LoadEntity(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
 	float x, y, z, scale;
@@ -79,7 +79,7 @@ void Application :: LoadEntity(string _s)
 	}
 	
 }
-SceneNode * Application :: AddLight(string _s)
+SceneNode *		Application :: AddLight(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
 	// string s = configfile -> getSetting(_s);
@@ -118,7 +118,7 @@ SceneNode * Application :: AddLight(string _s)
 
 	return node;
 }
-void Application :: AddPlane()
+void			Application :: AddPlane()
 {
 	Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -1); // -1 is the y position
 
@@ -138,7 +138,7 @@ void Application :: AddPlane()
 	rootnode -> createChildSceneNode() -> attachObject(entplane);
 	entplane -> setMaterialName("jokoon/grass");
 }
-SceneTypeMask Application :: GetScMgrType()
+SceneTypeMask	Application :: GetScMgrType()
 {
 	string str = configfile -> getSetting("SceneManager");
 	if(str == "BSP_INTERIOR") return ST_INTERIOR;

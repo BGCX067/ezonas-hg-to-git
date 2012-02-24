@@ -24,11 +24,11 @@ struct Application:
 	SceneNode * AddLight(string);
 
 	// ####### getters #######
-	SceneManager		* GetScMgr()	{ return scmgr;						   }
-	SceneNode			* GetRSN()		{ return scmgr -> getRootSceneNode();  }
-	Camera				* GetCam()		{ return camera;					   }
-	RenderWindow		* GetRW()		{ return window;					   }
-	Ogre::ConfigFile	* GetCFG()		{ return configfile;				   }
+	SceneManager		* GetScMgr() { return scmgr;					   }
+	SceneNode			* GetRSN()	 { return scmgr -> getRootSceneNode(); }
+	Camera				* GetCam()	 { return camera;					   }
+	RenderWindow		* GetRW()	 { return window;					   }
+	Ogre::ConfigFile	* GetCFG()	 { return configfile;				   }
 
 	// ####### overloading #######
 	bool frameRenderingQueued(const FrameEvent & evt);
@@ -78,6 +78,8 @@ struct Application:
 	btCollisionWorld				* collisionWorld;
 	//btCharacterControllerInterface * char_ctrl;
 
+	BtOgre::StaticMeshToShapeConverter * mesh2shape;
+
 	// ################### gorilla (GUI) ###################
 	Gorilla :: Silverback	* mGorilla;
 	Gorilla :: Screen		* gor_screen;
@@ -104,7 +106,6 @@ struct Application:
 	btTransform transf;			   // the order of those 2 object matters
 	btCollisionWorld :: ContactResultCallback * result;
 	btSphereShape * sphere;
-
 	// data
 	float sphere_radius_squared;
 	MaterialPtr material_hover;

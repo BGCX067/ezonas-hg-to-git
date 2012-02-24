@@ -20,6 +20,7 @@
 #endif
 
 typedef Ogre::Vector3 Vec3;
+typedef Ogre::Vector2 Vec2;
 
 #include <OgreTextAreaOverlayElement.h>
 

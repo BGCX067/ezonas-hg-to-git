@@ -11,7 +11,6 @@ void Application :: handle_bullet()
 		collisionWorld->getCollisionObjectArray()[i]->
 			getWorldTransform().setOrigin(btVector3(temp.x, temp.y, temp.z));
 	}
-	
 	size_t num = dispatcher->getNumManifolds();
 	for(size_t i = 0; i < num; ++i)
 	{

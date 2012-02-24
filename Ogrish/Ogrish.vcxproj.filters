@@ -33,6 +33,9 @@
     <None Include="conf\plugins_d.cfg">
       <Filter>conf-files</Filter>
     </None>
+    <None Include="conf\resources_d.cfg">
+      <Filter>conf-files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
@@ -75,6 +78,7 @@
       <Filter>game</Filter>
     </ClInclude>
     <ClInclude Include="defines.h" />
+    <ClInclude Include="bullet_callback.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
@@ -120,9 +124,6 @@
     <ClCompile Include="func_InitGorilla.cpp">
       <Filter>gorilla</Filter>
     </ClCompile>
-    <ClCompile Include="loop.cc">
-      <Filter>loop</Filter>
-    </ClCompile>
     <ClCompile Include="func_FrameRenderingQueued.cpp">
       <Filter>loop</Filter>
     </ClCompile>
@@ -138,5 +139,10 @@
     <ClCompile Include="load_params.cc">
       <Filter>init</Filter>
     </ClCompile>
+    <ClCompile Include="gameloop.cc">
+      <Filter>loop</Filter>
+    </ClCompile>
+    <ClCompile Include="appli-destruct.cpp" />
+    <ClCompile Include="appli-constr.cpp" />
   </ItemGroup>
 </Project>
