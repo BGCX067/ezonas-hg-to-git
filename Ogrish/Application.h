@@ -48,6 +48,7 @@ struct Application:
 
 	// ####### at loading #######
 	void initialize();
+	void add_col_obj(size_t);
 	void Populate();
 	void LoadEntity(string);
 

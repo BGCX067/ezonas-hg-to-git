@@ -117,18 +117,18 @@ btRigidBody* tgtBody /* = ... */;
 YourContext foo;
 ContactSensorCallback callback(*tgtBody, foo);
 world->contactTest(tgtBody,callback);
-contactPairTest
+// contactPairTest
 
-Bullet 2.76 onwards provides the contactPairTest to perform collision detection between two specific collision objects only. Contact results are passed on using the provided callback. They don't need to be inserted in the world. See btCollisionWorld::contactPairTest in Bullet/src/BulletCollision/CollisionDispatch/btCollisionWorld.h for implementation details.
-Contact Callbacks
+// Bullet 2.76 onwards provides the contactPairTest to perform collision detection between two specific collision objects only. Contact results are passed on using the provided callback. They don't need to be inserted in the world. See btCollisionWorld::contactPairTest in Bullet/src/BulletCollision/CollisionDispatch/btCollisionWorld.h for implementation details.
+// Contact Callbacks
 
-Be careful when using contact callbacks. They might be called too frequent for your purpose. Bullet supports custom callbacks at various points in the collision system. The callbacks themselves are very simply implemented as global variables that you set to point at appropriate functions. Before you can expect them to be called you must set an appropriate flag in your rigid body:
+// Be careful when using contact callbacks. They might be called too frequent for your purpose. Bullet supports custom callbacks at various points in the collision system. The callbacks themselves are very simply implemented as global variables that you set to point at appropriate functions. Before you can expect them to be called you must set an appropriate flag in your rigid body:
 mBody->setCollisionFlags(mBody->getCollisionFlags() |
     btCollisionObject::CF_CUSTOM_MATERIAL_CALLBACK);
-There are three collision callbacks:
-gContactAddedCallback
+// There are three collision callbacks:
+// gContactAddedCallback
 
-This is called whenever a contact is added. From here, you can modify some properties [eg friction] of the contact point
+// This is called whenever a contact is added. From here, you can modify some properties [eg friction] of the contact point
 typedef bool (*ContactAddedCallback)(
     btManifoldPoint& cp,
     const btCollisionObject* colObj0,
@@ -137,20 +137,20 @@ typedef bool (*ContactAddedCallback)(
     const btCollisionObject* colObj1,
     int partId1,
     int index1);
-If your function returns false, then Bullet will assume that you did not modify the contact point properties at all.
-gContactProcessedCallback
+// If your function returns false, then Bullet will assume that you did not modify the contact point properties at all.
+// gContactProcessedCallback
 
-This is called immediately after the collision has been actually processed
+// This is called immediately after the collision has been actually processed
 typedef bool (*ContactProcessedCallback)(
     btManifoldPoint& cp,
     void* body0,void* body1);
-gContactDestroyedCallback
+// gContactDestroyedCallback
 
-This is called immediately after the contact point is destroyed.
+// This is called immediately after the contact point is destroyed.
 typedef bool (*ContactDestroyedCallback)(
     void* userPersistentData);
-Trigger
+// Trigger
 
-Collision objects with a callback still have collision response with dynamic rigid bodies. In order to use collision objects as trigger, you have to disable the collision response.
+// Collision objects with a callback still have collision response with dynamic rigid bodies. In order to use collision objects as trigger, you have to disable the collision response.
 mBody->setCollisionFlags(mBody->getCollisionFlags() |
     btCollisionObject::CF_NO_CONTACT_RESPONSE));

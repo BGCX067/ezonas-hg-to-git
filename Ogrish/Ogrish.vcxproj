@@ -83,7 +83,6 @@
     <ClInclude Include="BtOgreExtras.h" />
     <ClInclude Include="BtOgreGP.h" />
     <ClInclude Include="BtOgrePG.h" />
-    <ClInclude Include="bullet_callback.h" />
     <ClInclude Include="CameraController.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="defines.h" />

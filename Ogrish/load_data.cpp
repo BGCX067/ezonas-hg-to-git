@@ -71,6 +71,7 @@ void			Application :: LoadEntity(string _s)
 		Nodes.push_back(node);
 		Entities.push_back(ent);
 
+		PRINTLOG("Creating collision object");
 		btCollisionObject * colobj = new btCollisionObject();
 		colobj->setUserPointer(ent);
 		//collisionWorld->getCollisionObjectArray().push_back(colobj);

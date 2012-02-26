@@ -39,29 +39,31 @@ abil_phys :: abil_phys
 	missile_speed	(_missile_speed)
 {}
 
-	
+#define f(name) (#name +": "+TO_STR(name))
+
 
 void abil_phys :: diagnose()
 {
-	SGLT_LOG->stream() << "range splash_range missile_speed " ;
+	//SGLT_LOG->stream() << "range "+" splash_range "+" missile_speed " ;
 	SGLT_LOG->stream() <<
-		TO_STR(range 		)+
-		TO_STR(splash_range	)+
-		TO_STR(missile_speed);
+		f(range)+" "+
+		f(splash_range)+" "+
+		f(missile_speed)
+		;
 }
 void abil_base :: diagnose()
 {
 	SGLT_LOG->stream() << "ticks mask " ;
 	SGLT_LOG->stream() <<
-		TO_STR(ticks)+
-		TO_STR(mask)	+
-		TO_STR(delay)	;
+		TO_STR(ticks)+" "+
+		TO_STR(mask) +" "+
+		TO_STR(delay);
 }
 void abil_data :: diagnose()
 {
 	SGLT_LOG->stream() << "ability_id experience timeleft delay ";
 	SGLT_LOG->stream() <<
-		TO_STR(ability_id)+
+		TO_STR(ability_id)+" "+
 		TO_STR(experience);
 }
 void abil_stats_base :: diagnose()
@@ -70,8 +72,8 @@ void abil_stats_base :: diagnose()
 	SGLT_LOG->stream() << "dmg_tick dmg_instant dmg_splash power_cost delay"	;
 	SGLT_LOG->stream() <<
 		TO_STR(dmg_tick)	+
-		TO_STR(dmg_instant)+
-		TO_STR(dmg_splash)+
+		TO_STR(dmg_instant)+" "+
+		TO_STR(dmg_splash)+	" "+
 		TO_STR(power_cost);
 }
 void abil_stats :: diagnose()
@@ -79,8 +81,8 @@ void abil_stats :: diagnose()
 	SGLT_LOG->stream() << "dmg_tick dmg_instant dmg_splash power_cost ";
 	SGLT_LOG->stream() <<
 		TO_STR(dmg_tick)+		
-		TO_STR(dmg_instant	)+
-		TO_STR(dmg_splash	)+
+		TO_STR(dmg_instant	)+" "+
+		TO_STR(dmg_splash	)+" "+
 		TO_STR(power_cost	);
 }
 

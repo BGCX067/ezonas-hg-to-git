@@ -78,7 +78,6 @@
       <Filter>game</Filter>
     </ClInclude>
     <ClInclude Include="defines.h" />
-    <ClInclude Include="bullet_callback.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />

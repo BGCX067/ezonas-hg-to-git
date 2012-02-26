@@ -20,7 +20,7 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	lasercast -> update();
 	bullet_tracer -> update();
 
-	return cam_ctrlr -> update();//evt.timeSinceLastFrame);
+	return cam_ctrlr -> update();
 }
 
 bool Application :: frameEnded(const FrameEvent & evt) { return true; }
