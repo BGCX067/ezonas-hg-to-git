@@ -41,14 +41,15 @@ struct Application:
 	Application();
     ~ Application();
 
-	// ####### inside the game loop #######
-	void handle_bullet();
-	void check_collisions();
+	// ####### everything about physics/bullet #######
+	void loop_bullet(); // in game loop
+	void init_bullet(); // at loading
 	void moveTo(ushort idx, Vec3 dest, float speed = 3.f);
-
-	// ####### at loading #######
-	void initialize();
 	void add_col_obj(size_t);
+	//void check_collisions();
+
+	// ####### called at loading #######
+	void initialize();
 	void Populate();
 	void LoadEntity(string);
 
@@ -116,6 +117,6 @@ struct Application:
 	std::vector<SceneNode *> Nodes;
 	std::vector<Vec3> velocities;
 	std::vector<bool> isMoving;
-	short index[1024];
+	std::vector<bool> hasCollided;
 };
 

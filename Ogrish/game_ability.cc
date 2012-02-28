@@ -39,113 +39,43 @@ abil_phys :: abil_phys
 	missile_speed	(_missile_speed)
 {}
 
-#define f(name) (#name +": "+TO_STR(name))
+#define f(name) std::string(#name ##": "+TO_STR(name))
 
 
 void abil_phys :: diagnose()
 {
-	//SGLT_LOG->stream() << "range "+" splash_range "+" missile_speed " ;
 	SGLT_LOG->stream() <<
-		f(range)+" "+
-		f(splash_range)+" "+
-		f(missile_speed)
-		;
+		f(range)		+" | "+
+		f(splash_range)	+" | "+
+		f(missile_speed);
 }
 void abil_base :: diagnose()
 {
-	SGLT_LOG->stream() << "ticks mask " ;
 	SGLT_LOG->stream() <<
-		TO_STR(ticks)+" "+
-		TO_STR(mask) +" "+
-		TO_STR(delay);
+		f(ticks)	+" | "+
+		f(mask)		+" | "+
+		f(delay);
 }
 void abil_data :: diagnose()
 {
-	SGLT_LOG->stream() << "ability_id experience timeleft delay ";
 	SGLT_LOG->stream() <<
-		TO_STR(ability_id)+" "+
-		TO_STR(experience);
+		f(ability_id)	+" | "+
+		f(experience);
 }
 void abil_stats_base :: diagnose()
 {
 
-	SGLT_LOG->stream() << "dmg_tick dmg_instant dmg_splash power_cost delay"	;
 	SGLT_LOG->stream() <<
-		TO_STR(dmg_tick)	+
-		TO_STR(dmg_instant)+" "+
-		TO_STR(dmg_splash)+	" "+
-		TO_STR(power_cost);
+		f(dmg_tick)		+" | "+
+		f(dmg_instant)	+" | "+
+		f(dmg_splash)	+" | "+
+		f(power_cost);
 }
 void abil_stats :: diagnose()
 {
-	SGLT_LOG->stream() << "dmg_tick dmg_instant dmg_splash power_cost ";
 	SGLT_LOG->stream() <<
-		TO_STR(dmg_tick)+		
-		TO_STR(dmg_instant	)+" "+
-		TO_STR(dmg_splash	)+" "+
-		TO_STR(power_cost	);
+		f(dmg_tick)			+" | "+		
+		f(dmg_instant	)	+" | "+
+		f(dmg_splash	)	+" | "+
+		f(power_cost	);
 }
-
-#ifdef OBSOLETE
-// ############# ABILITY #############
-ability_s :: ability_s (
-#ifndef DEFAULT_VALUES
-	//float _cast_time     = 1.f  ,
-	//float _cooldown      = 1.f  ,
-	float _delay		 ,
-	float _range         ,
-	float _splash_range  ,
-	float _missile_speed ,
-						 
-	float _dmg_tick      ,
-	float _dmg_instant   ,
-	float _dmg_splash    ,
-	float _power_cost    ,
-						 
-	int _ticks           ,
-	int _effect_moment   ,
-	int _mask            ,
-
-	string _name         
-):
-
-	//cast_time     (_cast_time    ),
-	//cooldown      (_cooldown     ),
-	delay		  (_delay		 ),
-	range         (_range        ),
-	splash_range  (_splash_range ),
-	missile_speed (_missile_speed),
-
-	dmg_tick      (_dmg_tick     ),
-	dmg_instant   (_dmg_instant  ),
-	dmg_splash    (_dmg_splash   ),
-	power_cost    (_power_cost   ),
-
-	ticks		  (_ticks),
-	effect_moment (_effect_moment),
-	mask		  (_mask),
-
-	name		  (_name)
-#endif
-{}
-
-ability_s :: ability_s // copy constr
-(const ability_s & ab):
-//cast_time     (ab.cast_time    ),
-//range         (ab.range        ),
-delay		  (ab.delay		   ),
-splash_range  (ab.splash_range ),
-missile_speed (ab.missile_speed),
-dmg_tick      (ab.dmg_tick     ),
-dmg_instant   (ab.dmg_instant  ),
-dmg_splash    (ab.dmg_splash   ),
-
-ticks		  (ab.ticks),
-effect_moment (ab.effect_moment),
-mask		  (ab.mask),
-
-name		  (ab.name)
-{}
-
-
-#endif

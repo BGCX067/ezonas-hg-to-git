@@ -1,0 +1,14 @@
+
+Some days ago I was thinking "how would I store the real world into a continuous game level ?".
+
+I guess it must have been some challenge for RockStar engineers (for GTA 4 or Red Dead Redemption) or when developing RAGE (the ID game, not the rockstar engine), and I wonder how they solved it.
+
+Of course current RAM and hard disk capacities don't allow it if you don't use high definition content, so you simplify by abusing the reuse of objects:
+
+ - Use doodads for trees, barriers, bushes, benches, trashbins, etc
+ - Use palettes instead of textures for the ground and walls and buildings
+ - Use heightmaps for altitude
+ - Use procedural method for modeling roads, houses, buildings, sidewalk, pavement
+ - Also use procedural methods to model the insides of buildings: walls, ceiling, stairs, doodads.
+
+These are the only things which make sense to me, but I want to know if they are other methods I'm missing, like for example reducing vertex precision while storing models, but requiring to make an exporter.

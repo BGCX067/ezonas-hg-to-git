@@ -20,7 +20,7 @@ template<> OgreConsole* Ogre::Singleton<OgreConsole>::msSingleton=0;
 #define CONSOLE_FONT_INDEX 7
 
 #define CONSOLE_LINE_LENGTH 85
-#define CONSOLE_LINE_COUNT 50
+#define CONSOLE_LINE_COUNT 12
 static const char legalchars[]="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890+!\"'#%&/()=?[]\\*-_.:,; ";
 
 OgreConsole::OgreConsole()

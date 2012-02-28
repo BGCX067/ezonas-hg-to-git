@@ -15,7 +15,7 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 		Nodes[i]->translate(velocities[i] * timeSinceLastFrame);
 
 	//check_collisions();
-	handle_bullet();
+	loop_bullet();
 
 	lasercast -> update();
 	bullet_tracer -> update();

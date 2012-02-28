@@ -9,13 +9,13 @@
 
 //#include <boost/algorithm/string.hpp>
 // Ogre3D & OIS include files
-#include "Ogre.h"
+#include <Ogre.h>
 #ifdef __APPLE__
 #include <macUtils.h>
-#include "OIS/OIS.h"
+#include <OIS/OIS.h>
 #define CROSSLOAD(s) load(macBundlePath() + "/Contents/Resources/"+s)
 #else
-#include "OIS.h"
+#include <OIS.h>
 #define CROSSLOAD(s) load(s)
 #endif
 

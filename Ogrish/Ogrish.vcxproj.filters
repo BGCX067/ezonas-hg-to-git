@@ -22,6 +22,9 @@
     <Filter Include="conf-files">
       <UniqueIdentifier>{bf12f068-d63c-4ad8-9903-8711e43c233d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="misc">
+      <UniqueIdentifier>{137be3f7-2403-47bb-83bc-419d92975873}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="conf\jokoon.material">
@@ -34,6 +37,12 @@
       <Filter>conf-files</Filter>
     </None>
     <None Include="conf\resources_d.cfg">
+      <Filter>conf-files</Filter>
+    </None>
+    <None Include="conf\plugins.cfg">
+      <Filter>conf-files</Filter>
+    </None>
+    <None Include="conf\Ogre.cfg">
       <Filter>conf-files</Filter>
     </None>
   </ItemGroup>
@@ -77,13 +86,13 @@
     <ClInclude Include="game_character.h">
       <Filter>game</Filter>
     </ClInclude>
-    <ClInclude Include="defines.h" />
+    <ClInclude Include="defines.h">
+      <Filter>misc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="CameraController.cpp" />
-    <ClCompile Include="Ogrish_main.cpp" />
     <ClCompile Include="OgreConsoleForGorilla.cpp">
       <Filter>gorilla</Filter>
     </ClCompile>
@@ -92,9 +101,6 @@
     </ClCompile>
     <ClCompile Include="BtOgre.cpp">
       <Filter>btogre</Filter>
-    </ClCompile>
-    <ClCompile Include="func_GetSingleton.cpp">
-      <Filter>init</Filter>
     </ClCompile>
     <ClCompile Include="fx_Execute.cpp">
       <Filter>effects</Filter>
@@ -135,13 +141,23 @@
     <ClCompile Include="load_data.cpp">
       <Filter>init</Filter>
     </ClCompile>
-    <ClCompile Include="load_params.cc">
-      <Filter>init</Filter>
-    </ClCompile>
     <ClCompile Include="gameloop.cc">
       <Filter>loop</Filter>
     </ClCompile>
     <ClCompile Include="appli-destruct.cpp" />
     <ClCompile Include="appli-constr.cpp" />
+    <ClCompile Include="func_GetSingleton.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="load_params.cc">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Ogrish_main.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="physics.cc" />
   </ItemGroup>
 </Project>

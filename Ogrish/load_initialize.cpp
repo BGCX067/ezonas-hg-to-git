@@ -3,16 +3,22 @@
 void Application :: initialize()
 {
 // ----- various options -----
+	window -> reposition(20, 20);
+	viewport -> setBackgroundColour(ColourValue(0.1f, 0.1f, 0.1f));
+	
 	if(GetInt("crosshair") == 1)
 		OverlayManager :: getSingletonPtr() -> getByName("jokoon/crosshair") -> show();
 	//camera -> setFOVy(Radian(Degree(ConfMgr :: getSingletonPtr() -> GetFloat("fovy"))));
 
 	cam_ctrlr -> setBulletTracer(bullet_tracer);
+	PRINTLOG("------- initializing GUI -------");
 	InitGorilla();
 	
 // ----- scene creation -----
+	PRINTLOG("------- creating the scene -------");
+	if(GetString("loadlevel") == "yes")
 	scmgr->getRootSceneNode()->createChildSceneNode()
-		->attachObject(scmgr->createEntity("mifflin3.mesh"));
+		->attachObject(scmgr->createEntity(GetString("level")));
 
 	AddPlane();
 	lasercast->last_entity = entplane;
@@ -24,31 +30,11 @@ void Application :: initialize()
 
 	AddLight("light3");
 	AddLight("light3b");
-	
-	
-// ----- physics ----- (todo)
-	sphere_radius_squared = GetFloat("sphere_radius");
-	sphere_radius_squared *= sphere_radius_squared;
-	sphere = new btSphereShape(GetFloat("sphere_radius"));
 
-	Vec3 temp;
-	//for(auto it = Nodes.begin(); it != Nodes.end(); ++ it)
-	Nodes.push_back(scmgr->getSceneNode("target"));
-
-	size_t sz = Nodes.size();
-	for(size_t i = 0; i < sz; ++ i)
-		add_col_obj(i);
+	PRINTLOG("------- creating physics -------");
+	init_bullet();
 	
-}
-void Application :: add_col_obj(size_t index)
-{
-	assert(index >= Nodes.size());
-
-	btCollisionObject * colobj = new btCollisionObject;
-	colobj->setCollisionShape(sphere);
-	temp = Nodes[index]->getPosition();
-	colobj->getWorldTransform().setOrigin(btVector3(temp.x, temp.y, temp.z));
-	collisionWorld->addCollisionObject(colobj);
-	colobj->setUserPointer(Nodes[index]);
-	
+	PRINTLOG("-----------------------------------------------------------------");
+	PRINTLOG("        FINISHED INITIALIZING OGRE3D; begginning gameloop        ");
+	PRINTLOG("-----------------------------------------------------------------");
 }

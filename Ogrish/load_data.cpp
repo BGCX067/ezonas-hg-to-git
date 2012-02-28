@@ -17,7 +17,7 @@ void			Application :: Populate()
 	{
 		velocities.push_back(Vec3(Math::RangeRandom(range_xz_down, range_xz_up),0,
 			Math::RangeRandom(range_xz_down, range_xz_up)));
-		SceneNode * node = rootnode -> createChildSceneNode();
+		SceneNode * node = rootnode -> createChildSceneNode("monster_"+TO_STR(i));
 		Entity * ent = scmgr -> createEntity(pop_mesh);
 		node -> attachObject(ent);
 		
