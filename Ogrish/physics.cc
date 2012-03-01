@@ -15,7 +15,6 @@ void Application :: init_bullet()
 		//PRINTLOG(Nodes[i]->getName());
 	}
 }
-
 void Application :: loop_bullet()
 {
 	// mirror Node position with collision objects
@@ -48,7 +47,6 @@ void Application :: loop_bullet()
 				-> getUserPointer()) -> showBoundingBox(true);
 	}
 }
-
 void Application :: add_col_obj(size_t index)
 {
 	assert(index < Nodes.size());
@@ -62,3 +60,4 @@ void Application :: add_col_obj(size_t index)
 	collisionWorld -> addCollisionObject(colobj);
 	hasCollided.push_back(false);
 }
+

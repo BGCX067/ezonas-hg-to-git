@@ -40,11 +40,17 @@ using namespace Ogre;
 using namespace OIS;
 #include "defines.h"
 
+// dirty, but necessary
+struct Application;
+extern Application * appli;
+
 #include "game_datastruct.h"
 #include "game_items.h"
 #include "game_ability.h"
 #include "game_character.h"
 #include "game_gamemachine.h"
+
+#define stcast(cast_this) static_cast<SceneNode*> (static_cast<btCollisionObject*>(cast_this) -> getUserPointer())
 
 
 #include "fx_BulletTracer.h"

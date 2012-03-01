@@ -2,13 +2,8 @@
 
 typedef RaySceneQueryResult :: iterator RSQR_iter_t;
 struct Application:
-	public FrameListener,
-	public Ogre :: Singleton <Application>
+	public FrameListener
 {
-	// singleton
-	static Application * getSingletonPtr(void);
-	static Application * Instantiate();
-
 	// config file reading
 	static string str_vect(Vec3 v) { return TO_STR(v.x) + " " + TO_STR(v.y)+ " " + TO_STR(v.z); }
 	static string str_quat(Quaternion q) { return TO_STR(q.w)+" "+TO_STR(q.x)+" "+TO_STR(q.y)+" "+TO_STR(q.z); }
@@ -24,11 +19,11 @@ struct Application:
 	SceneNode * AddLight(string);
 
 	// ####### getters #######
-	SceneManager		* GetScMgr() { return scmgr;					   }
-	SceneNode			* GetRSN()	 { return scmgr -> getRootSceneNode(); }
-	Camera				* GetCam()	 { return camera;					   }
-	RenderWindow		* GetRW()	 { return window;					   }
-	Ogre::ConfigFile	* GetCFG()	 { return configfile;				   }
+	//SceneManager		* GetScMgr() { return scmgr;					   }
+	//SceneNode			* GetRSN()	 { return scmgr -> getRootSceneNode(); }
+	//Camera				* GetCam()	 { return camera;					   }
+	//RenderWindow		* GetRW()	 { return window;					   }
+	//Ogre::ConfigFile	* GetCFG()	 { return configfile;				   }
 
 	// ####### overloading #######
 	bool frameRenderingQueued(const FrameEvent & evt);
@@ -40,6 +35,7 @@ struct Application:
 
 	Application();
     ~ Application();
+	void init();
 
 	// ####### everything about physics/bullet #######
 	void loop_bullet(); // in game loop
@@ -103,15 +99,17 @@ struct Application:
     SceneNode * rootnode;
 	
 	// intermediate Ogre/bullet data
-	Vec3 temp;
+	Vec3 temp, temp1;
 	btMatrix3x3 mat3_zero;		   // warning :
 	btTransform transf;			   // the order of those 2 object matters
 	btCollisionWorld :: ContactResultCallback * result;
 	btSphereShape * sphere;
+
 	// data
 	float sphere_radius_squared;
 	MaterialPtr material_hover;
-
+	// Start and End are vectors
+ 
 	// tracks of entities, nodes, velocities and other
 	std::vector<Entity *> Entities;
 	std::vector<SceneNode *> Nodes;

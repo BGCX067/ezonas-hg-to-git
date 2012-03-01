@@ -1,3 +1,5 @@
+#define BULLET_MAX 8
+
 #define ITV(T)    std::vector	<T>::Iterator	
 #define ITA(T)    std::array	<T>::Iterator	
 #define ITQ(T)    std::queue	<T>::Iterator	
@@ -13,12 +15,5 @@
 
 #define ITER_VECT(type) std::vector<type>::iterator
 
-#define SGLT_APP Application :: getSingletonPtr()
-#define SGLT_CAM Application :: getSingletonPtr() -> GetCam()
-#define SGLT_RSN Application :: getSingletonPtr() -> GetRSN()
-#define SGLT_SCMGR Application :: getSingletonPtr() -> GetScMgr()
-#define SGLT_RW Application :: getSingletonPtr() -> GetRW()
 #define SGLT_LOG LogManager::getSingleton().getDefaultLog()
-#define OG_SGLT Ogre::Singleton
-
 #define PRINTLOG(s) LogManager::getSingleton().getDefaultLog()->logMessage(s)

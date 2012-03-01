@@ -1,49 +1,45 @@
 #include "stdafx.h"
 
-template<> CameraController * Ogre :: Singleton <CameraController> :: ms_Singleton = 0;
 #define REINIT(node) { node -> setPosition(0,0,0); node->setOrientation(Quaternion()); }
 
 void CameraController::setFollowedTarget(SceneNode * node) { n_target = node; }
 SceneNode * CameraController :: getTargetNode() { return n_target; }
 SceneNode * CameraController :: getMasterNode() { return n_master; }
 //void CameraController :: setTarget(SceneNode * node) { n_target = node; }
-void CameraController :: attachEntity(Entity * ent) { character = ent; n_target->attachObject(ent); }
-bool CameraController :: mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id) { return true; }
+void CameraController :: attachEntity	(Entity * ent) { character = ent; n_target->attachObject(ent); }
+bool CameraController :: mouseReleased	(const OIS::MouseEvent &e, OIS::MouseButtonID id) { return true; }
 void CameraController :: setBulletTracer(BulletTracer * a) { bullet_tracer = a; }
 CameraController :: CameraController ():
 
 #ifndef FOLDTHISFFS
-	rotating_speed	(SGLT_APP -> GetFloat ("rotating_speed")),
-	moving_speed	(SGLT_APP -> GetFloat ("moving_speed")),
+	rotating_speed		(appli -> GetFloat ("rotating_speed")),
+	moving_speed		(appli -> GetFloat ("moving_speed")),
 
-	n_root			(Application :: getSingletonPtr() -> GetRSN()),
+	n_root				(appli -> rootnode),
 
-	n_master	    (n_root->	createChildSceneNode("master")),
-	n_target	    (n_master->	createChildSceneNode("target")),	
-	n_cam		    (n_target->	createChildSceneNode("cam")),
-	n_yawpitch_ptr  (n_target),
+	n_master			(n_root->	createChildSceneNode("master")),
+	n_target			(n_master->	createChildSceneNode("target")),	
+	n_cam				(n_target->	createChildSceneNode("cam")),
+	n_yawpitch_ptr		(n_target),
 	
-	cam				(Application :: getSingletonPtr() -> GetCam()),
-	//lasercast		(LaserCast :: Instantiate()),
-	//bullet_tracer	(BulletTracer :: Instantiate()),
-	stop			(false),
-	timeSinceLastFrame		(Application :: getSingletonPtr() -> timeSinceLastFrame),
-	translate		(Vec3(0,0,0)),
-	translate2		(Vec3(0,0,0)),
-	offset			(SGLT_APP -> GetVect3("offset")),
-	camera_mode		(3),
-	rot				(0.0f)
+	cam					(appli -> camera),
+	stop				(false),
+	timeSinceLastFrame	(appli -> timeSinceLastFrame),
+	translate			(Vec3(0,0,0)),
+	translate2			(Vec3(0,0,0)),
+	offset				(appli -> GetVect3("offset")),
+	//camera_mode			(3),
+	rot					(0.0f)
 #endif
 {
-	n_cam -> setPosition(0,0,10);
-	n_cam -> attachObject(cam);
-	n_target -> setFixedYawAxis(true); // optional
-	
+//	n_cam -> setPosition(0,0,10);
+//	n_cam -> attachObject(cam);
+//	n_target -> setFixedYawAxis(true); // optional
 #ifndef CONTROLS_AND_OTHER
 	ParamList parameters;
 	unsigned int windowHandle = 0;
 	ostringstream windowHandleString;
-	Application :: getSingletonPtr() -> GetRW() -> getCustomAttribute("WINDOW", & windowHandle);
+	appli -> window -> getCustomAttribute("WINDOW", & windowHandle);
 	windowHandleString << windowHandle;
 	parameters.insert(make_pair("WINDOW", windowHandleString.str()));
 	parameters.insert(make_pair("WINDOW", windowHandleString.str()));
@@ -60,16 +56,16 @@ CameraController :: CameraController ():
 	parameters.insert(make_pair(string("XAutoRepeatOn"), string("true")));
 #endif
 /* ### Inputs Objects ################################################## */
-	SGLT_APP -> inputmanager = InputManager :: createInputSystem(parameters);
-	SGLT_APP -> keyboard = static_cast<Keyboard *>
-		(SGLT_APP -> inputmanager -> createInputObject(OISKeyboard, true));
-	SGLT_APP -> mouse = static_cast<Mouse *>
-		(SGLT_APP -> inputmanager -> createInputObject	(OISMouse, true));
-	SGLT_APP -> mouse -> setEventCallback(this);
-	SGLT_APP -> keyboard -> setEventCallback(this);
+	appli -> inputmanager = InputManager :: createInputSystem(parameters);
+	appli -> keyboard = static_cast<Keyboard *>
+		(appli -> inputmanager -> createInputObject(OISKeyboard, true));
+	appli -> mouse = static_cast<Mouse *>
+		(appli -> inputmanager -> createInputObject	(OISMouse, true));
+	appli -> mouse -> setEventCallback(this);
+	appli -> keyboard -> setEventCallback(this);
 #endif
 }
-void CameraController :: setCameraMode(int mode)
+void CameraController :: setCameraMode	(int mode)
 {
 	/*
 1. put a node (A) at the focus point you want to orbit around 			 # Target
@@ -101,6 +97,8 @@ void CameraController :: setCameraMode(int mode)
 	case 1:
 		/////////////////////
 		n_master -> addChild	(n_cam);
+		n_master -> addChild(n_target); /////// MEH
+
 		n_cam	 -> attachObject(cam);
 		/////////////////////
 		n_target->setFixedYawAxis(false);
@@ -118,7 +116,6 @@ void CameraController :: setCameraMode(int mode)
 		/////////////////////
 		n_target->setFixedYawAxis(true);
 		n_yawpitch_ptr = n_target;
-		//character
 		break;
 	default:
 		break;
@@ -126,8 +123,8 @@ void CameraController :: setCameraMode(int mode)
 }
 bool CameraController :: update ()
 {
-	SGLT_APP -> keyboard -> capture();
-	SGLT_APP -> mouse -> capture();
+	appli -> keyboard -> capture();
+	appli -> mouse -> capture();
 	//n_cam -> getOrientation()
 	n_master -> translate
 	(
@@ -141,13 +138,13 @@ bool CameraController :: update ()
 	if (translate.length() > 1.0f) exit(0xb00bbabe);
 	return ! stop;
 }
-bool CameraController :: mouseMoved(const OIS::MouseEvent &e)
+bool CameraController :: mouseMoved		(const OIS::MouseEvent &e)
 {
 	n_yawpitch_ptr ->   yaw(Radian(- e.state.X.rel * rotating_speed), Ogre::Node::TS_WORLD);
 	n_yawpitch_ptr -> pitch(Radian(- e.state.Y.rel * rotating_speed));
 	return true;
 }
-bool CameraController :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id)
+bool CameraController :: mousePressed	(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
 	//if (mouse -> getMouseState() . buttonDown(MB_Left))
 	//if (MB_Left == e.state.)
@@ -156,7 +153,7 @@ bool CameraController :: mousePressed(const OIS::MouseEvent &e, OIS::MouseButton
 		bullet_tracer -> Fire();
     return true;
 }
-bool CameraController :: keyPressed(const OIS::KeyEvent &e)
+bool CameraController :: keyPressed		(const OIS::KeyEvent &e)
 {
 	switch(e.key)
 	{
@@ -188,10 +185,10 @@ bool CameraController :: keyPressed(const OIS::KeyEvent &e)
 	}
 	translate = translate2;
 	translate.normalise();
-	OgreConsole::getSingleton().onKeyPressed(e);
+	appli -> console -> onKeyPressed(e);
 	return true;
 }
-bool CameraController :: keyReleased(const OIS::KeyEvent &e)
+bool CameraController :: keyReleased	(const OIS::KeyEvent &e)
 {
 	//Ogre :: Vector3 translate(0, 0, 0);
 	switch(e.key)
@@ -220,7 +217,7 @@ bool CameraController :: keyReleased(const OIS::KeyEvent &e)
 }
 CameraController :: ~ CameraController()
 {
-	SGLT_APP -> inputmanager -> destroyInputObject(SGLT_APP -> mouse);
-	SGLT_APP -> inputmanager -> destroyInputObject(SGLT_APP -> keyboard);
-	InputManager :: destroyInputSystem(SGLT_APP -> inputmanager);
+	appli -> inputmanager -> destroyInputObject(appli -> mouse);
+	appli -> inputmanager -> destroyInputObject(appli -> keyboard);
+	InputManager :: destroyInputSystem(appli -> inputmanager);
 }

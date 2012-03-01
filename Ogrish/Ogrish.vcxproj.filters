@@ -146,9 +146,6 @@
     </ClCompile>
     <ClCompile Include="appli-destruct.cpp" />
     <ClCompile Include="appli-constr.cpp" />
-    <ClCompile Include="func_GetSingleton.cpp">
-      <Filter>misc</Filter>
-    </ClCompile>
     <ClCompile Include="load_params.cc">
       <Filter>misc</Filter>
     </ClCompile>

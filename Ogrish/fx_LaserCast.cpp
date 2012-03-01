@@ -1,22 +1,21 @@
 #include "stdafx.h"
 
-template<> LaserCast * Ogre :: Singleton <LaserCast> :: ms_Singleton = 0;
 
 LaserCast :: LaserCast():
-cam(SGLT_APP->GetCam()),
+cam(appli ->camera),
 	ray_cam		(Ray(Vec3(0, 0, 0), Vec3(-1, -1, -1))),
-	RSQ (SGLT_SCMGR -> createRayQuery(ray_cam)),
-	n_root		(SGLT_RSN),
-	n_laserbeam (SGLT_RSN -> createChildSceneNode("laser beam")),
-	n_laserdot	(SGLT_RSN -> createChildSceneNode("laser dot")),
-	camera		(SGLT_CAM -> getPosition()),
-	bb_dot		(SGLT_SCMGR -> createBillboardSet("laser dot")),
+	RSQ (appli ->scmgr -> createRayQuery(ray_cam)),
+	n_root		(appli ->rootnode),
+	n_laserbeam (appli ->rootnode -> createChildSceneNode("laser beam")),
+	n_laserdot	(appli ->rootnode -> createChildSceneNode("laser dot")),
+	camera		(appli ->camera -> getPosition()),
+	bb_dot		(appli ->scmgr -> createBillboardSet("laser dot")),
 	bboard		(bb_dot -> createBillboard(Ogre :: Vector3(0, 0, 0))),
-	bb_beam		(SGLT_SCMGR -> createBillboardChain("laser beam")),
+	bb_beam		(appli ->scmgr -> createBillboardChain("laser beam")),
 	
-	laser_width		(Application :: getSingletonPtr() -> GetFloat("laser_width")),
-	timeSinceLastFrame		(Application :: getSingletonPtr() -> timeSinceLastFrame)
-	//,ent_check(SGLT_SCMGR->getEntity("LightPlaneEntity"))
+	laser_width		(appli -> GetFloat("laser_width")),
+	timeSinceLastFrame		(appli -> timeSinceLastFrame)
+
 	,previous_vertex_count(0)
 	,previous_indice_count(0)
 {
@@ -24,7 +23,7 @@ cam(SGLT_APP->GetCam()),
 	n_laserdot -> attachObject (bb_dot);
 	bb_dot -> setMaterialName("jokoon/laser_dot");
 	bb_beam -> setMaterialName("jokoon/laser_beam");
-	n_laserdot -> setScale(SGLT_APP->GetVect3("dotscale"));
+	n_laserdot -> setScale(appli ->GetVect3("dotscale"));
 	
 	bb_beam -> setMaxChainElements(2);
 	bb_beam -> addChainElement
@@ -47,7 +46,7 @@ void LaserCast :: update()
 				(result, laser_width, 0, ColourValue()));
 		bb_beam -> updateChainElement
 			(0, 1, BillboardChain :: Element
-			(SGLT_CAM -> getRealPosition() + Vec3(0,2,0), laser_width, 0, ColourValue()));
+			(appli ->camera -> getRealPosition() + Vec3(0,2,0), laser_width, 0, ColourValue()));
 
 		// last_entity, current_entity;
 		if (ent_check == last_entity);

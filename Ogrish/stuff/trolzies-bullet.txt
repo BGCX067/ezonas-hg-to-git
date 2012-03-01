@@ -1,0 +1,45 @@
+<trolzies> jokoon: yes
+<trolzies> use callbacks
+<jokoon> thanks trolzies 
+<jokoon> what about To and From ?
+<kloplop321> or you'll end up like this guy http://www.youtube.com/watch?v=u9nUdTxIqFw
+<jokoon> are those points ?
+* ehsan_ (~ehsan@66.207.208.98) has joined #ogre3d
+* FishFPG has a headache
+<kloplop321> FishFPG, did you not sleep well?
+<jokoon> haha there also is a c0ompilation of the kmost hilarious bugs
+<trolzies> jokoon: pretty sure they are points
+<trolzies> this allows you to limit the length of the ray
+<jokoon> oh that's awesome
+<jokoon> that's even better than I though
+<jokoon> it simplifies things in my case !
+<trolzies> I think
+<trolzies> :)
+<trolzies> also, the callback allows you to control how many hits you want
+<trolzies> see the source for the different callback classes provided
+<trolzies> http://bulletphysics.com/Bullet/BulletFull/structbtCollisionWorld_1_1RayResultCallback.html
+<jokoon> yeah I don't really understand the meaning of those clases
+<trolzies> ClosestRayResultCallback gives one result for the ray
+<trolzies> as the ray travels, it gives the first hit
+<trolzies> and stops
+<trolzies> btKinematicClosestNotMeRayResultCallback. is used in the character controller
+<jokoon> RayResultCallback gives all ?
+<trolzies> it keeps calling the callback, until you signal you had enough
+<trolzies> and closest-not-me is used to follow the ray to the first thing it hits that is *not* the CC
+<jokoon> what do you use it for in the character controller ?
+<trolzies> the CC uses it internally
+<trolzies> but its good to know what for
+<trolzies> actually I think thats dead code right now
+<jokoon> CC = ?
+<trolzies> character controller
+<trolzies> but basically
+<jokoon> oh okay
+<trolzies> it can be used to test if there is anything under the character shape
+<trolzies> to see if it should be made to fall
+<trolzies> this is kinematic (no real physics)
+<trolzies> just a CC in a collision world
+<trolzies> in actuality, right now I think the CC doesn't use a ray
+<jokoon> I wonder what are the features of this CC
+<trolzies> it uses a convex sweep of the shape
+<trolzies> that is, like a ray, just the entire shape is moved in a direction
+<trolzies> and it tests to see if it hits something

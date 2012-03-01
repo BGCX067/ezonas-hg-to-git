@@ -1,19 +1,15 @@
 #include "stdafx.h"
 
-struct LaserCast:
-	public Ogre :: Singleton <LaserCast>
+struct LaserCast
 {
 public:
 	// bool RaycastFromPoint(const Vector3 & point, const Vector3 & normal, Vector3 & result);
 	void update();//float);
-    //static LaserCast * sglt();
-    static LaserCast * getSingletonPtr(void);
-	static LaserCast * Instantiate();
 	Entity * ent_check, * last_entity, * current_entity;
 
+	LaserCast();
 protected:
 	MaterialPtr material_hover;
-	LaserCast();
 	bool execute();
 // necessary objects
 	// MaterialPtr matptr;

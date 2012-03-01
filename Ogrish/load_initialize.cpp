@@ -23,6 +23,7 @@ void Application :: initialize()
 	AddPlane();
 	lasercast->last_entity = entplane;
 	LoadEntity("bonome");
+	cam_ctrlr->setCameraMode(3);
 	material_hover = create_hover_material
 		(scmgr->getEntity("bonome")->getSubEntity(0)->getMaterial());
 	if (configfile->getSetting("Populate") == "yes")

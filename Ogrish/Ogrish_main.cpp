@@ -1,4 +1,5 @@
 #include "stdafx.h"
+Application * appli = NULL;
 
 #ifdef __APPLE__
 int main()
@@ -8,8 +9,9 @@ int main(int argc, char * argv[])
 int WinMain(HINSTANCE a, HINSTANCE b, LPSTR c, int d)
 #endif
 {
-	Application :: Instantiate();
-	Application :: getSingletonPtr() -> go();
+	appli = new Application;
+	appli -> init();
+	appli -> go();
 	return 0;
 }
 

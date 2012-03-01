@@ -27,15 +27,19 @@ Application :: Application():
 	camera	 = scmgr -> createCamera("Camera");
 	viewport = window -> addViewport(camera);
 	rootnode = scmgr -> getRootSceneNode();
+
+}
+void Application :: init()
+{
 	PRINTLOG("-----------------------------------------------------------------");
 	PRINTLOG("                     INITIALIZING OGRE3D;                        ");
 	PRINTLOG("-----------------------------------------------------------------");
 	PRINTLOG("-------- loading resources.cfg --------");
 	InitResources();
 	PRINTLOG("-------- camera controller, effects, GUI, gameplay --------");
-	cam_ctrlr		= CameraController	:: Instantiate();
-	lasercast		= LaserCast			:: Instantiate();
-	bullet_tracer	= BulletTracer		:: Instantiate();
+	cam_ctrlr		= new CameraController	;
+	lasercast		= new LaserCast			;
+	bullet_tracer	= new BulletTracer		;
 	mGorilla		= new Gorilla		:: Silverback();
 	machine			= new game_machine;
 	mat3_zero		= btMatrix3x3(0,0,0,0,0,0,0,0,0);

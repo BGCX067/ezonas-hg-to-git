@@ -1,15 +1,12 @@
 #include "stdafx.h"
 
 struct CameraController:
-	public Ogre :: Singleton <CameraController>,
 	public KeyListener,
 	public MouseListener
 {
 public:
 	// bool RaycastFromPoint(const Vector3 & point, const Vector3 & normal, Vector3 & result);
 	bool update();//float);
-    static CameraController * getSingletonPtr(void);
-	static CameraController * Instantiate();
 	void setFollowedTarget(SceneNode * node);
 	void setCameraMode(int mode);
 	SceneNode * getTargetNode();
@@ -25,6 +22,8 @@ public:
 		* n_cam		,	 // those 3 in this exact order
 		
 		* n_yawpitch_ptr; // this node will serve as a pointer to switch between 1st/rd person cam
+	CameraController();
+	~ CameraController();
 protected:
 
 	Entity * character;
@@ -40,8 +39,6 @@ protected:
 	float rot;
 
 	/////////////// METHODS ///////////////
-	CameraController();
-	~ CameraController();
 	bool mouseMoved(const OIS::MouseEvent &e);
 	bool mousePressed(const OIS::MouseEvent &e, OIS::MouseButtonID id);
 	bool mouseReleased(const OIS::MouseEvent &e, OIS::MouseButtonID id);

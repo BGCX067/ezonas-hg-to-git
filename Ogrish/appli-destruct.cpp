@@ -10,6 +10,11 @@ Application :: ~ Application()
 	delete console;
 	delete mGorilla;
 	delete machine;
+
+	delete cam_ctrlr	 ;
+	delete lasercast	 ;
+	delete bullet_tracer ;
+
 	// bullet
 	size_t sz = collisionWorld->getCollisionObjectArray().size();
 	for(size_t i = 0; i < sz; ++i)

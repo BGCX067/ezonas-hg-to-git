@@ -106,7 +106,6 @@
     <ClCompile Include="physics.cc" />
     <ClCompile Include="load_InitResources.cpp" />
     <ClCompile Include="func_FrameRenderingQueued.cpp" />
-    <ClCompile Include="func_GetSingleton.cpp" />
     <ClCompile Include="func_InitGorilla.cpp" />
     <ClCompile Include="load_initialize.cpp" />
     <ClCompile Include="fx_BulletTracer.cpp" />
