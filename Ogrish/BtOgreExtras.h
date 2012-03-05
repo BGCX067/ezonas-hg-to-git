@@ -12,7 +12,9 @@
  *
  * =====================================================================================
  */
+#include "stdafx.h"
 
+ 
 #ifndef _BtOgreShapes_H_
 #define _BtOgreShapes_H_
 
@@ -32,7 +34,7 @@ namespace BtOgre
 typedef std::vector<Vec3> Vec3Array;
 
 //Converts from and to Bullet and Ogre stuff. Pretty self-explanatory.
-struct Convert
+class Convert
 {
 public:
 	Convert() {};
@@ -59,7 +61,7 @@ public:
 
 //From here on its debug-drawing stuff. ------------------------------------------------------------------
 
-struct DynamicRenderable : public Ogre::SimpleRenderable
+class DynamicRenderable : public Ogre::SimpleRenderable
 {
 public:
   /// Constructor
@@ -121,7 +123,7 @@ protected:
   virtual void fillHardwareBuffers() = 0;
 };
 
-struct DynamicLines : public DynamicRenderable
+class DynamicLines : public DynamicRenderable
 {
   typedef Vec3 Vec3;
   typedef Ogre::Quaternion Quaternion;
@@ -178,7 +180,7 @@ private:
   bool mDirty;
 };
 
-struct DebugDrawer : public btIDebugDraw
+class DebugDrawer : public btIDebugDraw
 {
 protected:
 	Ogre::SceneNode *mNode;

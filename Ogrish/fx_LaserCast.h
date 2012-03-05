@@ -5,11 +5,9 @@ struct LaserCast
 public:
 	// bool RaycastFromPoint(const Vector3 & point, const Vector3 & normal, Vector3 & result);
 	void update();//float);
-	Entity * ent_check, * last_entity, * current_entity;
 
 	LaserCast();
 protected:
-	MaterialPtr material_hover;
 	bool execute();
 // necessary objects
 	// MaterialPtr matptr;

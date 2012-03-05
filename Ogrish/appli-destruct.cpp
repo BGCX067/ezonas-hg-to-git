@@ -11,9 +11,9 @@ Application :: ~ Application()
 	delete mGorilla;
 	delete machine;
 
-	delete cam_ctrlr	 ;
-	delete lasercast	 ;
-	delete bullet_tracer ;
+	 inputmanager -> destroyInputObject( mouse);
+	 inputmanager -> destroyInputObject( keyboard);
+	InputManager :: destroyInputSystem( inputmanager);
 
 	// bullet
 	size_t sz = collisionWorld->getCollisionObjectArray().size();

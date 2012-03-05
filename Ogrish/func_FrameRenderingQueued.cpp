@@ -11,17 +11,22 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	);
 	timeSinceLastFrame = evt.timeSinceLastFrame;
 	size_t sz = velocities.size();
-	for(size_t i = 0; i < sz; ++ i)
-		Nodes[i]->translate(velocities[i] * timeSinceLastFrame);
-
-	//check_collisions();
+/*	for(size_t i = 0; i < sz; ++ i)
+		Nodes[i]->translate(velocities[i] * timeSinceLastFrame);*/
+	keyboard -> capture();
+	mouse -> capture();
+	n_master -> translate
+	(
+		n_yawpitch_ptr -> getOrientation() *
+		translate *
+		moving_speed *
+		timeSinceLastFrame
+	);
+	assert(translate.length() <= 1.0f);
 	loop_bullet();
-
-	lasercast -> update();
-	bullet_tracer -> update();
-
-	return cam_ctrlr -> update();
-}
+	update_bullets();
+	return ! stop;
+	}
 
 bool Application :: frameEnded(const FrameEvent & evt) { return true; }
 bool Application :: frameStarted(const FrameEvent & evt) { return true; }

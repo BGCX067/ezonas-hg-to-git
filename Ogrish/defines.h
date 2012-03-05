@@ -1,5 +1,8 @@
 #define BULLET_MAX 8
 
+#define REINIT(node) { node -> setPosition(0,0,0); node->setOrientation(Quaternion()); }
+
+
 #define ITV(T)    std::vector	<T>::Iterator	
 #define ITA(T)    std::array	<T>::Iterator	
 #define ITQ(T)    std::queue	<T>::Iterator	

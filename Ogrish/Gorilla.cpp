@@ -29,7 +29,7 @@
     
 */
 
-//#include "Gorilla.h"
+// #include "Gorilla.h"
 #include "stdafx.h"
 
 #pragma warning ( disable : 4244 )

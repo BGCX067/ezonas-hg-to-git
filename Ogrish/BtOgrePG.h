@@ -13,6 +13,7 @@
  *
  * =====================================================================================
  */
+#include "stdafx.h"
 
 #ifndef _BtOgreGP_H_
 #define _BtOgreGP_H_
@@ -25,7 +26,7 @@ namespace BtOgre {
 
 //A MotionState is Bullet's way of informing you about updates to an object.
 //Pass this MotionState to a btRigidBody to have your SceneNode updated automaticaly.
-struct RigidBodyState : public btMotionState 
+class RigidBodyState : public btMotionState 
 {
     protected:
         btTransform mTransform;

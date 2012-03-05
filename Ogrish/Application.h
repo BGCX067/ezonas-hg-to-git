@@ -2,11 +2,15 @@
 
 typedef RaySceneQueryResult :: iterator RSQR_iter_t;
 struct Application:
-	public FrameListener
+	public FrameListener,
+	public KeyListener,
+	public MouseListener
 {
 	// config file reading
-	static string str_vect(Vec3 v) { return TO_STR(v.x) + " " + TO_STR(v.y)+ " " + TO_STR(v.z); }
-	static string str_quat(Quaternion q) { return TO_STR(q.w)+" "+TO_STR(q.x)+" "+TO_STR(q.y)+" "+TO_STR(q.z); }
+	static string str_vect(Vec3 v)
+	{ return TO_STR(v.x) + " " + TO_STR(v.y)+ " " + TO_STR(v.z); }
+	static string str_quat(Quaternion q)
+	{ return TO_STR(q.w)+" "+TO_STR(q.x)+" "+TO_STR(q.y)+" "+TO_STR(q.z); }
 	float	GetFloat		(string _s);
 	int		GetInt			(string _s);
 	Vec3	GetVect3		(string _s);
@@ -17,25 +21,15 @@ struct Application:
 	SceneTypeMask GetScMgrType();
 	SceneNode * AddLevel(string);
 	SceneNode * AddLight(string);
-
-	// ####### getters #######
-	//SceneManager		* GetScMgr() { return scmgr;					   }
-	//SceneNode			* GetRSN()	 { return scmgr -> getRootSceneNode(); }
-	//Camera				* GetCam()	 { return camera;					   }
-	//RenderWindow		* GetRW()	 { return window;					   }
-	//Ogre::ConfigFile	* GetCFG()	 { return configfile;				   }
-
+	
 	// ####### overloading #######
 	bool frameRenderingQueued(const FrameEvent & evt);
 	bool frameStarted(const FrameEvent & evt);
 	bool frameEnded(const FrameEvent & evt);
 
     void go();
-	float timeSinceLastFrame;
-
 	Application();
     ~ Application();
-	void init();
 
 	// ####### everything about physics/bullet #######
 	void loop_bullet(); // in game loop
@@ -45,10 +39,13 @@ struct Application:
 	//void check_collisions();
 
 	// ####### called at loading #######
-	void initialize();
+	void init_engines();
+	void init_scene();
+	void init_bullets();
 	void Populate();
 	void LoadEntity(string);
-
+	
+	void loadlist();
 	void InitGorilla();
 	void AddLights();
 	void InitResources();
@@ -68,6 +65,13 @@ struct Application:
 	InputManager * inputmanager;
 	Keyboard * keyboard;
 	Mouse * mouse;
+	void init_inputs();
+	
+	bool mouseMoved		(const OIS::MouseEvent &e);
+	bool mousePressed	(const OIS::MouseEvent &e, OIS::MouseButtonID id);
+	bool mouseReleased	(const OIS::MouseEvent &e, OIS::MouseButtonID id);
+	bool keyPressed		(const OIS::KeyEvent &e);
+	bool keyReleased	(const OIS::KeyEvent &e);
 	
 	// ################### bullet physics ###################
     btBroadphaseInterface			* broadphase;
@@ -75,7 +79,6 @@ struct Application:
     btCollisionDispatcher			* dispatcher;
 	btCollisionWorld				* collisionWorld;
 	//btCharacterControllerInterface * char_ctrl;
-
 	BtOgre::StaticMeshToShapeConverter * mesh2shape;
 
 	// ################### gorilla (GUI) ###################
@@ -86,17 +89,55 @@ struct Application:
 	Gorilla :: Caption		* gor_caption[15];
 	OgreConsole * console;
 
+	// ################### camera system ###################
+	void setCameraMode(int mode);
+	int camera_mode;
+	float moving_speed, rotating_speed, timeSinceLastFrame, rot;
+	bool stop;
+	Vec3 offset;
+	Vec3 translate, translate2;
+	
+	Entity * e_target;
+
+	SceneNode
+		* n_root	,
+		* n_master  ,	 // those 3 in this exact order
+		* n_target	,	 // those 3 in this exact order
+		* n_cam		,	 // those 3 in this exact order
+		* n_yawpitch_ptr; // this node will serve as a pointer to switch between 1st/rd person cam
 	// ################### custom ###################
-    CameraController * cam_ctrlr;
 	game_machine * machine;
 
-	// ################### effects ###################
-	LaserCast * lasercast;
-	BulletTracer * bullet_tracer;
-
+	// ################### bullets ###################
+	void Fire();
+	void update_bullets();
+	BillboardChainFactory bbchfact;
+	BillboardChain * MakeABullet(string);
+	ushort nextbullet;
+	float bullet_speed,
+		trace_width, trace_length,
+		time_stack, fire_delay,
+		offset_x, offset_y;
+	Vec3 ray_start, ray_end;
+	btVector3 arg_start, arg_end;
+	bool was_fired;
+	BillboardChain * bb_bullet_model;
+	Entity
+		* ent_check,
+		* last_entity,
+		* current_entity;
+//#ifdef USE_ARRAYS
+//	SceneNode * n_bullet [BULLET_MAX];
+//	BillboardSet * bb_dot[BULLET_MAX];
+//	BillboardChain * bb_bullet[BULLET_MAX];
+//	btCollisionWorld :: ClosestRayResultCallback raycast_callback[BULLET_MAX];
+//#endif
+	std::vector<SceneNode *		>	n_bullet ;
+	std::vector<BillboardSet *	>	bb_dot	 ;
+	std::vector<BillboardChain *>	bb_bullet;
+	std::vector<bullet_raycast>		callbacks;
 	// temporary vectors and pointers
 	Entity * entplane;//, * last_entity_raycast, * current_ent_raycast;
-    SceneNode * rootnode;
 	
 	// intermediate Ogre/bullet data
 	Vec3 temp, temp1;

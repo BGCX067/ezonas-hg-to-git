@@ -50,12 +50,7 @@ extern Application * appli;
 #include "game_character.h"
 #include "game_gamemachine.h"
 
-#define stcast(cast_this) static_cast<SceneNode*> (static_cast<btCollisionObject*>(cast_this) -> getUserPointer())
-
-
-#include "fx_BulletTracer.h"
-#include "fx_LaserCast.h"
-#include "CameraController.h"
+#include "eff_bullets.h"
 #include "Application.h"
 
 

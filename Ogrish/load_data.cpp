@@ -17,7 +17,7 @@ void			Application :: Populate()
 	{
 		velocities.push_back(Vec3(Math::RangeRandom(range_xz_down, range_xz_up),0,
 			Math::RangeRandom(range_xz_down, range_xz_up)));
-		SceneNode * node = rootnode -> createChildSceneNode("monster_"+TO_STR(i));
+		SceneNode * node = n_root -> createChildSceneNode("monster_"+TO_STR(i));
 		Entity * ent = scmgr -> createEntity(pop_mesh);
 		node -> attachObject(ent);
 		
@@ -58,18 +58,18 @@ void			Application :: LoadEntity(string _s)
 	SceneNode * node;
 	if (flag == "target")
 	{
-		//node = cam_ctrlr -> getTargetNode();
 		if (configfile -> getSetting("attach_target") == "yes")
-			cam_ctrlr -> attachEntity(ent);
+			e_target = ent;
 		else
 			PRINTLOG("Not attaching target");
 	}
 	else
 	{
-		node = rootnode->createChildSceneNode(_s, Vec3(x, y, z));
+		node = n_root->createChildSceneNode(_s, Vec3(x, y, z));
 		node -> attachObject(ent);
 		Nodes.push_back(node);
 		Entities.push_back(ent);
+		velocities.push_back(Vec3());
 
 		PRINTLOG("Creating collision object");
 		btCollisionObject * colobj = new btCollisionObject();
@@ -136,7 +136,7 @@ void			Application :: AddPlane()
 			Ogre :: Vector3 :: UNIT_Z);
 
 	entplane = scmgr -> createEntity("LightPlaneEntity", "plane");
-	rootnode -> createChildSceneNode() -> attachObject(entplane);
+	n_root -> createChildSceneNode() -> attachObject(entplane);
 	entplane -> setMaterialName("jokoon/grass");
 }
 SceneTypeMask	Application :: GetScMgrType()
@@ -145,6 +145,12 @@ SceneTypeMask	Application :: GetScMgrType()
 	if(str == "BSP_INTERIOR") return ST_INTERIOR;
 	if(str == "OCTREE_GENERIC") return ST_GENERIC;
 	return ST_GENERIC;
+}
+void			Application :: loadlist()
+{
+	Ogre::StringVector strs = StringUtil::split(GetString("loadlist"));
+	for(size_t i = 0; i < strs.size(); ++i)
+		LoadEntity(strs[i]);
 }
 
 /*

@@ -13,6 +13,7 @@
  *
  * =====================================================================================
  */
+#include "stdafx.h"
 
 #ifndef _BtOgrePG_H_
 #define _BtOgrePG_H_
@@ -26,7 +27,7 @@ namespace BtOgre {
 typedef std::map<unsigned char, Vec3Array*> BoneIndex;
 typedef std::pair<unsigned short, Vec3Array*> BoneKeyIndex;
 
-struct VertexIndexToShape
+class VertexIndexToShape
 {
 public:
 	VertexIndexToShape(const Ogre::Matrix4 &transform = Ogre::Matrix4::IDENTITY);
@@ -75,7 +76,7 @@ protected:
 };
 
 //For static (non-animated) meshes.
-struct StaticMeshToShapeConverter : public VertexIndexToShape
+class StaticMeshToShapeConverter : public VertexIndexToShape
 {
 public:
 
@@ -97,7 +98,7 @@ protected:
 };
 
 //For animated meshes.
-struct AnimatedMeshToShapeConverter : public VertexIndexToShape
+class AnimatedMeshToShapeConverter : public VertexIndexToShape
 {
 public:
 

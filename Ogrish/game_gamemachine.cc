@@ -90,7 +90,7 @@ int  game_machine :: make_abil_mask		(string flags)
 
 // called in game loop
 /**/ game_machine :: game_machine():
-timeSinceLastFrame(appli -> timeSinceLastFrame)
+timeSinceLastFrame( timeSinceLastFrame)
 {
 // this state machine is about taking inputs and generating outputs,
 // handling them in game and also send events on the network.

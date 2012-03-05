@@ -10,8 +10,9 @@ int WinMain(HINSTANCE a, HINSTANCE b, LPSTR c, int d)
 #endif
 {
 	appli = new Application;
-	appli -> init();
-	appli -> go();
+	appli -> init_engines();
+	appli -> init_scene();
+	appli ->  go();
 	return 0;
 }
 

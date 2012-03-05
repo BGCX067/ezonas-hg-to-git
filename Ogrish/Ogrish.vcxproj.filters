@@ -4,9 +4,6 @@
     <Filter Include="game">
       <UniqueIdentifier>{ebdc35e0-b945-4cf2-b592-ffd0be01bf1a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="effects">
-      <UniqueIdentifier>{bccf96f1-334c-4c48-a67f-6efd099bfadf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="gorilla">
       <UniqueIdentifier>{9627990c-2baf-4d81-9c47-da3d3af04df9}</UniqueIdentifier>
     </Filter>
@@ -49,7 +46,6 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Application.h" />
-    <ClInclude Include="CameraController.h" />
     <ClInclude Include="OgreConsoleForGorilla.h">
       <Filter>gorilla</Filter>
     </ClInclude>
@@ -64,12 +60,6 @@
     </ClInclude>
     <ClInclude Include="BtOgrePG.h">
       <Filter>btogre</Filter>
-    </ClInclude>
-    <ClInclude Include="fx_LaserCast.h">
-      <Filter>effects</Filter>
-    </ClInclude>
-    <ClInclude Include="fx_BulletTracer.h">
-      <Filter>effects</Filter>
     </ClInclude>
     <ClInclude Include="game_datastruct.h">
       <Filter>game</Filter>
@@ -89,10 +79,10 @@
     <ClInclude Include="defines.h">
       <Filter>misc</Filter>
     </ClInclude>
+    <ClInclude Include="eff_bullets.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="OgreConsoleForGorilla.cpp">
       <Filter>gorilla</Filter>
     </ClCompile>
@@ -101,15 +91,6 @@
     </ClCompile>
     <ClCompile Include="BtOgre.cpp">
       <Filter>btogre</Filter>
-    </ClCompile>
-    <ClCompile Include="fx_Execute.cpp">
-      <Filter>effects</Filter>
-    </ClCompile>
-    <ClCompile Include="fx_LaserCast.cpp">
-      <Filter>effects</Filter>
-    </ClCompile>
-    <ClCompile Include="fx_BulletTracer.cpp">
-      <Filter>effects</Filter>
     </ClCompile>
     <ClCompile Include="game_gamemachine.cc">
       <Filter>game</Filter>
@@ -156,5 +137,8 @@
       <Filter>misc</Filter>
     </ClCompile>
     <ClCompile Include="physics.cc" />
+    <ClCompile Include="inputs.cc" />
+    <ClCompile Include="eff_bullets.cc" />
+    <ClCompile Include="camera.cc" />
   </ItemGroup>
 </Project>

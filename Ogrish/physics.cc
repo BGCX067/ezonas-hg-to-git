@@ -39,12 +39,16 @@ void Application :: loop_bullet()
 			collisionWorld->getDispatcher() -> getManifoldByIndexInternal(i);
 
 		static_cast<SceneNode*>
-			(static_cast<btCollisionObject*>(contactManifold -> getBody0())
-				-> getUserPointer()) -> showBoundingBox(true);
-
+			(static_cast<btCollisionObject*>
+				(contactManifold -> getBody0())
+					-> getUserPointer())
+						-> showBoundingBox(true);
 		static_cast<SceneNode*>
-			(static_cast<btCollisionObject*>(contactManifold -> getBody1())
-				-> getUserPointer()) -> showBoundingBox(true);
+			(static_cast<btCollisionObject*>
+				(contactManifold -> getBody1())
+					-> getUserPointer())
+						-> showBoundingBox(true);
+
 	}
 }
 void Application :: add_col_obj(size_t index)
