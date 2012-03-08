@@ -30,6 +30,7 @@ void Application :: setCameraMode	(int mode)
 	switch (mode)
 	{
 	case 1:
+	case 2:
 		/////////////////////
 		n_master -> addChild	(n_cam);
 		n_master -> addChild(n_target); /////// MEH
@@ -53,6 +54,7 @@ void Application :: setCameraMode	(int mode)
 		n_yawpitch_ptr = n_target;
 		break;
 	default:
+		exit(0xb00b);
 		break;
 	}
 }

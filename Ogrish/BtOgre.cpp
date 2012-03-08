@@ -38,7 +38,7 @@ namespace BtOgre {
 		const unsigned int prev_size = mVertexCount;
 		mVertexCount += (unsigned int)data->vertexCount;
 
-		Vec3* tmp_vert = new Vec3[mVertexCount];
+		Ogre::Vector3* tmp_vert = new Ogre::Vector3[mVertexCount];
 		if (mVertexBuffer)
 		{
 			memcpy(tmp_vert, mVertexBuffer, sizeof(Vec3) * prev_size);
@@ -54,7 +54,7 @@ namespace BtOgre {
 
 			unsigned char* vertex = static_cast<unsigned char*>(vbuf->lock(Ogre::HardwareBuffer::HBL_READ_ONLY));
 			float* pReal;
-			Vec3 * curVertices = &mVertexBuffer[prev_size];
+			Ogre::Vector3 * curVertices = &mVertexBuffer[prev_size];
 			const unsigned int vertexCount = (unsigned int)data->vertexCount;
 			for(unsigned int j = 0; j < vertexCount; ++j)
 			{
@@ -83,7 +83,7 @@ namespace BtOgre {
 		const VertexData *data = blend_data;
 		const unsigned int prev_size = mVertexCount;
 		mVertexCount += (unsigned int)data->vertexCount;
-		Vec3* tmp_vert = new Vec3[mVertexCount];
+		Ogre::Vector3* tmp_vert = new Ogre::Vector3[mVertexCount];
 		if (mVertexBuffer)
 		{
 			memcpy(tmp_vert, mVertexBuffer, sizeof(Vec3) * prev_size);
@@ -100,7 +100,7 @@ namespace BtOgre {
 
 			unsigned char* vertex = static_cast<unsigned char*>(vbuf->lock(Ogre::HardwareBuffer::HBL_READ_ONLY));
 			float* pReal;
-			Vec3 * curVertices = &mVertexBuffer[prev_size];
+			Ogre::Vector3 * curVertices = &mVertexBuffer[prev_size];
 			const unsigned int vertexCount = (unsigned int)data->vertexCount;
 			for(unsigned int j = 0; j < vertexCount; ++j)
 			{
@@ -131,7 +131,7 @@ namespace BtOgre {
 				mBoneIndex = new BoneIndex();	
 			BoneIndex::iterator i;
 
-			Vec3 * curVertices = &mVertexBuffer[prev_size];
+			Ogre::Vector3 * curVertices = &mVertexBuffer[prev_size];
 
 			const unsigned int vertexCount = (unsigned int)vertex_data->vertexCount;
 			for(unsigned int j = 0; j < vertexCount; ++j)
@@ -216,13 +216,13 @@ namespace BtOgre {
 	Vec3 VertexIndexToShape::getSize()
 	{
 		const unsigned int vCount = getVertexCount();
-		if (mBounds == Vec3(-1,-1,-1) && vCount > 0)
+		if (mBounds == Ogre::Vector3(-1,-1,-1) && vCount > 0)
 		{
 
-			const Vec3 * const v = getVertices();
+			const Ogre::Vector3 * const v = getVertices();
 
-			Vec3 vmin(v[0]);
-			Vec3 vmax(v[0]);
+			Ogre::Vector3 vmin(v[0]);
+			Ogre::Vector3 vmax(v[0]);
 
 			for(unsigned int j = 1; j < vCount; j++)
 			{
@@ -243,7 +243,7 @@ namespace BtOgre {
 		return mBounds;
 	}
 	//------------------------------------------------------------------------------------------------
-	const Vec3* VertexIndexToShape::getVertices()
+	const Ogre::Vector3* VertexIndexToShape::getVertices()
 	{
 		return mVertexBuffer;
 	}
@@ -278,7 +278,7 @@ namespace BtOgre {
 	//------------------------------------------------------------------------------------------------
 	btBoxShape* VertexIndexToShape::createBox()
 	{
-		const Vec3 sz = getSize();
+		const Ogre::Vector3 sz = getSize();
 
 		assert((sz.x > 0.0) && (sz.y > 0.0) && (sz.z > 0.0) && 
 			("Size of box must be greater than zero on all axes"));
@@ -292,7 +292,7 @@ namespace BtOgre {
 	//------------------------------------------------------------------------------------------------
 	btCylinderShape* VertexIndexToShape::createCylinder()
 	{
-		const Vec3 sz = getSize();
+		const Ogre::Vector3 sz = getSize();
 
 		assert((sz.x > 0.0) && (sz.y > 0.0) && (sz.z > 0.0) && 
 			("Size of Cylinder must be greater than zero on all axes"));
@@ -430,13 +430,13 @@ namespace BtOgre {
 	{
 		// Each entity added need to reset size and radius
 		// next time getRadius and getSize are asked, they're computed.
-		mBounds  = Vec3(-1,-1,-1);
+		mBounds  = Ogre::Vector3(-1,-1,-1);
 		mBoundRadius = -1;
 
 		mEntity = entity;
 		mNode = (SceneNode*)(mEntity->getParentNode());
 		mTransform = transform;
-		mScale = mNode ? mNode->getScale() : Vec3(1,1,1);
+		mScale = mNode ? mNode->getScale() : Ogre::Vector3(1,1,1);
 
 		if (mEntity->getMesh()->sharedVertexData)
 		{
@@ -464,7 +464,7 @@ namespace BtOgre {
 	{
 		// Each entity added need to reset size and radius
 		// next time getRadius and getSize are asked, they're computed.
-		mBounds  = Vec3(-1,-1,-1);
+		mBounds  = Ogre::Vector3(-1,-1,-1);
 		mBoundRadius = -1;
 
 		//_entity = entity;
@@ -530,7 +530,7 @@ namespace BtOgre {
 	{
 		// Each entity added need to reset size and radius
 		// next time getRadius and getSize are asked, they're computed.
-		mBounds  = Vec3(-1,-1,-1);
+		mBounds  = Ogre::Vector3(-1,-1,-1);
 		mBoundRadius = -1;
 
 		mEntity = entity;
@@ -575,7 +575,7 @@ namespace BtOgre {
 	{
 		// Each entity added need to reset size and radius
 		// next time getRadius and getSize are asked, they're computed.
-		mBounds  = Vec3(-1,-1,-1);
+		mBounds  = Ogre::Vector3(-1,-1,-1);
 		mBoundRadius = -1;
 
 		//_entity = entity;
@@ -613,7 +613,7 @@ namespace BtOgre {
 	//------------------------------------------------------------------------------------------------
 	bool AnimatedMeshToShapeConverter::getBoneVertices(unsigned char bone, 
 														 unsigned int &vertex_count, 
-														 Vec3* &vertices,
+														 Ogre::Vector3* &vertices,
 														 const Vec3 &bonePosition)
 	{
 		BoneIndex::iterator i = mBoneIndex->find(bone);
@@ -630,7 +630,7 @@ namespace BtOgre {
 			if (mTransformedVerticesTemp)
 				delete[] mTransformedVerticesTemp;
 
-			mTransformedVerticesTemp = new Vec3[vertex_count];
+			mTransformedVerticesTemp = new Ogre::Vector3[vertex_count];
 
 		}
 
@@ -674,10 +674,10 @@ namespace BtOgre {
 			max_vec.y = std::max(max_vec.y,vertices[j].y);
 			max_vec.z = std::max(max_vec.z,vertices[j].z);
 		}
-		const Vec3 maxMinusMin(max_vec - min_vec);
+		const Ogre::Vector3 maxMinusMin(max_vec - min_vec);
 		btBoxShape* box = new btBoxShape(Convert::toBullet(maxMinusMin));
 
-		/*const Vec3 pos
+		/*const Ogre::Vector3 pos
 			(min_vec.x + (maxMinusMin.x * 0.5),
 			min_vec.y + (maxMinusMin.y * 0.5),
 			min_vec.z + (maxMinusMin.z * 0.5));*/
@@ -720,7 +720,7 @@ namespace BtOgre {
 		//   C' = C + 0.5*(min(y0)+max(y0))*U0 + 0.5*(min(y1)+max(y1))*U1 +
 		//        0.5*(min(y2)+max(y2))*U2
 
-		Vec3 kDiff (vertices[1] - box_kCenter);
+		Ogre::Vector3 kDiff (vertices[1] - box_kCenter);
 		Ogre::Real fY0Min = kDiff.dotProduct(box_akAxis[0]), fY0Max = fY0Min;
 		Ogre::Real fY1Min = kDiff.dotProduct(box_akAxis[1]), fY1Max = fY1Min;
 		Ogre::Real fY2Min = kDiff.dotProduct(box_akAxis[2]), fY2Max = fY2Min;
@@ -765,9 +765,9 @@ namespace BtOgre {
 																	   const Vec3 &bonePosition,
 																	   const Quaternion &boneOrientation)
 	{
-		Vec3 box_akAxis[3];
-		Vec3 box_afExtent;
-		Vec3 box_afCenter;
+		Ogre::Vector3 box_akAxis[3];
+		Ogre::Vector3 box_afExtent;
+		Ogre::Vector3 box_afCenter;
 
 		if (!getOrientedBox(bone, bonePosition, boneOrientation,
 							box_afExtent,

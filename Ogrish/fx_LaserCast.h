@@ -19,6 +19,7 @@ protected:
 		//* n_bullet;
 	Ray ray_cam;
 	
+	Entity * ent_check, * last_entity;
 	RaySceneQuery * RSQ;
 	RaySceneQueryResult RSQR;
 // tweakables

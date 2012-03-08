@@ -30,14 +30,6 @@ void			Application :: Populate()
 		Entities.push_back(ent);
 	}
 }
-MaterialPtr		Application :: create_hover_material(MaterialPtr mat)
-{
-	MaterialPtr ret;
-	ret = mat->clone(mat->getName()+"_hover");
-	ret->setAmbient(ColourValue(0.1f,0.1f,0.1f,0.1f));
-	ret->setDiffuse(ColourValue(0.1f,0.1f,0.1f,0.1f));
-	return ret;
-}
 void			Application :: LoadEntity(string _s)
 {
 	istringstream iss(configfile -> getSetting(_s));
@@ -59,7 +51,10 @@ void			Application :: LoadEntity(string _s)
 	if (flag == "target")
 	{
 		if (configfile -> getSetting("attach_target") == "yes")
+		{
 			e_target = ent;
+			//Nodes.push_back(
+		}
 		else
 			PRINTLOG("Not attaching target");
 	}
@@ -72,13 +67,49 @@ void			Application :: LoadEntity(string _s)
 		velocities.push_back(Vec3());
 
 		PRINTLOG("Creating collision object");
-		btCollisionObject * colobj = new btCollisionObject();
-		colobj->setUserPointer(ent);
-		//collisionWorld->getCollisionObjectArray().push_back(colobj);
-		colobj->setCollisionShape(sphere);
-		collisionWorld->addCollisionObject(colobj);
+		//add_col_obj(Nodes.size()-1);
 	}
 	
+}
+void			Application :: AddPlane()
+{
+	Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -1); // -1 is the y position
+
+	float plane_width = GetFloat("plane_width");
+	float plane_depth = GetFloat("plane_depth");
+
+	Ogre :: MeshManager :: getSingleton().createPlane
+		("plane",
+			ResourceGroupManager :: DEFAULT_RESOURCE_GROUP_NAME, plane,
+			plane_width, plane_depth, 10, 10, // width height xseg yseg
+			true,
+			1, 5, 5,
+			//Vec3(1,1,4));
+			Ogre :: Vector3 :: UNIT_Z);
+
+	entplane = scmgr -> createEntity("LightPlaneEntity", "plane");
+	n_root -> createChildSceneNode() -> attachObject(entplane);
+	entplane -> setMaterialName("jokoon/grass");
+}
+SceneTypeMask	Application :: GetScMgrType()
+{
+	string str = configfile -> getSetting("SceneManager");
+	if(str == "BSP_INTERIOR") return ST_INTERIOR;
+	if(str == "OCTREE_GENERIC") return ST_GENERIC;
+	if(str == "PAGING") return ST_EXTERIOR_REAL_FAR;
+	return ST_GENERIC;
+}
+void			Application :: loadlist()
+{
+	Ogre::StringVector strs = StringUtil::split(GetString("loadlist"));
+	for(size_t i = 0; i < strs.size(); ++i)
+		LoadEntity(strs[i]);
+}
+
+void			Application :: loadlevel(string level)
+{
+	n_root->createChildSceneNode()
+		->attachObject(scmgr->createEntity(GetString(level)));
 }
 SceneNode *		Application :: AddLight(string _s)
 {
@@ -119,38 +150,13 @@ SceneNode *		Application :: AddLight(string _s)
 
 	return node;
 }
-void			Application :: AddPlane()
+MaterialPtr		Application :: create_hover_material(MaterialPtr mat)
 {
-	Ogre :: Plane plane(Ogre :: Vector3 :: UNIT_Y, -1); // -1 is the y position
-
-	float plane_width = GetFloat("plane_width");
-	float plane_depth = GetFloat("plane_depth");
-
-	Ogre :: MeshManager :: getSingleton().createPlane
-		("plane",
-			ResourceGroupManager :: DEFAULT_RESOURCE_GROUP_NAME, plane,
-			plane_width, plane_depth, 10, 10, // width height xseg yseg
-			true,
-			1, 5, 5,
-			//Vec3(1,1,4));
-			Ogre :: Vector3 :: UNIT_Z);
-
-	entplane = scmgr -> createEntity("LightPlaneEntity", "plane");
-	n_root -> createChildSceneNode() -> attachObject(entplane);
-	entplane -> setMaterialName("jokoon/grass");
-}
-SceneTypeMask	Application :: GetScMgrType()
-{
-	string str = configfile -> getSetting("SceneManager");
-	if(str == "BSP_INTERIOR") return ST_INTERIOR;
-	if(str == "OCTREE_GENERIC") return ST_GENERIC;
-	return ST_GENERIC;
-}
-void			Application :: loadlist()
-{
-	Ogre::StringVector strs = StringUtil::split(GetString("loadlist"));
-	for(size_t i = 0; i < strs.size(); ++i)
-		LoadEntity(strs[i]);
+	MaterialPtr ret;
+	ret = mat->clone(mat->getName()+"_hover");
+	ret->setAmbient(ColourValue(0.1f,0.1f,0.1f,0.1f));
+	ret->setDiffuse(ColourValue(0.1f,0.1f,0.1f,0.1f));
+	return ret;
 }
 
 /*

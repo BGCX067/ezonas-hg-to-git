@@ -1,7 +1,6 @@
 #include "stdafx.h"
 
-
-void Application :: InitGorilla()
+void Application :: init_gorilla()
 {
 	string fontname("test");
 

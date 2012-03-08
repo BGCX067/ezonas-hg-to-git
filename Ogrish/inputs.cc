@@ -39,14 +39,18 @@ bool Application :: mouseMoved		(const OIS::MouseEvent &e)
 }
 bool Application :: mousePressed	(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
-	//if (mouse -> getMouseState() . buttonDown(MB_Left))
-	//if (MB_Left == e.state.)
-	//if (mouse -> getMouseState() . buttonDown(MB_Left))
 	if (MB_Left == id)
-		Fire();
+		trigger_state = true;
+		//FirePull();
     return true;
 }
-bool Application :: mouseReleased	(const OIS::MouseEvent &e, OIS::MouseButtonID id) { return true; }
+bool Application :: mouseReleased	(const OIS::MouseEvent &e, OIS::MouseButtonID id) {
+	if (MB_Left == id)
+		trigger_state = false;
+		//FireRelease();
+	return true;
+
+}
 bool Application :: keyPressed		(const OIS::KeyEvent &e)
 {
 	switch(e.key)
@@ -55,11 +59,17 @@ bool Application :: keyPressed		(const OIS::KeyEvent &e)
 	//case KC_F1: setCameraMode(1); break;
 	case KC_F2: setCameraMode(1); break;
 	case KC_F3: setCameraMode(3); break;
+	case KC_F5: diagnose(); break;
 
 	// index up, thumb left
 	case KC_UP: case KC_W:						translate2.z -=  1.f; break;
 	case KC_DOWN: case KC_S:					translate2.z +=  1.f; break;
-
+	case KC_F4:
+//		mat->getTechnique(0)->getPass(0)->getTextureUnitState(0)
+//			->setColourOperationEx(Ogre::LBX_SOURCE1, Ogre::LBS_MANUAL, Ogre::LBS_CURRENT, colorval);	
+		mat->getTechnique(0)->getPass(0)->getTextureUnitState(0)
+			->setColourOperationEx(Ogre::LBX_SOURCE1,LBS_TEXTURE,LBS_CURRENT,colorval1,colorval2,0.5f);
+				break;
 	case KC_LEFT: case KC_A:					translate2.x -=  1.f; break;
 	case KC_RIGHT: case KC_D:					translate2.x +=  1.f; break;
 	//case KC_LEFT: case KC_A:					rot += .002f; break;
@@ -72,14 +82,14 @@ bool Application :: keyPressed		(const OIS::KeyEvent &e)
 			camera ->setFOVy(camera ->getFOVy() - Radian(timeSinceLastFrame) *20.f);
 		break;
 	case KC_EQUALS:
-		if(camera ->getFOVy() < Degree(90.f))
+		if(camera ->getFOVy() < Degree(120.f))
 			camera ->setFOVy(camera ->getFOVy() + Radian(timeSinceLastFrame) *20.f);
 		break;
 	default: break;
 	}
 	translate = translate2;
 	translate.normalise();
-	 console -> onKeyPressed(e);
+	console -> onKeyPressed(e);
 	return true;
 }
 bool Application :: keyReleased	(const OIS::KeyEvent &e)

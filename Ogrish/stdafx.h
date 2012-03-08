@@ -34,7 +34,6 @@ typedef Ogre::Vector2 Vec2;
 // Gorilla and console
 #include "Gorilla.h"
 #include "OgreConsoleForGorilla.h"
-
 using namespace std;
 using namespace Ogre;
 using namespace OIS;
@@ -43,6 +42,8 @@ using namespace OIS;
 // dirty, but necessary
 struct Application;
 extern Application * appli;
+
+#include "fx_LaserCast.h"
 
 #include "game_datastruct.h"
 #include "game_items.h"

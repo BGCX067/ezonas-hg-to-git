@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-void Application :: InitResources()
+void Application :: init_resources()
 {
 	// RESOURCES ////////////////////////////////////////
     ConfigFile cf;

@@ -16,10 +16,10 @@ Application :: ~ Application()
 	InputManager :: destroyInputSystem( inputmanager);
 
 	// bullet
-	size_t sz = collisionWorld->getCollisionObjectArray().size();
+	size_t sz = colw->getCollisionObjectArray().size();
 	for(size_t i = 0; i < sz; ++i)
-		if(collisionWorld->getCollisionObjectArray()[i])
-			delete collisionWorld->getCollisionObjectArray()[i];
+		if(colw->getCollisionObjectArray()[i])
+			delete colw->getCollisionObjectArray()[i];
 
 	delete sphere;
 	delete mesh2shape;

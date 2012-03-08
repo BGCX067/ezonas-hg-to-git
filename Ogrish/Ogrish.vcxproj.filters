@@ -79,10 +79,9 @@
     <ClInclude Include="defines.h">
       <Filter>misc</Filter>
     </ClInclude>
-    <ClInclude Include="eff_bullets.h" />
+    <ClInclude Include="fx_LaserCast.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp" />
     <ClCompile Include="OgreConsoleForGorilla.cpp">
       <Filter>gorilla</Filter>
     </ClCompile>
@@ -107,21 +106,6 @@
     <ClCompile Include="game_datastruct.cpp">
       <Filter>game</Filter>
     </ClCompile>
-    <ClCompile Include="func_InitGorilla.cpp">
-      <Filter>gorilla</Filter>
-    </ClCompile>
-    <ClCompile Include="func_FrameRenderingQueued.cpp">
-      <Filter>loop</Filter>
-    </ClCompile>
-    <ClCompile Include="load_InitResources.cpp">
-      <Filter>init</Filter>
-    </ClCompile>
-    <ClCompile Include="load_initialize.cpp">
-      <Filter>init</Filter>
-    </ClCompile>
-    <ClCompile Include="load_data.cpp">
-      <Filter>init</Filter>
-    </ClCompile>
     <ClCompile Include="gameloop.cc">
       <Filter>loop</Filter>
     </ClCompile>
@@ -136,9 +120,26 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>misc</Filter>
     </ClCompile>
-    <ClCompile Include="physics.cc" />
-    <ClCompile Include="inputs.cc" />
-    <ClCompile Include="eff_bullets.cc" />
     <ClCompile Include="camera.cc" />
+    <ClCompile Include="go.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="inputs.cc">
+      <Filter>loop</Filter>
+    </ClCompile>
+    <ClCompile Include="fx_LaserCast.cpp" />
+    <ClCompile Include="fx_Execute.cpp" />
+    <ClCompile Include="dataloading.cpp">
+      <Filter>init</Filter>
+    </ClCompile>
+    <ClCompile Include="init.cpp">
+      <Filter>init</Filter>
+    </ClCompile>
+    <ClCompile Include="init_gorilla.cpp">
+      <Filter>gorilla</Filter>
+    </ClCompile>
+    <ClCompile Include="init_resources.cc">
+      <Filter>init</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

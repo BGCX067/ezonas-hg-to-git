@@ -1,15 +1,14 @@
 #include "stdafx.h"
 
-
 LaserCast :: LaserCast():
-cam(appli ->camera),
+	cam			(appli ->camera),
 	ray_cam		(Ray(Vec3(0, 0, 0), Vec3(-1, -1, -1))),
-	RSQ (appli ->scmgr -> createRayQuery(ray_cam)),
-	n_root		(appli ->rootnode),
-	n_laserbeam (appli ->rootnode -> createChildSceneNode("laser beam")),
-	n_laserdot	(appli ->rootnode -> createChildSceneNode("laser dot")),
-	camera		(appli ->camera -> getPosition()),
-	bb_dot		(appli ->scmgr -> createBillboardSet("laser dot")),
+	RSQ			(appli -> scmgr -> createRayQuery(ray_cam)),
+	n_root		(appli -> n_root),
+	n_laserbeam (appli -> n_root -> createChildSceneNode("laser beam")),
+	n_laserdot	(appli -> n_root -> createChildSceneNode("laser dot")),
+	camera		(appli -> camera -> getPosition()),
+	bb_dot		(appli -> scmgr -> createBillboardSet("laser dot")),
 	bboard		(bb_dot -> createBillboard(Ogre :: Vector3(0, 0, 0))),
 	bb_beam		(appli ->scmgr -> createBillboardChain("laser beam")),
 	
@@ -46,7 +45,7 @@ void LaserCast :: update()
 				(result, laser_width, 0, ColourValue()));
 		bb_beam -> updateChainElement
 			(0, 1, BillboardChain :: Element
-			(appli ->camera -> getRealPosition() + Vec3(0,2,0), laser_width, 0, ColourValue()));
+			(appli -> camera -> getRealPosition() + Vec3(0,2,0), laser_width, 0, ColourValue()));
 
 		// last_entity, current_entity;
 		if (ent_check == last_entity);
