@@ -19,8 +19,11 @@
 #define CROSSLOAD(s) load(s)
 #endif
 
+#include <cmath>
+//#define LASERCAST
 typedef Ogre::Vector3 Vec3;
 typedef Ogre::Vector2 Vec2;
+#include "Procedural.h"
 
 #include <OgreTextAreaOverlayElement.h>
 
@@ -31,12 +34,13 @@ typedef Ogre::Vector2 Vec2;
 #include "BtOgrePG.h"
 #include "BtOgreGP.h"
 
+
 // Gorilla and console
 #include "Gorilla.h"
 #include "OgreConsoleForGorilla.h"
 using namespace std;
 using namespace Ogre;
-using namespace OIS;
+
 #include "defines.h"
 
 // dirty, but necessary

@@ -67,13 +67,13 @@ bool LaserCast :: execute()
 				{
 					verts.resize(vertex_count);
 					previous_vertex_count = vertex_count;
-					PRINTLOG("increased vertex count to "+TO_STR(vertex_count));
+					LOGMSG("increased vertex count to "+TO_STR(vertex_count));
 				}
 				if(index_count > previous_indice_count) // first time here, fill with zero
 				{
 					inds.resize(index_count);
 					previous_indice_count = index_count;
-					PRINTLOG("increased index count to "+TO_STR(index_count));
+					LOGMSG("increased index count to "+TO_STR(index_count));
 				}
 				added_shared = false;
 				// Run through the submeshes again, adding the data into the arrays

@@ -13,7 +13,6 @@
  * =============================================================================================
  */
 #include "stdafx.h"
-
 #include "BtOgrePG.h"
 #include "BtOgreGP.h"
 #include "BtOgreExtras.h"
@@ -41,7 +40,7 @@ namespace BtOgre {
 		Ogre::Vector3* tmp_vert = new Ogre::Vector3[mVertexCount];
 		if (mVertexBuffer)
 		{
-			memcpy(tmp_vert, mVertexBuffer, sizeof(Vec3) * prev_size);
+			memcpy(tmp_vert, mVertexBuffer, sizeof(Vector3) * prev_size);
 			delete[] mVertexBuffer;
 		}
 		mVertexBuffer = tmp_vert;
@@ -86,7 +85,7 @@ namespace BtOgre {
 		Ogre::Vector3* tmp_vert = new Ogre::Vector3[mVertexCount];
 		if (mVertexBuffer)
 		{
-			memcpy(tmp_vert, mVertexBuffer, sizeof(Vec3) * prev_size);
+			memcpy(tmp_vert, mVertexBuffer, sizeof(Vector3) * prev_size);
 			delete[] mVertexBuffer;
 		}
 		mVertexBuffer = tmp_vert;
@@ -141,10 +140,10 @@ namespace BtOgre {
 
 				const unsigned char currBone = (indexMap) ? (*indexMap)[*pBone] : *pBone;
 				i = mBoneIndex->find (currBone);
-				Vec3Array* l = 0;
+				Vector3Array* l = 0;
 				if (i == mBoneIndex->end())
 				{
-					l = new Vec3Array;
+					l = new Vector3Array;
 					mBoneIndex->insert(BoneKeyIndex(currBone, l));
 				}						
 				else 
@@ -213,7 +212,7 @@ namespace BtOgre {
 		return mBoundRadius;
 	}
 	//------------------------------------------------------------------------------------------------
-	Vec3 VertexIndexToShape::getSize()
+	Vector3 VertexIndexToShape::getSize()
 	{
 		const unsigned int vCount = getVertexCount();
 		if (mBounds == Ogre::Vector3(-1,-1,-1) && vCount > 0)
@@ -309,7 +308,7 @@ namespace BtOgre {
 		assert(mVertexCount && (mIndexCount >= 6) && 
 			("Mesh must have some vertices and at least 6 indices (2 triangles)"));
 
-		return new btConvexHullShape((btScalar*) &mVertexBuffer[0].x, mVertexCount, sizeof(Vec3));
+		return new btConvexHullShape((btScalar*) &mVertexBuffer[0].x, mVertexCount, sizeof(Vector3));
 	}
 	//------------------------------------------------------------------------------------------------
 	btBvhTriangleMeshShape* VertexIndexToShape::createTrimesh()
@@ -321,25 +320,25 @@ namespace BtOgre {
 
 		btTriangleMesh *trimesh = new btTriangleMesh();
 		unsigned int *indices = mIndexBuffer;
-		Vec3 *vertices = mVertexBuffer;
+		Vector3 *vertices = mVertexBuffer;
 
 		btVector3    vertexPos[3];
 		for (unsigned int n = 0; n < numFaces; ++n)
 		{
 			{
-				const Vec3 &vec = vertices[*indices];
+				const Vector3 &vec = vertices[*indices];
 				vertexPos[0][0] = vec.x;
 				vertexPos[0][1] = vec.y;
 				vertexPos[0][2] = vec.z;
 			}
 			{
-				const Vec3 &vec = vertices[*(indices + 1)];
+				const Vector3 &vec = vertices[*(indices + 1)];
 				vertexPos[1][0] = vec.x;
 				vertexPos[1][1] = vec.y;
 				vertexPos[1][2] = vec.z;
 			}
 			{
-				const Vec3 &vec = vertices[*(indices + 2)];
+				const Vector3 &vec = vertices[*(indices + 2)];
 				vertexPos[2][0] = vec.x;
 				vertexPos[2][1] = vec.y;
 				vertexPos[2][2] = vec.z;
@@ -380,7 +379,7 @@ namespace BtOgre {
 		mIndexBuffer (0),
 		mVertexCount (0),
 		mIndexCount (0),
-		mBounds (Vec3(-1,-1,-1)),
+		mBounds (Vector3(-1,-1,-1)),
 		mBoundRadius (-1),
 		mBoneIndex (0),
 		mTransform (transform),
@@ -614,7 +613,7 @@ namespace BtOgre {
 	bool AnimatedMeshToShapeConverter::getBoneVertices(unsigned char bone, 
 														 unsigned int &vertex_count, 
 														 Ogre::Vector3* &vertices,
-														 const Vec3 &bonePosition)
+														 const Vector3 &bonePosition)
 	{
 		BoneIndex::iterator i = mBoneIndex->find(bone);
 
@@ -641,7 +640,7 @@ namespace BtOgre {
 
 		//mEntity->getSkeleton()->getBone(bone)->_getDerivedOrientation()
 		unsigned int currBoneVertex = 1;
-		Vec3Array::iterator j = i->second->begin();
+		Vector3Array::iterator j = i->second->begin();
 		while(j != i->second->end())
 		{
 			vertices[currBoneVertex] = (*j);
@@ -652,17 +651,17 @@ namespace BtOgre {
 	}
 	//------------------------------------------------------------------------------------------------
 	btBoxShape* AnimatedMeshToShapeConverter::createAlignedBox(unsigned char bone, 
-															   const Vec3 &bonePosition,
+															   const Vector3 &bonePosition,
 															   const Quaternion &boneOrientation)
 	{
 		unsigned int vertex_count;
-		Vec3* vertices;
+		Vector3* vertices;
 
 		if (!getBoneVertices(bone, vertex_count, vertices, bonePosition)) 
 			return 0;
 
-		Vec3 min_vec(vertices[0]);
-		Vec3 max_vec(vertices[0]);
+		Vector3 min_vec(vertices[0]);
+		Vector3 max_vec(vertices[0]);
 
 		for(unsigned int j = 1; j < vertex_count ;j++)
 		{
@@ -688,19 +687,19 @@ namespace BtOgre {
 	}
 	//------------------------------------------------------------------------------------------------
 	bool AnimatedMeshToShapeConverter::getOrientedBox(unsigned char bone, 
-						 const Vec3 &bonePosition,
+						 const Vector3 &bonePosition,
 						 const Quaternion &boneOrientation,
-						 Vec3 &box_afExtent,
-						 Vec3 *box_akAxis,
-						 Vec3 &box_kCenter)
+						 Vector3 &box_afExtent,
+						 Vector3 *box_akAxis,
+						 Vector3 &box_kCenter)
 	{
 		unsigned int vertex_count;
-		Vec3* vertices;
+		Vector3* vertices;
 
 		if (!getBoneVertices(bone, vertex_count, vertices, bonePosition))
 			return false;
 
-		 box_kCenter = Vec3::ZERO;
+		 box_kCenter = Vector3::ZERO;
 
 		 {
 			 for(unsigned int c = 0 ;c < vertex_count;c++)
@@ -762,7 +761,7 @@ namespace BtOgre {
 	}
 	//------------------------------------------------------------------------------------------------
 	btBoxShape *AnimatedMeshToShapeConverter::createOrientedBox(unsigned char bone, 
-																	   const Vec3 &bonePosition,
+																	   const Vector3 &bonePosition,
 																	   const Quaternion &boneOrientation)
 	{
 		Ogre::Vector3 box_akAxis[3];
@@ -906,7 +905,7 @@ namespace BtOgre {
 	//------------------------------------------------------------------------------------------------
 	Real DynamicRenderable::getSquaredViewDepth(const Camera* cam) const
 	{
-	   Vec3 vMin, vMax, vMid, vDist;
+	   Vector3 vMin, vMax, vMid, vDist;
 	   vMin = mBox.getMinimum();
 	   vMax = mBox.getMaximum();
 	   vMid = ((vMax - vMin) * 0.5) + vMin;
@@ -947,7 +946,7 @@ namespace BtOgre {
 	  return mRenderOp.operationType;
 	}
 	//------------------------------------------------------------------------------------------------
-	void DynamicLines::addPoint(const Vec3 &p)
+	void DynamicLines::addPoint(const Vector3 &p)
 	{
 	   mPoints.push_back(p);
 	   mDirty = true;
@@ -955,11 +954,11 @@ namespace BtOgre {
 	//------------------------------------------------------------------------------------------------
 	void DynamicLines::addPoint(Real x, Real y, Real z)
 	{
-	   mPoints.push_back(Vec3(x,y,z));
+	   mPoints.push_back(Vector3(x,y,z));
 	   mDirty = true;
 	}
 	//------------------------------------------------------------------------------------------------
-	const Vec3& DynamicLines::getPoint(unsigned short index) const
+	const Vector3& DynamicLines::getPoint(unsigned short index) const
 	{
 	   assert(index < mPoints.size() && "Point index is out of bounds!!");
 	   return mPoints[index];
@@ -970,7 +969,7 @@ namespace BtOgre {
 	  return (unsigned short)mPoints.size();
 	}
 	//------------------------------------------------------------------------------------------------
-	void DynamicLines::setPoint(unsigned short index, const Vec3 &value)
+	void DynamicLines::setPoint(unsigned short index, const Vector3 &value)
 	{
 	  assert(index < mPoints.size() && "Point index is out of bounds!!");
 
@@ -1002,13 +1001,13 @@ namespace BtOgre {
 	  prepareHardwareBuffers(size,0);
 
 	  if (!size) { 
-		mBox.setExtents(Vec3::ZERO,Vec3::ZERO);
+		mBox.setExtents(Vector3::ZERO,Vector3::ZERO);
 		mDirty=false;
 		return;
 	  }
 	  
-	  Vec3 vaabMin = mPoints[0];
-	  Vec3 vaabMax = mPoints[0];
+	  Vector3 vaabMin = mPoints[0];
+	  Vector3 vaabMax = mPoints[0];
 
 	  HardwareVertexBufferSharedPtr vbuf =
 		mRenderOp.vertexData->vertexBufferBinding->getBuffer(0);

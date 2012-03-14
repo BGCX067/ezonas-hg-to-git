@@ -1,0 +1,19 @@
+﻿material dont/use
+{
+}
+
+
+material derp
+{
+	technique
+	{
+		pass
+		{
+			//polygon_mode wireframe
+			texture_unit
+			{
+				texture rainbow_pixels_big.png
+			}
+		}
+	}
+}

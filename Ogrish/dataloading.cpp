@@ -44,7 +44,7 @@ void			Application :: LoadEntity(string _s)
 	else							ent = scmgr -> createEntity(_s, mesh_filename);
 
 	if (material_name == "-")		ent -> setMaterialName(_s + ".material");
-	else if (material_name == "x")  PRINTLOG("No material used for "+_s);
+	else if (material_name == "x")  LOGMSG("No material used for "+_s);
 	else							ent -> setMaterialName(material_name);
 	
 	SceneNode * node;
@@ -56,7 +56,7 @@ void			Application :: LoadEntity(string _s)
 			//Nodes.push_back(
 		}
 		else
-			PRINTLOG("Not attaching target");
+			LOGMSG("Not attaching target");
 	}
 	else
 	{
@@ -66,7 +66,7 @@ void			Application :: LoadEntity(string _s)
 		Entities.push_back(ent);
 		velocities.push_back(Vec3());
 
-		PRINTLOG("Creating collision object");
+		LOGMSG("Creating collision object");
 		//add_col_obj(Nodes.size()-1);
 	}
 	
@@ -159,6 +159,9 @@ MaterialPtr		Application :: create_hover_material(MaterialPtr mat)
 	return ret;
 }
 
+void Application :: init_procedural()
+{
+}
 /*
 memo from wiki:
 The argument to createSceneManager (getSceneManager in older releases) specifies the type of scene manager to use, based on the following values:

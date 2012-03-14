@@ -2,7 +2,8 @@
 
 Application :: Application():
 	FrameListener(),
-	raycallback(btVector3(0,0,0),btVector3(0,0,0))
+	raycallback(btVector3(0,0,0),btVector3(0,0,0)),
+	diagnose_vect()
 {
 	configfile = new ConfigFile;
 	/* initializing all objects */
@@ -29,7 +30,7 @@ Application :: Application():
 	viewport = window -> addViewport(camera);
 	n_root = scmgr -> getRootSceneNode();
 	/* changing some settings */
-	PRINTLOG("------- configuring some misc. parameters -------");
+	LOGMSG("------- configuring some misc. parameters -------");
 	camera -> setNearClipDistance(1);
 	camera -> setAspectRatio
 		(Real(viewport -> getActualWidth())/ Real(viewport -> getActualHeight()));

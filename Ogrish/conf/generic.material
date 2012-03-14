@@ -1,0 +1,13 @@
+﻿material generic
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture rainbow_pixels.png
+      }
+    }
+  }
+}

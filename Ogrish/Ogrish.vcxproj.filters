@@ -22,6 +22,9 @@
     <Filter Include="misc">
       <UniqueIdentifier>{137be3f7-2403-47bb-83bc-419d92975873}</UniqueIdentifier>
     </Filter>
+    <Filter Include="procedural">
+      <UniqueIdentifier>{c574ecda-f790-422d-a82a-10f51a8ff2db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="conf\jokoon.material">
@@ -52,15 +55,6 @@
     <ClInclude Include="Gorilla.h">
       <Filter>gorilla</Filter>
     </ClInclude>
-    <ClInclude Include="BtOgreExtras.h">
-      <Filter>btogre</Filter>
-    </ClInclude>
-    <ClInclude Include="BtOgreGP.h">
-      <Filter>btogre</Filter>
-    </ClInclude>
-    <ClInclude Include="BtOgrePG.h">
-      <Filter>btogre</Filter>
-    </ClInclude>
     <ClInclude Include="game_datastruct.h">
       <Filter>game</Filter>
     </ClInclude>
@@ -79,7 +73,105 @@
     <ClInclude Include="defines.h">
       <Filter>misc</Filter>
     </ClInclude>
-    <ClInclude Include="fx_LaserCast.h" />
+    <ClInclude Include="ProceduralCylinderGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralExtruder.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralGeometryHelpers.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralIcoSphereGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralLathe.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralMeshGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralMultiShape.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralPath.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralPathGenerators.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralPlaneGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralPlatform.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralRoot.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralRoundedBoxGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralShape.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralShapeGenerators.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralSphereGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralSplines.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralStableHeaders.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralTorusGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralTorusKnotGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralTrack.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralTriangleBuffer.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralTriangulator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralTubeGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralUtils.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="Procedural.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralBoxGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralCapsuleGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralConeGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="fx_LaserCast.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="BtOgrePG.h">
+      <Filter>btogre</Filter>
+    </ClInclude>
+    <ClInclude Include="BtOgreGP.h">
+      <Filter>btogre</Filter>
+    </ClInclude>
+    <ClInclude Include="BtOgreExtras.h">
+      <Filter>btogre</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OgreConsoleForGorilla.cpp">
@@ -87,9 +179,6 @@
     </ClCompile>
     <ClCompile Include="Gorilla.cpp">
       <Filter>gorilla</Filter>
-    </ClCompile>
-    <ClCompile Include="BtOgre.cpp">
-      <Filter>btogre</Filter>
     </ClCompile>
     <ClCompile Include="game_gamemachine.cc">
       <Filter>game</Filter>
@@ -120,15 +209,12 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>misc</Filter>
     </ClCompile>
-    <ClCompile Include="camera.cc" />
     <ClCompile Include="go.cpp">
       <Filter>misc</Filter>
     </ClCompile>
     <ClCompile Include="inputs.cc">
       <Filter>loop</Filter>
     </ClCompile>
-    <ClCompile Include="fx_LaserCast.cpp" />
-    <ClCompile Include="fx_Execute.cpp" />
     <ClCompile Include="dataloading.cpp">
       <Filter>init</Filter>
     </ClCompile>
@@ -140,6 +226,108 @@
     </ClCompile>
     <ClCompile Include="init_resources.cc">
       <Filter>init</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralExtruder.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralGeometryHelpers.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralIcoSphereGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralLathe.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralMultiShape.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralPath.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralPathGenerators.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralPlaneGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralPrecompiledHeaders.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralRoot.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralRoundedBoxGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralShape.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralShapeGenerators.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralSphereGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralTorusGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralTorusKnotGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralTrack.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralTriangulator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralTubeGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralUtils.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralBoxGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralCapsuleGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralConeGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralCylinderGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="init_laser.cc">
+      <Filter>init</Filter>
+    </ClCompile>
+    <ClCompile Include="init_bullets.cc">
+      <Filter>init</Filter>
+    </ClCompile>
+    <ClCompile Include="update_physics.cc">
+      <Filter>loop</Filter>
+    </ClCompile>
+    <ClCompile Include="update_bullets.cc">
+      <Filter>loop</Filter>
+    </ClCompile>
+    <ClCompile Include="update_laser.cc">
+      <Filter>loop</Filter>
+    </ClCompile>
+    <ClCompile Include="fx_Execute.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="fx_LaserCast.cpp">
+      <Filter>misc</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cc">
+      <Filter>loop</Filter>
+    </ClCompile>
+    <ClCompile Include="BtOgre.cpp">
+      <Filter>btogre</Filter>
+    </ClCompile>
+    <ClCompile Include="interp.cpp">
+      <Filter>loop</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

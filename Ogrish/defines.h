@@ -2,6 +2,10 @@
 
 #define REINIT(node) { node -> setPosition(0,0,0); node->setOrientation(Quaternion()); }
 
+#define NODE(s) scmgr->getRootSceneNode()->createChildSceneNode(s)
+#define ENTITY scmgr->createEntity
+#define LOGMSG Ogre::LogManager::getSingleton().getDefaultLog()->logMessage
+#define LOGSTREAM Ogre::LogManager::getSingleton().getDefaultLog()->stream()
 
 #define ITV(T)    std::vector	<T>::Iterator	
 #define ITA(T)    std::array	<T>::Iterator	
@@ -19,4 +23,3 @@
 #define ITER_VECT(type) std::vector<type>::iterator
 
 #define SGLT_LOG LogManager::getSingleton().getDefaultLog()
-#define PRINTLOG(s) LogManager::getSingleton().getDefaultLog()->logMessage(s)

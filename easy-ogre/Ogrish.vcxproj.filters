@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="ProceduralRoot.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralRoundedBoxGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralShape.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralShapeGenerators.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralSphereGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralSplines.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralStableHeaders.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralTorusGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralTorusKnotGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralTrack.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralTriangleBuffer.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralTriangulator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralTubeGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralUtils.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="Procedural.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralBoxGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralCapsuleGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralConeGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralCylinderGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralExtruder.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralGeometryHelpers.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralIcoSphereGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralLathe.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralMeshGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralMultiShape.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralPath.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralPathGenerators.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralPlaneGenerator.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="ProceduralPlatform.h">
+      <Filter>procedural</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ezogre.cc" />
+    <ClCompile Include="ProceduralRoot.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralRoundedBoxGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralShape.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralShapeGenerators.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralSphereGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralTorusGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralTorusKnotGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralTrack.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralTriangulator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralTubeGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralUtils.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralBoxGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralCapsuleGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralConeGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralCylinderGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralExtruder.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralGeometryHelpers.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralIcoSphereGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralLathe.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralMultiShape.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralPath.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralPathGenerators.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralPlaneGenerator.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+    <ClCompile Include="ProceduralPrecompiledHeaders.cpp">
+      <Filter>procedural</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="procedural">
+      <UniqueIdentifier>{e9affac9-93e4-4d4c-bdba-005624bb17d4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

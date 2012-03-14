@@ -13,10 +13,10 @@
  *
  * =====================================================================================
  */
-#include "stdafx.h"
 
 #ifndef _BtOgrePG_H_
 #define _BtOgrePG_H_
+#include "stdafx.h"
 
 #include "btBulletDynamicsCommon.h"
 #include "BtOgreExtras.h"
@@ -24,8 +24,8 @@
 
 namespace BtOgre {
 
-typedef std::map<unsigned char, Vec3Array*> BoneIndex;
-typedef std::pair<unsigned short, Vec3Array*> BoneKeyIndex;
+typedef std::map<unsigned char, Vector3Array*> BoneIndex;
+typedef std::pair<unsigned short, Vector3Array*> BoneKeyIndex;
 
 class VertexIndexToShape
 {
@@ -34,7 +34,7 @@ public:
 	~VertexIndexToShape();
 
 	Ogre::Real getRadius();
-	Vec3 getSize();
+	Ogre::Vector3 getSize();
 
 
 	btSphereShape* createSphere();
@@ -43,7 +43,7 @@ public:
 	btCylinderShape* createCylinder();
 	btConvexHullShape* createConvex();
 
-	const Vec3* getVertices();
+	const Ogre::Vector3* getVertices();
 	unsigned int getVertexCount();
 	const unsigned int* getIndices();
 	unsigned int getIndexCount();
@@ -60,7 +60,7 @@ protected:
 
 
 protected:
-	Vec3*	    mVertexBuffer;
+	Ogre::Vector3*	    mVertexBuffer;
 	unsigned int*       mIndexBuffer;
 	unsigned int        mVertexCount;
 	unsigned int        mIndexCount;
@@ -68,11 +68,11 @@ protected:
 	Ogre::Matrix4		mTransform;
 
 	Ogre::Real		    mBoundRadius;
-	Vec3		mBounds;
+	Ogre::Vector3		mBounds;
 
 	BoneIndex           *mBoneIndex;
 
-	Vec3		mScale;
+	Ogre::Vector3		mScale;
 };
 
 //For static (non-animated) meshes.
@@ -110,32 +110,32 @@ public:
 	void addMesh(const Ogre::MeshPtr &mesh, const Ogre::Matrix4 &transform);
 
 	btBoxShape* createAlignedBox(unsigned char bone, 
-		const Vec3 &bonePosition,
+		const Ogre::Vector3 &bonePosition,
 		const Ogre::Quaternion &boneOrientation);
 
 	btBoxShape* createOrientedBox(unsigned char bone, 
-		const Vec3 &bonePosition,
+		const Ogre::Vector3 &bonePosition,
 		const Ogre::Quaternion &boneOrientation);
 
 protected:
 
 	bool getBoneVertices(unsigned char bone, 
 		unsigned int &vertex_count, 
-		Vec3* &vertices,
-		const Vec3 &bonePosition);
+		Ogre::Vector3* &vertices,
+		const Ogre::Vector3 &bonePosition);
 
 	bool getOrientedBox(unsigned char bone, 
-		const Vec3 &bonePosition,
+		const Ogre::Vector3 &bonePosition,
 		const Ogre::Quaternion &boneOrientation,
-		Vec3 &extents,
-		Vec3 *axis,
-		Vec3 &center);
+		Ogre::Vector3 &extents,
+		Ogre::Vector3 *axis,
+		Ogre::Vector3 &center);
 
 	
 	Ogre::Entity*		mEntity;
 	Ogre::SceneNode*	mNode;
 
-	Vec3       *mTransformedVerticesTemp;
+	Ogre::Vector3       *mTransformedVerticesTemp;
 	size_t               mTransformedVerticesTempSize;
 };
 

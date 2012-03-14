@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Procedural.h" />
+    <ClInclude Include="ProceduralBoxGenerator.h" />
+    <ClInclude Include="ProceduralCapsuleGenerator.h" />
+    <ClInclude Include="ProceduralConeGenerator.h" />
+    <ClInclude Include="ProceduralCylinderGenerator.h" />
+    <ClInclude Include="ProceduralExtruder.h" />
+    <ClInclude Include="ProceduralGeometryHelpers.h" />
+    <ClInclude Include="ProceduralIcoSphereGenerator.h" />
+    <ClInclude Include="ProceduralLathe.h" />
+    <ClInclude Include="ProceduralMeshGenerator.h" />
+    <ClInclude Include="ProceduralMultiShape.h" />
+    <ClInclude Include="ProceduralPath.h" />
+    <ClInclude Include="ProceduralPathGenerators.h" />
+    <ClInclude Include="ProceduralPlaneGenerator.h" />
+    <ClInclude Include="ProceduralPlatform.h" />
+    <ClInclude Include="ProceduralRoot.h" />
+    <ClInclude Include="ProceduralRoundedBoxGenerator.h" />
+    <ClInclude Include="ProceduralShape.h" />
+    <ClInclude Include="ProceduralShapeGenerators.h" />
+    <ClInclude Include="ProceduralSphereGenerator.h" />
+    <ClInclude Include="ProceduralSplines.h" />
+    <ClInclude Include="ProceduralStableHeaders.h" />
+    <ClInclude Include="ProceduralTorusGenerator.h" />
+    <ClInclude Include="ProceduralTorusKnotGenerator.h" />
+    <ClInclude Include="ProceduralTrack.h" />
+    <ClInclude Include="ProceduralTriangleBuffer.h" />
+    <ClInclude Include="ProceduralTriangulator.h" />
+    <ClInclude Include="ProceduralTubeGenerator.h" />
+    <ClInclude Include="ProceduralUtils.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ezogre.cc" />
+    <ClCompile Include="ProceduralBoxGenerator.cpp" />
+    <ClCompile Include="ProceduralCapsuleGenerator.cpp" />
+    <ClCompile Include="ProceduralConeGenerator.cpp" />
+    <ClCompile Include="ProceduralCylinderGenerator.cpp" />
+    <ClCompile Include="ProceduralExtruder.cpp" />
+    <ClCompile Include="ProceduralGeometryHelpers.cpp" />
+    <ClCompile Include="ProceduralIcoSphereGenerator.cpp" />
+    <ClCompile Include="ProceduralLathe.cpp" />
+    <ClCompile Include="ProceduralMultiShape.cpp" />
+    <ClCompile Include="ProceduralPath.cpp" />
+    <ClCompile Include="ProceduralPathGenerators.cpp" />
+    <ClCompile Include="ProceduralPlaneGenerator.cpp" />
+    <ClCompile Include="ProceduralPrecompiledHeaders.cpp" />
+    <ClCompile Include="ProceduralRoot.cpp" />
+    <ClCompile Include="ProceduralRoundedBoxGenerator.cpp" />
+    <ClCompile Include="ProceduralShape.cpp" />
+    <ClCompile Include="ProceduralShapeGenerators.cpp" />
+    <ClCompile Include="ProceduralSphereGenerator.cpp" />
+    <ClCompile Include="ProceduralTorusGenerator.cpp" />
+    <ClCompile Include="ProceduralTorusKnotGenerator.cpp" />
+    <ClCompile Include="ProceduralTrack.cpp" />
+    <ClCompile Include="ProceduralTriangulator.cpp" />
+    <ClCompile Include="ProceduralTubeGenerator.cpp" />
+    <ClCompile Include="ProceduralUtils.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5948D889-0A6C-474C-831C-91D9AF86AADF}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Ogrish</RootNamespace>
+    <ProjectName>easy-ogre</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Ogre1-7-4\boost_1_47;C:\bullet278\src;C:\Ogre1-7-4\include\OGRE;C:\Ogre1-7-4\include\OIS;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\bullet278\lib\Debug;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Ogre1-7-4\boost_1_47;C:\bullet278\src;C:\Ogre1-7-4\include\OGRE;C:\Ogre1-7-4\include\OIS;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\bullet278\lib\Release;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>/Zm150 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>OgreMain_d.lib;OIS_d.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>/Zm150 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>OgreMain.lib;OIS.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

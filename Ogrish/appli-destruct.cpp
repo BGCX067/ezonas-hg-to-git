@@ -13,7 +13,7 @@ Application :: ~ Application()
 
 	 inputmanager -> destroyInputObject( mouse);
 	 inputmanager -> destroyInputObject( keyboard);
-	InputManager :: destroyInputSystem( inputmanager);
+	OIS::InputManager :: destroyInputSystem( inputmanager);
 
 	// bullet
 	size_t sz = colw->getCollisionObjectArray().size();

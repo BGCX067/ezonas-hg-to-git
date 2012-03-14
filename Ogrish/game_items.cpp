@@ -65,6 +65,6 @@ ItemMgr :: ItemMgr()
 	{
 //		auto truc = it->first;
 		ItemsDescr[ItemIDs[it->first]] = cf.getSetting(it->first);
-		//PRINTLOG(truc + " ## " + ItemsDescr[ItemIDs[truc]]);
+		//LOGMSG(truc + " ## " + ItemsDescr[ItemIDs[truc]]);
 	}
 }

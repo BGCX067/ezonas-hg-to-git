@@ -3,8 +3,8 @@
 typedef RaySceneQueryResult :: iterator RSQR_iter_t;
 struct Application:
 	public FrameListener,
-	public KeyListener,
-	public MouseListener
+	public OIS::KeyListener,
+	public OIS::MouseListener
 {
 	///////////////////////////////////////////////////////////////////////////
 	///////////////////////////////// METHODS /////////////////////////////////
@@ -31,12 +31,18 @@ struct Application:
 	void add_col_obj(size_t);
 	//void check_collisions();
 
+	// ####### math/interp functions #######
+	float recoil(float);
+	float smoothstep(float x);
+	float smoothstep2(float,float,float);
+	float smoothstep_fast(float x);
+	float weight_avg(float x, float goal, float slowdown);
+
+
 	// ####### various functions #######
 	void setCameraMode(int mode);
 	void Fire();
-	void FirePull();
-	void FireRelease();
-
+	void calculate_recoil();
 	void update_bullets();
 	void update_laser();
 	void diagnose();
@@ -48,6 +54,8 @@ struct Application:
 	void init_inputs();
 	void init_gorilla();
 	void init_resources();
+	void init_procedural();
+	void add_debug_gizmo(string name);
 
 	// ####### called at loading #######
 	void Populate();
@@ -92,8 +100,8 @@ struct Application:
 	BtOgre::StaticMeshToShapeConverter * mesh2shape;
 	btCollisionWorld::ClosestRayResultCallback raycallback;
 
-	Vec3 temp, temp1;
-	btVector3 bttemp, bttemp1;
+	Vec3 from, to;
+	btVector3 btfrom, btto;
 	btSphereShape * sphere;
 
 	// ####### gorilla (GUI) #######
@@ -111,16 +119,25 @@ struct Application:
 	std::vector<bool> isMoving;
 	std::vector<bool> hasCollided;
 	// ####### OIS #######
-	InputManager * inputmanager;
-	Keyboard * keyboard;
-	Mouse * mouse;
+	OIS::InputManager * inputmanager;
+	OIS::Keyboard * keyboard;
+	OIS::Mouse * mouse;
 
 	// ####### custom #######
 	game_machine * machine;
 	LaserCast * lasercast;
 	// ####### camera system #######
 	int camera_mode;
-	float moving_speed, rotating_speed, timeSinceLastFrame;
+	uchar recoil_shot_acc, current_recoil;
+	float moving_speed, rotating_speed,
+		timeSinceLastFrame,
+		laser_width,
+		recoil_yaw, recoil_pitch,
+		recoil_yaw_factor, recoil_pitch_factor,
+		recoil_factor, recoil_c,
+		recoil_threshold,
+		time_buffer[32]
+		;
 	bool stop;
 	Vec3 offset;
 	Vec3 translate, translate2;
@@ -132,8 +149,8 @@ struct Application:
 		* n_master  ,	 // those 3 in this exact order
 		* n_target	,	 // those 3 in this exact order
 		* n_cam		,	 // those 3 in this exact order
-		* n_yawpitch_ptr; // this node will serve as a pointer to switch between 1st/rd person cam
-
+		* n_yawpitch_ptr, // this node will serve as a pointer to switch between 1st/rd person cam
+		* n_recoil;
 	// etc
 	Entity * entplane;//, * last_entity_raycast, * current_ent_raycast;
 	MaterialPtr mat;
@@ -175,5 +192,8 @@ struct Application:
 	BillboardSet * bb_laserdot;
 	Billboard * bboard;
 	BillboardChain * bb_beam;
+
+	// debugging
+	std::map<std::string, Vec3> diagnose_vect;
 };
 

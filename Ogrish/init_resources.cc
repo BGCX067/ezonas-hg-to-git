@@ -6,7 +6,7 @@ void Application :: init_resources()
     ConfigFile cf;
 #ifdef __APPLE__
     cf.load(macBundlePath() + "/Contents/Resources/"+"conf/resources_d.cfg");
-	PRINTLOG(macBundlePath() + "/Contents/Resources/");
+	LOGMSG(macBundlePath() + "/Contents/Resources/");
 #else
     cf.load("conf/resources_d.cfg");
 #endif

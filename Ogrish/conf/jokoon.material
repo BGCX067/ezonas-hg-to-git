@@ -56,6 +56,13 @@ diffuse 0.0 1.0 0.0
 material Examples/Ninja
 { technique { pass { texture_unit { texture nskingr.jpg }}}}
 
+material jokoon/gizmo
+{ technique { pass { texture_unit { texture gizmo.png }}}}
+material jokoon/gizmo2
+{ technique { pass { texture_unit { texture gizmo2.png }}}}
+material jokoon/gizmo3
+{ technique { pass { texture_unit { texture gizmo3.png }}}}
+
 material jokoon/crosshair
 { technique { pass {
 scene_blend alpha_blend
@@ -83,4 +90,3 @@ material hover/hover
 { technique { pass {
 	emissive 1 0 0
 }}}
-

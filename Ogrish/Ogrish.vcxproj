@@ -80,10 +80,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
     <ClInclude Include="BtOgreExtras.h" />
     <ClInclude Include="BtOgreGP.h" />
     <ClInclude Include="BtOgrePG.h" />
-    <ClInclude Include="Application.h" />
     <ClInclude Include="defines.h" />
     <ClInclude Include="fx_LaserCast.h" />
     <ClInclude Include="game_ability.h" />
@@ -93,6 +93,35 @@
     <ClInclude Include="game_items.h" />
     <ClInclude Include="Gorilla.h" />
     <ClInclude Include="OgreConsoleForGorilla.h" />
+    <ClInclude Include="Procedural.h" />
+    <ClInclude Include="ProceduralBoxGenerator.h" />
+    <ClInclude Include="ProceduralCapsuleGenerator.h" />
+    <ClInclude Include="ProceduralConeGenerator.h" />
+    <ClInclude Include="ProceduralCylinderGenerator.h" />
+    <ClInclude Include="ProceduralExtruder.h" />
+    <ClInclude Include="ProceduralGeometryHelpers.h" />
+    <ClInclude Include="ProceduralIcoSphereGenerator.h" />
+    <ClInclude Include="ProceduralLathe.h" />
+    <ClInclude Include="ProceduralMeshGenerator.h" />
+    <ClInclude Include="ProceduralMultiShape.h" />
+    <ClInclude Include="ProceduralPath.h" />
+    <ClInclude Include="ProceduralPathGenerators.h" />
+    <ClInclude Include="ProceduralPlaneGenerator.h" />
+    <ClInclude Include="ProceduralPlatform.h" />
+    <ClInclude Include="ProceduralRoot.h" />
+    <ClInclude Include="ProceduralRoundedBoxGenerator.h" />
+    <ClInclude Include="ProceduralShape.h" />
+    <ClInclude Include="ProceduralShapeGenerators.h" />
+    <ClInclude Include="ProceduralSphereGenerator.h" />
+    <ClInclude Include="ProceduralSplines.h" />
+    <ClInclude Include="ProceduralStableHeaders.h" />
+    <ClInclude Include="ProceduralTorusGenerator.h" />
+    <ClInclude Include="ProceduralTorusKnotGenerator.h" />
+    <ClInclude Include="ProceduralTrack.h" />
+    <ClInclude Include="ProceduralTriangleBuffer.h" />
+    <ClInclude Include="ProceduralTriangulator.h" />
+    <ClInclude Include="ProceduralTubeGenerator.h" />
+    <ClInclude Include="ProceduralUtils.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +132,8 @@
     <ClCompile Include="fx_LaserCast.cpp" />
     <ClCompile Include="go.cpp" />
     <ClCompile Include="camera.cc" />
+    <ClCompile Include="init_bullets.cc" />
+    <ClCompile Include="init_laser.cc" />
     <ClCompile Include="inputs.cc" />
     <ClCompile Include="init_resources.cc" />
     <ClCompile Include="init_gorilla.cpp" />
@@ -114,14 +145,42 @@
     <ClCompile Include="game_items.cpp" />
     <ClCompile Include="Gorilla.cpp" />
     <ClCompile Include="dataloading.cpp" />
+    <ClCompile Include="interp.cpp" />
     <ClCompile Include="load_params.cc" />
     <ClCompile Include="gameloop.cc" />
     <ClCompile Include="OgreConsoleForGorilla.cpp" />
     <ClCompile Include="Ogrish_main.cpp" />
+    <ClCompile Include="ProceduralBoxGenerator.cpp" />
+    <ClCompile Include="ProceduralCapsuleGenerator.cpp" />
+    <ClCompile Include="ProceduralConeGenerator.cpp" />
+    <ClCompile Include="ProceduralCylinderGenerator.cpp" />
+    <ClCompile Include="ProceduralExtruder.cpp" />
+    <ClCompile Include="ProceduralGeometryHelpers.cpp" />
+    <ClCompile Include="ProceduralIcoSphereGenerator.cpp" />
+    <ClCompile Include="ProceduralLathe.cpp" />
+    <ClCompile Include="ProceduralMultiShape.cpp" />
+    <ClCompile Include="ProceduralPath.cpp" />
+    <ClCompile Include="ProceduralPathGenerators.cpp" />
+    <ClCompile Include="ProceduralPlaneGenerator.cpp" />
+    <ClCompile Include="ProceduralPrecompiledHeaders.cpp" />
+    <ClCompile Include="ProceduralRoot.cpp" />
+    <ClCompile Include="ProceduralRoundedBoxGenerator.cpp" />
+    <ClCompile Include="ProceduralShape.cpp" />
+    <ClCompile Include="ProceduralShapeGenerators.cpp" />
+    <ClCompile Include="ProceduralSphereGenerator.cpp" />
+    <ClCompile Include="ProceduralTorusGenerator.cpp" />
+    <ClCompile Include="ProceduralTorusKnotGenerator.cpp" />
+    <ClCompile Include="ProceduralTrack.cpp" />
+    <ClCompile Include="ProceduralTriangulator.cpp" />
+    <ClCompile Include="ProceduralTubeGenerator.cpp" />
+    <ClCompile Include="ProceduralUtils.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="update_bullets.cc" />
+    <ClCompile Include="update_laser.cc" />
+    <ClCompile Include="update_physics.cc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="conf\gameconf.cfg" />

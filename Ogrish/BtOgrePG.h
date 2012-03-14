@@ -13,10 +13,10 @@
  *
  * =====================================================================================
  */
-#include "stdafx.h"
 
 #ifndef _BtOgreGP_H_
 #define _BtOgreGP_H_
+#include "stdafx.h"
 
 #include "btBulletDynamicsCommon.h"
 #include "OgreSceneNode.h"

@@ -2,7 +2,7 @@
 
 void Application :: init_inputs()
 {
-	ParamList parameters;
+	OIS::ParamList parameters;
 	unsigned int windowHandle = 0;
 	ostringstream windowHandleString;
 	 window -> getCustomAttribute("WINDOW", & windowHandle);
@@ -22,11 +22,11 @@ void Application :: init_inputs()
 	parameters.insert(make_pair(string("XAutoRepeatOn"), 	string("true")));
 #endif
 /* ### Inputs Objects ################################################## */
-	 inputmanager = InputManager :: createInputSystem(parameters);
-	 keyboard = static_cast<Keyboard *>
-		( inputmanager -> createInputObject(OISKeyboard, true));
-	 mouse = static_cast<Mouse *>
-		( inputmanager -> createInputObject	(OISMouse, true));
+	 inputmanager = OIS::InputManager :: createInputSystem(parameters);
+	 keyboard = static_cast<OIS::Keyboard *>
+		(inputmanager -> createInputObject(OIS::OISKeyboard, true));
+	 mouse = static_cast<OIS::Mouse *>
+		(inputmanager -> createInputObject	(OIS::OISMouse, true));
 	 mouse -> setEventCallback(this);
 	 keyboard -> setEventCallback(this);
 
@@ -39,13 +39,15 @@ bool Application :: mouseMoved		(const OIS::MouseEvent &e)
 }
 bool Application :: mousePressed	(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
+	using namespace OIS;
 	if (MB_Left == id)
 		trigger_state = true;
 		//FirePull();
     return true;
 }
-bool Application :: mouseReleased	(const OIS::MouseEvent &e, OIS::MouseButtonID id) {
-	if (MB_Left == id)
+bool Application :: mouseReleased	(const OIS::MouseEvent &e, OIS::MouseButtonID id)
+{
+	using namespace OIS;	if (MB_Left == id)
 		trigger_state = false;
 		//FireRelease();
 	return true;
@@ -53,6 +55,7 @@ bool Application :: mouseReleased	(const OIS::MouseEvent &e, OIS::MouseButtonID 
 }
 bool Application :: keyPressed		(const OIS::KeyEvent &e)
 {
+	using namespace OIS;
 	switch(e.key)
 	{
 	case KC_ESCAPE: stop = true; break;
@@ -67,8 +70,8 @@ bool Application :: keyPressed		(const OIS::KeyEvent &e)
 	case KC_F4:
 //		mat->getTechnique(0)->getPass(0)->getTextureUnitState(0)
 //			->setColourOperationEx(Ogre::LBX_SOURCE1, Ogre::LBS_MANUAL, Ogre::LBS_CURRENT, colorval);	
-		mat->getTechnique(0)->getPass(0)->getTextureUnitState(0)
-			->setColourOperationEx(Ogre::LBX_SOURCE1,LBS_TEXTURE,LBS_CURRENT,colorval1,colorval2,0.5f);
+		//mat->getTechnique(0)->getPass(0)->getTextureUnitState(0)
+		//	->setColourOperationEx(Ogre::LBX_SOURCE1,LBS_TEXTURE,LBS_CURRENT,colorval1,colorval2);
 				break;
 	case KC_LEFT: case KC_A:					translate2.x -=  1.f; break;
 	case KC_RIGHT: case KC_D:					translate2.x +=  1.f; break;
@@ -94,6 +97,7 @@ bool Application :: keyPressed		(const OIS::KeyEvent &e)
 }
 bool Application :: keyReleased	(const OIS::KeyEvent &e)
 {
+	using namespace OIS;
 	//Ogre :: Vector3 translate(0, 0, 0);
 	switch(e.key)
 	{

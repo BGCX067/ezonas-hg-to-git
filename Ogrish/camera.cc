@@ -18,24 +18,26 @@ void Application :: setCameraMode	(int mode)
 	*/
 	if(mode == camera_mode) return;
 
-	n_master -> detachAllObjects(); n_master -> removeAllChildren();
-	n_target -> detachAllObjects(); n_target -> removeAllChildren();
-	n_cam	 -> detachAllObjects();	n_cam	 -> removeAllChildren();
+	n_master -> detachAllObjects();		n_master -> removeAllChildren();
+	n_target -> detachAllObjects();		n_target -> removeAllChildren();
+	n_cam	 -> detachAllObjects();		n_cam	 -> removeAllChildren();
+	n_recoil -> detachAllObjects();	    n_recoil -> removeAllChildren();
 	camera_mode = mode;
 
 	REINIT (n_cam)
 	REINIT (n_master)
 	REINIT (camera)
 	REINIT (n_target)
+	REINIT (n_recoil)
 	switch (mode)
 	{
 	case 1:
-	case 2:
 		/////////////////////
-		n_master -> addChild	(n_cam);
+		n_master -> addChild(n_cam);
+		n_cam -> addChild(n_recoil);
 		n_master -> addChild(n_target); /////// MEH
 
-		n_cam	 -> attachObject(camera);
+		n_recoil	 -> attachObject(camera);
 		/////////////////////
 		n_target->setFixedYawAxis(false);
 		n_yawpitch_ptr = n_cam;

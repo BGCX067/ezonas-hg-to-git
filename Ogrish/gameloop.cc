@@ -15,121 +15,33 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 	mouse -> capture();
 
 	n_master -> translate
-	(n_yawpitch_ptr -> getOrientation() * translate * moving_speed * timeSinceLastFrame);
+		(n_yawpitch_ptr -> getOrientation() * translate * moving_speed * timeSinceLastFrame);
 	assert(translate.length() <= 1.0f);
 	update_physics();
 	update_bullets();
+	update_laser();
 #ifdef LASERCAST
 	lasercast->update();
 #endif
+	calculate_recoil();
+	
+	n_recoil->setOrientation(0.770151153f * Math::Cos(recoil_pitch*.5f),
+		0.770151153f * Math::Sin(recoil_pitch*.5f),0,0);
+		
 	return ! stop;
 }
-void Application :: update_physics()
+
+void Application :: calculate_recoil()
 {
-	// mirror Node position with collision objects
-	size_t sz = Nodes.size();
-	assert(colw->getCollisionObjectArray().size() == Nodes.size());
-	for(size_t i = 0; i < sz; ++ i)
+	recoil_pitch = 0.0f;
+	FOR(32)
 	{
-		// temp = Nodes[i]->getPosition();
-		temp = Nodes[i]->_getDerivedPosition();
-		colw->getCollisionObjectArray()[i]->
-			getWorldTransform().setOrigin(btVector3(temp.x, temp.y, temp.z));
-		Nodes[i]->showBoundingBox(false);
-	}
-	
-	// setting ray to camera orientation
-	temp = camera -> getRealPosition();// + camera ->getRealDirection()*10.0f;
-	temp1 = (camera ->getRealDirection() - temp);//*10000.0f;
-
-	raycallback.m_rayFromWorld = btVector3(temp.x,temp.x,temp.x);
-	raycallback.m_rayToWorld = btVector3(temp1.x,temp1.y,temp1.z);
-	colw -> rayTest
-		(raycallback.m_rayFromWorld, raycallback.m_rayToWorld, raycallback);
-	if(raycallback.hasHit())
-	{
-		bttemp = raycallback.m_hitPointWorld;
-		n_laserdot -> setPosition(Vec3(bttemp.x(),bttemp.y(),bttemp.z()));
-	}
-	colw->performDiscreteCollisionDetection();
-	
-
-	// perform collision detection and retrieve collision results
-	//update_laser(Vec3(bttemp.x(),bttemp.y(),bttemp.z()));
-
-	size_t num = dispatcher->getNumManifolds();
-	for(size_t i = 0; i < num; ++i)
-	{
-		//PRINTLOG("collision detected ! "+TO_STR(i));
-		btPersistentManifold* contactManifold = 
-			colw -> getDispatcher() -> getManifoldByIndexInternal(i);
-
-		static_cast<SceneNode*>
-			(static_cast<btCollisionObject*>
-				(contactManifold -> getBody0())
-					-> getUserPointer())
-						-> showBoundingBox(true);
-		static_cast<SceneNode*>
-			(static_cast<btCollisionObject*>
-				(contactManifold -> getBody1())
-					-> getUserPointer())
-						-> showBoundingBox(true);
-
+		if(time_buffer[i] >= 0.0f) time_buffer[i] += timeSinceLastFrame * 0.5f;
+		if(time_buffer[i] > 1.f) time_buffer[i] = -1.f; // trick: "disables" this time buffer
+		if(time_buffer[i] > 0.f) recoil_pitch += recoil(time_buffer[i]);
 	}
 }
-void Application :: update_laser()
-{
-	//bb_beam -> updateChainElement
-	//	(0, 0, BillboardChain :: Element
-	//		(result, laser_width, 0, ColourValue()));
-	//bb_beam -> updateChainElement
-	//	(0, 1, BillboardChain :: Element
-	//	(camera -> getRealPosition() + Vec3(0,2,0), laser_width, 0, ColourValue()));
 
-	// last_entity, current_entity;
-	//if (ent_check == last_entity);
-	//else
-	//{
-	//	//static_cast<SceneNode*>(last_entity->getParentNode())->showBoundingBox(false);
-	//	//static_cast<SceneNode*>(ent_check->getParentNode())->showBoundingBox(true);
-	//	//last_entity = ent_check;
-	//}
-}
-void Application :: update_bullets()
-{
-	FOR(BULLET_MAX)
-		n_bullet[i] -> translate(0, 0, -  timeSinceLastFrame * bullet_speed, Ogre :: Node :: TS_LOCAL);
-	time_stack += timeSinceLastFrame;
-	if (time_stack > fire_delay)
-	{
-		time_stack = 0.0f;
-		was_fired = false;
-	}
-	if(trigger_state && !was_fired)
-		Fire();
-	
-	// bullet raycast
-	/* todo
-	ray_start = camera ->getDerivedPosition();
-	ray_end = ray_start + camera ->getDerivedDirection();
-
-	arg_start = btVector3(ray_start.x, ray_start.y, ray_start.z);
-	arg_end = btVector3(ray_end.x, ray_end.y, ray_end.z);
-	// btCollisionWorld :: ClosestRayResultCallback RayCallback(arg_start, arg_end);
-	// Perform raycast
- 
-	if(callbacks[nextbullet].hasHit())
-	{
-		//End = RayCallback.m_hitPointWorld;
-		//Normal = RayCallback.m_hitNormalWorld;
-		// Do some clever stuff here
-	}
-	collisionWorld->rayTest(arg_start, arg_end, callbacks[nextbullet]);
-	*/
-
-	//if(was_fired == true)
-	//{
-}
 void Application :: Fire()
 {
 	if (!was_fired)
@@ -140,16 +52,19 @@ void Application :: Fire()
 		++nextbullet;
 		nextbullet %= BULLET_MAX;
 		was_fired = true;
+		time_buffer[current_recoil] = 0.0f; // "enables" time buffer
+		//recoils[(current_recoil + 1)%32] = 0.f;
+		++current_recoil;
+		current_recoil %= 32;
 	}
 }
-void Application :: FirePull() {} void Application :: FireRelease() {}
 void Application :: diagnose()
 {
-	//PRINTLOG(str_vect(n_laserdot->getPosition()));
-	PRINTLOG(str_vect(camera->getRealDirection()));
-	//PRINTLOG(str_vect(camera->getRealDirection()));
+	LOGMSG("----- diagnose start -----");
+	for(auto iter = diagnose_vect.begin(); iter!=diagnose_vect.end(); ++iter)
+		LOGMSG(iter->first + " = " +str_vect(iter->second));
+	LOGMSG("----- diagnose end -----");
 }
-
 void Application :: moveTo(ushort idx, Vec3 dest, float speed)
 {
 	if(idx < Nodes.size())
