@@ -1,23 +1,32 @@
 #include "stdafx.h"
 void Application :: init_bullets()
 {
-	bullet_speed = GetFloat("bullet_speed");
-	nextbullet	 = 0;
-	was_fired	 = false;
-	trigger_state= false;
-	time_stack	 = 0;
-	fire_delay	 = GetFloat("fire_delay");
-	offset_x	 = GetFloat("offset_x");
-	offset_y	 = GetFloat("offset_y");
-	
+	float trace_width			= GetFloat("trace_width");
+	float trace_length			= GetFloat("trace_length");
+	bullet_speed				= GetFloat("bullet_speed");
+	fire_delay					= GetFloat("fire_delay");
+	offset_x					= GetFloat("offset_x");
+	offset_y					= GetFloat("offset_y");
+	factor						= GetFloat("factor");
+	quickness					= GetFloat("quickness");
+	nextbullet					= 0u;
+	current_recoil				= 0u;
+	next_bullet_ready			= false;
+	trigger_state				= false;
+	time_stack					= 0.0f;
+
+	recoil_yaw					= 0.0f;
+	recoil_pitch				= 0.0f;
+	time_since_last_shot		= 0.0f;
+	FOR(32) time_buffer[i]		= 0.0f;
+	FOR(32) quickness[i]		= quickness;
+	FOR(32)
+		time_buffer_enable[i]	= false;
+
 	n_bullet	.resize(BULLET_MAX);
 	bb_dot		.resize(BULLET_MAX);
 	bb_trace	.resize(BULLET_MAX);
 	callbacks	.resize(BULLET_MAX);
-
-	float trace_width	 = GetFloat("trace_width");
-	float trace_length = GetFloat("trace_length");
-
 	
 	FOR(BULLET_MAX)
 	{

@@ -1,14 +1,17 @@
 #include "stdafx.h"
 
-
-
 float Application :: smoothstep(float x) {assert(x <= 1.0f && x >= 0.0f); return 3.f*x*x - 2.f*x*x*x; }
 float Application :: smoothstep2(float x, float from, float to) { return smoothstep(x)*(from - to) + to; }
 float Application :: smoothstep_fast(float x) { return smoothstep(smoothstep(x)); }
 float Application :: weight_avg(float x, float goal, float slowdown)
 { return ((x * (slowdown - 1)) + goal) / slowdown; }
+
 float Application :: recoil(float x)
-{ return recoil_factor * recoil_c * x * exp(1.f - recoil_c * x); }
+{
+	return rcl_factor
+		* rcl_q * x
+		* exp(1.f - rcl_q * x);
+}
 
 
 /*

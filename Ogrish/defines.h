@@ -1,4 +1,4 @@
-#define BULLET_MAX 8
+#define BULLET_MAX 32
 
 #define REINIT(node) { node -> setPosition(0,0,0); node->setOrientation(Quaternion()); }
 

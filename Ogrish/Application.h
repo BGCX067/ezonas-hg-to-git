@@ -42,6 +42,9 @@ struct Application:
 	// ####### various functions #######
 	void setCameraMode(int mode);
 	void Fire();
+	void trigger_pull();
+	void trigger_release();
+
 	void calculate_recoil();
 	void update_bullets();
 	void update_laser();
@@ -126,33 +129,62 @@ struct Application:
 	// ####### custom #######
 	game_machine * machine;
 	LaserCast * lasercast;
-	// ####### camera system #######
 	int camera_mode;
-	uchar recoil_shot_acc, current_recoil;
-	float moving_speed, rotating_speed,
+	uchar
+		recoil_shot_acc,
+		current_recoil,
+		nextbullet,
+		auto_shots_fired
+		;
+	float
+		moving_speed,
+		rotating_speed,
 		timeSinceLastFrame,
 		laser_width,
-		recoil_yaw, recoil_pitch,
-		recoil_yaw_factor, recoil_pitch_factor,
-		recoil_factor, recoil_c,
-		recoil_threshold,
-		time_buffer[32]
+		bullet_speed,
+		time_stack,
+		fire_delay,
+		offset_x, offset_y,
+	
+		// recoil
+		recoil_pitch, recoil_yaw,
+		factor,
+		quickness,					
+		time_shot_event,
+		time_since_last_shot,
+		time_buffer[32],
+		quickness[32]
 		;
-	bool stop;
-	Vec3 offset;
-	Vec3 translate, translate2;
+	bool
+		stop,
+		time_buffer_enable[32],
+		next_bullet_ready,
+		trigger_pulled;
+	Vec3
+		offset,
+		ray_start,
+		ray_end,
+		translate,
+		translate2;
+	btVector3 arg_start, arg_end;
 	Quaternion rotate;
-	Entity * e_target;
+	Entity
+		* e_target,
+		* entplane,
+		* ent_check,
+		* last_entity,
+		* current_entity;
 
 	SceneNode
 		* n_root	,
-		* n_master  ,	 // those 3 in this exact order
-		* n_target	,	 // those 3 in this exact order
-		* n_cam		,	 // those 3 in this exact order
+		* n_master  ,	 
+		* n_target	,	 
+		* n_cam		,	 
 		* n_yawpitch_ptr, // this node will serve as a pointer to switch between 1st/rd person cam
-		* n_recoil;
-	// etc
-	Entity * entplane;//, * last_entity_raycast, * current_ent_raycast;
+		* n_recoil,
+		* n_laserdot,
+		* n_laserbeam;
+
 	MaterialPtr mat;
 	ColourValue colorval1;
 	ColourValue colorval2;
@@ -160,40 +192,21 @@ struct Application:
 	// ####### bullets #######
 	BillboardChainFactory bbchfact;
 	BillboardChain * MakeABullet(string);
-	ushort nextbullet;
-	float bullet_speed,
-		time_stack, fire_delay,
-		offset_x, offset_y;
-	Vec3 ray_start, ray_end;
-	btVector3 arg_start, arg_end;
-	bool was_fired, trigger_state;
-	BillboardChain * bb_trace_model;
-	Entity
-		* ent_check,
-		* last_entity,
-		* current_entity;
-	//#ifdef USE_ARRAYS
-	//	SceneNode * n_bullet [BULLET_MAX];
-	//	BillboardSet * bb_dot[BULLET_MAX];
-	//	BillboardChain * bb_trace[BULLET_MAX];
-	//	btCollisionWorld :: ClosestRayResultCallback raycast_callback[BULLET_MAX];
-	//#endif
+	BillboardSet * bb_laserdot;
+	Billboard * bboard;
+	BillboardChain
+		* bb_beam,
+		* bb_trace_model;
+
 	std::vector<SceneNode *		>	n_bullet ;
 	std::vector<BillboardSet *	>	bb_dot	 ;
 	std::vector<BillboardChain *>	bb_trace;
 	std::vector<bullet_raycast>		callbacks;
-	// ####### laser #######
-	SceneNode
-		* n_laserdot,
-		* n_laserbeam;
-		Ray ray_cam;
+
+	Ray ray_cam;
 	RaySceneQuery * RSQ;
 	RaySceneQueryResult RSQR;
-	BillboardSet * bb_laserdot;
-	Billboard * bboard;
-	BillboardChain * bb_beam;
 
-	// debugging
 	std::map<std::string, Vec3> diagnose_vect;
 };
 

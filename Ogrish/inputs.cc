@@ -40,18 +40,14 @@ bool Application :: mouseMoved		(const OIS::MouseEvent &e)
 bool Application :: mousePressed	(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
 	using namespace OIS;
-	if (MB_Left == id)
-		trigger_state = true;
-		//FirePull();
+	if (MB_Left == id) trigger_pull();
     return true;
 }
 bool Application :: mouseReleased	(const OIS::MouseEvent &e, OIS::MouseButtonID id)
 {
-	using namespace OIS;	if (MB_Left == id)
-		trigger_state = false;
-		//FireRelease();
+	using namespace OIS;
+	if (MB_Left == id) trigger_release();
 	return true;
-
 }
 bool Application :: keyPressed		(const OIS::KeyEvent &e)
 {

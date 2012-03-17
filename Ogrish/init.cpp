@@ -81,17 +81,7 @@ void Application :: init()
 	moving_speed		= GetFloat ("moving_speed");
 	stop				= false;
 	offset				= GetVect3("offset");
-	recoil_yaw			= 0.0f;
-	recoil_pitch		= 0.0f;
-	recoil_yaw_factor	= GetFloat ("recoil_yaw_factor");
-	recoil_pitch_factor	= GetFloat ("recoil_pitch_factor");
-	recoil_factor		= GetFloat ("recoil_factor");
-	recoil_c			= GetFloat ("recoil_c");
-	recoil_threshold	= recoil_factor * GetFloat ("recoil_threshold_factor");
-	recoil_shot_acc		= 1;
-	current_recoil		= 0;
-	FOR(32)
-		 time_buffer[i] = -1.f; // buffers "disabled"
+
 	LOGMSG("-------- misc ogre parameters --------"); 
 	window -> reposition(20, 20);
 	viewport -> setBackgroundColour(ColourValue(0.1f, 0.1f, 0.1f));
