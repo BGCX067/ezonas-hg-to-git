@@ -18,15 +18,14 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 		(n_yawpitch_ptr -> getOrientation() * translate * moving_speed * timeSinceLastFrame);
 	assert(translate.length() <= 1.0f);
 	update_physics();
-	calculate_recoil();
-	n_recoil->setOrientation(0.770151153f * Math::Cos(rcl_pitch*.5f),
+	update_recoil();
+	n_recoil->setOrientation(0.770151153f * Math::Cos(recoil_pitch*.5f),
 		0.770151153f * Math::Sin(recoil_pitch*.5f),0,0);
 	update_bullets();
 	update_laser();
 		
 	return ! stop;
 }
-
 void Application :: diagnose()
 {
 	LOGMSG("----- diagnose start -----");

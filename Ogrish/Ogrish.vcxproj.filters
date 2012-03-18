@@ -326,7 +326,7 @@
     <ClCompile Include="BtOgre.cpp">
       <Filter>btogre</Filter>
     </ClCompile>
-    <ClCompile Include="interp.cpp">
+    <ClCompile Include="update_recoil.cc">
       <Filter>loop</Filter>
     </ClCompile>
   </ItemGroup>

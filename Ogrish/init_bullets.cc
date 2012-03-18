@@ -8,18 +8,18 @@ void Application :: init_bullets()
 	offset_x					= GetFloat("offset_x");
 	offset_y					= GetFloat("offset_y");
 	factor						= GetFloat("factor");
-	quickness					= GetFloat("quickness");
+	quickness_const				= GetFloat("quickness");
 	nextbullet					= 0u;
 	current_recoil				= 0u;
 	next_bullet_ready			= false;
-	trigger_state				= false;
+	trigger_pulled				= false;
 	time_stack					= 0.0f;
-
+	previous_fading_recoil		= 0.0f;
 	recoil_yaw					= 0.0f;
 	recoil_pitch				= 0.0f;
 	time_since_last_shot		= 0.0f;
 	FOR(32) time_buffer[i]		= 0.0f;
-	FOR(32) quickness[i]		= quickness;
+	FOR(32) quickness[i]		= quickness_const;
 	FOR(32)
 		time_buffer_enable[i]	= false;
 

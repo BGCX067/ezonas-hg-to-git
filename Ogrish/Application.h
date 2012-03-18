@@ -33,6 +33,7 @@ struct Application:
 
 	// ####### math/interp functions #######
 	float recoil(float);
+	void recoil_event();
 	float smoothstep(float x);
 	float smoothstep2(float,float,float);
 	float smoothstep_fast(float x);
@@ -45,7 +46,7 @@ struct Application:
 	void trigger_pull();
 	void trigger_release();
 
-	void calculate_recoil();
+	void update_recoil();
 	void update_bullets();
 	void update_laser();
 	void diagnose();
@@ -149,11 +150,14 @@ struct Application:
 		// recoil
 		recoil_pitch, recoil_yaw,
 		factor,
-		quickness,					
+		quickness_const,		
 		time_shot_event,
 		time_since_last_shot,
 		time_buffer[32],
-		quickness[32]
+		quickness[32],
+		time_between_shots,
+		previous_fading_recoil
+		
 		;
 	bool
 		stop,

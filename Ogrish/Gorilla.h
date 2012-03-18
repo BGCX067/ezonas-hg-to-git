@@ -32,10 +32,7 @@
 #ifndef GORILLA_H
 #define GORILLA_H
 
-// #include "OGRE/Ogre.h"
 #include "stdafx.h"
-
-
 #ifndef GORILLA_USES_EXCEPTIONS
 #  define GORILLA_USES_EXCEPTIONS 0
 #endif

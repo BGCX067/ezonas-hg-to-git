@@ -145,7 +145,7 @@
     <ClCompile Include="game_items.cpp" />
     <ClCompile Include="Gorilla.cpp" />
     <ClCompile Include="dataloading.cpp" />
-    <ClCompile Include="interp.cpp" />
+    <ClCompile Include="update_recoil.cc" />
     <ClCompile Include="load_params.cc" />
     <ClCompile Include="gameloop.cc" />
     <ClCompile Include="OgreConsoleForGorilla.cpp" />

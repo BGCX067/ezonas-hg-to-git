@@ -23,13 +23,9 @@
 
 #include "stdafx.h"
 
-//#include "Ogre.h"
-//#include "OIS.h"
-//#include "Gorilla.h"
-
 typedef void (*OgreConsoleFunctionPtr)(Ogre::StringVector&);
 
-struct OgreConsole : public Ogre::Singleton<OgreConsole>, Ogre::FrameListener, Ogre::LogListener
+class OgreConsole : public Ogre::Singleton<OgreConsole>, Ogre::FrameListener, Ogre::LogListener
 {
     
  public:
@@ -40,6 +36,7 @@ struct OgreConsole : public Ogre::Singleton<OgreConsole>, Ogre::FrameListener, O
     
     void   init(Gorilla::Screen* screen_to_use);
     void   shutdown();
+    
     void   setVisible(bool mIsVisible);
     bool   isVisible(){return mIsVisible;}
     
@@ -81,6 +78,8 @@ struct OgreConsole : public Ogre::Singleton<OgreConsole>, Ogre::FrameListener, O
     std::list<Ogre::String>      lines;
     Ogre::String            prompt;
     std::map<Ogre::String, OgreConsoleFunctionPtr>  commands;
+ 
+ 
 };
 
 
