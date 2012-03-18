@@ -14,6 +14,7 @@
     <ProjectGuid>{5948D889-0A6C-474C-831C-91D9AF86AADF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Ogrish</RootNamespace>
+    <ProjectName>zevil</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -122,6 +123,7 @@
     <ClInclude Include="ProceduralTriangulator.h" />
     <ClInclude Include="ProceduralTubeGenerator.h" />
     <ClInclude Include="ProceduralUtils.h" />
+    <ClInclude Include="recoil.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -145,7 +147,6 @@
     <ClCompile Include="game_items.cpp" />
     <ClCompile Include="Gorilla.cpp" />
     <ClCompile Include="dataloading.cpp" />
-    <ClCompile Include="update_recoil.cc" />
     <ClCompile Include="load_params.cc" />
     <ClCompile Include="gameloop.cc" />
     <ClCompile Include="OgreConsoleForGorilla.cpp" />

@@ -18,10 +18,10 @@ bool Application :: frameRenderingQueued(const FrameEvent & evt)
 		(n_yawpitch_ptr -> getOrientation() * translate * moving_speed * timeSinceLastFrame);
 	assert(translate.length() <= 1.0f);
 	update_physics();
-	update_recoil();
-	n_recoil->setOrientation(0.770151153f * Math::Cos(recoil_pitch*.5f),
-		0.770151153f * Math::Sin(recoil_pitch*.5f),0,0);
 	update_bullets();
+	n_recoil->setOrientation(
+		0.770151153f * Math::Cos(recoil_pitch*.5f),
+		0.770151153f * Math::Sin(recoil_pitch*.5f),0,0);
 	update_laser();
 		
 	return ! stop;
@@ -31,6 +31,8 @@ void Application :: diagnose()
 	LOGMSG("----- diagnose start -----");
 	for(auto iter = diagnose_vect.begin(); iter!=diagnose_vect.end(); ++iter)
 		LOGMSG(iter->first + " = " +str_vect(iter->second));
+	for(auto iter = diagnose_float.begin(); iter!=diagnose_float.end(); ++iter)
+		LOGMSG(iter->first + " = " +TO_STR(iter->second));
 	LOGMSG("----- diagnose end -----");
 }
 void Application :: moveTo(ushort idx, Vec3 dest, float speed)

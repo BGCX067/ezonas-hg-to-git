@@ -42,7 +42,7 @@ struct Application:
 
 	// ####### various functions #######
 	void setCameraMode(int mode);
-	void Fire();
+	void fire_trace();
 	void trigger_pull();
 	void trigger_release();
 
@@ -149,20 +149,20 @@ struct Application:
 	
 		// recoil
 		recoil_pitch, recoil_yaw,
-		factor,
-		quickness_const,		
+		kickback,
+		recoil_cap,
+		cooldown_step;
+		/*quickness_const,		
 		time_shot_event,
 		time_since_last_shot,
 		time_buffer[32],
 		quickness[32],
 		time_between_shots,
-		previous_fading_recoil
+		previous_fading_recoil*/
 		
-		;
 	bool
 		stop,
-		time_buffer_enable[32],
-		next_bullet_ready,
+		//time_buffer_enable[32],
 		trigger_pulled;
 	Vec3
 		offset,
@@ -212,5 +212,6 @@ struct Application:
 	RaySceneQueryResult RSQR;
 
 	std::map<std::string, Vec3> diagnose_vect;
+	std::map<std::string, float> diagnose_float;
 };
 

@@ -1,23 +1,18 @@
 #include "stdafx.h"
 
-#define N_BUFFERS 32
-void Application :: update_recoil()
-{
-	if(trigger_pulled && time_buffer[current_recoil] > fire_delay)
-	// update time buffers
-	FOR(N_BUFFERS)
-		if(time_buffer_enable[i])
-		{
-			time_buffer[i] += timeSinceLastFrame * quickness[i];
-			if(time_buffer[i] > 1.0f)
-				time_buffer_enable[i] = false;
-		}
 
-	recoil_pitch = 0.0f;
-	// calculate actual recoil
-	FOR(N_BUFFERS)
-		if(time_buffer_enable[i])
-			recoil_pitch += recoil(time_buffer[i]);
+float Application :: smoothstep(float x) {assert(x <= 1.0f && x >= 0.0f); return 3.f*x*x - 2.f*x*x*x; }
+float Application :: smoothstep2(float x, float from, float to) { return smoothstep(x)*(from - to) + to; }
+float Application :: smoothstep_fast(float x) { return smoothstep(smoothstep(x)); }
+float Application :: weight_avg(float x, float goal, float slowdown)
+{ return ((x * (slowdown - 1)) + goal) / slowdown; }
+
+/*
+float Application :: recoil(float x)
+{
+	return 
+		quickness_const * x
+		* exp(1.f - quickness_const * x);
 }
 void Application :: recoil_event()
 {
@@ -27,23 +22,30 @@ void Application :: recoil_event()
 	previous_fading_recoil = recoil_pitch;
 
 	time_buffer_enable[current_recoil] = true;
-	time_buffer[current_recoil] = 0.0f;
-	++current_recoil; current_recoil %= N_BUFFERS;	
+	++current_recoil; current_recoil %= N_BUFFERS;
 }
-float Application :: recoil(float x)
+void Application :: update_recoil2()
 {
-	return 
-		quickness_const * x
-		* exp(1.f - quickness_const * x);
+	//if(trigger_pulled && time_buffer[current_recoil] > fire_delay)
+	// update time buffers
+	FOR(N_BUFFERS)
+		if(time_buffer_enable[i])
+		{
+			time_buffer[i] += timeSinceLastFrame;// * quickness[i];
+			if(time_buffer[i] > 1.0f)
+			{
+				time_buffer_enable[i] = false;
+				time_buffer[i] = 0.0f;
+			}
+		}
+
+	recoil_pitch = 0.0f;
+	// calculate actual recoil
+	FOR(N_BUFFERS)
+		if(time_buffer_enable[i])
+			recoil_pitch += factor * recoil(time_buffer[i]);
 }
-
-float Application :: smoothstep(float x) {assert(x <= 1.0f && x >= 0.0f); return 3.f*x*x - 2.f*x*x*x; }
-float Application :: smoothstep2(float x, float from, float to) { return smoothstep(x)*(from - to) + to; }
-float Application :: smoothstep_fast(float x) { return smoothstep(smoothstep(x)); }
-float Application :: weight_avg(float x, float goal, float slowdown)
-{ return ((x * (slowdown - 1)) + goal) / slowdown; }
-
-
+*/
 
 /*
 First method

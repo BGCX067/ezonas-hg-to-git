@@ -172,6 +172,7 @@
     <ClInclude Include="BtOgreExtras.h">
       <Filter>btogre</Filter>
     </ClInclude>
+    <ClInclude Include="recoil.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OgreConsoleForGorilla.cpp">
@@ -325,9 +326,6 @@
     </ClCompile>
     <ClCompile Include="BtOgre.cpp">
       <Filter>btogre</Filter>
-    </ClCompile>
-    <ClCompile Include="update_recoil.cc">
-      <Filter>loop</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

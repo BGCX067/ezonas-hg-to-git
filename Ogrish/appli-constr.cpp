@@ -3,7 +3,8 @@
 Application :: Application():
 	FrameListener(),
 	raycallback(btVector3(0,0,0),btVector3(0,0,0)),
-	diagnose_vect()
+	diagnose_vect(),
+	diagnose_float()
 {
 	configfile = new ConfigFile;
 	/* initializing all objects */
