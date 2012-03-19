@@ -6,6 +6,7 @@ struct Application:
 	public OIS::KeyListener,
 	public OIS::MouseListener
 {
+#ifndef _________METHODS_________
 	///////////////////////////////////////////////////////////////////////////
 	///////////////////////////////// METHODS /////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
@@ -83,7 +84,8 @@ struct Application:
 	static string str_quat(Quaternion q)
 	{ return TO_STR(q.w)+" "+TO_STR(q.x)+" "+TO_STR(q.y)+" "+TO_STR(q.z); }
 
-
+#endif
+#ifndef _________DATA_________
 	///////////////////////////////////////////////////////////////////////////
 	/////////////////////////////////// DATA //////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
@@ -95,6 +97,7 @@ struct Application:
     Viewport 		* viewport;
 	ConfigFile 		* configfile;
 
+	std::vector<void *> delete_it;
 	// ####### bullet physics #######
     btBroadphaseInterface			* broadphase;
     btDefaultCollisionConfiguration	* collisionConfig;
@@ -103,6 +106,11 @@ struct Application:
 	//btCharacterControllerInterface * char_ctrl;
 	BtOgre::StaticMeshToShapeConverter * mesh2shape;
 	btCollisionWorld::ClosestRayResultCallback raycallback;
+
+	Ogre::Entity			* e_ground;
+	btRigidBody				* body_ground;
+	btCollisionShape		* shape_ground;
+	btDefaultMotionState	* state_ground;
 
 	Vec3 from, to;
 	btVector3 btfrom, btto;
@@ -213,5 +221,6 @@ struct Application:
 
 	std::map<std::string, Vec3> diagnose_vect;
 	std::map<std::string, float> diagnose_float;
+#endif
 };
 

@@ -105,11 +105,25 @@ void			Application :: loadlist()
 	for(size_t i = 0; i < strs.size(); ++i)
 		LoadEntity(strs[i]);
 }
-
 void			Application :: loadlevel(string level)
 {
-	n_root->createChildSceneNode()
-		->attachObject(scmgr->createEntity(GetString(level)));
+	n_root->createChildSceneNode()->attachObject(e_ground);
+		
+	e_ground = scmgr->createEntity(GetString(level));
+	mesh2shape = new BtOgre::StaticMeshToShapeConverter(e_ground);
+	shape_ground = mesh2shape -> createTrimesh();
+
+	state_ground = new btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),btVector3(0,0,0)));
+	body_ground = new btRigidBody(btScalar(0), state_ground, shape_ground, btVector3(0,0,0));
+
+
+	delete_it.push_back(mesh2shape);
+	delete_it.push_back(shape_ground);
+	delete_it.push_back(state_ground);
+	delete_it.push_back(body_ground);
+
+	//colw -> addCollisionObject(body_ground);
+	//colw -> addRigidBody(body_ground);
 }
 SceneNode *		Application :: AddLight(string _s)
 {

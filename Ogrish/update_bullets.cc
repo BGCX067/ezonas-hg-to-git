@@ -27,17 +27,8 @@ void Application :: update_bullets()
 	if(recoil_pitch > 0.0f)
 		recoil_pitch -= cooldown_step;
 }
-void Application :: trigger_pull()
-{
-	fire_trace();
-	trigger_pulled = true;
-}
-void Application :: trigger_release()
-{
-	trigger_pulled = false;
-}
-
-
+void Application :: trigger_pull() { fire_trace(); trigger_pulled = true; }
+void Application :: trigger_release() { trigger_pulled = false; }
 /*
 //// rest of update bullet
 

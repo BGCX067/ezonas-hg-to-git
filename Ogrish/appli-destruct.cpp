@@ -11,9 +11,11 @@ Application :: ~ Application()
 	delete mGorilla;
 	delete machine;
 
-	 inputmanager -> destroyInputObject( mouse);
-	 inputmanager -> destroyInputObject( keyboard);
-	OIS::InputManager :: destroyInputSystem( inputmanager);
+	for(auto i = delete_it.begin(); i != delete_it.end(); ++i)
+		delete *i;
+	inputmanager -> destroyInputObject(mouse);
+	inputmanager -> destroyInputObject(keyboard);
+	OIS::InputManager :: destroyInputSystem(inputmanager);
 
 	// bullet
 	size_t sz = colw->getCollisionObjectArray().size();
