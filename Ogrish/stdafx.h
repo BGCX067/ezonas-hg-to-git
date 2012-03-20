@@ -20,6 +20,7 @@
 #endif
 
 #include <cmath>
+#include "yaml-cpp\yaml.h"
 //#define LASERCAST
 typedef Ogre::Vector3 Vec3;
 typedef Ogre::Vector2 Vec2;

@@ -3,7 +3,7 @@ void Application :: update_physics()
 {
 	// mirror Node position with collision objects
 	size_t sz = Nodes.size();
-	assert(colw->getCollisionObjectArray().size() == Nodes.size());
+	//assert(colw->getCollisionObjectArray().size() == Nodes.size());
 	for(size_t i = 0; i < sz; ++ i)
 	{
 		colw->getCollisionObjectArray()[i]-> getWorldTransform()
@@ -13,8 +13,9 @@ void Application :: update_physics()
 
 	// perform collision detection and retrieve collision results
 	colw->performDiscreteCollisionDetection();
-
-	size_t num = dispatcher->getNumManifolds();
+	col_dgb->step();
+	colw->debugDrawWorld();
+	/*size_t num = dispatcher->getNumManifolds();
 	for(size_t i = 0; i < num; ++i)
 	{
 		btPersistentManifold* contactManifold = 
@@ -31,6 +32,6 @@ void Application :: update_physics()
 					-> getUserPointer())
 						-> showBoundingBox(true);
 
-	}
+	}*/
 
 }

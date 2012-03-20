@@ -98,6 +98,11 @@ void Application :: init()
 	LOGMSG("-----------------------------------------------------------------");
 	LOGMSG("        FINISHED INITIALIZING OGRE3D; begginning gameloop        ");
 	LOGMSG("-----------------------------------------------------------------");
+
+	YAML::Node doc;    // let's say we've already parsed this document
+	std::string scalar;
+	doc >> scalar;
+	std::cout << "That scalar was: " << scalar << std::endl;
 }
 
 

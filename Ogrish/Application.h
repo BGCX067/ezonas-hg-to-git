@@ -98,7 +98,9 @@ struct Application:
 	ConfigFile 		* configfile;
 
 	std::vector<void *> delete_it;
+	// ------------------------------
 	// ####### bullet physics #######
+	// ------------------------------
     btBroadphaseInterface			* broadphase;
     btDefaultCollisionConfiguration	* collisionConfig;
     btCollisionDispatcher			* dispatcher;
@@ -106,17 +108,17 @@ struct Application:
 	//btCharacterControllerInterface * char_ctrl;
 	BtOgre::StaticMeshToShapeConverter * mesh2shape;
 	btCollisionWorld::ClosestRayResultCallback raycallback;
-
-	Ogre::Entity			* e_ground;
-	btRigidBody				* body_ground;
-	btCollisionShape		* shape_ground;
-	btDefaultMotionState	* state_ground;
+	BtOgre::DebugCollisionDrawer * col_dgb;
+	
+	Ogre::Entity		 * e_ground;
 
 	Vec3 from, to;
 	btVector3 btfrom, btto;
 	btSphereShape * sphere;
 
+	// ------------------------------
 	// ####### gorilla (GUI) #######
+	// ------------------------------
 	Gorilla :: Silverback	* mGorilla;
 	Gorilla :: Screen		* gor_screen;
 	Gorilla :: Rectangle	* gor_rect;
@@ -130,12 +132,16 @@ struct Application:
 	std::vector<Vec3> velocities;
 	std::vector<bool> isMoving;
 	std::vector<bool> hasCollided;
+	// ------------------------------
 	// ####### OIS #######
+	// ------------------------------
 	OIS::InputManager * inputmanager;
 	OIS::Keyboard * keyboard;
 	OIS::Mouse * mouse;
 
+	// ------------------------------
 	// ####### custom #######
+	// ------------------------------
 	game_machine * machine;
 	LaserCast * lasercast;
 	int camera_mode;
@@ -201,7 +207,9 @@ struct Application:
 	ColourValue colorval1;
 	ColourValue colorval2;
 
+	// ------------------------------
 	// ####### bullets #######
+	// ------------------------------
 	BillboardChainFactory bbchfact;
 	BillboardChain * MakeABullet(string);
 	BillboardSet * bb_laserdot;

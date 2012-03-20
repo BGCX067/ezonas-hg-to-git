@@ -6,7 +6,7 @@ void Application :: update_laser()
 	//n_gizmo[0]->setPosition(temp);
 
 	btfrom = BtOgre::Convert::toBullet(from);
-	btto = BtOgre::Convert::toBullet(from + camera -> getRealDirection() * 50.0f);
+	btto = BtOgre::Convert::toBullet(from + camera -> getRealDirection() * 500.0f);
 
 	raycallback = btCollisionWorld::ClosestRayResultCallback (btfrom,btto);
 	//raycallback.m_rayFromWorld = btVector3(temp.x,temp.x,temp.x);
@@ -24,7 +24,7 @@ void Application :: update_laser()
 			(BtOgre::Convert::toOgre(btfrom), laser_width, 0, ColourValue()));
 	bb_beam -> updateChainElement
 		(0, 1, BillboardChain :: Element
-		(camera -> getRealPosition() + Vec3(0,2,0), laser_width, 0, ColourValue()));
+			(camera -> getRealPosition() + Vec3(0,2,0), laser_width, 0, ColourValue()));
 	}
 	//last_entity, current_entity;
 	//if (ent_check == last_entity);

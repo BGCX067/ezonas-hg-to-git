@@ -107,23 +107,22 @@ void			Application :: loadlist()
 }
 void			Application :: loadlevel(string level)
 {
-	n_root->createChildSceneNode()->attachObject(e_ground);
-		
 	e_ground = scmgr->createEntity(GetString(level));
+	n_root->createChildSceneNode(level)->attachObject(e_ground);
+
 	mesh2shape = new BtOgre::StaticMeshToShapeConverter(e_ground);
-	shape_ground = mesh2shape -> createTrimesh();
+	btCollisionShape * shape_ground = mesh2shape -> createTrimesh();
+	btCollisionObject * colobj_ground = new btCollisionObject;
+	colobj_ground -> setCollisionShape(shape_ground);
 
-	state_ground = new btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),btVector3(0,0,0)));
-	body_ground = new btRigidBody(btScalar(0), state_ground, shape_ground, btVector3(0,0,0));
+	col_dgb = new BtOgre::DebugCollisionDrawer(scmgr->getSceneNode(level),colw);
 
-
+	delete_it.push_back(col_dgb);
 	delete_it.push_back(mesh2shape);
+	delete_it.push_back(colobj_ground);
 	delete_it.push_back(shape_ground);
-	delete_it.push_back(state_ground);
-	delete_it.push_back(body_ground);
 
-	//colw -> addCollisionObject(body_ground);
-	//colw -> addRigidBody(body_ground);
+	colw -> addCollisionObject(colobj_ground);
 }
 SceneNode *		Application :: AddLight(string _s)
 {

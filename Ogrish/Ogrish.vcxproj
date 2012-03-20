@@ -40,13 +40,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Ogre1-7-4\boost_1_47;C:\bullet278\src;C:\Ogre1-7-4\include\OGRE;C:\Ogre1-7-4\include\OIS;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\bullet278\lib\Debug;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Ogre1-7-4\boost_1_47;C:\bullet-2.80\src;C:\Ogre1-7-4\include\OGRE;C:\Ogre1-7-4\include\OIS;C:\yaml-cpp\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\bullet-2.80\lib\Debug;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;C:\yaml-cpp\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Ogre1-7-4\boost_1_47;C:\bullet278\src;C:\Ogre1-7-4\include\OGRE;C:\Ogre1-7-4\include\OIS;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\bullet278\lib\Release;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Ogre1-7-4\boost_1_47;C:\bullet-2.80\src;C:\Ogre1-7-4\include\OGRE;C:\Ogre1-7-4\include\OIS;C:\yaml-cpp\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\bullet-2.80\lib\Release;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;C:\yaml-cpp\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -59,7 +59,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>OgreMain_d.lib;OIS_d.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OgreMain_d.lib;OIS_d.lib;BulletCollision_Debug.lib;LinearMath_Debug.lib;yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -77,7 +77,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>OgreMain.lib;OIS.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OgreMain.lib;OIS.lib;BulletCollision.lib;LinearMath.lib;yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
