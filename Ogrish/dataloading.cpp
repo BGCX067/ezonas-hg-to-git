@@ -117,6 +117,8 @@ void			Application :: loadlevel(string level)
 
 	col_dgb = new BtOgre::DebugCollisionDrawer(scmgr->getSceneNode(level),colw);
 
+	colw->setDebugDrawer(col_dgb);
+	col_dgb->setDebugMode(false)
 	delete_it.push_back(col_dgb);
 	delete_it.push_back(mesh2shape);
 	delete_it.push_back(colobj_ground);

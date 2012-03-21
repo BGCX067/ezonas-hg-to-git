@@ -187,6 +187,7 @@
     <None Include="conf\gameconf.cfg" />
     <None Include="conf\jokoon.material" />
     <None Include="conf\Ogre.cfg" />
+    <None Include="conf\Ogre.log" />
     <None Include="conf\plugins.cfg" />
     <None Include="conf\plugins_d.cfg" />
     <None Include="conf\resources_d.cfg" />

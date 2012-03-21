@@ -45,7 +45,10 @@ void Application :: moveTo(ushort idx, Vec3 dest, float speed)
 	}
 }
 bool Application :: frameEnded(const FrameEvent & evt) { return true; }
-bool Application :: frameStarted(const FrameEvent & evt) { return true; }
+bool Application :: frameStarted(const FrameEvent & evt)
+{ 
+	return true;
+}
 /*void Application :: check_collisions()
 {
 // brute force distance check

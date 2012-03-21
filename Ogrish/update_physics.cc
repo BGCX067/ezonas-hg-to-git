@@ -10,11 +10,11 @@ void Application :: update_physics()
 				.setOrigin(BtOgre::Convert::toBullet(Nodes[i]->_getDerivedPosition()));
 		Nodes[i]->showBoundingBox(false);
 	}
+	colw->debugDrawWorld();
+	col_dgb->step();
 
 	// perform collision detection and retrieve collision results
 	colw->performDiscreteCollisionDetection();
-	col_dgb->step();
-	colw->debugDrawWorld();
 	/*size_t num = dispatcher->getNumManifolds();
 	for(size_t i = 0; i < num; ++i)
 	{

@@ -59,6 +59,7 @@ bool Application :: keyPressed		(const OIS::KeyEvent &e)
 	case KC_F2: setCameraMode(1); break;
 	case KC_F3: setCameraMode(3); break;
 	case KC_F5: diagnose(); break;
+	case KC_F8: col_dgb->setDebugMode(true); break;
 
 	// index up, thumb left
 	case KC_UP: case KC_W:						translate2.z -=  1.f; break;
@@ -103,6 +104,7 @@ bool Application :: keyReleased	(const OIS::KeyEvent &e)
 
 	case KC_UP: case KC_W:							translate2.z +=  1.f; break;
 	case KC_DOWN: case KC_S:						translate2.z -=  1.f; break;
+	case KC_F8: col_dgb->setDebugMode(false); break;
 
 	//case KC_LEFT: case KC_A:						rot -= .002f; break;
 	//case KC_RIGHT: case KC_D:						rot += .002f; break;

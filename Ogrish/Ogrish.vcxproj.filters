@@ -45,6 +45,9 @@
     <None Include="conf\Ogre.cfg">
       <Filter>conf-files</Filter>
     </None>
+    <None Include="conf\Ogre.log">
+      <Filter>conf-files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
