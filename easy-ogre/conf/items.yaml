@@ -1,0 +1,147 @@
+profession:
+    - miner:        &miner
+    - farmer:       &farmer
+    - engineer:     &engineer
+    - architect:    &architect
+    
+consumable:
+    - contained:
+        - milk
+        - water
+        - soda
+        - oil
+        - motor oil
+    - disposable:
+        - battery
+        
+        
+categories:
+    - office:
+        - pen
+        
+    - medical:
+        - aspirin
+        - surgery kit
+        - bandage
+
+    - cooking:
+        - frying pan
+        - fork
+        - spoon
+        - knife
+        - plate
+        - pan
+        - mug
+        - bowl
+    - tinkering:
+        - hammer
+        - screwdriver
+        - saw
+        - axe
+        - driller
+        - pliers
+
+resources:
+    - minerals:
+        - iron
+        - copper
+        - other metal
+    - organic:
+        - wood
+        - grass
+        - hay
+        - fertilizer
+    - hydro compound:
+        - cleaned water
+        - sea water
+        - natural water
+
+    - fossil:
+        - crude oil
+        - fuel
+        - diesel
+        - kerozen
+        - coal
+        - natural gas
+   
+scraps:
+    - electronics
+    - electro-mechanic
+    - car part
+    - plastic
+weaponry:
+    guns:
+        - glock19
+        - M416
+        - ak47
+        - XM8
+        - famas
+        - deagle
+        - m1911
+        - M9
+        - M24
+        - PSG1
+        - tar21
+        - MK3
+        - mp5
+        - m3b
+        - P22
+        - P99
+        - USP
+    ammunitions:
+        - 9mm
+        - .45mm
+        - 5.56mm
+        - 7.62
+    grenade:
+        - flashbang
+        - smoke
+        - mine
+        - wind
+machine:
+    - home appliance:
+        - dish washer
+        - cloth washer
+        - oven
+        - fridge
+        - freezer
+        - kitchen stove
+        - sink
+        - bed
+        
+    - vehicle:
+        - ground:
+            - scooter
+            - motorbike
+            - car
+            - truck
+            - bike
+            - buggy
+            - armored car
+            - van
+            - armored van
+            - trailer
+            - bus
+            
+        - sea:
+            - row boat
+            - boat
+            - cargo boat
+
+        - air:
+            - parachute
+            - ULM
+            - deltaplane
+            - plane
+    - machinery:
+        - printer
+
+devices:
+    - utility:
+        - oil lamp
+        - lamp
+        - laser pointer
+        - lighter
+        - PDA
+        - binoculars
+    

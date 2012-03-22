@@ -20,7 +20,8 @@
 #define CROSSLOAD(s) load(s)
 #endif
 
-#include "Procedural.h"
+//#include "Procedural.h"
+#include "yaml-cpp/yaml.h"
 #define TO_STR StringConverter :: toString
 #define NODE(s) scmgr->getRootSceneNode()->createChildSceneNode(s)
 #define ENTITY scmgr->createEntity

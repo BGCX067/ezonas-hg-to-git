@@ -125,7 +125,7 @@ void Application :: add_debug_gizmo(string name)
 		case 0: scmgr->getBillboardSet(name) -> setMaterialName("jokoon/gizmo"); break;
 		case 1: scmgr->getBillboardSet(name) -> setMaterialName("jokoon/gizmo2"); break;
 		case 2: scmgr->getBillboardSet(name) -> setMaterialName("jokoon/gizmo3"); break;
-		default:break;
+		default: break;
 		}
 
 	//n_laserdot	 = n_root -> createChildSceneNode("laser dot");

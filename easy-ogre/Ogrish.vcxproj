@@ -11,63 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Procedural.h" />
-    <ClInclude Include="ProceduralBoxGenerator.h" />
-    <ClInclude Include="ProceduralCapsuleGenerator.h" />
-    <ClInclude Include="ProceduralConeGenerator.h" />
-    <ClInclude Include="ProceduralCylinderGenerator.h" />
-    <ClInclude Include="ProceduralExtruder.h" />
-    <ClInclude Include="ProceduralGeometryHelpers.h" />
-    <ClInclude Include="ProceduralIcoSphereGenerator.h" />
-    <ClInclude Include="ProceduralLathe.h" />
-    <ClInclude Include="ProceduralMeshGenerator.h" />
-    <ClInclude Include="ProceduralMultiShape.h" />
-    <ClInclude Include="ProceduralPath.h" />
-    <ClInclude Include="ProceduralPathGenerators.h" />
-    <ClInclude Include="ProceduralPlaneGenerator.h" />
-    <ClInclude Include="ProceduralPlatform.h" />
-    <ClInclude Include="ProceduralRoot.h" />
-    <ClInclude Include="ProceduralRoundedBoxGenerator.h" />
-    <ClInclude Include="ProceduralShape.h" />
-    <ClInclude Include="ProceduralShapeGenerators.h" />
-    <ClInclude Include="ProceduralSphereGenerator.h" />
-    <ClInclude Include="ProceduralSplines.h" />
-    <ClInclude Include="ProceduralStableHeaders.h" />
-    <ClInclude Include="ProceduralTorusGenerator.h" />
-    <ClInclude Include="ProceduralTorusKnotGenerator.h" />
-    <ClInclude Include="ProceduralTrack.h" />
-    <ClInclude Include="ProceduralTriangleBuffer.h" />
-    <ClInclude Include="ProceduralTriangulator.h" />
-    <ClInclude Include="ProceduralTubeGenerator.h" />
-    <ClInclude Include="ProceduralUtils.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ezogre.cc" />
-    <ClCompile Include="ProceduralBoxGenerator.cpp" />
-    <ClCompile Include="ProceduralCapsuleGenerator.cpp" />
-    <ClCompile Include="ProceduralConeGenerator.cpp" />
-    <ClCompile Include="ProceduralCylinderGenerator.cpp" />
-    <ClCompile Include="ProceduralExtruder.cpp" />
-    <ClCompile Include="ProceduralGeometryHelpers.cpp" />
-    <ClCompile Include="ProceduralIcoSphereGenerator.cpp" />
-    <ClCompile Include="ProceduralLathe.cpp" />
-    <ClCompile Include="ProceduralMultiShape.cpp" />
-    <ClCompile Include="ProceduralPath.cpp" />
-    <ClCompile Include="ProceduralPathGenerators.cpp" />
-    <ClCompile Include="ProceduralPlaneGenerator.cpp" />
-    <ClCompile Include="ProceduralPrecompiledHeaders.cpp" />
-    <ClCompile Include="ProceduralRoot.cpp" />
-    <ClCompile Include="ProceduralRoundedBoxGenerator.cpp" />
-    <ClCompile Include="ProceduralShape.cpp" />
-    <ClCompile Include="ProceduralShapeGenerators.cpp" />
-    <ClCompile Include="ProceduralSphereGenerator.cpp" />
-    <ClCompile Include="ProceduralTorusGenerator.cpp" />
-    <ClCompile Include="ProceduralTorusKnotGenerator.cpp" />
-    <ClCompile Include="ProceduralTrack.cpp" />
-    <ClCompile Include="ProceduralTriangulator.cpp" />
-    <ClCompile Include="ProceduralTubeGenerator.cpp" />
-    <ClCompile Include="ProceduralUtils.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5948D889-0A6C-474C-831C-91D9AF86AADF}</ProjectGuid>
@@ -99,17 +46,17 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Ogre1-7-4\boost_1_47;C:\bullet278\src;C:\Ogre1-7-4\include\OGRE;C:\Ogre1-7-4\include\OIS;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\bullet278\lib\Debug;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Ogre1-7-4\boost_1_47;C:\bullet-2.80\src;C:\Ogre1-7-4\include\OGRE;C:\Ogre1-7-4\include\OIS;C:\yaml-cpp\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\bullet-2.80\lib\Debug;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;c:\yaml-cpp\Debug\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>C:\Ogre1-7-4\boost_1_47;C:\bullet278\src;C:\Ogre1-7-4\include\OGRE;C:\Ogre1-7-4\include\OIS;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\bullet278\lib\Release;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\bullet-2.80\lib\Release;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -118,7 +65,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>OgreMain_d.lib;OIS_d.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OgreMain_d.lib;OIS_d.lib;BulletCollision_Debug.lib;LinearMath_Debug.lib;libyaml-cppmdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
