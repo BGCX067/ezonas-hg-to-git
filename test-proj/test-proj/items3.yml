@@ -1,4 +1,47 @@
----
+cloth:
+    underwear:
+    socket:
+    tshirt:
+    pullover:
+    pants:
+    short:
+    skirt:
+    dress:
+    bra:
+machine:
+    home appliance:
+        dish washer:
+        cloth washer:
+        oven:
+        fridge:
+        freezer:
+        kitchen stove:
+        sink:
+        bed:
+    vehicle:
+        ground:
+            scooter:
+            motorbike:
+            car:
+            truck:
+            bike:
+            buggy:
+            armored car:
+            van:
+            armored van:
+            trailer:
+            bus:
+        sea:
+            row boat:
+            boat:
+            cargo boat:
+        air:
+            parachute:
+            ULM:
+            deltaplane:
+            plane:
+    machinery:
+        printer:
 packaging:
     liquid:
         bottle:
@@ -123,48 +166,3 @@ resource:
         electro-mechanic:
         car part:
         plastic:
-machine:
-    home appliance:
-        dish washer:
-        cloth washer:
-        oven:
-        fridge:
-        freezer:
-        kitchen stove:
-        sink:
-        bed:
-    vehicle:
-        ground:
-            scooter:
-            motorbike:
-            car:
-            truck:
-            bike:
-            buggy:
-            armored car:
-            van:
-            armored van:
-            trailer:
-            bus:
-        sea:
-            row boat:
-            boat:
-            cargo boat:
-        air:
-            parachute:
-            ULM:
-            deltaplane:
-            plane:
-    machinery:
-        printer:
-cloth:
-    underwear:
-    socket:
-    tshirt:
-    pullover:
-    pants:
-    short:
-    skirt:
-    dress:
-    bra:
-...

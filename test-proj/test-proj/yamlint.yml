@@ -1,248 +1,201 @@
 --- 
-item: 
-  cat1: ~
-  cat2: ~
-  cat3: ~
-  cat4: ~
-  clothes: 
-    - underwear
-    - socket
-    - tshirt
-    - pullover
-    - pants
-    - short
-    - skirt
-    - dress
-    - bra
-  consumable: 
-    contained: 
-      - "motor oil"
-      - fuel
-      - diesel
-      - kerozen
-      - "natural gas"
-      - "tap water"
-    disposable: 
-      - battery
-    systems: 
-      - "water pipe"
-      - "sewer pipe"
-      - "oil pipe"
-      - "gaz pipe"
-      - "electric cable"
-      - "signal cable"
-      - "network cable"
-  cooking: 
-    - "frying pan"
-    - fork
-    - spoon
-    - knife
-    - plate
-    - pan
-    - mug
-    - bowl
+cloth: 
+  bra: ~
+  dress: ~
+  pants: ~
+  pullover: ~
+  short: ~
+  skirt: ~
+  socket: ~
+  tshirt: ~
+  underwear: ~
+consumable: 
+  contained: 
+    diesel: ~
+    fuel: ~
+    kerozen: ~
+    ? "motor oil"
+    : ~
+    ? "natural gas"
+    : ~
+    ? "tap water"
+    : ~
+  disposable: 
+    battery: ~
   food: 
     frozen: 
-      - meat
-      - fish
+      fish: ~
+      meat: ~
     ? "long conservation"
     : 
-      - "vegetal oil"
-      - water
-      - soda
-      - pasta
-      - spices
+      pasta: ~
+      soda: ~
+      spices: ~
+      vegetable: ~
+      ? "vegetal oil"
+      : ~
+      water: ~
     perishable: 
-      - milk
-      - egg
-      - "tomato sauce"
-      - vegetable
+      egg: ~
+      milk: ~
+      ? "tomato sauce"
+      : ~
     refrigerated: 
-      - ham
-      - steak
-      - chicken
-      - cheese
-  machine: 
-    ? "home appliance"
-    : 
-      - "dish washer"
-      - "cloth washer"
-      - oven
-      - fridge
-      - freezer
-      - "kitchen stove"
-      - sink
-      - bed
-  ? "medical and hygiene"
+      cheese: ~
+      chicken: ~
+      ham: ~
+      steak: ~
+  systems: 
+    ? "electric cable"
+    : ~
+    ? "gaz pipe"
+    : ~
+    ? "network cable"
+    : ~
+    ? "oil pipe"
+    : ~
+    ? "sewer pipe"
+    : ~
+    ? "signal cable"
+    : ~
+    ? "water pipe"
+    : ~
+cooking: 
+  bowl: ~
+  fork: ~
+  ? "frying pan"
+  : ~
+  knife: ~
+  mug: ~
+  pan: ~
+  plate: ~
+  spoon: ~
+machine: 
+  ? "home appliance"
   : 
-    - aspirin
-    - "surgery kit"
-    - bandage
-    - antibiotic
-    - vitamin
-    - soap
-    - "liquid soap"
-    - shampoo
-    - toothbrush
-    - toothpaste
-    - disinfectant
-    - "dental floss"
-    - razor
-    - "shaving cream"
-    - "make-up kit"
-    - comb
-    - "cotton bud"
-  packaging: 
-    gaz: 
-      - tank
-    liquid: 
-      - bottle
-      - brick
-      - pot
-      - jerricane
-    solid: 
-      - "plastic wrap"
-      - "paper wrap"
-      - cardboard
-  resources: 
-    fossil: 
-      - "crude oil"
-      - fossil
-    ? "hydro compound"
-    : 
-      - "cleaned water"
-      - "sea water"
-      - "natural water"
-    minerals: 
-      - iron
-      - copper
-      - "other metal"
-    organic: 
-      - wood
-      - grass
-      - hay
-      - fertilizer
-      - cotton
-    scraps: 
-      - electronics
-      - electro-mechanic
-      - "car part"
-      - plastic
-  tinkering: 
-    - hammer
-    - screwdriver
-    - saw
-    - axe
-    - driller
-    - pliers
-    - 
-      quantifiable: 
-        - nail
-        - screw
-  utility: 
-    - "oil lamp"
-    - lamp
-    - "laser pointer"
-    - lighter
-    - PDA
-    - binoculars
-    - pen
-    - scisors
-    - stapler
-    - 
-      quantifiable: 
-        - "paper sheet"
-        - ink
+    bed: ~
+    ? "cloth washer"
+    : ~
+    ? "dish washer"
+    : ~
+    freezer: ~
+    fridge: ~
+    ? "kitchen stove"
+    : ~
+    oven: ~
+    sink: ~
+  machinery: 
+    printer: ~
   vehicle: 
     air: 
-      - parachute
-      - ULM
-      - deltaplane
-      - plane
+      ULM: ~
+      deltaplane: ~
+      parachute: ~
+      plane: ~
     ground: 
-      - scooter
-      - motorbike
-      - car
-      - truck
-      - bike
-      - buggy
-      - "armored car"
-      - van
-      - "armored van"
-      - trailer
-      - bus
-    machinery: 
-      - printer
+      ? "armored car"
+      : ~
+      ? "armored van"
+      : ~
+      bike: ~
+      buggy: ~
+      bus: ~
+      car: ~
+      motorbike: ~
+      scooter: ~
+      trailer: ~
+      truck: ~
+      van: ~
     sea: 
-      - "row boat"
-      - boat
-      - "cargo boat"
-  weaponry: 
-    ammunitions: 
-      - 
-        9mm: ~
-      - 
-        ? ".45"
-        : ~
-      - 
-        5.56mm: ~
-      - 
-        7.62mm: ~
-    grenade: 
-      - flashbang
-      - smoke
-      - mine
-      - wind
-    guns: 
-      - 
-        glock19: !ruby/object:YAML::Syck::BadAlias 
-            name: 9mm
-      - 
-        M416: !ruby/object:YAML::Syck::BadAlias 
-            name: "556"
-      - 
-        ak47: !ruby/object:YAML::Syck::BadAlias 
-            name: "762"
-      - 
-        XM8: !ruby/object:YAML::Syck::BadAlias 
-            name: "556"
-      - 
-        famas: !ruby/object:YAML::Syck::BadAlias 
-            name: "556"
-      - 
-        deagle: ~
-      - 
-        m1911: !ruby/object:YAML::Syck::BadAlias 
-            name: "45"
-      - 
-        M9: !ruby/object:YAML::Syck::BadAlias 
-            name: 9mm
-      - 
-        M24: ~
-      - 
-        PSG1: !ruby/object:YAML::Syck::BadAlias 
-            name: "762"
-      - 
-        tar21: !ruby/object:YAML::Syck::BadAlias 
-            name: "556"
-      - 
-        MK3: ~
-      - 
-        mp5: !ruby/object:YAML::Syck::BadAlias 
-            name: 9mm
-      - 
-        m3b: ~
-      - 
-        P22: !ruby/object:YAML::Syck::BadAlias 
-            name: 9mm
-      - 
-        P99: !ruby/object:YAML::Syck::BadAlias 
-            name: 9mm
-      - 
-        USP: !ruby/object:YAML::Syck::BadAlias 
-            name: 9mm
-profession: 
-  architect: ~
-  engineer: ~
-  farmer: ~
-  miner: ~
+      boat: ~
+      ? "cargo boat"
+      : ~
+      ? "row boat"
+      : ~
+medical_and_hygiene: 
+  antibiotic: ~
+  aspirin: ~
+  bandage: ~
+  comb: ~
+  ? "cotton bud"
+  : ~
+  dental_floss: ~
+  disinfectant: ~
+  ? "liquid soap"
+  : ~
+  ? "make-up kit"
+  : ~
+  razor: ~
+  shampoo: ~
+  ? "shaving cream"
+  : ~
+  soap: ~
+  ? "surgery kit"
+  : ~
+  tampon: ~
+  toothbrush: ~
+  toothpaste: ~
+  vitamin: ~
+packaging: 
+  gaz: 
+    tank: ~
+  liquid: 
+    bottle: ~
+    brick: ~
+    jerricane: ~
+    pot: ~
+  solid: 
+    cardboard: ~
+    ? "paper wrap"
+    : ~
+    ? "plastic wrap"
+    : ~
+resource: 
+  fossil: 
+    ? "crude oil"
+    : ~
+    fossil: ~
+  ? "hydro compound"
+  : 
+    ? "cleaned water"
+    : ~
+    ? "natural water"
+    : ~
+    ? "sea water"
+    : ~
+  minerals: 
+    copper: ~
+    iron: ~
+    ? "other metal"
+    : ~
+  organic: 
+    cotton: ~
+    fertilizer: ~
+    grass: ~
+    hay: ~
+    wood: ~
+  scraps: 
+    ? "car part"
+    : ~
+    electro-mechanic: ~
+    electronics: ~
+    plastic: ~
+tinkering: 
+  axe: ~
+  driller: ~
+  hammer: ~
+  pliers: ~
+  saw: ~
+  screwdriver: ~
+utility: 
+  PDA: ~
+  binoculars: ~
+  lamp: ~
+  ? "laser pointer"
+  : ~
+  lighter: ~
+  ? "oil lamp"
+  : ~
+  pen: ~
+  scisors: ~
+  stapler: ~

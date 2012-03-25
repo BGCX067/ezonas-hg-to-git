@@ -168,35 +168,35 @@ item:
         dress:
         bra:
 
-#    weaponry:
-#        ammunition:
-#            9mm:      &9mm
-#            .45:      &45
-#            5.56mm:   &556
-#            7.62mm:   &762
-#        gun:
-#            glock19:  dada
-#            M416:     *556
-#            ak47:     *762
-#            XM8:      *556
-#            famas:    *556
-#            deagle:
-#            m1911:    *45
-#            M9:       *9mm
-#            M24:
-#            PSG1:     *762
-#            tar21:    *556
-#            MK3:
-#            mp5:      *9mm
-#            m3b:
-#            P22:      *9mm
-#            P99:      *9mm
-#            USP:      *9mm
-#        grenade:
-#            flashbang:
-#            smoke:
-#            mine:
-#            wind:
+    weaponry:
+        ammunition:
+            9mm:      &9mm
+            .45:      &45
+            5.56mm:   &556
+            7.62mm:   &762
+        gun:
+            glock19:  dada
+            M416:     *556
+            ak47:     *762
+            XM8:      *556
+            famas:    *556
+            deagle:
+            m1911:    *45
+            M9:       *9mm
+            M24:
+            PSG1:     *762
+            tar21:    *556
+            MK3:
+            mp5:      *9mm
+            m3b:
+            P22:      *9mm
+            P99:      *9mm
+            USP:      *9mm
+        grenade:
+            flashbang:
+            smoke:
+            mine:
+            wind:
 
 # transport of items:
 # combination of contained items:

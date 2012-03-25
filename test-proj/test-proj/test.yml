@@ -1,15 +1,60 @@
-item:
-    list1:
-        itemA:
-            dada:
-            dadaas:
-        itemB:
-    list2:
-        itemC:
-            dudu:
-            didi: dd
-        itemD:
-            hopderp:
-            hapderp:
-                dirpy:
-                darpanet:
+list1:
+    itemA:
+        dada:
+        dadaas:
+    itemB:
+list2:
+    itemC:
+        dudu:
+        didi: 
+itemD:
+    hopderp:
+    hapderp:
+        dirpy:
+        darpanet:
+s:
+    dsa:
+hapderp:
+    dirpy:
+    darpanet:
+itemC:
+    dudu:
+    didi: 
+itemA:
+    dada:
+    dadaas:
+medical_and_hygiene:
+    aspirin:
+    surgery kit:
+    bandage:
+    antibiotic:
+    vitamin:
+    soap:
+    liquid soap:
+    shampoo:
+    toothbrush:
+    toothpaste:
+    disinfectant:
+    dental_floss:
+    razor:
+    shaving cream:
+    make-up kit:
+    comb:
+    cotton bud:
+    tampon:
+cooking:
+    frying pan:
+    fork:
+    spoon:
+    knife:
+    plate:
+    pan:
+    mug:
+    bowl:
+tinkering:
+    hammer:
+    screwdriver:
+    saw:
+    axe:
+    driller:
+    pliers:
