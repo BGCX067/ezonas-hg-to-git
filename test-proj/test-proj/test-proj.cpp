@@ -15,30 +15,45 @@ void test_type(const YAML::Node & n)
 		case (YAML::NodeType::Map		)	: cout << "map" << "\n"; break;
 	}
 }
+typedef vector<string> strv;
 
+vector<string> getkeys(YAML::Node & n)
+{
+	vector<string> v;
+	for(auto it = n.begin(); it != n.end(); ++it)
+	{
+		string s;
+		it.first() >> s;
+		v.push_back(s);
+		//cout << s << "\n";
+	}
+	return v;
+}
 int _tmain(int argc, _TCHAR* argv[])
 {
-#define TEST
+#define TESTSTS
 #ifndef TEST
-	YAML::Parser parser(ifstream("items3.yaml"));
+	YAML::Parser parser(ifstream("items3.yml"));
 #else
-	YAML::Parser parser(ifstream("test.yaml"));
+	YAML::Parser parser(ifstream("sample.yml"));
 #endif
 	YAML::Node doc;
 	if(! parser.GetNextDocument(doc))
 		exit(0xf00dbad);
-	string s;
+
 #ifndef TEST
-	test_type(doc["item"]["cloth"])		  ;
-	test_type(doc["item"]["tinkering"])	  ;
-	test_type(doc["item"]["food"])		  ;
-	test_type(doc["item"]["utility"])	  ;
-	test_type(doc["item"]["machine"])	  ;
-	test_type(doc["item"]["weaponry"])	  ;
+	//auto item = doc.FindValue("item");
+	strv a = getkeys(doc);
+	for(auto it = a.begin(); it != a.end(); ++it)
+		cout << *it << "\n";
+
 #else
-	test_type(doc["item"]["list2"]["itemC"]);//["didi"]);
-	doc["item"]["list2"]["itemC"]["didi"].FindValue("didi
-	doc["item"]["list2"]["itemC"]["didi"].FindValue("didi
+	test_type(doc);//["didi"]);
+	//doc["item"]["list2"]["itemC"]["didi"].FindValue("didi
+	//doc["item"]["list2"]["itemC"]["didi"].FindValue("didi
+	auto it = doc.begin();
+	doc["receipt"].;
+	cout << s << "\n";
 #endif
 //	YAML::NodeType::value type = node
 	//doc.

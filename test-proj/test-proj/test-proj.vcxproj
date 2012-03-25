@@ -76,6 +76,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
+    <None Include="sample.yml" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
