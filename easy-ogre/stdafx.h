@@ -32,6 +32,7 @@ using namespace Ogre;
 
 typedef Ogre::Vector3 Vec3;
 typedef Ogre::Vector2 Vec2;
+#include "ezogre.h"
 
 
 

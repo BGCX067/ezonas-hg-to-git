@@ -1,29 +1,98 @@
+dada: dadou
+
+todo:
+    - transport of items
+    - combination of contained items
+    - item id
+    - requirement for creation of item
+    - piped systems
+
+flags:
+    - portable:
+        - plane
+        - boat
+        - truck
+        - forklift
+        - bag
+        - pocket
+    - requires packaging
+    
+
 profession:
     - miner:        &miner
     - farmer:       &farmer
     - engineer:     &engineer
     - architect:    &architect
-    
-consumable:
-    - contained:
-        - milk
-        - water
-        - soda
-        - oil
-        - motor oil
-    - disposable:
-        - battery
-        
-        
-categories:
-    - office:
-        - pen
-        
-    - medical:
+item:
+    - packaging:
+        - liquid:
+            - bottle
+            - brick
+            - pot
+            - jerricane
+        - gaz:
+            - tank
+        - solid:
+            - plastic wrap
+            - paper wrap
+            - cardboard
+    - consumable:
+        - systems:
+            - water pipe
+            - sewer pipe
+            - oil pipe
+            - gaz pipe
+            - electric cable
+            - signal cable
+            - network cable
+        - contained:
+            - motor oil
+            - fuel
+            - diesel
+            - kerozen
+            - natural gas
+            - tap water
+        - disposable:
+            - battery
+        - food:
+            - frozen:
+                - meat
+                - fish
+            - refrigerated:
+                - ham
+                - steak
+                - chicken
+                - cheese
+            - perishable:
+                - milk
+                - egg
+                - tomato sauce
+                - vegetable
+            - long conservation:
+                - vegetal oil
+                - water
+                - soda
+                - pasta
+                - spices
+    - medical and hygiene:
         - aspirin
         - surgery kit
         - bandage
-
+        - antibiotic
+        - vitamin
+        - soap
+        - liquid soap
+        - shampoo
+        - toothbrush
+        - toothpaste
+        - disinfectant
+        - dental floss
+        - razor
+        - shaving cream
+        - make-up kit
+        - comb
+        - cotton bud
+        
     - cooking:
         - frying pan
         - fork
@@ -40,103 +109,9 @@ categories:
         - axe
         - driller
         - pliers
-
-resources:
-    - minerals:
-        - iron
-        - copper
-        - other metal
-    - organic:
-        - wood
-        - grass
-        - hay
-        - fertilizer
-    - hydro compound:
-        - cleaned water
-        - sea water
-        - natural water
-
-    - fossil:
-        - crude oil
-        - fuel
-        - diesel
-        - kerozen
-        - coal
-        - natural gas
-   
-scraps:
-    - electronics
-    - electro-mechanic
-    - car part
-    - plastic
-weaponry:
-    guns:
-        - glock19
-        - M416
-        - ak47
-        - XM8
-        - famas
-        - deagle
-        - m1911
-        - M9
-        - M24
-        - PSG1
-        - tar21
-        - MK3
-        - mp5
-        - m3b
-        - P22
-        - P99
-        - USP
-    ammunitions:
-        - 9mm
-        - .45mm
-        - 5.56mm
-        - 7.62
-    grenade:
-        - flashbang
-        - smoke
-        - mine
-        - wind
-machine:
-    - home appliance:
-        - dish washer
-        - cloth washer
-        - oven
-        - fridge
-        - freezer
-        - kitchen stove
-        - sink
-        - bed
-        
-    - vehicle:
-        - ground:
-            - scooter
-            - motorbike
-            - car
-            - truck
-            - bike
-            - buggy
-            - armored car
-            - van
-            - armored van
-            - trailer
-            - bus
-            
-        - sea:
-            - row boat
-            - boat
-            - cargo boat
-
-        - air:
-            - parachute
-            - ULM
-            - deltaplane
-            - plane
-    - machinery:
-        - printer
-
-devices:
+        - quantifiables:
+            - nail
+            - screw
     - utility:
         - oil lamp
         - lamp
@@ -144,4 +119,110 @@ devices:
         - lighter
         - PDA
         - binoculars
-    
+        - pen
+        - scisors
+        - stapler
+        - quantifiable:
+            - paper sheet
+            - ink
+       
+    - resources:
+        - minerals:
+            - iron
+            - copper
+            - other metal
+        - organic:
+            - wood
+            - grass
+            - hay
+            - fertilizer
+            - cotton
+        - hydro compound:
+            - cleaned water
+            - sea water
+            - natural water
+        - fossil:
+            - crude oil
+            - fossil
+        - scraps:
+            - electronics
+            - electro-mechanic
+            - car part
+            - plastic
+    - weaponry:
+        guns:
+            - glock19: *9mm
+            - M416: *556
+            - ak47: *762
+            - XM8: *556
+            - famas: *556
+            - deagle:
+            - m1911: *45
+            - M9: *9mm
+            - M24:
+            - PSG1: *762
+            - tar21: *556
+            - MK3:
+            - mp5: *9mm
+            - m3b:
+            - P22: *9mm
+            - P99: *9mm
+            - USP: *9mm
+        ammunitions:
+            - 9mm:      &9mm
+            - .45:      &45
+            - 5.56mm:   &556
+            - 7.62mm:   &762
+        grenade:
+            - flashbang
+            - smoke
+            - mine
+            - wind
+    - machine:
+        - home appliance:
+            - dish washer
+            - cloth washer
+            - oven
+            - fridge
+            - freezer
+            - kitchen stove
+            - sink
+            - bed
+        - vehicle:
+            - ground:
+                - scooter
+                - motorbike
+                - car
+                - truck
+                - bike
+                - buggy
+                - armored car
+                - van
+                - armored van
+                - trailer
+                - bus
+            - sea:
+                - row boat
+                - boat
+                - cargo boat
+            - air:
+                - parachute
+                - ULM
+                - deltaplane
+                - plane
+        - machinery:
+            - printer
+    - clothes:
+        - underwear
+        - socket
+        - tshirt
+        - pullover
+        - pants
+        - short
+        - skirt
+        - dress
+        - bra
+    - cat1:
+    - cat2:
+    - cat3:
+    - cat4:

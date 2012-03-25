@@ -1,0 +1,169 @@
+---
+item:
+    packaging:
+        liquid:
+            bottle:
+            brick:
+            pot:
+            jerricane:
+        gaz:
+            tank:
+        solid:
+            plastic wrap:
+            paper wrap:
+            cardboard:
+    consumable:
+        systems:
+            water pipe:
+            sewer pipe:
+            oil pipe:
+            gaz pipe:
+            electric cable:
+            signal cable:
+            network cable:
+        contained:
+            motor oil:
+            fuel:
+            diesel:
+            kerozen:
+            natural gas:
+            tap water:
+        disposable:
+            battery:
+        food:
+            frozen:
+                meat:
+                fish:
+            refrigerated:
+                ham:
+                steak:
+                chicken:
+                cheese:
+            perishable:
+                milk:
+                egg:
+                tomato sauce:
+            long conservation:
+                vegetable:
+                vegetal oil:
+                water:
+                soda:
+                pasta:
+                spices:
+    medical_and_hygiene:
+        aspirin:
+        surgery kit:
+        bandage:
+        antibiotic:
+        vitamin:
+        soap:
+        liquid soap:
+        shampoo:
+        toothbrush:
+        toothpaste:
+        disinfectant:
+        dental_floss:
+        razor:
+        shaving cream:
+        make-up kit:
+        comb:
+        cotton bud:
+    cooking:
+        frying pan:
+        fork:
+        spoon:
+        knife:
+        plate:
+        pan:
+        mug:
+        bowl:
+    tinkering:
+        hammer:
+        screwdriver:
+        saw:
+        axe:
+        driller:
+        pliers:
+        #quantifiable:
+        #    nail:
+        #    screw:
+    utility:
+        oil lamp:
+        lamp:
+        laser pointer:
+        lighter:
+        PDA:
+        binoculars:
+        pen:
+        scisors:
+        stapler:
+        #quantifiable:
+        #    paper sheet:
+        #    ink:
+    resource:
+        minerals:
+            iron:
+            copper:
+            other metal:
+        organic:
+            wood:
+            grass:
+            hay:
+            fertilizer:
+            cotton:
+        hydro compound:
+            cleaned water:
+            sea water:
+            natural water:
+        fossil:
+            crude oil:
+            fossil:
+        scraps:
+            electronics:
+            electro-mechanic:
+            car part:
+            plastic:
+    machine:
+        home appliance:
+            dish washer:
+            cloth washer:
+            oven:
+            fridge:
+            freezer:
+            kitchen stove:
+            sink:
+            bed:
+        vehicle:
+            ground:
+                scooter:
+                motorbike:
+                car:
+                truck:
+                bike:
+                buggy:
+                armored car:
+                van:
+                armored van:
+                trailer:
+                bus:
+            sea:
+                row boat:
+                boat:
+                cargo boat:
+            air:
+                parachute:
+                ULM:
+                deltaplane:
+                plane:
+        machinery:
+            printer:
+    cloth:
+        underwear:
+        socket:
+        tshirt:
+        pullover:
+        pants:
+        short:
+        skirt:
+        dress:
+        bra:

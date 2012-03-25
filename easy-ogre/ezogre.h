@@ -1,26 +1,34 @@
 #include "stdafx.h"
-
-Root		 * root;
-RenderWindow * window;
-SceneManager * scmgr;
-Camera 		 * camera;
-Viewport 	 * viewport;
-OIS::InputManager * inputmanager;
-OIS::Keyboard 	 * keyboard;
-OIS::Mouse 		 * mouse;
-
-Vec3 translate(0,0,0), translate2(0,0,0);
-float moving_speed = 10.f, timeSinceLastFrame = 0.0f, rotating_speed = 0.001f;
-bool stop = false;
-SceneNode * cam_node, * babar;
-
+#ifndef FUUUUUU
+#define FUUUUUU
 struct Application:
 	public FrameListener,
 	public OIS::KeyListener,
 	public OIS::MouseListener
 {
+	Root		 * root;
+	RenderWindow * window;
+	SceneManager * scmgr;
+	Camera 		 * camera;
+	Viewport 	 * viewport;
+	OIS::InputManager * inputmanager;
+	OIS::Keyboard 	 * keyboard;
+	OIS::Mouse 		 * mouse;
 
-	Application(): FrameListener() {}
+	Vec3 translate, translate2;
+	float moving_speed, timeSinceLastFrame, rotating_speed;
+	bool stop;// = false;
+	SceneNode * cam_node, * babar;
+
+	Application():
+		FrameListener(),
+		translate(0,0,0), translate2(0,0,0)
+	{
+		moving_speed = 10.f;
+		timeSinceLastFrame = 0.0f;
+		rotating_speed = 0.001f;
+		stop = false;
+	}
     ~ Application()
 	{
 		inputmanager -> destroyInputObject( mouse);
@@ -225,31 +233,6 @@ struct Application:
 		light_node -> setPosition(-3, 3, -3);
 		cam_node->setPosition(0,0,3);
 	}
-	void init_other()
-	{
-		YAML::Parser parser(ifstream("test.yaml"));
-		YAML::Node doc;
-		while(parser.GetNextDocument(doc))
-		{}
-	}
+	void init_other();
 };
-
-#ifdef __APPLE__
-int main()
-#elif _CONSOLE
-int main(int argc, char * argv[])
-#else
-int /*__stdcall*/ WinMain(HINSTANCE a, HINSTANCE b, LPSTR c, int d)
-#endif
-{
-	Application app;
-	app.init();
-	LOGMSG("------------- init started -------------");
-	app.init_resources();
-	app.init_inputs();
-	app.init_scene();
-	app.init_other();
-	LOGMSG("------------- init ended -------------");
-	root->startRendering();
-	return 0;
-}
+#endif // FUUUUUU

@@ -4,6 +4,8 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ezogre.cc" />
+    <ClCompile Include="ezogre.h" />
+    <ClCompile Include="main.cc" />
+    <ClCompile Include="init_other.cc" />
   </ItemGroup>
 </Project>
