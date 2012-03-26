@@ -1,26 +1,22 @@
 #include "stdafx.h"
 
-typedef vector<string> strv;
-vector<string> getkeys(YAML::Node & n)
+int _tmain(int argc, _TCHAR* argv[])
 {
-	vector<string> v;
-	for(auto it = n.begin(); it != n.end(); ++it)
+	YAML::Parser parser(ifstream("test2.yml"));
+	//YAML::Parser parser(ifstream("items9.yml"));
+	YAML::Node doc;
+	if(! parser.GetNextDocument(doc)) exit(0xbadf00d);
+
+	vector<string> string_vector;// = getkeys(doc);
+	for(auto it = doc.begin(); it != doc.end(); ++it)
 	{
 		string s;
 		it.first() >> s;
-		v.push_back(s);
+		string_vector.push_back(s);
 	}
-	return v;
-}
-int _tmain(int argc, _TCHAR* argv[])
-{
-	YAML::Parser parser(ifstream("test.yml"));
-	//YAML::Parser parser(ifstream("yamlint.yml"));
-	YAML::Node doc;
-	if(! parser.GetNextDocument(doc)) exit(0xf00dbad);
 
-	strv a = getkeys(doc);
-	for(auto it = a.begin(); it != a.end(); ++it)
+
+	for(auto it = string_vector.begin(); it != string_vector.end(); ++it)
 		cout << *it << "\n";
 
 	system("PAUSE");
