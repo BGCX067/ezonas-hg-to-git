@@ -1,3 +1,11 @@
+tag:
+    - liquid
+    - perishable
+    - frozen
+    - refrigerated
+    - disposable
+    - reusable
+    - quantifiable
 cloth:
     underwear:
     socket:
@@ -8,6 +16,14 @@ cloth:
     skirt:
     dress:
     bra:
+    coat:
+furniture:
+    sink:
+    bed:
+    sofa:
+    closet:
+    table:
+    locker:
 machine:
     home appliance:
         dish washer:
@@ -16,8 +32,6 @@ machine:
         fridge:
         freezer:
         kitchen stove:
-        sink:
-        bed:
     vehicle:
         ground:
             scooter:
@@ -42,19 +56,72 @@ machine:
             plane:
     machinery:
         printer:
-packaging:
-    liquid:
+container:
+    liquid: # can also contain gas
         bottle:
         brick:
         pot:
+        can:
         jerricane:
-    gaz:
+        glass:
         tank:
     solid:
         plastic wrap:
         paper wrap:
         cardboard:
-consumable:
+medical:
+    aspirin:
+    surgery kit:
+    bandage:
+    antibiotic:
+    vitamin:
+    disinfectant:
+hygiene:
+    soap:
+    liquid soap:
+    shampoo:
+    toothbrush:
+    toothpaste:
+    dental_floss:
+    razor:
+    shaving cream:
+    make-up kit:
+    comb:
+    cotton bud:
+    tampon:
+tool:
+    cooking:
+        frying pan:
+        fork:
+        spoon:
+        knife:
+        plate:
+        pan:
+        mug:
+        bowl:
+    tinkering:
+        hammer:
+        screwdriver:
+        saw:
+        axe:
+        driller:
+        pliers:
+    utility:
+        oil lamp:
+        lamp:
+        laser pointer:
+        lighter:
+        PDA:
+        binoculars:
+        pen:
+        scisors:
+        stapler:
+        battery:
+        nail:
+        screw:
+        paper sheet:
+        ink:
+quantifiable:
     systems:
         water pipe:
         sewer pipe:
@@ -63,87 +130,28 @@ consumable:
         electric cable:
         signal cable:
         network cable:
-    contained:
-        motor oil:
-        fuel:
-        diesel:
-        kerozen:
-        natural gas:
-        tap water:
-    disposable:
-        battery:
     food:
-        frozen:
-            meat:
-            fish:
         refrigerated:
+            fish:
             ham:
             steak:
+            lamb:
             chicken:
             cheese:
         perishable:
             milk:
             egg:
-            tomato sauce:
+            sauce:
+        vegetable:
+            tomato:
+            apple:
+            orange:
+            banana:
         long conservation:
-            vegetable:
             vegetal oil:
-            water:
             soda:
             pasta:
             spices:
-medical_and_hygiene:
-    aspirin:
-    surgery kit:
-    bandage:
-    antibiotic:
-    vitamin:
-    soap:
-    liquid soap:
-    shampoo:
-    toothbrush:
-    toothpaste:
-    disinfectant:
-    dental_floss:
-    razor:
-    shaving cream:
-    make-up kit:
-    comb:
-    cotton bud:
-    tampon:
-cooking:
-    frying pan:
-    fork:
-    spoon:
-    knife:
-    plate:
-    pan:
-    mug:
-    bowl:
-tinkering:
-    hammer:
-    screwdriver:
-    saw:
-    axe:
-    driller:
-    pliers:
-    #quantifiable:
-    #    nail:
-    #    screw:
-utility:
-    oil lamp:
-    lamp:
-    laser pointer:
-    lighter:
-    PDA:
-    binoculars:
-    pen:
-    scisors:
-    stapler:
-    #quantifiable:
-    #    paper sheet:
-    #    ink:
-resource:
     minerals:
         iron:
         copper:
@@ -154,15 +162,48 @@ resource:
         hay:
         fertilizer:
         cotton:
-    hydro compound:
+    liquid:
+        motor oil:
+        fuel:
+        diesel:
+        kerozen:
+        natural gas:
+        tap water:
         cleaned water:
         sea water:
         natural water:
-    fossil:
         crude oil:
-        fossil:
     scraps:
         electronics:
         electro-mechanic:
         car part:
         plastic:
+weaponry:
+    ammunition:
+        9mm:      #&9mm
+        .45:      #&45
+        5.56mm:   #&556
+        7.62mm:   #&762
+    gun:          #
+        glock19:  #*9mm
+        M416:     #*556
+        ak47:     #*762
+        XM8:      #*556
+        famas:    #*556
+        deagle:   #
+        m1911:    #*45
+        M9:       #*9mm
+        M24:      #
+        PSG1:     #*762
+        tar21:    #*556
+        MK3:      #
+        mp5:      #*9mm
+        m3b:      #
+        P22:      #*9mm
+        P99:      #*9mm
+        USP:      #*9mm
+    grenade:
+        flashbang:
+        smoke:
+        mine:
+        wind:

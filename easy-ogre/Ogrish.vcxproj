@@ -48,8 +48,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Ogre1-7-4\boost_1_47;C:\bullet-2.80\src;C:\Ogre1-7-4\include\OGRE;C:\Ogre1-7-4\include\OIS;C:\yaml-cpp\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\bullet-2.80\lib\Debug;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;c:\yaml-cpp\Debug\;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Ogre1-7-4\boost_1_47;C:\bullet-2.80\src;C:\Ogre1-7-4\include\OGRE;C:\Ogre1-7-4\include\OIS;C:\yaml-cpp\include;C:\ogre-procedural\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\bullet-2.80\lib\Debug;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;c:\yaml-cpp\Debug\;C:\ogre-procedural\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -67,7 +67,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>OgreMain_d.lib;OIS_d.lib;BulletCollision_Debug.lib;LinearMath_Debug.lib;libyaml-cppmdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OgreMain_d.lib;OIS_d.lib;BulletCollision_Debug.lib;LinearMath_Debug.lib;libyaml-cppmdd.lib;OgreProcedural.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
