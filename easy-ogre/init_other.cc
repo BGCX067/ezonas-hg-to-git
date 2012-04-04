@@ -2,7 +2,12 @@
 
 void Application :: init_other()
 {
+	ifstream ifstr("conf/procedural.yml");
+	YAML::Parser parser(ifstr); // remember to pass it by reference
+	YAML::Node doc;
+	if(! parser.GetNextDocument(doc)) exit(0xbadf00d);
 
-Procedural::Shape shape;
-shape.
+	ProcHouse house;
+	house.configure(doc);
+
 }

@@ -6,14 +6,14 @@ struct Application:
 	public OIS::KeyListener,
 	public OIS::MouseListener
 {
-	Root		 * root;
-	RenderWindow * window;
-	SceneManager * scmgr;
-	Camera 		 * camera;
-	Viewport 	 * viewport;
-	OIS::InputManager * inputmanager;
-	OIS::Keyboard 	 * keyboard;
-	OIS::Mouse 		 * mouse;
+	Root				* root;
+	RenderWindow		* window;
+	SceneManager		* scmgr;
+	Camera 				* camera;
+	Viewport 			* viewport;
+	OIS::InputManager	* inputmanager;
+	OIS::Keyboard 		* keyboard;
+	OIS::Mouse 			* mouse;
 
 	Vec3 translate, translate2;
 	float moving_speed, timeSinceLastFrame, rotating_speed;
@@ -138,7 +138,7 @@ struct Application:
 		scmgr	 = root -> createSceneManager(ST_GENERIC);
 		camera	 = scmgr -> createCamera("Camera");
 		viewport = window -> addViewport(camera);
-		/* changing some settings */
+		// changing some settings 
 		camera -> setNearClipDistance(1);
 		camera -> setAspectRatio
 			(Real(viewport -> getActualWidth())/ Real(viewport -> getActualHeight()));
@@ -202,7 +202,7 @@ struct Application:
 		parameters.insert(make_pair(string("x11keyboard_grab"), string("false")));
 		parameters.insert(make_pair(string("XAutoRepeatOn"), 	string("true")));
 	#endif
-	/* ### Inputs Objects ################################################## */
+	// ### Inputs Objects ################################################## 
 		 inputmanager = OIS::InputManager :: createInputSystem(parameters);
 		 keyboard = static_cast<OIS::Keyboard *>
 			( inputmanager -> createInputObject(OIS::OISKeyboard, true));
@@ -234,5 +234,6 @@ struct Application:
 		cam_node->setPosition(0,0,3);
 	}
 	void init_other();
+	//*/
 };
 #endif // FUUUUUU

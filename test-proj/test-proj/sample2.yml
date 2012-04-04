@@ -1,0 +1,12 @@
+tag:
+    - liquid: Olala
+    - perishable
+    - frozen
+    - refrigerated
+    - disposable
+    - reusable
+    - quantifiable
+cloth:
+    underwear:
+    socket:
+    tshirt:
