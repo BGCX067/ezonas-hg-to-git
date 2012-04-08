@@ -1,9 +1,12 @@
+# everything is in meter
+default:
+    thickness: 0.3
+    
 house:
     template:
     scale_x: 10
     scale_y: 5
     scale_z: 15
-    thickness: 0.3
     roof:
     walls:
         - 

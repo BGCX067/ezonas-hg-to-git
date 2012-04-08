@@ -1,41 +1,49 @@
-# tag:
-    # - liquid
-    # - perishable
-    # - frozen
-    # - refrigerated
-    # - disposable
-    # - reusable
-    # - quantifiable
-# pathlists:
-    # - cloth
-    # - furniture
-    # - medical
-    # - hygiene
-    # - weaponry/ammunition
-    # - weaponry/gun
-    # - weaponry/gun2
-    # - weaponry/grenade
-    # - tool/cooking
-    # - tool/tinkering
-    # - tool/utility
-    # - machine/home appliance
-    # - machine/vehicle/sea
-    # - machine/vehicle/ground
-    # - machine/vehicle/air
-    # - machine/machinery
-    # - container/liquid
-    # - container/solid
-    # - quantifiable/systems
-    # - quantifiable/food/refrigerated
-    # - quantifiable/food/perishable
-    # - quantifiable/food/vegetable
-    # - quantifiable/food/long conservation
-    # - quantifiable/minerals
-    # - quantifiable/organic
-    # - quantifiable/liquid
-    # - quantifiable/scraps
+trait:
+    - liquid
+    - perishable
+    - frozen
+    - refrigerated
+    - disposable
+    - reusable
+    - quantifiable
+    - liquid container
+    - solid container
+variable:
+    - density
+    - start date
+    - time buffer
+    - capacity
+    - capacity left
+pathlists:
+    - cloth
+    - furniture
+    - medical
+    - hygiene
+    - weaponry/ammunition
+    - weaponry/gun
+    - weaponry/gun2
+    - weaponry/grenade
+    - tool/cooking
+    - tool/tinkering
+    - tool/utility
+    - machine/home appliance
+    - machine/vehicle/sea
+    - machine/vehicle/ground
+    - machine/vehicle/air
+    - machine/machinery
+    - container/liquid
+    - container/solid
+    - quantifiable/systems
+    - quantifiable/food/refrigerated
+    - quantifiable/food/perishable
+    - quantifiable/food/vegetable
+    - quantifiable/food/long conservation
+    - quantifiable/minerals
+    - quantifiable/organic
+    - quantifiable/liquid
+    - quantifiable/scraps
 cloth:
-    underwear:
+    underwear: aa
     socket:
     tshirt:
     pullover:

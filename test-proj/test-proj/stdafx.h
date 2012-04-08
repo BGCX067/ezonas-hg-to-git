@@ -10,10 +10,18 @@
 #include <stdio.h>
 #include <tchar.h>
 
+#define err(s) assert(0 && s)
+
 #include <fstream>
 #include <string>
 using namespace std;
 #include "yaml-cpp\yaml.h"
 
+typedef YAML::Node ynode;
+typedef map<string, map <string, string>> nested_map;
 
-// TODO: reference additional headers your program requires here
+enum map_type { none, pairtype, mapping };
+#include "other.h"
+
+
+
