@@ -91,7 +91,9 @@
     <ClInclude Include="game_character.h" />
     <ClInclude Include="game_datastruct.h" />
     <ClInclude Include="game_gamemachine.h" />
+    <ClInclude Include="game_item.h" />
     <ClInclude Include="game_items.h" />
+    <ClInclude Include="game_yaml.h" />
     <ClInclude Include="Gorilla.h" />
     <ClInclude Include="OgreConsoleForGorilla.h" />
     <ClInclude Include="Procedural.h" />

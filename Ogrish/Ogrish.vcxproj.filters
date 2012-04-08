@@ -176,6 +176,12 @@
       <Filter>btogre</Filter>
     </ClInclude>
     <ClInclude Include="recoil.h" />
+    <ClInclude Include="game_item.h">
+      <Filter>game</Filter>
+    </ClInclude>
+    <ClInclude Include="game_yaml.h">
+      <Filter>game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OgreConsoleForGorilla.cpp">
