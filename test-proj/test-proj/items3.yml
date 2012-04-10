@@ -1,47 +1,20 @@
 trait:
-    - liquid
-    - perishable
-    - frozen
-    - refrigerated
-    - disposable
-    - reusable
-    - quantifiable
-    - liquid container
-    - solid container
+    - liquid:           if not liquid, is considered solid
+    - perishable:       does not require refrigeration
+    - frozen:           
+    - refrigerated:     
+    - disposable:       has limited use eg batteries, matches, etc
+    - reusable:         
+    - quantifiable:     can be put in wrappers
+    - liquid container: 
+    - solid container:  
+    - unique:             
 variable:
-    - density
-    - start date
-    - time buffer
-    - capacity
-    - capacity left
-pathlists:
-    - cloth
-    - furniture
-    - medical
-    - hygiene
-    - weaponry/ammunition
-    - weaponry/gun
-    - weaponry/gun2
-    - weaponry/grenade
-    - tool/cooking
-    - tool/tinkering
-    - tool/utility
-    - machine/home appliance
-    - machine/vehicle/sea
-    - machine/vehicle/ground
-    - machine/vehicle/air
-    - machine/machinery
-    - container/liquid
-    - container/solid
-    - quantifiable/systems
-    - quantifiable/food/refrigerated
-    - quantifiable/food/perishable
-    - quantifiable/food/vegetable
-    - quantifiable/food/long conservation
-    - quantifiable/minerals
-    - quantifiable/organic
-    - quantifiable/liquid
-    - quantifiable/scraps
+    - density:       used for weight calculation for qunatifiable. note: size is worthless
+    - start date:    date of fabrication for perishable
+    - time buffer:   etc
+    - capacity:      
+    - capacity left:
 cloth:
     underwear: aa
     socket:
@@ -157,7 +130,9 @@ tool:
         screw:
         paper sheet:
         ink:
+        sharpener:
 quantifiable:
+    _trait: quantifiable
     systems:
         water pipe:
         sewer pipe:
@@ -175,6 +150,7 @@ quantifiable:
             chicken:
             cheese:
         perishable:
+            butter:
             milk:
             egg:
             sauce:
@@ -185,9 +161,12 @@ quantifiable:
             banana:
         long conservation:
             vegetal oil:
+            flour:
+            sugar:
             soda:
             pasta:
             spices:
+            
     minerals:
         iron:
         copper:
@@ -248,3 +227,31 @@ weaponry:
         smoke:
         mine:
         wind:
+pathlist:
+    - cloth
+    - furniture
+    - medical
+    - hygiene
+    - weaponry/ammunition
+    - weaponry/gun
+    - weaponry/gun2
+    - weaponry/grenade
+    - tool/cooking
+    - tool/tinkering
+    - tool/utility
+    - machine/home appliance
+    - machine/vehicle/sea
+    - machine/vehicle/ground
+    - machine/vehicle/air
+    - machine/machinery
+    - container/liquid
+    - container/solid
+    - quantifiable/systems
+    - quantifiable/food/refrigerated
+    - quantifiable/food/perishable
+    - quantifiable/food/vegetable
+    - quantifiable/food/long conservation
+    - quantifiable/minerals
+    - quantifiable/organic
+    - quantifiable/liquid
+    - quantifiable/scraps

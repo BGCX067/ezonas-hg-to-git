@@ -40,7 +40,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Ogre1-7-4\boost_1_47;C:\bullet-2.80\src;C:\Ogre1-7-4\include\OGRE;C:\Ogre1-7-4\include\OIS;C:\yaml-cpp\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Ogre1-7-4\boost_1_47\;C:\bullet-2.80\src\;C:\Ogre1-7-4\include\OGRE\;C:\Ogre1-7-4\include\OIS\;C:\yaml-cpp\include\;$(IncludePath)</IncludePath>
     <LibraryPath>C:\bullet-2.80\lib\Debug;C:\Ogre1-7-4\boost_1_47\lib;C:\Ogre1-7-4\lib\debug;C:\Ogre1-7-4\lib\release;C:\yaml-cpp\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -93,7 +93,6 @@
     <ClInclude Include="game_gamemachine.h" />
     <ClInclude Include="game_item.h" />
     <ClInclude Include="game_items.h" />
-    <ClInclude Include="game_yaml.h" />
     <ClInclude Include="Gorilla.h" />
     <ClInclude Include="OgreConsoleForGorilla.h" />
     <ClInclude Include="Procedural.h" />

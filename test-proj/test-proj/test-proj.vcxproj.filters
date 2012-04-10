@@ -25,7 +25,7 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="other.h">
+    <ClInclude Include="game_items.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -36,7 +36,7 @@
     <ClCompile Include="test-proj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="other.cc">
+    <ClCompile Include="game_items.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

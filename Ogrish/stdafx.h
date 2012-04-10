@@ -21,6 +21,8 @@
 
 #include <cmath>
 #include "yaml-cpp\yaml.h"
+
+typedef YAML::Node ynode;
 //#define LASERCAST
 typedef Ogre::Vector3 Vec3;
 typedef Ogre::Vector2 Vec2;

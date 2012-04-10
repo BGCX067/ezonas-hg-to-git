@@ -1,10 +1,17 @@
 #include "stdafx.h"
 
-int spaces = -1;
-void indent() { for(int i = 0; i < spaces * 4; ++i) cout << " "; }
-nested_map categories;
-map<string, int> items;
-string current_category("none"), previous_category, key_category, key_item, value;
+//int spaces = -1;
+//void indent() { for(int i = 0; i < spaces * 4; ++i) cout << " "; }
+//nested_map categories;
+//map<string, int> items;
+//string current_category("none"), previous_category, key_category, key_item, value;
+//const ynode * n;
+//string dada;
+/*
+void add_item(string s)
+{
+	
+}
 void unroll(const YAML::Node & node, string category)
 {
 	spaces++;
@@ -17,6 +24,8 @@ void unroll(const YAML::Node & node, string category)
 				switch(i.second().Type())
 				{
 				case YAML::NodeType::Map:
+					n = i.second().FindValue("_trait");
+					if(n != NULL) dada = get_scalar(*n);
 					category = get_scalar(i.first());
 				case YAML::NodeType::Sequence:
 					print_scalar(i.first());
@@ -48,20 +57,26 @@ void unroll(const YAML::Node & node, string category)
 	}
 	spaces--;
 }
+*/
 int _tmain(int argc, _TCHAR* argv[])
 {
-	ifstream ifstr("items3.yml");
-	//ifstream ifstr("sample2.yml");
-	YAML::Parser parser(ifstr); // remember to pass it by reference
-	YAML::Node doc;
-	if(! parser.GetNextDocument(doc)) exit(0xbadf00d);
+//	ifstream ifstr("testdada.yml");
+//	//ifstream ifstr("sample2.yml");
+//	YAML::Parser parser(ifstr); // remember to pass it by reference
+//	YAML::Node doc;
+//	if(! parser.GetNextDocument(doc)) exit(0xbadf00d);
+//
+//	map<string, short> dd;
+//
+//	unroll(doc, "XXXX");
+//	//for(auto i = items.begin(); i != items.end(); ++i)
+//		//cout << i->first << "\n";
+//	shownested_map(categories);
+//	//print_scalar(n->begin().second());
+//	cout << dada << "\n";
+	ItemMgr mgr;
+	mgr.load_yaml("items3.yml");
 
-	map<string, short> dd;
-
-	unroll(doc, "XXXX");
-	//for(auto i = items.begin(); i != items.end(); ++i)
-		//cout << i->first << "\n";
-	shownested_map(categories);
 	system("PAUSE");
 	return 0;
 }

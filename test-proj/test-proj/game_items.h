@@ -1,8 +1,10 @@
 #include "stdafx.h"
 
+typedef unsigned short ushort ;
+
 typedef std::vector<void *> data_t;	// data, directly depends of trait
 typedef ushort item_trait;
-typedef YAML::Node ynode;
+//typedef YAML::Node ynode;
 
 struct ItemMgr
 {
@@ -17,19 +19,17 @@ struct ItemMgr
 
 	std::map <std::string, ushort> masks;
 
-
-
 	void load_yaml(string filename);
 	void unroll(const YAML::Node & node, string category);
 	void ItemMgr::add_item(string s, string category);
 	std::string get_scalar(const ynode & node);
 };
 
-list<ushort> items;
+//list<ushort> items;
 
 struct cargo
 {
-	ushort item_id, ;
+	ushort item_id ;
 };
 
 struct wrapped_article

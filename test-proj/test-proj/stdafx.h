@@ -16,12 +16,9 @@
 #include <string>
 using namespace std;
 #include "yaml-cpp\yaml.h"
-
 typedef YAML::Node ynode;
-typedef map<string, map <string, string>> nested_map;
+#include "game_items.h"
 
-enum map_type { none, pairtype, mapping };
-#include "other.h"
 
 
 
