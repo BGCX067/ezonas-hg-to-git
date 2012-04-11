@@ -17,6 +17,8 @@
 using namespace std;
 #include "yaml-cpp\yaml.h"
 typedef YAML::Node ynode;
+
+#include "other.h"
 #include "game_items.h"
 
 

@@ -10,7 +10,7 @@ trait:
     - solid container:  
     - unique:             
 variable:
-    - density:       used for weight calculation for qunatifiable. note: size is worthless
+    - density:       "used for weight calculation for qunatifiable. note size is worthless"
     - start date:    date of fabrication for perishable
     - time buffer:   etc
     - capacity:      

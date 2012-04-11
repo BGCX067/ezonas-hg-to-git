@@ -74,8 +74,16 @@ int _tmain(int argc, _TCHAR* argv[])
 //	shownested_map(categories);
 //	//print_scalar(n->begin().second());
 //	cout << dada << "\n";
-	ItemMgr mgr;
-	mgr.load_yaml("items3.yml");
+	try
+	{
+		ItemMgr mgr;
+		mgr.load_yaml("items3.yml");
+	}
+	catch(YAML::ParserException& e)
+	{
+		std::cout << e.what() << "\n";
+	}
+
 
 	system("PAUSE");
 	return 0;
