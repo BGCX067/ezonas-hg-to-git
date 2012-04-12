@@ -1,22 +1,22 @@
 trait:
-    - liquid:           if not liquid, is considered solid
-    - perishable:       does not require refrigeration
-    - frozen:           
-    - refrigerated:     
-    - disposable:       has limited use eg batteries, matches, etc
-    - reusable:         
-    - quantifiable:     can be put in wrappers
-    - liquid container: 
-    - solid container:  
-    - unique:             
+    liquid:
+    perishable:
+    frozen:
+    refrigerated:
+    disposable:
+    reusable:
+    quantifiable:
+    liquid container:
+    solid container:
+    unique:
 variable:
-    - density:       "used for weight calculation for qunatifiable. note size is worthless"
-    - start date:    date of fabrication for perishable
-    - time buffer:   etc
-    - capacity:      
-    - capacity left:
+    density:
+    start date:
+    time buffer:
+    capacity:
+    capacity left:
 cloth:
-    underwear: aa
+    underwear:
     socket:
     tshirt:
     pullover:

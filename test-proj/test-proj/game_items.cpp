@@ -29,10 +29,23 @@ void ItemMgr::add_item(string s, string category)
 }
 void ItemMgr::make_masks()
 {
+	vector<std::string> strings;
+	const ynode * trait_map = doc.FindValue("trait");
+	if(trait_map == NULL) assert (0 && "no mapping named trait");
+	if (trait_map->Type() == YAML::NodeType::Map)
+		for(auto i = trait_map->begin(); i != trait_map->end(); ++i)
+			strings.push_back(get_scalar(i.first()));
+	if(strings.size() > 16)
+		assert(0&&"too many mask, change to uint, ushort is max 16 flags");
+	if(strings.size() < 1)
+		assert(0&&"empty");
+	for(int i = 0; i < 16 && i < strings.size(); ++ i)
+		mask_names[strings[i]] = 1<<i;
+
+	for(auto a = mask_names.begin(); a != mask_names.end(); ++a)
+		cout << a->first << ": " << a->second << "\n";
 
 }
-
-
 std::string ItemMgr::get_scalar(const ynode & node)
 {
 	string s;
@@ -45,9 +58,9 @@ std::string ItemMgr::get_scalar(const ynode & node)
 		return string("void");
 	default: 
 		assert(0 && "error, neither null or scalar !");
+		return string("get_scalar_error");
 	}
 }
-
 void ItemMgr::unroll(const YAML::Node & node, string category)
 {
 	switch(node.Type())
@@ -59,9 +72,10 @@ void ItemMgr::unroll(const YAML::Node & node, string category)
 				{
 				case YAML::NodeType::Map:
 					category = get_scalar(i.first());
-					n_trait = i.second().FindValue("_trait");
-					if(n_trait != NULL)
-						trait = get_scalar(* n_trait);
+
+					//n_trait = i.second().FindValue("_trait");
+					//if(n_trait != NULL)
+					//	trait = get_scalar(* n_trait);
 				case YAML::NodeType::Sequence:
 					unroll(i.second(), category);
 					break;
@@ -77,6 +91,7 @@ void ItemMgr::unroll(const YAML::Node & node, string category)
 		case YAML::NodeType::Scalar:
 		case YAML::NodeType::Null: // only with sequences
 			//assert(0&&"this case should be treated inside map case");
+			cout << "sequence item: ";
 			print_scalar(node);
 			break;
 		case YAML::NodeType::Sequence:

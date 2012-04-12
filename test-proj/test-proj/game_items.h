@@ -16,15 +16,18 @@ struct ItemMgr
 	//std::vector<unsigned char[32]> Quantities;
 	//std::vector<unsigned int> hasItemMask;
 	// "bimap"
-	std::vector <std::string> ItemNames;	
-	std::map <std::string, ushort> ItemIDs;
-	std::map <std::string, ushort> mask_names;
-	std::vector<ushort> masks;
+	std::vector <std::string>		ItemNames;	
+	std::map <std::string, ushort>	ItemIDs;
+	std::map <std::string, ushort>	mask_names;
+	std::vector<ushort>				masks;
+	std::vector<vector<void*>>		ItemData;
 
 	void load_yaml(string filename);
 	size_t get_item_index();
 	void make_masks();
 	void unroll(const YAML::Node & node, string category);
+	void unroll_map(const YAML::Node & node);
+
 	void ItemMgr::add_item(string s, string category);
 	std::string get_scalar(const ynode & node);
 };

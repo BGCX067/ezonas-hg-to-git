@@ -78,6 +78,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		ItemMgr mgr;
 		mgr.load_yaml("items3.yml");
+		//for(auto i = mgr.ItemNames.begin(); i != mgr.ItemNames.end(); ++ i)
+			//cout << * i << "\n";
+		mgr.make_masks();
 	}
 	catch(YAML::ParserException& e)
 	{
