@@ -22,10 +22,28 @@ void ItemMgr::load_yaml(string s)
 	//unroll(doc, "XXXX");
 
 	unroll(doc, "XXXX");
+
+	diagnose();
 }
-void ItemMgr::add_item(string s, string category)
+void ItemMgr::diagnose()
 {
-	ItemNames.push_back(s);
+	cout << "*------- MASKS --------*\n";
+	for(auto a = mask_names.begin(); a != mask_names.end(); ++a)
+		cout << a->first << ": " << a->second << "\n";
+	cout << "*------- ITEM ID --------*\n";
+	for(auto a = ItemIDs.begin(); a != ItemIDs.end(); ++a)
+		cout << a->first << ": " << a->second << "\n";
+	cout << "*------- ITEM NAMES & MASKS --------*\n";
+	size_t u = ItemNames.size(), v = masks.size();
+	assert(u == v);
+	for(int i = 0; i < u; ++i)
+		cout << ItemNames[i] << "\t" << masks[i] << "\n";
+}
+
+void ItemMgr::make_bimap()
+{
+	for(auto i = ItemNames.begin(); i != ItemNames.end(); ++i)
+		ItemIDs[*i] = std::distance(ItemNames.begin(), i);
 }
 void ItemMgr::make_masks()
 {
@@ -42,8 +60,6 @@ void ItemMgr::make_masks()
 	for(int i = 0; i < 16 && i < strings.size(); ++ i)
 		mask_names[strings[i]] = 1<<i;
 
-	for(auto a = mask_names.begin(); a != mask_names.end(); ++a)
-		cout << a->first << ": " << a->second << "\n";
 
 }
 std::string ItemMgr::get_scalar(const ynode & node)
@@ -61,8 +77,17 @@ std::string ItemMgr::get_scalar(const ynode & node)
 		return string("get_scalar_error");
 	}
 }
+void ItemMgr::set_mask(string item, string mask, bool set)
+{
+	if(set)
+		masks[ItemIDs[item]] |= mask_names[mask];
+	else
+		masks[ItemIDs[item]] &= ~ (0 | mask_names[mask]); // unsets
+}
+
 void ItemMgr::unroll(const YAML::Node & node, string category)
 {
+	string mask_to_apply = "0";
 	switch(node.Type())
 	{
 		case YAML::NodeType::Map:
@@ -72,7 +97,8 @@ void ItemMgr::unroll(const YAML::Node & node, string category)
 				{
 				case YAML::NodeType::Map:
 					category = get_scalar(i.first());
-
+					if(mask_names.find(category) != mask_names.end())
+						mask_to_apply = category; // save for later
 					//n_trait = i.second().FindValue("_trait");
 					//if(n_trait != NULL)
 					//	trait = get_scalar(* n_trait);
@@ -81,9 +107,14 @@ void ItemMgr::unroll(const YAML::Node & node, string category)
 					break;
 				case YAML::NodeType::Scalar:
 				case YAML::NodeType::Null:
+					if(mask_to_apply != "0")
+						masks.push_back(mask_names[mask_to_apply]);
+					else
+						masks.push_back(0);
+					ItemNames.push_back(get_scalar(i.first()));
+					assert(ItemNames.size() == masks.size());
 					//categories[category][get_scalar(i.first())] = 1;
 					//items[get_scalar(i.first())] = 1;
-					add_item(get_scalar(i.first()), category); // will use trait in the future, need to set traits for categories
 					break;
 				}
 			}

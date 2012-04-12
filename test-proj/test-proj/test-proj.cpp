@@ -81,6 +81,8 @@ int _tmain(int argc, _TCHAR* argv[])
 		//for(auto i = mgr.ItemNames.begin(); i != mgr.ItemNames.end(); ++ i)
 			//cout << * i << "\n";
 		mgr.make_masks();
+		mgr.make_bimap();
+		mgr.diagnose();
 	}
 	catch(YAML::ParserException& e)
 	{

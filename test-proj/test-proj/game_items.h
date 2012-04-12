@@ -25,10 +25,13 @@ struct ItemMgr
 	void load_yaml(string filename);
 	size_t get_item_index();
 	void make_masks();
+	void make_bimap();
+	void diagnose();
+
 	void unroll(const YAML::Node & node, string category);
 	void unroll_map(const YAML::Node & node);
+	void set_mask(string item, string mask, bool set = true);
 
-	void ItemMgr::add_item(string s, string category);
 	std::string get_scalar(const ynode & node);
 };
 
