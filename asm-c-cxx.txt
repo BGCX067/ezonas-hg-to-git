@@ -1,0 +1,18 @@
+assembly, C, and C++
+
+At the beginning, the best way to squeeze performance out of a program was to use machine code, because most languages could not be as fast as an ASM-written program.
+It was not safe and painful, and not portable, but it allowed programmers to profit from the money they invested in a computer. Computing was a scarce resource, and skilled programmers were rare. 
+
+Over the years, computers gained popularity and speed, but there were just not enough skilled programmers to use all this power.
+
+So C was invented: a compiler checks a source file written in the C language for errors, and if there's no errors, the program is deemded safe and is translated into machine code.
+The C programming language was designed as a system language, meaning that it was a good compromise between syntax and performance: it was not 100% as fast as machine code, but fast enough, and the productivity was so big that it was unanimously adopted.
+
+Windows, Apple and UNIX were born.
+
+Computers still continued to gain speed, and to profit from this speed programmers wrote sophisticated applications which could benefit from what the best processing power could offer.
+
+There was a problem though: C was invented to gain productivty when writing applications who required speed, but now computers were so powerful, the resulting code was so large, we needed to organize it in a better way so we could do much more.
+
+The main problem is that compilers can only generate machine code from C code according to how the language was designed, and C was designed as a programming language first, but also to result in a "fast enough" executable.
+If we invented a new language, the same compromise had to be made: gain productivity, but keep the same order of performance.
