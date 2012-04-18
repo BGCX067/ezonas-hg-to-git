@@ -10,12 +10,10 @@ int _tmain(int argc, _TCHAR* argv[])
 			//cout << * i << "\n";
 		mgr.make_masks();
 		mgr.make_bimap();
-		mgr.diagnose();
+		mgr.diagnose  ();
 	}
 	catch(YAML::ParserException& e)
-	{
-		std::cout << e.what() << "\n";
-	}
+	{ std::cout << e.what() << "\n"; }
 
 	system("PAUSE");
 	return 0;

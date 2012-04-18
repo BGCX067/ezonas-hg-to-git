@@ -1,5 +1,7 @@
 syntax: glob
 
+*.pdf
+
 *.orig
 *.big.txt
 *.pbm
