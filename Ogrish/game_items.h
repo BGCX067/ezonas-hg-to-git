@@ -17,8 +17,6 @@ struct ItemMgr
 
 	std::map <std::string, ushort> masks;
 
-
-
 	void load_yaml(string filename);
 	void unroll(const YAML::Node & node, string category);
 	void ItemMgr::add_item(string s, string category);
@@ -29,7 +27,7 @@ list<ushort> items;
 
 struct cargo
 {
-	ushort item_id, ;
+	ushort item_id;//, ;
 };
 
 struct wrapped_article
