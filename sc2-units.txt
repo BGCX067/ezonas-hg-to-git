@@ -1,0 +1,50 @@
+                dmg speed cost life
+*-------------------------------------*
+TERRAN
+SCV              
+Marine           6 .86
+Marauder         
+Reaper           
+Ghost            
+Hellion          
+Siege Tank       
+Thor             
+Raven            
+Viking           
+Medivac          
+Banshee          
+Battlecruiser    
+*--------------- ----------------------*
+PROTOSS          
+Probe            
+Zealot           
+Stalker          
+Sentry           
+Observer         
+Immortal         
+Warp Prism       
+Colossus         
+Phoenix          
+Void Ray         
+High Templar     
+Dark Templar     
+Archon           
+Carrier          
+Mothership       
+*--------------- ----------------------*
+ZERG             
+Larva            
+Drone            
+Overlord         
+Zergling         
+Queen            
+Hydralisk        
+Baneling         
+Overseer         
+Roach            
+Infestor         
+Mutalisk         
+Corruptor        
+Nydus Worm       
+Ultralisk        
+Brood Lord       
