@@ -1,0 +1,2 @@
+ammo, life bar
+add side recoil

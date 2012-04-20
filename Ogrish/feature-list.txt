@@ -1,0 +1,24 @@
+Counter Strike remake
+
+    smooth zoom
+    localized damage (max 3 4 zones)
+    CQC
+    disguise as enemy
+    parabolic trajectory of grenade, hitting the raycast position
+
+Zevil
+    Senses
+        time,
+        itching,
+        pressure,
+        hunger,
+        thirst,
+        need to urinate, and
+        need to defecate.[103]
+
+        balance and acceleration (equilibrioception),
+        pain (nociception),
+        body position (proprioception or kinesthetic sense), and
+        temperature change (thermoception).
+
+    health

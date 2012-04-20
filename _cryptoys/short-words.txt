@@ -1,0 +1,147 @@
+
+
+am
+an
+as
+at
+be
+by
+do
+go
+he
+if
+in
+is
+it
+me
+my
+no
+of
+oh
+on
+or
+so
+to
+up
+us
+we
+
+
+
+an
+as
+at
+he
+in
+is
+it
+no
+on
+or
+so
+to
+
+
+
+
+act
+add
+age
+ago
+air
+all
+and
+any
+are
+ask
+bed
+big
+box
+boy
+but
+can
+car
+cry
+cut
+day
+did
+dog
+dry
+eat
+end
+eye
+far
+few
+fly
+for
+get
+got
+had
+has
+her
+him
+his
+hot
+hot
+how
+lay
+lot
+low
+man
+map
+may
+men
+new
+now
+off
+old
+one
+our
+out
+own
+put
+ran
+red
+run
+saw
+say
+sea
+see
+set
+she
+sit
+six
+sun
+ten
+the
+too
+top
+try
+two
+use
+war
+was
+way
+who
+why
+yes
+yet
+you
+
+
+T N S
+
+E T A 
+E T A O
+E T A O I
+E T A O I N
+E T A O I N S H R
+E	12.702%	
+T	9.056%	
+A	8.167%	
+O	7.507%	
+I	6.966%	
+N	6.749%	
+S	6.327%	
+H	6.094%	
+R	5.987%	
