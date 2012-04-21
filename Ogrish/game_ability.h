@@ -1,13 +1,13 @@
 #include "stdafx.h"
 
 // ability masks
-#define ALLOW_MOVEMENT       (1 << 0)
-#define TARGET_IN_FRONT      (1 << 1)
-#define REQUIRES_TARGET      (1 << 2)
-#define CLICK_LOCATION_EVENT (1 << 3)
-#define SPLASH_DAMAGE        (1 << 4)
-#define HAS_COOLDOWN         (1 << 5)
-#define HAS_DOT				 (1 << 6)
+#define ALLOW_MOVEMENT       (1 << 0) //
+#define TARGET_IN_FRONT      (1 << 1) //
+#define REQUIRES_TARGET      (1 << 2) //
+#define CLICK_LOCATION_EVENT (1 << 3) //
+#define SPLASH_DAMAGE        (1 << 4) //
+#define HAS_COOLDOWN         (1 << 5) // cd and dot are mutually exclusive
+#define HAS_DOT				 (1 << 6) //
 
 #define ABIL_DEFAULT (ALLOW_MOVEMENT | TARGET_IN_FRONT | REQUIRES_TARGET | SPLASH_DAMAGE)
 

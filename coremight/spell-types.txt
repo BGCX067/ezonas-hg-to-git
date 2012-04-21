@@ -1,0 +1,14 @@
+emit:
+    self:
+        disk
+        cone
+    location: sets splash
+        proj
+        instant
+    target
+        proj
+        instant
+cd_repeat:
+    < 3s
+cd_special
+    5, 10, 15, 30, 45, 60
