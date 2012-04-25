@@ -23,7 +23,7 @@ struct ItemMgr
 	std::string get_scalar(const ynode & node);
 };
 
-list<ushort> items;
+//list<ushort> items;
 
 struct cargo
 {
