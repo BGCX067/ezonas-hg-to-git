@@ -1,0 +1,14 @@
+zevil-rpg
+	item system
+	networking: tangled p2p stuff
+	spell system
+	AI
+	paged scenemgr + procedural geometry
+	loading bars
+	
+zevil-fps
+	UI, ammo bar
+	recoil
+	weapons
+	grenades, mines
+	
